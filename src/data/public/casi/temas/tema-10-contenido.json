@@ -1,0 +1,212 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-10",
+  "titulo": "Tema 10. Planes de Continuidad de Negocio y Recuperación ante Desastres",
+  "apuntes": {
+    "introduccion": "El Tema 10 aborda qué ocurre cuando todo falla: cuando un desastre impide que una organización opere con normalidad. Hasta ahora habíamos visto cómo prevenir los incidentes (controles preventivos) o cómo detectarlos (controles detectivos). Este tema cubre los **controles correctivos** de más alto nivel: los planes que permiten a la organización sobrevivir y recuperarse de un desastre.\n\nEl tema se divide en dos grandes bloques:\n\n1. **Plan de Continuidad de Negocio (BCP, Business Continuity Plan)**: qué hace la organización cuando algo impide que siga operando, sea un corte de luz, una huelga, un ransomware o la pérdida de personal clave.\n\n2. **Plan de Recuperación ante Desastres (DRP, Disaster Recovery Plan)**: subconjunto del BCP centrado específicamente en los sistemas de tecnología de la información: bases de datos, servidores, aplicaciones, comunicaciones. Incluye los conceptos de centros de respaldo y los tres tipos de arranque (caliente, templado, frío).\n\nLa diferencia fundamental: el BCP abarca toda la organización; el DRP se centra en los sistemas TI.",
+    "secciones": [
+      {
+        "titulo": "¿Qué es un desastre? Definición y características",
+        "contenido": "En el contexto de la seguridad de la información, un **desastre** es un evento no esperado que no puede ser detenido una vez iniciado, que requiere acción inmediata y que puede causar:\n- Pérdidas de vidas.\n- Pérdidas económicas directas (tiempo sin servicio, tiempo sin facturar).\n- Pérdidas económicas indirectas (daño de imagen corporativa).\n- Impacto en las personas.\n- Consecuencias que se extienden mucho más allá del evento inicial.\n\nEl desastre no tiene una duración mínima fija: depende del impacto que tenga sobre la organización específica. Un día sin servicio puede ser tolerable para algunas organizaciones y catastrófico para otras.\n\nEjemplos de desastres reales:\n- Ransomware (WannaCry, RYUK): cifró o paralizó cientos de miles de equipos durante días o semanas.\n- Apagón eléctrico (como el de España en abril de 2025): afectó a toda la infraestructura durante horas, con víctimas mortales.\n- Corte de línea de comunicaciones (una excavadora cortó un cable de fibra óptica).\n- Actualización de software que causó la caída del aeropuerto de Barajas.\n- Fallo del endpoint CrowdStrike Falcon en 2024: paralizó todos los sistemas Windows globalmente.\n- Migración a nuevos sistemas que encontró imprevistos.\n\nTipos de desastres:\n- **Externos** (naturales o no): inundaciones, terremotos, huracanes, incendios externos, fallos de suministro eléctrico nacional.\n- **Internos** (de origen humano o técnico): ransomware, sabotaje, huelgas, pérdida de personal clave, fallos de actualización de software."
+      },
+      {
+        "titulo": "Plan de Continuidad de Negocio (BCP) — Concepto y diferencia con los controles",
+        "contenido": "El **Plan de Continuidad de Negocio (BCP)** define qué hace la organización cuando algo impide que sus procesos críticos funcionen con normalidad. Su objetivo es garantizar que la organización siga operando, aunque sea con el mínimo imprescindible, mientras se resuelve el problema.\n\n**Diferencia fundamental entre controles y plan**: los controles (backups, SAI, clusters, cifrado...) son medidas automáticas que se activan solas para proteger o recuperar datos. El BCP es diferente: define qué tiene que hacer cada **persona** en un escenario de desastre. El problema de la continuidad de negocio es que cuando todo se para, la gente no sabe qué hacer porque nadie tiene previsto ese escenario. El plan define los roles, los pasos y las responsabilidades concretas.\n\n**Normas de referencia para el BCP**:\n- **ISO 22301**: estándar internacional para la gestión de la continuidad del negocio. La referencia más seguida globalmente.\n- **NIST SP 800-34**: estándar americano, similar al ISO 22301 pero más centrado en aspectos técnicos.\n\n**BIA (Business Impact Analysis — Análisis de Impacto en el Negocio)**:\nEs el paso previo más importante del BCP. Consiste en identificar cuáles son los **procesos críticos** de la organización: aquellos que, si fallan, hacen que la organización no pueda operar.\n\nLos procesos críticos varían según el tipo de organización:\n- Empresa manufacturera: línea de producción y control de planta.\n- Empresa de e-commerce: página web y plataformas de pago online.\n- Empresa de servicios: sistema de recepción de llamadas y gestión de clientes.\n- Administración pública: pago de nóminas y pensiones.\n\nEl BIA responde a: ¿cuáles son los procesos mínimos que hay que mantener para que la organización siga andando aunque sea parcialmente?\n\n**RTO (Recovery Time Objective)**: tiempo máximo que la organización puede estar sin un servicio concreto antes de que el impacto sea inaceptable.\n\n**RPO (Recovery Point Objective)**: punto máximo de pérdida de datos aceptable. Indica cuánto tiempo de transacciones/datos se puede perder sin que sea catastrófico.\n\n**MTPD (Maximum Tolerable Period of Disruption)**: tiempo máximo durante el cual todos los sistemas críticos pueden estar inoperativos sin que las consecuencias sean irreparables."
+      },
+      {
+        "titulo": "Plan de Recuperación ante Desastres (DRP) — Concepto y objetivos",
+        "contenido": "El **Plan de Recuperación ante Desastres (DRP)** es un subconjunto o parte del BCP, centrado específicamente en el mantenimiento y recuperación de los sistemas de tecnología de la información.\n\nMientras el BCP abarca todos los procesos de la organización (personas, comunicaciones, estructura organizativa, procesos de negocio), el DRP se centra en:\n- Bases de datos.\n- Sistemas operativos y aplicaciones.\n- Servidores (físicos, virtuales, cloud).\n- Líneas de comunicaciones.\n- Microservicios y contenedores.\n\nEl DRP se activa ante **interrupciones mayores**: apagones, incendios que afecten a los servidores, ataques que paralicen los sistemas de información.\n\n**Objetivos del DRP**:\n1. **Protección**: diseñar medidas automáticas que permitan seguir trabajando de la forma más transparente posible para los usuarios.\n2. **Minimizar el tiempo de recuperación**: idealmente, cuando un sistema cae, otro asume automáticamente sus servicios mediante un heartbeat (señal de latido) que monitoriza si el sistema principal está activo.\n3. **Garantizar confianza en los sistemas alternativos**: los sistemas de respaldo deben estar siempre actualizados, probados y listos para entrar en producción.\n4. **Emplazamiento alternativo**: el centro de respaldo debe estar suficientemente alejado del centro principal para que un desastre local (terremoto, incendio, corte eléctrico) no afecte a ambos simultáneamente.\n\n**Regla 3-2-1 de copias de seguridad**: 3 copias de seguridad, en 2 medios diferentes, con 1 copia fuera de las instalaciones. Esta regla evita que un desastre (como un ransomware) se propague también a las copias de seguridad, que muchas veces están conectadas a la misma red."
+      },
+      {
+        "titulo": "Tipos de centros de respaldo — Arranque en caliente, templado y frío",
+        "contenido": "Esta es la parte más importante del tema. Hay tres tipos de centros de respaldo según el nivel de preparación y el coste:\n\n**Arranque en caliente (Hot Site)**:\n- El centro de respaldo tiene **todo preparado y sincronizado**: servidores, aplicaciones, datos, líneas de comunicaciones replicadas.\n- Está disponible **24 horas al día, 7 días a la semana**, de forma exclusiva (no compartido).\n- Cuando el sistema principal cae, el arranque en caliente asume los servicios de forma prácticamente instantánea. El usuario puede no notar que ha habido un cambio.\n- **Coste**: muy alto (hay que pagar el mantenimiento de un sistema completo activo pero que 'no hace nada' en condiciones normales).\n- **Tiempo de recuperación**: inmediato o en minutos.\n- Ejemplos de uso real: Seguridad Social, AENA (control de tráfico aéreo), Telefónica.\n\n**Arranque templado (Warm Site)**:\n- El centro de respaldo tiene los servidores y el software de base instalado, pero **falta configurar las aplicaciones** específicas.\n- Cuando ocurre el desastre, hay que instalar y configurar el software necesario, además de actualizar los datos.\n- **Tiempo de recuperación**: horas o días.\n- **Coste**: medio. Más económico que el caliente pero más que el frío.\n- Suele incluir puestos de trabajo para que los usuarios puedan ir a trabajar allí si la sede principal queda inoperativa.\n\n**Arranque en frío (Cold Site)**:\n- Solo ofrece el espacio físico con suministro eléctrico, calefacción y aire acondicionado. **No hay servidores ni equipamiento informático**.\n- Cuando ocurre el desastre, hay que comprar, instalar y configurar todo el hardware y el software desde cero.\n- **Tiempo de recuperación**: semanas (los servidores no se consiguen en un día).\n- **Coste**: muy bajo (solo el alquiler de un inmueble con suministros).\n- Es la opción menos cara pero con el mayor tiempo de recuperación.\n\nResumen comparativo:\n- Caliente: coste muy alto → tiempo de recuperación inmediato.\n- Templado: coste medio → tiempo de recuperación horas/días.\n- Frío: coste muy bajo → tiempo de recuperación semanas."
+      },
+      {
+        "titulo": "Redundancia en transacciones y duplicado de bases de datos",
+        "contenido": "Dos técnicas para mantener los datos del centro de respaldo actualizados:\n\n**Redundancia en transacciones**:\nCopia de todos los datos al sistema alternativo de forma periódica (por ejemplo, una vez al día, por las noches cuando el sistema no está en producción). Es más sencilla y económica pero implica que si el desastre ocurre durante el día, se perderán los datos del día hasta el momento de la última copia.\n\n**Publicación remota (replicación continua)**:\nCada vez que hay un cambio en los datos del sistema principal, se replica inmediatamente al sistema alternativo. Casi no se pierden datos. Tiene el inconveniente de que si el cambio es ilegal o producto de un ransomware (datos corruptos o cifrados), ese cambio también se propaga inmediatamente al centro de respaldo.\n\nEsta es la misma razón por la que la regla 3-2-1 exige tener al menos una copia offline (desconectada) o fuera de las instalaciones: para que el ransomware no infecte también las copias de seguridad.\n\n**Heartbeat**: señal periódica que un sistema envía al sistema de respaldo para indicar que sigue activo. Si deja de llegar el heartbeat, el sistema de respaldo entiende que el principal ha caído y arranca automáticamente."
+      },
+      {
+        "titulo": "Pruebas del Plan de Recuperación ante Desastres",
+        "contenido": "Un DRP que no se prueba es tan inútil como no tenerlo. El plan de recuperación ante desastres debe probarse periódicamente con pruebas de distintos niveles de intensidad:\n\n**Revisión de lista (checklist)**: verificación de que todas las medidas identificadas están disponibles y en buen estado. Impacto mínimo en la operativa, rápida y sencilla.\n\n**Test en paralelo**: se prueban funciones específicas por separado (¿funciona la alarma? ¿se activa el backup?). Se ejecutan transacciones reales de recuperación en casos concretos. Mayor profundidad que el checklist.\n\n**Simulación**: se simula un desastre y se inicia el proceso de recuperación, pero sin llegar al proceso real. Se comprueba que el backup empieza a copiarse, pero antes de terminar se cancela. Simula sin afectar a la producción.\n\n**Simulacro de interrupción**: se interrumpen realmente todos los procesos del sistema principal y se comprueba si el plan de recuperación funciona de principio a fin. Es la prueba más completa y realista. Se hace cuando nadie está trabajando (fines de semana, noches).\n\nEl plan de recuperación debe estar documentado en **papel** y en el **centro de respaldo**, nunca solo en el servidor principal (que podría ser precisamente el que falle)."
+      },
+      {
+        "titulo": "Equipos de recuperación, restablecimiento y reinicio",
+        "contenido": "El DRP define tres equipos con roles distintos durante y después de un desastre:\n\n**Equipo de recuperación**:\nGarantiza la continuidad de la actividad en el nuevo centro de respaldo. Son los que mantienen los servicios funcionando desde el centro alternativo mientras el principal sigue inoperativo.\n\n**Equipo de restablecimiento**:\nSe encarga de recuperar el centro principal: limpiar los sistemas afectados, reinstalar lo que sea necesario, parchear vulnerabilidades. Trabaja en el centro principal mientras el equipo de recuperación mantiene los servicios desde el respaldo.\n\n**Equipo de reinicio**:\nUna vez el equipo de restablecimiento ha dejado el centro principal listo, el equipo de reinicio realiza el traspaso: transfiere los servicios del centro de respaldo al centro principal y restablece de forma plena la operación normal.\n\n**Política de comunicación de desastres**:\n- Comunicación con los empleados: cada persona debe saber exactamente qué tiene que hacer.\n- Gestión legal: si hay actividad ilegal involucrada, contactar con las autoridades.\n- Comunicación con los medios: especialmente importante si la organización presta servicios públicos. La falta de comunicación deteriora la imagen corporativa.\n- Salvaguarda económica: disponer de fondos para hacer frente a compras urgentes, nuevos servicios o contrataciones de emergencia."
+      },
+      {
+        "titulo": "Diferencia clave entre BCP y DRP",
+        "contenido": "Aunque están relacionados y el DRP forma parte del BCP, sus alcances son distintos:\n\n**BCP (Plan de Continuidad de Negocio)**:\n- Involucra a **toda la organización**: personas, procesos, comunicaciones, estructura organizativa.\n- Se activa ante **cualquier interrupción del negocio**, aunque no sea un desastre técnico grave. Una huelga, la pérdida de personal estratégico o la falta de electricidad activan el BCP.\n- Se centra en los **procesos de negocio** y en mantenerlos operativos al mínimo nivel necesario.\n\n**DRP (Plan de Recuperación ante Desastres)**:\n- Se centra en los **servicios TI y los sistemas de información**.\n- Se despliega ante **interrupciones mayores** que afectan directamente a los sistemas tecnológicos: apagones, incendios, ataques informáticos graves.\n- Forma parte del BCP: el DRP está incluido dentro del BCP.\n\nLa pregunta que resume la diferencia: ¿el problema afecta a toda la organización o principalmente a los sistemas tecnológicos? Si es lo primero: BCP. Si es lo segundo: DRP (que a su vez es parte del BCP)."
+      },
+      {
+        "titulo": "Acuerdos de ayuda mutua y servicios de suscripción",
+        "contenido": "Dos modalidades adicionales de asegurar la continuidad ante desastres:\n\n**Acuerdos de ayuda mutua**:\nEmpresas con infraestructuras similares se comprometen a prestarse recursos mutuamente en caso de desastre. En teoría parece lógico. En la práctica, tiene problemas:\n- Hay que dar acceso a personas externas a la organización.\n- Es difícil delimitar hasta dónde llega ese acceso.\n- No es fácil separar el entorno de la empresa prestada del propio.\n- El profesor señaló que no lo ha visto funcionar bien en la práctica, salvo en la administración pública y con resultados mejorables.\n\n**Servicios de suscripción (la opción más común)**:\nUna empresa especializada en continuidad de negocio ofrece un centro de procesamiento de datos que actúa como centro de respaldo contratado. La organización paga una cuota por tener garantizado el acceso a ese centro en caso de desastre. Es la opción más habitual en el sector privado y en grandes administraciones."
+      }
+    ]
+  },
+  "resumen": [
+    "Un desastre es un evento inesperado que no puede detenerse una vez iniciado, que requiere acción inmediata y que puede causar pérdidas de vida, económicas y daños de imagen.",
+    "BCP (Plan de Continuidad de Negocio): abarca toda la organización. DRP (Plan de Recuperación ante Desastres): subconjunto del BCP centrado en los sistemas TI.",
+    "La diferencia entre controles y plan: los controles son automáticos; el plan define qué tiene que hacer cada persona en un escenario de desastre.",
+    "BIA (Business Impact Analysis): identifica los procesos críticos de la organización, aquellos cuya caída impide la operación mínima.",
+    "RTO: tiempo máximo sin servicio. RPO: máxima pérdida de datos aceptable. MTPD: tiempo máximo de inactividad total de sistemas críticos sin consecuencias irreparables.",
+    "Normas: ISO 22301 (BCP, referencia principal) y NIST SP 800-34.",
+    "Tres tipos de centros de respaldo: Arranque en caliente (todo listo, coste muy alto, recuperación inmediata), Arranque templado (software de base, horas/días de recuperación), Arranque en frío (solo espacio y electricidad, semanas de recuperación).",
+    "El arranque en caliente es exclusivo y exclusivo no compartido. El templado puede ser compartido entre varias organizaciones.",
+    "Regla 3-2-1: 3 copias, en 2 medios diferentes, 1 fuera de las instalaciones. Previene que un ransomware infecte también las copias de seguridad.",
+    "Heartbeat: señal periódica de latido que un sistema envía al de respaldo. Si cesa, el respaldo arranca automáticamente.",
+    "Pruebas del DRP de menor a mayor intensidad: checklist → test en paralelo → simulación → simulacro de interrupción completo.",
+    "Tres equipos de recuperación: equipo de recuperación (mantiene el respaldo), equipo de restablecimiento (rehabilita el centro principal), equipo de reinicio (retorna los servicios al principal).",
+    "El plan de recuperación debe estar documentado en papel en el centro de respaldo, nunca solo en el servidor principal."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "BCP (Business Continuity Plan)",
+      "definicion": "Plan de Continuidad de Negocio. Define cómo sigue operando toda la organización ante cualquier interrupción de sus procesos críticos, sea técnica o no (huelga, pérdida de personal, apagón). Abarca personas, procesos, comunicaciones y estructura organizativa."
+    },
+    {
+      "termino": "DRP (Disaster Recovery Plan)",
+      "definicion": "Plan de Recuperación ante Desastres. Subconjunto del BCP centrado en los sistemas TI (bases de datos, servidores, aplicaciones, comunicaciones). Se activa ante interrupciones mayores que afectan a los sistemas tecnológicos. El DRP está incluido dentro del BCP."
+    },
+    {
+      "termino": "BIA (Business Impact Analysis)",
+      "definicion": "Análisis de Impacto en el Negocio. Identifica cuáles son los procesos críticos de la organización: aquellos que, si fallan, impiden la operación mínima. Es el paso previo más importante del BCP. Los procesos críticos varían según la organización."
+    },
+    {
+      "termino": "RTO (Recovery Time Objective)",
+      "definicion": "Tiempo máximo que la organización puede estar sin un servicio concreto antes de que el impacto sea inaceptable. Es un objetivo de tiempo de recuperación."
+    },
+    {
+      "termino": "RPO (Recovery Point Objective)",
+      "definicion": "Punto máximo de pérdida de datos aceptable. Indica cuánto tiempo de transacciones o datos puede perderse sin consecuencias inaceptables. Se mide en tiempo (ej: máximo 4 horas de datos)."
+    },
+    {
+      "termino": "MTPD (Maximum Tolerable Period of Disruption)",
+      "definicion": "Tiempo máximo durante el cual todos los sistemas críticos pueden estar inoperativos sin que las consecuencias sean irreparables."
+    },
+    {
+      "termino": "Arranque en caliente (Hot Site)",
+      "definicion": "Centro de respaldo con todo el equipamiento, aplicaciones y datos sincronizados, disponible 24/7 de forma exclusiva. Recuperación inmediata (minutos). Coste muy alto."
+    },
+    {
+      "termino": "Arranque templado (Warm Site)",
+      "definicion": "Centro de respaldo con el software de base instalado pero sin las aplicaciones específicas configuradas. Recuperación en horas o días. Coste medio. Suele incluir puestos de trabajo para los usuarios."
+    },
+    {
+      "termino": "Arranque en frío (Cold Site)",
+      "definicion": "Centro de respaldo que solo ofrece espacio físico con suministro eléctrico y climatización. No hay equipamiento informático. Recuperación en semanas. Coste muy bajo."
+    },
+    {
+      "termino": "Regla 3-2-1",
+      "definicion": "Regla de copias de seguridad: 3 copias, en 2 medios diferentes, con 1 copia fuera de las instalaciones. Previene que un desastre (como un ransomware) afecte a todas las copias simultáneamente."
+    },
+    {
+      "termino": "Heartbeat",
+      "definicion": "Señal periódica de latido que un sistema envía al sistema de respaldo para indicar que sigue activo. Si el heartbeat cesa, el sistema de respaldo detecta la caída y arranca automáticamente."
+    },
+    {
+      "termino": "ISO 22301",
+      "definicion": "Estándar internacional para la gestión de la continuidad del negocio. Es la norma de referencia principal para el BCP."
+    },
+    {
+      "termino": "Simulacro de interrupción",
+      "definicion": "El tipo de prueba más completo del DRP. Se interrumpen realmente todos los procesos del sistema principal y se verifica si el plan de recuperación funciona de principio a fin. Se realiza cuando nadie está trabajando."
+    },
+    {
+      "termino": "Equipo de recuperación",
+      "definicion": "Equipo del DRP que garantiza la continuidad de la actividad en el centro de respaldo mientras el centro principal está inoperativo."
+    },
+    {
+      "termino": "Equipo de restablecimiento",
+      "definicion": "Equipo del DRP que trabaja en el centro principal para rehabilitarlo: limpia los sistemas afectados, reinstala software y parchea vulnerabilidades."
+    },
+    {
+      "termino": "Equipo de reinicio",
+      "definicion": "Equipo del DRP que realiza el traspaso final: transfiere los servicios del centro de respaldo al centro principal rehabilitado y restablece la operación normal."
+    },
+    {
+      "termino": "Servicio de suscripción",
+      "definicion": "Modalidad en la que una empresa especializada ofrece un centro de procesamiento de datos como respaldo contratado. Es la opción más habitual en el sector privado."
+    },
+    {
+      "termino": "Replicación continua (publicación remota)",
+      "definicion": "Técnica en la que cada cambio en los datos del sistema principal se replica inmediatamente al sistema de respaldo. Minimiza la pérdida de datos pero propaga también los cambios no deseados (como los del ransomware)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-10-fc-001",
+      "pregunta": "¿Cuál es la diferencia entre el BCP y el DRP?",
+      "respuesta": "BCP: abarca toda la organización (personas, procesos, comunicaciones). Se activa ante cualquier interrupción. DRP: subconjunto del BCP centrado en los sistemas TI. Se activa ante interrupciones mayores que afectan a los sistemas tecnológicos."
+    },
+    {
+      "id": "casi-tema-10-fc-002",
+      "pregunta": "¿En qué se diferencia el plan de continuidad de los controles de seguridad?",
+      "respuesta": "Los controles son automáticos (SAI, backups, clusters). El plan define qué tiene que hacer cada PERSONA en un escenario de desastre, porque cuando todo falla la gente no sabe qué hacer si no tiene un plan."
+    },
+    {
+      "id": "casi-tema-10-fc-003",
+      "pregunta": "¿Qué es el BIA y por qué es el paso previo más importante del BCP?",
+      "respuesta": "Business Impact Analysis: identifica los procesos críticos de la organización (los que, si fallan, impiden la operación mínima). Sin saber qué procesos son críticos no se puede planificar cómo mantenerlos ante un desastre."
+    },
+    {
+      "id": "casi-tema-10-fc-004",
+      "pregunta": "¿Qué significan RTO, RPO y MTPD?",
+      "respuesta": "RTO: tiempo máximo sin un servicio (Recovery Time Objective). RPO: máxima pérdida de datos aceptable (Recovery Point Objective). MTPD: tiempo máximo de inactividad total de todos los sistemas críticos sin consecuencias irreparables."
+    },
+    {
+      "id": "casi-tema-10-fc-005",
+      "pregunta": "¿Cuáles son los tres tipos de centros de respaldo y sus características principales?",
+      "respuesta": "Caliente: todo preparado y sincronizado, recuperación inmediata, coste muy alto. Templado: software de base listo, faltan aplicaciones, recuperación en horas/días, coste medio. Frío: solo espacio y electricidad, recuperación en semanas, coste muy bajo."
+    },
+    {
+      "id": "casi-tema-10-fc-006",
+      "pregunta": "¿Qué describe correctamente el arranque en frío?",
+      "respuesta": "Solo ofrece suministro eléctrico, calefacción y aire acondicionado, sin equipamiento informático. Todo el hardware y software hay que comprarlo e instalarlo desde cero. Tiempo de recuperación: semanas."
+    },
+    {
+      "id": "casi-tema-10-fc-007",
+      "pregunta": "¿Cuál es la relación coste/tiempo de recuperación entre los tres tipos de centros de respaldo?",
+      "respuesta": "A mayor coste, menor tiempo de recuperación. Caliente: coste muy alto → inmediato. Templado: coste medio → horas/días. Frío: coste muy bajo → semanas."
+    },
+    {
+      "id": "casi-tema-10-fc-008",
+      "pregunta": "¿Qué es la regla 3-2-1 y para qué sirve?",
+      "respuesta": "3 copias de seguridad, en 2 medios diferentes, con 1 copia fuera de las instalaciones. Previene que un desastre (como un ransomware propagado por la red interna) afecte a todas las copias simultáneamente."
+    },
+    {
+      "id": "casi-tema-10-fc-009",
+      "pregunta": "¿Qué es el heartbeat en el contexto del DRP?",
+      "respuesta": "Señal periódica que el sistema principal envía al de respaldo para indicar que sigue activo. Si el heartbeat cesa, el sistema de respaldo detecta la caída del principal y arranca automáticamente."
+    },
+    {
+      "id": "casi-tema-10-fc-010",
+      "pregunta": "¿Cuáles son los cuatro tipos de pruebas del DRP, de menor a mayor intensidad?",
+      "respuesta": "1. Checklist (verificación de disponibilidad). 2. Test en paralelo (prueba de funciones específicas). 3. Simulación (inicia el proceso pero no lo termina). 4. Simulacro de interrupción (interrumpe realmente todos los procesos y activa el respaldo)."
+    },
+    {
+      "id": "casi-tema-10-fc-011",
+      "pregunta": "¿Cuáles son los tres equipos del DRP y qué hace cada uno?",
+      "respuesta": "Equipo de recuperación: mantiene los servicios en el centro de respaldo. Equipo de restablecimiento: rehabilita el centro principal (limpia, reinstala, parchea). Equipo de reinicio: transfiere los servicios de vuelta al centro principal y restablece la operación normal."
+    },
+    {
+      "id": "casi-tema-10-fc-012",
+      "pregunta": "¿Cuál es el principal riesgo de la replicación continua de datos al centro de respaldo?",
+      "respuesta": "Que si el sistema principal sufre un ataque (como ransomware), los datos corruptos o cifrados se replican inmediatamente al centro de respaldo, contaminándolo también. Por eso la regla 3-2-1 exige una copia desconectada o fuera de las instalaciones."
+    },
+    {
+      "id": "casi-tema-10-fc-013",
+      "pregunta": "¿Qué norma internacional regula la gestión de la continuidad del negocio (BCP)?",
+      "respuesta": "La ISO 22301. Es la norma de referencia principal para el BCP. El NIST SP 800-34 es el equivalente americano, más centrado en aspectos técnicos."
+    },
+    {
+      "id": "casi-tema-10-fc-014",
+      "pregunta": "¿Dónde debe guardarse físicamente el plan de recuperación ante desastres y por qué?",
+      "respuesta": "En papel, en el centro de respaldo (o al menos en un lugar físico seguro, nunca solo en el servidor principal). Si el plan solo está en el servidor principal y ese servidor cae, no se podrá consultar el plan para recuperarse."
+    },
+    {
+      "id": "casi-tema-10-fc-015",
+      "pregunta": "¿Qué es un servicio de suscripción en el contexto del DRP?",
+      "respuesta": "Una empresa especializada ofrece un centro de procesamiento de datos como respaldo contratado. La organización paga una cuota para tener garantizado el acceso a ese centro en caso de desastre. Es la opción más habitual en el sector privado."
+    }
+  ]
+}
