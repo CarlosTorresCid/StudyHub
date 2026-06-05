@@ -1,0 +1,48 @@
+.q-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.q-filter-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.q-filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  min-width: 100px;
+}
+.q-filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.q-filter-pill {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.q-filter-pill:hover { border-color: var(--accent); color: var(--text); }
+.q-filter-pill.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.q-filter-clear {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: color var(--transition);
+}
+.q-filter-clear:hover { color: var(--danger); }

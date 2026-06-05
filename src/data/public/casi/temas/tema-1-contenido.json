@@ -1,0 +1,307 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Introducción a los Sistemas de Gestión de Seguridad de la Información (SGSI)",
+  "apuntes": {
+    "introduccion": "El Tema 1 establece los cimientos conceptuales de toda la asignatura. Antes de hablar de auditorías, controles o normativa, es necesario comprender qué es un Sistema de Gestión de Seguridad de la Información (SGSI), qué se protege dentro de él y bajo qué principios opera.\n\nUn **SGSI** (en inglés, *Information Security Management System* o ISMS) es un conjunto de políticas, procedimientos y controles diseñados para gestionar de forma sistemática los riesgos asociados a la seguridad de la información en una organización. Su objetivo fundamental es minimizar el riesgo y garantizar la continuidad del negocio, limitando el impacto que pueda tener cualquier violación de la seguridad.\n\nLa norma internacional de referencia para construir e implantar un SGSI es la **ISO 27001**, cuya versión vigente es la de **2022** (la versión anterior, de 2013, está derogada).",
+    "secciones": [
+      {
+        "titulo": "¿Qué es un SGSI? Definición y enfoque",
+        "contenido": "Un SGSI es un enfoque sistemático y estructurado para gestionar los riesgos de seguridad de la información de una organización. Comprende políticas, procedimientos y controles técnicos y físicos diseñados para proteger la confidencialidad, la integridad y la disponibilidad de la información, mejorando continuamente el nivel de seguridad.\n\nLo más importante que hay que retener sobre la naturaleza de un SGSI es que **son procesos, no productos**. Un SGSI no es un firewall, ni un antivirus, ni un sistema de detección de intrusos. Son las *actividades* que la organización lleva a cabo: definir políticas, establecer procedimientos, asignar responsabilidades, revisar y mejorar continuamente. Las herramientas tecnológicas (firewalls, antivirus, EDR, XDR, SIEM, backups...) son *recursos* que se usan dentro de esos procesos, pero no son el SGSI en sí mismo.\n\nEsta distinción es fundamental: cuando alguien dice 'tenemos seguridad porque tenemos un antivirus', está confundiendo un recurso con un sistema de gestión. La seguridad real requiere un enfoque de gestión continua, no la compra de un producto."
+      },
+      {
+        "titulo": "La Tríada CID — Los tres principios fundamentales de la seguridad",
+        "contenido": "La ISO 27001 define tres dimensiones fundamentales de la seguridad de la información, conocidas como la **Tríada CID** (en inglés, CIA: Confidentiality, Integrity, Availability). Toda la asignatura gira en torno a estos tres conceptos.\n\n**Confidencialidad**: la información solo puede ser accedida por las personas o sistemas que están expresamente autorizados para ello. Si alguien no autorizado consigue leer datos confidenciales, la confidencialidad ha sido comprometida.\n\n**Integridad**: la información no puede ser modificada por usuarios no autorizados. Si alguien altera registros de una base de datos o modifica un documento sin permiso, la integridad ha sido comprometida.\n\n**Disponibilidad**: la información y los sistemas deben estar accesibles siempre que sean necesarios. Si un ataque tumba un servidor o un servicio queda inoperativo, la disponibilidad ha sido comprometida, aunque los datos en sí no hayan sido robados ni alterados.\n\nEjemplos prácticos para afianzar cada concepto:\n- *Confidencialidad*: cifrar un correo electrónico para que solo el destinatario pueda leerlo.\n- *Integridad*: usar una firma digital o un hash para verificar que un fichero no ha sido alterado.\n- *Disponibilidad*: mantener un sistema de backups y un plan de recuperación ante desastres para que el servicio se restaure rápidamente si cae."
+      },
+      {
+        "titulo": "Tipos de ataques y su relación con la Tríada CID",
+        "contenido": "Cada tipo de ataque a la información afecta a una o varias dimensiones de la Tríada CID. El temario distingue cuatro categorías:\n\n**Ataque por interceptación**: el atacante accede a la información mientras circula entre origen y destino, sin que ninguna de las partes lo sepa. La información llega correctamente, pero ha sido leída por alguien no autorizado.\n- Afecta a: **Confidencialidad**\n- Ejemplo clásico: ataque *Man in the Middle* (MitM), en el que un tercero intercepta la comunicación entre dos partes.\n\n**Ataque por interrupción**: el atacante corta el flujo de información, impidiendo que llegue a su destino o que el servicio esté disponible.\n- Afecta a: **Disponibilidad**\n- Ejemplo: ataques de denegación de servicio (DoS) o distribuidos (DDoS), que saturan un servidor hasta dejarlo inoperativo.\n\n**Ataque por modificación**: el atacante altera la información en tránsito o en almacenamiento.\n- Afecta a: **Integridad**\n- Ejemplo: modificar los datos de una transferencia bancaria para cambiar el número de cuenta destino.\n\n**Ataque por generación o inyección**: el atacante crea información falsa y la introduce en el sistema como si fuera legítima.\n- Afecta principalmente a: **Integridad** y autenticidad\n- Ejemplos: inyección SQL (SQL Injection), XSS (Cross-Site Scripting), suplantación de identidad.\n\nResumen de la relación ataque-dimensión:\n- Interceptación → Confidencialidad\n- Interrupción → Disponibilidad\n- Modificación → Integridad\n- Generación/Inyección → Integridad / Autenticidad"
+      },
+      {
+        "titulo": "Los activos de información — Qué se protege y por qué",
+        "contenido": "Antes de implementar cualquier medida de seguridad, la organización debe saber qué está protegiendo. Todo elemento que posee valor para la organización y es necesario para su actividad se denomina **activo de información**.\n\nLos activos pueden ser de muy distintos tipos:\n- **Información**: bases de datos, documentos, contratos, datos de clientes, expedientes.\n- **Software**: aplicaciones, sistemas operativos, herramientas de gestión.\n- **Hardware**: servidores, ordenadores, dispositivos de red, equipos de usuario.\n- **Personas**: empleados y, especialmente, su conocimiento y experiencia.\n- **Servicios**: servicios de red, suministro eléctrico, comunicaciones, servicios en la nube.\n\nEl punto que más suele sorprender es que las **personas son activos**. Si un empleado es el único que sabe realizar un procedimiento crítico y causa baja (por jubilación, enfermedad o despido), la organización ha perdido un activo valioso. Esto implica que la seguridad de la información no es solo una cuestión de ciberataques: cualquier situación que comprometa la capacidad de la organización para operar con normalidad debe ser considerada un riesgo.\n\nOtra implicación importante: los activos no son solo digitales. Las instalaciones físicas, los documentos en papel o incluso la reputación de la organización pueden considerarse activos que hay que proteger."
+      },
+      {
+        "titulo": "Las Reglas de Oro — Las 3 AU",
+        "contenido": "La Tríada CID define *qué* queremos proteger. Las **Reglas de Oro** definen *cómo* garantizamos que cada acceso a esa información es legítimo y queda registrado. Se llaman reglas de oro porque las tres comienzan por AU, que es el símbolo químico del oro (Au).\n\n**Autenticación**: antes de conceder acceso a cualquier recurso, el sistema verifica que el usuario es quien dice ser. No basta con que alguien declare su identidad: el sistema debe comprobarlo mediante contraseñas, certificados digitales, biometría, tarjetas inteligentes, etc. La autenticación responde a la pregunta: *¿eres realmente quien dices ser?*\n\n**Autorización**: una vez que el sistema sabe quién es el usuario (gracias a la autenticación), determina a qué recursos puede acceder y qué operaciones puede realizar. Dos usuarios pueden estar autenticados en el mismo sistema y tener permisos completamente distintos. La autorización responde a la pregunta: *¿tienes permiso para hacer esto?*\n\n**Auditabilidad**: todo evento relevante del sistema queda registrado en ficheros de log (o bases de datos de auditoría). Estos registros permiten investigar incidentes, detectar accesos no autorizados y demostrar que los controles funcionan. La auditabilidad es equivalente al concepto de *trazabilidad* que usa el Esquema Nacional de Seguridad.\n\nLas tres reglas se encadenan en cualquier acceso a un sistema: primero se autentica al usuario, luego se le autoriza, y finalmente su acción queda registrada para poder ser auditada.\n\nSin logs no hay evidencias. Sin evidencias no hay auditoría posible."
+      },
+      {
+        "titulo": "El SGSI como proceso continuo — Fases principales",
+        "contenido": "Un SGSI no se implanta una vez y ya está: es un proceso continuo de mejora. La ISO 27001 establece que la implantación de un SGSI pasa por las siguientes fases:\n\n**1. Definir la política de seguridad**: el primer paso es establecer un documento que recoja qué información es confidencial, qué pueden hacer los usuarios, qué controles se aplican y quién es responsable de qué. La política de seguridad debe ser comprensible para todos y difundirse en toda la organización.\n\n**2. Definir el alcance**: no todos los sistemas y procesos de la organización tienen que estar bajo el mismo SGSI. El alcance delimita hasta dónde llega el sistema de gestión. Por ejemplo, una empresa puede decidir que su SGSI cubre solo los sistemas que manejan datos de clientes, y dejar fuera los sistemas internos de menor riesgo.\n\nNota importante: primero se define la política y después el alcance. La política determina qué información se protege y qué pueden hacer los usuarios; a partir de ahí se puede decidir qué queda dentro y qué queda fuera del sistema de gestión.\n\n**3. Análisis y gestión de riesgos**: esta es la fase central del SGSI según la ISO 27001. Consiste en:\n- Identificar todos los riesgos posibles (ransomware, accesos no autorizados, fallos de disponibilidad, pérdida de datos, etc.).\n- Evaluar el impacto potencial de cada riesgo si se materializara.\n- Evaluar la probabilidad de que ocurra.\n- A partir de ambos factores, determinar la prioridad de cada riesgo.\n\n**4. Seleccionar e implementar controles**: en función del análisis de riesgos, se seleccionan los controles adecuados. Un control puede ser técnico (firewall, antivirus, cifrado, backups, EDR), organizativo (procedimientos, formación al personal) o físico (control de acceso a las instalaciones, vigilancia).\n\n**5. Documentar la declaración de aplicabilidad**: se elabora un documento que explica qué controles se han implantado y por qué. Este documento es lo que revisará la auditoría para comprobar que lo que se dice que se hace coincide con lo que realmente se hace.\n\n**6. Revisión y mejora continua**: el SGSI se revisa periódicamente para adaptarlo a nuevas amenazas, cambios en la organización o resultados de auditorías previas."
+      },
+      {
+        "titulo": "La auditoría informática en el contexto del SGSI",
+        "contenido": "Una vez implantado el SGSI, ¿cómo se comprueba que funciona correctamente? Ahí entra la **auditoría informática**.\n\nUna auditoría informática es una revisión sistemática de los controles y procedimientos de seguridad de una organización, con el objetivo de evaluar si se están aplicando correctamente y si son coherentes con los objetivos de seguridad definidos.\n\nEl adjetivo *sistemática* es clave: la auditoría debe seguir siempre la misma metodología, los mismos pasos, aplicados de la misma manera. Esto es necesario por dos razones:\n- **Igualdad y objetividad**: todas las organizaciones auditadas son evaluadas con los mismos criterios.\n- **Reproducibilidad**: si los resultados de una auditoría son cuestionados (especialmente si tienen consecuencias legales), otro auditor debe poder repetir el proceso y obtener las mismas conclusiones.\n\nEl auditor obtiene **evidencias** —principalmente documentales— que fundamentan su dictamen. Sin evidencias, las conclusiones del auditor no tienen valor. Los ficheros de log son la fuente principal de evidencias en la mayoría de las auditorías informáticas.\n\nEl auditor **diagnostica pero no implementa**: su función es detectar problemas y emitir recomendaciones, no corregirlos directamente. Las mejoras las implementa el personal de la organización.\n\nLa idea que unifica todo el tema: **la seguridad es un proceso, no un producto**. Esta frase, atribuida al experto en seguridad Bruce Schneier, resume perfectamente la filosofía de los SGSI y de la auditoría informática."
+      },
+      {
+        "titulo": "Calidad y su definición en el contexto de los SGSI",
+        "contenido": "Aunque la asignatura lleva el término 'calidad' en su nombre, el temario no aborda la calidad como disciplina específica. Sin embargo, el profesor presentó la definición oficial de calidad al inicio del tema como punto de partida conceptual.\n\nSegún la ISO, **calidad** es el conjunto de propiedades y características de un producto o servicio que le confieren aptitud para satisfacer una necesidad específica o implícita.\n\nEsta definición es relevante porque introduce la idea de que cualquier sistema (incluido un SGSI) debe estar orientado a satisfacer las necesidades de la organización y de sus partes interesadas. Un SGSI de calidad no es el que tiene más controles técnicos, sino el que está adecuadamente diseñado para las necesidades reales de protección de la organización."
+      },
+      {
+        "titulo": "Impacto económico y reputacional de los fallos de seguridad",
+        "contenido": "Para entender por qué los SGSI son importantes en la práctica, hay que tener en cuenta el impacto real que tiene un fallo de seguridad:\n\n**Costes directos**: tiempo que un sistema permanece caído, recursos necesarios para recuperarlo, posibles sanciones legales o regulatorias.\n\n**Pérdida de imagen y reputación**: para muchas organizaciones, la confianza de sus clientes o ciudadanos es su activo más valioso. Un banco que sufre una brecha de seguridad puede perder ese activo de forma irreversible. Lo mismo ocurre con administraciones públicas.\n\n**Impacto en la operación**: si los sistemas que permiten atender al público quedan inoperativos, las consecuencias pueden ser muy graves. El ejemplo del ransomware WannaCry en 2017 ilustra esto: infectó más de 200.000 equipos en un día, afectando a hospitales, empresas de telecomunicaciones y servicios públicos. No bastó con restaurar los backups porque el ransomware seguía activo en los puestos de usuario, lo que obligó a desconectar todos los equipos de la red y limpiarlos uno a uno físicamente.\n\nEste tipo de incidentes muestra que la seguridad tiene implicaciones que van mucho más allá de lo técnico: afecta a la continuidad del negocio, a la confianza de los ciudadanos y, en algunos casos, a infraestructuras críticas."
+      },
+      {
+        "titulo": "Vectores de ataque y actores amenazantes",
+        "contenido": "Los ataques a la seguridad de la información pueden provenir de múltiples fuentes:\n\n**Atacantes externos deliberados**: personas que actúan conscientemente con intención de comprometer la seguridad. Incluye hackers con motivación económica (ciberdelincuentes), espionaje industrial o estatal, o hacktivistas.\n\n**Usuarios internos no intencionados**: empleados que, sin darse cuenta, se convierten en vector de ataque. El caso más habitual es abrir un correo con malware adjunto, descargar un ejecutable infectado o conectar un dispositivo USB comprometido.\n\n**Usuarios internos malintencionados**: empleados o exempleados que acceden a información para la que no están autorizados, o que la filtran intencionadamente. Estadísticamente, una proporción significativa de las violaciones de seguridad (en torno al 70%) tienen origen interno.\n\n**Técnicas de ingeniería social**: entre ellas destaca el *baiting* (del inglés *bait*, cebo), que consiste en dejar dispositivos USB infectados en lugares públicos para que los encuentren y los conecten usuarios curiosos. Esta técnica fue utilizada para infectar la central nuclear de Natanz (Irán) con el malware Stuxnet en 2010.\n\n**Troyanos**: aplicaciones que parecen legítimas pero realizan funciones ocultas maliciosas. Un ejemplo es el cliente SSH PuTTY, que en algún momento fue troyanizado en ciertas distribuciones no oficiales."
+      },
+      {
+        "titulo": "Mecanismos de seguridad y su relación con la Tríada CID",
+        "contenido": "Cada dimensión de la Tríada CID tiene mecanismos técnicos específicos para garantizarla:\n\n**Para la Confidencialidad**:\n- Cifrado simétrico y asimétrico: permiten que solo el destinatario autorizado pueda leer la información.\n- Control de acceso basado en roles (RBAC).\n- Cifrado de discos y de comunicaciones (TLS/SSL, VPN).\n\n**Para la Integridad**:\n- Funciones hash: generan un resumen del contenido de un fichero. Si el fichero es alterado, el hash cambia. Comparando el hash original con el calculado al recibir el fichero se detecta cualquier modificación.\n- Firma digital: garantiza la integridad y el no repudio (el emisor no puede negar haber enviado el mensaje).\n\n**Para la Disponibilidad**:\n- Backups y estrategias de recuperación.\n- Centros de respaldo (recuperación ante desastres).\n- Alta disponibilidad y balanceo de carga.\n- Planes de continuidad de negocio y recuperación ante desastres (BCP/DRP).\n\nNota sobre criptografía asimétrica: en la criptografía asimétrica (como RSA), existen una clave pública y una clave privada relacionadas matemáticamente. Su fortaleza se basa en la dificultad de invertir funciones matemáticas como la factorización de números primos o los logaritmos discretos, que son computacionalmente imposibles de resolver con la computación clásica actual. La computación cuántica representa una amenaza potencial para este tipo de cifrado, ya que podría ser capaz de invertir esas funciones y deducir la clave privada a partir de la pública."
+      }
+    ]
+  },
+  "resumen": [
+    "Un SGSI (Sistema de Gestión de Seguridad de la Información) es un conjunto de políticas, procedimientos y controles para gestionar los riesgos de seguridad de la información de forma sistemática.",
+    "Los SGSI son procesos, no productos: el firewall o el antivirus son recursos que se usan dentro del proceso, pero no son el SGSI en sí.",
+    "La norma de referencia para los SGSI es la ISO 27001. La versión vigente y actualizada es la de 2022.",
+    "La Tríada CID define los tres principios fundamentales de la seguridad: Confidencialidad (acceso solo a usuarios autorizados), Integridad (nadie modifica sin autorización) y Disponibilidad (accesible siempre que se necesite).",
+    "Los cuatro tipos de ataque y su relación con la Tríada: Interceptación → Confidencialidad; Interrupción → Disponibilidad; Modificación → Integridad; Generación/Inyección → Integridad.",
+    "Un activo de información es todo elemento con valor para la organización que necesita protección: información, software, hardware, personas y servicios.",
+    "Las personas son activos: si el único empleado que conoce un procedimiento crítico causa baja, la organización pierde un activo.",
+    "Las Reglas de Oro o 3 AU son: Autenticación (verificar identidad), Autorización (asignar permisos) y Auditabilidad (registrar eventos en logs).",
+    "La autenticación comprueba que el usuario es quien dice ser; la autorización determina a qué puede acceder; la auditabilidad deja registro de todo lo que ocurre.",
+    "La auditabilidad equivale a la trazabilidad del Esquema Nacional de Seguridad.",
+    "Las fases del SGSI son: definir política, definir alcance, análisis de riesgos, seleccionar controles, documentar declaración de aplicabilidad y revisar continuamente.",
+    "La política de seguridad se define antes que el alcance: primero se establece qué se protege y qué pueden hacer los usuarios, y a partir de ahí se determina el alcance.",
+    "La auditoría informática es una revisión sistemática que comprueba si los controles de seguridad funcionan correctamente; el auditor diagnostica pero no implementa mejoras.",
+    "Sin ficheros de log no hay evidencias y sin evidencias no hay auditoría posible.",
+    "La seguridad es un proceso continuo, no un estado que se alcanza con la compra de un producto."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "SGSI (Sistema de Gestión de Seguridad de la Información)",
+      "definicion": "Conjunto de políticas, procedimientos y controles diseñados para gestionar de forma sistemática los riesgos asociados a la seguridad de la información. Son procesos, no productos. La norma de referencia es la ISO 27001."
+    },
+    {
+      "termino": "ISO 27001",
+      "definicion": "Norma internacional de referencia para la implantación de Sistemas de Gestión de Seguridad de la Información. La versión vigente es la de 2022. Orienta sobre documentación, auditorías y mejora continua."
+    },
+    {
+      "termino": "Tríada CID (CIA en inglés)",
+      "definicion": "Los tres principios fundamentales de la seguridad de la información: Confidencialidad (acceso solo a usuarios autorizados), Integridad (no modificación sin autorización) y Disponibilidad (acceso siempre que sea necesario)."
+    },
+    {
+      "termino": "Confidencialidad",
+      "definicion": "Propiedad que garantiza que la información solo es accesible para los usuarios o sistemas legítimamente autorizados."
+    },
+    {
+      "termino": "Integridad",
+      "definicion": "Propiedad que garantiza que la información no puede ser modificada por usuarios no autorizados. Los mecanismos típicos son los hashes y las firmas digitales."
+    },
+    {
+      "termino": "Disponibilidad",
+      "definicion": "Propiedad que garantiza que la información y los sistemas están accesibles siempre que sean necesarios. Los ataques DDoS atentan directamente contra esta dimensión."
+    },
+    {
+      "termino": "Activo de información",
+      "definicion": "Todo elemento que posee valor para la organización y es necesario para llevar a cabo su actividad de negocio. Incluye información, software, hardware, personas y servicios."
+    },
+    {
+      "termino": "Reglas de Oro (3 AU)",
+      "definicion": "Autenticación, Autorización y Auditabilidad. Se llaman de oro porque las tres comienzan por AU, símbolo químico del oro. Complementan la Tríada CID definiendo cómo se gestiona el acceso y su registro."
+    },
+    {
+      "termino": "Autenticación",
+      "definicion": "Mecanismo que verifica que un usuario es quien dice ser antes de concederle acceso. Responde a la pregunta: ¿eres realmente quien dices ser? Ejemplos: contraseñas, certificados digitales, biometría."
+    },
+    {
+      "termino": "Autorización",
+      "definicion": "Mecanismo que determina, una vez autenticado el usuario, a qué recursos puede acceder y qué operaciones puede realizar. Responde a la pregunta: ¿tienes permiso para hacer esto?"
+    },
+    {
+      "termino": "Auditabilidad",
+      "definicion": "Capacidad de trazar y registrar todos los eventos relevantes del sistema en ficheros de log o bases de datos. Equivalente al concepto de trazabilidad del Esquema Nacional de Seguridad."
+    },
+    {
+      "termino": "Ficheros de log",
+      "definicion": "Registros automáticos que recogen los eventos del sistema: accesos, operaciones realizadas, errores, etc. Son la fuente principal de evidencias en una auditoría informática."
+    },
+    {
+      "termino": "Auditoría informática",
+      "definicion": "Revisión sistemática que comprueba si los controles de seguridad implantados son adecuados, funcionan correctamente y son coherentes con los objetivos de la organización. Debe ser reproducible y basarse en evidencias."
+    },
+    {
+      "termino": "Análisis de riesgos",
+      "definicion": "Proceso que identifica los posibles riesgos para la organización, evalúa su impacto y su probabilidad de ocurrencia, y determina la prioridad de los controles que deben implantarse."
+    },
+    {
+      "termino": "Declaración de aplicabilidad",
+      "definicion": "Documento que recoge qué controles de seguridad se han implantado y por qué. Es el documento principal que revisa la auditoría para comprobar que la realidad coincide con lo declarado."
+    },
+    {
+      "termino": "Ataque por interceptación",
+      "definicion": "El atacante accede a la información en tránsito sin que emisor ni receptor lo sepan. Afecta a la confidencialidad. Ejemplo clásico: Man in the Middle (MitM)."
+    },
+    {
+      "termino": "Ataque por interrupción",
+      "definicion": "El atacante corta el flujo de información o deja un servicio inaccesible. Afecta a la disponibilidad. Ejemplo: ataque DDoS."
+    },
+    {
+      "termino": "Ataque por modificación",
+      "definicion": "El atacante altera la información en tránsito o almacenada sin autorización. Afecta a la integridad. Ejemplo: modificar registros de una base de datos."
+    },
+    {
+      "termino": "Ataque por generación o inyección",
+      "definicion": "El atacante introduce información falsa en el sistema como si fuera legítima. Afecta a la integridad y la autenticidad. Ejemplos: SQL Injection, XSS."
+    },
+    {
+      "termino": "Baiting",
+      "definicion": "Técnica de ingeniería social que consiste en dejar un dispositivo USB infectado en un lugar público para que algún usuario lo conecte a su equipo, infectando así la red. Fue usada para introducir el malware Stuxnet en la central nuclear de Natanz (Irán, 2010)."
+    },
+    {
+      "termino": "Hash",
+      "definicion": "Función matemática que genera un resumen de longitud fija a partir de cualquier dato. Si el dato es modificado, el hash cambia. Se usa para garantizar la integridad de la información."
+    },
+    {
+      "termino": "Firma digital",
+      "definicion": "Mecanismo criptográfico que garantiza la integridad de un mensaje y el no repudio: el emisor no puede negar haber firmado el documento."
+    },
+    {
+      "termino": "Calidad (definición ISO)",
+      "definicion": "Conjunto de propiedades y características de un producto o servicio que le confieren aptitud para satisfacer una necesidad específica o implícita."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-1-fc-001",
+      "pregunta": "¿Qué significa SGSI?",
+      "respuesta": "Sistema de Gestión de Seguridad de la Información. En inglés: ISMS (Information Security Management System)."
+    },
+    {
+      "id": "casi-tema-1-fc-002",
+      "pregunta": "¿Un SGSI es un producto (firewall, antivirus) o un conjunto de procesos?",
+      "respuesta": "Un conjunto de procesos: políticas, procedimientos y controles. Los firewalls y antivirus son recursos que se usan dentro del proceso, pero no son el SGSI en sí."
+    },
+    {
+      "id": "casi-tema-1-fc-003",
+      "pregunta": "¿Cuál es la norma internacional de referencia para los SGSI y cuál es su versión vigente?",
+      "respuesta": "ISO 27001. La versión vigente es la de 2022."
+    },
+    {
+      "id": "casi-tema-1-fc-004",
+      "pregunta": "¿Cuáles son los tres principios fundamentales de la seguridad de la información (Tríada CID)?",
+      "respuesta": "Confidencialidad, Integridad y Disponibilidad (en inglés: CIA — Confidentiality, Integrity, Availability)."
+    },
+    {
+      "id": "casi-tema-1-fc-005",
+      "pregunta": "Define Confidencialidad en el contexto de los SGSI.",
+      "respuesta": "La información solo puede ser accedida por las personas o sistemas expresamente autorizados para ello."
+    },
+    {
+      "id": "casi-tema-1-fc-006",
+      "pregunta": "Define Integridad en el contexto de los SGSI.",
+      "respuesta": "La información no puede ser modificada por usuarios no autorizados. Se garantiza mediante mecanismos como el hash o la firma digital."
+    },
+    {
+      "id": "casi-tema-1-fc-007",
+      "pregunta": "Define Disponibilidad en el contexto de los SGSI.",
+      "respuesta": "La información y los sistemas deben estar accesibles siempre que sean necesarios. Un ataque DDoS atenta directamente contra esta dimensión."
+    },
+    {
+      "id": "casi-tema-1-fc-008",
+      "pregunta": "¿Qué tipo de ataque afecta a la Confidencialidad?",
+      "respuesta": "El ataque por interceptación (ej.: Man in the Middle). El atacante accede a la información sin que emisor ni receptor lo sepan."
+    },
+    {
+      "id": "casi-tema-1-fc-009",
+      "pregunta": "¿Qué tipo de ataque afecta a la Disponibilidad?",
+      "respuesta": "El ataque por interrupción (ej.: DDoS). El servicio queda inaccesible aunque los datos no sean robados ni alterados."
+    },
+    {
+      "id": "casi-tema-1-fc-010",
+      "pregunta": "¿Qué tipo de ataque afecta a la Integridad?",
+      "respuesta": "El ataque por modificación. El atacante altera la información en tránsito o almacenada sin autorización."
+    },
+    {
+      "id": "casi-tema-1-fc-011",
+      "pregunta": "¿Qué son las Reglas de Oro y cómo se denominan?",
+      "respuesta": "Son las 3 AU: Autenticación, Autorización y Auditabilidad. Se llaman de oro porque las tres comienzan por AU, símbolo químico del oro."
+    },
+    {
+      "id": "casi-tema-1-fc-012",
+      "pregunta": "¿Cuál es la diferencia entre Autenticación y Autorización?",
+      "respuesta": "La autenticación verifica que el usuario es quien dice ser (¿eres tú?). La autorización determina a qué puede acceder ese usuario una vez identificado (¿tienes permiso?)."
+    },
+    {
+      "id": "casi-tema-1-fc-013",
+      "pregunta": "¿Qué garantiza la Auditabilidad?",
+      "respuesta": "Que todos los eventos relevantes del sistema quedan registrados en ficheros de log, lo que permite trazarlos e investigarlos posteriormente."
+    },
+    {
+      "id": "casi-tema-1-fc-014",
+      "pregunta": "¿Con qué concepto del Esquema Nacional de Seguridad equivale la Auditabilidad?",
+      "respuesta": "Con la Trazabilidad."
+    },
+    {
+      "id": "casi-tema-1-fc-015",
+      "pregunta": "¿Qué es un activo de información?",
+      "respuesta": "Todo elemento que posee valor para la organización y es necesario para llevar a cabo su actividad de negocio. Incluye información, software, hardware, personas y servicios."
+    },
+    {
+      "id": "casi-tema-1-fc-016",
+      "pregunta": "¿Por qué las personas son activos de información?",
+      "respuesta": "Porque su conocimiento es valioso para la organización. Si el único empleado que sabe realizar un procedimiento crítico causa baja, la organización pierde un activo."
+    },
+    {
+      "id": "casi-tema-1-fc-017",
+      "pregunta": "¿Para qué sirven los ficheros de log en el contexto de los SGSI?",
+      "respuesta": "Para realizar auditorías: registran quién accedió a qué y cuándo, proporcionando las evidencias necesarias para investigar incidentes y demostrar el cumplimiento de controles."
+    },
+    {
+      "id": "casi-tema-1-fc-018",
+      "pregunta": "¿Qué significa que una auditoría sea 'sistemática'?",
+      "respuesta": "Que sigue siempre la misma metodología y los mismos pasos. Esto garantiza objetividad, igualdad entre auditados y reproducibilidad de los resultados."
+    },
+    {
+      "id": "casi-tema-1-fc-019",
+      "pregunta": "¿Qué hace un auditor informático y qué no hace?",
+      "respuesta": "El auditor detecta problemas y emite recomendaciones (diagnostica), pero NO implementa las mejoras. Las mejoras las aplica el personal de la organización."
+    },
+    {
+      "id": "casi-tema-1-fc-020",
+      "pregunta": "¿Cuál es el orden correcto de las fases de un SGSI según la ISO 27001?",
+      "respuesta": "1. Definir política de seguridad. 2. Definir alcance. 3. Análisis de riesgos. 4. Seleccionar e implementar controles. 5. Declaración de aplicabilidad. 6. Revisión y mejora continua."
+    },
+    {
+      "id": "casi-tema-1-fc-021",
+      "pregunta": "¿Por qué se define primero la política y después el alcance?",
+      "respuesta": "Porque la política establece qué información se protege y qué pueden hacer los usuarios; solo conociendo esto se puede determinar hasta dónde debe llegar el sistema de gestión."
+    },
+    {
+      "id": "casi-tema-1-fc-022",
+      "pregunta": "¿Qué garantiza el hash y para qué dimensión de la Tríada CID sirve?",
+      "respuesta": "El hash garantiza la Integridad: si el fichero recibido produce el mismo hash que el original, no ha sido modificado."
+    },
+    {
+      "id": "casi-tema-1-fc-023",
+      "pregunta": "¿Qué garantiza la firma digital?",
+      "respuesta": "La integridad del mensaje y el no repudio: el emisor no puede negar haber enviado o firmado el documento."
+    },
+    {
+      "id": "casi-tema-1-fc-024",
+      "pregunta": "¿Qué es el baiting?",
+      "respuesta": "Técnica de ingeniería social que consiste en dejar dispositivos USB infectados en lugares públicos para que usuarios los conecten a sus equipos, infectando así la red. Fue el método usado para introducir Stuxnet en una central nuclear iraní."
+    },
+    {
+      "id": "casi-tema-1-fc-025",
+      "pregunta": "¿Qué es un ataque de inyección y a qué dimensión de la Tríada afecta?",
+      "respuesta": "Un ataque en el que el atacante introduce datos falsos o maliciosos en el sistema (ej.: SQL Injection, XSS). Afecta principalmente a la Integridad y la autenticidad."
+    },
+    {
+      "id": "casi-tema-1-fc-026",
+      "pregunta": "Define 'calidad' según la definición ISO utilizada en la asignatura.",
+      "respuesta": "Conjunto de propiedades y características de un producto o servicio que le confieren aptitud para satisfacer una necesidad específica o implícita."
+    },
+    {
+      "id": "casi-tema-1-fc-027",
+      "pregunta": "¿Cuál es la diferencia entre seguridad de la información y seguridad informática?",
+      "respuesta": "La seguridad de la información abarca la protección de toda la información (bases de datos, documentos, personas, servicios), sea digital o no. La seguridad informática se centra más específicamente en los sistemas y dispositivos tecnológicos. Están relacionadas pero no son lo mismo."
+    },
+    {
+      "id": "casi-tema-1-fc-028",
+      "pregunta": "¿Por qué la computación cuántica supone una amenaza para la criptografía asimétrica (como RSA)?",
+      "respuesta": "Porque la fortaleza de la criptografía asimétrica se basa en la dificultad de invertir funciones matemáticas (factorización de primos, logaritmos discretos) con computación clásica. La computación cuántica podría invertir esas funciones y deducir la clave privada a partir de la clave pública."
+    }
+  ]
+}

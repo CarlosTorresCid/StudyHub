@@ -1,0 +1,240 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-8",
+  "titulo": "Tema 8. Vulnerabilidades y Análisis en Auditoría Informática",
+  "apuntes": {
+    "introduccion": "El Tema 8 profundiza en cómo se detectan y analizan las vulnerabilidades de los sistemas de información desde la perspectiva del auditor. Si el Tema 7 cubría la recolección de información previa (fingerprinting y footprinting), el Tema 8 pasa a la fase siguiente: identificar debilidades concretas, validarlas y evaluar su impacto.\n\nEl tema tiene tres grandes bloques:\n- **Las tres etapas del análisis de vulnerabilidades** según el estándar PTES: pruebas, validación e investigación.\n- **Herramientas de análisis de vulnerabilidades**: activas (Nmap, Nikto, Dirb) y pasivas, bases de datos de exploits (CVE, ExploitDB).\n- **Vulnerabilidades en aplicaciones web**: inyección SQL, XSS (reflejado y persistente), CSRF, path traversal, y análisis de protocolos de red (DNS, SMTP, SNMP).\n\nEl profesor advirtió que este tema es enormemente amplio y que solo se cubren los conceptos más relevantes. El análisis de vulnerabilidades es un oficio en sí mismo que requiere años de práctica.",
+    "secciones": [
+      {
+        "titulo": "Las tres etapas del análisis de vulnerabilidades (estándar PTES)",
+        "contenido": "El estándar **PTES** (*Penetration Testing Execution Standard*) define tres etapas para el análisis de vulnerabilidades. Conocerlas es importante porque son un estándar reconocido:\n\n**Etapa 1 — Pruebas**:\nIdentificar de manera activa o pasiva qué debilidades tiene un sistema. Se puede aplicar sobre una página web concreta o sobre toda la infraestructura de una organización, dependiendo del encargo.\n\nLas pruebas pueden ser de dos tipos:\n- *Pruebas activas*: se interactúa directamente con el sistema objetivo. Pueden ser automáticas (escaneo de puertos con Nmap, análisis de vulnerabilidades con Nikto) o manuales (comprobar si realmente se puede conectar a un puerto abierto, intentar explotar una vulnerabilidad específica).\n- *Pruebas pasivas*: recopilan información sin interactuar directamente con el objetivo. No se necesita ni hacer sniffing: basta con descargar una página web y analizar las cabeceras HTTP para obtener información sobre el servidor.\n\n**Etapa 2 — Validación**:\nComprobar si las vulnerabilidades encontradas en la fase de pruebas son reales. Consiste en comparar los resultados obtenidos por varias herramientas para reducir los falsos positivos. No basta con que una herramienta diga que hay una vulnerabilidad: hay que confirmarla.\n\n**Etapa 3 — Investigación**:\nVerificar cuál sería el impacto de explotar cada vulnerabilidad. Hay que responder: ¿qué pasaría si un atacante aprovecha esta debilidad? ¿Puede borrar el sistema? ¿Ejecutar código remoto? ¿Cifrar toda la información? ¿Modificar el contenido de una web?\n\nEsta etapa usa repositorios públicos (CVE, ExploitDB) y privados para comprobar si existe un exploit conocido para cada vulnerabilidad encontrada y cuál sería la consecuencia de usarlo.\n\nImportante: no basta con encontrar una vulnerabilidad e indicar que existe. El auditor debe demostrarla y explicar su impacto real, porque sin esa información la organización no puede priorizar sus esfuerzos de corrección."
+      },
+      {
+        "titulo": "Pruebas activas: manuales y automáticas",
+        "contenido": "**Pruebas automáticas**:\nSon las más rápidas y producen un primer listado de posibles vulnerabilidades. Herramientas como Nmap, Nikto o Dirb ejecutan cientos de comprobaciones automáticas en cuestión de minutos.\n- **Nmap**: escaneo de puertos, identificación de servicios y versiones.\n- **Nikto**: escáner de vulnerabilidades web. Detecta configuraciones incorrectas, software desactualizado, directorios expuestos, ficheros por defecto de Apache, paneles de administración de WordPress, etc. En pocos minutos puede detectar decenas de vulnerabilidades en un servidor.\n- **Dirb**: enumera los directorios y ficheros accesibles dentro de un servidor web, recorriendo el árbol de directorios a través de la URL.\n- **Ncat / Nstat / nc**: herramientas de exploración de red.\n\nLas pruebas automáticas son el punto de partida, pero tienen limitaciones. Pueden generar falsos positivos y no pueden explotar las vulnerabilidades que detectan.\n\n**Pruebas manuales**:\nSirven para verificar el resultado de las pruebas automáticas. Consisten en comprobar manualmente si una vulnerabilidad detectada por una herramienta es real y explotable. Ejemplo: si Nmap detecta el puerto 22 (SSH) abierto, una prueba manual consiste en intentar conectarse con un cliente SSH y, si se obtiene respuesta, intentar obtener credenciales válidas.\n\nLas pruebas automáticas son el primer paso; las manuales son el segundo. Las manuales son más precisas pero más lentas."
+      },
+      {
+        "titulo": "Bases de datos de vulnerabilidades y exploits",
+        "contenido": "Una vez identificada la versión de un sistema operativo, un servidor web o cualquier otro componente, el auditor puede buscar las vulnerabilidades conocidas que afectan a esa versión en bases de datos públicas. Esto hace que el análisis de vulnerabilidades sea relativamente accesible incluso sin grandes conocimientos de programación.\n\n**CVE (Common Vulnerabilities and Exposures)**:\nBase de datos pública y gratuita de vulnerabilidades conocidas. Cada vulnerabilidad tiene un identificador único (ej: CVE-2017-5638). Al buscar la versión de Apache, Linux, PHP o cualquier otro software, se obtiene la lista completa de vulnerabilidades documentadas, su severidad y los exploits disponibles.\n\n**ExploitDB**:\nBase de datos pública de exploits. Para cada vulnerabilidad documentada en CVE suele haber uno o varios exploits disponibles en ExploitDB, con el código listo para usar. Esto significa que, en muchos casos, no hace falta ni saber programar para explotar una vulnerabilidad conocida.\n\nEjemplo práctico: si el Nmap detecta que el servidor usa Apache 2.3.3, el auditor busca 'Apache 2.3.3' en CVE, obtiene la lista de vulnerabilidades, y en ExploitDB encuentra el código Python para explotar la más crítica. No necesita conocimientos avanzados de seguridad para ese paso concreto.\n\nEsta realidad refuerza la importancia de mantener el software siempre actualizado: cualquier versión obsoleta tiene sus vulnerabilidades públicamente documentadas con exploits listos para usar.\n\n**Uso de IA en análisis de vulnerabilidades**:\nEl profesor señaló que actualmente basta con preguntar a un agente de IA (ChatGPT, Copilot, etc.) 'encuéntame las vulnerabilidades documentadas para esta versión y dame la fuente' para obtener prácticamente el informe de vulnerabilidades. La enumeración de información (saber la versión exacta del software) es más importante que nunca.\n\n**Shodan como herramienta de investigación**:\nShodan permite buscar dispositivos de un modelo concreto (cámaras IP, routers, dispositivos IoT) y obtener su dirección IP. Combinado con las contraseñas por defecto del fabricante (disponibles en internet), se puede probar acceso a miles de dispositivos que nunca fueron reconfigurados. Esta fue exactamente la técnica que usó la botnet Mirai."
+      },
+      {
+        "titulo": "Fuzzing e ingeniería inversa",
+        "contenido": "**Fuzzing**:\nTécnica de análisis de vulnerabilidades que consiste en la exploración exhaustiva de entradas válidas o aleatorias en determinadas aplicaciones para encontrar posibles problemas de seguridad. Requiere el entorno de depuración de la aplicación. Es una forma sistemática de buscar comportamientos inesperados o fallos de seguridad probando muchas combinaciones de entrada.\n\nEl fuzzing puede aplicarse a campos de formularios web, parámetros de URL, cabeceras HTTP, y cualquier otra entrada que el sistema acepte. Las herramientas de fuzzing automatizan este proceso, generando miles de entradas diferentes.\n\n**Técnica de ofuscación**:\nSimula el comportamiento de un atacante intentando realizar pruebas no demasiado evidentes, de forma que los sistemas de detección no las identifiquen como un escaneo o ataque.\n\n**Ingeniería inversa** (de malware):\nObtener el código de un virus, gusano u otro malware mediante análisis forense de un equipo infectado, y analizarlo para comprender cómo fue desarrollado, qué hace y cómo se propaga. En palabras del profesor: 'abrir un bicho por la mitad e ir viendo las vísceras'."
+      },
+      {
+        "titulo": "Vulnerabilidades en aplicaciones web — Inyección SQL",
+        "contenido": "La **inyección SQL** (*SQL Injection*) es uno de los ataques más conocidos y antiguos de la historia de la seguridad web. Consiste en introducir código SQL malicioso en un campo de formulario web para manipular la consulta a la base de datos.\n\n**¿Cómo funciona?**\nSupongamos un formulario de login PHP que verifica el par usuario/contraseña en la base de datos. Si el formulario no sanea correctamente las entradas, el atacante puede escribir en el campo 'usuario' una expresión como:\n\n`' OR '1'='1' --`\n\nEsta cadena cierra el campo de texto con una comilla simple, añade una condición SQL que siempre es verdadera (`OR 1=1`), y con los dos guiones (`--`) convierte el resto de la consulta en un comentario, anulando la comprobación de la contraseña. El resultado es que la base de datos devuelve siempre un usuario válido, dando acceso sin necesidad de conocer la contraseña.\n\n**¿Por qué sigue siendo relevante?**\nAunque es un ataque muy conocido, sigue siendo efectivo en aplicaciones que no validan o sanean correctamente las entradas del usuario.\n\n**¿Cómo prevenirlo?**\nEl cortafuegos adecuado para prevenir la inyección SQL es un **WAF** (*Web Application Firewall*), que actúa en la **capa 7** (de aplicación del modelo OSI). Un firewall de filtrado de paquetes (capa 3) no puede prevenir este tipo de ataque porque no puede analizar el contenido de las peticiones HTTP."
+      },
+      {
+        "titulo": "Vulnerabilidades en aplicaciones web — XSS (Cross-Site Scripting)",
+        "contenido": "El **XSS** (*Cross-Site Scripting*) consiste en inyectar código JavaScript malicioso en una página web para que se ejecute en el navegador de los usuarios que la visiten.\n\nHay dos tipos principales:\n\n**XSS Reflejado**:\n- El código malicioso se inyecta en la URL de la página (como un parámetro) y se ejecuta en el navegador del usuario que visita esa URL.\n- No modifica ni el servidor ni la base de datos. Solo afecta al cliente que carga esa URL específica.\n- El atacante necesita engañar a la víctima para que haga clic en un enlace que contiene el código JavaScript en la URL.\n- Menos grave que el persistente porque no contamina el servidor.\n- Ejemplo: si una página web muestra el nombre del usuario tomándolo de la URL (`?nombre=Carlos`), el atacante puede sustituir 'Carlos' por un script JavaScript que se ejecutará en el navegador de quien acceda a esa URL.\n\n**XSS Persistente (Almacenado)**:\n- El código malicioso se inyecta directamente en el servidor (base de datos, fichero de configuración) y queda almacenado de forma permanente.\n- Todos los usuarios que accedan a la página afectada ejecutarán el código malicioso en su navegador, automáticamente.\n- Es mucho más grave que el reflejado porque el atacante no necesita engañar a cada víctima individualmente.\n- Ejemplo clásico: inyectar un script en el campo 'comentario' de un foro si el servidor no sanea la entrada. Todos los que lean ese comentario ejecutarán el script.\n\nDiferencia clave: XSS reflejado modifica parámetros HTTP sin alterar el servidor. XSS persistente almacena el código malicioso en el servidor."
+      },
+      {
+        "titulo": "Vulnerabilidades en aplicaciones web — CSRF y otras",
+        "contenido": "**CSRF (Cross-Site Request Forgery)**:\nEl CSRF aprovecha una sesión ya autenticada en una página web para ejecutar peticiones no autorizadas en nombre del usuario víctima, sin que este lo sepa.\n\n**¿Cómo funciona?**\n1. El usuario se autentica en una página web (su banco, una tienda, etc.) y tiene una sesión activa en el navegador.\n2. Mientras la sesión sigue abierta, el atacante le envía un correo electrónico con un enlace a esa misma página, pero con un parámetro diferente (ej: una transferencia bancaria).\n3. Si el usuario hace clic en el enlace, el navegador envía la petición usando las credenciales de la sesión activa. La página no pide autenticación porque ya tiene la sesión.\n4. La petición se ejecuta como si la hubiera iniciado el propio usuario.\n\nLa diferencia con el XSS: el XSS ejecuta código en el navegador de la víctima; el CSRF utiliza las credenciales de la sesión de la víctima para ejecutar acciones en el servidor.\n\n**Path Traversal**:\nAtaque que consiste en navegar por el árbol de directorios del servidor a través de la URL, usando secuencias como `../` para intentar acceder a ficheros fuera del directorio web. Por ejemplo, intentar acceder a `/etc/passwd` en un servidor Linux escribiendo `../../etc/passwd` en la URL. Herramientas como Dirb automatizan esta exploración.\n\n**Inclusión de ficheros locales (LFI) y remotos (RFI)**:\nVulnerabilidades que permiten incluir ficheros del propio servidor (LFI) o de un servidor remoto (RFI) en la respuesta de una página web, pudiendo exponer ficheros sensibles o ejecutar código remoto.\n\n**Principales ataques web (resumen de tipos)**:\n- Inyección SQL: manipula consultas a la base de datos.\n- XSS reflejado: ejecuta scripts en el navegador del cliente via URL.\n- XSS persistente: almacena scripts maliciosos en el servidor.\n- CSRF: usa sesiones activas para ejecutar peticiones no autorizadas.\n- Path traversal: navega por el árbol de directorios del servidor.\n- LFI/RFI: incluye ficheros locales o remotos en la respuesta."
+      },
+      {
+        "titulo": "Análisis de protocolos de red — DNS, SMTP y SNMP",
+        "contenido": "Además de las aplicaciones web, los protocolos de red también pueden ser vectores de ataque o fuente de información para el auditor.\n\n**DNS y transferencias de zona**:\nEl DNS (Domain Name System) traduce nombres de dominio en direcciones IP. En la jerarquía DNS existen servidores maestros (que tienen la información de los dominios) y servidores esclavos (que replican esa información mediante 'transferencias de zona').\n\nUna **transferencia de zona** es la replicación de los registros de zona de un DNS maestro a un DNS esclavo. Si el servidor DNS maestro está mal configurado, permite que cualquier equipo solicite una transferencia de zona, lo que revela:\n- Las direcciones IP de todos los servidores del dominio.\n- Los servidores de correo (registros MX).\n- Las versiones de software y configuración DNS.\n- Información que puede usarse para envenenar la caché DNS y redirigir peticiones a direcciones IP controladas por el atacante.\n\nEl comando `dig AXFR` se usa para solicitar una transferencia de zona a un servidor DNS.\n\n**SMTP y enumeración de usuarios**:\nSMTP (Simple Mail Transfer Protocol) es el protocolo de correo electrónico. Conectándose via Telnet al puerto 25 de un servidor, se pueden enumerar los usuarios de correo electrónico del sistema. Como los usuarios de correo suelen coincidir con los usuarios del sistema operativo, esto proporciona al atacante una lista de usuarios válidos para ataques de diccionario posteriores.\n\n**SNMP (Simple Network Management Protocol)**:\nProtocolo de gestión de red muy antiguo. Se usa en routers, switches, impresoras y otros dispositivos de red para enviar información de estado a una consola de gestión. Problema: hasta la versión 3, el SNMP no cifraba la información que transmitía. Esto significa que un atacante que intercepte tráfico SNMP puede conocer qué dispositivos hay en la red, sus modelos y versiones, y a partir de ahí buscar las contraseñas por defecto del fabricante. Puerto estándar: 161."
+      },
+      {
+        "titulo": "Cracking de contraseñas y Rainbow Tables",
+        "contenido": "El cracking de contraseñas es el proceso de intentar obtener una contraseña a partir de su hash almacenado.\n\n**Métodos principales**:\n- **Ataques de diccionario**: probar contraseñas de una lista predefinida (wordlist). Una lista muy usada es RockYou, disponible en Kali Linux por defecto. Son rápidos porque se prueban primero las contraseñas más comunes.\n- **Ataques de fuerza bruta**: probar todas las combinaciones posibles. Muy lentos para contraseñas largas pero efectivos para contraseñas cortas.\n- **Rainbow Tables**: tablas precalculadas de hashes de contraseñas. Permiten buscar un hash directamente en la tabla para obtener la contraseña original, sin necesidad de calcular el hash en tiempo real. Son muy rápidas pero ocupan mucho espacio.\n\n**Herramientas**:\n- **John the Ripper**: herramienta incluida en Kali Linux para descifrar hashes de contraseñas. El profesor la probó en directo con la contraseña por defecto de Kali y la obtuvo sin problema.\n\n**Contraseñas por defecto**: muchos dispositivos (routers, cámaras IoT, switches) mantienen las contraseñas del fabricante porque nadie las cambió. Hay repositorios públicos en internet con las contraseñas por defecto de miles de modelos de dispositivos. Buscar un modelo en Shodan y probar su contraseña por defecto sigue siendo uno de los vectores de ataque más efectivos."
+      },
+      {
+        "titulo": "Entornos de laboratorio y legalidad del análisis de vulnerabilidades",
+        "contenido": "**Legalidad**: realizar un análisis de vulnerabilidades o un escaneo de puertos sobre un sistema sin la autorización explícita de su propietario es **ilegal**. El consentimiento previo y por escrito del propietario es imprescindible. Aunque los sistemas detecten el escaneo y no hagan nada en ese momento, eso no significa que no lo estén viendo. Muchas organizaciones guardan esa información para actuar más tarde.\n\n**Cómo practicar de forma legal**:\n- **Laboratorio virtual propio**: montar un entorno con VirtualBox o VMware con Kali Linux y máquinas virtuales específicamente vulnerables (disponibles gratuitamente en internet). Todas las máquinas en una red interna sin acceso a internet. Esto es lo que mostró el profesor en clase.\n- **Plataformas de práctica online**: TryHackMe, HackTheBox, etc. Ofrecen desafíos y máquinas virtuales en entornos controlados para aprender pen testing de forma legal y gratuita.\n- **CTF (Capture The Flag)**: competiciones de seguridad donde hay que encontrar vulnerabilidades en sistemas diseñados para ello.\n- **Bug bounty programs**: empresas que invitan a investigadores a buscar vulnerabilidades en sus sistemas a cambio de recompensas económicas (HackerOne, Bugcrowd).\n\n**Árbol de ataque**: estrategia para organizar las pruebas de vulnerabilidad. Se definen los posibles vectores de ataque en función de la información disponible y lo que se ha pedido auditar. Si no se tiene ninguna información de partida, se empieza con herramientas automáticas. Si se tiene información específica (versión de Apache, por ejemplo), se va directamente a buscar vulnerabilidades de esa versión."
+      }
+    ]
+  },
+  "resumen": [
+    "El análisis de vulnerabilidades tiene tres etapas según el estándar PTES: Pruebas (identificar debilidades), Validación (confirmar que existen) e Investigación (evaluar el impacto de explotarlas).",
+    "No basta con encontrar una vulnerabilidad: hay que demostrarla y explicar su impacto real, porque sin esa información la organización no puede priorizar sus correcciones.",
+    "Pruebas activas automáticas: Nmap (puertos y servicios), Nikto (vulnerabilidades web), Dirb (directorios y ficheros del servidor). Pruebas manuales: verifican el resultado de las automáticas.",
+    "CVE: base de datos pública de vulnerabilidades conocidas. ExploitDB: base de datos pública de exploits listos para usar. Conocer la versión exacta del software es suficiente para encontrar exploits públicos.",
+    "Fuzzing: exploración exhaustiva de entradas válidas o aleatorias en una aplicación para encontrar vulnerabilidades. El profesor indicó que 'va a caer' en el examen.",
+    "Inyección SQL: introduce código SQL en un formulario para manipular la consulta a la base de datos. El WAF (Web Application Firewall, capa 7) es el cortafuegos adecuado para prevenirla.",
+    "XSS reflejado: inyecta JavaScript en la URL, se ejecuta en el navegador del cliente. No modifica el servidor. XSS persistente: almacena el script en el servidor, afecta a todos los usuarios. Más grave.",
+    "CSRF: aprovecha una sesión activa para ejecutar peticiones no autorizadas en nombre del usuario. El atacante envía un enlace al usuario autenticado.",
+    "Transferencia de zona DNS (AXFR): si el DNS no está bien configurado, revela toda la información del dominio (servidores, IPs, correo). Comando: dig AXFR.",
+    "SNMP hasta la versión 2 transmitía sin cifrado. Un atacante que intercepte tráfico SNMP puede conocer los dispositivos de la red y sus versiones.",
+    "Rainbow Tables: tablas precalculadas de hashes para encontrar contraseñas rápidamente. John the Ripper: herramienta de Kali Linux para cracking de hashes.",
+    "El análisis de vulnerabilidades sobre sistemas ajenos sin autorización es ILEGAL. Para practicar: laboratorio virtual propio (VirtualBox + máquinas vulnerables), TryHackMe, HackTheBox, CTF o bug bounty."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "PTES (Penetration Testing Execution Standard)",
+      "definicion": "Estándar que define las tres etapas del análisis de vulnerabilidades: Pruebas (identificar debilidades activa o pasivamente), Validación (confirmar que las vulnerabilidades son reales) e Investigación (evaluar el impacto de explotarlas)."
+    },
+    {
+      "termino": "Nikto",
+      "definicion": "Escáner automático de vulnerabilidades web. Detecta software desactualizado, configuraciones incorrectas, directorios expuestos, ficheros por defecto de servidores web y paneles de administración. Es una herramienta de pruebas activas automáticas."
+    },
+    {
+      "termino": "Dirb",
+      "definicion": "Herramienta de enumeración de directorios y ficheros en un servidor web. Recorre el árbol de directorios del servidor a través de la URL, revelando recursos accesibles que pueden ser vectores de ataque."
+    },
+    {
+      "termino": "CVE (Common Vulnerabilities and Exposures)",
+      "definicion": "Base de datos pública y gratuita de vulnerabilidades conocidas. Cada vulnerabilidad tiene un identificador único. Permite buscar todas las vulnerabilidades documentadas para una versión concreta de cualquier software."
+    },
+    {
+      "termino": "ExploitDB",
+      "definicion": "Base de datos pública de exploits. Para cada vulnerabilidad documentada suele haber código disponible para explotarla. No requiere conocimientos avanzados de programación para usar un exploit ya publicado."
+    },
+    {
+      "termino": "Fuzzing",
+      "definicion": "Técnica de análisis de vulnerabilidades que consiste en explorar exhaustivamente entradas válidas o aleatorias en una aplicación para encontrar posibles fallos de seguridad. Requiere el entorno de depuración de la aplicación."
+    },
+    {
+      "termino": "Inyección SQL (SQL Injection)",
+      "definicion": "Ataque que introduce código SQL en campos de formulario web para manipular las consultas a la base de datos. Una condición siempre verdadera (ej: OR 1=1) puede dar acceso sin contraseña. Se previene con validación de entradas y WAF (capa 7)."
+    },
+    {
+      "termino": "WAF (Web Application Firewall)",
+      "definicion": "Cortafuegos de aplicación web que opera en la capa 7 del modelo OSI. Es el tipo de firewall adecuado para prevenir ataques de inyección SQL y XSS, porque puede analizar el contenido de las peticiones HTTP. Un firewall de capa 3 no puede hacerlo."
+    },
+    {
+      "termino": "XSS reflejado (Cross-Site Scripting reflejado)",
+      "definicion": "Tipo de XSS en el que el código JavaScript malicioso se inyecta en la URL y se ejecuta en el navegador del cliente que visita esa URL. No modifica el servidor. Afecta solo a quien recibe el enlace malicioso."
+    },
+    {
+      "termino": "XSS persistente (Cross-Site Scripting almacenado)",
+      "definicion": "Tipo de XSS en el que el código malicioso se almacena en el servidor (base de datos, fichero de configuración). Afecta a todos los usuarios que accedan a la página. Es más grave que el reflejado."
+    },
+    {
+      "termino": "CSRF (Cross-Site Request Forgery)",
+      "definicion": "Ataque que aprovecha una sesión web activa del usuario para ejecutar peticiones no autorizadas en su nombre. El atacante envía un enlace al usuario autenticado; el navegador usa la sesión activa para ejecutar la petición sin pedir credenciales."
+    },
+    {
+      "termino": "Path Traversal",
+      "definicion": "Ataque que navega por el árbol de directorios del servidor a través de la URL usando secuencias como '../' para acceder a ficheros fuera del directorio web público (ej: /etc/passwd en sistemas Linux)."
+    },
+    {
+      "termino": "Transferencia de zona DNS (AXFR)",
+      "definicion": "Replicación de los registros de zona de un servidor DNS maestro a uno esclavo. Si no está restringida, permite que cualquier equipo obtenga toda la información del dominio (IPs, servidores, correo). Comando: dig AXFR."
+    },
+    {
+      "termino": "SNMP (Simple Network Management Protocol)",
+      "definicion": "Protocolo de gestión de red para routers, switches e impresoras. Hasta la versión 2 transmitía sin cifrado. Un atacante puede interceptar el tráfico SNMP para conocer los dispositivos de la red, sus modelos y versiones, facilitando la búsqueda de vulnerabilidades y contraseñas por defecto."
+    },
+    {
+      "termino": "Rainbow Tables",
+      "definicion": "Tablas precalculadas de hashes de contraseñas. Permiten encontrar la contraseña original a partir de su hash sin necesidad de calcular en tiempo real. Son muy rápidas pero ocupan mucho espacio."
+    },
+    {
+      "termino": "John the Ripper",
+      "definicion": "Herramienta de cracking de contraseñas incluida en Kali Linux. Permite descifrar hashes de contraseñas mediante ataques de diccionario, fuerza bruta o Rainbow Tables."
+    },
+    {
+      "termino": "Árbol de ataque",
+      "definicion": "Estrategia que organiza los vectores de ataque a explorar en función de la información disponible y el alcance del encargo de auditoría. Define qué pruebas se realizan y en qué orden."
+    },
+    {
+      "termino": "Honeynet",
+      "definicion": "Red de honeypots (sistemas trampa) diseñada para atraer atacantes, desviar ataques del sistema real, y estudiar sus técnicas y vectores de ataque de forma segura y controlada."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-8-fc-001",
+      "pregunta": "¿Cuáles son las tres etapas del análisis de vulnerabilidades según el estándar PTES?",
+      "respuesta": "1. Pruebas (identificar debilidades activa o pasivamente). 2. Validación (confirmar que las vulnerabilidades son reales). 3. Investigación (evaluar el impacto de explotarlas mediante repositorios de exploits)."
+    },
+    {
+      "id": "casi-tema-8-fc-002",
+      "pregunta": "¿Por qué no basta con encontrar una vulnerabilidad en una auditoría?",
+      "respuesta": "Porque hay que demostrarla y explicar su impacto real (qué puede hacer un atacante que la explote: borrar datos, ejecutar código remoto, cifrar información...). Sin esa información la organización no puede priorizar sus esfuerzos de corrección."
+    },
+    {
+      "id": "casi-tema-8-fc-003",
+      "pregunta": "¿Qué hace la herramienta Nikto?",
+      "respuesta": "Escáner automático de vulnerabilidades web. Detecta software desactualizado, configuraciones incorrectas, directorios expuestos, ficheros por defecto de Apache, paneles de administración. Es una herramienta de pruebas activas automáticas."
+    },
+    {
+      "id": "casi-tema-8-fc-004",
+      "pregunta": "¿Qué es CVE y para qué sirve en el análisis de vulnerabilidades?",
+      "respuesta": "Base de datos pública de vulnerabilidades conocidas. Si el auditor identifica la versión exacta de un software (Apache, PHP, Linux...), puede buscar en CVE todas las vulnerabilidades documentadas para esa versión, junto con su severidad y exploits asociados."
+    },
+    {
+      "id": "casi-tema-8-fc-005",
+      "pregunta": "¿Qué es el fuzzing?",
+      "respuesta": "Técnica de análisis de vulnerabilidades que explora exhaustivamente entradas válidas o aleatorias en una aplicación para encontrar posibles fallos de seguridad. Requiere el entorno de depuración de la aplicación."
+    },
+    {
+      "id": "casi-tema-8-fc-006",
+      "pregunta": "¿En qué consiste una inyección SQL?",
+      "respuesta": "Introducir código SQL en un campo de formulario para manipular la consulta a la base de datos. Ejemplo: escribir ' OR '1'='1' -- en un campo de usuario hace que la condición siempre sea verdadera y permite acceder sin contraseña."
+    },
+    {
+      "id": "casi-tema-8-fc-007",
+      "pregunta": "¿Qué tipo de cortafuegos previene la inyección SQL y por qué?",
+      "respuesta": "Un WAF (Web Application Firewall), que opera en la capa 7 (de aplicación). Es el único tipo que puede analizar el contenido de las peticiones HTTP. Un firewall de capa 3 (filtrado de paquetes) no puede prevenir este tipo de ataque."
+    },
+    {
+      "id": "casi-tema-8-fc-008",
+      "pregunta": "¿Cuál es la diferencia entre XSS reflejado y XSS persistente?",
+      "respuesta": "Reflejado: el JavaScript malicioso va en la URL y se ejecuta en el navegador del cliente que visita esa URL. No modifica el servidor. Persistente: el script se almacena en el servidor (base de datos, fichero) y afecta a TODOS los usuarios que accedan a esa página. Más grave."
+    },
+    {
+      "id": "casi-tema-8-fc-009",
+      "pregunta": "¿En qué consiste el ataque CSRF?",
+      "respuesta": "Aprovecha una sesión web activa para ejecutar peticiones no autorizadas en nombre del usuario. El atacante envía un enlace al usuario autenticado; el navegador usa la sesión activa para ejecutar la petición sin pedir credenciales de nuevo."
+    },
+    {
+      "id": "casi-tema-8-fc-010",
+      "pregunta": "¿Qué es el Path Traversal?",
+      "respuesta": "Ataque que navega por el árbol de directorios del servidor a través de la URL usando secuencias '../' para acceder a ficheros fuera del directorio web público. Por ejemplo, llegar a /etc/passwd en un servidor Linux."
+    },
+    {
+      "id": "casi-tema-8-fc-011",
+      "pregunta": "¿Qué es una transferencia de zona DNS y por qué es un riesgo de seguridad?",
+      "respuesta": "Replicación de registros DNS de un servidor maestro a uno esclavo. Si no está restringida, cualquier equipo puede solicitarla y obtener toda la información del dominio: IPs, servidores de correo, configuración. Comando: dig AXFR."
+    },
+    {
+      "id": "casi-tema-8-fc-012",
+      "pregunta": "¿Qué problema de seguridad tenía SNMP hasta la versión 3?",
+      "respuesta": "Transmitía la información sin cifrar. Un atacante que intercepte tráfico SNMP puede conocer los dispositivos de la red, sus modelos y versiones, facilitando la búsqueda de vulnerabilidades y contraseñas por defecto."
+    },
+    {
+      "id": "casi-tema-8-fc-013",
+      "pregunta": "¿Qué son las Rainbow Tables?",
+      "respuesta": "Tablas precalculadas de hashes de contraseñas. Permiten encontrar una contraseña original a partir de su hash buscando directamente en la tabla, sin necesidad de calcular el hash en tiempo real. Son muy rápidas pero ocupan mucho espacio."
+    },
+    {
+      "id": "casi-tema-8-fc-014",
+      "pregunta": "¿Qué diferencia hay entre pruebas activas automáticas y manuales?",
+      "respuesta": "Las automáticas (Nmap, Nikto, Dirb) son rápidas y dan un primer listado de posibles vulnerabilidades. Las manuales verifican si las vulnerabilidades detectadas son reales y explotables. Las manuales son más precisas pero más lentas."
+    },
+    {
+      "id": "casi-tema-8-fc-015",
+      "pregunta": "¿Por qué es tan importante identificar la versión exacta del software en un sistema auditado?",
+      "respuesta": "Porque con la versión exacta basta para buscar en CVE todas las vulnerabilidades documentadas y en ExploitDB los exploits listos para usar. No se necesitan conocimientos avanzados para explotar una vulnerabilidad si ya existe código público para ella."
+    },
+    {
+      "id": "casi-tema-8-fc-016",
+      "pregunta": "¿Es legal hacer un escaneo de puertos sobre un sistema sin autorización?",
+      "respuesta": "No. Es ilegal. El consentimiento previo del propietario es imprescindible. Para practicar de forma legal: laboratorio virtual propio (VirtualBox + máquinas vulnerables), plataformas como TryHackMe o HackTheBox, CTF, o bug bounty programs."
+    },
+    {
+      "id": "casi-tema-8-fc-017",
+      "pregunta": "¿Qué es una honeynet?",
+      "respuesta": "Red de honeypots (sistemas trampa) diseñada para atraer atacantes, desviar ataques del sistema real, y estudiar sus técnicas y vectores de ataque de forma segura y controlada."
+    },
+    {
+      "id": "casi-tema-8-fc-018",
+      "pregunta": "¿Qué es el árbol de ataque?",
+      "respuesta": "Estrategia que organiza los vectores de ataque a explorar en función de la información disponible y el alcance del encargo de auditoría. Define qué pruebas se realizan y en qué orden."
+    },
+    {
+      "id": "casi-tema-8-fc-019",
+      "pregunta": "¿Qué información puede obtenerse mediante la enumeración SMTP?",
+      "respuesta": "Conectándose por Telnet al puerto 25, se pueden enumerar los usuarios de correo del servidor. Como los usuarios de correo suelen coincidir con los del sistema operativo, el atacante obtiene una lista de usuarios válidos para ataques de diccionario."
+    },
+    {
+      "id": "casi-tema-8-fc-020",
+      "pregunta": "¿Qué hace la herramienta Dirb?",
+      "respuesta": "Enumera los directorios y ficheros accesibles dentro de un servidor web, recorriendo el árbol de directorios a través de la URL. Permite descubrir recursos ocultos o no enlazados que pueden ser vectores de ataque."
+    }
+  ]
+}

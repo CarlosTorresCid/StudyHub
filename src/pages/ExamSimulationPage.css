@@ -1,0 +1,137 @@
+.sim-setup-page { padding: 40px; max-width: 800px; }
+
+.sim-setup-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+  padding: 24px 28px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--subject-color, var(--accent));
+}
+.sim-setup-icon { font-size: 40px; flex-shrink: 0; }
+.sim-setup-abrev {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--subject-color, var(--accent));
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.sim-setup-hero h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.sim-setup-hero p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+.sim-no-structure {
+  padding: 36px;
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+.sim-setup-section { margin-bottom: 28px; }
+.sim-setup-section h2 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+
+.sim-structure-list { display: flex; flex-direction: column; gap: 8px; }
+.sim-structure-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.sim-structure-info { flex: 1; }
+.sim-structure-nombre { font-weight: 600; margin-bottom: 4px; }
+.sim-structure-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.sim-penaliza { color: var(--warning); }
+.sim-structure-desc { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.sim-structure-avail {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+.sim-structure-avail.none { background: var(--danger-soft); color: var(--danger); }
+.sim-structure-avail.partial { background: var(--warning-soft); color: var(--warning); }
+.sim-structure-avail.ok { background: var(--success-soft); color: var(--success); }
+
+.sim-config-grid { display: flex; flex-direction: column; gap: 16px; }
+.sim-config-item { display: flex; flex-direction: column; gap: 8px; }
+.sim-config-item label { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+.sim-config-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.sim-setup-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 28px 0; }
+.btn-lg { padding: 14px 28px; font-size: 15px; font-weight: 700; }
+.sim-no-questions { font-size: 13px; color: var(--text-muted); }
+.sim-no-questions a { color: var(--accent); }
+.sim-no-questions a:hover { text-decoration: underline; }
+
+.sim-historial { display: flex; flex-direction: column; gap: 6px; }
+.sim-historial-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+.sim-historial-fecha { color: var(--text-muted); flex: 1; }
+.sim-historial-mode { font-size: 11px; color: var(--text-dim); }
+.sim-historial-pct { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; }
+
+.sim-avail-gap { font-size: 11px; opacity: 0.8; }
+
+.sim-launch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 24px 0;
+}
+@media (max-width: 600px) { .sim-launch-grid { grid-template-columns: 1fr; } }
+
+.sim-launch-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sim-launch-card-parcial { border-style: dashed; }
+
+.sim-launch-card-header { display: flex; align-items: flex-start; gap: 14px; }
+.sim-launch-icon { font-size: 28px; flex-shrink: 0; }
+.sim-launch-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+.sim-launch-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+.sim-launch-blockers { display: flex; flex-direction: column; gap: 4px; }
+.sim-launch-blocker {
+  font-size: 11px;
+  color: var(--warning);
+  background: var(--warning-soft);
+  padding: 2px 8px;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.sim-no-questions { font-size: 13px; color: var(--text-muted); text-align: center; padding: 8px 0; }
+.sim-no-questions a { color: var(--accent); }

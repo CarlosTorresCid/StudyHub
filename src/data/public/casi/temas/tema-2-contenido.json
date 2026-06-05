@@ -1,0 +1,329 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. Planificación en la Gestión de la Seguridad de la Información",
+  "apuntes": {
+    "introduccion": "El Tema 2 trata de cómo se planifica la gestión de la seguridad de la información dentro de una organización. Es la base de todo el SGSI: si no se planifica correctamente, cualquier medida posterior será incompleta o mal orientada.\n\nLa planificación es la **primera y más crítica fase** de un sistema de gestión de seguridad de la información. Si se pasan por alto riesgos durante la planificación, el coste de remediarlo después es mucho mayor. Un incidente que podría haberse prevenido con una buena planificación puede traducirse en millones de euros de pérdidas directas, costes de recuperación y daño reputacional.\n\nEste tema introduce el vocabulario fundamental del análisis de riesgos (activo, amenaza, vulnerabilidad, impacto, riesgo), los pasos de planificación del SGSI según la ISO 27001:2022, la clasificación de la información, los roles de gestión y la jerarquía documental de la seguridad.",
+    "secciones": [
+      {
+        "titulo": "Vocabulario fundamental del análisis de riesgos",
+        "contenido": "Antes de planificar, hay que dominar cinco conceptos clave que el profesor señaló explícitamente como probable contenido de examen. Es fundamental no solo saber definirlos, sino también diferenciarlos entre sí.\n\n**Activo**: cualquier elemento que posee valor para la organización y que es necesario para su correcto funcionamiento, requiriendo protección. Puede ser información, software, hardware, personas o servicios (ya visto en el Tema 1).\n\n**Amenaza**: causa *potencial* de un incidente no deseado que puede afectar a un activo. Es un agente **externo** a la organización que no podemos controlar directamente. Ejemplos: un grupo de hackers que decide atacar, un terremoto, un fallo eléctrico. La amenaza existe independientemente de lo que hagamos.\n\n**Vulnerabilidad**: debilidad interna de un activo o de un control que puede ser explotada por una amenaza. Es **interna** y, por tanto, sí podemos corregirla. Ejemplos: un servidor sin parchear, una contraseña débil, un puerto de red innecesariamente abierto. El software que explota una vulnerabilidad se llama *exploit*.\n\n**Impacto**: la materialización de una amenaza. Es el daño real producido cuando la amenaza aprovecha una vulnerabilidad. Ejemplo: 'el ransomware cifró todos los ficheros del servidor' — eso es el impacto.\n\n**Riesgo**: la probabilidad de que una amenaza explote una vulnerabilidad y cause un impacto sobre un activo. El riesgo solo existe cuando se dan simultáneamente tres condiciones:\n- Un activo (algo que vale la pena atacar).\n- Una amenaza (alguien o algo capaz de causar daño).\n- Una vulnerabilidad (una debilidad que la amenaza puede aprovechar).\n\nSi falta cualquiera de las tres, no hay riesgo. Un servidor perfectamente actualizado y sin vulnerabilidades no tiene riesgo aunque exista la amenaza.\n\nLa distinción más importante para el examen: amenaza vs. vulnerabilidad.\n- Amenaza: viene de fuera, no la controlamos.\n- Vulnerabilidad: está dentro, sí podemos corregirla."
+      },
+      {
+        "titulo": "El ciclo de vida del sistema (SDLC) y la seguridad desde el diseño",
+        "contenido": "Cualquier sistema de información pasa por una serie de etapas desde que se concibe hasta que se retira. Este ciclo se denomina **SDLC** (*System Development Life Cycle*).\n\nLas cinco etapas del SDLC son:\n\n**Iniciación**: se definen las expectativas, los requisitos y los objetivos del sistema. Desde esta fase hay que tener en cuenta el alcance de la seguridad, la política de seguridad y los objetivos de seguridad que va a cubrir el sistema.\n\n**Desarrollo y adquisición**: se diseña, se elige la tecnología, se desarrolla el código o se adquiere el software. En esta etapa hay que considerar los activos que el sistema va a generar o manejar, las amenazas que le pueden afectar, los riesgos a los que estará sometido y los controles tecnológicos que se seleccionarán para protegerlo.\n\n**Implementación**: el sistema se pone en marcha en el entorno real. Se tienen en cuenta los riesgos identificados y se especifican los medios para mitigarlos o corregirlos. Las pruebas de implantación verifican no solo que el sistema funciona correctamente, sino también que las medidas de seguridad previstas están operativas.\n\n**Operación y mantenimiento**: el sistema funciona en el día a día. Cuando se producen cambios (actualizaciones, nuevas funcionalidades), se reevalúan los riesgos y se comprueba si siguen siendo los mismos o aparecen nuevos. Pueden ser necesarios nuevos controles.\n\n**Terminación**: el sistema se retira. Hay que gestionar de forma segura la eliminación de datos y software de los soportes para que no sean reutilizados por terceros, hacer una revisión final del inventario de activos y formalizar el cierre de la seguridad del sistema.\n\nEl principio actual que rige este proceso es la **seguridad desde el diseño** (*security by design*): la seguridad debe estar integrada desde el primer momento en cada etapa del SDLC, no añadirse como un parche al final. Es más barato, más efectivo y más coherente con la ISO 27001:2022."
+      },
+      {
+        "titulo": "El ciclo PDCA — Mejora continua del SGSI",
+        "contenido": "La mejora continua del SGSI se gestiona con el ciclo **PDCA** (*Plan, Do, Check, Act*), también conocido como ciclo de Deming. Este ciclo no es exclusivo de la seguridad, pero se aplica de forma especialmente rigurosa en la gestión de la seguridad de la información.\n\n**Planificar (Plan)**: definir objetivos de seguridad, identificar riesgos, planificar los controles a implantar. Se traduce en la política de seguridad y sus documentos derivados.\n\n**Hacer (Do)**: implementar los controles planificados, realizar sesiones de formación al personal, desplegar configuraciones de seguridad y registrar que los empleados han recibido y conocen la política.\n\n**Comprobar (Check)**: medir si los controles funcionan correctamente a través de métricas e indicadores. Detectar incumplimientos. Realizar auditorías internas de cumplimiento, que deberían ejecutarse al menos cada dos años.\n\n**Actuar (Act)**: corregir las no conformidades encontradas. Actualizar políticas, controles y procedimientos cuando se detecta que algo no funciona como debería o cuando cambia el entorno (nuevas amenazas, cambios en la organización, cambios regulatorios).\n\nPara que la auditoría valide el ciclo PDCA, no basta con haber completado las fases: hay que poder *demostrar* que se ha hecho. El auditor verificará que el ciclo está documentado con fecha, responsable y evidencias de ejecución."
+      },
+      {
+        "titulo": "Pasos de planificación del SGSI según la ISO 27001:2022",
+        "contenido": "La ISO 27001:2022 establece una secuencia de pasos para planificar la seguridad. Es importante seguir la versión 2022, ya que el temario PDF hace referencia a la versión 2013, que está derogada.\n\nLos pasos son:\n\n**1. Alcance del SGSI**: decidir hasta dónde llega el sistema de gestión. ¿Qué sistemas, procesos y unidades organizativas están incluidos? Este es el primer paso, no el inventario.\n\n**2. Política de seguridad**: redactar el documento estratégico que fija qué información es confidencial, quién puede acceder a qué, cuáles son las responsabilidades y los compromisos de la organización. Debe estar aprobada y firmada por la alta dirección.\n\n**3. Inventario de activos**: listar todo lo que hay que proteger: datos, personas, sistemas, servicios, instalaciones.\n\n**4. Catálogo de amenazas**: identificar las amenazas más probables o de mayor impacto para esta organización concreta. El catálogo varía según el tipo de organización.\n\n**5. Valoración de amenazas**: puntuar cada amenaza por probabilidad e impacto.\n\n**6. Identificación de vulnerabilidades**: encontrar las debilidades internas que las amenazas podrían explotar.\n\n**7. Análisis de riesgos**: combinar activos + amenazas + vulnerabilidades para calcular los riesgos reales.\n\n**8. Evaluación de riesgos**: priorizar los riesgos por nivel de impacto. ¿Cuál afrontamos primero?\n\n**9. Plan de tratamiento de riesgos**: decidir cómo gestionar cada riesgo (mitigar, transferir, evitar o asumir).\n\n**10. Declaración de aplicabilidad (SoA)**: listar todos los controles que se van a implantar y justificar los que se han descartado.\n\n**11. Objetivos de seguridad**: fijar metas concretas y medibles para el período.\n\n**12. Planificación de cambios** *(nuevo en la versión 2022)*: gestionar los cambios del SGSI de forma controlada. Este paso no existía en la versión 2013 del temario.\n\nError frecuente de examen: el primer paso NO es el inventario de activos, sino la definición del ALCANCE."
+      },
+      {
+        "titulo": "Clasificación de la información",
+        "contenido": "Una vez identificados los activos, hay que clasificar la información según su nivel de sensibilidad. La clasificación determina qué controles de acceso se aplican a cada tipo de información y es la base para los planes de continuidad de negocio y los planes de recuperación ante desastres.\n\n**Niveles de clasificación en el sector público** (de menor a mayor sensibilidad):\n- No clasificada o pública: información accesible para cualquier persona.\n- Sensible pero no clasificada: información interna de uso cotidiano que no debe distribuirse externamente, pero cuya filtración no causaría un daño grave.\n- Confidencial: información interna cuya divulgación podría causar daño a la organización o a terceros.\n- Secreta: su divulgación causaría un grave daño a la seguridad nacional.\n- Alto secreto: su divulgación causaría un daño excepcional y grave a la seguridad.\n\n**Niveles de clasificación en el sector privado** (de menor a mayor):\n- Pública: cualquiera puede acceder. Daño mínimo si se filtra.\n- Sensible: información interna que no debe salir pero sin impacto crítico. Ej: procedimientos operativos.\n- Privada: su acceso no autorizado causaría un coste económico significativo. Ej: datos de empleados, nóminas.\n- Confidencial: nivel máximo. Su pérdida causaría graves consecuencias legales o económicas. Ej: contratos, propiedad intelectual, datos financieros.\n\n**¿Quién clasifica la información?** El propietario de la información, que es el director o responsable del departamento que genera y usa esa información. No los usuarios, ni la dirección general. La razón es que son ellos quienes conocen la información y su impacto real en el negocio.\n\nUna vez clasificada, hay que asignar roles de acceso por usuario y aplicar el principio de mínimo privilegio.\n\n**Plazo de notificación ante violaciones de datos personales**: según el Reglamento General de Protección de Datos (RGPD), hay que notificar a la autoridad de control competente en un máximo de **72 horas** desde que se tiene conocimiento de la violación."
+      },
+      {
+        "titulo": "Roles en la gestión de la información",
+        "contenido": "Para gestionar la información con seguridad, hay tres roles claramente diferenciados:\n\n**Propietario de la información**: es el director del departamento o la persona ejecutiva responsable de esa información. Es el responsable final a nivel empresarial y jurídico. Sus responsabilidades son: establecer los criterios de clasificación, definir los niveles de acceso, aceptar los riesgos residuales y asegurarse de que se aplican los controles adecuados.\n\n**Supervisor (o custodio)**: es el responsable de seguridad o el responsable de TI. Trabaja por delegación del propietario. Sus responsabilidades son: implementar los controles técnicos, gestionar las copias de seguridad, controlar los accesos y reportar los incidentes al propietario. En caso de datos personales, también informará al Delegado de Protección de Datos.\n\n**Usuario**: cualquier empleado o persona externa que usa la información en su trabajo. Accede a la información según los privilegios que le han sido asignados (principio de mínimo privilegio), respeta las políticas de uso y notifica cualquier anomalía que detecte.\n\n**Principio de mínimo privilegio**: cada usuario o sistema solo tiene acceso a la información y recursos estrictamente necesarios para llevar a cabo su tarea específica, y nada más. Aplica tanto a personas como a aplicaciones. Este principio:\n- Limita el daño que puede causar una cuenta comprometida.\n- Reduce el riesgo de accesos no autorizados internos.\n- Es uno de los puntos que el auditor comprueba expresamente."
+      },
+      {
+        "titulo": "Jerarquía documental: políticas, estándares, directrices y procedimientos",
+        "contenido": "La tecnología sola no garantiza la seguridad. Hacen falta documentos formales que definan qué se puede hacer, cómo y bajo qué condiciones. La jerarquía documental de la seguridad tiene cuatro niveles:\n\n**Política de seguridad (nivel estratégico)**: es el documento más general y de más alto nivel. Lo aprueba y firma la alta dirección, porque si no tiene el respaldo de la dirección nadie le hace caso. Define los objetivos generales de seguridad, los compromisos de la organización y quiénes son los responsables. Debe ser breve, claro y comprensible para todos. Tiene que estar alineada con el plan de negocio. Hay tres tipos:\n- Política empresarial o de alto nivel: define objetivos globales para toda la organización.\n- Políticas de asuntos específicos: regulan áreas concretas (contraseñas, acceso remoto, dispositivos móviles, correo electrónico, redes sociales).\n- Políticas de sistemas específicos: cómo debe estar configurado un sistema concreto (el servidor web, la base de datos, el sistema operativo).\n\n**Estándar (nivel táctico, obligatorio)**: documento técnico obligatorio que uniformiza el uso de tecnologías dentro de la organización. Elimina la ambigüedad operativa. Ejemplos: 'todas las contraseñas deben tener mínimo 12 caracteres y renovarse cada 90 días', 'los dispositivos con el puerto 23 (Telnet, sin cifrado) no deben estar habilitados en producción'.\n\n**Directriz (nivel táctico, recomendación)**: similar al estándar pero sin carácter obligatorio. Orienta sobre cómo desarrollar e implementar los estándares. Ejemplos: 'se recomienda el uso de un gestor de contraseñas', 'guía de buenas prácticas para el hardening de servidores', 'guía de uso seguro del correo electrónico'.\n\n**Procedimiento (nivel operativo)**: conjunto detallado de pasos a ejecutar para implantar políticas, estándares y directrices. Ejemplos: checklist de alta/baja/modificación de usuarios, protocolo de acción cuando un usuario detecta que su equipo está infectado, guía de configuración del cliente VPN.\n\nLas normas externas (ISO 27001, Esquema Nacional de Seguridad, RGPD, NIST SP 800) actúan como marco de referencia por encima de toda la jerarquía interna. Algunas son de obligado cumplimiento (RGPD, ENS para administraciones públicas) y otras son voluntarias pero recomendadas (ISO 27001)."
+      },
+      {
+        "titulo": "Elaboración y aprobación de la política de seguridad",
+        "contenido": "Para elaborar una política de seguridad se siguen estos pasos:\n\n**1. Análisis de contexto**: el responsable de seguridad y la dirección identifican el tipo de negocio, los activos críticos y los requisitos legales aplicables (RGPD, ENS, normativa sectorial). También se revisan los incidentes previos y los riesgos conocidos.\n\n**2. Establecer objetivos**: determinar qué se quiere proteger, a qué nivel y con qué prioridad, derivado directamente del análisis de riesgos.\n\n**3. Redacción**: la política es un documento estratégico, es decir, de alto nivel, breve, claro y comprensible. Incluye el alcance, las responsabilidades y los compromisos. No es el momento de especificar tecnologías concretas.\n\n**4. Revisión**: todos los departamentos afectados (legal, recursos humanos, operaciones) revisan el documento y comprueban que es coherente con la normativa y con el plan de negocio.\n\n**5. Aprobación por la dirección**: la política la aprueba y firma el nivel más alto de la organización. Sin este respaldo, nadie la cumplirá. En entidades públicas, debería comunicarla el concejal, el alcalde o el responsable equivalente, no el departamento de informática.\n\n**6. Difusión y aceptación**: se comunica a toda la organización. Los empleados deben firmar que la han recibido y conocen. No es necesario que la acepten en el sentido de estar de acuerdo, basta con que conste que la conocen.\n\n**7. Revisión periódica**: mediante el ciclo PDCA, se revisa la política al menos anualmente para comprobar si han cambiado los riesgos, el negocio o la normativa."
+      },
+      {
+        "titulo": "Gestión del riesgo: análisis cuantitativo",
+        "contenido": "La gestión del riesgo tiene como objetivo cuantificar cuánto daño puede causar cada amenaza para decidir qué hacer con ese riesgo. El **análisis cuantitativo** asigna valores económicos concretos a los riesgos.\n\nConceptos y fórmulas clave:\n\n**Valor del activo (AV)**: valor económico del activo que se está analizando.\n\n**Factor de exposición (EF)**: porcentaje del activo que se perdería si la amenaza se materializara (de 0% a 100%).\n\n**Pérdida por incidente único (SLE)**: lo que costaría económicamente si ocurriera el incidente una sola vez.\n- Fórmula: SLE = AV × EF\n\n**Tasa anual de ocurrencia (ARO)**: con qué frecuencia o probabilidad se espera que ocurra ese incidente en un año. Si ocurre una vez cada dos años, ARO = 0,5.\n\n**Pérdida anual esperada (ALE)**: lo que se pierde de media cada año por ese riesgo.\n- Fórmula: ALE = SLE × ARO\n\nEl ALE sirve para decidir si merece la pena aplicar una contramedida: si el coste de la contramedida es inferior al ALE que reduce, el beneficio neto es positivo y conviene implementarla.\n\nEjemplo numérico: un servidor bancario vale 500.000 EUR. La amenaza es un ransomware. EF = 60% (cifraría el 60% de la información). SLE = 500.000 × 0,6 = 300.000 EUR. ARO = 0,4 (probabilidad del 40% anual). ALE = 300.000 × 0,4 = 120.000 EUR al año. Si la contramedida cuesta 18.000 EUR/año y reduce el ALE a 12.000 EUR, el beneficio neto es 90.000 EUR/año (120.000 - 12.000 - 18.000). Merece la pena implementarla.\n\nEl riesgo que queda después de aplicar las contramedidas se llama **riesgo residual**. Siempre queda algo, la seguridad perfecta no existe."
+      },
+      {
+        "titulo": "Gestión del riesgo: análisis cualitativo y metodologías",
+        "contenido": "Cuando no es posible cuantificar el valor de los activos en euros (o no es práctico hacerlo), se usa el **análisis cualitativo**. En lugar de euros, utiliza escalas subjetivas: alto/medio/bajo, o matrices de colores (rojo/naranja/verde).\n\nEl procedimiento es:\n- Para cada riesgo se valora el **impacto** si se materializa: alto, medio o bajo.\n- Se valora la **probabilidad** de que ocurra: alta, media o baja.\n- Se combina en una **matriz de riesgo** para clasificar el riesgo como crítico, alto, medio o bajo.\n\nEjemplo: un riesgo con impacto alto pero probabilidad baja puede clasificarse como medio; un riesgo con impacto medio pero probabilidad alta puede clasificarse como alto.\n\nEl análisis cualitativo llega a un nivel de riesgo ('alto' o 'crítico'), pero no dice cuánto dinero. El cuantitativo dice: 'este riesgo nos va a costar 96.000 euros al año'. Esa es la diferencia fundamental.\n\n**Metodologías de análisis de riesgo**:\n- **Magerit**: metodología del Centro Criptológico Nacional para administraciones públicas españolas. Alineada con el ENS y la ISO 27001. Cubre exhaustivamente activos, amenazas y riesgos. Tiene tres libros: el método, el catálogo de elementos y la guía de técnicas. Su herramienta asociada es PILAR.\n- **OCTAVE Allegro**: metodología orientada a activos, desarrollada por el CERT.\n- **CRAMM**: metodología del gobierno del Reino Unido.\n- **ISO/IEC 27005**: norma internacional de referencia para la gestión de riesgos en los SGSI.\n\nPara el examen basta con saber que estas metodologías existen y a qué categoría pertenecen. No es necesario conocer sus detalles internos."
+      },
+      {
+        "titulo": "Tratamiento del riesgo residual",
+        "contenido": "Una vez calculado el riesgo, hay que decidir qué hacer con él. Hay cuatro opciones:\n\n**Mitigar**: implementar controles para reducir la probabilidad de que ocurra o el impacto si ocurre. Es la opción más habitual. Los controles pueden ser preventivos (evitar que suceda), detectivos (detectar que está ocurriendo) o correctivos (minimizar el daño una vez ha ocurrido).\n\n**Transferir**: pasarle el riesgo a otra entidad. El ejemplo más habitual es contratar un ciberseguro. Si ocurre el incidente, la aseguradora se hace cargo de los costes.\n\n**Evitar**: eliminar la actividad que genera el riesgo. Si la actividad no es esencial, puede ser más inteligente simplemente no realizarla.\n\n**Asumir (aceptar)**: aceptar que el riesgo puede materializarse y asumir el impacto. Siempre debe documentarse formalmente: la organización debe dejar constancia de que ha analizado el riesgo y ha tomado la decisión consciente de asumirlo.\n\nTras aplicar las contramedidas elegidas, siempre queda un **riesgo residual**. La seguridad absoluta no existe. Lo que el auditor comprueba es que ese riesgo residual ha sido evaluado y tratado formalmente (mitigado, transferido o asumido documentalmente)."
+      },
+      {
+        "titulo": "El equilibrio entre seguridad y operatividad",
+        "contenido": "Uno de los principios más importantes del diseño de un SGSI es que la seguridad no puede maximizarse sin límite. Existe una tensión permanente entre aumentar la seguridad y mantener la operatividad de la organización.\n\nA más controles y restricciones de seguridad, generalmente más dificultad para operar con fluidez. Si se exige un proceso de autenticación de cinco pasos para acceder al correo, la empresa puede ser más segura en teoría, pero los empleados perderán tiempo y terminarán buscando formas de saltarse los controles (contraseñas en post-its, cuentas compartidas...).\n\nEste equilibrio también explica por qué no tiene sentido obligar a los usuarios a cambiar la contraseña cada mes: el resultado práctico es que terminan usando contraseñas predecibles (enero_2026, febrero_2026) o escribiéndolas debajo del teclado. Sería más efectivo exigir una contraseña más robusta con una política de renovación razonable (por ejemplo, cada 90 días).\n\nEl término correcto para describir este equilibrio es *operatividad*, no *usabilidad* (que hace referencia a la facilidad de uso de una interfaz). La operatividad mide la capacidad de la organización para seguir funcionando con normalidad mientras aplica medidas de seguridad.\n\nEl auditor verificará que la política de seguridad no compromete la capacidad operativa de la organización: si la política es tan restrictiva que impide a los empleados hacer su trabajo, simplemente no se cumplirá."
+      },
+      {
+        "titulo": "Lo que comprueba el auditor en el Tema 2",
+        "contenido": "El auditor de seguridad, al revisar los elementos de este tema, comprobará específicamente:\n\n**Sobre la política de seguridad**:\n- Que existe la política de seguridad y está aprobada y firmada por la alta dirección (no basta un documento sin firmar).\n- Que existe coherencia interna entre la política y los estándares y directrices que derivan de ella.\n- Que la política está alineada con el plan de negocio de la empresa (no puede impedir que la empresa funcione).\n- Que se aplica el principio de mínimo privilegio en todos los accesos.\n- Que la información está correctamente clasificada y actualizada.\n- Que hay evidencia de que la política se revisa periódicamente (al menos anualmente).\n- Que el ciclo PDCA está documentado con fechas, responsables y evidencias.\n- Que hay un registro de comunicación y aceptación de la política por parte del personal.\n\n**Sobre el análisis de riesgos**:\n- Que existe un análisis de riesgos documentado y actualizado.\n- Que se ha utilizado una metodología reconocida y se ha aplicado con rigor.\n- Que hay un catálogo de activos actualizado.\n- Que existe un tratamiento formal del riesgo residual (aunque sea simplemente que se asume).\n- Que hay una revisión periódica del análisis.\n\nLa regla de oro de la auditoría en este contexto: no basta con cumplir, hay que poder demostrar que se cumple. La carga de la prueba la tiene el auditado, no el auditor."
+      }
+    ]
+  },
+  "resumen": [
+    "La planificación es la primera y más crítica fase de un SGSI: si se pasan por alto riesgos en esta fase, el coste de remediarlos después es mucho mayor.",
+    "Activo: elemento con valor para la organización. Amenaza: causa potencial externa, no controlable. Vulnerabilidad: debilidad interna, sí controlable. Impacto: daño materializado. Riesgo: probabilidad de que una amenaza explote una vulnerabilidad sobre un activo.",
+    "Solo hay riesgo cuando se dan simultáneamente tres condiciones: un activo, una amenaza y una vulnerabilidad.",
+    "El software que explota una vulnerabilidad se llama exploit.",
+    "El SDLC (ciclo de vida de los sistemas) tiene 5 etapas: Iniciación, Desarrollo/Adquisición, Implementación, Operación/Mantenimiento y Terminación. La seguridad debe integrarse en todas ellas (seguridad desde el diseño).",
+    "El ciclo PDCA (Planificar, Hacer, Comprobar, Actuar) es el mecanismo de mejora continua del SGSI. El auditor verificará que está documentado con fecha, responsable y evidencias.",
+    "Los pasos de planificación del SGSI según ISO 27001:2022 son 12. El primero es el ALCANCE, no el inventario. El paso 12 (Planificación de Cambios) es nuevo en la versión 2022.",
+    "La política de seguridad debe ser aprobada y firmada por la alta dirección. Sin ese respaldo, nadie la cumplirá.",
+    "Jerarquía documental: Política (estratégica) → Estándares (obligatorios) → Directrices (recomendaciones) → Procedimientos (operativos).",
+    "La diferencia clave entre estándar y directriz: el estándar es obligatorio, la directriz es una recomendación.",
+    "Los niveles de clasificación en el sector privado son: Pública, Sensible, Privada y Confidencial.",
+    "Quien clasifica la información es el propietario (director del departamento), no los usuarios ni la dirección general.",
+    "Los tres roles en la gestión de la información son: Propietario (responsable final y jurídico), Supervisor (implementa controles) y Usuario (accede con mínimo privilegio).",
+    "Principio de mínimo privilegio: cada usuario solo accede a lo estrictamente necesario para su trabajo.",
+    "Análisis cuantitativo de riesgos: SLE = AV × EF; ALE = SLE × ARO. El ALE permite comparar el coste del riesgo con el coste de la contramedida.",
+    "Análisis cualitativo: usa escalas alto/medio/bajo en lugar de euros. Es menos preciso pero más rápido.",
+    "Tratamiento del riesgo: Mitigar, Transferir, Evitar o Asumir. Siempre queda un riesgo residual que debe tratarse formalmente.",
+    "El equilibrio entre seguridad y operatividad es fundamental: un SGSI excesivamente restrictivo hará que los empleados busquen formas de saltarse los controles.",
+    "El RGPD obliga a notificar las violaciones de datos personales a la autoridad de control en un máximo de 72 horas."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Activo (en el contexto del análisis de riesgos)",
+      "definicion": "Cualquier elemento físico, de información, servicio o persona que posee valor para la organización y es necesario para su correcto funcionamiento, requiriendo protección."
+    },
+    {
+      "termino": "Amenaza",
+      "definicion": "Causa potencial de un incidente no deseado que puede afectar a un activo. Es un agente EXTERNO que no podemos controlar. Existe independientemente de nuestras acciones."
+    },
+    {
+      "termino": "Vulnerabilidad",
+      "definicion": "Debilidad interna de un activo o control que puede ser explotada por una amenaza. Es INTERNA y sí podemos corregirla. Ejemplos: software sin parchear, contraseña débil."
+    },
+    {
+      "termino": "Exploit",
+      "definicion": "Software que aprovecha y explota una vulnerabilidad de un sistema para causar daño o ganar acceso no autorizado."
+    },
+    {
+      "termino": "Impacto",
+      "definicion": "La materialización de una amenaza. Es el daño real producido cuando una amenaza aprovecha una vulnerabilidad. Afecta a las dimensiones de la Tríada CID del activo afectado."
+    },
+    {
+      "termino": "Riesgo",
+      "definicion": "Probabilidad de que una amenaza explote una vulnerabilidad y cause un impacto sobre un activo. Solo existe si se dan simultáneamente: un activo + una amenaza + una vulnerabilidad."
+    },
+    {
+      "termino": "SDLC (System Development Life Cycle)",
+      "definicion": "Ciclo de vida de un sistema de información: Iniciación, Desarrollo/Adquisición, Implementación, Operación/Mantenimiento y Terminación. La seguridad debe estar integrada en todas las etapas."
+    },
+    {
+      "termino": "Seguridad desde el diseño (Security by Design)",
+      "definicion": "Principio que establece que la seguridad debe integrarse en cada etapa del ciclo de vida de un sistema desde el primer momento, no añadirse como un añadido posterior."
+    },
+    {
+      "termino": "Ciclo PDCA",
+      "definicion": "Plan, Do, Check, Act. Ciclo de mejora continua del SGSI: Planificar objetivos y controles → Implementarlos → Comprobar que funcionan → Actuar para corregir lo que falla."
+    },
+    {
+      "termino": "Principio de mínimo privilegio",
+      "definicion": "Cada usuario o sistema solo tiene acceso a los recursos estrictamente necesarios para llevar a cabo su tarea específica. Aplica tanto a personas como a aplicaciones."
+    },
+    {
+      "termino": "Política de seguridad",
+      "definicion": "Pronunciamiento de la alta dirección sobre los objetivos de seguridad de la información. Documento estratégico, de alto nivel y general. Debe estar aprobada y firmada por la dirección para tener autoridad."
+    },
+    {
+      "termino": "Estándar (de seguridad interno)",
+      "definicion": "Documento técnico de carácter OBLIGATORIO que uniformiza el uso de tecnologías y prácticas dentro de la organización. Diferencia con la directriz: el estándar es obligatorio, la directriz es recomendación."
+    },
+    {
+      "termino": "Directriz",
+      "definicion": "Recomendación no obligatoria que orienta sobre cómo implementar los estándares. Buenas prácticas que se sugieren pero no se imponen."
+    },
+    {
+      "termino": "Procedimiento",
+      "definicion": "Conjunto detallado de pasos operativos a seguir para implantar políticas, estándares y directrices. Es el nivel más concreto y práctico de la jerarquía documental."
+    },
+    {
+      "termino": "Propietario de la información",
+      "definicion": "Director o responsable del departamento que genera y usa la información. Responsable final a nivel empresarial y jurídico. Establece los criterios de clasificación y acepta los riesgos residuales."
+    },
+    {
+      "termino": "Declaración de aplicabilidad (SoA)",
+      "definicion": "Documento que lista todos los controles de seguridad que la organización va a implantar y justifica los que ha descartado. Es el documento central que revisa la auditoría."
+    },
+    {
+      "termino": "SLE (Single Loss Expectancy)",
+      "definicion": "Pérdida esperada por incidente único. Fórmula: SLE = Valor del activo (AV) × Factor de exposición (EF). Expresa el coste económico si el incidente ocurre una sola vez."
+    },
+    {
+      "termino": "ARO (Annual Rate of Occurrence)",
+      "definicion": "Tasa anual de ocurrencia. Frecuencia o probabilidad de que un incidente ocurra en un año. Si ocurre una vez cada dos años, ARO = 0,5."
+    },
+    {
+      "termino": "ALE (Annual Loss Expectancy)",
+      "definicion": "Pérdida anual esperada. Fórmula: ALE = SLE × ARO. Expresa cuánto dinero se pierde de media cada año por ese riesgo. Sirve para comparar con el coste de una contramedida."
+    },
+    {
+      "termino": "Riesgo residual",
+      "definicion": "El riesgo que queda después de aplicar las contramedidas. Nunca es cero: la seguridad perfecta no existe. Debe ser evaluado y tratado formalmente (mitigado, transferido o asumido)."
+    },
+    {
+      "termino": "Magerit",
+      "definicion": "Metodología de análisis y gestión de riesgos para la Administración Pública Española. Desarrollada por el Centro Criptológico Nacional. Su herramienta asociada es PILAR."
+    },
+    {
+      "termino": "MDM (Mobile Device Management)",
+      "definicion": "Software de gestión de dispositivos móviles. Permite gestionar de forma centralizada los dispositivos móviles corporativos: instalar/desinstalar aplicaciones, bloquearlos, localizarlos o borrarlos de forma remota."
+    },
+    {
+      "termino": "Trade-off seguridad/operatividad",
+      "definicion": "Equilibrio que debe buscarse al diseñar un SGSI. A más seguridad, generalmente menos comodidad operativa. Un sistema excesivamente seguro puede volverse inoperable y llevar a que los usuarios busquen formas de saltarse los controles."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-2-fc-001",
+      "pregunta": "¿Qué es una amenaza en el análisis de riesgos y en qué se diferencia de una vulnerabilidad?",
+      "respuesta": "La amenaza es una causa potencial EXTERNA de incidente que no podemos controlar (ej: un hacker). La vulnerabilidad es una debilidad INTERNA que sí podemos corregir (ej: software sin parchear)."
+    },
+    {
+      "id": "casi-tema-2-fc-002",
+      "pregunta": "¿Qué tres condiciones deben darse simultáneamente para que exista riesgo?",
+      "respuesta": "Un activo (algo que vale la pena atacar) + una amenaza (alguien o algo capaz de causar daño) + una vulnerabilidad (una debilidad que la amenaza puede aprovechar). Si falta cualquiera de las tres, no hay riesgo."
+    },
+    {
+      "id": "casi-tema-2-fc-003",
+      "pregunta": "¿Qué es el impacto y en qué se diferencia del riesgo?",
+      "respuesta": "El impacto es el daño real producido cuando la amenaza YA se ha materializado. El riesgo es la PROBABILIDAD de que ocurra. El impacto es la consecuencia; el riesgo es la posibilidad."
+    },
+    {
+      "id": "casi-tema-2-fc-004",
+      "pregunta": "¿Cómo se llama el software que explota una vulnerabilidad?",
+      "respuesta": "Exploit."
+    },
+    {
+      "id": "casi-tema-2-fc-005",
+      "pregunta": "¿Cuáles son las 5 etapas del SDLC (ciclo de vida de un sistema de información)?",
+      "respuesta": "Iniciación, Desarrollo/Adquisición, Implementación, Operación/Mantenimiento y Terminación."
+    },
+    {
+      "id": "casi-tema-2-fc-006",
+      "pregunta": "¿Qué establece el principio de 'seguridad desde el diseño'?",
+      "respuesta": "Que la seguridad debe integrarse en cada etapa del SDLC desde el primer momento, no añadirse como un elemento externo y posterior al sistema."
+    },
+    {
+      "id": "casi-tema-2-fc-007",
+      "pregunta": "¿Qué significa PDCA y cuáles son sus cuatro fases?",
+      "respuesta": "Plan, Do, Check, Act. Planificar (definir objetivos y controles) → Hacer (implementarlos) → Comprobar (verificar que funcionan) → Actuar (corregir lo que falla)."
+    },
+    {
+      "id": "casi-tema-2-fc-008",
+      "pregunta": "¿Cuál es el PRIMER paso de la planificación del SGSI según la ISO 27001:2022?",
+      "respuesta": "La definición del ALCANCE del SGSI. No el inventario de activos (que es el paso 3)."
+    },
+    {
+      "id": "casi-tema-2-fc-009",
+      "pregunta": "¿Qué paso nuevo introdujo la ISO 27001:2022 que no existía en la versión 2013?",
+      "respuesta": "La Planificación de Cambios (paso 12): gestionar los cambios del SGSI de forma controlada."
+    },
+    {
+      "id": "casi-tema-2-fc-010",
+      "pregunta": "¿Qué es la Declaración de Aplicabilidad (SoA)?",
+      "respuesta": "Documento que lista todos los controles de seguridad que la organización va a implantar y justifica los que ha descartado. Es el paso 10 de la planificación y el documento central de la auditoría."
+    },
+    {
+      "id": "casi-tema-2-fc-011",
+      "pregunta": "¿Quién debe clasificar la información y por qué?",
+      "respuesta": "El propietario de la información (director del departamento), porque es quien conoce esa información y puede valorar el impacto real que tendría una brecha. No los usuarios ni la dirección general."
+    },
+    {
+      "id": "casi-tema-2-fc-012",
+      "pregunta": "¿Cuáles son los 4 niveles de clasificación de la información en el sector privado?",
+      "respuesta": "Pública (cualquiera puede acceder), Sensible (interna sin impacto crítico), Privada (acceso no autorizado con coste económico significativo) y Confidencial (graves consecuencias legales/económicas)."
+    },
+    {
+      "id": "casi-tema-2-fc-013",
+      "pregunta": "¿Cuáles son los 3 roles en la gestión de la información y qué hace cada uno?",
+      "respuesta": "Propietario (director del departamento, responsable final y jurídico: clasifica y acepta riesgos), Supervisor (responsable de TI: implementa controles) y Usuario (accede con mínimo privilegio y notifica anomalías)."
+    },
+    {
+      "id": "casi-tema-2-fc-014",
+      "pregunta": "¿En qué consiste el principio de mínimo privilegio?",
+      "respuesta": "Cada usuario o sistema solo tiene acceso a los recursos estrictamente necesarios para llevar a cabo su tarea. Aplica tanto a personas como a aplicaciones."
+    },
+    {
+      "id": "casi-tema-2-fc-015",
+      "pregunta": "¿Cuál es la diferencia entre un estándar y una directriz en la jerarquía documental de seguridad?",
+      "respuesta": "El estándar es OBLIGATORIO (impone reglas técnicas concretas). La directriz es una RECOMENDACIÓN (orienta sobre buenas prácticas pero no es de cumplimiento obligatorio)."
+    },
+    {
+      "id": "casi-tema-2-fc-016",
+      "pregunta": "¿Cuáles son los 4 documentos de la jerarquía documental de seguridad, de mayor a menor nivel?",
+      "respuesta": "Política (estratégica, de alto nivel) → Estándares (obligatorios, técnicos) → Directrices (recomendaciones) → Procedimientos (pasos operativos detallados)."
+    },
+    {
+      "id": "casi-tema-2-fc-017",
+      "pregunta": "¿Para qué sirve la Política de seguridad de alto nivel? ¿Quién la aprueba?",
+      "respuesta": "Define los objetivos generales de seguridad y los compromisos de la organización. Debe ser aprobada y firmada por la alta dirección para tener autoridad. Sin ese respaldo, nadie la cumplirá."
+    },
+    {
+      "id": "casi-tema-2-fc-018",
+      "pregunta": "¿Cuáles son los 3 tipos de política de seguridad?",
+      "respuesta": "Política empresarial de alto nivel (objetivos globales), política de asuntos específicos (regula áreas concretas: contraseñas, acceso remoto, móviles) y política de sistemas específicos (configuración de sistemas concretos)."
+    },
+    {
+      "id": "casi-tema-2-fc-019",
+      "pregunta": "¿Qué es el SLE y cómo se calcula?",
+      "respuesta": "Single Loss Expectancy: pérdida económica si el incidente ocurre una sola vez. Fórmula: SLE = Valor del activo (AV) × Factor de exposición (EF)."
+    },
+    {
+      "id": "casi-tema-2-fc-020",
+      "pregunta": "¿Qué es el ALE y cómo se calcula?",
+      "respuesta": "Annual Loss Expectancy: pérdida económica media por año debida a ese riesgo. Fórmula: ALE = SLE × ARO. Sirve para comparar con el coste de una contramedida y decidir si es rentable implementarla."
+    },
+    {
+      "id": "casi-tema-2-fc-021",
+      "pregunta": "¿Qué es el riesgo residual?",
+      "respuesta": "El riesgo que queda después de aplicar las contramedidas. Nunca es cero. Debe ser evaluado y tratado formalmente: mitigado adicionalmente, transferido (seguro) o asumido y documentado."
+    },
+    {
+      "id": "casi-tema-2-fc-022",
+      "pregunta": "¿Cuáles son las 4 opciones para tratar un riesgo?",
+      "respuesta": "Mitigar (reducirlo con controles), Transferir (seguro cibernético), Evitar (eliminar la actividad que lo genera) o Asumir (aceptarlo y documentarlo formalmente)."
+    },
+    {
+      "id": "casi-tema-2-fc-023",
+      "pregunta": "¿Cuál es la diferencia entre el análisis cuantitativo y el cualitativo de riesgos?",
+      "respuesta": "El cuantitativo asigna valores económicos concretos (euros) usando fórmulas como ALE = SLE × ARO. El cualitativo usa escalas subjetivas (alto/medio/bajo) y matrices de riesgo. El cualitativo es más rápido pero menos preciso."
+    },
+    {
+      "id": "casi-tema-2-fc-024",
+      "pregunta": "¿Qué es Magerit y para qué se usa?",
+      "respuesta": "Metodología de análisis y gestión de riesgos del Centro Criptológico Nacional para la Administración Pública Española. Está alineada con el ENS y la ISO 27001. Su herramienta es PILAR."
+    },
+    {
+      "id": "casi-tema-2-fc-025",
+      "pregunta": "¿Qué es el trade-off entre seguridad y operatividad?",
+      "respuesta": "El equilibrio necesario entre aumentar la seguridad y mantener la capacidad operativa de la organización. Demasiada seguridad puede hacer el sistema inoperable y llevar a que los usuarios busquen formas de saltarse los controles."
+    },
+    {
+      "id": "casi-tema-2-fc-026",
+      "pregunta": "¿Qué es un MDM y para qué sirve?",
+      "respuesta": "Mobile Device Management: software de gestión centralizada de dispositivos móviles corporativos. Permite instalar/desinstalar aplicaciones, bloquear el dispositivo, localizarlo o borrarlo de forma remota si se pierde o es robado."
+    },
+    {
+      "id": "casi-tema-2-fc-027",
+      "pregunta": "¿En cuánto tiempo hay que notificar una violación de datos personales a la autoridad de control según el RGPD?",
+      "respuesta": "En un máximo de 72 horas desde que se tiene conocimiento de la violación."
+    },
+    {
+      "id": "casi-tema-2-fc-028",
+      "pregunta": "¿Qué comprueba el auditor respecto a la política de seguridad?",
+      "respuesta": "Que existe, está firmada por la dirección, es coherente internamente y con el plan de negocio, se aplica el mínimo privilegio, la información está clasificada y la política se revisa periódicamente con el ciclo PDCA documentado."
+    },
+    {
+      "id": "casi-tema-2-fc-029",
+      "pregunta": "¿Qué diferencia hay entre un ataque CEO y el whaling?",
+      "respuesta": "Son el mismo tipo de ataque: el atacante se hace pasar por un alto directivo o ejecutivo (CEO, tesorero) para engañar a un empleado y conseguir que realice una transferencia bancaria fraudulenta."
+    },
+    {
+      "id": "casi-tema-2-fc-030",
+      "pregunta": "¿En qué etapa del SDLC se eliminan de forma segura los datos del sistema?",
+      "respuesta": "En la etapa de Terminación. Incluye la eliminación segura de datos en los soportes, revisión final del inventario de activos y cierre formal de la seguridad del sistema."
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. Controles Internos de los Sistemas de Gestión de Seguridad de la Información",
+  "apuntes": {
+    "introduccion": "El Tema 5 es un punto de inflexión en la asignatura. Los temas anteriores (3 y 4) describían herramientas concretas de protección: cifrado, firewalls, backups, VPN... El Tema 5 sube el nivel de abstracción y nos coloca en el papel del **auditor**. Ya no se habla de cacharros, sino de **controles**: los criterios con los que el auditor mide si una organización está bien protegida o no.\n\nLa idea central es esta: el auditor llega a una organización con una lista de controles que deberían existir, los comprueba uno a uno, y anota los que están y los que faltan. Para poder hacer eso, hay que saber qué es un control, cómo se clasifican y cuál es su propósito.\n\nEste tema tiene dos clasificaciones principales que hay que dominar:\n1. **Por nivel operativo**: administrativos, técnicos/lógicos y físicos.\n2. **Por cómo abordan la amenaza**: preventivos, detectivos y correctivos.\n\nAmbas clasificaciones son **independientes** y **complementarias**: un mismo control puede pertenecer a ambas al mismo tiempo.",
+    "secciones": [
+      {
+        "titulo": "Qué es un control interno — Definición fundamental",
+        "contenido": "Antes de clasificarlos, hay que entender qué es un control. Esta es una definición que hay que conocer y ser capaz de explicar con las propias palabras:\n\n**Un control interno es cualquier actividad o acción realizada manual y/o automáticamente para prevenir, corregir errores o irregularidades que puedan afectar al funcionamiento de un sistema para conseguir sus objetivos.**\n\nLas palabras clave de la definición son:\n- **Actividad o acción**: no es solo un dispositivo ni un software. También es un proceso, un comportamiento.\n- **Manual y/o automática**: puede ser una persona haciendo algo (manual) o un sistema ejecutando una tarea (automática).\n- **Prevenir o corregir**: puede actuar antes o después del incidente.\n- **Errores o irregularidades**: tanto fallos accidentales como acciones maliciosas.\n\nUn control NO es únicamente un firewall o un antivirus. También son controles:\n- Bloquear la pantalla del PC cuando uno se levanta.\n- No abrir correos electrónicos con asuntos sospechosos.\n- No hacer transferencias urgentes sin verificar la identidad del solicitante por teléfono.\n- Tener un plan de evacuación documentado y practicado.\n\n**¿Para qué sirve un control interno?**\n- Superar una auditoría: el auditor comprueba si los controles existen y funcionan.\n- Detección temprana: si están bien implantados, detectan amenazas antes de que se materialicen.\n- Mitigación: si el incidente ocurre de todas formas, limitan su impacto.\n- Reducción de costes: un incidente bien controlado cuesta menos que uno descontrolado."
+      },
+      {
+        "titulo": "Primera clasificación: Administrativos, Técnicos/Lógicos y Físicos",
+        "contenido": "Esta es la clasificación más importante del tema. Divide los controles según el **nivel operativo** desde el que actúan.\n\n**CONTROLES ADMINISTRATIVOS**\nSon las reglas de la organización: políticas, procedimientos y acciones de gestión que regulan cómo debe funcionar la seguridad. No son técnicos ni físicos, son organizativos.\n\nEjemplos:\n- **Políticas de seguridad**: documentos que definen qué información es confidencial, qué pueden hacer los usuarios y quién es responsable de qué.\n- **Concienciación y formación**: cursos y charlas a empleados sobre seguridad. Hacen más efecto cuando los imparte alguien externo y cuando los empleados ven que el problema les puede afectar directamente.\n- **Separación de funciones**: quien implanta los controles de seguridad y quien define qué controles hay que implantar deben ser personas distintas. Evita que una sola persona controle todos los procesos críticos. Este principio está recogido en el Esquema Nacional de Seguridad.\n- **Distribución de responsabilidades**: matrices de responsabilidad (RACI).\n- **Gestión de altas y bajas de usuarios**: procedimientos para dar de alta a empleados nuevos y desactivar cuentas cuando alguien se va. Uno de los problemas más habituales en la práctica es que nadie avisa a informática cuando un empleado causa baja.\n- **Cláusulas de confidencialidad en contratos**: los empleados firman comprometiéndose a conocer la política de seguridad y a cumplirla.\n\n**CONTROLES TÉCNICOS O LÓGICOS**\nSon los controles implementados mediante hardware **o** software. Atención: un error frecuente es creer que los controles físicos son los de hardware. Los controles técnicos incluyen tanto hardware como software.\n\nEjemplos:\n- Firewalls, proxies, IDS/IPS.\n- Cifrado (simétrico y asimétrico).\n- Antivirus y EDR (endpoints).\n- Listas de control de acceso (ACL).\n- Protocolos seguros: TLS, IPSec, SSH.\n- Smart cards (tarjetas inteligentes con chip o NFC para control de acceso).\n- Logs y SIEM (registro y análisis centralizado de eventos).\n- Principio de mínimo privilegio aplicado mediante grupos de usuarios y RBAC.\n\n**CONTROLES FÍSICOS**\nProtegen a las personas, los datos y los equipos de amenazas del entorno físico: incendios, inundaciones, cortes de luz, accesos físicos no autorizados, etc.\n\nEjemplos:\n- SAI/UPS (baterías para cortes de luz), generadores de emergencia, protectores de sobretensión.\n- Control de incendios: detectores de humo, extintores, tabiques estancos para aislar el fuego.\n- Control ambiental: sistemas HVAC (temperatura, humedad, ventilación) en salas de servidores.\n- Control de acceso físico: cerraduras, tarjetas de acceso, lectores biométricos, man-trap (trampa de hombre: sistema de doble puerta que impide el piggybacking).\n- Videovigilancia CCTV.\n- Plan de evacuación documentado, practicado con simulacros periódicos y conocido por todos.\n- Armarios ignífugos (para proteger cintas de backup u otros soportes).\n\n**Piggybacking**: técnica en la que una persona sin acceso se cuela en una instalación aprovechando que una persona autorizada acaba de abrir la puerta. El man-trap lo previene obligando a que la primera puerta se cierre antes de que se abra la segunda."
+      },
+      {
+        "titulo": "Segunda clasificación: Preventivos, Detectivos y Correctivos",
+        "contenido": "Esta segunda clasificación es **independiente** de la primera. No están en contraposición: un mismo control puede ser técnico Y preventivo, o físico Y detectivo, al mismo tiempo.\n\nEsta clasificación habla de **cómo** el control aborda la amenaza, es decir, en qué momento actúa.\n\n**CONTROLES PREVENTIVOS** (actúan ANTES del incidente):\nSu objetivo es evitar que el incidente ocurra o eliminar la posibilidad de que se materialice.\nEjemplos: firewalls, antivirus/EDR, cerraduras, VPN, VLANs, formación de usuarios, política de contraseñas, separación de funciones, SAI/UPS (evita que un corte de luz tumbe el sistema).\n\n**CONTROLES DETECTIVOS** (actúan DURANTE o justo después del incidente):\nSu objetivo es identificar un evento no deseado una vez que ha comenzado.\nEjemplos: IDS, firmas digitales de archivos (detectan alteraciones), logs de auditoría, alarmas de puertas, SIEM, cámaras CCTV.\n\n**CONTROLES CORRECTIVOS** (actúan DESPUÉS del incidente):\nSu objetivo es rehabilitar los activos dañados y restaurar la normalidad.\nEjemplos: copias de seguridad (backup), DRP (Plan de Recuperación ante Desastres), BCP (Plan de Continuidad de Negocio), contratar un seguro cibernético.\n\n**CONTROLES DISUASORIOS** (tipo adicional):\nHacen desistir al atacante antes de que actúe. Ejemplos: carteles de 'zona videovigilada', aviso legal que aparece al iniciar sesión ('este sistema es privado, su uso está sujeto a...'), que es obligatorio en la administración pública según el ENS.\n\n**TRANSFERENCIA DEL RIESGO** (estrategia adicional):\nSe traslada el riesgo a un tercero. Ejemplos: contratar un seguro cibernético, externalizar la seguridad a una empresa especializada.\n\n**Diferencia clave: DRP vs BCP**\n- El **DRP** (*Disaster Recovery Plan*, Plan de Recuperación ante Desastres) se centra exclusivamente en la recuperación de los sistemas de TI.\n- El **BCP** (*Business Continuity Plan*, Plan de Continuidad de Negocio) abarca toda la organización: qué hace la empresa para seguir operando si hay un desastre.\n- El DRP debería estar incluido **dentro** del BCP."
+      },
+      {
+        "titulo": "Relación entre las dos clasificaciones — Doble etiqueta de cada control",
+        "contenido": "Dado que las dos clasificaciones son independientes, todo control puede etiquetarse con dos dimensiones: su nivel (administrativo/técnico/físico) y su enfoque (preventivo/detectivo/correctivo).\n\nEjemplos clave para el examen:\n- **Backup diario**: Técnico + Correctivo (recupera datos después del incidente).\n- **Firewall**: Técnico + Preventivo (evita que el tráfico malicioso entre).\n- **IDS**: Técnico + Detectivo (detecta intrusiones pero no las bloquea).\n- **Política de contraseñas**: Administrativo + Preventivo (evita accesos no autorizados).\n- **SAI/UPS**: Físico + Preventivo (evita que un corte de luz tumbe el sistema).\n- **BCP (Plan de Continuidad de Negocio)**: Administrativo + Correctivo (recupera la actividad tras el desastre).\n- **Cámara CCTV**: Físico + Detectivo (detecta intrusos físicos).\n- **Formación de usuarios**: Administrativo + Preventivo (reduce errores humanos que pueden causar incidentes).\n- **Tabique estanco contra incendios**: Físico + Preventivo (evita que el fuego se propague).\n\nError frecuente de examen: creer que los controles correctivos 'reducen la posibilidad de un ataque deliberado'. ESO LO HACEN LOS PREVENTIVOS. Los correctivos reducen el EFECTO del ataque una vez ocurrido."
+      },
+      {
+        "titulo": "Tercera clasificación: Controles Generales, Ubicuos y Específicos",
+        "contenido": "Hay una tercera clasificación según la amplitud del alcance del control dentro de la organización. Esta clasificación proviene de la fuente Kraemer y aparece en los contenidos del temario.\n\n**Controles Generales**:\nAfectan a todo el ecosistema TIC de la empresa. Son la base sobre la que se apoyan los demás. Incluyen:\n- La política de seguridad de la organización.\n- El Plan de Continuidad de Negocio (BCP).\n- Los controles del entorno físico.\n- Los controles de cambios y versiones en desarrollo.\n\n**Controles Ubicuos (o pervasive)**:\nSubconjunto de los controles generales, centrados en la gestión y monitorización continua de los sistemas de información. Deben ser especialmente rigurosos donde los controles específicos sean débiles.\n\n**Controles Específicos**:\nSe aplican a aplicaciones o tecnologías concretas. Se dividen a su vez en: organizativos generales, de desarrollo y adquisición, de explotación, en aplicaciones, de tecnologías específicas y de calidad.\n\n**Regla práctica**: siempre hay que comenzar implantando los controles generales y, a partir de ahí, acudir a los controles específicos."
+      },
+      {
+        "titulo": "Controles para la monitorización del SGSI (clasificación de Gutiérrez)",
+        "contenido": "El temario recoge también una clasificación funcional de los controles orientados específicamente a la monitorización continua del SGSI:\n\n**Controles de configuración**:\nVerifican que los sistemas están correctamente configurados y sin vulnerabilidades conocidas.\n- Análisis de vulnerabilidades.\n- Pentesting (pruebas de penetración).\n- Actualizaciones y aplicación de parches del sistema.\n\n**Controles de acceso**:\nRegular el acceso a los sistemas y recursos.\n- Firewall personal en cada equipo.\n- Bloqueo de correo SPAM.\n- Filtrado de URLs mediante proxy.\n\n**Controles de monitoreo**:\nAseguran que existe trazabilidad de lo que ocurre en el sistema.\n- Documentación y análisis de logs.\n- Revisión periódica de registros de eventos.\n- Alertas y notificaciones automáticas (por ejemplo, el SIEM)."
+      },
+      {
+        "titulo": "Amenazas físicas y protección del entorno",
+        "contenido": "El tema también aborda las amenazas que afectan principalmente a la **disponibilidad** de los sistemas, clasificándolas según su origen:\n\n**Amenazas externas** (de origen ambiental):\n- Fenómenos naturales: huracanes, inundaciones, terremotos, incendios fortuitos.\n- En España y Europa, las inundaciones son una amenaza real (ejemplo: la DANA de Valencia).\n\n**Amenazas internas** (de origen técnico o accidental):\n- Interrupción del suministro eléctrico (corte de luz local o generalizado, como el apagón de abril 2025).\n- Vertido accidental de líquidos (incluyendo el café o los refrescos en la sala de servidores).\n- Fallos en el sistema de refrigeración del CPD.\n\n**Amenazas de origen humano** (intencionadas):\n- Robo, vandalismo, sabotaje.\n- Espionaje industrial o público.\n- Acceso no autorizado a instalaciones.\nEstadísticamente, el **60% de los incidentes de seguridad tienen origen interno y humano**. Esta cifra es coincidente con la experiencia del profesor.\n\n**Protección del perímetro físico**:\nRegula el acceso de personas a distintas áreas según su nivel de sensibilidad. Los controles incluyen:\n- Registro de acceso y control de visitantes (nombre, hora de entrada, documento de identidad).\n- CCTV (las imágenes son datos personales, solo pueden almacenarse durante 1 mes según la LOPDGDD y deben incluirse en el Registro de Actividades de Tratamiento).\n- Sistema de alarma.\n- Man-trap (doble puerta secuencial para evitar piggybacking).\n- Paredes con índice de contención de incendios adecuado.\n- Puertas resistentes a intrusión.\n- Armarios ignífugos para cintas de backup y soportes.\n\n**Protección eléctrica y contra incendios**:\n- Alimentadores secundarios de emergencia.\n- Generadores de gasoil (hay que mantener el depósito lleno).\n- Sistemas de evacuación de humo.\n- Los paneles de alimentación del CPD deben estar en circuito propio y protegido.\n- Detección de agua/humedad y temperatura.\n- Simulacros de evacuación periódicos (obligatorios en algunos sectores)."
+      },
+      {
+        "titulo": "El proceso de auditoría según ISO 27001:2022",
+        "contenido": "El tema cierra con el proceso que seguiría una auditoría real basada en la ISO 27001:2022. El auditor actúa siguiendo el ciclo PDCA y verifica que los controles existen y funcionan.\n\n**Pasos del proceso de auditoría**:\n\n**1. Planificación**: definir el alcance y los objetivos de la auditoría. ¿Qué sistemas y procesos se van a auditar?\n\n**2. Revisión documental**: leer la política de seguridad, los procedimientos y el análisis de riesgos de la organización. Sin una referencia documental, no hay auditoría posible.\n\n**3. Evaluación de controles**: comprobar los 93 controles del Anexo A de la ISO 27001:2022 (divididos en 4 categorías: organización, personas, tecnología y socios/proveedores). La versión 2013 del temario PDF tenía 114 controles en 14 dominios, que ya no es la vigente.\n\n**4. Trabajo de campo**: entrevistas al personal para conocer los procesos reales de seguridad: cómo se dan de alta los usuarios, qué procedimientos hay para dar de baja a alguien, cómo se forma a los empleados, cómo se gestiona la información en determinados casos.\n\n**5. Recogida de evidencias**: la auditoría se basa en evidencias documentales, no en testimonios. Sin evidencia, no hay conclusión. El auditor comprueba que lo que dicen que se hace realmente se hace, buscando pruebas que lo demuestren.\n\n**6. Elaboración del informe**: el auditor documenta los hallazgos (conformidades y no conformidades) y emite recomendaciones.\n\n**Diferencia clave**: los controles actúan de manera **continua**. La auditoría analiza un **momento concreto en el tiempo**.\n\n**Importante sobre lo que puede y no puede hacer la auditoría**:\nUna auditoría no garantiza la seguridad total. Comprueba que la organización cumple con una norma determinada. Pero los controles de esa norma no cubren todos los posibles ataques. Además, una organización puede pasar una auditoría de nivel bajo de seguridad y luego ser atacada por vectores de nivel alto. La auditoría solo verifica lo que está dentro de su alcance."
+      },
+      {
+        "titulo": "Principio de mínimo privilegio y trazabilidad de usuarios",
+        "contenido": "Aunque ya se ha tratado en temas anteriores, el Tema 5 refuerza estos dos conceptos en el contexto de los controles internos.\n\n**Principio de mínimo privilegio**:\nCada usuario solo tendrá acceso a la información que necesita para realizar sus tareas y a las aplicaciones necesarias para sus funciones. Es un principio de la ISO 27001 y del Esquema Nacional de Seguridad.\n\n¿Cómo se implementa?\n- Se clasifica la información por niveles.\n- Se crean grupos de usuarios según sus áreas de responsabilidad (contabilidad, RRHH, TI, etc.).\n- Se asignan permisos a los grupos, no a usuarios individuales.\n- Cuando se incorpora un nuevo usuario, se añade al grupo que corresponde a sus funciones.\n- Los administradores de sistema suelen tener acceso a todo, pero su actividad también se registra.\n\n**Trazabilidad de los usuarios**:\nTodos los accesos y acciones de los usuarios quedan registrados en ficheros de log. En Windows (Active Directory / Azure) hay registros de eventos; en Linux hay ficheros como /var/log/syslog y access.log. Los SIEM centralizan y analizan estos logs de forma automática.\n\nEs fundamental guardar estos registros porque en caso de un incidente o de una demanda por incumplimiento de protección de datos, el responsable del tratamiento debe ser capaz de probar que tomó las medidas adecuadas. La carga de la prueba recae en el responsable del tratamiento (principio del RGPD de responsabilidad proactiva)."
+      }
+    ]
+  },
+  "resumen": [
+    "Un control interno es cualquier actividad o acción, manual y/o automática, para prevenir o corregir errores/irregularidades que puedan afectar al funcionamiento de un sistema.",
+    "Los controles no son solo dispositivos (firewall, antivirus). También son procesos y comportamientos (bloquear el PC al salir, no abrir correos sospechosos).",
+    "Primera clasificación (nivel operativo): ADMINISTRATIVOS (políticas, formación, separación de funciones), TÉCNICOS/LÓGICOS (firewall, cifrado, antivirus, hardware+software), FÍSICOS (SAI, HVAC, cerraduras, CCTV).",
+    "Los controles técnicos incluyen tanto hardware como software. No confundir controles físicos con controles de hardware.",
+    "Segunda clasificación (cómo abordan la amenaza): PREVENTIVOS (antes, evitan el incidente), DETECTIVOS (durante/después, lo detectan), CORRECTIVOS (después, recuperan activos).",
+    "Ambas clasificaciones son independientes: un control puede ser técnico Y preventivo, o físico Y detectivo, al mismo tiempo.",
+    "Controles disuasorios: carteles de zona videovigilada, avisos legales al iniciar sesión (obligatorios en la administración pública según el ENS).",
+    "DRP (recuperación de sistemas TI) está incluido dentro del BCP (continuidad de toda la organización).",
+    "Los controles correctivos reducen el EFECTO del ataque. Los preventivos reducen la POSIBILIDAD de que ocurra.",
+    "El IDS es un control DETECTIVO. El IPS es preventivo (bloquea además de detectar).",
+    "El firewall es un control TÉCNICO y PREVENTIVO. El backup es TÉCNICO y CORRECTIVO.",
+    "Separación de funciones: quien implanta los controles y quien define qué controles hay que implantar deben ser personas distintas. Principio del ENS.",
+    "Jerarquía de controles: Generales (toda la empresa) > Ubicuos (monitorización) > Específicos (tecnologías concretas). Primero los generales, luego los específicos.",
+    "ISO 27001:2022: 93 controles en 4 categorías. La versión 2013 del temario tenía 114 controles en 14 dominios.",
+    "El proceso de auditoría: Planificación → Revisión documental → Evaluación de controles → Trabajo de campo → Recogida de evidencias → Informe.",
+    "La auditoría es PUNTUAL (analiza un momento concreto). Los controles son CONTINUOS.",
+    "El 60% de los incidentes de seguridad tienen origen interno y humano.",
+    "Las imágenes de CCTV son datos personales. Solo pueden almacenarse durante 1 mes según la LOPDGDD."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Control interno",
+      "definicion": "Cualquier actividad o acción, manual y/o automática, para prevenir, corregir errores o irregularidades que puedan afectar al funcionamiento de un sistema para conseguir sus objetivos. No es solo un dispositivo: también son procesos y comportamientos."
+    },
+    {
+      "termino": "Controles administrativos",
+      "definicion": "Controles basados en políticas, procedimientos y acciones de gestión organizativa. Ejemplos: política de seguridad, formación de usuarios, separación de funciones, gestión de altas y bajas de empleados, cláusulas de confidencialidad."
+    },
+    {
+      "termino": "Controles técnicos o lógicos",
+      "definicion": "Controles implementados mediante hardware o software (ambos). Ejemplos: firewall, proxy, cifrado, antivirus/EDR, ACL, protocolos seguros (TLS, IPSec, SSH), smart cards, SIEM."
+    },
+    {
+      "termino": "Controles físicos",
+      "definicion": "Controles que protegen a personas, datos y equipos de amenazas del entorno físico. Ejemplos: SAI/UPS, generadores, control de incendios, HVAC, control de acceso físico (cerraduras, man-trap), CCTV, plan de evacuación."
+    },
+    {
+      "termino": "Controles preventivos",
+      "definicion": "Actúan ANTES del incidente. Su objetivo es evitar que ocurra o eliminar la posibilidad de que se materialice. Ejemplos: firewall, antivirus, formación de usuarios, política de contraseñas, separación de funciones, SAI."
+    },
+    {
+      "termino": "Controles detectivos",
+      "definicion": "Actúan DURANTE o justo después del incidente. Su objetivo es identificar un evento no deseado una vez que ha comenzado. Ejemplos: IDS, firmas digitales de archivos, logs, SIEM, cámaras CCTV, alarmas."
+    },
+    {
+      "termino": "Controles correctivos",
+      "definicion": "Actúan DESPUÉS del incidente. Su objetivo es rehabilitar los activos dañados y restaurar la normalidad. Ejemplos: backups, DRP, BCP, seguro cibernético. Reducen el EFECTO del ataque (no su posibilidad)."
+    },
+    {
+      "termino": "Controles disuasorios",
+      "definicion": "Hacen desistir al atacante antes de que actúe. Ejemplos: carteles de 'zona videovigilada', aviso legal al iniciar sesión en sistemas informáticos (obligatorio en la administración pública según el ENS)."
+    },
+    {
+      "termino": "Separación de funciones",
+      "definicion": "Principio que establece que quien implanta los controles de seguridad y quien define qué controles hay que implantar deben ser personas distintas. Evita que una sola persona controle todos los procesos críticos. Recogido en el Esquema Nacional de Seguridad."
+    },
+    {
+      "termino": "DRP (Disaster Recovery Plan)",
+      "definicion": "Plan de Recuperación ante Desastres. Se centra en la recuperación de los sistemas de TI tras un incidente grave. Es un control correctivo. Debe estar incluido dentro del BCP."
+    },
+    {
+      "termino": "BCP (Business Continuity Plan)",
+      "definicion": "Plan de Continuidad de Negocio. Abarca toda la organización (no solo TI) y define cómo continúa operando la empresa si ocurre un desastre. Es un control correctivo de nivel administrativo. Incluye el DRP."
+    },
+    {
+      "termino": "Man-trap (trampa de hombre)",
+      "definicion": "Sistema de doble puerta secuencial que permite pasar solo a una persona a la vez. Previene el piggybacking (que alguien sin acceso se cuele aprovechando que una persona autorizada ha abierto la puerta)."
+    },
+    {
+      "termino": "Piggybacking",
+      "definicion": "Técnica de acceso físico no autorizado en la que una persona se cuela en una instalación aprovechando que una persona autorizada acaba de abrir la puerta. Se previene con el man-trap."
+    },
+    {
+      "termino": "Controles generales",
+      "definicion": "Controles que afectan a todo el ecosistema TIC de la empresa (política de seguridad, BCP, controles físicos del entorno, controles de cambio). Son la base sobre la que se apoyan los demás."
+    },
+    {
+      "termino": "Controles ubicuos (pervasive)",
+      "definicion": "Subconjunto de los controles generales, centrados en la gestión y monitorización continua de los sistemas de información."
+    },
+    {
+      "termino": "Controles específicos",
+      "definicion": "Controles que se aplican a aplicaciones o tecnologías concretas. Se desarrollan a partir de los controles generales."
+    },
+    {
+      "termino": "ISO 27001:2022 — Anexo A",
+      "definicion": "Contiene 93 controles divididos en 4 categorías: organización, personas, tecnología y socios/proveedores. Sustituye a la versión 2013 que tenía 114 controles en 14 dominios."
+    },
+    {
+      "termino": "SIEM (Security Information and Event Management)",
+      "definicion": "Herramienta que centraliza y analiza automáticamente los logs de todos los dispositivos de la red para detectar anomalías. Es un control técnico y detectivo."
+    },
+    {
+      "termino": "Responsabilidad proactiva (RGPD)",
+      "definicion": "Principio del RGPD por el que el responsable del tratamiento de datos personales debe ser capaz de probar que ha tomado las medidas adecuadas. La carga de la prueba recae en el responsable, no en el denunciante."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-5-fc-001",
+      "pregunta": "Define 'control interno' con tus propias palabras.",
+      "respuesta": "Cualquier actividad o acción, manual y/o automática, para prevenir o corregir errores/irregularidades que puedan afectar al funcionamiento de un sistema para conseguir sus objetivos."
+    },
+    {
+      "id": "casi-tema-5-fc-002",
+      "pregunta": "¿Un control interno es siempre un dispositivo técnico como un firewall o un antivirus?",
+      "respuesta": "No. También son controles procesos y comportamientos: bloquear el PC al salir, no abrir correos sospechosos, tener un plan de evacuación documentado, exigir cláusulas de confidencialidad en los contratos."
+    },
+    {
+      "id": "casi-tema-5-fc-003",
+      "pregunta": "¿Cuáles son las dos clasificaciones principales de controles internos y en qué se diferencian?",
+      "respuesta": "1ª por NIVEL OPERATIVO: administrativos, técnicos/lógicos, físicos. 2ª por CÓMO ABORDAN LA AMENAZA: preventivos, detectivos, correctivos. Son independientes y complementarias: un control puede pertenecer a ambas a la vez."
+    },
+    {
+      "id": "casi-tema-5-fc-004",
+      "pregunta": "¿Qué son los controles administrativos? Da tres ejemplos.",
+      "respuesta": "Reglas de la organización: políticas, procedimientos y acciones de gestión. Ejemplos: política de seguridad, formación de usuarios, separación de funciones, gestión de altas/bajas de usuarios."
+    },
+    {
+      "id": "casi-tema-5-fc-005",
+      "pregunta": "¿Los controles técnicos/lógicos incluyen solo software o también hardware?",
+      "respuesta": "Incluyen TANTO hardware COMO software. Este es un error frecuente: pensar que el hardware va en los controles físicos. Un firewall hardware o un switch son controles técnicos, no físicos."
+    },
+    {
+      "id": "casi-tema-5-fc-006",
+      "pregunta": "¿A qué tipo de control pertenece un SAI/UPS?",
+      "respuesta": "FÍSICO (protege el entorno físico frente a cortes de suministro eléctrico) Y PREVENTIVO (evita que la caída de luz tumbe el sistema)."
+    },
+    {
+      "id": "casi-tema-5-fc-007",
+      "pregunta": "¿A qué tipo de control pertenece un firewall?",
+      "respuesta": "TÉCNICO (implementado mediante hardware o software) Y PREVENTIVO (evita que el tráfico malicioso entre en la red)."
+    },
+    {
+      "id": "casi-tema-5-fc-008",
+      "pregunta": "¿A qué tipo de control pertenece un IDS?",
+      "respuesta": "TÉCNICO Y DETECTIVO. El IDS detecta intrusiones, pero no las bloquea. Si bloqueara, sería un IPS (preventivo)."
+    },
+    {
+      "id": "casi-tema-5-fc-009",
+      "pregunta": "¿A qué tipo de control pertenece un backup?",
+      "respuesta": "TÉCNICO Y CORRECTIVO. El backup recupera los datos después de que se haya producido el incidente."
+    },
+    {
+      "id": "casi-tema-5-fc-010",
+      "pregunta": "¿A qué tipo de control pertenece una política de contraseñas?",
+      "respuesta": "ADMINISTRATIVO Y PREVENTIVO. Es una regla organizativa que evita accesos no autorizados antes de que ocurran."
+    },
+    {
+      "id": "casi-tema-5-fc-011",
+      "pregunta": "¿A qué tipo de control pertenece una cámara CCTV?",
+      "respuesta": "FÍSICO Y DETECTIVO. Detecta intrusos físicos. También puede ser disuasorio si hay carteles visibles."
+    },
+    {
+      "id": "casi-tema-5-fc-012",
+      "pregunta": "¿Los controles correctivos reducen la posibilidad de un ataque? ¿Verdadero o falso?",
+      "respuesta": "FALSO. Los correctivos reducen el EFECTO del ataque una vez ocurrido. Los que reducen la POSIBILIDAD de que ocurra son los PREVENTIVOS."
+    },
+    {
+      "id": "casi-tema-5-fc-013",
+      "pregunta": "¿Cuál es la diferencia entre DRP y BCP?",
+      "respuesta": "El DRP (Plan de Recuperación ante Desastres) se centra en recuperar los sistemas de TI. El BCP (Plan de Continuidad de Negocio) abarca toda la organización. El DRP está incluido dentro del BCP."
+    },
+    {
+      "id": "casi-tema-5-fc-014",
+      "pregunta": "¿Qué son los controles disuasorios? Da un ejemplo obligatorio en la administración pública.",
+      "respuesta": "Controles que hacen desistir al atacante antes de que actúe. El aviso legal que aparece al iniciar sesión en sistemas informáticos es obligatorio en la administración pública según el ENS."
+    },
+    {
+      "id": "casi-tema-5-fc-015",
+      "pregunta": "¿Qué es la separación de funciones y por qué es importante?",
+      "respuesta": "Principio que establece que quien implanta los controles de seguridad y quien define qué controles hay que implantar deben ser personas distintas. Evita que una sola persona controle todos los procesos críticos. Está recogido en el ENS."
+    },
+    {
+      "id": "casi-tema-5-fc-016",
+      "pregunta": "¿Cuántos controles tiene el Anexo A de la ISO 27001:2022 y en cuántas categorías se dividen?",
+      "respuesta": "93 controles divididos en 4 categorías: organización, personas, tecnología y socios/proveedores. La versión 2013 (en el temario PDF) tenía 114 controles en 14 dominios."
+    },
+    {
+      "id": "casi-tema-5-fc-017",
+      "pregunta": "¿Cuáles son los pasos del proceso de auditoría según la ISO 27001:2022?",
+      "respuesta": "1) Planificación (alcance y objetivos), 2) Revisión documental (política, procedimientos, análisis de riesgos), 3) Evaluación de controles, 4) Trabajo de campo (entrevistas), 5) Recogida de evidencias, 6) Elaboración del informe."
+    },
+    {
+      "id": "casi-tema-5-fc-018",
+      "pregunta": "¿En qué se diferencia un control interno de una auditoría?",
+      "respuesta": "Los controles actúan de manera CONTINUA para proteger el sistema en todo momento. La auditoría analiza un MOMENTO CONCRETO en el tiempo para comprobar si los controles existen y funcionan."
+    },
+    {
+      "id": "casi-tema-5-fc-019",
+      "pregunta": "¿Qué es el piggybacking y cómo se previene?",
+      "respuesta": "El piggybacking es cuando una persona sin acceso se cuela en una instalación aprovechando que una persona autorizada acaba de abrir la puerta. Se previene con el man-trap (sistema de doble puerta secuencial)."
+    },
+    {
+      "id": "casi-tema-5-fc-020",
+      "pregunta": "¿Qué porcentaje de incidentes de seguridad tienen origen interno y humano según el profesor?",
+      "respuesta": "El 60%. La mayoría de los incidentes provienen de dentro de la propia organización, ya sea por mala intención o por error."
+    },
+    {
+      "id": "casi-tema-5-fc-021",
+      "pregunta": "¿Durante cuánto tiempo pueden almacenarse las imágenes de CCTV y por qué están sujetas al RGPD?",
+      "respuesta": "Solo 1 mes, según la LOPDGDD. Las imágenes de CCTV son datos personales, por lo tanto están sometidas al RGPD y deben incluirse en el Registro de Actividades de Tratamiento (RAT)."
+    },
+    {
+      "id": "casi-tema-5-fc-022",
+      "pregunta": "¿Cuál de estos es un control TÉCNICO? A) Política de rotación de contraseñas. B) Sistema de iluminación de zonas de riesgo. C) Cortafuegos y listas de control de acceso.",
+      "respuesta": "C. Los cortafuegos y las ACL son controles técnicos/lógicos. A es administrativo y B es físico."
+    },
+    {
+      "id": "casi-tema-5-fc-023",
+      "pregunta": "¿Por qué la formación de usuarios tiene más efecto si la imparte alguien externo?",
+      "respuesta": "Porque los empleados prestan más atención cuando la información viene de alguien de fuera que cuando la da el propio personal de TI, al que suelen considerar 'el que arregla los ordenadores'. También hace más efecto cuando ven que el problema puede afectarles directamente a ellos."
+    },
+    {
+      "id": "casi-tema-5-fc-024",
+      "pregunta": "¿Qué es el principio de responsabilidad proactiva del RGPD y cómo afecta a los controles?",
+      "respuesta": "El responsable del tratamiento de datos personales debe ser capaz de PROBAR que ha tomado las medidas adecuadas. La carga de la prueba recae en él. Por eso es fundamental registrar y documentar todos los controles y medidas de seguridad aplicados."
+    },
+    {
+      "id": "casi-tema-5-fc-025",
+      "pregunta": "¿Cuál es la jerarquía de controles según la clasificación por alcance?",
+      "respuesta": "Generales (afectan a toda la empresa: política, BCP, controles físicos) > Ubicuos/pervasive (subconjunto de generales, monitorización continua) > Específicos (aplicaciones o tecnologías concretas). Primero se implantan los generales."
+    }
+  ]
+}

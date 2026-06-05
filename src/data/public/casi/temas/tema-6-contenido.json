@@ -1,0 +1,234 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-6",
+  "titulo": "Tema 6. Tipos de Auditoría Informática",
+  "apuntes": {
+    "introduccion": "El Tema 6 es el puente entre los controles internos (Tema 5) y el proceso técnico de auditoría (Temas 7-9). Su objetivo es aclarar el vocabulario: cuando se habla de 'auditoría' en distintos contextos se usa la misma palabra para cosas muy diferentes. El tema ordena esa variedad terminológica y conceptual.\n\nLa idea central es distinguir qué es una auditoría de lo que no es una auditoría (aunque a veces se llame así), y dentro de las auditorías, conocer sus principales tipos y diferencias.\n\nTodas las auditorías comparten una característica: se basan en evidencias documentales. Un auditor busca pruebas objetivas, generalmente documentos, que le permitan fundamentar su informe con validez jurídica. Sin evidencias, no hay auditoría posible.\n\nEl tema es deliberadamente sencillo en comparación con los anteriores. Su función es consolidar el vocabulario antes de entrar en la metodología y las técnicas de auditoría.",
+    "secciones": [
+      {
+        "titulo": "Control interno vs. Auditoría — La diferencia fundamental",
+        "contenido": "Antes de clasificar los tipos de auditoría, hay que tener clara la diferencia entre el control interno (Tema 5) y la auditoría (Temas 6-9). Esta distinción es crucial porque en la práctica se confunden con frecuencia.\n\n**Control interno**:\n- Actúa de manera **continua**, día a día. Los dispositivos envían mensajes constantemente.\n- Tiene como foco el **departamento de TIC**. Informa al responsable de informática.\n- Lo ejecuta personal **interno** (puede estar externalizado, pero depende del departamento TIC).\n- Ejemplo: el visor de eventos de Windows registra decenas de miles de eventos. Un endpoint como CrowdStrike Falcon detecta en segundos un intento de ransomware y corta el acceso a internet antes de que el cifrado comience. Eso es un control interno, no una auditoría.\n\n**Auditoría informática**:\n- Estudia un **momento concreto** de la actividad. El informe siempre especifica el período auditado.\n- Alcanza **todos los sistemas de información** (o el dominio que se defina en su alcance).\n- Informa a la **dirección general**, no solo al departamento TIC.\n- Es siempre **independiente**: incluso la auditoría interna debe dar información objetiva y veraz.\n- Los controles internos deben ser congruentes con el plan estratégico de la organización.\n\nEn resumen: el control interno es **continuo y operativo**. La auditoría es **puntual e independiente**."
+      },
+      {
+        "titulo": "Auditoría interna vs. Auditoría externa",
+        "contenido": "La primera y más importante clasificación de las auditorías es según su **independencia**: quién la realiza.\n\n**Auditoría interna**:\n- La realiza **personal propio** de la organización (incluido personal de empresas externas contratadas que trabajan de forma integrada en la organización).\n- Informa al **departamento de TIC** o a la dirección del departamento.\n- Tiene un **alcance más restringido**.\n- Sus informes son **internos**: no necesariamente salen fuera de la organización. Si el resultado no gusta, puede quedar archivado sin consecuencias externas.\n- Debe ser **medianamente independiente**: si el auditor interno omite por miedo información incómoda, el resultado no sirve de nada.\n\n**Auditoría externa**:\n- La realiza un **profesional completamente independiente** de la organización, contratado específicamente para ello.\n- Informa a la **dirección general**.\n- Sus conclusiones **no las controla la organización**: el resultado va fuera, tiene consecuencias y no puede ignorarse. Esta es la razón principal por la que las auditorías externas son más temidas.\n- Puede ser **periódica** cuando la ley lo exige o **puntual** cuando se solicita por voluntad propia.\n\n**Regla práctica**: interno = dependiente del departamento TIC, aunque el ejecutor sea personal externo contratado. Externo = totalmente independiente de la organización.\n\n**Auditoría del ENS (Esquema Nacional de Seguridad)**:\n- Obligatoria por Real Decreto 322/2022.\n- Debe realizarse al menos cada **dos años**.\n- Para los **niveles medio y alto**: la auditoría debe ser **externa**.\n- Para el **nivel básico**: puede realizarse una autoevaluación o auditoría interna."
+      },
+      {
+        "titulo": "Cuadros de mando (dashboards) — Herramienta de seguimiento, no auditoría",
+        "contenido": "Un cuadro de mando (dashboard) es un panel de indicadores que muestra el progreso hacia los objetivos estratégicos. Se diferencia tanto del control interno como de la auditoría.\n\n**Para qué sirve**: para que los responsables puedan ver de un vistazo si los indicadores clave van en la dirección correcta. Ejemplo: tiempo medio de resolución de incidencias, satisfacción de usuarios, evolución de proyectos.\n\n**Por qué no es un control interno**: los controles internos generan tantísimos mensajes que necesitan ser gestionados por un SIEM. El cuadro de mando muestra indicadores de alto nivel con periodicidad mensual o similar, no en tiempo real para cada evento.\n\n**Por qué no es una auditoría**: no analiza la conformidad con una norma ni produce un informe basado en evidencias. Es una herramienta de gestión y seguimiento directivo continuo."
+      },
+      {
+        "titulo": "Clasificaciones de la auditoría según distintos criterios",
+        "contenido": "Las auditorías se pueden clasificar según varios criterios. El más importante para la asignatura es el de independencia (interna/externa).\n\n**Según el tipo de trabajo (alcance funcional)**:\n- **Auditoría financiera o de cuentas**: comprueba que los ingresos, gastos y balances se llevan correctamente. La más conocida fuera del ámbito TIC. También llamada auditoría fiscal o contable.\n- **Auditoría operacional o de procesos**: comprueba que los procesos de la organización se ejecutan correctamente y que los empleados los conocen. Muy relacionada con la ISO 9001 (calidad).\n- **Auditoría integral**: cubre tanto la financiera como la operacional. No es específica de TIC.\n\n**Según el alcance dentro de TIC**:\n- **Auditoría de producto**: comprueba que un producto cumple las especificaciones acordadas. También llamada test de conformidad. Ejemplo: verificar que un procesador funciona a la velocidad anunciada.\n- **Auditoría de procesos TIC**: comprueba que los procesos de TI se ejecutan correctamente.\n- **Auditoría del sistema**: evalúa la gestión completa del sistema de información. Es la más completa dentro del ámbito TIC.\n\n**Según el alcance geográfico/organizativo**:\n- **Auditoría parcial**: limitada a un dominio concreto (solo puestos de usuario, solo la red...).\n- **Auditoría completa**: abarca todos los sistemas de información.\n\n**Según el origen del encargo**:\n- **Obligatoria por ley**: impuesta por normativa (ENS, RGPD).\n- **Voluntaria**: la organización decide someterse por propia iniciativa."
+      },
+      {
+        "titulo": "Auditoría de certificación vs. Auditoría de verificación normativa",
+        "contenido": "Estas dos modalidades comprueban el cumplimiento de una norma, pero la diferencia está en si esa norma es voluntaria u obligatoria.\n\n**Auditoría de certificación**:\n- Busca obtener un **sello o certificado** que acredite que la organización cumple un estándar voluntario. Ejemplo: certificación ISO 27001.\n- La ISO 27001 no es obligatoria. Si una empresa quiere poner 'ISO 27001 Certified' en su documentación, tiene que pasar una auditoría externa que dé fe de ello.\n- Sirve para ganar confianza ante clientes, diferenciarse en licitaciones o demostrar solvencia en seguridad.\n- Puede requerir auditorías periódicas de mantenimiento para mantener el sello vigente.\n\n**Auditoría de verificación normativa**:\n- Comprueba el cumplimiento de una **norma obligatoria** por ley. Ejemplo: el ENS para la administración pública, el RGPD para cualquier organización que trate datos personales.\n- No siempre requiere obtener un certificado, pero sí demostrar el cumplimiento si se es requerido.\n- El incumplimiento puede acarrear **sanciones legales**. La AEPD puede imponer multas de hasta 20 millones de euros o el 4% de la facturación global anual, lo que sea mayor.\n\nDiferencia clave: la auditoría de certificación verifica cumplimiento voluntario para obtener un sello. La de verificación normativa verifica cumplimiento obligatorio para evitar sanciones."
+      },
+      {
+        "titulo": "Auditoría forense (Informática forense)",
+        "contenido": "La auditoría forense, también llamada informática forense o análisis forense digital, tiene un objetivo y metodología distintos al resto de auditorías.\n\n**Qué hace**: busca pruebas de que se ha cometido un delito o fraude, e identifica (cuando es posible) quién lo ha cometido. Se realiza generalmente a posteriori, cuando ya ha ocurrido un incidente.\n\n**Para qué se usa**:\n- Investigación de fraudes internos o externos.\n- Conductas delictivas en investigaciones criminales.\n- Reclamaciones de seguros fraudulentas.\n- Conflictos entre particulares: mensajes borrados o manipulados, herencias, disputas contractuales.\n\n**Qué analiza**: ficheros borrados, registros de acceso, metadatos, imágenes de disco, tráfico de red capturado, mensajes de mensajería (incluyendo mensajes eliminados, modificados o creados con IA).\n\n**Cadena de custodia**: una evidencia digital solo tiene valor probatorio si se puede demostrar que no ha sido manipulada desde el momento de su obtención hasta su presentación en juicio. El procedimiento para garantizarlo se llama cadena de custodia.\n\nLa informática forense tiene un campo creciente por la proliferación de mensajes digitales falsos o manipulados mediante IA."
+      },
+      {
+        "titulo": "Ley Sarbanes-Oxley y responsabilidad del auditor",
+        "contenido": "**Ley Sarbanes-Oxley (SOX)**: promulgada en EE.UU. en 2002 como respuesta a escándalos financieros (como el caso Enron). Regula la información financiera reservada de empresas cotizadas para evitar el uso de información privilegiada (insider trading). Su aplicación es en EE.UU., aunque su influencia se ha extendido a otros países.\n\n**Responsabilidad del auditor**:\n- **Civil (patrimonial)**: si como consecuencia de la actuación negligente de un profesional TIC se producen pérdidas económicas a la organización, se le pueden exigir responsabilidades económicas. Por eso muchos colegios profesionales y empresas auditoras ofrecen seguros de responsabilidad civil a sus auditores.\n- **Penal**: si se falsean resultados de una auditoría y ello contribuye a la comisión de un delito.\n\n**Capacidad de comunicar**: los auditores técnicos suelen ser muy buenos traduciendo conceptos técnicos a términos comprensibles para la dirección. En vez de hablar de 'AES-128 en lugar de AES-256', el informe dirá que el cifrado empleado podría comprometer toda la información de la empresa. Eso sí entiende y asusta a la dirección general.\n\nLa **Directiva NIS2** (2022) eleva aún más el nivel de responsabilidad de los directivos en materia de ciberseguridad."
+      },
+      {
+        "titulo": "Pen testing — Pruebas de penetración",
+        "contenido": "El **pen testing** (prueba de penetración) es una técnica que se confunde frecuentemente con una auditoría, aunque no lo es en sentido estricto.\n\n**Qué es**: una prueba en la que un profesional (pentester o ethical hacker) intenta atacar los sistemas de la organización de forma controlada y autorizada, para descubrir vulnerabilidades reales antes de que lo haga un atacante real.\n\n**Diferencia con una auditoría**:\n- La auditoría comprueba el cumplimiento de una norma mediante revisión documental y verificación de controles.\n- El pen testing simula un ataque real para encontrar vulnerabilidades técnicas. No necesariamente comprueba el cumplimiento de una norma.\n- Los pen tests pueden ser parte de una auditoría más amplia, especialmente en auditorías de sistemas.\n\n**Modalidades**:\n- *Black box*: el pentester no conoce nada del sistema (simula un atacante externo).\n- *White box*: el pentester tiene acceso completo a la documentación y el código fuente.\n- *Grey box*: modalidad intermedia con acceso parcial."
+      },
+      {
+        "titulo": "Interrelación entre controles internos, plan estratégico y auditoría",
+        "contenido": "El modelo de Piatini establece que los controles internos, el plan estratégico de la información y la auditoría del sistema de información forman un sistema integrado y coherente.\n\n**Plan estratégico de la información**: contiene los objetivos a los que aspira la organización en materia de TIC y las acciones para alcanzarlos. Ejemplo: todas las incidencias deben resolverse en menos de 24 horas.\n\n**Controles internos**: deben ser congruentes con el plan estratégico. Si el objetivo es atender incidencias en 24 horas, los controles deben proporcionar información sobre ese tiempo de respuesta. Los controles que no aportan información relevante solo generan ruido.\n\n**Auditoría del sistema de información**: verifica que los controles internos existen, funcionan y son adecuados para los riesgos identificados. También identifica riesgos asociados a la información que deben influir en la planificación estratégica.\n\nLos tres elementos se retroalimentan: el plan estratégico orienta los controles, los controles alimentan la auditoría, y la auditoría detecta desajustes que retroalimentan el plan estratégico."
+      }
+    ]
+  },
+  "resumen": [
+    "La diferencia fundamental entre control interno y auditoría: el control interno es continuo y operativo (informa al departamento TIC); la auditoría es puntual e independiente (informa a la dirección general).",
+    "Todas las auditorías comparten una característica: se basan en evidencias documentales. Sin evidencias, no hay auditoría.",
+    "Auditoría interna: la realiza personal propio o dependiente del departamento TIC. Sus informes son internos y no tienen por qué trascender.",
+    "Auditoría externa: la realiza un profesional completamente independiente. Informa a la dirección general y sus resultados no pueden ignorarse. Es la más temida.",
+    "Interno = dependiente (aunque el ejecutor sea personal de empresa externa contratada). Externo = totalmente independiente.",
+    "El ENS exige auditoría externa cada dos años para los niveles medio y alto. El nivel básico admite autoevaluación o auditoría interna.",
+    "Auditoría de certificación: comprueba el cumplimiento de una norma voluntaria para obtener un sello (ej: ISO 27001 Certified).",
+    "Auditoría de verificación normativa: comprueba el cumplimiento de una norma obligatoria por ley (ej: ENS, RGPD). El incumplimiento puede acarrear sanciones.",
+    "La AEPD puede multar hasta 20 millones de euros o el 4% de la facturación global anual (lo que sea mayor) por incumplimiento del RGPD.",
+    "Auditoría del sistema TIC: la más completa en el ámbito TIC. Evalúa toda la gestión del sistema (servidores, red, puestos de usuario, procedimientos).",
+    "Auditoría forense: busca pruebas de un delito o fraude. Requiere mantener la cadena de custodia para que las evidencias tengan valor probatorio.",
+    "El pen testing simula un ataque real para encontrar vulnerabilidades técnicas. No es lo mismo que una auditoría, aunque puede ser parte de ella.",
+    "Los cuadros de mando (dashboards) son herramientas de seguimiento de indicadores de alto nivel. No son controles internos ni auditorías.",
+    "Los controles internos deben ser congruentes con el plan estratégico: deben proporcionar información relevante para los objetivos de la organización."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Auditoría informática",
+      "definicion": "Revisión sistemática e independiente que estudia un momento concreto de la actividad de un sistema de información para comprobar si los controles son adecuados y se cumple la norma de referencia. Se basa en evidencias documentales. Informa a la dirección general."
+    },
+    {
+      "termino": "Evidencia documental",
+      "definicion": "Prueba objetiva, generalmente en formato documental, que un auditor recoge para fundamentar su informe con validez jurídica. Sin evidencias no hay conclusiones válidas en una auditoría."
+    },
+    {
+      "termino": "Auditoría interna",
+      "definicion": "Auditoría realizada por personal propio o dependiente del departamento TIC. Alcance restringido, informes internos. Puede ser ejecutada por personal de empresa externa contratada, pero sigue siendo interna si depende del departamento TIC."
+    },
+    {
+      "termino": "Auditoría externa",
+      "definicion": "Auditoría realizada por un profesional completamente independiente de la organización. Informa a la dirección general. Sus resultados no pueden ser ignorados. Es la más temida porque la organización no controla su resultado."
+    },
+    {
+      "termino": "Auditoría del ENS",
+      "definicion": "Auditoría obligatoria para la administración pública española (Real Decreto 322/2022). Periodicidad mínima: cada dos años. Niveles medio y alto requieren auditoría externa; nivel básico admite autoevaluación o auditoría interna."
+    },
+    {
+      "termino": "Auditoría de certificación",
+      "definicion": "Auditoría que busca obtener un sello acreditativo del cumplimiento de un estándar voluntario (ej: ISO 27001). Es externa por definición y puede requerir renovaciones periódicas."
+    },
+    {
+      "termino": "Auditoría de verificación normativa",
+      "definicion": "Auditoría que comprueba el cumplimiento de una norma obligatoria por ley (ej: ENS, RGPD). El incumplimiento puede acarrear sanciones legales. No siempre exige obtener un certificado."
+    },
+    {
+      "termino": "Auditoría del sistema (TIC)",
+      "definicion": "La auditoría más completa en el ámbito TIC. Evalúa la gestión íntegra del sistema: servidores, red, comunicaciones, puestos de usuario, sistemas de control de acceso y todos los procedimientos asociados."
+    },
+    {
+      "termino": "Auditoría de procesos",
+      "definicion": "Comprueba que los procesos de la organización se ejecutan correctamente y que los empleados los conocen. Relacionada con la ISO 9001 (calidad)."
+    },
+    {
+      "termino": "Auditoría de producto (test de conformidad)",
+      "definicion": "Comprueba que un producto cumple las especificaciones acordadas en su diseño o contratación. No es una auditoría en sentido estricto sino una verificación de requisitos."
+    },
+    {
+      "termino": "Auditoría forense (informática forense)",
+      "definicion": "Busca pruebas de la comisión de un delito o fraude y de su autoría. Se realiza generalmente a posteriori. Requiere mantener la cadena de custodia para que las evidencias tengan valor probatorio en juicio."
+    },
+    {
+      "termino": "Cadena de custodia",
+      "definicion": "Procedimiento que garantiza que una evidencia digital no ha sido manipulada desde su obtención hasta su presentación en juicio. Esencial para que las evidencias forenses tengan validez probatoria."
+    },
+    {
+      "termino": "Pen testing (prueba de penetración)",
+      "definicion": "Técnica en la que un profesional autorizado simula un ataque real sobre los sistemas de la organización para descubrir vulnerabilidades técnicas antes de que lo haga un atacante real. No es una auditoría, aunque puede ser parte de ella."
+    },
+    {
+      "termino": "Cuadro de mando (dashboard)",
+      "definicion": "Panel de indicadores de alto nivel que muestra si los objetivos estratégicos van en la dirección correcta. No es un control interno ni una auditoría: es una herramienta de seguimiento directivo."
+    },
+    {
+      "termino": "Ley Sarbanes-Oxley (SOX)",
+      "definicion": "Ley estadounidense (2002) que regula la información financiera reservada de empresas cotizadas para evitar el uso de información privilegiada (insider trading). Surgió de escándalos como el de Enron."
+    },
+    {
+      "termino": "ISO 9001",
+      "definicion": "Estándar internacional de gestión de la calidad. Certifica que los procesos de una organización están documentados y se ejecutan correctamente. Más orientado a calidad que a seguridad."
+    },
+    {
+      "termino": "Auditoría financiera (o de cuentas)",
+      "definicion": "Comprueba que los ingresos, gastos y balances de una empresa se llevan de forma correcta. La auditoría más antigua y conocida fuera del ámbito TIC. También llamada auditoría fiscal o contable."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-6-fc-001",
+      "pregunta": "¿Cuál es la diferencia fundamental entre un control interno y una auditoría?",
+      "respuesta": "El control interno actúa de manera CONTINUA e informa al departamento TIC. La auditoría estudia un MOMENTO CONCRETO de la actividad, es independiente e informa a la dirección general."
+    },
+    {
+      "id": "casi-tema-6-fc-002",
+      "pregunta": "¿Qué tienen en común todas las auditorías, independientemente de su tipo?",
+      "respuesta": "Todas se basan en EVIDENCIAS DOCUMENTALES. Un auditor busca pruebas objetivas con validez jurídica para fundamentar su informe. Sin evidencias no hay auditoría válida."
+    },
+    {
+      "id": "casi-tema-6-fc-003",
+      "pregunta": "¿Qué caracteriza a una auditoría interna?",
+      "respuesta": "La realiza personal propio o dependiente del departamento TIC. Alcance restringido, informes internos que no trascienden fuera de la organización."
+    },
+    {
+      "id": "casi-tema-6-fc-004",
+      "pregunta": "¿Qué caracteriza a una auditoría externa y por qué es la más temida?",
+      "respuesta": "La realiza un profesional totalmente independiente. Informa a la dirección general. La organización no controla su resultado: es vinculante, tiene consecuencias y no puede ignorarse."
+    },
+    {
+      "id": "casi-tema-6-fc-005",
+      "pregunta": "Si una empresa contrata a una firma externa para que realice su auditoría interna, ¿sigue siendo interna?",
+      "respuesta": "Sí. Interno = dependiente del departamento TIC, aunque el ejecutor sea personal de empresa externa contratada. Externo = totalmente independiente de la organización."
+    },
+    {
+      "id": "casi-tema-6-fc-006",
+      "pregunta": "¿Cada cuánto tiempo exige el ENS una auditoría y para qué niveles debe ser externa?",
+      "respuesta": "Cada DOS AÑOS. Para los niveles MEDIO y ALTO debe ser externa. El nivel básico puede hacerse con autoevaluación o auditoría interna."
+    },
+    {
+      "id": "casi-tema-6-fc-007",
+      "pregunta": "¿Cuál es la diferencia entre auditoría de certificación y auditoría de verificación normativa?",
+      "respuesta": "Certificación: verifica cumplimiento de norma VOLUNTARIA para obtener un sello (ej: ISO 27001). Verificación normativa: verifica cumplimiento de norma OBLIGATORIA por ley (ej: ENS, RGPD). El incumplimiento de esta puede acarrear sanciones."
+    },
+    {
+      "id": "casi-tema-6-fc-008",
+      "pregunta": "¿Es obligatoria la certificación ISO 27001?",
+      "respuesta": "No. La ISO 27001 es un estándar voluntario. El certificado solo es necesario si la organización quiere acreditar públicamente ese cumplimiento con un sello."
+    },
+    {
+      "id": "casi-tema-6-fc-009",
+      "pregunta": "¿Cuáles son las sanciones máximas que puede imponer la AEPD por incumplimiento del RGPD?",
+      "respuesta": "Hasta 20 millones de euros O el 4% de la facturación global anual, lo que sea mayor."
+    },
+    {
+      "id": "casi-tema-6-fc-010",
+      "pregunta": "¿Qué es la auditoría del sistema TIC y por qué es la más completa?",
+      "respuesta": "Evalúa la gestión íntegra del sistema: servidores, red, comunicaciones, puestos de usuario, sistemas de acceso y todos los procedimientos (gestión de cambios, incidencias...). Es la más completa porque abarca todo el sistema de información."
+    },
+    {
+      "id": "casi-tema-6-fc-011",
+      "pregunta": "¿Qué es la auditoría forense y para qué se utiliza?",
+      "respuesta": "Busca pruebas de la comisión de un delito o fraude y de su autoría. Se usa en investigación de fraudes, conductas delictivas, reclamaciones de seguros y conflictos entre particulares."
+    },
+    {
+      "id": "casi-tema-6-fc-012",
+      "pregunta": "¿Qué es la cadena de custodia y por qué es esencial en la auditoría forense?",
+      "respuesta": "Procedimiento que garantiza que una evidencia digital no ha sido manipulada desde su obtención hasta su presentación en juicio. Sin cadena de custodia, la evidencia no tiene valor probatorio legal."
+    },
+    {
+      "id": "casi-tema-6-fc-013",
+      "pregunta": "¿En qué se diferencia el pen testing de una auditoría?",
+      "respuesta": "El pen testing simula un ataque real para encontrar vulnerabilidades técnicas. La auditoría comprueba el cumplimiento de una norma mediante revisión documental y verificación de controles. El pen testing puede ser parte de una auditoría, pero no es lo mismo."
+    },
+    {
+      "id": "casi-tema-6-fc-014",
+      "pregunta": "¿Qué analiza la auditoría de procesos y con qué estándar se relaciona?",
+      "respuesta": "Comprueba que los procesos de la organización se ejecutan correctamente y que los empleados los conocen. Se relaciona principalmente con la ISO 9001 (calidad)."
+    },
+    {
+      "id": "casi-tema-6-fc-015",
+      "pregunta": "¿Qué es un cuadro de mando y en qué se diferencia de un control interno?",
+      "respuesta": "Un cuadro de mando muestra indicadores de alto nivel para que los directivos vean si los objetivos estratégicos se están cumpliendo. No es un control interno (que actúa continuamente a nivel técnico) ni una auditoría."
+    },
+    {
+      "id": "casi-tema-6-fc-016",
+      "pregunta": "¿Qué tipo de auditoría analiza evidencias relacionadas con fraudes o conflictos legales?",
+      "respuesta": "La auditoría forense (o informática forense)."
+    },
+    {
+      "id": "casi-tema-6-fc-017",
+      "pregunta": "¿Qué tipo de auditoría analiza la gestión completa de un sistema TIC incluyendo configuración, control de actividad y mantenimiento?",
+      "respuesta": "La auditoría del sistema."
+    },
+    {
+      "id": "casi-tema-6-fc-018",
+      "pregunta": "¿Para qué sirve la Ley Sarbanes-Oxley (SOX)?",
+      "respuesta": "Regula la información financiera reservada de empresas cotizadas en EE.UU. para evitar el uso de información privilegiada (insider trading). Surgió de escándalos como el de Enron en 2002."
+    },
+    {
+      "id": "casi-tema-6-fc-019",
+      "pregunta": "¿Qué responsabilidades puede tener un profesional TIC si una auditoría revela negligencia en su trabajo?",
+      "respuesta": "Responsabilidad civil (económica/patrimonial): pagar los daños causados. En casos extremos, responsabilidad penal si la negligencia contribuyó a la comisión de un delito."
+    },
+    {
+      "id": "casi-tema-6-fc-020",
+      "pregunta": "¿Cómo deben relacionarse los controles internos con el plan estratégico de la organización?",
+      "respuesta": "Deben ser CONGRUENTES: proporcionar información relevante para los objetivos estratégicos. Si el objetivo es resolver incidencias en 24 horas, los controles deben medir ese tiempo. Los controles irrelevantes para los objetivos solo generan ruido."
+    }
+  ]
+}

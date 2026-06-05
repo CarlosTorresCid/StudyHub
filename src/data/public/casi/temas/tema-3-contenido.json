@@ -1,0 +1,307 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. Mecanismos de Protección de Activos I (Información Almacenada)",
+  "apuntes": {
+    "introduccion": "El Tema 3 pasa de la planificación a la acción: una vez que se ha identificado qué proteger y cuáles son los riesgos, hay que aplicar mecanismos de protección concretos. Este tema cubre la **información en reposo**, es decir, la que está almacenada en discos, servidores o dispositivos. El Tema 4 cubrirá la información en tránsito (mientras viaja por la red).\n\nLa estructura del tema sigue la **Tríada CID**:\n- **Confidencialidad**: cifrado (simétrico y asimétrico, firma digital, control de acceso).\n- **Integridad**: funciones hash, sistemas IDS/IPS.\n- **Disponibilidad**: protección física, RAID, alta disponibilidad de servidores y copias de seguridad.\n\nAdemás, el tema cierra con la distinción entre privacidad y confidencialidad, y los retos de privacidad en entornos de cloud computing y big data.",
+    "secciones": [
+      {
+        "titulo": "Criptografía simétrica — Una clave para todo",
+        "contenido": "La criptografía simétrica usa **una única clave** compartida por ambos extremos de la comunicación: la misma clave que cifra también descifra. Sus características principales son:\n\n- **Claves más cortas**: el AES usa 128, 192 o 256 bits. Al ser números más pequeños, los cálculos son más rápidos.\n- **Muy rápida**: es la opción ideal para cifrar grandes volúmenes de datos.\n- **Usos principales**: cifrar información almacenada (en reposo) y también datos en tránsito una vez que ambos extremos ya han acordado la clave de sesión.\n\n**Algoritmos principales**:\n- **AES** (*Advanced Encryption Standard*): el estándar actual recomendado. Cifrado por bloques. Surgió de un concurso para sustituir al DES; el algoritmo ganador se llamaba Rijndael.\n- **DES** (*Data Encryption Standard*): obsoleto. Fue roto por fuerza bruta mediante computación distribuida. Ya no se usa directamente.\n- **Triple DES (3DES o TDEA)**: variante mejorada del DES. Todavía en uso en algunos sistemas heredados.\n- **RC4**: cifrado de flujo. Obsoleto desde 2015.\n- **ChaCha20**: algoritmo moderno de flujo, cada vez más utilizado junto a AES.\n\n**El gran problema del cifrado simétrico: la distribución de claves.**\nSi dos ordenadores quieren comunicarse usando cifrado simétrico, tienen que compartir la clave de forma segura previamente. Pero ¿cómo la comparten sin que nadie la intercepte? Esto es el problema del intercambio de claves, y es precisamente el problema que soluciona la criptografía asimétrica."
+      },
+      {
+        "titulo": "Criptografía asimétrica — El par de claves pública/privada",
+        "contenido": "La criptografía asimétrica soluciona el problema del intercambio de claves del cifrado simétrico. Cada usuario tiene un **par de claves matemáticamente relacionadas**:\n\n- **Clave pública**: la conoce todo el mundo. Se puede publicar libremente.\n- **Clave privada**: solo la conoce su propietario. Nunca se comparte.\n\n**Regla fundamental**: lo que se cifra con una clave del par, solo se puede descifrar con la otra.\n\nUsos principales de la criptografía asimétrica:\n\n**1. Confidencialidad (enviar algo secreto)**:\nSi quiero enviarle un mensaje secreto a Juan, lo cifro con la clave PÚBLICA de Juan. Solo Juan, con su clave privada, podrá descifrarlo. Nadie más puede hacerlo aunque conozca la clave pública.\n\n**2. Distribución de claves de sesión**:\nSi quiero comunicarme con alguien usando cifrado simétrico (rápido), primero genero una clave de sesión y la cifro con la clave pública del receptor. Se la envío. Él la descifra con su privada. Ya tenemos los dos la misma clave de sesión y podemos usar AES. **Este es el uso principal de la criptografía asimétrica.**\n\n**3. Firma digital (autenticidad y no repudio)**:\nSi quiero demostrar que fui yo quien envió un mensaje, lo cifro con mi clave PRIVADA. Como soy el único que la tiene, quien lo descifre con mi clave pública sabrá que solo yo pude haberlo enviado. Esto da origen a la firma digital.\n\n**Algoritmo principal**: RSA. Usa claves mucho más largas (2048, 3072 o 4096 bits). Por eso es más lenta que la simétrica.\n\n**Trampa frecuente de examen**: la criptografía SIMÉTRICA es MÁS RÁPIDA que la asimétrica. La asimétrica es más lenta porque usa claves más largas."
+      },
+      {
+        "titulo": "Fundamentos matemáticos y amenaza de la computación cuántica",
+        "contenido": "La seguridad de la criptografía asimétrica se basa en **funciones matemáticas de una sola dirección**: operaciones que son fáciles de calcular en un sentido pero computacionalmente imposibles de invertir con la tecnología actual.\n\nExisten tres tipos de estas funciones:\n- **Factorización en números primos**: descomponer un número grande en sus factores primos es muy difícil; sin embargo, multiplicar dos primos para obtener su producto es trivial. El RSA se basa en esto.\n- **Logaritmo discreto**: calcular una exponenciación es sencillo, pero obtener su logaritmo es muy difícil.\n- **Logaritmo de curva elíptica**: similar al logaritmo discreto pero sobre una curva elíptica. Aún más difícil de invertir, lo que permite usar claves más cortas con igual nivel de seguridad. Los nuevos algoritmos (como EdDSA con la curva Ed25519) se basan en esto.\n\n**La amenaza de la computación cuántica**:\nEl algoritmo de Shor, teórico hasta ahora, podría ejecutarse en un ordenador cuántico suficientemente potente y factorizar números primos en horas o días, en lugar de años. Esto rompe el RSA y otros algoritmos asimétricos basados en factorización o logaritmos discretos.\n\nPor eso en 2024 el NIST publicó los primeros estándares criptográficos resistentes a la computación cuántica (ML-KEM/CRYSTALS-Kyber, ML-DSA, SLH-DSA).\n\n**Importante**: ni el AES (simétrico) ni las funciones hash SHA-2/SHA-3 son vulnerables a la computación cuántica. **Solo el cifrado asimétrico** (RSA) es vulnerable."
+      },
+      {
+        "titulo": "Funciones hash — Garantizando la integridad",
+        "contenido": "Una función hash transforma un mensaje de cualquier longitud en una cadena de longitud fija (el 'resumen' o 'huella digital'). Es la principal herramienta para garantizar la **integridad** de la información.\n\n**¿Cómo funciona?**\n- Se calcula el hash del mensaje antes de almacenarlo o enviarlo.\n- Al recuperarlo o recibirlo, se calcula de nuevo el hash.\n- Si los dos hash son idénticos: la información no ha sido modificada.\n- Si son diferentes: la información ha sido alterada.\n\n**Requisitos de una función hash segura**:\n- **No reversible**: a partir del hash no se puede reconstruir el mensaje original. Es una función de una sola dirección.\n- **Resistente a colisiones**: no puede haber dos mensajes distintos que produzcan el mismo hash. Si los hay, el sistema no es seguro. Este es el requisito más importante.\n- **Resultado de longitud fija**: independientemente de si el mensaje tiene 3 palabras o 3 millones, el hash siempre tiene la misma longitud.\n\n**Algoritmos hash**:\n- **MD5**: OBSOLETO. Fue roto, no es resistente a colisiones.\n- **SHA-1**: OBSOLETO. También descartado.\n- **SHA-2** (SHA-256, SHA-512): el más usado actualmente. Recomendado.\n- **SHA-3**: el más moderno, recomendado actualmente por el NIST.\n\n**Aplicaciones de las funciones hash**:\n- Verificación de integridad en almacenamiento y transporte de datos.\n- Firma digital (como veremos a continuación).\n- Almacenamiento de contraseñas (nunca se guarda la contraseña en claro, sino su hash)."
+      },
+      {
+        "titulo": "La firma digital — Integridad y autenticidad juntas",
+        "contenido": "La firma digital es el mecanismo que garantiza simultáneamente la **integridad** del mensaje y la **autenticidad** del emisor (no repudio). El receptor sabe que el mensaje no fue alterado y que realmente lo envió quien dice haberlo enviado.\n\n**¿Cómo funciona la firma digital?** (proceso paso a paso)\n\n**En el lado del emisor**:\n1. Se calcula el **hash** del mensaje original.\n2. Se cifra ese hash con la **clave privada** del emisor. Eso es la firma digital.\n3. Se envía el mensaje junto con la firma.\n\n**En el lado del receptor**:\n4. Se descifra la firma usando la **clave pública** del emisor. Se obtiene el hash original.\n5. Se calcula el hash del mensaje recibido.\n6. Se comparan los dos hash:\n   - Si son **idénticos**: la integridad está verificada (el mensaje no fue alterado) y la autenticidad está confirmada (solo el emisor podía generar esa firma con su clave privada).\n   - Si son **diferentes**: el mensaje fue alterado o la firma no es válida.\n\n**Qué garantiza la firma digital**:\n- **Integridad**: el mensaje no ha sido modificado.\n- **Autenticidad / No repudio**: el emisor no puede negar haber enviado el mensaje.\n\n**Qué NO garantiza por sí sola**: la confidencialidad. Si quiero que el mensaje sea también confidencial, hay que cifrar el mensaje además de firmarlo.\n\nImportante: la firma no es la rúbrica visible que aparece al final de un documento PDF firmado. La firma digital es un dato matemático que forma parte del documento y no es visible directamente."
+      },
+      {
+        "titulo": "Sistemas de detección y prevención de intrusos (IDS/IPS)",
+        "contenido": "Los sistemas de detección de intrusos monitorizan la actividad de sistemas o redes en busca de comportamientos anómalos o patrones de ataque conocidos.\n\n**IDS vs. IPS**:\n- **IDS** (*Intrusion Detection System*): DETECTA ataques o actividades sospechosas y genera alertas. Solo detecta, NO previene ni bloquea.\n- **IPS** (*Intrusion Prevention System*): DETECTA y además PREVIENE los ataques. Puede bloquear tráfico automáticamente. Es como la alarma (IDS) más la cerradura automática (IPS).\n\n**Tipos según dónde se instalan**:\n- **HIDS** (*Host IDS*): se instala en el propio equipo. Monitoriza los eventos de ese sistema concreto.\n- **NIDS** (*Network IDS*): actúa sobre el tráfico de red. Monitoriza lo que circula por la red.\n\n**Tipos según cómo detectan**:\n- **Basados en firmas (conocimiento)**: comparan el tráfico o los eventos con una base de datos de ataques conocidos. Pocos falsos positivos, pero no detectan ataques nuevos.\n- **Basados en comportamiento (anomalías)**: aprenden lo que es 'normal' y alertan cuando algo se desvía. Detectan ataques nuevos o desconocidos, pero tienen más falsos positivos. Por ejemplo, si un proceso intenta conectarse a internet a una hora inusual, lo detecta como anómalo.\n\nNota importante: los HIDS y NIDS pueden ser tanto basados en firmas como en comportamiento. No son categorías exclusivas."
+      },
+      {
+        "titulo": "Autenticación: los tres factores",
+        "contenido": "Para autenticar a un usuario de forma robusta se usan uno o varios de estos tres factores:\n\n**Factor 1 — Algo que el usuario SABE**:\n- Contraseñas, PIN, preguntas secretas.\n- Es el más débil por sí solo (se puede adivinar, robar o filtrar).\n\n**Factor 2 — Algo que el usuario TIENE**:\n- Tarjetas inteligentes, tokens de un solo uso, DNI electrónico.\n- Más seguro que solo saber algo, porque requiere poseer un objeto físico.\n\n**Factor 3 — Algo que el usuario ES**:\n- Biometría: huella dactilar, reconocimiento facial, iris.\n- Los datos biométricos son datos **sensibles** según el RGPD (artículo 9) y su uso está restringido en la Unión Europea.\n\nLa **autenticación multifactor (MFA)** combina dos o más de estos factores. Si se usan los tres a la vez, se habla de autenticación fuerte de tres factores.\n\nCuanto más larga es una contraseña, exponencialmente mayor es el número de combinaciones posibles, lo que la hace más difícil de descifrar por fuerza bruta. La fórmula básica es: número de caracteres posibles elevado al número de caracteres de la contraseña."
+      },
+      {
+        "titulo": "Modelos de control de acceso",
+        "contenido": "Una vez que el usuario está autenticado, hay que decidir a qué puede acceder. Existen cuatro modelos principales de control de acceso:\n\n**MAC — Mandatory Access Control (control obligatorio)**:\nSistema centralizado con niveles de acceso estrictos basados en etiquetas de clasificación (por ejemplo: secreto, confidencial, uso interno, público). Es la administración central quien decide quién accede a qué. Se usa en entornos de alta seguridad: entornos militares, gubernamentales o instalaciones críticas. El usuario no puede cambiar los permisos.\n\n**DAC — Discretionary Access Control (control discrecional)**:\nEl propietario del recurso decide quién puede acceder a él. El control es discrecional: cada usuario gestiona los permisos de sus propios ficheros. Ejemplo cotidiano: Google Drive o Dropbox, donde tú invitas a otras personas a ver o editar tus documentos. Se soporta mediante listas de control de acceso (ACL).\n\n**RBAC — Role-Based Access Control (control basado en roles)**:\nSe asignan permisos a roles (administrador, usuario estándar, usuario avanzado) y los usuarios se asignan a roles. Así los permisos se gestionan de forma centralizada sin necesidad de configurar cada usuario individualmente. Ejemplo: Active Directory de Windows.\n\n**Control basado en reglas contextuales**:\nEl acceso se condiciona por reglas contextuales adicionales. Por ejemplo: solo se puede acceder a cierto recurso en horario laboral (de 8:00 a 18:00), o solo desde una red corporativa, o solo desde ciertos dispositivos."
+      },
+      {
+        "titulo": "Clasificación de datos y etiquetado",
+        "contenido": "Parte de los mecanismos de confidencialidad consiste en clasificar correctamente la información para aplicar los controles adecuados a cada nivel.\n\nNormalmente toda la información se clasifica como **confidencial por defecto**, y posteriormente se decide qué información puede hacerse pública o a qué usuarios específicos puede acceder.\n\n**Datos sensibles según el RGPD (artículo 9)**:\nEl Reglamento General de Protección de Datos define una categoría especial de datos especialmente sensibles: datos de salud, opiniones religiosas o políticas, vida sexual, afiliación sindical, datos biométricos, origen racial o étnico, etc.\n\nEn España, la Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales (LOPDGDD) de 2018 establece que hay un conjunto de datos sensibles que solo pueden ser tratados en casos tasados por la ley, incluso aunque el propio titular diera su consentimiento.\n\n**Consideración importante**: la definición de datos sensibles varía enormemente entre países. En Europa el RGPD impone restricciones muy estrictas. En otros países (Brasil, China, algunos países de Asia) es legal la identificación facial en la vía pública y el cruce con bases de datos policiales en tiempo real, algo prohibido en la UE."
+      },
+      {
+        "titulo": "Protección de la disponibilidad — Infraestructura física",
+        "contenido": "La disponibilidad no solo depende del software: la infraestructura física también es crítica. El auditor debe verificar que la organización tiene protecciones físicas adecuadas.\n\n**Suministro eléctrico**:\n- **SAI/UPS** (*Sistema de Alimentación Ininterrumpida*): baterías que aguantan entre 15 y 20 minutos tras un corte de luz. Suficiente para apagar ordenadamente los sistemas o esperar que arranque el generador. También protegen frente a picos de tensión.\n- **Grupo electrógeno**: generador por gasoil que permite continuar operando durante horas o días en caso de un corte prolongado. Solo funciona si el depósito de gasoil está lleno.\n- **Doble acometida eléctrica**: en centros de datos críticos se tienen dos suministros de electricidad de compañías distintas, de forma que si uno falla, el otro continúa. Los servidores suelen estar en un circuito eléctrico separado del resto del edificio.\n- **Protectores de sobretensión / magnetotérmicos rearmables**: cortan el suministro ante cortocircuitos y se vuelven a armar solos.\n\n**Control de temperatura y humedad**: los servidores generan mucho calor. Los CPD tienen sistemas HVAC (climatización) específicos. Por eso los nuevos centros de datos se ubican en zonas frías.\n\n**Control de acceso físico**: sistemas de control de acceso (llaves, códigos, lectores de tarjeta) para evitar robos o accesos no autorizados a la sala de servidores.\n\n**Clasificación de CPDs**: los centros de procesamiento de datos se clasifican de Tier 1 a Tier 4 (norma ANSI 942). El Tier 4 tiene redundancia total y permite un máximo de 52 minutos de caída al año (disponibilidad del 99,998%)."
+      },
+      {
+        "titulo": "RAID — Redundancia de almacenamiento",
+        "contenido": "RAID (*Redundant Array of Independent Disks*) es un sistema que distribuye la información entre varios discos duros para mejorar el rendimiento, la disponibilidad o ambas.\n\n**RAID 0 — Striping** (segmentación):\nDistribuye el volumen lógico entre varios discos físicos, permitiendo leer y escribir en paralelo. Esto aumenta la velocidad. **Sin embargo, NO tiene redundancia**: si falla un disco se pierde toda la información. No es recomendable para entornos donde la disponibilidad es crítica.\n\n**RAID 1 — Mirroring** (espejo):\nMantiene una copia exacta de todos los datos en un segundo disco. Si falla un disco, el otro sigue funcionando con todos los datos. Usa el doble de espacio físico: para guardar 1 TB necesitas 2 TB de disco. Es el recomendado para redundancia de datos críticos (como el sistema operativo de un servidor).\n\n**RAID 5 — Paridad distribuida**:\nDistribuye los datos y la información de paridad entre todos los discos. Puede recuperarse del fallo de **un disco** reconstruyendo los datos a partir de la paridad que está distribuida en los demás. Mejor aprovechamiento del espacio que RAID 1 manteniendo redundancia.\n\n**RAID 6 — Doble paridad**:\nComo RAID 5 pero con doble paridad distribuida. Puede recuperarse del fallo de **hasta dos discos** simultáneamente. Más resistente, pero algo más lento al escribir.\n\n**Para recordar**: RAID 0 = velocidad sin seguridad. RAID 1 = seguridad total con doble espacio. RAID 5 = equilibrio. RAID 6 = mayor tolerancia a fallos."
+      },
+      {
+        "titulo": "Alta disponibilidad de servidores: Cold, Hot y Balanceo de carga",
+        "contenido": "Para garantizar que un servicio no se interrumpa cuando falla un servidor existen tres configuraciones de alta disponibilidad:\n\n**Cold Standby (arranque en frío)**:\nServidor de réplica SIN datos. Cuando ocurre un problema en el servidor principal, hay que hacer una copia de datos al servidor de respaldo y arrancarlo. La recuperación requiere intervención manual y es lenta. Es la opción más económica, pero con el mayor tiempo de recuperación (RTO alto).\n\n**Hot Standby (arranque en caliente)**:\nServidor réplica con los datos completamente actualizados pero no en explotación activa. Cuando el servidor principal cae, el hot standby arranca automáticamente y asume el servicio. La recuperación es rápida y automática. El inconveniente es que se tiene un servidor completo y operativo que no se está usando, lo que supone un desperdicio de recursos y mayor coste.\n\n**Balanceo de carga (el verdadero cluster)**:\nVarios servidores funcionan en paralelo y se reparten la carga de trabajo entre todos. Si uno falla, los demás asumen sus servicios automáticamente. Todos los servidores están activos y contribuyendo, por lo que no hay recursos desperdiciados. Es la opción más cara pero más eficiente y con la mejor disponibilidad.\n\nNota importante: el balanceo de carga es el auténtico cluster. Los otros dos (cold y hot standby) son servidores que arrancan cuando el principal falla, pero no son clusters en sentido estricto."
+      },
+      {
+        "titulo": "Copias de seguridad (Backup): tipos y estrategias",
+        "contenido": "Las copias de seguridad son esenciales para recuperar la información si algo falla. Hay tres tipos principales:\n\n**Backup total (completo)**:\nCopia TODOS los archivos cada vez. Es el más simple: para restaurar solo necesitas la última copia total. La desventaja es que ocupa mucho espacio y tarda mucho tiempo, lo que puede ser inviable si hay una ventana de tiempo limitada (ej: solo se puede hacer de noche).\n\n**Backup diferencial**:\nCopia solo los archivos que han cambiado desde el último backup TOTAL. Más rápido que el total porque no copia todo. A medida que pasan los días, la copia diferencial crece (acumula todos los cambios desde el total). Para restaurar necesitas: **la copia total + la última copia diferencial**. Restauración relativamente rápida.\n\n**Backup incremental**:\nCopia solo los archivos que han cambiado desde el último backup, sea total o incremental. Es el más rápido y el que ocupa menos espacio (solo guarda los cambios del último período). Es el más adecuado para almacenamiento externo por su tamaño. Para restaurar necesitas: **la copia total + TODOS los incrementales** desde esa total. La restauración es la más lenta y compleja de las tres.\n\n**Cuándo usar cada uno**:\n- Backup total: cuando hay tiempo y espacio suficientes. Generalmente los fines de semana.\n- Backup diferencial: durante la semana cuando no hay tiempo para una copia total.\n- Backup incremental: cuando el espacio o el tiempo son muy limitados, especialmente para almacenamiento externo.\n\n**Regla de oro**: hay que probar periódicamente el procedimiento de restauración. Muchas organizaciones tienen copias de seguridad que nunca han probado. La seguridad es un proceso, no basta con hacer las copias."
+      },
+      {
+        "titulo": "Privacidad vs. Confidencialidad",
+        "contenido": "El tema cierra con una distinción conceptual importante:\n\n**Confidencialidad**: propiedad técnica de un sistema. Garantiza que solo los usuarios autorizados acceden a la información. Es una de las tres dimensiones de la Tríada CID. Se implementa mediante criptografía, control de acceso y clasificación de datos.\n\n**Privacidad**: derecho del individuo a controlar su información personal. Es un concepto legal y ético, no solo técnico. El individuo debe dar su **consentimiento expreso** para que sus datos personales sean tratados, y ese consentimiento debe ser informado y para una finalidad concreta (principios del RGPD).\n\nPueden darse sin solaparse: una empresa puede tener un sistema perfectamente confidencial (solo acceden empleados autorizados) pero que viola la privacidad de sus clientes si procesa sus datos sin su consentimiento.\n\n**Retos de privacidad actuales**:\n- **Cloud computing**: al subir datos a la nube se cede su custodia a un tercero. Si ese proveedor puede acceder a los datos sin cifrarlos, la privacidad queda comprometida. La solución técnica es cifrar los datos antes de subirlos.\n- **Big data y perfilado**: el cruce de datos personales de múltiples fuentes permite crear perfiles muy detallados de los individuos sin que estos lo sepan.\n- **Modelo 'ok or pay'**: el usuario acepta que sus datos se usen para publicidad o entrenamiento de IA a cambio de acceso gratuito al servicio, o paga para preservar su privacidad.\n- **Fuera de Europa**: en muchos países (incluido EE.UU.), las agencias gubernamentales pueden acceder a datos personales en poder de empresas privadas sin orden judicial."
+      }
+    ]
+  },
+  "resumen": [
+    "El Tema 3 cubre los mecanismos de protección de la información en reposo (almacenada). El Tema 4 cubrirá la información en tránsito.",
+    "La estructura sigue la Tríada CID: Confidencialidad (cifrado) → Integridad (hash, IDS) → Disponibilidad (RAID, servidores, backups).",
+    "Criptografía simétrica: una clave, rápida, para cifrar grandes volúmenes. Algoritmo recomendado: AES.",
+    "Criptografía asimétrica: par clave pública/privada. Lenta, claves largas. Uso principal: distribución de claves de sesión y firma digital. Algoritmo: RSA.",
+    "La criptografía SIMÉTRICA es más RÁPIDA que la asimétrica. La asimétrica usa claves más largas.",
+    "Solo el cifrado ASIMÉTRICO es vulnerable a la computación cuántica. El AES (simétrico) y las funciones hash (SHA-2, SHA-3) NO son vulnerables.",
+    "Una función hash segura debe ser: no reversible, resistente a colisiones (no dos mensajes con el mismo hash) y de resultado de longitud fija. MD5 y SHA-1 están OBSOLETOS.",
+    "La firma digital: se calcula el hash del mensaje y se cifra con la clave PRIVADA del emisor. Garantiza integridad y autenticidad/no repudio.",
+    "IDS detecta ataques; IPS detecta Y previene. HIDS en el equipo, NIDS en la red. Basados en firmas (ataques conocidos) o en comportamiento (anomalías).",
+    "Los tres factores de autenticación son: algo que el usuario SABE (contraseña), TIENE (token, DNI-e) o ES (biometría). La MFA combina dos o más.",
+    "Modelos de control de acceso: MAC (obligatorio, etiquetas, entornos militares), DAC (discrecional, el propietario decide), RBAC (basado en roles) y control por reglas contextuales.",
+    "RAID 0: velocidad sin redundancia. RAID 1: espejo, máxima redundancia con doble espacio. RAID 5: paridad distribuida, tolera un fallo. RAID 6: doble paridad, tolera dos fallos.",
+    "Servidores: Cold standby (sin datos, recuperación manual), Hot standby (datos listos, recuperación automática), Balanceo de carga (todos activos, el verdadero cluster).",
+    "Backups: Total (todo siempre), Diferencial (desde el último total; necesitas total+diferencial para restaurar), Incremental (solo cambios del período; necesitas total+todos los incrementales).",
+    "El backup incremental ocupa menos espacio y es el más adecuado para almacenamiento externo, pero requiere más cintas para restaurar.",
+    "Privacidad ≠ Confidencialidad. La confidencialidad es una propiedad técnica. La privacidad es un derecho del individuo a controlar su información personal.",
+    "El RGPD exige consentimiento expreso, informado y para una finalidad concreta para tratar datos personales.",
+    "La integridad de bases de datos (entidad, referencial, transaccional) NO es objeto de este tema y no entra en el examen."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Criptografía simétrica",
+      "definicion": "Sistema de cifrado que usa una única clave compartida para cifrar y descifrar. Es rápida y eficiente para grandes volúmenes de datos. Algoritmo recomendado: AES. Problema: distribución segura de la clave."
+    },
+    {
+      "termino": "AES (Advanced Encryption Standard)",
+      "definicion": "Estándar actual de cifrado simétrico. Algoritmo por bloques, claves de 128/192/256 bits. Surgió del concurso que reemplazó al DES; el algoritmo ganador fue Rijndael."
+    },
+    {
+      "termino": "DES y Triple DES (3DES)",
+      "definicion": "DES fue el estándar anterior de cifrado simétrico, ya obsoleto (fue roto por fuerza bruta). Triple DES es una variante mejorada que sigue en uso en sistemas heredados."
+    },
+    {
+      "termino": "Criptografía asimétrica (clave pública)",
+      "definicion": "Sistema de cifrado que usa un par de claves matemáticamente relacionadas: clave pública (conocida por todos) y clave privada (solo el propietario). Lo que cifra una clave solo lo descifra la otra. Usos: distribución de claves y firma digital."
+    },
+    {
+      "termino": "RSA",
+      "definicion": "Algoritmo de cifrado asimétrico más utilizado. Claves de 2048 a 4096 bits. Se basa en la dificultad de factorizar números primos. Es vulnerable a la computación cuántica."
+    },
+    {
+      "termino": "Funciones de una sola dirección",
+      "definicion": "Funciones matemáticas fáciles de calcular en un sentido pero computacionalmente imposibles de invertir. Son la base de la criptografía asimétrica: factorización en primos, logaritmo discreto y logaritmo de curva elíptica."
+    },
+    {
+      "termino": "Función hash",
+      "definicion": "Función que transforma un mensaje de cualquier longitud en una cadena de longitud fija (resumen). Es no reversible y resistente a colisiones. Se usa para verificar la integridad de la información. Algoritmos actuales: SHA-256, SHA-512, SHA-3."
+    },
+    {
+      "termino": "Resistencia a colisiones",
+      "definicion": "Propiedad de una función hash que garantiza que no existen (o es computacionalmente imposible encontrar) dos mensajes distintos que produzcan el mismo hash. Es el requisito de seguridad más importante de una función hash."
+    },
+    {
+      "termino": "Firma digital",
+      "definicion": "Mecanismo que garantiza la integridad y la autenticidad/no repudio de un mensaje. Proceso: se calcula el hash del mensaje y se cifra con la clave privada del emisor. El receptor lo verifica descifándolo con la clave pública del emisor."
+    },
+    {
+      "termino": "No repudio",
+      "definicion": "Propiedad que impide que el emisor de un mensaje pueda negar haberlo enviado. La firma digital garantiza el no repudio, ya que solo el emisor posee su clave privada."
+    },
+    {
+      "termino": "IDS (Intrusion Detection System)",
+      "definicion": "Sistema de detección de intrusos. DETECTA ataques o actividades sospechosas y genera alertas. NO previene ni bloquea. Puede ser HIDS (en el equipo) o NIDS (en la red)."
+    },
+    {
+      "termino": "IPS (Intrusion Prevention System)",
+      "definicion": "Sistema de prevención de intrusos. Detecta Y previene los ataques, pudiendo bloquear tráfico automáticamente. Es el IDS más una capa de respuesta activa."
+    },
+    {
+      "termino": "MAC (Mandatory Access Control)",
+      "definicion": "Modelo de control de acceso obligatorio. Sistema centralizado con niveles de acceso estrictos basados en etiquetas de clasificación. El administrador central decide los permisos, no el usuario. Uso típico: entornos militares o de alta seguridad."
+    },
+    {
+      "termino": "DAC (Discretionary Access Control)",
+      "definicion": "Modelo de control de acceso discrecional. El propietario del recurso decide quién puede acceder. Se implementa mediante listas de control de acceso (ACL). Ejemplo: Google Drive."
+    },
+    {
+      "termino": "RBAC (Role-Based Access Control)",
+      "definicion": "Modelo de control de acceso basado en roles. Los permisos se asignan a roles y los usuarios se incluyen en roles. Ejemplo: Active Directory de Windows."
+    },
+    {
+      "termino": "RAID (Redundant Array of Independent Disks)",
+      "definicion": "Sistema que distribuye información entre varios discos para mejorar rendimiento o redundancia. RAID 0: velocidad sin redundancia. RAID 1: espejo. RAID 5: paridad distribuida (tolera 1 fallo). RAID 6: doble paridad (tolera 2 fallos)."
+    },
+    {
+      "termino": "Cold Standby",
+      "definicion": "Configuración de alta disponibilidad con servidor réplica sin datos. En caso de fallo del principal hay que hacer la copia y arrancarlo manualmente. Barato, recuperación lenta."
+    },
+    {
+      "termino": "Hot Standby",
+      "definicion": "Configuración de alta disponibilidad con servidor réplica con datos actualizados, no en explotación activa. En caso de fallo, arranca automáticamente. Más caro (servidor sin usar), recuperación automática rápida."
+    },
+    {
+      "termino": "Balanceo de carga",
+      "definicion": "Configuración de alta disponibilidad donde varios servidores funcionan en paralelo y se reparten la carga. Si uno falla, los demás asumen su trabajo. Es el verdadero cluster. Todos los recursos están activos y aprovechados."
+    },
+    {
+      "termino": "Backup diferencial",
+      "definicion": "Copia solo los archivos que han cambiado desde el último backup TOTAL. Para restaurar se necesita: la copia total + la última diferencial. Restauración relativamente rápida."
+    },
+    {
+      "termino": "Backup incremental",
+      "definicion": "Copia solo los archivos que han cambiado desde el último backup (total o incremental). El más rápido y el que menos espacio ocupa. Para restaurar se necesita: la copia total + TODOS los incrementales. Restauración lenta y compleja."
+    },
+    {
+      "termino": "SAI/UPS",
+      "definicion": "Sistema de Alimentación Ininterrumpida. Baterías que proporcionan energía eléctrica durante 15-20 minutos tras un corte de suministro, permitiendo apagar los sistemas ordenadamente o esperar al grupo electrógeno."
+    },
+    {
+      "termino": "Privacidad (vs. Confidencialidad)",
+      "definicion": "Derecho del individuo a controlar su información personal. Requiere el consentimiento expreso del titular para tratar sus datos. Se diferencia de la confidencialidad en que es un concepto legal/ético, no solo técnico."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-3-fc-001",
+      "pregunta": "¿Cuál es la diferencia fundamental entre criptografía simétrica y asimétrica?",
+      "respuesta": "La simétrica usa UNA SOLA clave compartida para cifrar y descifrar (ej: AES). La asimétrica usa un PAR de claves relacionadas: pública (para todos) y privada (solo el propietario). Lo que cifra una solo lo descifra la otra."
+    },
+    {
+      "id": "casi-tema-3-fc-002",
+      "pregunta": "¿Cuál es más rápida: la criptografía simétrica o la asimétrica?",
+      "respuesta": "La simétrica es más RÁPIDA. Usa claves más cortas y es eficiente para grandes volúmenes. La asimétrica usa claves muy largas (2048-4096 bits) y es más lenta."
+    },
+    {
+      "id": "casi-tema-3-fc-003",
+      "pregunta": "¿Para qué se usa principalmente la criptografía asimétrica?",
+      "respuesta": "Para la DISTRIBUCIÓN DE CLAVES de sesión (no para cifrar grandes volúmenes). También para la firma digital. Para cifrar datos masivos se usa la simétrica (AES)."
+    },
+    {
+      "id": "casi-tema-3-fc-004",
+      "pregunta": "¿Cuál es el algoritmo de cifrado simétrico recomendado actualmente?",
+      "respuesta": "AES (Advanced Encryption Standard). Surgió de un concurso para reemplazar al DES roto; el algoritmo ganador fue Rijndael."
+    },
+    {
+      "id": "casi-tema-3-fc-005",
+      "pregunta": "¿Qué tipo de cifrado es vulnerable a la computación cuántica?",
+      "respuesta": "Solo el cifrado ASIMÉTRICO (RSA). El AES (simétrico) y las funciones hash SHA-2/SHA-3 NO son vulnerables a la computación cuántica."
+    },
+    {
+      "id": "casi-tema-3-fc-006",
+      "pregunta": "¿En qué se basa la seguridad del RSA y por qué lo amenaza la computación cuántica?",
+      "respuesta": "En la dificultad de factorizar números primos con computación clásica. La computación cuántica podría ejecutar el algoritmo de Shor viablemente, factorizando en horas y deduciendo la clave privada a partir de la pública."
+    },
+    {
+      "id": "casi-tema-3-fc-007",
+      "pregunta": "¿Qué es una función hash y cuáles son sus tres requisitos de seguridad?",
+      "respuesta": "Transforma un mensaje de cualquier longitud en una cadena de longitud fija. Requisitos: (1) no reversible (no se puede reconstruir el mensaje), (2) resistente a colisiones (no dos mensajes con el mismo hash), (3) resultado de longitud fija."
+    },
+    {
+      "id": "casi-tema-3-fc-008",
+      "pregunta": "¿Qué algoritmos hash están obsoletos y cuáles son los recomendados actualmente?",
+      "respuesta": "OBSOLETOS: MD5 y SHA-1 (descartados, no son seguros). ACTUALES: SHA-256 y SHA-512 (de la familia SHA-2) y SHA-3 (el más moderno, recomendado por el NIST)."
+    },
+    {
+      "id": "casi-tema-3-fc-009",
+      "pregunta": "Explica paso a paso cómo funciona la firma digital.",
+      "respuesta": "1) El emisor calcula el hash del mensaje. 2) Cifra ese hash con su clave PRIVADA (eso es la firma). 3) Envía mensaje + firma. 4) El receptor descifra la firma con la clave PÚBLICA del emisor, obteniendo el hash original. 5) Calcula el hash del mensaje recibido. 6) Compara: si son iguales, garantiza INTEGRIDAD y AUTENTICIDAD/no repudio."
+    },
+    {
+      "id": "casi-tema-3-fc-010",
+      "pregunta": "¿Qué garantiza la firma digital y qué NO garantiza?",
+      "respuesta": "Garantiza: INTEGRIDAD (el mensaje no fue alterado) y AUTENTICIDAD/NO REPUDIO (el emisor no puede negar haberlo enviado). NO garantiza: confidencialidad por sí sola."
+    },
+    {
+      "id": "casi-tema-3-fc-011",
+      "pregunta": "¿Cuál es la diferencia entre IDS e IPS?",
+      "respuesta": "El IDS DETECTA ataques o actividades sospechosas y genera alertas, pero no actúa. El IPS DETECTA Y PREVIENE: puede bloquear tráfico automáticamente. El IDS es la alarma; el IPS es la alarma más la cerradura automática."
+    },
+    {
+      "id": "casi-tema-3-fc-012",
+      "pregunta": "¿Cuál es el objetivo principal de un IDS?",
+      "respuesta": "Detectar ataques o actividades sospechosas en el sistema. NO prevenir (eso lo hace el IPS)."
+    },
+    {
+      "id": "casi-tema-3-fc-013",
+      "pregunta": "¿Cuál es la diferencia entre HIDS y NIDS?",
+      "respuesta": "HIDS (Host IDS): se instala en el propio equipo y monitoriza los eventos de ese sistema concreto. NIDS (Network IDS): actúa sobre el tráfico de red y monitoriza lo que circula por ella."
+    },
+    {
+      "id": "casi-tema-3-fc-014",
+      "pregunta": "¿Cuáles son los tres factores de autenticación?",
+      "respuesta": "Algo que el usuario SABE (contraseña, PIN), algo que TIENE (token, DNI-e, tarjeta inteligente) y algo que ES (biometría: huella, reconocimiento facial). La MFA combina dos o más."
+    },
+    {
+      "id": "casi-tema-3-fc-015",
+      "pregunta": "¿Qué son los datos biométricos según el RGPD?",
+      "respuesta": "Son datos de categoría especial (sensibles) según el artículo 9 del RGPD. Su tratamiento está restringido y solo está permitido en los casos autorizados por la ley."
+    },
+    {
+      "id": "casi-tema-3-fc-016",
+      "pregunta": "¿Cuáles son los 4 modelos de control de acceso y cuál es la diferencia principal entre MAC y DAC?",
+      "respuesta": "MAC (obligatorio: el sistema central asigna permisos por etiquetas, entornos militares), DAC (discrecional: el propietario del recurso decide quién accede), RBAC (por roles) y Control por reglas contextuales. Diferencia MAC/DAC: en MAC el administrador central decide; en DAC el propietario del recurso decide."
+    },
+    {
+      "id": "casi-tema-3-fc-017",
+      "pregunta": "¿Qué es RAID y qué diferencia hay entre RAID 0, 1, 5 y 6?",
+      "respuesta": "RAID 0: velocidad máxima, SIN redundancia (si falla un disco se pierde todo). RAID 1: espejo, copia exacta en otro disco, doble espacio. RAID 5: paridad distribuida, tolera fallo de 1 disco. RAID 6: doble paridad, tolera fallo de 2 discos."
+    },
+    {
+      "id": "casi-tema-3-fc-018",
+      "pregunta": "¿Qué configuración de servidor distribuye la carga entre varios servidores activos?",
+      "respuesta": "El BALANCEO DE CARGA (el verdadero cluster). Todos los servidores están activos y se reparten el trabajo. Si uno falla, los demás asumen su carga automáticamente."
+    },
+    {
+      "id": "casi-tema-3-fc-019",
+      "pregunta": "¿Cuál es la diferencia entre Cold Standby y Hot Standby?",
+      "respuesta": "Cold Standby: servidor sin datos, recuperación manual y lenta. Hot Standby: servidor con datos actualizados y no en explotación, recuperación automática y rápida pero costosa (servidor dedicado sin uso productivo)."
+    },
+    {
+      "id": "casi-tema-3-fc-020",
+      "pregunta": "¿Qué copias necesitas para restaurar con backup diferencial? ¿Y con incremental?",
+      "respuesta": "Diferencial: la copia TOTAL + la última DIFERENCIAL. Incremental: la copia TOTAL + TODOS los incrementales desde esa total. El incremental necesita más copias para restaurar, pero ocupa menos espacio."
+    },
+    {
+      "id": "casi-tema-3-fc-021",
+      "pregunta": "¿Qué tipo de backup es más adecuado para almacenamiento externo y por qué?",
+      "respuesta": "El backup INCREMENTAL, porque solo guarda los cambios del último período, ocupando el mínimo espacio posible. Ideal para transportar a un almacenamiento externo."
+    },
+    {
+      "id": "casi-tema-3-fc-022",
+      "pregunta": "¿Qué diferencia hay entre confidencialidad y privacidad?",
+      "respuesta": "La confidencialidad es una propiedad técnica que garantiza que solo los usuarios autorizados acceden a la información (dimensión de la Tríada CID). La privacidad es un derecho del individuo a controlar su información personal; requiere consentimiento expreso para el tratamiento de datos."
+    },
+    {
+      "id": "casi-tema-3-fc-023",
+      "pregunta": "¿Qué es un SAI/UPS y para qué sirve?",
+      "respuesta": "Sistema de Alimentación Ininterrumpida. Baterías que proporcionan energía durante 15-20 minutos tras un corte de suministro eléctrico. Permiten apagar ordenadamente los sistemas o esperar al grupo electrógeno. También estabilizan la tensión."
+    },
+    {
+      "id": "casi-tema-3-fc-024",
+      "pregunta": "¿Por qué es necesario probar periódicamente el procedimiento de restauración de backups?",
+      "respuesta": "Porque muchas organizaciones tienen copias de seguridad que nunca han probado. La seguridad es un proceso: no basta con hacer las copias, hay que verificar que se pueden restaurar correctamente cuando se necesite."
+    },
+    {
+      "id": "casi-tema-3-fc-025",
+      "pregunta": "¿Qué contenido del Tema 3 el profesor indicó expresamente que NO entra en el examen?",
+      "respuesta": "La integridad de bases de datos (integridad de entidad, referencial, transaccional). El profesor dijo: 'No lo voy a preguntar, lo que me interesa es el concepto de integridad en seguridad, no en bases de datos.'"
+    }
+  ]
+}

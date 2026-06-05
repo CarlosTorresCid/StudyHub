@@ -1,0 +1,172 @@
+.edit-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabecera pegada al top */
+.edit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  flex-wrap: wrap;
+}
+.edit-header-left { display: flex; align-items: center; gap: 14px; }
+.edit-header-meta { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.edit-asig { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; }
+.edit-sep { color: var(--text-dim); }
+.edit-tema-id {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  background: var(--surface2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+/* Avisos de estado */
+.edit-notice {
+  padding: 12px 32px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.edit-notice.success { background: var(--success-soft); color: var(--success); border-bottom: 1px solid var(--success); }
+.edit-notice.error { background: var(--danger-soft); color: var(--danger); border-bottom: 1px solid var(--danger); }
+.edit-notice code {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  background: rgba(0,0,0,0.15);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* Cuerpo principal */
+.edit-body {
+  padding: 28px 32px 60px;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Título y ruta */
+.edit-titulo-section { display: flex; flex-direction: column; gap: 6px; }
+.edit-titulo-input { font-size: 16px; font-weight: 500; }
+.edit-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+.edit-file-path {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'Courier New', monospace;
+}
+
+/* Pestañas del editor */
+.edit-tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+}
+.edit-tab {
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.edit-tab:hover { color: var(--text); }
+.edit-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Contenido de cada pestaña */
+.edit-tab-content { padding-top: 16px; }
+
+/* Secciones del editor */
+.editor-section { display: flex; flex-direction: column; gap: 20px; }
+.editor-field { display: flex; flex-direction: column; gap: 10px; }
+.editor-field-header { display: flex; align-items: center; justify-content: space-between; }
+
+/* Ítem editable (sección, punto, concepto, flashcard) */
+.editor-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.editor-item-controls { display: flex; align-items: flex-start; gap: 10px; }
+.editor-item-inline { align-items: center; }
+.editor-item-inline .editor-item-controls { align-items: center; }
+.editor-item-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--text-dim);
+  min-width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.editor-item-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.editor-item-inline .editor-item-btns { flex-direction: row; }
+
+.edit-move-btn {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  line-height: 1.4;
+}
+.edit-move-btn:hover:not(:disabled) { background: var(--surface); color: var(--text); }
+.edit-move-btn:disabled { opacity: 0.3; cursor: default; }
+
+.edit-del-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  font-size: 14px;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  line-height: 1.4;
+}
+.edit-del-btn:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-soft); }
+
+.edit-empty { font-size: 13px; color: var(--text-dim); font-style: italic; padding: 8px 0; }
+
+/* Flashcard ID */
+.editor-fc-num { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; }
+.editor-fc-id {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  text-align: center;
+  max-width: 80px;
+  word-break: break-all;
+}

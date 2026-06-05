@@ -1,0 +1,144 @@
+.sim-wrapper { display: flex; flex-direction: column; gap: 24px; max-width: 700px; }
+
+.sim-empty {
+  padding: 40px;
+  background: var(--surface2);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-header { display: flex; flex-direction: column; gap: 8px; }
+.sim-progress-bar {
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sim-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.sim-header-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.sim-counter { font-weight: 600; color: var(--text); }
+.sim-parte { flex: 1; }
+.sim-timer { font-weight: 600; font-variant-numeric: tabular-nums; }
+.sim-timer.warning { color: var(--danger); }
+
+.sim-question { display: flex; flex-direction: column; gap: 16px; }
+.sim-question-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.sim-tipo {
+  background: var(--surface3);
+  color: var(--text-muted);
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sim-origen { font-size: 12px; }
+.sim-origen.real { color: var(--warning); }
+.sim-origen.ia { color: var(--accent); }
+.sim-conv { font-size: 12px; color: var(--text-dim); }
+
+.sim-enunciado { font-size: 17px; line-height: 1.65; color: var(--text); font-weight: 500; }
+
+.sim-options { display: flex; flex-direction: column; gap: 8px; }
+.sim-vf { flex-direction: row; }
+.sim-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+.sim-option:hover { border-color: var(--accent); color: var(--text); }
+.sim-option.selected { border-color: var(--accent); background: var(--accent-soft); color: var(--text); }
+.sim-option.correct { border-color: var(--success) !important; background: var(--success-soft) !important; color: var(--success) !important; }
+.sim-option.wrong { border-color: var(--danger) !important; background: var(--danger-soft) !important; color: var(--danger) !important; }
+.sim-vf .sim-option { flex: 1; justify-content: center; }
+.sim-option-letter {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  min-width: 22px;
+  text-align: center;
+  color: var(--accent);
+}
+.sim-option.correct .sim-option-letter,
+.sim-option.wrong .sim-option-letter { color: inherit; }
+
+.sim-dev { display: flex; flex-direction: column; gap: 12px; }
+.sim-dev-model {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.sim-dev-model ul { margin: 8px 0 0 16px; }
+.sim-dev-model li { margin-bottom: 4px; }
+
+.sim-explanation {
+  padding: 12px 16px;
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.sim-actions { display: flex; align-items: center; gap: 12px; }
+
+.sim-manual-grade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  flex-wrap: wrap;
+}
+.sim-manual-label { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+.sim-manual-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.sim-grade-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-family: inherit;
+  transition: all var(--transition);
+  background: var(--surface3);
+  color: var(--text-muted);
+}
+.sim-grade-btn.correct:hover, .sim-grade-btn.correct.active {
+  background: var(--success-soft); color: var(--success); border-color: var(--success);
+}
+.sim-grade-btn.partial:hover, .sim-grade-btn.partial.active {
+  background: var(--warning-soft); color: var(--warning); border-color: var(--warning);
+}
+.sim-grade-btn.wrong:hover, .sim-grade-btn.wrong.active {
+  background: var(--danger-soft); color: var(--danger); border-color: var(--danger);
+}

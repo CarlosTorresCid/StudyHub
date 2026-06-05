@@ -1,0 +1,183 @@
+.topic-page { padding: 40px; max-width: 860px; }
+
+.topic-breadcrumb {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.topic-breadcrumb a { font-weight: 600; }
+.topic-breadcrumb a:hover { text-decoration: underline; }
+
+.topic-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.topic-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex: 1;
+}
+
+.topic-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.topic-tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.topic-tab:hover { color: var(--text); }
+.topic-tab.active {
+  color: var(--subject-color, var(--accent));
+  border-bottom-color: var(--subject-color, var(--accent));
+}
+
+/* Apuntes */
+.apuntes { display: flex; flex-direction: column; gap: 28px; }
+.apuntes-intro {
+  font-size: 16px;
+  color: var(--text-reading);
+  line-height: 1.85;
+  padding: 20px 24px;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.apuntes-section h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.apuntes-content { display: flex; flex-direction: column; gap: 6px; }
+.apuntes-content p {
+  color: var(--text-reading);
+  line-height: 1.85;
+}
+
+.apuntes-content li {
+  color: var(--text-reading);
+  line-height: 1.85;
+  margin-left: 20px;
+}
+.apuntes-content strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Resumen */
+.resumen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+.resumen-list li {
+  padding: 14px 18px;
+  padding-left: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-reading);
+  line-height: 1.7;
+  position: relative;
+}
+.resumen-list li::before {
+  content: '→';
+  position: absolute;
+  left: 14px;
+  color: var(--accent);
+}
+
+/* Conceptos */
+.conceptos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.concepto-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.concepto-term {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.concepto-def {
+  font-size: 14px;
+  color: var(--text-reading);
+  line-height: 1.7;
+}
+
+.empty-msg { color: var(--text-muted); font-style: italic; }
+
+.topic-empty-content {
+  padding: 32px 24px;
+  background: var(--surface2);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  line-height: 2;
+  text-align: center;
+}
+.topic-empty-content strong { color: var(--accent); font-family: monospace; font-style: normal; }
+
+.topic-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 100px;
+  background: var(--surface3);
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+.topic-tab.active .topic-tab-count {
+  background: var(--subject-color, var(--accent));
+  color: #fff;
+  opacity: 0.8;
+}
+
+.topic-q-header { margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
+.topic-q-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge-real {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-weight: 500;
+}
+.badge-ia {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}

@@ -1,0 +1,49 @@
+import { NavLink, useParams } from 'react-router-dom';
+import asignaturas from '../data/public/asignaturas.json';
+import './Sidebar.css';
+
+// La lista de asignaturas es estática: siempre las 6 del repositorio.
+// No se necesita estado reactivo porque la lista nunca cambia en runtime.
+export default function Sidebar() {
+  const { asignaturaId } = useParams();
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-logo">
+        <span className="sidebar-logo-icon">📚</span>
+        <span className="sidebar-logo-text">StudyHub</span>
+      </div>
+
+      <nav className="sidebar-nav">
+        <NavLink to="/" end className={({ isActive }) => `sidebar-home ${isActive ? 'active' : ''}`}>
+          <span>🏠</span> Inicio
+        </NavLink>
+
+        <div className="sidebar-section-title">Asignaturas</div>
+
+        {asignaturas.map(a => (
+          <NavLink
+            key={a.id}
+            to={`/asignatura/${a.id}`}
+            className={({ isActive }) => `sidebar-item ${isActive || asignaturaId === a.id ? 'active' : ''}`}
+            style={{ '--subject-color': a.color }}
+          >
+            <span className="sidebar-item-dot" />
+            <span className="sidebar-item-label">
+              <span className="sidebar-item-abrev">{a.abreviatura}</span>
+              <span className="sidebar-item-nombre">{a.nombre}</span>
+            </span>
+          </NavLink>
+        ))}
+
+        <div className="sidebar-section-title sidebar-section-spacer">Admin</div>
+        <NavLink
+          to="/gestion"
+          className={({ isActive }) => `sidebar-home sidebar-mgmt ${isActive ? 'active' : ''}`}
+        >
+          <span>🔒</span> Administración
+        </NavLink>
+      </nav>
+    </aside>
+  );
+}

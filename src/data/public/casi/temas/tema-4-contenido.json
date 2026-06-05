@@ -1,0 +1,326 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Mecanismos de Protección de Activos II (Información en Tránsito)",
+  "apuntes": {
+    "introduccion": "El Tema 3 cubría la protección de la información en reposo (almacenada en discos). El Tema 4 cubre lo que ocurre cuando esa información viaja por la red: la **información en tránsito**. El reto es que durante el tránsito la información pasa por múltiples dispositivos y redes que no controlamos.\n\nEl tema tiene dos grandes bloques:\n- **Bloque 1**: modelos de comunicación (OSI y TCP/IP) y dispositivos de red (hub, switch, router, proxy, gateway, firewall).\n- **Bloque 2**: mecanismos concretos de protección del tráfico (cortafuegos y DMZ, VPN, protocolos seguros, WiFi, dispositivos móviles) y seguridad en sistemas operativos.\n\nComo en el Tema 3, el hilo conductor sigue siendo la Tríada CID: los mecanismos de este tema garantizan confidencialidad, integridad y disponibilidad del tráfico de red.",
+    "secciones": [
+      {
+        "titulo": "Modelos de comunicación: OSI (7 capas) y TCP/IP (4 capas)",
+        "contenido": "Antes de hablar de los mecanismos de protección del tráfico, hay que entender sobre qué modelos funciona la comunicación en red.\n\n**Modelo OSI — 7 capas** (ISO):\nDivide la comunicación en 7 capas, de la más cercana al hardware (física) a la más cercana a las aplicaciones (aplicación):\n- Capa 7 — Aplicación: interfaz entre aplicaciones y red. Protocolos: HTTP, FTP, SMTP, DNS.\n- Capa 6 — Presentación: codificación, formato y compresión de datos. Protocolos: JPEG, MPEG.\n- Capa 5 — Sesión: control del diálogo entre aplicaciones. Protocolos: NFS, SQL, NetBIOS.\n- Capa 4 — Transporte: intercambio de datos fiable entre sistemas finales. Protocolos: TCP, UDP.\n- Capa 3 — Red: direccionamiento y encaminamiento de paquetes (las IPs). Protocolos: IP, ICMP, OSPF.\n- Capa 2 — Enlace de datos: detección de errores sobre el enlace físico. Protocolos: Ethernet, ARP, HDLC.\n- Capa 1 — Física: transmisión de bits por el medio físico (cable, fibra, ondas).\n\n**Modelo TCP/IP — 4 capas** (el modelo real de internet):\n- Capa de Aplicación: engloba las capas 7, 6 y 5 del OSI.\n- Capa de Transporte: equivale a la capa 4 del OSI.\n- Capa de Internet/Red: equivale a la capa 3 del OSI.\n- Capa de Acceso al medio: engloba las capas 2 y 1 del OSI.\n\nEl modelo TCP/IP es el que realmente se usa en internet. Las RFCs que lo definen las emite el IETF (*Internet Engineering Task Force*).\n\nPara el examen no es obligatorio saber el número de capas de cada modelo y el nombre de cada capa. El número de capas es básico."
+      },
+      {
+        "titulo": "Dispositivos de red y su papel en la seguridad",
+        "contenido": "Cada dispositivo de red opera en una capa del modelo OSI y ofrece distintas capacidades de filtrado y protección.\n\n**Hub (concentrador) — Capa 1 (Física)**:\nDifunde todos los paquetes a todos los puertos sin distinción. Genera muchas colisiones y es obsoleto. Desde el punto de vista de seguridad es un riesgo porque cualquier equipo conectado puede ver todos los paquetes de la red (facilita los ataques de sniffing). Reemplazado por los switches.\n\n**Switch — Capa 2 (Enlace de datos)**:\nCrea un dominio de colisión por puerto: cada paquete solo va al puerto al que corresponde, no a todos. Mucho más eficiente y seguro que el hub. Permite crear **VLANs** (redes virtuales que aíslan segmentos de red).\n\n**VLAN (Virtual LAN)**: mecanismo de protección creado por software dentro del switch. Aísla segmentos de red mediante etiquetas, de forma que solo los equipos del mismo VLAN pueden comunicarse entre sí. Es un mecanismo de protección en tránsito aunque el temario no siempre lo mencione de forma prominente.\n\n**Router — Capa 3 (Red)**:\nInterconecta redes diferentes usando direcciones IP. Implementa **NAT** (*Network Address Translation*): traduce las IPs privadas de la red interna a la IP pública del router cuando los paquetes salen a internet. Esto protege la arquitectura interna.\n\n**ARP y ARP Spoofing**: el protocolo ARP traduce direcciones IP a direcciones MAC. Un atacante puede falsificar la tabla ARP de un equipo (*ARP Spoofing*) haciéndole creer que se conecta a una máquina cuando en realidad se conecta a otra (Man in the Middle a nivel de red local).\n\n**Proxy — Capa 7 (Aplicación)**:\nIntermediario entre el cliente e internet. Oculta la IP de origen, controla los contenidos y tiene caché de páginas visitadas. Es el que bloquea el acceso a WhatsApp Web o Facebook en las organizaciones. Como actúa en capa 7, puede analizar el contenido de las peticiones.\n\n**Gateway — Capas 4 a 7**:\nInterconecta redes con protocolos diferentes. Cada vez menos necesario porque casi todas las redes usan TCP/IP. Todavía se usa en videoconferencias y en redes de telefonía.\n\n**UTM (Unified Threat Management)**: dispositivos que integran en uno solo las funciones de firewall, proxy, IDS/IPS y otros mecanismos de seguridad."
+      },
+      {
+        "titulo": "Los 4 modelos de cortafuegos (Firewall)",
+        "contenido": "El cortafuegos es la pieza central de la seguridad perimetral. Actúa como barrera entre la red interna (confiable) e internet (no confiable). El temario define **cuatro modelos** que hay que conocer y saber diferenciar.\n\n**Aviso**: esta clasificación en cuatro modelos es la del temario de esta asignatura. Otros autores o asignaturas pueden clasificarlos en tres. Para el examen hay que seguir esta clasificación.\n\n**Modelo 1 — Filtrado de paquetes (capa 3 — Red)**:\nFiltra por dirección IP de origen/destino y por número de puerto. No analiza el contenido. Es el tipo más básico y el que implementan los routers. Bajo nivel de protección porque no controla lo que pasa a nivel de aplicación: si el paquete tiene la IP correcta, pasa aunque su contenido sea malicioso.\n\n**Modelo 2 — Proxy de aplicación (capa 7 — Aplicación)**:\nAnaliza el tráfico a nivel de aplicación. Puede inspeccionar el contenido de las peticiones y las respuestas. Mayor nivel de protección, pero necesita un proxy por servicio (uno para HTTP, otro para FTP, etc.), lo que lo hace menos flexible.\n\n**Modelo 3 — Proxy de circuito (capa 4 — Transporte)**:\nHíbrido entre el filtrado de paquetes y el proxy de aplicación. Crea un circuito entre origen y destino sin analizar los datos de aplicación. Opera en la capa de transporte.\n\n**Modelo 4 — Inspección de estado (Stateful) (capas 3-4)**:\nAdemás de verificar origen y destino, comprueba si el paquete pertenece a una sesión TCP previamente establecida, usando una tabla dinámica de estado. Si un paquete llega sin que haya una sesión válida previa, lo rechaza. Es el más utilizado en redes modernas porque combina buen rendimiento con mayor seguridad. Protege contra ataques de secuestro de sesión."
+      },
+      {
+        "titulo": "Las 4 arquitecturas de inserción de cortafuegos y la DMZ",
+        "contenido": "Además de los modelos de cortafuegos, el temario define cuatro formas de colocarlos en la arquitectura de red:\n\n**Arquitectura 1 — Filtrado de paquetes simple**:\nUn solo router/firewall entre la red interna e internet. La más sencilla y económica. Problema: si ese dispositivo falla o es comprometido, la red interna queda completamente expuesta sin ninguna capa adicional de protección.\n\n**Arquitectura 2 — Screened host (host bastionado)**:\nUn router de selección + un host bastión que hace de proxy. El router solo deja pasar tráfico hacia el bastión, que es el único accesible desde el exterior. La seguridad depende de dos elementos, lo que la hace más robusta que la arquitectura simple.\n\n**Arquitectura 3 — Host de base dual**:\nUn único host bastión con dos interfaces de red (una hacia internet, otra hacia la red interna) que actúa como cortafuegos. Más simple que la arquitectura 2, pero si este equipo cae, no hay protección.\n\n**Arquitectura 4 — Subred de filtrado con DMZ** (la más profesional):\nDos cortafuegos crean una zona intermedia llamada **DMZ** (*Demilitarized Zone* o zona desmilitarizada). Es la arquitectura más usada en entornos profesionales.\n\n**La DMZ en detalle**:\nLa DMZ es una red intermedia entre internet y la red interna. En ella se colocan los servicios que deben ser accesibles desde el exterior, pero a los que NO se permite acceder directamente a la red interna.\n\nQué se coloca en la DMZ:\n- Servidor web (acceso público desde internet).\n- Servidor de correo electrónico (para recibir correo del exterior).\n- Terminador VPN (punto de conexión para empleados en teletrabajo).\n- Servidor DNS de publicación (el que publica nuestro dominio hacia internet).\n\nNO se coloca en la DMZ: bases de datos con información sensible, servidores de aplicaciones internos.\n\n**Consejo del Centro Criptológico Nacional (CCN)**: los firewalls que forman la DMZ deben ser de **diferentes fabricantes**. Si son del mismo fabricante y se descubre una vulnerabilidad, ambos quedan expuestos. Con fabricantes distintos, una vulnerabilidad de uno no afecta al otro.\n\n**Honey pot**: sistema trampa que simula ser vulnerable para atraer a atacantes. Su objetivo es identificarlos y estudiar sus técnicas de ataque sin que lleguen a los sistemas reales."
+      },
+      {
+        "titulo": "VPN — Redes Privadas Virtuales",
+        "contenido": "Una VPN (*Virtual Private Network*) crea un **túnel seguro** de comunicación entre dos puntos a través de una red no confiable como internet. Es el mecanismo principal para el teletrabajo seguro.\n\n**¿Cómo funciona una VPN?** (paso a paso):\n1. Los dos extremos se **identifican mutuamente** mediante certificados digitales o contraseñas.\n2. **Intercambian claves de sesión** usando criptografía asimétrica (RSA o similar).\n3. Con esa clave simétrica de sesión, **cifran todo el tráfico** entre ellos.\n\n**Propiedades que garantiza una VPN**:\n- Confidencialidad del tráfico mediante aislamiento en el túnel.\n- Confidencialidad de los datos mediante cifrado.\n- Integridad de los datos mediante funciones hash.\n- Autenticación de ambos extremos mediante certificados.\n\n**Protocolos VPN más importantes**:\n- **IPSec**: opera a nivel 3 (red). Contiene tres subprotocolos: IKE (intercambio de claves), ESP (cifrado e integridad) y AH (solo autenticación/integridad). Muy usado para conectar redes entre sí. Ejemplo: la red SARA entre administraciones públicas españolas usa IPSec.\n- **L2TP, L2F, PPTP**: protocolos VPN más antiguos.\n- **TLS/SSL (OpenVPN)**: usa el protocolo TLS. Muy común.\n- **WireGuard**: protocolo moderno, recomendado actualmente por el CCN.\n\nSobre el teletrabajo: la forma correcta de configurar el acceso remoto es mediante VPN (el terminador de VPN se coloca en la DMZ) + autenticación multifactor (MFA) + MDM si se usan dispositivos móviles. La DMZ por sí sola no es suficiente para el teletrabajo: la DMZ es para publicar servicios, la VPN es para dar acceso remoto seguro a los empleados."
+      },
+      {
+        "titulo": "Seguridad en redes WiFi — Protocolos de mayor a menor riesgo",
+        "contenido": "Las redes inalámbricas presentan riesgos adicionales porque el medio de transmisión (el aire) es accesible a cualquiera que esté en el rango de la señal.\n\n**WEP (Wired Equivalent Privacy)**: DESCARTADO. Usaba un vector de inicialización que se repetía con frecuencia, lo que permitía obtener la clave fácilmente. No debe usarse bajo ningún concepto. Aparece en el temario como ejemplo de protocolo obsoleto que NO debe usarse.\n\n**WPA (WiFi Protected Access)**: mejoró al WEP pero tiene vulnerabilidades conocidas. Mejor que WEP, pero ya no recomendado.\n\n**WPA2**: el estándar actual en la mayoría de redes corporativas. Correcto y suficiente.\n\n**WPA3**: el más seguro actualmente. Usar cuando sea posible.\n\n**Modos de conexión WiFi**:\n- **Modo infraestructura**: todos los dispositivos se conectan a un punto de acceso (AP) central. El AP puede incorporar filtrado de paquetes. Es el modo habitual en redes corporativas.\n- **Modo ad-hoc**: los dispositivos se conectan directamente entre sí sin nodo central. Cada dispositivo actúa como AP. Menos seguro.\n\nNota: aunque WEP está obsoleto y no se usa, aparece en los contenidos del temario y puede caer en el examen como el protocolo que debe evitarse."
+      },
+      {
+        "titulo": "Dispositivos móviles — BYOD y MDM",
+        "contenido": "Los smartphones y tablets son uno de los mayores retos de seguridad actuales en las organizaciones. El problema: los empleados quieren usar sus propios dispositivos (más modernos y cómodos) en lugar de los corporativos.\n\n**BYOD** (*Bring Your Own Device*): política que permite a los empleados usar sus dispositivos personales en la red corporativa. Los riesgos son evidentes: el dispositivo personal puede contener malware, tener aplicaciones no autorizadas, no estar actualizado, o ser robado.\n\n**MDM** (*Mobile Device Management*): solución para gestionar los dispositivos móviles que acceden a la red corporativa, sean corporativos o BYOD. Un MDM permite:\n- Localizar el dispositivo en caso de pérdida.\n- Borrar remotamente todos los datos en caso de robo.\n- Controlar qué aplicaciones se pueden instalar.\n- Gestionar permisos de acceso a recursos de la red.\n- Hacer copias de seguridad automáticas.\n- Establecer políticas de contraseña y cifrado en el dispositivo.\n\nEjemplos de MDM: Microsoft Intune (anteriormente Mobile Iron en algunos entornos). El Centro Criptológico Nacional también tiene herramientas para la gestión de dispositivos móviles en administraciones públicas.\n\nEl MDM es una de las comprobaciones que el auditor debe verificar cuando una organización permite el teletrabajo o el uso de dispositivos móviles."
+      },
+      {
+        "titulo": "Protocolos de seguridad en las comunicaciones",
+        "contenido": "Los protocolos seguros son conjuntos de reglas que garantizan la seguridad de las comunicaciones a nivel de software.\n\n**TLS (Transport Layer Security)**:\nProtocolo que protege el tráfico HTTPS. Versión actual: TLS 1.3. Funciona mediante un *handshake* en el que cliente y servidor se autentican mutuamente (mediante certificados digitales) y establecen una clave de sesión cifrada para la comunicación posterior. Opera sobre la capa de transporte.\n\n**HTTPS**: HTTP sobre TLS. El candado del navegador. Garantiza confidencialidad e integridad de las comunicaciones web. Si el certificado SSL/TLS está caducado, el navegador avisa al usuario.\n\n**SSL**: predecesor de TLS, ya obsoleto pero todavía mencionado. TLS es su sucesor mejorado.\n\n**IPSec (IP Security)**:\nActúa a nivel de red (capa 3). Contiene tres subprotocolos:\n- **IKE** (*Internet Key Exchange*): gestión del intercambio de claves.\n- **ESP** (*Encapsulating Security Payload*): proporciona cifrado e integridad.\n- **AH** (*Authentication Header*): proporciona autenticación e integridad pero sin cifrado.\nIPSec se usa principalmente para VPN de red a red (conectar dos sedes de una empresa).\n\n**SSH (Secure Shell)**:\nProtocolo de sesión remota segura. Cifra la conexión entre cliente y servidor. Alternativa segura a Telnet (que transmite en claro). Puerto estándar: 22 (frente al puerto 23 de Telnet).\n\n**SIEM (Security Information and Event Management)**:\nNo es un protocolo de red, sino una herramienta que agrupa y analiza automáticamente los logs de todos los dispositivos de la red (switches, firewalls, servidores...) para detectar anomalías de forma centralizada. El SIEM soluciona el problema de tener múltiples dispositivos generando múltiples ficheros de log: los centraliza y los analiza."
+      },
+      {
+        "titulo": "Clasificación de ataques en redes — Pasivos y activos",
+        "contenido": "Los ataques a las redes de comunicaciones se clasifican en pasivos y activos.\n\n**Ataques pasivos** (no modifican los datos, solo los observan):\n- **Footprinting / Harvesting**: recopilación de información sobre la organización antes del ataque. Se investigan los servidores, sistemas operativos, usuarios, puertos abiertos, datos publicados en redes sociales, etc. Muchas veces está automatizado mediante *data scraping*. Es el primer paso de cualquier ataque profesional.\n- **Sniffing**: conectar un dispositivo (o usar un software como Wireshark) a la red para capturar los paquetes que circulan. Si la conexión no está cifrada, el atacante ve el contenido completo.\n\n**Ataques activos** (modifican, falsifican o interrumpen el tráfico):\n- **Spoofing (falsificación/suplantación)**: el atacante suplanta una dirección IP o dirección MAC para ocultar su identidad o engañar a otros equipos. La dirección MAC (aunque está grabada en el hardware) se puede suplantar porque su valor se carga en un registro del sistema operativo que puede modificarse. La suplantación de IP se puede hacer incluso con una VPN.\n- **Ataque Smurf**: el atacante bombardea una granja de servidores usando como IP de origen la de su víctima. Los servidores responden masivamente a esa IP, saturando la red de la víctima. Además, la IP de la víctima queda en listas negras.\n- **Secuestro de sesión**: cuando un usuario se autentica en una aplicación web, se crea un identificador de sesión. Si el atacante roba ese identificador, puede usarlo para acceder como ese usuario sin necesidad de contraseña. Se mitiga con cortafuegos de inspección de estado.\n- **Ataques de denegación de servicio (DoS/DDoS)**: múltiples peticiones a un servidor hasta saturarlo e inutilizarlo. Los DDoS usan botnets: redes de equipos zombis controlados remotamente que el propietario ni siquiera sabe que están siendo usados para el ataque.\n\n**Contramedidas para ataques pasivos**:\n- Desactivar servicios innecesarios (por ejemplo, deshabilitar el ping en servidores para que el atacante no sepa que están activos).\n- Auditoría de paquetes con endpoints.\n\n**Contramedidas para ataques activos**:\n- Segmentación de red con VLANs y switches.\n- Cortafuegos de inspección de estado para detectar secuestros de sesión.\n- Cifrado y autenticación robusta (IPSec, TLS) para evitar spoofing e interceptación."
+      },
+      {
+        "titulo": "Seguridad en sistemas operativos — Checklist del auditor",
+        "contenido": "Además de los dispositivos de red, el auditor debe verificar la seguridad de los propios sistemas operativos. Los cuatro pilares de la seguridad en sistemas operativos son:\n\n**1. Autenticación robusta de usuarios**:\n- Contraseñas con caracteres, longitud y complejidad adecuadas.\n- Cuentas por defecto del sistema desactivadas o con contraseñas cambiadas.\n- Cuentas de usuario inactivas desactivadas (empleados jubilados o que se han ido). Este es uno de los problemas más habituales: nadie avisa a informática cuando alguien causa baja.\n\n**2. Control de acceso / Autorización**:\n- Grupos de usuarios correctamente configurados.\n- Principio de mínimo privilegio aplicado a todos los accesos.\n- Listas de control de acceso (ACL) para control fino de permisos.\n- Servicios innecesarios desactivados (un servicio abierto = un puerto abierto = un riesgo).\n\n**3. Defensa frente a malware y control del software**:\n- Antivirus/endpoint instalado y actualizado con las últimas firmas.\n- Parches de seguridad aplicados según el proceso: primero en equipos de prueba durante una semana, luego en todos los equipos. No se aplican de forma inmediata.\n- Cortafuegos local en cada equipo (Windows lo incluye por defecto).\n- Control del software de terceros instalado.\n\n**4. Auditoría mediante logs**:\n- Registro de eventos habilitado y configurado.\n- Logs revisados periódicamente en busca de anomalías.\n- Uso de un SIEM para centralizar y analizar los logs de todos los dispositivos.\n\n**Caso WannaCry (2017)**: ransomware que se propagó explotando una vulnerabilidad del protocolo SMB (compartición de recursos en Windows). Microsoft había publicado un parche meses antes, pero muchos equipos no estaban actualizados. Infectó más de 300.000 equipos en un día. Lo detuvo un investigador de 19 años que descubrió en el código un dominio que actuaba como 'botón de apagado': al registrarlo, el ransomware dejó de propagarse."
+      },
+      {
+        "titulo": "Historia de la criptografía (contenido de refuerzo, no evaluable)",
+        "contenido": "El profesor presentó una introducción histórica a la criptografía como material de refuerzo. Indicó expresamente que 'no entra en el examen', aunque 'puede tocar algo'. Se incluye aquí a modo de contexto.\n\n**Criptografía clásica** (antes de la era moderna):\n- **Cítala espartana** (siglo V a.C.): una cinta enrollada sobre un bastón. Al desenrollarla el mensaje era ilegible; para descifrarla se necesitaba un bastón con el mismo diámetro.\n- **Cifrado de Polibio**: sustituye cada carácter por un número o letra de una tabla. El cifrador por sustitución más antiguo conocido. Duplica el tamaño del mensaje.\n- **Cifrado César** (siglo I a.C.): sustituye cada letra por la que está 3 posiciones más a la derecha en el alfabeto. Tipo de cifrado por sustitución monoalfabética.\n\n**Criptografía moderna**:\n- **Máquina Enigma** (siglo XX): máquina mecánica y electrónica alemana que cifra mensajes mediante rotores. Fue descifrada durante la Segunda Guerra Mundial por matemáticos polacos (que encontraron el primer fallo) y británicos, entre ellos **Alan Turing**, que diseñó la 'Bomba', una máquina capaz de probar combinaciones de la Enigma a gran velocidad.\n- **Cifrado por bloques**: los algoritmos modernos como DES, AES (antes Rijndael) usan el diseño de Feistel: dividen el mensaje en bloques y van cifrando bloque a bloque.\n- **Cifrado de flujo**: cifra el mensaje carácter a carácter (o bit a bit). Se usa en WiFi y móviles."
+      }
+    ]
+  },
+  "resumen": [
+    "El Tema 4 cubre la protección de la información en tránsito (mientras viaja por la red). El Tema 3 cubría la información en reposo.",
+    "El modelo OSI tiene 7 capas (Física, Enlace, Red, Transporte, Sesión, Presentación, Aplicación). El modelo TCP/IP tiene 4 capas (Acceso al medio, Internet, Transporte, Aplicación).",
+    "Los dispositivos de red: Hub (L1, obsoleto, reenvía a todos), Switch (L2, crea VLANs, eficiente), Router (L3, enruta entre redes, NAT), Proxy (L7, controla contenidos), Gateway (interconecta protocolos distintos), Firewall (filtra conexiones).",
+    "VLAN: red virtual creada en el switch que aísla segmentos de red. Es un mecanismo de protección en tránsito.",
+    "Los 4 modelos de cortafuegos: Filtrado de paquetes (L3, básico), Proxy de aplicación (L7, analiza contenido), Proxy de circuito (L4, híbrido), Inspección de estado/Stateful (L3-4, tabla dinámica, el más usado).",
+    "Las 4 arquitecturas de cortafuegos: Filtrado simple, Screened host (router + bastión), Host de base dual (bastión como FW), Subred con DMZ (la más profesional, dos firewalls de fabricantes distintos).",
+    "La DMZ aloja los servicios accesibles desde el exterior (servidor web, correo, terminador VPN). Los dos firewalls que la forman deben ser de fabricantes distintos (recomendación del CCN).",
+    "Honey pot: sistema trampa que simula vulnerabilidades para atraer y estudiar a los atacantes.",
+    "La VPN crea un túnel cifrado: 1) identificación mutua, 2) intercambio de claves con criptografía asimétrica, 3) cifrado del tráfico con clave de sesión simétrica. Protocolos: IPSec, WireGuard (recomendado CCN), OpenVPN/TLS, L2TP.",
+    "WiFi: WEP descartado (vector de inicialización repetido), WPA con vulnerabilidades, WPA2 estándar actual, WPA3 recomendado.",
+    "BYOD: política que permite usar dispositivos personales en la red corporativa. MDM: gestiona esos dispositivos (localizar, borrar remotamente, controlar apps).",
+    "TLS: protocolo que protege HTTPS (versión actual 1.3, handshake para establecer clave de sesión). IPSec: VPN de red a red (capa 3). SSH: sesión remota segura, alternativa a Telnet.",
+    "SIEM: centraliza y analiza automáticamente todos los logs de todos los dispositivos de la red.",
+    "Ataques pasivos: footprinting (recopilación de información) y sniffing (captura de paquetes). Ataques activos: spoofing (suplantación), ataque Smurf, secuestro de sesión, DoS/DDoS (botnets).",
+    "Para el teletrabajo seguro: VPN (terminador en la DMZ) + MFA + MDM. La DMZ sola no es suficiente.",
+    "Checklist del auditor en sistemas operativos: contraseñas robustas, cuentas inactivas desactivadas, mínimo privilegio, antivirus actualizado, parches aplicados, servicios innecesarios desactivados, logs revisados."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Modelo OSI",
+      "definicion": "Modelo de referencia de comunicaciones de 7 capas: Física (1), Enlace (2), Red (3), Transporte (4), Sesión (5), Presentación (6), Aplicación (7). Definido por ISO."
+    },
+    {
+      "termino": "Modelo TCP/IP",
+      "definicion": "Modelo de comunicaciones de 4 capas: Acceso al medio (capa 1+2 del OSI), Internet/Red (capa 3), Transporte (capa 4), Aplicación (capas 5+6+7). El modelo real de internet."
+    },
+    {
+      "termino": "VLAN (Virtual LAN)",
+      "definicion": "Red virtual creada por software dentro de un switch mediante etiquetas. Aísla segmentos de red de forma que solo los equipos del mismo VLAN pueden comunicarse entre sí. Es un mecanismo de protección en tránsito."
+    },
+    {
+      "termino": "NAT (Network Address Translation)",
+      "definicion": "Función del router que traduce las IPs privadas de la red interna a la IP pública cuando los paquetes salen a internet. Oculta la arquitectura interna de la red."
+    },
+    {
+      "termino": "ARP Spoofing",
+      "definicion": "Ataque que falsifica la tabla ARP de un equipo (que traduce IPs a MACs), haciéndole creer que se conecta a una máquina cuando en realidad se conecta a otra. Facilita ataques Man in the Middle a nivel local."
+    },
+    {
+      "termino": "Cortafuegos de filtrado de paquetes",
+      "definicion": "Modelo básico de firewall que filtra por IP de origen/destino y puerto (capa 3). No analiza el contenido. Rápido y sencillo, pero con baja protección contra ataques a nivel de aplicación."
+    },
+    {
+      "termino": "Cortafuegos de inspección de estado (Stateful)",
+      "definicion": "Tipo de firewall que mantiene una tabla dinámica de sesiones activas y verifica que cada paquete pertenezca a una sesión previamente establecida. El más usado actualmente. Protege contra secuestros de sesión."
+    },
+    {
+      "termino": "DMZ (Zona Desmilitarizada)",
+      "definicion": "Red intermedia entre internet y la red interna creada por dos cortafuegos. Aloja los servicios accesibles desde el exterior (web, correo, terminador VPN). Los firewalls que la forman deben ser de fabricantes distintos (recomendación CCN)."
+    },
+    {
+      "termino": "Screened host (host bastionado)",
+      "definicion": "Arquitectura de cortafuegos que combina un router de selección con un host bastión. El router solo deja pasar tráfico hacia el bastión, que actúa de proxy y es el único punto accesible desde el exterior."
+    },
+    {
+      "termino": "Honey pot",
+      "definicion": "Sistema trampa que simula ser vulnerable para atraer a los atacantes, permitiendo identificarlos y estudiar sus técnicas sin que accedan a sistemas reales."
+    },
+    {
+      "termino": "VPN (Virtual Private Network)",
+      "definicion": "Túnel cifrado entre dos puntos a través de una red no confiable. Garantiza confidencialidad e integridad del tráfico mediante cifrado y autenticación. Proceso: identificación mutua → intercambio de claves asimétricas → cifrado simétrico del tráfico."
+    },
+    {
+      "termino": "IPSec",
+      "definicion": "Protocolo de seguridad de capa 3 (red). Contiene IKE (intercambio de claves), ESP (cifrado e integridad) y AH (autenticación/integridad). Se usa para VPN de red a red."
+    },
+    {
+      "termino": "WireGuard",
+      "definicion": "Protocolo VPN moderno, recomendado actualmente por el CCN como alternativa más eficiente y segura a IPSec y OpenVPN."
+    },
+    {
+      "termino": "WEP",
+      "definicion": "Protocolo de seguridad WiFi DESCARTADO. Tenía un vector de inicialización que se repetía, lo que permitía obtener la clave fácilmente. No debe usarse bajo ningún concepto."
+    },
+    {
+      "termino": "WPA2 / WPA3",
+      "definicion": "Protocolos de seguridad WiFi actuales. WPA2 es el estándar más extendido. WPA3 es el más moderno y seguro, recomendado cuando está disponible."
+    },
+    {
+      "termino": "BYOD (Bring Your Own Device)",
+      "definicion": "Política que permite a los empleados usar sus dispositivos personales en la red corporativa. Implica riesgos de seguridad (malware, robo de datos) que se gestionan con una política MDM."
+    },
+    {
+      "termino": "MDM (Mobile Device Management)",
+      "definicion": "Sistema de gestión centralizada de dispositivos móviles corporativos o BYOD. Permite localizar, borrar remotamente, controlar aplicaciones y aplicar políticas de seguridad en los dispositivos."
+    },
+    {
+      "termino": "TLS (Transport Layer Security)",
+      "definicion": "Protocolo de seguridad que protege las comunicaciones HTTPS. Versión actual: 1.3. Usa un handshake para establecer una clave de sesión cifrada. Opera sobre la capa de transporte."
+    },
+    {
+      "termino": "SSH (Secure Shell)",
+      "definicion": "Protocolo de sesión remota segura (puerto 22). Alternativa segura a Telnet (puerto 23, que transmite en claro). Cifra toda la comunicación entre cliente y servidor."
+    },
+    {
+      "termino": "SIEM (Security Information and Event Management)",
+      "definicion": "Herramienta que centraliza y analiza automáticamente los logs de todos los dispositivos de la red (firewalls, switches, servidores) para detectar anomalías de seguridad de forma centralizada."
+    },
+    {
+      "termino": "Footprinting / Harvesting",
+      "definicion": "Primera fase de un ataque: recopilación de información sobre la organización objetivo (servidores, sistemas operativos, usuarios, puertos, datos en redes sociales). Muchas veces automatizado con data scraping."
+    },
+    {
+      "termino": "Sniffing",
+      "definicion": "Ataque pasivo que captura los paquetes que circulan por la red usando un software como Wireshark. Si el tráfico no está cifrado, el atacante puede ver el contenido completo de las comunicaciones."
+    },
+    {
+      "termino": "Ataque Smurf",
+      "definicion": "Ataque de denegación de servicio en el que el atacante bombardea servidores usando como IP de origen la de su víctima. Los servidores responden masivamente a la víctima, saturando su red."
+    },
+    {
+      "termino": "Botnet",
+      "definicion": "Red de equipos zombis controlados remotamente y usados para realizar ataques DDoS. Los propietarios de los equipos muchas veces no saben que están siendo utilizados."
+    },
+    {
+      "termino": "UTM (Unified Threat Management)",
+      "definicion": "Dispositivo de seguridad que integra en uno solo las funciones de firewall, proxy, IDS/IPS y otras capacidades de seguridad."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-4-fc-001",
+      "pregunta": "¿Cuántas capas tiene el modelo OSI y cuáles son?",
+      "respuesta": "7 capas: Física (1), Enlace de datos (2), Red (3), Transporte (4), Sesión (5), Presentación (6), Aplicación (7)."
+    },
+    {
+      "id": "casi-tema-4-fc-002",
+      "pregunta": "¿Cuántas capas tiene el modelo TCP/IP y cómo se corresponden con el OSI?",
+      "respuesta": "4 capas: Acceso al medio (OSI 1+2), Internet/Red (OSI 3), Transporte (OSI 4), Aplicación (OSI 5+6+7)."
+    },
+    {
+      "id": "casi-tema-4-fc-003",
+      "pregunta": "¿En qué se diferencia un hub de un switch?",
+      "respuesta": "El hub (capa 1) envía los paquetes a TODOS los puertos, generando colisiones. El switch (capa 2) envía cada paquete solo al puerto de destino, eliminando colisiones y permitiendo crear VLANs."
+    },
+    {
+      "id": "casi-tema-4-fc-004",
+      "pregunta": "¿Qué es una VLAN y para qué sirve?",
+      "respuesta": "Red virtual creada por software dentro de un switch. Aísla segmentos de red de forma que solo los equipos del mismo VLAN se comunican entre sí. Es un mecanismo de protección en tránsito."
+    },
+    {
+      "id": "casi-tema-4-fc-005",
+      "pregunta": "¿Qué hace el protocolo ARP y qué es el ARP Spoofing?",
+      "respuesta": "ARP traduce IPs a direcciones MAC. El ARP Spoofing falsifica la tabla ARP de un equipo haciéndole creer que se conecta a una máquina cuando en realidad se conecta a otra (ataque MitM a nivel local)."
+    },
+    {
+      "id": "casi-tema-4-fc-006",
+      "pregunta": "¿Cuáles son los 4 modelos de cortafuegos y en qué capa OSI opera cada uno?",
+      "respuesta": "Filtrado de paquetes (L3), Proxy de aplicación (L7), Proxy de circuito (L4), Inspección de estado/Stateful (L3-4). El stateful es el más usado actualmente."
+    },
+    {
+      "id": "casi-tema-4-fc-007",
+      "pregunta": "¿Qué característica distingue al cortafuegos de inspección de estado (Stateful)?",
+      "respuesta": "Mantiene una tabla dinámica con el estado de las sesiones activas y verifica que cada paquete pertenezca a una sesión previamente establecida. Protege contra secuestros de sesión."
+    },
+    {
+      "id": "casi-tema-4-fc-008",
+      "pregunta": "¿Qué cortafuegos emplea una tabla dinámica de estado para examinar los paquetes?",
+      "respuesta": "El cortafuegos de inspección de estado (Stateful)."
+    },
+    {
+      "id": "casi-tema-4-fc-009",
+      "pregunta": "¿Cuáles son las 4 arquitecturas de inserción de cortafuegos?",
+      "respuesta": "1) Filtrado simple (un único firewall), 2) Screened host (router + bastión), 3) Host de base dual (bastión con dos interfaces), 4) Subred con DMZ (dos firewalls, la más profesional)."
+    },
+    {
+      "id": "casi-tema-4-fc-010",
+      "pregunta": "¿Qué arquitectura de cortafuegos usa un host bastión y un router de selección?",
+      "respuesta": "El Screened host (host bastionado). El router solo deja pasar tráfico hacia el bastión, que es el único punto accesible desde el exterior."
+    },
+    {
+      "id": "casi-tema-4-fc-011",
+      "pregunta": "¿Qué es la DMZ y qué se coloca en ella?",
+      "respuesta": "Zona desmilitarizada: red intermedia entre internet y la red interna creada por dos firewalls. Se colocan los servicios accesibles desde el exterior: servidor web, correo, terminador VPN, DNS de publicación."
+    },
+    {
+      "id": "casi-tema-4-fc-012",
+      "pregunta": "¿Por qué los firewalls que forman la DMZ deben ser de fabricantes distintos?",
+      "respuesta": "Porque si son del mismo fabricante y se descubre una vulnerabilidad, ambos quedan expuestos. Con fabricantes distintos, una vulnerabilidad de uno no afecta al otro. Es la recomendación del CCN."
+    },
+    {
+      "id": "casi-tema-4-fc-013",
+      "pregunta": "¿Qué es un Honey pot?",
+      "respuesta": "Sistema trampa que simula ser vulnerable para atraer a los atacantes. Permite identificarlos y estudiar sus técnicas sin que lleguen a los sistemas reales."
+    },
+    {
+      "id": "casi-tema-4-fc-014",
+      "pregunta": "Explica cómo funciona una VPN paso a paso.",
+      "respuesta": "1) Los dos extremos se identifican mutuamente (certificados o contraseñas). 2) Intercambian claves de sesión usando criptografía asimétrica. 3) Con esa clave simétrica de sesión, cifran todo el tráfico entre ellos."
+    },
+    {
+      "id": "casi-tema-4-fc-015",
+      "pregunta": "¿Qué protocolos VPN conoces y cuál recomienda el CCN?",
+      "respuesta": "IPSec (capa 3, redes a redes), L2TP/L2F/PPTP (más antiguos), OpenVPN/TLS, WireGuard. El CCN recomienda WireGuard actualmente."
+    },
+    {
+      "id": "casi-tema-4-fc-016",
+      "pregunta": "¿Cuáles son los tres subprotocolos de IPSec y qué hace cada uno?",
+      "respuesta": "IKE (intercambio de claves), ESP (cifrado e integridad del tráfico), AH (autenticación e integridad, sin cifrado)."
+    },
+    {
+      "id": "casi-tema-4-fc-017",
+      "pregunta": "¿Qué protocolo WiFi debe evitarse y por qué?",
+      "respuesta": "WEP, porque usaba un vector de inicialización que se repetía, lo que permitía obtener la clave fácilmente. Está completamente descartado."
+    },
+    {
+      "id": "casi-tema-4-fc-018",
+      "pregunta": "¿Cuál es el protocolo WiFi más seguro actualmente?",
+      "respuesta": "WPA3. El estándar más extendido es WPA2. WPA tiene vulnerabilidades conocidas. WEP está descartado."
+    },
+    {
+      "id": "casi-tema-4-fc-019",
+      "pregunta": "¿Qué es BYOD y qué riesgos implica?",
+      "respuesta": "Bring Your Own Device: política que permite usar dispositivos personales en la red corporativa. Riesgos: malware, apps no autorizadas, robo de datos. Se gestiona con MDM."
+    },
+    {
+      "id": "casi-tema-4-fc-020",
+      "pregunta": "¿Qué puede hacer un MDM con un dispositivo móvil?",
+      "respuesta": "Localizarlo, borrar remotamente todos sus datos, controlar qué aplicaciones se instalan, gestionar permisos de acceso a recursos de red y hacer copias de seguridad automáticas."
+    },
+    {
+      "id": "casi-tema-4-fc-021",
+      "pregunta": "¿Qué es TLS y cuál es su versión actual?",
+      "respuesta": "Transport Layer Security: protocolo que protege las comunicaciones HTTPS. Versión actual: TLS 1.3. Usa un handshake para establecer una clave de sesión cifrada entre cliente y servidor."
+    },
+    {
+      "id": "casi-tema-4-fc-022",
+      "pregunta": "¿Qué es un SIEM y para qué sirve?",
+      "respuesta": "Security Information and Event Management: herramienta que centraliza y analiza automáticamente los logs de todos los dispositivos de la red para detectar anomalías. Soluciona el problema de gestionar múltiples logs de múltiples dispositivos."
+    },
+    {
+      "id": "casi-tema-4-fc-023",
+      "pregunta": "¿Cuál es la diferencia entre un ataque pasivo y uno activo?",
+      "respuesta": "Pasivo: observa sin modificar (footprinting, sniffing). Activo: modifica, falsifica o interrumpe el tráfico (spoofing, secuestro de sesión, DoS/DDoS)."
+    },
+    {
+      "id": "casi-tema-4-fc-024",
+      "pregunta": "¿Qué es el footprinting y por qué es importante para los atacantes?",
+      "respuesta": "Primera fase de un ataque: recopilación de información sobre la organización (servidores, sistemas, usuarios, puertos, datos en redes sociales). Permite al atacante diseñar un ataque específico y eficaz."
+    },
+    {
+      "id": "casi-tema-4-fc-025",
+      "pregunta": "¿En qué consiste el ataque Smurf?",
+      "respuesta": "El atacante envía paquetes a una granja de servidores usando como IP de origen la IP de su víctima. Los servidores responden masivamente a esa IP, saturando la red de la víctima."
+    },
+    {
+      "id": "casi-tema-4-fc-026",
+      "pregunta": "¿Qué es una botnet y cómo se usa en ataques DDoS?",
+      "respuesta": "Red de equipos zombis controlados remotamente. Sus propietarios no saben que están comprometidos. Se usan para lanzar ataques DDoS: múltiples equipos envían peticiones simultáneas a un servidor hasta tumbarlo."
+    },
+    {
+      "id": "casi-tema-4-fc-027",
+      "pregunta": "¿Qué controles debe verificar el auditor en una empresa que ofrece teletrabajo?",
+      "respuesta": "VPN correctamente configurada (terminador en DMZ), MFA (autenticación multifactor), MDM para dispositivos móviles, política de contraseñas robusta, cuentas inactivas desactivadas, logs revisados."
+    },
+    {
+      "id": "casi-tema-4-fc-028",
+      "pregunta": "¿Cuál es la diferencia entre SSH y Telnet?",
+      "respuesta": "SSH (puerto 22) cifra toda la comunicación. Telnet (puerto 23) transmite en claro: cualquiera que esté en la red puede ver el contenido. Telnet está obsoleto y no debe usarse."
+    },
+    {
+      "id": "casi-tema-4-fc-029",
+      "pregunta": "¿Para qué sirve la arquitectura de red con DMZ en el contexto del teletrabajo?",
+      "respuesta": "El terminador de VPN se coloca en la DMZ para que los empleados remotos puedan conectarse desde internet de forma segura, sin dar acceso directo a la red interna. La VPN cifra el tráfico del empleado una vez autenticado."
+    },
+    {
+      "id": "casi-tema-4-fc-030",
+      "pregunta": "¿Qué es el secuestro de sesión y cómo se previene?",
+      "respuesta": "Ataque en el que el atacante roba el identificador de sesión de un usuario autenticado para acceder como él sin contraseña. Se previene con cortafuegos de inspección de estado, que verifican que la sesión se estableció correctamente."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "smpc",
+    "nombre": "Sistemas Multiagente y Percepción Computacional",
+    "abreviatura": "SMPC",
+    "descripcion": "Estudio de agentes inteligentes, sistemas multiagente y técnicas de percepción computacional.",
+    "color": "#4F7CAC",
+    "icono": "🤖"
+  },
+  {
+    "id": "casi",
+    "nombre": "Calidad y Auditoría de Sistemas de Información",
+    "abreviatura": "CASI",
+    "descripcion": "Gestión de la calidad, auditoría y gobierno de sistemas de información.",
+    "color": "#2E8B57",
+    "icono": "✅"
+  },
+  {
+    "id": "te",
+    "nombre": "Tecnologías Emergentes",
+    "abreviatura": "TE",
+    "descripcion": "Blockchain, computación cuántica, IoT y otras tecnologías disruptivas.",
+    "color": "#E07B39",
+    "icono": "🚀"
+  },
+  {
+    "id": "iaic",
+    "nombre": "Inteligencia Artificial e Ingeniería del Conocimiento",
+    "abreviatura": "IAIC",
+    "descripcion": "Fundamentos de IA, representación del conocimiento y sistemas expertos.",
+    "color": "#9B59B6",
+    "icono": "🧠"
+  },
+  {
+    "id": "aamd",
+    "nombre": "Aprendizaje Automático y Minería de Datos",
+    "abreviatura": "AAMD",
+    "descripcion": "Machine learning, deep learning y técnicas de minería de datos.",
+    "color": "#C0392B",
+    "icono": "📊"
+  },
+  {
+    "id": "isa",
+    "nombre": "Ingeniería de Software Avanzada",
+    "abreviatura": "ISA",
+    "descripcion": "Metodologías avanzadas de desarrollo, arquitectura y calidad del software.",
+    "color": "#16A085",
+    "icono": "⚙️"
+  }
+]

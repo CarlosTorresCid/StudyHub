@@ -1,0 +1,243 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-7",
+  "titulo": "Tema 7. Técnicas para la Recolección de Información en Auditoría",
+  "apuntes": {
+    "introduccion": "El Tema 7 se centra en las técnicas de recolección de información que se usan tanto en auditoría de seguridad como en los pasos previos a un ataque o a un test de penetración. La premisa es simple: antes de poder proteger un sistema, o de poder atacarlo, hay que conocerlo. La recolección de información es siempre la primera fase.\n\nEl tema aborda tres áreas interrelacionadas:\n- **Análisis forense digital**: qué ocurre cuando algo ya ha pasado y hay que recopilar evidencias.\n- **Auditoría de seguridad, análisis de vulnerabilidades y pen testing**: tres conceptos distintos que se confunden con frecuencia.\n- **Fingerprinting y footprinting**: las dos técnicas fundamentales de recolección de información, con sus modalidades activa y pasiva y sus herramientas asociadas.\n\nEl profesor señaló expresamente que **fingerprinting y footprinting son lo más importante del tema** para el examen.",
+    "secciones": [
+      {
+        "titulo": "Análisis forense digital — Artefactos, evidencias y cadena de custodia",
+        "contenido": "El **análisis forense digital** es una disciplina que combina el derecho y las ciencias computacionales para recopilar y analizar datos de sistemas con el objetivo de obtener evidencias válidas en un procedimiento judicial.\n\nDos conceptos fundamentales que deben distinguirse:\n\n**Artefactos**: trazas o rastros que quedan en un sistema como resultado de actividades o eventos, inocuos o no. Son la materia prima del análisis forense. Ejemplos: ficheros de log, entradas del visor de eventos de Windows, metadatos de ficheros, registros USB.\n\n**Evidencias**: artefactos con connotaciones legales que pueden usarse en procedimientos judiciales. Para que un artefacto se convierta en evidencia válida, debe haber respetado la cadena de custodia.\n\n**Cadena de custodia**: procedimiento que garantiza que las evidencias no han sido manipuladas desde su obtención hasta su presentación en juicio. Es el requisito más crítico del análisis forense. Si la cadena de custodia se rompe, la evidencia pierde su validez probatoria. Por eso el perito debe registrar todas y cada una de las acciones realizadas, de forma que puedan ser reproducidas por otro perito imparcial si el tribunal lo requiere.\n\nOtra razón por la que la reproducibilidad es importante: los peritos suelen ser de parte (pagados por una de las partes), lo que puede hacerles perder imparcialidad a ojos del tribunal. Si otro perito puede reproducir exactamente los mismos pasos y llega a las mismas conclusiones, la prueba es más sólida.\n\n**Etapas del análisis forense**:\n1. Adquisición o captura de evidencias: normalmente se hace una copia de los soportes (imagen forense) para no alterar el original. Sobre esa copia se trabaja.\n2. Preservación de la cadena de custodia: registro de cada acción.\n3. Análisis e interpretación de las evidencias.\n4. Elaboración del informe: debe ser comprensible para el tribunal, que generalmente no tiene formación técnica profunda.\n\n**IOC (Indicators of Compromise)**: indicadores de compromiso. Son artefactos derivados de incidentes de seguridad que describen una vulnerabilidad o un patrón de ataque. Sirven para alertar de que un sistema puede estar comprometido si presenta ciertas condiciones. No están en el temario oficial pero el profesor los mencionó como concepto relevante en el sector.\n\n**Integridad de las evidencias digitales**: para demostrar que una evidencia no ha sido alterada se usan **funciones hash** (SHA-256 o SHA-512). Si el hash de la evidencia al presentarla en juicio coincide con el calculado en el momento de su obtención, nadie puede alegar que fue manipulada. El MD5 ya no se usa para este fin porque es vulnerable a ataques de colisión.\n\nTambién se usan **sellos de tiempo confiables** (RFC 3161) y **firmas digitales asimétricas** para garantizar la autenticidad y el no repudio de las evidencias."
+      },
+      {
+        "titulo": "Tres conceptos que se confunden: Auditoría, Análisis de vulnerabilidades y Pen testing",
+        "contenido": "Estos tres conceptos tienen características distintas que hay que conocer bien. El análisis forense actúa a posteriori (después del incidente). El pen testing y el análisis de vulnerabilidades actúan de forma preventiva, antes del incidente.\n\n**Auditoría de seguridad**:\n- Comprueba el cumplimiento de estándares y normas (ISO 27001, ENS, etc.).\n- Identifica si los controles existen y funcionan según la norma.\n- Es más pasiva: revisa documentación y verifica controles declarados.\n- Genera un informe de cumplimiento.\n- Limitación: pasar una auditoría no garantiza la seguridad real. Los estándares tardan años en actualizarse (la ISO 27001 estuvo 9 años sin actualización, de 2013 a 2022), mientras que las amenazas evolucionan diariamente. Una auditoría es como pasar un examen en un día concreto: no significa que el resto de los días el sistema esté protegido.\n\n**Análisis de vulnerabilidades**:\n- Detecta vulnerabilidades técnicas conocidas en el sistema.\n- Usa herramientas especializadas que escanean el sistema en busca de debilidades.\n- Es más pasivo que el pen testing: identifica la vulnerabilidad pero no la explota.\n- Genera un listado de problemas con su nivel de riesgo.\n- Las vulnerabilidades no son solo de acceso: también pueden ser de ejecución de código remoto, de daño físico (como los USB-Kill que destruyen la placa base sin necesidad de acceder al sistema), de denegación de servicio, etc.\n\n**Pen testing (prueba de penetración)**:\n- Un hacker ético intenta explotar vulnerabilidades reales para demostrar que se pueden usar para causar daño.\n- Va más allá del análisis de vulnerabilidades: no solo identifica el problema, sino que demuestra que se puede explotar.\n- Este 'proof of concept' es necesario porque muchas organizaciones no actúan sobre vulnerabilidades hasta que alguien les demuestra que son explotables.\n- Usa herramientas especializadas. Kali Linux es la distribución más conocida, que incluye herramientas para análisis de puertos (Nmap), ataques de diccionario (John the Ripper), análisis de cabeceras HTTP (Burp Suite), etc.\n- Bug bounty programs: plataformas como HackerOne donde empresas como PayPal o Google ofrecen recompensas económicas (de miles a decenas de miles de dólares) a quien encuentre vulnerabilidades explotables en sus sistemas.\n\nComparativa resumida:\n- Auditoría: cumple norma → informe de cumplimiento.\n- Análisis de vulnerabilidades: detecta debilidad → listado de problemas.\n- Pen testing: explota debilidad → prueba de concepto."
+      },
+      {
+        "titulo": "Fingerprinting — Recopilación de información sobre un dispositivo concreto",
+        "contenido": "El **fingerprinting** (huella digital, de *finger* que significa dedo, apuntando a algo concreto) deduce información sobre un **dispositivo específico** a partir del tráfico de red. Su objetivo es identificar el sistema operativo, los puertos abiertos, los servicios en ejecución y la versión de los mismos en un equipo concreto.\n\nEl fingerprinting tiene dos modalidades:\n\n**Fingerprinting activo**:\n- Genera tráfico hacia el objetivo de forma deliberada para obtener respuestas que revelen información del sistema.\n- Es más invasivo: el sistema objetivo puede detectar que le están escaneando.\n- Puede quedar registrado en los logs del sistema objetivo.\n- Herramienta representativa: **Nmap** (Network Mapper). Permite descubrir puertos abiertos, servicios en ejecución, versión del sistema operativo y otros detalles de un host. Usando Nmap se puede llegar a saber la versión de Apache, de Linux, qué servicios están corriendo en cada puerto y cuáles son posibles puntos de entrada.\n\n**Fingerprinting pasivo**:\n- Intercepta y analiza el tráfico de red que ya existe, sin generarlo.\n- No deja rastro en los logs del sistema objetivo.\n- Funciona aunque haya firewalls y sistemas de detección de intrusos (IDS), porque no genera tráfico propio.\n- Herramientas representativas: **p0f** (passive OS fingerprinting) y Wireshark (analizador de paquetes o *sniffer*).\n- Ejemplo práctico: ejecutando p0f en modo promiscuo, se puede ver por dónde navegan los compañeros de red local, qué servidores contactan, qué sistema operativo usan, todo sin generar un solo paquete propio.\n\n**Escalada de privilegios** (concepto relacionado): una vez que un atacante consigue acceso con privilegios limitados, intenta 'escalar' verticalmente hasta obtener privilegios de administrador, o se mueve 'horizontalmente' entre servidores. Con privilegios de administrador puede hacer prácticamente cualquier cosa."
+      },
+      {
+        "titulo": "Footprinting — Mapeo completo de la red de una organización",
+        "contenido": "El **footprinting** (huella de pie, de *foot*, más grande y amplio que un dedo) obtiene un **mapa completo de la red corporativa** de una organización. Mientras el fingerprinting se centra en un dispositivo concreto, el footprinting intenta comprender toda la infraestructura de una organización desde el exterior.\n\nEl footprinting también tiene dos modalidades:\n\n**Footprinting externo**:\n- Se realiza desde fuera de la organización, sin acceso interno.\n- Su punto de entrada más visible es el dominio web de la organización (ejemplo: malaga.es, moncloa.es).\n- A partir del dominio, herramientas como Shodan o peticiones HTTP simples permiten obtener: dirección IP, puertos abiertos, versiones de servidor HTTP, tecnologías usadas, servicios expuestos.\n- También se puede obtener información de fuentes abiertas (OSINT): LinkedIn, Twitter, Facebook, redes sociales de los empleados. La información que los empleados publican (cargo, herramientas usadas, estructura organizativa) puede ser muy útil para preparar un ataque, especialmente de ingeniería social.\n- Incluso el análisis del código fuente HTML de la página web puede revelar vulnerabilidades.\n\n**Footprinting interno**:\n- Se realiza desde dentro de la red de la organización, una vez que el atacante ya ha conseguido acceso.\n- Es el más peligroso, porque el atacante ya está dentro.\n- Permite obtener un mapa completo de la red interna: subredes, servidores, dispositivos conectados, shares de red...\n- Si la tarjeta de red se pone en modo promiscuo, puede capturar todos los paquetes que circulan por la red local, incluyendo los del tesorero, del director general o de cualquier otro usuario.\n\n**Diferencia clave entre fingerprinting y footprinting**:\n- Fingerprinting → un dispositivo concreto → sistema operativo, puertos, versiones.\n- Footprinting → la red completa de la organización → topología, dominios, infraestructura.\n- En la práctica ambos conceptos se mezclan y complementan.\n\n**Port forwarding** (reenvío de puertos): mecanismo por el que el router publica servicios internos al exterior a través de un puerto específico. Cuando el Nmap descubre que un puerto está abierto, ya sabe que hay un servicio detrás y por dónde intentar entrar. Por eso los puertos abiertos son vectores de ataque potenciales."
+      },
+      {
+        "titulo": "Herramientas de recolección de información",
+        "contenido": "El tema menciona varias herramientas, tanto de fingerprinting activo y pasivo como de footprinting externo. Es importante conocerlas de forma general.\n\n**Nmap (Network Mapper)**:\n- La herramienta de fingerprinting activo más conocida.\n- Escanea puertos, detecta servicios, identifica versiones de sistema operativo.\n- Ejemplo: escaneando scanme.nmap.org con Nmap se obtiene inmediatamente la dirección IP pública, los puertos abiertos (22-SSH, 80-HTTP, etc.), el sistema operativo y la versión.\n- El escaneo activo deja rastro y puede ser detectado por el sistema objetivo. Hacerlo contra sistemas sin autorización es ilegal.\n\n**p0f (passive OS fingerprinting)**:\n- Herramienta de fingerprinting pasivo.\n- Analiza el tráfico de red existente sin generar tráfico propio.\n- Puede identificar el sistema operativo, los puertos usados y los servidores a los que se conecta un host, solo escuchando.\n\n**Wireshark**:\n- Analizador de paquetes (*sniffer*).\n- Captura todo el tráfico de red que pasa por una interfaz.\n- En modo promiscuo, puede capturar el tráfico de toda la red local, no solo el propio.\n- Útil tanto para diagnóstico legítimo de red como para ataques pasivos.\n\n**Shodan**:\n- Motor de búsqueda especializado en encontrar dispositivos conectados a internet.\n- Permite buscar por tipo de dispositivo, sistema operativo, puertos abiertos, versión de servidor, etc.\n- Es una herramienta de footprinting externo pasivo: simplemente consulta su base de datos.\n\n**OSINT (Open Source Intelligence)**:\n- Recopilación de información a través de fuentes abiertas: Google, redes sociales, LinkedIn, registros de dominio (WHOIS), repositorios de código abierto, etc.\n- Es completamente pasivo y no deja rastro en el sistema objetivo.\n- Es frecuentemente el primer paso de cualquier campaña de ataque dirigida (spear phishing, ingeniería social).\n\n**Kali Linux**:\n- Distribución de Linux específica para auditoría de seguridad y pen testing.\n- Incluye cientos de herramientas preinstaladas: Nmap, John the Ripper (ataques de diccionario), Burp Suite (análisis de tráfico HTTP/HTTPS), Metasploit, etc.\n\n**Botnet Mirai** (ejemplo real): botnet famosa que escaneaba dispositivos IoT buscando los que usaban las contraseñas por defecto del fabricante. Los que las tenían quedaban bajo el control del atacante (zombis). Con millones de zombis, se lanzaban ataques DDoS masivos. La enseñanza: cambiar siempre las contraseñas por defecto de los dispositivos."
+      },
+      {
+        "titulo": "Relación entre fingerprinting/footprinting y el ciclo de ataque",
+        "contenido": "El fingerprinting y el footprinting son la **fase de reconocimiento** previa a cualquier ataque real o test de penetración. Sin esta fase, el atacante atacaría a ciegas.\n\nEl ciclo completo suele seguir estos pasos:\n1. **Reconocimiento (footprinting/fingerprinting)**: recopilar toda la información posible sobre el objetivo, sus sistemas, su red, su personal y sus vulnerabilidades conocidas.\n2. **Identificación de vectores de entrada**: a partir de la información recopilada, identificar los puertos abiertos, servicios expuestos y posibles vulnerabilidades que se pueden explotar.\n3. **Explotación**: intentar explotar las vulnerabilidades identificadas para obtener acceso.\n4. **Escalada de privilegios**: si se obtiene acceso con privilegios limitados, intentar escalar hasta privilegios de administrador.\n5. **Movimiento lateral**: una vez dentro, moverse horizontalmente por otros sistemas de la red.\n\nEn el contexto de la **auditoría de seguridad**, el fingerprinting y el footprinting son técnicas legítimas y autorizadas que el auditor usa para mapear los activos de la organización y detectar servicios expuestos innecesariamente.\n\nEn el contexto del **análisis forense**, estas mismas técnicas se usan para reconstruir qué información pudo haber recopilado un atacante antes de comprometer el sistema, ayudando a comprender el alcance del incidente."
+      }
+    ]
+  },
+  "resumen": [
+    "El Tema 7 cubre tres áreas: análisis forense digital, comparativa auditoría/análisis de vulnerabilidades/pen testing, y las técnicas de recolección de información (fingerprinting y footprinting).",
+    "Fingerprinting y footprinting son lo más importante del tema para el examen.",
+    "Artefacto: traza o rastro dejado en el sistema por una actividad. Evidencia: artefacto con valor legal que cumple la cadena de custodia.",
+    "La cadena de custodia garantiza que las evidencias no han sido manipuladas desde su obtención hasta el juicio. Sin cadena de custodia, la evidencia no tiene valor probatorio.",
+    "La integridad de evidencias se garantiza con funciones hash (SHA-256 o SHA-512). MD5 está descartado por ser vulnerable a colisiones.",
+    "Análisis forense: a posteriori, reconstruye hechos. Auditoría: preventiva, comprueba cumplimiento. Pen testing: preventivo, explota vulnerabilidades para demostrarlas.",
+    "Auditoría de seguridad → cumplimiento de normas → informe de cumplimiento. Análisis de vulnerabilidades → detecta debilidades → listado de problemas. Pen testing → explota debilidades → prueba de concepto.",
+    "Limitación de la auditoría: pasar una auditoría no garantiza la seguridad real. Los estándares se actualizan cada años; las amenazas evolucionan cada día.",
+    "Fingerprinting: recopila información sobre un DISPOSITIVO CONCRETO (sistema operativo, puertos abiertos, servicios y versiones).",
+    "Footprinting: obtiene un MAPA COMPLETO de la red corporativa de una organización. Es más amplio que el fingerprinting.",
+    "Fingerprinting activo (genera tráfico, es detectable) → herramienta: Nmap. Fingerprinting pasivo (intercepta tráfico sin generarlo, invisible) → herramientas: p0f, Wireshark.",
+    "Footprinting externo (desde fuera de la red) → herramientas: Shodan, peticiones HTTP, OSINT. Footprinting interno (desde dentro, el más peligroso) → modo promiscuo, captura de toda la red.",
+    "OSINT: recopilación de información a través de fuentes abiertas (Google, LinkedIn, redes sociales). Es completamente pasivo y no deja rastro.",
+    "Escalada de privilegios: una vez dentro del sistema con privilegios limitados, el atacante intenta subir hasta administrador y luego moverse horizontalmente entre servidores.",
+    "Kali Linux: distribución de Linux especializada en pen testing con cientos de herramientas preinstaladas."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Análisis forense digital",
+      "definicion": "Disciplina que combina el derecho y las ciencias computacionales para recopilar y analizar datos de sistemas con el objetivo de obtener evidencias válidas en procedimientos judiciales. Actúa a posteriori, cuando ya ha ocurrido un incidente."
+    },
+    {
+      "termino": "Artefacto (forense)",
+      "definicion": "Traza o rastro que queda en un sistema como resultado de actividades o eventos, inocuos o no. Ejemplos: logs, entradas del visor de eventos, metadatos de ficheros. Es la materia prima del análisis forense."
+    },
+    {
+      "termino": "Evidencia (forense)",
+      "definicion": "Artefacto con connotaciones legales que puede usarse en procedimientos judiciales, siempre que haya respetado la cadena de custodia. Diferencia con artefacto: toda evidencia es un artefacto, pero no todo artefacto es una evidencia."
+    },
+    {
+      "termino": "Cadena de custodia",
+      "definicion": "Procedimiento que garantiza que las evidencias digitales no han sido manipuladas desde su obtención hasta su presentación en juicio. Incluye el registro de todas las acciones realizadas sobre las evidencias, de forma que sean reproducibles por un tercero imparcial."
+    },
+    {
+      "termino": "IOC (Indicators of Compromise)",
+      "definicion": "Indicadores de compromiso. Artefactos derivados de incidentes de seguridad que describen una vulnerabilidad o patrón de ataque, sirviendo para alertar de que un sistema puede estar comprometido si presenta ciertas condiciones."
+    },
+    {
+      "termino": "Análisis de vulnerabilidades",
+      "definicion": "Técnica preventiva que detecta vulnerabilidades técnicas en un sistema usando herramientas especializadas. A diferencia del pen testing, identifica la vulnerabilidad pero no la explota. Genera un listado de problemas."
+    },
+    {
+      "termino": "Pen testing (prueba de penetración)",
+      "definicion": "Técnica preventiva en la que un hacker ético intenta explotar vulnerabilidades reales para demostrar que pueden causar daño (prueba de concepto). Va más allá del análisis de vulnerabilidades. Requiere autorización expresa."
+    },
+    {
+      "termino": "Hacker ético",
+      "definicion": "Profesional de seguridad contratado para intentar comprometer un sistema de forma controlada y autorizada, con el fin de detectar vulnerabilidades antes de que lo haga un atacante real."
+    },
+    {
+      "termino": "Bug bounty",
+      "definicion": "Programa de recompensas económicas que las empresas (Google, PayPal, etc.) ofrecen a quien encuentre y reporte vulnerabilidades explotables en sus sistemas. Se articulan a través de plataformas como HackerOne."
+    },
+    {
+      "termino": "Fingerprinting",
+      "definicion": "Técnica de recolección de información que deduce datos sobre un DISPOSITIVO CONCRETO: sistema operativo, puertos abiertos, servicios en ejecución y sus versiones. Puede ser activo (genera tráfico, detectable) o pasivo (intercepta tráfico existente, invisible)."
+    },
+    {
+      "termino": "Fingerprinting activo",
+      "definicion": "Modalidad de fingerprinting que genera tráfico hacia el objetivo para obtener respuestas que revelan información. Es más invasivo y puede ser detectado. Herramienta: Nmap."
+    },
+    {
+      "termino": "Fingerprinting pasivo",
+      "definicion": "Modalidad de fingerprinting que intercepta y analiza tráfico de red existente sin generar tráfico propio. No deja rastro en los logs del objetivo. Funciona incluso con firewalls e IDS. Herramientas: p0f, Wireshark."
+    },
+    {
+      "termino": "Footprinting",
+      "definicion": "Técnica de recolección de información que obtiene un mapa completo de la red corporativa de una organización: topología, dominios, infraestructura, servicios expuestos. Puede ser externo (desde fuera) o interno (desde dentro de la red)."
+    },
+    {
+      "termino": "Footprinting externo",
+      "definicion": "Mapeo de la red de una organización realizado desde el exterior, sin acceso interno. Usa el dominio web como punto de entrada. Herramientas: Shodan, peticiones HTTP, OSINT. Menos peligroso que el interno."
+    },
+    {
+      "termino": "Footprinting interno",
+      "definicion": "Mapeo de la red realizado desde dentro de la organización, una vez que el atacante ya ha conseguido acceso. Es el más peligroso. Puede usar la tarjeta de red en modo promiscuo para capturar todo el tráfico de la red local."
+    },
+    {
+      "termino": "OSINT (Open Source Intelligence)",
+      "definicion": "Recopilación de información a través de fuentes abiertas: Google, LinkedIn, Twitter, registros de dominio, código fuente de páginas web, etc. Es completamente pasivo y no deja rastro. Primera fase habitual de un ataque dirigido."
+    },
+    {
+      "termino": "Nmap (Network Mapper)",
+      "definicion": "Herramienta de fingerprinting activo. Escanea puertos, detecta servicios en ejecución, identifica versiones de sistema operativo. Es detectable por el objetivo. Es ilegal usarlo contra sistemas sin autorización."
+    },
+    {
+      "termino": "Shodan",
+      "definicion": "Motor de búsqueda de dispositivos conectados a internet. Permite buscar por tipo de dispositivo, sistema operativo, puertos abiertos y versiones. Es una herramienta de footprinting externo pasivo."
+    },
+    {
+      "termino": "Kali Linux",
+      "definicion": "Distribución de Linux especializada en auditoría de seguridad y pen testing. Incluye cientos de herramientas preinstaladas: Nmap, John the Ripper (ataques de diccionario), Burp Suite, Metasploit, etc."
+    },
+    {
+      "termino": "Escalada de privilegios",
+      "definicion": "Técnica por la que un atacante que ha accedido a un sistema con privilegios limitados intenta obtener privilegios de administrador (escalada vertical) o acceder a otros sistemas de la red (movimiento lateral/horizontal)."
+    },
+    {
+      "termino": "Port forwarding (reenvío de puertos)",
+      "definicion": "Mecanismo por el que el router publica servicios internos al exterior a través de puertos específicos. Los puertos publicados son vectores de ataque potenciales: si Nmap los detecta, el atacante sabe por dónde puede intentar entrar."
+    },
+    {
+      "termino": "Modo promiscuo",
+      "definicion": "Configuración de una tarjeta de red por la que captura todos los paquetes que circulan por la red local, no solo los dirigidos a ella. Es lo que usan los sniffers (Wireshark, p0f) para capturar tráfico ajeno."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-7-fc-001",
+      "pregunta": "¿Cuál es la diferencia entre un artefacto y una evidencia en análisis forense?",
+      "respuesta": "Un artefacto es cualquier traza o rastro dejado en el sistema por una actividad (logs, metadatos...). Una evidencia es un artefacto con valor legal que puede usarse en juicio, siempre que haya respetado la cadena de custodia."
+    },
+    {
+      "id": "casi-tema-7-fc-002",
+      "pregunta": "¿Qué es la cadena de custodia y por qué es fundamental en el análisis forense?",
+      "respuesta": "Procedimiento que garantiza que las evidencias no han sido manipuladas desde su obtención hasta el juicio. Si se rompe, la evidencia pierde su valor probatorio. El perito debe registrar todas sus acciones para que puedan ser reproducidas por un tercero."
+    },
+    {
+      "id": "casi-tema-7-fc-003",
+      "pregunta": "¿Qué función hash se usa actualmente para garantizar la integridad de evidencias digitales?",
+      "respuesta": "SHA-256 o SHA-512. El MD5 está descartado porque ya no es resistente a ataques de colisión."
+    },
+    {
+      "id": "casi-tema-7-fc-004",
+      "pregunta": "¿Cuál es la diferencia fundamental entre análisis de vulnerabilidades y pen testing?",
+      "respuesta": "El análisis de vulnerabilidades identifica las debilidades del sistema pero no las explota. El pen testing va más allá: explota la vulnerabilidad para demostrar que puede causar daño real (prueba de concepto)."
+    },
+    {
+      "id": "casi-tema-7-fc-005",
+      "pregunta": "¿Por qué pasar una auditoría de seguridad no garantiza que el sistema sea seguro?",
+      "respuesta": "Porque la auditoría comprueba el cumplimiento en un momento concreto y según una norma que puede estar desactualizada (la ISO 27001 tardó 9 años en actualizarse). Las amenazas evolucionan diariamente. Pasar la auditoría es como pasar un examen un día: no garantiza el resto de los días."
+    },
+    {
+      "id": "casi-tema-7-fc-006",
+      "pregunta": "¿Cuál es la diferencia entre fingerprinting y footprinting?",
+      "respuesta": "Fingerprinting: recopila información sobre un DISPOSITIVO CONCRETO (sistema operativo, puertos, servicios, versiones). Footprinting: obtiene un MAPA COMPLETO de la red corporativa de una organización (topología, dominios, infraestructura)."
+    },
+    {
+      "id": "casi-tema-7-fc-007",
+      "pregunta": "¿Qué diferencia hay entre fingerprinting activo y pasivo?",
+      "respuesta": "Activo: genera tráfico hacia el objetivo para obtener respuestas. Es detectable. Herramienta: Nmap. Pasivo: intercepta tráfico existente sin generar propio. No deja rastro y funciona con firewalls activos. Herramientas: p0f, Wireshark."
+    },
+    {
+      "id": "casi-tema-7-fc-008",
+      "pregunta": "¿Cuál es la herramienta representativa del fingerprinting activo?",
+      "respuesta": "Nmap (Network Mapper). Escanea puertos, detecta servicios y versiones de sistema operativo. Es detectable por el objetivo."
+    },
+    {
+      "id": "casi-tema-7-fc-009",
+      "pregunta": "¿Cuál es la herramienta representativa del fingerprinting pasivo?",
+      "respuesta": "p0f (passive OS fingerprinting). Intercepta el tráfico existente sin generar ninguno propio. También Wireshark como sniffer."
+    },
+    {
+      "id": "casi-tema-7-fc-010",
+      "pregunta": "¿Qué diferencia hay entre footprinting externo e interno? ¿Cuál es más peligroso?",
+      "respuesta": "Externo: desde fuera de la red, usando el dominio como punto de entrada (Shodan, OSINT, peticiones HTTP). Interno: desde dentro de la red, una vez que el atacante ya tiene acceso. El INTERNO es el más peligroso porque el atacante ya está dentro."
+    },
+    {
+      "id": "casi-tema-7-fc-011",
+      "pregunta": "¿Qué es OSINT y por qué es una técnica de footprinting pasivo?",
+      "respuesta": "Open Source Intelligence: recopilación de información mediante fuentes abiertas (Google, LinkedIn, redes sociales, WHOIS). Es pasivo porque no genera ningún tráfico hacia el objetivo y no deja rastro."
+    },
+    {
+      "id": "casi-tema-7-fc-012",
+      "pregunta": "¿Qué es Shodan?",
+      "respuesta": "Motor de búsqueda especializado en encontrar dispositivos conectados a internet. Permite buscar por tipo de dispositivo, sistema operativo, puertos abiertos y versiones de servidor. Es una herramienta de footprinting externo pasivo."
+    },
+    {
+      "id": "casi-tema-7-fc-013",
+      "pregunta": "¿Qué información puede obtener Nmap de un host con un simple escaneo?",
+      "respuesta": "Dirección IP, puertos abiertos y el servicio asociado a cada uno (SSH en el 22, HTTP en el 80...), versión del sistema operativo, versión de los servicios en ejecución. En resumen: todos los posibles puntos de entrada al sistema."
+    },
+    {
+      "id": "casi-tema-7-fc-014",
+      "pregunta": "¿Qué es Kali Linux y para qué se usa?",
+      "respuesta": "Distribución de Linux especializada en auditoría de seguridad y pen testing. Incluye herramientas preinstaladas como Nmap, John the Ripper (ataques de diccionario), Burp Suite (análisis HTTP), Metasploit, etc."
+    },
+    {
+      "id": "casi-tema-7-fc-015",
+      "pregunta": "¿Qué es una escalada de privilegios?",
+      "respuesta": "Técnica por la que un atacante con acceso limitado intenta obtener privilegios de administrador (escalada vertical) o acceder a otros sistemas de la red (movimiento lateral). Con privilegios de administrador puede hacer prácticamente cualquier cosa."
+    },
+    {
+      "id": "casi-tema-7-fc-016",
+      "pregunta": "¿Qué es el port forwarding y por qué es relevante para la seguridad?",
+      "respuesta": "Mecanismo por el que el router publica servicios internos al exterior a través de puertos específicos. Los puertos publicados son vectores de ataque: si Nmap los detecta, el atacante sabe exactamente por qué puerta intentar entrar."
+    },
+    {
+      "id": "casi-tema-7-fc-017",
+      "pregunta": "¿Qué es un bug bounty program?",
+      "respuesta": "Programa de recompensas económicas que empresas como Google o PayPal ofrecen a quien encuentre y reporte vulnerabilidades explotables en sus sistemas. Se articulan a través de plataformas como HackerOne, con recompensas de miles a decenas de miles de dólares."
+    },
+    {
+      "id": "casi-tema-7-fc-018",
+      "pregunta": "¿Cuál es la diferencia entre el análisis forense y la auditoría informática?",
+      "respuesta": "El análisis forense es posterior al incidente: reconstruye hechos que ya han pasado para obtener pruebas. La auditoría es preventiva: comprueba el cumplimiento de normas y controles antes de que ocurra algo, con enfoque en mejora del sistema."
+    },
+    {
+      "id": "casi-tema-7-fc-019",
+      "pregunta": "¿Qué es la ISO 27002 y para qué sirve?",
+      "respuesta": "Guía de buenas prácticas que complementa a la ISO 27001. Proporciona orientación sobre cómo implementar los controles de seguridad exigidos por la ISO 27001. La 27001 define qué hay que cumplir; la 27002 orienta sobre cómo cumplirlo."
+    },
+    {
+      "id": "casi-tema-7-fc-020",
+      "pregunta": "¿Qué es el modo promiscuo de una tarjeta de red?",
+      "respuesta": "Configuración por la que la tarjeta de red captura todos los paquetes que circulan por la red local, no solo los dirigidos a ella. Es lo que usan los sniffers para capturar tráfico ajeno y puede revelar información de otros usuarios de la red."
+    }
+  ]
+}

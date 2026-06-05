@@ -1,0 +1,66 @@
+.results-panel { display: flex; flex-direction: column; gap: 20px; }
+
+.results-header h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+
+.results-global-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.results-score-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.results-score-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid currentColor;
+}
+.results-score-value { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; }
+.results-score-lbl { font-size: 11px; color: var(--text-muted); text-align: center; }
+.results-no-auto { color: var(--text-muted); font-style: italic; font-size: 13px; }
+
+.results-pending {
+  padding: 10px 14px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.results-parts { display: flex; flex-direction: column; gap: 8px; }
+.results-part-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.results-part-nombre { font-weight: 600; }
+.results-part-section { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.results-part-type-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  min-width: 70px;
+}
+.results-part-score { font-weight: 600; }
+.results-manual-summary { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.rm-correct { color: var(--success); font-weight: 600; }
+.rm-partial { color: var(--warning); font-weight: 600; }
+.rm-wrong { color: var(--danger); font-weight: 600; }
+.rm-pending { color: var(--text-dim); font-size: 12px; }
+.rm-pct { font-weight: 700; }
+.results-part-pts { font-size: 11px; color: var(--text-dim); }
+.results-actions { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 4px; }
