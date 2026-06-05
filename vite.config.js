@@ -76,5 +76,5 @@ function localAdminPlugin() {
 
 export default defineConfig({
   plugins: [react(), localAdminPlugin()],
-  base: '/studyhub/',
+  base: '/Studyhub/',
 })
