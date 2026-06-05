@@ -37,9 +37,9 @@ export default function SubjectPage() {
         <div className="topics-list">
           <div className="topics-header">
             <span>{temas.length} tema{temas.length !== 1 ? 's' : ''} publicados</span>
-            <Link to={`/simulacro/${asignaturaId}`} className="btn btn-primary btn-sm">
-              🎯 Simulacro
-            </Link>
+           <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-primary">
+            📝 Examen
+          </Link>
           </div>
 
           {temas.map(tema => {

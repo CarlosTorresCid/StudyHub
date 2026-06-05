@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import GestionGuard from './components/GestionGuard';
 import DashboardPage from './pages/DashboardPage';
@@ -15,6 +15,8 @@ import PreviewPage from './pages/PreviewPage';
 import EditPage from './pages/EditPage';
 import './index.css';
 import './App.css';
+import ExamPage from './pages/ExamPage'
+import ExamPartPage from './pages/ExamPartPage'
 
 // ─── Limpieza única de versión anterior ──────────────────────────────────────
 (function performOneTimeReset() {
@@ -30,7 +32,7 @@ const G = ({ children }) => <GestionGuard>{children}</GestionGuard>;
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-layout">
         <Sidebar />
         <main className="app-main">
@@ -50,9 +52,11 @@ export default function App() {
             <Route path="/gestion/biblioteca" element={<G><BackupPage /></G>} />
             <Route path="/gestion/previsualizar/:asignaturaId/:temaId" element={<G><PreviewPage /></G>} />
             <Route path="/gestion/editar/:asignaturaId/:temaId" element={<G><EditPage /></G>} />
+            <Route path="/asignatura/:asignaturaId/examen" element={<ExamPage />} />
+            <Route path="/asignatura/:asignaturaId/examen/:parteId" element={<ExamPartPage />} />
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

@@ -1,0 +1,325 @@
+/* ── QuestionPracticeCard ─────────────────────────────────────── */
+
+.qpc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Header: tipo + tema + badges */
+.qpc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.qpc-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.qpc-tipo-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.qpc-tema {
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--surface3);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+/* Badges de estado */
+.qpc-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.qpc-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.qpc-badge-revision {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.qpc-badge-verified {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* Enunciado */
+.qpc-enunciado {
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── Opciones test ────────────────────────────────────────────── */
+
+.qpc-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qpc-opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  min-height: 44px;
+}
+
+.qpc-opcion:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.qpc-opcion.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.qpc-opcion.correct {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--text);
+}
+
+.qpc-opcion.wrong {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--text);
+}
+
+.qpc-opcion-letra {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 18px;
+}
+
+.qpc-opcion.selected .qpc-opcion-letra { color: var(--accent); }
+.qpc-opcion.correct .qpc-opcion-letra  { color: var(--success); }
+.qpc-opcion.wrong   .qpc-opcion-letra  { color: var(--danger); }
+
+.qpc-opcion-texto { flex: 1; }
+
+/* ── Botones Verdadero/Falso ──────────────────────────────────── */
+
+.qpc-vf-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.qpc-vf-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface2);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  min-height: 44px;
+}
+
+.qpc-vf-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.qpc-vf-btn.selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.qpc-vf-btn.correct {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.qpc-vf-btn.wrong {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* ── Acciones y resultado ─────────────────────────────────────── */
+
+.qpc-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.qpc-result {
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.qpc-result.correct {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.qpc-result.wrong {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* ── Explicación (test / VF) ─────────────────────────────────── */
+
+.qpc-explicacion {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qpc-explicacion-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.qpc-explicacion p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ── Respuesta modelo / solución (corta, desarrollo, practica) ── */
+
+.qpc-respuesta {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qpc-respuesta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.qpc-respuesta-texto {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+}
+
+/* ── Criterios de corrección ─────────────────────────────────── */
+
+.qpc-criterios {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qpc-criterios-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.qpc-criterios-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.qpc-criterios-list li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.qpc-criterios-list li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--text-dim);
+}
+
+/* ── Mensajes de campo vacío ─────────────────────────────────── */
+
+.qpc-missing {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .qpc { padding: 16px; }
+  .qpc-opcion { padding: 10px 12px; }
+  .qpc-vf-btn { min-width: 0; padding: 10px 16px; }
+  .qpc-actions { flex-direction: column; align-items: flex-start; }
+}

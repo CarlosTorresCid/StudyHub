@@ -568,3 +568,135 @@
 .backup-keys-list li { font-size: 13px; color: var(--text-muted); }
 .backup-keys-list li.has-data { color: var(--text); }
 .backup-keys-list li.no-data { color: var(--text-dim); }
+
+/* Banco de preguntas — importación y publicación */
+.banco-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.banco-asignatura-badge {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 3px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+.banco-total {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.banco-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.banco-stats-group {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.banco-stats-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+.banco-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.banco-stats-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.banco-stats-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  min-width: 24px;
+  text-align: right;
+}
+
+.banco-preview-table {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.banco-preview-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.5fr) auto auto auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+.banco-preview-id {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.banco-preview-tema {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.banco-preview-enunciado {
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.banco-badge-revision {
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--warning-soft);
+  color: var(--warning);
+  padding: 1px 7px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+.banco-badge-verificada {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.banco-confirm-warning {
+  padding: 18px 22px;
+  background: var(--warning-soft);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+.banco-confirm-warning p {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.banco-confirm-actions {
+  display: flex;
+  gap: 10px;
+}

@@ -10,8 +10,9 @@ const VALID_TEMA = /^tema-\d+$/
 
 /**
  * Plugin de administración local — SOLO activo en el servidor de desarrollo.
- * Expone POST /api/admin/publicar-tema para que la interfaz web pueda escribir
- * archivos JSON en src/data/public/ sin salir del navegador.
+ * Expone:
+ *   POST /api/admin/publicar-tema           → escribe un tema en src/data/public/
+ *   POST /api/admin/publicar-banco-preguntas → escribe banco-preguntas.json en src/data/public/
  * Este middleware no se incluye en el build de producción.
  */
 function localAdminPlugin() {
@@ -65,6 +66,80 @@ function localAdminPlugin() {
 
             const publicPath = `src/data/public/${asignaturaId}/temas/${temaId}-contenido.json`
             res.writeHead(200).end(JSON.stringify({ ok: true, existed, path: publicPath }))
+          } catch (e) {
+            res.writeHead(500).end(JSON.stringify({ error: e.message }))
+          }
+        })
+      })
+
+      server.middlewares.use('/api/admin/publicar-banco-preguntas', (req, res) => {
+        res.setHeader('Content-Type', 'application/json; charset=utf-8')
+
+        if (req.method !== 'POST') {
+          res.writeHead(405).end(JSON.stringify({ error: 'Method Not Allowed' }))
+          return
+        }
+
+        let body = ''
+        req.on('data', chunk => { body += chunk })
+        req.on('end', () => {
+          try {
+            const parsed = JSON.parse(body)
+
+            // Acepta { asignaturaId, preguntas } o array directo
+            let asignaturaId, preguntas
+            if (Array.isArray(parsed)) {
+              preguntas = parsed
+              asignaturaId = preguntas[0]?.asignaturaId
+            } else {
+              asignaturaId = parsed.asignaturaId
+              preguntas = parsed.preguntas
+            }
+
+            // Validar asignaturaId contra whitelist
+            if (!asignaturaId || !VALID_ASIG.has(asignaturaId)) {
+              res.writeHead(400).end(JSON.stringify({
+                error: `asignaturaId "${asignaturaId}" no válido. Opciones: ${[...VALID_ASIG].join(', ')}`
+              }))
+              return
+            }
+
+            // Validar que preguntas es un array
+            if (!Array.isArray(preguntas)) {
+              res.writeHead(400).end(JSON.stringify({ error: '"preguntas" debe ser un array' }))
+              return
+            }
+
+            if (preguntas.length === 0) {
+              res.writeHead(400).end(JSON.stringify({ error: 'El banco está vacío (0 preguntas)' }))
+              return
+            }
+
+            // Validar que todas las preguntas pertenecen a la misma asignatura
+            const wrongAsig = preguntas.filter(q => q.asignaturaId !== asignaturaId)
+            if (wrongAsig.length > 0) {
+              res.writeHead(400).end(JSON.stringify({
+                error: `${wrongAsig.length} pregunta(s) tienen asignaturaId diferente a "${asignaturaId}"`
+              }))
+              return
+            }
+
+            // Construir ruta INTERNA usando solo valores validados — sin path del cliente
+            const targetDir = path.resolve(process.cwd(), 'src', 'data', 'public', asignaturaId, 'preguntas')
+            const filePath = path.resolve(targetDir, 'banco-preguntas.json')
+
+            // Verificación de contención
+            if (!filePath.startsWith(targetDir + path.sep)) {
+              res.writeHead(403).end(JSON.stringify({ error: 'Ruta no permitida' }))
+              return
+            }
+
+            const existed = fs.existsSync(filePath)
+            fs.mkdirSync(targetDir, { recursive: true })
+            fs.writeFileSync(filePath, JSON.stringify(preguntas, null, 2), 'utf-8')
+
+            const publicPath = `src/data/public/${asignaturaId}/preguntas/banco-preguntas.json`
+            res.writeHead(200).end(JSON.stringify({ ok: true, existed, path: publicPath, total: preguntas.length }))
           } catch (e) {
             res.writeHead(500).end(JSON.stringify({ error: e.message }))
           }

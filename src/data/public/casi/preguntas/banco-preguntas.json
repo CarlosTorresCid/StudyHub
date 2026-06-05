@@ -1,0 +1,2132 @@
+[
+  {
+    "id": "casi-tema-1-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Los tres principios fundamentales de los Sistemas de Gestión de Seguridad de la Información (SGSI) son:",
+    "opciones": [
+      "Confidencialidad, integridad y autenticación.",
+      "Cifrado, integridad y disponibilidad.",
+      "Confidencialidad, integridad y disponibilidad.",
+      "Autenticación, autorización y auditabilidad."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La Tríada CID (Confidencialidad, Integridad, Disponibilidad) constituye los tres principios fundamentales de los SGSI. El profesor confirmó textualmente que esta pregunta entra en el examen.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta del test de autoevaluación oficial del Tema 1. El profesor señaló esta pregunta como contenido seguro de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Un ataque por interceptación afecta a:",
+    "opciones": [
+      "La integridad de los datos.",
+      "La disponibilidad de los datos.",
+      "La confidencialidad de los datos.",
+      "La autenticidad de los datos."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La interceptación consiste en acceder a información sin autorización, lo que compromete la confidencialidad. La integridad se ve afectada por ataques de modificación; la disponibilidad, por ataques de interrupción.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 2 del test de autoevaluación del Tema 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué es un activo de información?",
+    "opciones": [
+      "Todo aquel elemento que posee valor para la empresa y es necesario para llevar a cabo su actividad de negocio.",
+      "Únicamente las bases de datos y los sistemas de información tecnológicos.",
+      "Los servidores, equipos y dispositivos hardware de la organización.",
+      "La documentación oficial y los contratos de la empresa."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Un activo de información es todo elemento con valor para la organización, incluyendo personas, procesos, datos y tecnología. El profesor subrayó que las personas también son activos.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 3 del test de autoevaluación del Tema 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Las reglas de oro de los SGSI son:",
+    "opciones": [
+      "La privacidad y el anonimato.",
+      "La autenticación y la autorización.",
+      "La autenticación, la autorización y la auditabilidad.",
+      "La confidencialidad, la integridad y la disponibilidad."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las tres Reglas de Oro son Autenticación (verificar identidad), Autorización (conceder permisos) y Auditabilidad (registrar actividades para auditoría). La opción B es trampa porque omite la auditabilidad.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 4 del test de autoevaluación. El profesor señaló esta pregunta como contenido seguro de examen: 'Que cae en el examen, desde luego que sí'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Si una persona no autorizada modifica la base de datos de una organización, ¿qué dimensión de seguridad se ha visto comprometida?",
+    "opciones": [
+      "Integridad.",
+      "Confidencialidad.",
+      "Disponibilidad.",
+      "Autenticidad."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La modificación no autorizada de datos compromete la integridad, que garantiza que la información no ha sido alterada por partes no autorizadas.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 5 del test de autoevaluación del Tema 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "La auditoría informática es necesaria para:",
+    "opciones": [
+      "Instalar y configurar los sistemas de seguridad de la organización.",
+      "Detectar posibles problemas de seguridad, aconsejar cómo solucionarlos y evitar posibles ataques o errores de seguridad.",
+      "Gestionar las contraseñas y los accesos de los usuarios.",
+      "Supervisar el rendimiento de los sistemas informáticos de la empresa."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La auditoría informática analiza el estado de seguridad de los sistemas, detecta vulnerabilidades, asesora sobre mejoras y ayuda a prevenir incidentes.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 6 del test de autoevaluación del Tema 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-test-007",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Los ficheros de log son fundamentales para:",
+    "opciones": [
+      "Realizar auditorías.",
+      "Garantizar la integridad.",
+      "Implementar autorización.",
+      "Cifrar las comunicaciones."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los ficheros de log registran la actividad del sistema y son la base para la auditabilidad, una de las tres Reglas de Oro. Sin logs no es posible realizar auditorías eficaces.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "Pregunta 7 del test de autoevaluación del Tema 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué son las Reglas de Oro de los SGSI y qué garantiza cada una?",
+    "respuestaModelo": "Las Reglas de Oro son los tres principios operativos básicos de todo SGSI: Autenticación (verificar que el usuario es quien dice ser), Autorización (conceder únicamente los permisos necesarios para realizar la tarea) y Auditabilidad (registrar todas las acciones mediante logs para que puedan revisarse en una auditoría). Los ficheros de log son el mecanismo que hace posible la auditabilidad.",
+    "criteriosCorreccion": [
+      "Nombra correctamente las tres Reglas de Oro (Autenticación, Autorización, Auditabilidad).",
+      "Explica qué garantiza cada una.",
+      "Relaciona la auditabilidad con los ficheros de log."
+    ],
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló textualmente: 'Que cae en el examen, desde luego que sí. No sé cómo va a caer, si en desarrollo o en test, pero que cae, fijo.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-1-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explica la Tríada CID (Confidencialidad, Integridad, Disponibilidad) y proporciona un ejemplo de ataque que comprometa cada dimensión.",
+    "respuestaModelo": "La Tríada CID es el fundamento de todo SGSI y agrupa los tres objetivos principales de la seguridad de la información. La Confidencialidad garantiza que la información solo es accesible a las personas autorizadas; un ataque de interceptación (eavesdropping) la compromete. La Integridad garantiza que la información no ha sido alterada de forma no autorizada; un ataque de modificación (como la inyección SQL) la compromete. La Disponibilidad garantiza que los sistemas y la información están accesibles cuando se necesitan; un ataque de interrupción como un DDoS o un ransomware la compromete.",
+    "criteriosCorreccion": [
+      "Define correctamente las tres dimensiones.",
+      "Asocia al menos un tipo de ataque a cada dimensión.",
+      "Explica con claridad la diferencia entre las tres dimensiones."
+    ],
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Tema1_SGSI_Introduccion_2.docx"
+    ],
+    "observaciones": "El profesor señaló la Tríada CID como contenido seguro de examen. La respuesta orientativa ha sido elaborada a partir del contenido docente disponible.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué punto NO forma parte de una política de seguridad de alto nivel?",
+    "opciones": [
+      "Definir los objetivos generales de seguridad de la organización.",
+      "Identificar el tipo de cortafuegos a emplear.",
+      "Establecer las responsabilidades en materia de seguridad.",
+      "Declarar el compromiso de la dirección con la seguridad."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Una política de alto nivel es estratégica y no incluye detalles técnicos u operativos como el tipo de cortafuegos. Esos detalles corresponden a los procedimientos o estándares técnicos.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 1 del test de autoevaluación del Tema 2.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de las siguientes sentencias sobre los pasos de planificación del SGSI es ERRÓNEA?",
+    "opciones": [
+      "El primer paso consiste en realizar un inventario de activos.",
+      "Tras definir el alcance se establece la política de seguridad.",
+      "La declaración de aplicabilidad se realiza después del análisis de riesgos.",
+      "El alcance delimita a qué partes de la organización se aplica el SGSI."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Según la ISO 27001:2022, el primer paso de la planificación es definir el ALCANCE, no realizar un inventario de activos. El inventario viene después, como parte del análisis de riesgos.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 2 del test de autoevaluación del Tema 2. El profesor aclaró que para el examen el primer paso es el alcance (lo que dice la norma), aunque en la práctica real primero se define la política.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Al establecer el acceso a información sensible se debe preservar el principio de:",
+    "opciones": [
+      "Máximo privilegio.",
+      "Separación de funciones.",
+      "Mínimo privilegio.",
+      "Necesidad de saber exclusiva."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El principio de mínimo privilegio establece que cada usuario debe tener únicamente los permisos estrictamente necesarios para realizar su trabajo, reduciendo así la superficie de ataque.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 3 del test de autoevaluación del Tema 2. El profesor también lo señaló como posible pregunta de desarrollo.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es el objetivo principal al crear un esquema de clasificación de la información?",
+    "opciones": [
+      "Establecer quién puede acceder a cada documento de la organización.",
+      "Formalizar y estratificar el proceso de asegurar la información basándose en etiquetas de importancia y sensibilidad.",
+      "Cifrar toda la información almacenada en los sistemas.",
+      "Cumplir con los requisitos legales del RGPD."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La clasificación de la información tiene como objetivo crear un marco sistemático que asigne niveles de sensibilidad e importancia a los datos, permitiendo aplicar las medidas de protección adecuadas a cada nivel.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 4 del test de autoevaluación del Tema 2.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué es una política de seguridad de la información?",
+    "opciones": [
+      "Un conjunto de herramientas técnicas para proteger los sistemas.",
+      "El documento donde se especifican todos los controles técnicos implementados.",
+      "El pronunciamiento de la dirección de la empresa respecto a los objetivos a satisfacer en cuanto a la seguridad.",
+      "El resultado del análisis de riesgos de la organización."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La política de seguridad es una declaración de alto nivel emitida y firmada por la dirección que establece los objetivos, principios y responsabilidades en materia de seguridad. Debe provenir de la alta dirección para tener autoridad.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 5 del test de autoevaluación del Tema 2.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Quién determina el nivel de clasificación de la información?",
+    "opciones": [
+      "El responsable del departamento de TI.",
+      "El CISO (Director de Seguridad de la Información).",
+      "Los propietarios de la información.",
+      "La alta dirección de la empresa."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los propietarios de la información son los responsables de determinar su nivel de clasificación, ya que conocen su valor y sensibilidad para el negocio.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt",
+      "Tema2_Planificacion_Seguridad_1.docx"
+    ],
+    "observaciones": "Pregunta 6 del test de autoevaluación del Tema 2.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-007",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de los siguientes roles es responsable final tanto a nivel empresarial como jurídico de los activos de información?",
+    "opciones": [
+      "El custodio de la información.",
+      "El responsable de TI.",
+      "El propietario de la información.",
+      "El auditor interno."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El propietario de la información asume la responsabilidad final sobre los activos de información, incluyendo su clasificación, protección y uso. Es el responsable ante la dirección y ante posibles responsabilidades legales.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión como 'ejemplo de test que os puede caer en el examen'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-008",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre un estándar y una directriz dentro de una política de seguridad?",
+    "opciones": [
+      "El estándar es una recomendación; la directriz es de obligatorio cumplimiento.",
+      "El estándar es de cumplimiento obligatorio; la directriz es una recomendación.",
+      "Ambos son obligatorios pero se aplican a distintos niveles jerárquicos.",
+      "Son términos intercambiables que significan lo mismo."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En la jerarquía documental de seguridad, el estándar establece requisitos de cumplimiento obligatorio, mientras que la directriz es una recomendación o buena práctica no vinculante.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor como 'ejemplo de test que os puede caer en el examen'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-009",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué condiciones deben darse simultáneamente para que exista riesgo en un sistema de información?",
+    "opciones": [
+      "Amenaza y vulnerabilidad.",
+      "Activo, amenaza y vulnerabilidad.",
+      "Activo, vulnerabilidad e impacto.",
+      "Amenaza, impacto y probabilidad."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Para que exista riesgo deben concurrir simultáneamente un activo (algo de valor), una amenaza (agente externo que puede causar daño) y una vulnerabilidad (debilidad explotable del activo). Si falta alguno de los tres, no hay riesgo.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor como 'ejemplo de test que os puede caer en el examen'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-010",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿En el análisis de compromisos del SGSI, qué equilibrio debe buscarse fundamentalmente?",
+    "opciones": [
+      "El equilibrio entre coste y rendimiento.",
+      "El equilibrio entre seguridad y operatividad.",
+      "El equilibrio entre usabilidad y privacidad.",
+      "El equilibrio entre prevención y detección."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El SGSI debe equilibrar la seguridad (que tiende a restringir) con la operatividad (la capacidad de trabajar eficazmente). Una seguridad excesiva puede paralizar la organización; una seguridad insuficiente la deja expuesta.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor como 'ejemplo de test que os puede caer en el examen'. El profesor aclaró que el término correcto es 'operatividad', no 'usabilidad' como aparece en el temario.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-test-011",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué capacidades tiene un sistema MDM (Mobile Device Management)?",
+    "opciones": [
+      "Solo monitorizar el uso de aplicaciones en los dispositivos.",
+      "Instalar o desinstalar aplicaciones, bloquear, localizar y borrar de forma remota los dispositivos.",
+      "Únicamente cifrar las comunicaciones de los dispositivos móviles.",
+      "Gestionar las contraseñas de los dispositivos corporativos."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Un MDM permite a la organización gestionar centralizadamente los dispositivos móviles: instalar y desinstalar aplicaciones, configurar políticas, bloquear el dispositivo, localizarlo y realizar un borrado remoto en caso de pérdida o robo.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló expresamente: 'Atento, porque es pregunta de examen.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Diferencia entre los conceptos de vulnerabilidad y amenaza en el análisis de riesgos. Proporciona ejemplos de cada uno.",
+    "respuestaModelo": "Una amenaza es cualquier agente o circunstancia externa que puede causar daño a un activo. Las amenazas no podemos controlarlas directamente (p. ej., un atacante externo, un desastre natural, un corte de suministro eléctrico). Una vulnerabilidad es una debilidad o deficiencia interna de un activo o sistema que puede ser explotada por una amenaza (p. ej., software sin actualizar, contraseñas débiles, ausencia de control de acceso). La diferencia clave es que las amenazas son externas e incontrolables, mientras que las vulnerabilidades son internas y sí podemos reducirlas. El riesgo surge cuando coinciden activo + amenaza + vulnerabilidad.",
+    "criteriosCorreccion": [
+      "Define correctamente amenaza y vulnerabilidad.",
+      "Identifica que las amenazas son externas y no controlables, las vulnerabilidades son internas y sí controlables.",
+      "Proporciona ejemplos claros de cada uno.",
+      "Relaciona ambos conceptos en la definición de riesgo."
+    ],
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor presentó esta como ejemplo de pregunta de desarrollo en la sesión del Tema 2. La respuesta orientativa ha sido elaborada a partir del contenido docente disponible.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explica el principio de mínimo privilegio y por qué es importante en la gestión de la seguridad de la información.",
+    "respuestaModelo": "El principio de mínimo privilegio establece que cada usuario, proceso o sistema debe disponer únicamente de los permisos y accesos estrictamente necesarios para realizar su función, y nada más. Si un usuario solo necesita leer ciertos archivos, no debe tener permisos de escritura ni de eliminación. Este principio es importante porque limita el daño en caso de que una cuenta sea comprometida (el atacante solo tendrá acceso a lo que tiene el usuario), reduce el riesgo de errores accidentales y dificulta los movimientos laterales de los atacantes dentro de la red. Aparece también en el Esquema Nacional de Seguridad como principio obligatorio.",
+    "criteriosCorreccion": [
+      "Define correctamente el principio de mínimo privilegio.",
+      "Explica por qué reduce la superficie de ataque.",
+      "Menciona al menos un ejemplo práctico."
+    ],
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Puede ser una pregunta de examen: explica el principio de mínimo privilegio.' La respuesta orientativa ha sido elaborada a partir del contenido docente disponible.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-2-practica-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "indicada_clase",
+    "enunciado": "Un activo tiene un valor de 500.000 €. El factor de exposición es del 60% y la tasa anual de ocurrencia (ARO) es de 0,4. Calcula el SLE (Single Loss Expectancy) y el ALE (Annual Loss Expectancy). ¿Sería rentable una contramedida que cuesta 18.000 €/año y reduce el ALE a 12.000 €/año?",
+    "solucionOrientativa": "SLE = Valor del activo × Factor de exposición = 500.000 € × 0,60 = 300.000 €.\nALE = SLE × ARO = 300.000 € × 0,4 = 120.000 €/año.\nBeneficio neto de la contramedida = ALE original - ALE residual - Coste contramedida = 120.000 - 12.000 - 18.000 = 90.000 €/año.\nConclusión: La contramedida ES rentable porque genera un ahorro neto de 90.000 €/año.",
+    "criteriosCorreccion": [
+      "Aplica correctamente la fórmula SLE = AV × EF.",
+      "Obtiene SLE = 300.000 €.",
+      "Aplica correctamente la fórmula ALE = SLE × ARO.",
+      "Obtiene ALE = 120.000 €/año.",
+      "Calcula el beneficio neto de la contramedida correctamente.",
+      "Concluye que la contramedida es rentable."
+    ],
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Ejercicio presentado por el profesor en clase como ejemplo de cálculo cuantitativo. El profesor indicó que los cálculos pueden entrar en el examen pero serán 'muy fáciles y sencillos'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "En criptografía de clave pública, si la clave pública cifra un mensaje:",
+    "opciones": [
+      "Solo la clave pública puede descifrarlo.",
+      "Cualquier clave del par puede descifrarlo.",
+      "Solo la clave privada puede descifrarlo.",
+      "Se necesitan ambas claves para descifrarlo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "En criptografía asimétrica, lo que cifra la clave pública solo puede descifrarlo la clave privada correspondiente, y viceversa. Esto garantiza la confidencialidad en la comunicación.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "Pregunta 1 del test de autoevaluación del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué tipo de copia de seguridad es más adecuada para el almacenamiento externo fuera de las instalaciones?",
+    "opciones": [
+      "Completa.",
+      "Diferencial.",
+      "Incremental.",
+      "Espejo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La copia incremental solo almacena los cambios desde la última copia (completa o incremental), lo que la hace más pequeña y manejable para el almacenamiento externo. Sin embargo, es la que más tiempo y medios requiere para restaurar.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "Pregunta 2 del test de autoevaluación del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué tipo de backup requiere más medios (cintas/discos) para restaurar completamente los datos?",
+    "opciones": [
+      "Completa.",
+      "Diferencial.",
+      "Incremental.",
+      "Espejo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Para restaurar desde copias incrementales se necesita la copia completa más todas las copias incrementales realizadas desde entonces, lo que requiere más medios. La restauración es más lenta pero el espacio de almacenamiento diario es mínimo.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "Pregunta 3 del test de autoevaluación del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es el objetivo principal de un IDS (Intrusion Detection System)?",
+    "opciones": [
+      "Prevenir ataques bloqueando el tráfico malicioso.",
+      "Detectar ataques o actividades sospechosas en la red o el sistema.",
+      "Cifrar las comunicaciones de red para evitar la interceptación.",
+      "Gestionar y autenticar el acceso de los usuarios al sistema."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Un IDS detecta y alerta sobre actividades sospechosas o ataques, pero no los bloquea por sí solo. Es un control detectivo. El IPS (Intrusion Prevention System) sí puede bloquear el tráfico malicioso.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "Pregunta 4 del test de autoevaluación del Tema 3. Aparece también en el test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué configuración de servidores distribuye la carga de trabajo entre varios servidores activos simultáneamente?",
+    "opciones": [
+      "Cold standby.",
+      "Hot standby.",
+      "Balanceo de carga.",
+      "Servidor espejo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El balanceo de carga distribuye las peticiones entre varios servidores activos, mejorando el rendimiento y la disponibilidad. El profesor aclaró que el balanceo de carga es el verdadero 'cluster'; cold y hot standby son servidores de respaldo que arrancan cuando el principal falla.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "Pregunta 5 del test de autoevaluación del Tema 3. El profesor señaló esta como pregunta de examen: 'Ojo, también de esto hay preguntas de examen'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la principal diferencia entre criptografía simétrica y asimétrica?",
+    "opciones": [
+      "La simétrica usa claves más largas; la asimétrica, más cortas.",
+      "La simétrica usa una única clave compartida; la asimétrica usa un par de clave pública y privada.",
+      "La simétrica es más lenta; la asimétrica es más rápida.",
+      "La simétrica se usa para firmas digitales; la asimétrica para cifrado de datos."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La criptografía simétrica usa la misma clave para cifrar y descifrar (más rápida, para grandes volúmenes de datos). La asimétrica usa un par de claves: pública y privada (más lenta, usada principalmente para distribución de claves y firmas digitales).",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-007",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Para qué se usa principalmente la criptografía asimétrica?",
+    "opciones": [
+      "Para cifrar grandes volúmenes de datos de forma eficiente.",
+      "Para almacenar contraseñas de forma segura.",
+      "Para la distribución de claves y la firma digital, no para cifrar grandes volúmenes.",
+      "Para el cifrado de disco completo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La criptografía asimétrica es más lenta que la simétrica, por lo que no se usa para cifrar grandes volúmenes de datos. Su uso principal es el intercambio seguro de claves simétricas y la firma digital.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-008",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué característica debe cumplir una función hash segura?",
+    "opciones": [
+      "Debe poder revertirse para obtener el mensaje original.",
+      "Debe producir un hash diferente para mensajes casi idénticos.",
+      "Debe ser reversible y reproducible para garantizar la integridad.",
+      "No debe ser reversible y debe ser difícil encontrar dos mensajes con el mismo hash (resistencia a colisiones)."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Una función hash segura debe ser unidireccional (no reversible), determinista (mismo input siempre produce mismo hash) y resistente a colisiones (computacionalmente inviable encontrar dos mensajes distintos con el mismo hash).",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-009",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de cifrado es vulnerable a la computación cuántica?",
+    "opciones": [
+      "El cifrado simétrico (AES).",
+      "Las funciones hash (SHA-2, SHA-3).",
+      "El cifrado asimétrico (RSA).",
+      "Tanto el cifrado simétrico como las funciones hash."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El cifrado asimétrico (RSA) basa su seguridad en la dificultad de factorizar números grandes, algo que los ordenadores cuánticos pueden hacer eficientemente con el algoritmo de Shor. El AES y las funciones hash como SHA-2 o SHA-3 no son vulnerables a la computación cuántica.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor lo señaló expresamente: 'Por si acaso lo preguntáis.' Corrección de un error conceptual frecuente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-test-010",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "En el modelo de control de acceso DAC (Discretionary Access Control), ¿quién gestiona los permisos de acceso a los recursos?",
+    "opciones": [
+      "El administrador del sistema de forma centralizada.",
+      "Una política de seguridad obligatoria definida por la dirección.",
+      "El propietario del recurso, que puede conceder permisos a otros usuarios.",
+      "Un sistema de roles predefinidos independiente del propietario."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "En el DAC (Control de Acceso Discrecional), el propietario del recurso tiene la potestad de decidir quién puede acceder a sus recursos y con qué permisos. Es el modelo de los sistemas operativos tradicionales (Windows, Linux).",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor presentó esto como pregunta de desarrollo: 'Indica el modelo de control de acceso de un sistema operativo en el que los usuarios puedan dar permisos a sus recursos → DAC.' Adaptada a formato test.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste la firma digital y qué propiedades de seguridad garantiza?",
+    "respuestaModelo": "La firma digital es un mecanismo criptográfico que permite verificar la autenticidad e integridad de un mensaje o documento. El proceso es el siguiente: el emisor calcula el hash del mensaje (con SHA-256, por ejemplo), cifra ese hash con su clave privada (obteniendo la firma digital) y lo envía junto al mensaje. El receptor descifra la firma con la clave pública del emisor para obtener el hash, calcula el hash del mensaje recibido y compara ambos. Si coinciden, el mensaje no ha sido alterado y proviene del emisor. Garantiza: Integridad (si el mensaje fue modificado, los hashes no coincidirán), Autenticidad (solo el titular de la clave privada puede generar esa firma) y No repudio (el emisor no puede negar haber firmado el documento).",
+    "criteriosCorreccion": [
+      "Describe el proceso de generación de la firma (hash + cifrado con clave privada).",
+      "Describe el proceso de verificación (descifrar con clave pública + comparar hashes).",
+      "Menciona las propiedades que garantiza: integridad, autenticidad y no repudio.",
+      "Diferencia claramente la función del hash y la del cifrado asimétrico en este proceso."
+    ],
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "Tema3_Proteccion_Activos_I.docx"
+    ],
+    "observaciones": "El profesor señaló textualmente: 'Firma digital, importante, PREGUNTA DE EXAMEN. Después no digáis que no digo las preguntas de examen.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Compara la criptografía simétrica y la asimétrica en términos de velocidad, complejidad de gestión de claves y usos principales de cada una.",
+    "respuestaModelo": "La criptografía simétrica usa una única clave para cifrar y descifrar. Es muy rápida y eficiente para grandes volúmenes de datos. Su principal problema es la distribución segura de la clave: ambas partes deben compartirla previamente por un canal seguro. Algoritmos típicos: AES, DES. La criptografía asimétrica usa un par de claves (pública y privada). Es más lenta y computacionalmente costosa, por lo que no se usa para cifrar grandes volúmenes. Se usa principalmente para distribuir claves simétricas de forma segura y para la firma digital. Algoritmos típicos: RSA, ECC. En la práctica, se combinan: la asimétrica establece un canal seguro para intercambiar la clave simétrica, y luego la simétrica cifra la comunicación (protocolo TLS).",
+    "criteriosCorreccion": [
+      "Compara correctamente la velocidad (simétrica más rápida).",
+      "Explica el problema de distribución de claves de la simétrica.",
+      "Explica el uso principal de la asimétrica (distribución de claves, firma digital).",
+      "Menciona que en la práctica se combinan ambas."
+    ],
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-3-desarrollo-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Describe los modelos de control de acceso principales, explica en qué se diferencian y proporciona ejemplos de sistemas donde se aplica cada uno.",
+    "respuestaModelo": "Los principales modelos de control de acceso son: DAC (Discretionary Access Control): el propietario del recurso decide los permisos. Es flexible pero arriesgado. Ejemplo: sistemas de ficheros Windows y Linux (el dueño gestiona los permisos). MAC (Mandatory Access Control): los permisos los define una política centralizada basada en etiquetas de seguridad. El usuario no puede cambiarlos. Ejemplo: sistemas militares, SELinux. RBAC (Role-Based Access Control): los permisos se asignan a roles, y los usuarios se asignan a roles. Es el más usado en entornos empresariales. Ejemplo: Active Directory, ERP corporativo.",
+    "criteriosCorreccion": [
+      "Describe correctamente al menos DAC, MAC y RBAC.",
+      "Explica la diferencia principal entre ellos (quién define los permisos).",
+      "Proporciona un ejemplo de cada uno."
+    ],
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Modelos de control de acceso: ojo con esto, ya digo que puede ser pregunta de examen.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué cortafuegos emplea una tabla dinámica de estado de las conexiones para filtrar el tráfico?",
+    "opciones": [
+      "Filtrado de paquetes.",
+      "Proxy de aplicación.",
+      "Inspección de estado (stateful).",
+      "Proxy de circuito."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El cortafuegos de inspección de estado (stateful inspection) mantiene una tabla dinámica con el estado de las conexiones activas, lo que le permite tomar decisiones más inteligentes que el simple filtrado de paquetes.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "Tema4_Proteccion_Activos_II.docx"
+    ],
+    "observaciones": "Pregunta 1 del test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué protocolo de seguridad WiFi proporciona mayor seguridad?",
+    "opciones": [
+      "WEP.",
+      "WPA.",
+      "WPA3.",
+      "WPA2."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "WPA3 es el estándar más reciente y seguro. WEP está completamente obsoleto y debe evitarse. WPA y WPA2 han tenido vulnerabilidades conocidas. Para mayor seguridad siempre se debe usar WPA3.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "Tema4_Proteccion_Activos_II.docx"
+    ],
+    "observaciones": "Pregunta 2 del test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué concepto representa un método para engañar a un intruso haciéndole creer que el sistema no tiene seguridad y es vulnerable?",
+    "opciones": [
+      "Honey pot.",
+      "Firewall.",
+      "IDS.",
+      "DMZ."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Un honey pot es un sistema trampa diseñado para atraer a los atacantes y desviarlos de los sistemas reales, al tiempo que se registra su actividad para análisis.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "Tema4_Proteccion_Activos_II.docx"
+    ],
+    "observaciones": "Pregunta 3 del test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿En qué capa del modelo OSI operan los cortafuegos de filtrado de paquetes?",
+    "opciones": [
+      "Capa de enlace (2).",
+      "Capa de transporte (4).",
+      "Capa de red (3).",
+      "Capa de aplicación (7)."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los cortafuegos de filtrado de paquetes operan en la capa de red (capa 3 del modelo OSI), analizando las cabeceras IP para tomar decisiones de bloqueo o paso.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "Tema4_Proteccion_Activos_II.docx"
+    ],
+    "observaciones": "Pregunta 4 del test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué arquitectura de cortafuegos utiliza un host bastión y un router de selección?",
+    "opciones": [
+      "Dual-homed host.",
+      "Screened subnet.",
+      "Screened host.",
+      "DMZ."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La arquitectura screened host combina un router de selección (packet filter) con un host bastión que actúa como proxy. El router filtra el tráfico antes de que llegue al bastión.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "Tema4_Proteccion_Activos_II.docx"
+    ],
+    "observaciones": "Pregunta 5 del test de autoevaluación del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuántas capas tiene el modelo OSI?",
+    "opciones": [
+      "4 capas.",
+      "5 capas.",
+      "6 capas.",
+      "7 capas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El modelo OSI tiene 7 capas: física, enlace, red, transporte, sesión, presentación y aplicación.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló que las capas de OSI y TCP/IP 'hay que saberse'. Pregunta mencionada al final de la sesión.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-007",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué protocolo de seguridad WiFi debe evitarse por sus graves problemas de seguridad?",
+    "opciones": [
+      "WPA2.",
+      "WPA3.",
+      "WEP.",
+      "WPA."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "WEP (Wired Equivalent Privacy) es completamente inseguro y fue descontinuado. Sus claves pueden romperse en segundos con herramientas disponibles. El profesor señaló que puede aparecer en el examen.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta mencionada expresamente por el profesor al final de la sesión del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-test-008",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la principal diferencia entre un hub y un switch?",
+    "opciones": [
+      "El hub tiene más puertos que el switch.",
+      "El switch crea un dominio de colisión por puerto; el hub difunde el tráfico a todos los puertos.",
+      "El hub opera en capa 3 del modelo OSI; el switch, en capa 2.",
+      "El switch solo funciona en redes WiFi; el hub, en redes cableadas."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El hub difunde (broadcast) el tráfico a todos los puertos, creando un único dominio de colisión. El switch aprende las MAC de cada puerto y envía el tráfico solo al puerto de destino, creando un dominio de colisión por puerto.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta mencionada por el profesor al final de la sesión del Tema 4.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Describe los cuatro modelos de cortafuegos. Si le solicitan recomendar uno para una empresa pequeña con un bajo nivel de riesgo, ¿cuál recomendaría y por qué?",
+    "respuestaModelo": "Los cuatro modelos de cortafuegos son: 1) Filtrado de paquetes (capa 3): analiza las cabeceras IP/TCP y decide por reglas simples. Es el más básico, rápido y económico. 2) Proxy de circuito (capa 4): actúa como intermediario a nivel de sesión, sin inspeccionar el contenido de la aplicación. 3) Proxy de aplicación (capa 7): analiza el contenido completo del protocolo de aplicación. Es el más seguro pero también el más lento y costoso. 4) Inspección de estado (stateful, capas 3-4): mantiene una tabla de conexiones activas y toma decisiones más inteligentes que el filtrado de paquetes. Para una empresa pequeña con bajo nivel de riesgo se recomendaría el filtrado de paquetes, ya que es la solución más sencilla, económica y suficiente para sus necesidades.",
+    "criteriosCorreccion": [
+      "Describe correctamente los cuatro modelos de cortafuegos.",
+      "Menciona la capa OSI en la que opera cada uno.",
+      "Recomienda el filtrado de paquetes para empresa pequeña.",
+      "Justifica la recomendación (sencillo, económico, suficiente)."
+    ],
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta de desarrollo presentada por el profesor al final de la sesión del Tema 4. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-4-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4",
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué controles de auditoría debe comprobar si una empresa proporciona a sus empleados la posibilidad de teletrabajo?",
+    "respuestaModelo": "Los principales controles a verificar en un entorno de teletrabajo son: VPN configurada y operativa para cifrar las comunicaciones entre el empleado y la empresa. Autenticación multifactor (MFA) activada para todos los accesos remotos. MDM (Mobile Device Management) para gestionar los dispositivos móviles corporativos (o BYOD) que se usen fuera de la oficina. Política de contraseñas robusta aplicada y verificada. Cuentas inactivas o de ex-empleados desactivadas. Revisión periódica de logs de acceso remoto para detectar accesos sospechosos. Cifrado del disco duro de los equipos portátiles.",
+    "criteriosCorreccion": [
+      "Menciona la VPN como control fundamental.",
+      "Menciona el MFA.",
+      "Menciona el MDM para gestión de dispositivos.",
+      "Menciona la política de contraseñas.",
+      "Menciona la revisión de logs y cuentas inactivas."
+    ],
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta de desarrollo presentada por el profesor al final de la sesión del Tema 4. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de las siguientes definiciones NO se ajusta a la descripción de un control de seguridad?",
+    "opciones": [
+      "Los controles preventivos reducen la probabilidad de que ocurra un incidente.",
+      "Los controles detectivos identifican incidentes que ya han ocurrido.",
+      "Los controles correctivos reducen la posibilidad de un ataque.",
+      "Los controles disuasorios desaniman a posibles atacantes."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los controles correctivos no reducen la posibilidad de un ataque (eso lo hacen los preventivos), sino que mitigan el impacto o ayudan a recuperarse después de que un incidente ha ocurrido.",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta 1 del test de autoevaluación del Tema 5. El profesor la presentó como ejemplo de pregunta de examen en clase.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es la principal obligación del auditor respecto al ciclo de vida del SGSI?",
+    "opciones": [
+      "Verificar que se cumplen los objetivos y que cada decisión está avalada por la dirección.",
+      "Implantar los controles de seguridad que la organización necesita.",
+      "Gestionar los incidentes de seguridad que se produzcan.",
+      "Seleccionar las herramientas de seguridad más adecuadas para la organización."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El auditor no implanta ni gestiona controles; su función es verificar que la organización cumple con los objetivos de seguridad establecidos y que las decisiones tomadas están debidamente respaldadas y documentadas por la dirección.",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta 2 del test de autoevaluación del Tema 5.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de las siguientes medidas NO se aplica normalmente al despliegue de medidas de protección de instalaciones físicas?",
+    "opciones": [
+      "Controles de acceso físico mediante tarjetas o biometría.",
+      "Las ventanas deben estar protegidas con barrotes.",
+      "Sistemas de extinción de incendios.",
+      "Cámaras de videovigilancia (CCTV)."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La protección de instalaciones informáticas no exige necesariamente barrotes en las ventanas; hay métodos más modernos y prácticos. El resto de opciones son controles físicos estándar.",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta 3 del test de autoevaluación del Tema 5.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Un IDS (Intrusion Detection System) es un control de tipo:",
+    "opciones": [
+      "Detectivo.",
+      "Preventivo.",
+      "Correctivo.",
+      "Disuasorio."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Un IDS detecta actividades sospechosas o ataques que ya están ocurriendo o han ocurrido, por lo que es un control detectivo. No previene el ataque ni lo remedia.",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta 4 del test de autoevaluación del Tema 5.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de los siguientes es un ejemplo de control tecnológico (técnico/lógico)?",
+    "opciones": [
+      "La política de rotación de contraseñas y concienciación de empleados.",
+      "El sistema de iluminación de zonas de riesgo.",
+      "Cortafuegos, proxy y listas de control de accesos (ACL).",
+      "El plan de continuidad de negocio."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los controles técnicos o lógicos incluyen hardware y software de seguridad: cortafuegos, IDS/IPS, proxies, ACL, cifrado, etc. La política de contraseñas es un control administrativo; la iluminación es un control físico; el BCP es un control administrativo.",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta presentada por el profesor en clase como ejemplo: '¿Cuál es el siguiente ejemplo de control tecnológico?' El profesor la señaló como pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-5-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Clasifica los siguientes controles según su nivel operativo (administrativo, técnico o físico) Y según cómo abordan la amenaza (preventivo, detectivo o correctivo): backup, firewall, IDS, política de contraseñas, SAI, BCP y CCTV.",
+    "respuestaModelo": "Backup → Técnico + Correctivo (restaura los datos tras un incidente). Firewall → Técnico + Preventivo (impide el acceso no autorizado). IDS → Técnico + Detectivo (detecta intrusiones). Política de contraseñas → Administrativo + Preventivo (establece reglas para reducir el riesgo). SAI (Sistema de Alimentación Ininterrumpida) → Físico + Preventivo (evita la pérdida de datos por corte de corriente). BCP (Plan de Continuidad de Negocio) → Administrativo + Correctivo (restablece la operativa tras un desastre). CCTV → Físico + Detectivo (registra y detecta incidentes de seguridad física).",
+    "criteriosCorreccion": [
+      "Clasifica correctamente cada control en su nivel operativo.",
+      "Clasifica correctamente cada control según cómo aborda la amenaza.",
+      "Justifica al menos una clasificación con su argumento."
+    ],
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt",
+      "Tema5_Controles_Internos.docx"
+    ],
+    "observaciones": "Pregunta de desarrollo del test de autoevaluación del Tema 5 y señalada por el profesor como importante. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué caracteriza fundamentalmente a la auditoría externa?",
+    "opciones": [
+      "Que siempre la realiza una empresa consultora.",
+      "Que la realiza personal o entidad ajena e independiente a la organización.",
+      "Que tiene carácter obligatorio y periódico.",
+      "Que su informe es siempre de uso público."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La característica definitoria de la auditoría externa es la independencia: la realiza una entidad o persona ajena a la organización auditada. Si se contrata una empresa externa para realizar la auditoría interna, sigue siendo interna (porque depende de la organización). La auditoría externa no tiene por qué ser periódica ni su informe público.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 6 como pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de auditoría se centra en la recopilación y análisis de evidencias relacionadas con fraudes o conflictos legales?",
+    "opciones": [
+      "Auditoría de certificación.",
+      "Auditoría forense.",
+      "Auditoría del sistema.",
+      "Auditoría operacional."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La auditoría forense se aplica en investigaciones de fraude, delitos informáticos o disputas legales, buscando evidencias digitales que puedan usarse en procedimientos judiciales.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 6 como pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de auditoría analiza la gestión completa de un sistema (configuración, control de actividad, mantenimiento)?",
+    "opciones": [
+      "Auditoría de conformidad.",
+      "Auditoría del producto.",
+      "Auditoría del sistema.",
+      "Auditoría de procesos."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La auditoría del sistema examina de forma integral el funcionamiento de un sistema de información: su configuración, los controles de actividad, el mantenimiento y el cumplimiento de las políticas establecidas.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 6 como pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-5",
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la principal diferencia entre el control interno y la auditoría informática?",
+    "opciones": [
+      "El control interno lo realiza personal externo; la auditoría, personal interno.",
+      "El control interno actúa de manera continua; la auditoría analiza un momento concreto de la actividad.",
+      "El control interno detecta incidentes; la auditoría los previene.",
+      "No hay diferencia: son términos equivalentes."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El control interno es un mecanismo permanente y continuo que supervisa la actividad en todo momento. La auditoría, en cambio, analiza un estado o momento concreto de la organización de forma puntual.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló esto como 'lo más importante y la mayor diferencia' del tema. Presentada como pregunta de examen al final de la sesión.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "Según el Esquema Nacional de Seguridad (ENS), ¿con qué periodicidad se requiere auditoría para los sistemas de nivel medio y alto?",
+    "opciones": [
+      "Anualmente.",
+      "Cada dos años.",
+      "Cada tres años.",
+      "Solo cuando se produzcan cambios significativos."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El ENS exige auditoría cada dos años para los sistemas de nivel medio y alto (auditoría externa). Para el nivel básico se permite autoevaluación o auditoría interna.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor confirmó el dato: 'Son dos años, son dos años, correcto.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-6-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la sanción máxima que puede imponer la AEPD por infracciones del RGPD?",
+    "opciones": [
+      "10 millones de euros o el 2% de la facturación global anual.",
+      "20 millones de euros o el 4% de la facturación global anual, lo que sea mayor.",
+      "50 millones de euros o el 5% de la facturación global anual.",
+      "No existe límite máximo establecido; se determina caso a caso."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El RGPD establece para las infracciones más graves una sanción máxima de 20 millones de euros o el 4% de la facturación global anual del ejercicio anterior, aplicándose la que resulte mayor.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor confirmó el dato en clase.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-7-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es la diferencia principal entre análisis de vulnerabilidades y pen testing?",
+    "opciones": [
+      "El análisis de vulnerabilidades es más completo que el pen testing.",
+      "El pen testing explota vulnerabilidades para comprobar si se pueden eludir las contramedidas del sistema.",
+      "El pen testing solo se puede realizar desde fuera de la organización.",
+      "No hay diferencia; son términos sinónimos."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El análisis de vulnerabilidades identifica y documenta debilidades pero no las explota. El pen testing va un paso más allá: intenta explotar las vulnerabilidades para demostrar que son reales y determinar el impacto real que tendría un atacante.",
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta del test de autoevaluación del Tema 7 (PDF). Señalada por el profesor en clase.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-7-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué se entiende por 'artefacto' en el contexto del análisis forense digital?",
+    "opciones": [
+      "Un dispositivo hardware utilizado en el análisis forense.",
+      "Trazas o rastros que quedan en un sistema como resultado de actividades o eventos.",
+      "Una herramienta de software para el análisis de vulnerabilidades.",
+      "El informe final del análisis forense."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En análisis forense digital, un artefacto es cualquier traza o rastro dejado en un sistema (logs, ficheros temporales, entradas de registro, metadatos) que puede ser analizado para reconstruir lo que ocurrió.",
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta del test de autoevaluación del Tema 7 (PDF). Presentada también en clase.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-7-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de fingerprinting genera tráfico en la red y puede ser detectado por el sistema objetivo?",
+    "opciones": [
+      "Fingerprinting pasivo.",
+      "Footprinting externo.",
+      "Fingerprinting activo.",
+      "Footprinting interno."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El fingerprinting activo (como Nmap) genera paquetes de prueba hacia el objetivo, lo que puede ser detectado por sistemas de monitorización. El fingerprinting pasivo (como p0f o Wireshark) solo intercepta el tráfico existente, sin generar tráfico propio.",
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Concepto señalado por el profesor como 'lo más importante del tema'. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-7-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste el fingerprinting? Diferencia entre sus modalidades activa y pasiva y proporciona ejemplos de herramientas de cada tipo.",
+    "respuestaModelo": "El fingerprinting es una técnica de recopilación de información que se aplica a un dispositivo concreto para deducir su sistema operativo, los puertos abiertos y las versiones de software que ejecuta. Modalidad activa: genera tráfico de prueba hacia el dispositivo objetivo para obtener respuestas que permitan identificarlo. Es detectable por sistemas de monitorización. Ejemplo: Nmap. Modalidad pasiva: intercepta y analiza el tráfico de red existente sin generar tráfico adicional. Es más sigilosa y puede funcionar incluso con firewalls. Ejemplos: p0f, Wireshark.",
+    "criteriosCorreccion": [
+      "Define correctamente el fingerprinting.",
+      "Distingue activo (genera tráfico, detectable) de pasivo (intercepta tráfico, silencioso).",
+      "Proporciona ejemplos de herramientas para cada modalidad.",
+      "Menciona que el activo puede ser detectado."
+    ],
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Tipo de preguntas de examen efectivamente.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-7-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Distinga el footprinting externo del footprinting interno. ¿Cuál representa mayor riesgo para la organización y por qué?",
+    "respuestaModelo": "El footprinting es la técnica de obtener un mapa completo de la red de una organización. Footprinting externo: se realiza desde fuera de la organización, utilizando fuentes abiertas (OSINT), Shodan, consultas DNS, cabeceras HTTP, etc. El atacante no tiene acceso físico ni lógico a la red interna. Footprinting interno: se realiza desde dentro de la red, usando herramientas en modo promiscuo para capturar todo el tráfico. El atacante ya tiene acceso a la red. El footprinting interno es más peligroso porque el atacante ya ha superado el perímetro de seguridad y puede capturar credenciales, datos sensibles y mapeado completo de la red interna. Desde ahí puede realizar escaladas de privilegio.",
+    "criteriosCorreccion": [
+      "Define correctamente el footprinting.",
+      "Distingue externo (desde fuera, OSINT) de interno (desde dentro, modo promiscuo).",
+      "Concluye que el interno es más peligroso.",
+      "Justifica por qué (el atacante ya ha entrado y puede capturar todo el tráfico)."
+    ],
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta señalada explícitamente por el profesor como 'tipo de pregunta de examen'. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-8-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es la diferencia entre XSS reflejado y XSS persistente?",
+    "opciones": [
+      "El XSS reflejado almacena el código en el servidor; el persistente solo afecta al cliente.",
+      "El XSS reflejado modifica parámetros HTTP sin alterar el servidor; el persistente almacena el código malicioso en el servidor.",
+      "No hay diferencia; son términos intercambiables.",
+      "El XSS persistente requiere interacción del usuario; el reflejado no."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En el XSS reflejado, el script malicioso viaja en la URL y se 'refleja' de vuelta al usuario sin almacenarse en el servidor. En el XSS persistente (almacenado), el código malicioso se guarda en el servidor (base de datos, comentarios) y afecta a todos los usuarios que visiten la página.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 8 como ejemplo de pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-8-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Según el estándar PTES, ¿cuáles son las tres etapas del análisis de vulnerabilidades?",
+    "opciones": [
+      "Reconocimiento, explotación y documentación.",
+      "Identificación, análisis y corrección.",
+      "Pruebas, validación e investigación.",
+      "Escaneo, explotación y reporte."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Según el estándar PTES (Penetration Testing Execution Standard), las tres etapas son: Pruebas (identificar debilidades existentes), Validación (confirmar que las debilidades existen y son explotables) e Investigación (evaluar el impacto mediante la explotación controlada).",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 8. El profesor la señaló: 'Ejemplo de pregunta que puede caer en el examen.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-8-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8",
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de cortafuegos se utilizaría para prevenir ataques de inyección SQL?",
+    "opciones": [
+      "Cortafuegos de filtrado de paquetes (capa 3).",
+      "Cortafuegos de inspección de estado (capa 3-4).",
+      "WAF - Web Application Firewall (capa 7).",
+      "Proxy de circuito (capa 4)."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Un WAF (Web Application Firewall) opera en la capa de aplicación (capa 7 del modelo OSI) y puede inspeccionar el contenido de las peticiones HTTP para detectar y bloquear ataques como la inyección SQL o el XSS.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Ejemplo de pregunta que puede caer en el examen.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-8-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste la técnica de fuzzing en el análisis de vulnerabilidades?",
+    "opciones": [
+      "La captura y análisis del tráfico de red para identificar patrones.",
+      "La exploración exhaustiva de entradas válidas o aleatorias en aplicaciones para encontrar posibles vulnerabilidades.",
+      "La explotación de vulnerabilidades conocidas para acceder a un sistema.",
+      "El análisis estático del código fuente de una aplicación."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El fuzzing consiste en enviar entradas inesperadas, inválidas o aleatorias a una aplicación para observar cómo reacciona, con el objetivo de encontrar errores, cuelgues o vulnerabilidades de seguridad.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor confirmó: 'Va a caer. Sí, sí va a caer.'",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-9-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es el objetivo principal del comité de auditoría dentro de una organización?",
+    "opciones": [
+      "Realizar las auditorías internas periódicas.",
+      "Asesorar sobre controles internos, líneas de defensa y medios de protección de activos.",
+      "Aprobar el presupuesto de seguridad de la organización.",
+      "Supervisar el cumplimiento de la ISO 27001."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El comité de auditoría tiene como objetivo principal asesorar a la dirección sobre los controles internos, las líneas de defensa y los medios de protección de activos, garantizando la eficacia del sistema de control.",
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 9 como ejemplo de pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-9-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es la principal ventaja de las herramientas DAST frente a las SAST?",
+    "opciones": [
+      "El DAST analiza el código fuente sin necesidad de ejecutar la aplicación.",
+      "El DAST detecta vulnerabilidades que solo aparecen en tiempo de ejecución real.",
+      "El DAST es más rápido que el SAST.",
+      "El DAST no requiere acceso al entorno de producción."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "DAST (Dynamic Application Security Testing) analiza la aplicación mientras se ejecuta, lo que permite detectar vulnerabilidades que solo se manifiestan en tiempo de ejecución (como problemas de configuración del servidor, desbordamientos de memoria, etc.) y que SAST no puede detectar analizando el código fuente estático.",
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 9 como ejemplo de pregunta de examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-9-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de los siguientes NO es un tipo de herramienta CAT (Computer-Assisted Audit Tools)?",
+    "opciones": [
+      "Herramientas de análisis de datos.",
+      "Herramientas de auditoría forense.",
+      "Herramientas de escaneo de vulnerabilidades web.",
+      "Herramientas de monitoreo y test continuo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los cinco tipos de herramientas CAT son: análisis de datos, monitoreo y test continuo, auditoría de SI, auditoría forense y gestión de pruebas. Las herramientas de escaneo de vulnerabilidades web (como Nikto) son herramientas de pen testing, no se clasifican como CAT.",
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló los tipos de herramientas CAT como contenido que 'hay que saberse'. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-9-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9",
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre el análisis de riesgos cuantitativo y el análisis de riesgos cualitativo? Proporciona un ejemplo de cada uno.",
+    "respuestaModelo": "El análisis cualitativo de riesgos asigna niveles de riesgo en términos cualitativos (alto, medio, bajo) o mediante escalas de colores. Permite priorizar riesgos pero no asigna un valor económico al impacto. Ejemplo: la herramienta PILAR genera una matriz de colores que indica el nivel de riesgo de cada activo. El análisis cuantitativo asigna valores económicos al riesgo, expresando el impacto en dinero. Permite calcular si una contramedida es rentable. Ejemplo: un activo vale 500.000 €, con factor de exposición del 60% y ARO de 0,4, el ALE es de 120.000 €/año. La diferencia fundamental es que el cualitativo dice 'el riesgo es alto', mientras que el cuantitativo dice 'este riesgo nos costará 120.000 € al año'.",
+    "criteriosCorreccion": [
+      "Define correctamente el análisis cualitativo (niveles sin valor económico).",
+      "Define correctamente el análisis cuantitativo (valor económico, ALE/SLE).",
+      "Explica la diferencia principal.",
+      "Proporciona un ejemplo de cada tipo."
+    ],
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'La diferencia entre análisis cuantitativo y cualitativo hay que saber muy bien.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-9-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué son las herramientas CAT (Computer-Assisted Audit Tools)? Describe los diferentes tipos que existen y qué función cumple cada uno.",
+    "respuestaModelo": "Las herramientas CAT son aplicaciones informáticas que asisten al auditor en la realización de las tareas de auditoría, automatizando procesos y mejorando la eficiencia y precisión del análisis. Los cinco tipos principales son: 1) Análisis de datos: procesan grandes volúmenes de datos para detectar anomalías, duplicados o patrones sospechosos. 2) Monitoreo y test continuo: supervisan de forma permanente los sistemas para detectar desviaciones en tiempo real. 3) Auditoría de sistemas de información: evalúan el cumplimiento de controles en entornos TI. 4) Auditoría forense: recuperan y preservan evidencias digitales de forma que mantengan su validez legal. 5) Gestión de pruebas: organizan y documentan el proceso de auditoría, las pruebas realizadas y los hallazgos.",
+    "criteriosCorreccion": [
+      "Define correctamente las herramientas CAT.",
+      "Menciona los cinco tipos principales.",
+      "Explica la función de cada tipo."
+    ],
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Esto sí hay que saberse los diferentes tipos de herramientas CAT.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de las siguientes opciones describe correctamente el arranque en frío (cold site)?",
+    "opciones": [
+      "Centro de respaldo con todos los equipos configurados y listos para operar de inmediato.",
+      "Centro con equipos instalados pero que necesitan horas o días para estar operativos.",
+      "Centro que solo ofrece suministro eléctrico, climatización y espacio, sin equipamiento.",
+      "Centro virtualizado en la nube que puede activarse en minutos."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El arranque en frío (cold site) ofrece únicamente la infraestructura básica: espacio físico, suministro eléctrico y climatización. No dispone de equipamiento instalado, por lo que la recuperación puede tardar semanas. Es la opción más económica pero con mayor tiempo de recuperación.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor confirmó: 'Puede garantizar que en algunos de los modelos [del examen] sale [el arranque en frío].' Pregunta presentada al final de la sesión como ejemplo.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de las siguientes estrategias implica que la organización no adopta ninguna contramedida ante un riesgo identificado?",
+    "opciones": [
+      "Mitigar el riesgo.",
+      "Transferir el riesgo.",
+      "Evitar el riesgo.",
+      "Asumir el riesgo."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Asumir el riesgo (también llamado aceptar el riesgo) significa que la organización decide no implementar contramedidas, generalmente porque el coste de estas supera el impacto esperado del riesgo o porque el riesgo es tolerable.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Pregunta de repaso presentada al final de la sesión del Tema 10 como ejemplo de pregunta de examen. Corresponde también al Tema 2.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre las pruebas de cumplimiento y las pruebas sustantivas en auditoría?",
+    "opciones": [
+      "Las pruebas sustantivas verifican la existencia de controles; las de cumplimiento confirman su integridad.",
+      "Las pruebas de cumplimiento verifican la presencia de controles; las sustantivas confirman la continuidad e integridad de la evidencia.",
+      "Las pruebas de cumplimiento son más detalladas que las sustantivas.",
+      "No hay diferencia relevante entre ambos tipos de pruebas."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las pruebas de cumplimiento verifican que los controles existen y están implantados. Las pruebas sustantivas comprueban que los datos y evidencias son completos, exactos e íntegros.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Pregunta de repaso presentada al final de la sesión del Tema 10. Corresponde al Tema 9.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué es el RPO (Recovery Point Objective) en el contexto de los planes de continuidad de negocio?",
+    "opciones": [
+      "El tiempo máximo que un servicio puede estar no disponible antes de que impacte gravemente al negocio.",
+      "El máximo tiempo tolerable de inactividad total de todos los sistemas críticos.",
+      "La máxima pérdida de datos aceptable medida en tiempo.",
+      "El tiempo necesario para activar el centro de respaldo."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El RPO (Objective de Punto de Recuperación) define la máxima cantidad de datos que la organización puede permitirse perder, medida en tiempo. Por ejemplo, un RPO de 4 horas significa que se pueden perder hasta 4 horas de datos.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor señaló los conceptos RTO, RPO y MTPD como 'importante estos conceptos'.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste la regla 3-2-1 de las copias de seguridad?",
+    "opciones": [
+      "3 copias diarias, 2 semanales y 1 mensual.",
+      "3 copias de seguridad, en 2 medios diferentes, con 1 copia fuera de las instalaciones.",
+      "3 tipos de backup, 2 en local y 1 en la nube.",
+      "3 ciclos de backup, con 2 validaciones y 1 restauración de prueba."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La regla 3-2-1 establece: mantener 3 copias de los datos, almacenadas en 2 tipos de medios diferentes, con al menos 1 copia fuera de las instalaciones. Esto protege frente a fallos de hardware, desastres físicos y ransomware que se propague por la red.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Concepto explicado con detalle en la sesión del Tema 10.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Indica la diferencia entre el Plan de Continuidad de Negocio (BCP) y el Plan de Recuperación ante Desastres (DRP). ¿Cómo están relacionados?",
+    "respuestaModelo": "El Plan de Continuidad de Negocio (BCP) tiene un alcance más amplio: abarca toda la organización y todos sus procesos críticos. Se activa ante cualquier interrupción significativa del negocio, no solo desastres tecnológicos. Incluye aspectos organizativos, de personal, comunicación y logística. El Plan de Recuperación ante Desastres (DRP) se centra específicamente en los sistemas y servicios TI. Se activa ante interrupciones mayores que afecten a la infraestructura tecnológica (ransomware, fallo masivo de hardware, etc.). Incluye los procedimientos técnicos para restaurar los sistemas en un tiempo aceptable. Relación: el DRP es un componente incluido dentro del BCP. El BCP engloba el DRP y lo complementa con los planes de continuidad operativa de toda la organización.",
+    "criteriosCorreccion": [
+      "Define correctamente el BCP (toda la organización, cualquier interrupción).",
+      "Define correctamente el DRP (sistemas TI, interrupciones mayores).",
+      "Explica que el DRP está incluido dentro del BCP.",
+      "Menciona las diferencias de alcance."
+    ],
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor la señaló explícitamente como posible pregunta de desarrollo. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explica en qué consiste el Análisis de Impacto de Negocio (BIA) dentro de un plan de recuperación ante desastres e indica los aspectos que consideres más importantes.",
+    "respuestaModelo": "El BIA (Business Impact Analysis) es un proceso de análisis que evalúa el impacto que tendría sobre la organización la interrupción de sus procesos críticos. Sus aspectos más importantes son: Identificación de procesos críticos: determina qué funciones y servicios son esenciales para que la organización siga operando. Evaluación del impacto: estima las consecuencias de una interrupción (económicas, reputacionales, legales) en función del tiempo. Establecimiento del RTO y el RPO: a partir del impacto, se determina cuánto tiempo puede estar un servicio interrumpido (RTO) y cuántos datos se pueden perder (RPO). Evaluación de dependencias: identifica de qué recursos, sistemas y personas dependen los procesos críticos. El BIA es el punto de partida para diseñar las estrategias de recuperación adecuadas.",
+    "criteriosCorreccion": [
+      "Define correctamente el BIA.",
+      "Explica que identifica los procesos críticos.",
+      "Menciona su relación con RTO y RPO.",
+      "Menciona la evaluación de dependencias."
+    ],
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt",
+      "clase-13.txt"
+    ],
+    "observaciones": "El profesor presentó esta como posible pregunta de desarrollo. La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-10-desarrollo-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Describe los tres tipos de centros de respaldo (caliente, templado y frío) indicando sus características principales, el tiempo de recuperación aproximado y sus ventajas e inconvenientes.",
+    "respuestaModelo": "Centro caliente (hot site): dispone de todos los sistemas instalados, configurados y sincronizados con el centro principal. La recuperación es casi inmediata (minutos). Es la opción más cara y requiere mantenimiento continuo. Centro templado (warm site): dispone de la infraestructura instalada pero no completamente configurada ni sincronizada. La recuperación tarda horas o días. Coste intermedio. Centro frío (cold site): solo ofrece espacio físico, suministro eléctrico y climatización. No tiene equipamiento. La recuperación puede tardar semanas. Es la opción más económica. La elección depende del balance entre coste y tiempo de recuperación exigido por el RTO de la organización.",
+    "criteriosCorreccion": [
+      "Describe correctamente los tres tipos.",
+      "Indica el tiempo de recuperación aproximado de cada uno.",
+      "Menciona el coste relativo.",
+      "Relaciona la elección con el RTO."
+    ],
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor señaló: 'Esto sí hay que sabérselo.' La respuesta orientativa ha sido elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "casi-tema-8-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué vulnerabilidad aprovecha la deficiencia en la gestión de sesiones de usuario para realizar acciones no autorizadas en una aplicación web?",
+    "opciones": [
+      "XSS (Cross-Site Scripting).",
+      "Inyección SQL.",
+      "CSRF (Cross-Site Request Forgery).",
+      "Path traversal."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El CSRF (Cross-Site Request Forgery) aprovecha la sesión activa de un usuario autenticado para ejecutar peticiones no autorizadas en su nombre, sin que el usuario sea consciente de ello.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Pregunta presentada en la sesión de repaso del Tema 10 como ejemplo de cómo son las preguntas del examen.",
+    "requiereRevision": false,
+    "verificada": false
+  }
+]

@@ -1,0 +1,11 @@
+.exam-part-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exam-part-footer {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}

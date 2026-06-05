@@ -123,6 +123,13 @@ export const publicLibrary = {
     return this.getQuestions(asignaturaId).filter(q => q.parteExamenId === parteId);
   },
 
+  // Banco global de preguntas de una asignatura (banco-preguntas.json).
+  // Devuelve [] si no existe. Equivale a getQuestions porque el único
+  // archivo de preguntas por asignatura es banco-preguntas.json.
+  getQuestionBank(asignaturaId) {
+    return questions[asignaturaId] || [];
+  },
+
   // IDs de asignaturas válidos (para validación en servicios)
   getValidSubjectIds() {
     return asignaturasData.map(a => a.id);
