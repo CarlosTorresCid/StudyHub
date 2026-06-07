@@ -700,3 +700,64 @@
   display: flex;
   gap: 10px;
 }
+
+@media (max-width: 768px) {
+  .mgmt-page {
+    padding: 20px 16px;
+  }
+
+  .mgmt-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .mgmt-header h1 {
+    font-size: 22px;
+  }
+
+  .mgmt-subject-list {
+    grid-template-columns: 1fr;
+  }
+
+  .mgmt-subject-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mgmt-actions-bar {
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .mgmt-actions-bar .btn {
+    justify-content: center;
+  }
+
+  .mgmt-topic-row {
+    flex-wrap: wrap;
+  }
+
+  .mgmt-topic-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .banco-preview-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+  }
+
+  .banco-preview-tema,
+  .banco-preview-id {
+    display: none;
+  }
+
+  .mgmt-lock {
+    padding: 20px 16px;
+  }
+
+  .mgmt-lock-card {
+    padding: 28px 20px;
+  }
+}

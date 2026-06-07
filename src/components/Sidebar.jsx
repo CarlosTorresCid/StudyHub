@@ -4,18 +4,25 @@ import './Sidebar.css';
 
 // La lista de asignaturas es estática: siempre las 6 del repositorio.
 // No se necesita estado reactivo porque la lista nunca cambia en runtime.
-export default function Sidebar() {
+export default function Sidebar({ isOpen = false, onClose = () => {} }) {
   const { asignaturaId } = useParams();
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
+      <button className="sidebar-close" onClick={onClose} aria-label="Cerrar menú">×</button>
+
       <div className="sidebar-logo">
         <span className="sidebar-logo-icon">📚</span>
         <span className="sidebar-logo-text">StudyHub</span>
       </div>
 
       <nav className="sidebar-nav">
-        <NavLink to="/" end className={({ isActive }) => `sidebar-home ${isActive ? 'active' : ''}`}>
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => `sidebar-home ${isActive ? 'active' : ''}`}
+          onClick={onClose}
+        >
           <span>🏠</span> Inicio
         </NavLink>
 
@@ -27,6 +34,7 @@ export default function Sidebar() {
             to={`/asignatura/${a.id}`}
             className={({ isActive }) => `sidebar-item ${isActive || asignaturaId === a.id ? 'active' : ''}`}
             style={{ '--subject-color': a.color }}
+            onClick={onClose}
           >
             <span className="sidebar-item-dot" />
             <span className="sidebar-item-label">
@@ -40,6 +48,7 @@ export default function Sidebar() {
         <NavLink
           to="/gestion"
           className={({ isActive }) => `sidebar-home sidebar-mgmt ${isActive ? 'active' : ''}`}
+          onClick={onClose}
         >
           <span>🔒</span> Administración
         </NavLink>

@@ -135,3 +135,36 @@
 
 .sim-no-questions { font-size: 13px; color: var(--text-muted); text-align: center; padding: 8px 0; }
 .sim-no-questions a { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .sim-setup-page {
+    padding: 20px 16px;
+  }
+
+  .sim-setup-hero {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .sim-setup-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .sim-setup-actions .btn-lg {
+    justify-content: center;
+  }
+
+  .sim-structure-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sim-structure-avail {
+    align-self: flex-start;
+  }
+}

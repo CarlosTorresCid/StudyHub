@@ -34,6 +34,8 @@
 
 html, body, #root {
   height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;

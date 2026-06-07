@@ -181,3 +181,33 @@
   color: var(--accent);
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .topic-page {
+    padding: 20px 16px;
+  }
+
+  .topic-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .topic-header h1 {
+    font-size: 22px;
+  }
+
+  .topic-tab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .conceptos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apuntes-intro {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+}

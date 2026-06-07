@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import GestionGuard from './components/GestionGuard';
@@ -31,10 +32,28 @@ import ExamPartPage from './pages/ExamPartPage'
 const G = ({ children }) => <GestionGuard>{children}</GestionGuard>;
 
 export default function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <HashRouter>
       <div className="app-layout">
-        <Sidebar />
+        {!sidebarOpen && (
+          <button
+            className="mobile-menu-toggle"
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Abrir menú"
+          >
+            ☰
+          </button>
+        )}
+        {sidebarOpen && (
+          <button
+            className="sidebar-overlay"
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Cerrar menú"
+          />
+        )}
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="app-main">
           <Routes>
             {/* Vista pública */}
