@@ -1,0 +1,274 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. Servicios móviles",
+  "apuntes": {
+    "introduccion": "El Tema 2 estudia los **servicios móviles**, entendidos como las aplicaciones que se ejecutan sobre los dispositivos y comunicaciones vistos en el Tema 1. Se centra en tres cuestiones prácticas: qué **tipos de aplicaciones móviles** existen (nativas, web móviles e híbridas, además de las PWA), cómo **decidir** cuál conviene desarrollar según las necesidades, y cómo lograr una buena **experiencia de usuario (UX)** en el diseño de la interacción móvil.\n\nLa idea de fondo es que la elección del tipo de aplicación condiciona fuertemente tanto el coste como la experiencia de usuario, y que ninguna opción es universalmente mejor: depende de factores como el presupuesto, los plazos, el público y la funcionalidad requerida. El tema sirve además de introducción al Tema 4, donde la experiencia de usuario se trata en profundidad.\n\nLa tendencia del mercado apunta hacia los modelos *híbridos* y *multiplataforma* (cross-platform), que buscan combinar lo mejor de las aplicaciones nativas y web.",
+    "secciones": [
+      {
+        "titulo": "Plataformas y sistemas operativos",
+        "contenido": "El primer elemento a decidir al desarrollar una app es la **plataforma** (sistema operativo) o plataformas de destino. El mercado lo dominan **Android** (de Google) e **iOS** (de Apple); otras plataformas tienen presencia residual (Windows Phone, BlackBerry OS) o emergente (Tizen). Android domina en la mayor parte del mundo (incluida Europa) por estar presente en multitud de dispositivos; iOS predomina sobre todo en EE. UU.\n\nUna diferencia clave es la **fragmentación**: Apple controla un único sistema, mientras que Android debe convivir con multitud de fabricantes y dispositivos, lo que ha dado lugar a varias variantes:\n- **AOSP (Android Open Source Project)**: la base de código abierto en su forma más básica (kernel y bibliotecas esenciales), sin las apps de Google. Sobre ella las marcas construyen sus versiones.\n- **Stock Android**: la experiencia más pura, presente en los dispositivos Google (Pixel/Nexus); recibe actualizaciones más rápidas. Los fabricantes lo personalizan creando capas como MIUI, One UI u OxygenOS.\n- **Android One** (2014): variante supervisada por Google que limita la personalización del fabricante para ir fluida (orientada a gama media) y actualizarse rápido.\n- **Android Go** (2017): pensada para equipos muy modestos (en torno a 1 GB de RAM), como televisores o dispositivos antiguos.\nExiste también **GrapheneOS**, basado en AOSP y orientado a la privacidad y la seguridad."
+      },
+      {
+        "titulo": "Factores clave en la decisión de desarrollo",
+        "contenido": "La elección del modelo de aplicación es, sobre todo, una **decisión empresarial** que afecta al resultado percibido por el usuario. Los factores clave que intervienen son:\n- **Presupuesto disponible**: suele ser el factor de corte; condiciona qué se puede hacer.\n- **Plazos / tiempo de desarrollo**: ligado al equipo disponible.\n- **Público al que se destina** la app.\n- **Funcionalidad**: lo que se puede hacer depende del modelo elegido (acceso a sensores, uso offline, etc.).\n\nA estos se suman, en la práctica, otros aspectos como los tamaños de pantalla, la accesibilidad, la compatibilidad, la experiencia de usuario y los casos de uso, que ayudan a delimitar el alcance real del proyecto."
+      },
+      {
+        "titulo": "Aplicaciones nativas",
+        "contenido": "Las **apps nativas** son las que el usuario tiene en mente: se descargan de una tienda de aplicaciones (Google Play o App Store), se instalan en el dispositivo y se ejecutan tocando su icono.\n\nSu rasgo distintivo es que se desarrollan **específicamente para una plataforma**: un desarrollo para Android no es reutilizable para iOS, por lo que se necesitan dos líneas de desarrollo (aunque el *backend* —bases de datos, procesamiento, nube— sí puede ser común). Se programan con los lenguajes y guías de estilo del fabricante (Kotlin para Android, Swift/SwiftUI para iOS).\n\nVentajas:\n- **Máximo rendimiento** (el más alto de los tres modelos), por estar muy cerca del hardware.\n- **Acceso completo a todos los sensores** del dispositivo (GPS, cámaras, sensores de movimiento, etc.).\n- Pueden **funcionar offline** (sin conexión de datos).\n- Permiten **monetización** a través de la tienda de aplicaciones.\n- La **mejor experiencia de usuario**, al usar los componentes nativos de la plataforma.\n\nDesventajas:\n- **Coste elevado**: hay que desarrollar y mantener una versión por plataforma, con especialistas distintos.\n- Fuerte dependencia del fabricante (criterios de publicación, cambios entre versiones, fragmentación si los usuarios no actualizan)."
+      },
+      {
+        "titulo": "Aplicaciones web móviles (Mobile Web) y PWA",
+        "contenido": "Las **aplicaciones web móviles (Mobile Web)** son webs adaptadas específicamente para su visualización en el móvil (no basta con mostrar la web de escritorio: hay que repensar el diseño). Se accede a ellas directamente con una **URL** mediante un navegador.\n\nSe construyen con la tríada web habitual:\n- **HTML** (estructura/contenido).\n- **CSS** (presentación/estilos en cascada).\n- **JavaScript** (comportamiento/interacciones).\n\nVentajas:\n- **Multiplataforma** con una **única base de código** y despliegue inmediato (solo requieren navegador e Internet).\n- **Costes reducidos**: se reutiliza el conocimiento de desarrolladores web.\n- **Actualizaciones inmediatas** y transparentes (se hacen en el servidor; todos los usuarios tienen la misma versión).\n- La compatibilidad entre navegadores móviles está hoy controlada porque comparten un motor de representación común (WebKit).\n\nInconvenientes:\n- **Acceso parcial** al hardware (HTML moderno ya permite GPS/geolocalización y cámara, y almacenar datos persistentes en una pequeña base de datos, pero con limitaciones).\n- **No se distribuyen** por las tiendas de aplicaciones; su apariencia aún difiere de la nativa.\n\nLas **PWA (Progressive Web Apps)** nacen para resolver las carencias de las web apps. Mediante los **Service Workers** pueden ejecutarse en segundo plano, instalarse en el dispositivo, funcionar sin conexión y enviar **notificaciones push**, acercándose al comportamiento de una app nativa."
+      },
+      {
+        "titulo": "Aplicaciones híbridas",
+        "contenido": "Las **apps híbridas** son un tercer modelo que combina lo mejor de los dos anteriores: el acceso al hardware y la distribución/monetización por tienda (propio de las nativas) con la reutilización del conocimiento web y la **única línea de desarrollo** (propio de las web).\n\nTécnicamente, una app híbrida es una **web móvil encapsulada dentro de un contenedor nativo**: una carcasa nativa que incluye un componente WebView (un navegador empotrado) y plugins que dan acceso a las capacidades del dispositivo (por ejemplo, mediante Apache Cordova). Frameworks habituales son Flutter (muy recomendado en clase, con buena integración con la base de datos Firebase de Google) o React Native.\n\nVentajas: desarrollo más rápido y escalable, reutilización del conocimiento web y un solo equipo para todas las plataformas (ahorro de costes).\n\nInconvenientes: las apps resultantes suelen ser de **gran tamaño** (por llevar la carcasa nativa más el WebView) y su velocidad y experiencia de usuario aún distan algo de las de una nativa pura, aunque la diferencia se reduce con el tiempo. Es el modelo hacia el que tiende el mercado."
+      },
+      {
+        "titulo": "Comparativa y decisión sobre el tipo de aplicación",
+        "contenido": "Resumen comparativo de los tres modelos:\n- **Interfaz de usuario**: Mobile Web e híbrida, basada en web; nativa, específica de la plataforma.\n- **Multiplataforma / reutilización de código**: sí en web e híbrida; no en nativa.\n- **Acceso a sensores**: parcial (web), completo (nativa), intermedio/según el contenedor (híbrida).\n- **Experiencia de usuario**: buena (web), muy buena (híbrida), excelente (nativa).\n- **Tienda de aplicaciones**: no (web), sí (nativa e híbrida).\n- **Coste de desarrollo**: bajo/medio (web), medio (híbrida), alto (nativa).\n- **Funcionalidad offline**: nula (web), completa o excelente (híbrida y nativa).\n\nSegún el **análisis DAFO** del temario (comparando apps web y nativas a partir de 21 fuentes), el modelo **web es el claro ganador en términos de coste/inversión**: requiere menor inversión (94,6 %), tiene ciclo de desarrollo más corto y mejor ROI. Las nativas, en cambio, sufren fragmentación por plataforma y mayores costes, aunque ofrecen mejor integración y rendimiento.\n\nConclusión práctica: cuando ambos modelos cubren las necesidades, la web es la opción más coste-efectiva; pero por las limitaciones de la web, suele preferirse la **híbrida** frente a la nativa para abaratar el desarrollo manteniendo una buena experiencia."
+      },
+      {
+        "titulo": "Diseño de la interacción móvil: la experiencia de usuario",
+        "contenido": "La clave del éxito de cualquier app, sea cual sea su arquitectura, es la **satisfacción del usuario ante la experiencia de uso**. La experiencia de usuario móvil engloba las percepciones y sensaciones del usuario **antes, durante y después** de interactuar con el producto.\n\nDiseñar para móvil obliga a repensar lo válido en escritorio/web por dos grandes dificultades:\n- **La enorme diversidad de dispositivos**: tamaños de pantalla muy variables, distintas gamas, restricciones de conectividad y formas de uso.\n- **El contexto de uso**: siempre cambiante y difícil de identificar (movimiento, luz ambiente, ruido, atención dispersa del usuario).\n\nUn buen diseño de UX móvil se modela con un conjunto de elementos clave: funcionalidad, arquitectura de información, contenido, diseño, entrada de usuario, contexto móvil, usabilidad, confiabilidad, feedback, ayuda, componente social y marketing. La relevancia de cada uno depende del dispositivo (móvil o tablet) y del tipo de interfaz (app o Mobile Web)."
+      },
+      {
+        "titulo": "Elementos de UX: funcionalidad y arquitectura de información",
+        "contenido": "**Funcionalidad**:\n- **Priorizar las características más relevantes** para el usuario en movilidad y hacerlas muy visibles (parte superior o botones inferiores). Ejemplo: una app de aerolínea destaca buscador de vuelos, reserva y check-in; una app bancaria, el saldo y las operaciones.\n- Facilitar herramientas de interacción con el mundo físico, como lectores de códigos de barras o **QR**.\n- Ofrecer las mismas características en todos los canales (la versión Android y la iOS deberían ser equivalentes).\n- Procurar que la app se use de forma intensiva y recurrente, no de un solo uso.\n\n**Arquitectura de información**:\n- Presentar los elementos y enlaces más importantes en la **primera pantalla**.\n- Diseñar la navegación **en vertical** (la inmensa mayoría usa el móvil verticalmente, en torno al 94 %), no horizontal como en la web de escritorio.\n- **Minimizar el número de toques** necesarios para llegar a cada función.\n- **Evitar que el usuario introduzca información**: usar listas de opciones y valores probables por defecto.\n- Usar **mecanismos descriptivos** (etiquetas, indicadores, textos) para que el usuario sepa siempre dónde está y pueda volver con facilidad."
+      },
+      {
+        "titulo": "Elementos de UX: contenido, diseño y entrada de usuario",
+        "contenido": "**Contenido**:\n- **Simplificar** mucho el contenido respecto a la web convencional.\n- Dar el **control al usuario** sobre el contenido multimedia (no reproducir automáticamente) y ser respetuoso con el consumo de datos.\n- **Optimizar imágenes y vídeos** (en Mobile Web, mejor un JPG ligero que una imagen de varios MB).\n- Evitar contenidos que no se vean bien sin complementos (como Flash).\n\n**Diseño**:\n- El diseño móvil no consiste en reducir el de escritorio, sino en **repensar y rediseñar** la aplicación (uso de layouts adaptables según tamaño y orientación).\n- Diseñar para captar la **información de un vistazo** (*at a glance*).\n- Mantener **coherencia visual** en todos los canales (mismos colores e identidad corporativa).\n- Considerar las **orientaciones vertical y horizontal** sin perder el contexto al girar.\n\n**Entrada de usuario**:\n- **Limitar la entrada a los campos esenciales** (menos que en la web).\n- Mostrar **valores por defecto** según el historial del usuario.\n- Usar la **geolocalización** para rellenar datos automáticamente.\n- Mostrar el **teclado adecuado** (numérico para datos numéricos).\n- **Guardar la sesión** y usar biometría (huella, Face ID) para evitar reescribir credenciales."
+      },
+      {
+        "titulo": "Elementos de UX: contexto móvil, usabilidad y confiabilidad",
+        "contenido": "**Contexto móvil**:\n- Adaptar la aplicación al entorno: luminosidad ambiente (modo claro/oscuro), uso de la localización para ofrecer solo información relevante, simplificar la interfaz si el usuario está en movimiento.\n- Aprovechar todas las capacidades del dispositivo y respetar las **preferencias y ajustes** del usuario.\n\n**Usabilidad**:\n- Dejar muy claro qué elementos se pueden seleccionar, tocar o deslizar.\n- En interfaces táctiles, los elementos seleccionables deben tener tamaño suficiente y estar bien separados (sobre todo los \"destructivos\", como cancelar) para evitar errores y solapamientos.\n- Seguir las **guías oficiales de diseño** (Human Interface de Apple, Material Design de Google).\n- Ajustar contraste y visibilidad al momento del día.\n\n**Confiabilidad**:\n- Solicitar únicamente los **permisos estrictamente necesarios** y justificar por qué se piden (idealmente en el momento de usar la funcionalidad, no de entrada).\n- Cuidar la **privacidad y la seguridad**, con medidas técnicas y explicación clara al usuario.\n- Evitar textos de Términos y Condiciones largos e ilegibles: la palabra clave es **simplicidad**."
+      },
+      {
+        "titulo": "Elementos de UX: feedback, ayuda, componente social y marketing",
+        "contenido": "**Feedback (realimentación)**:\n- Atraer la atención del usuario solo cuando sea realmente necesario.\n- Minimizar el número de alertas y hacerlas con textos concisos y claros, poco invasivas (evitar pop-ups que bloqueen la pantalla).\n\n**Ayuda y asistencia**:\n- Ofrecer ayuda en el uso de la app, idealmente con un asistente en la primera ejecución.\n- Proporcionar **múltiples canales de consulta** (web específica, redes sociales, botón de llamada a soporte, tutoriales en vídeo).\n\n**Componente social**:\n- Potenciar contenidos y funcionalidades que fomenten la participación y la compartición en redes sociales (me gusta, compartir), buscando la viralidad para captar nuevos usuarios.\n\n**Marketing**:\n- Explorar vías para que el usuario encuentre la app: **códigos QR**, **etiquetas NFC**, posicionamiento **SEO**, promoción multicanal, redes sociales e influencers.\n- Si se piden valoraciones, hacerlo de forma no intrusiva e incluir siempre la opción \"no volver a recordarme\"."
+      }
+    ]
+  },
+  "resumen": [
+    "Los servicios móviles son las aplicaciones que se ejecutan sobre los dispositivos y comunicaciones; el primer paso es elegir la plataforma de destino (Android o iOS).",
+    "Android está fragmentado en variantes (AOSP, Stock, Android One y Android Go), mientras que iOS es un sistema único controlado por Apple.",
+    "La decisión sobre el tipo de app es empresarial y depende del presupuesto (factor de corte), los plazos, el público y la funcionalidad requerida.",
+    "Las apps nativas se desarrollan por plataforma; ofrecen el máximo rendimiento, acceso completo a sensores y uso offline, pero a un coste elevado por duplicar el desarrollo.",
+    "Las apps Mobile Web se acceden por URL, son multiplataforma con una única base de código y de bajo coste, pero tienen acceso parcial al hardware y no se distribuyen por tiendas.",
+    "Las PWA mejoran las web apps con Service Workers, permitiendo instalación, funcionamiento offline y notificaciones push.",
+    "Las apps híbridas encapsulan una web móvil en un contenedor nativo con WebView; combinan ventajas de ambos modelos, pero son más pesadas y algo más lentas que las nativas.",
+    "En coste, la solución web es la más coste-efectiva (lo confirma el análisis DAFO); por sus limitaciones, suele preferirse la híbrida frente a la nativa.",
+    "La clave del éxito de una app es la satisfacción del usuario; las dos grandes dificultades del diseño móvil son la diversidad de dispositivos y el contexto de uso.",
+    "En funcionalidad y arquitectura de información, conviene priorizar lo más usado en la primera pantalla, diseñar en vertical y minimizar el número de toques.",
+    "El contenido debe simplificarse y optimizarse, y el diseño debe repensarse para móvil manteniendo coherencia visual en todos los canales.",
+    "La entrada de usuario debe limitarse a lo esencial, usando valores por defecto, geolocalización, teclado adecuado y biometría.",
+    "La confiabilidad exige pedir solo los permisos necesarios y cuidar la privacidad con simplicidad; el feedback debe ser poco invasivo.",
+    "Para difundir la app se usan QR, etiquetas NFC, SEO, redes sociales e influencers, y se potencia la componente social para la viralidad."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Servicio móvil",
+      "definicion": "Aplicación que se ejecuta sobre un dispositivo móvil y sus comunicaciones para dar respuesta a una necesidad del usuario."
+    },
+    {
+      "termino": "App nativa",
+      "definicion": "Aplicación desarrollada específicamente para un sistema operativo, que se instala desde su tienda; ofrece máximo rendimiento y acceso completo al hardware."
+    },
+    {
+      "termino": "Mobile Web (web app)",
+      "definicion": "Web adaptada al móvil a la que se accede por URL mediante navegador; multiplataforma, de bajo coste y con acceso parcial al hardware."
+    },
+    {
+      "termino": "App híbrida",
+      "definicion": "Web móvil encapsulada en un contenedor nativo (con WebView); combina ventajas de nativas y web, a costa de mayor tamaño y menor velocidad."
+    },
+    {
+      "termino": "PWA (Progressive Web App)",
+      "definicion": "Web app avanzada que, mediante Service Workers, puede instalarse, funcionar offline y enviar notificaciones push, pareciéndose a una app nativa."
+    },
+    {
+      "termino": "Service Worker",
+      "definicion": "Componente que permite a una PWA ejecutarse en segundo plano, funcionar sin conexión y recibir notificaciones."
+    },
+    {
+      "termino": "AOSP",
+      "definicion": "Android Open Source Project: versión base de Android de código abierto (kernel y bibliotecas), sin las apps de Google, sobre la que construyen los fabricantes."
+    },
+    {
+      "termino": "Android Stock",
+      "definicion": "Versión pura de Android (dispositivos Pixel/Nexus), con actualizaciones rápidas; los fabricantes la personalizan en capas como MIUI, One UI u OxygenOS."
+    },
+    {
+      "termino": "Android One",
+      "definicion": "Variante de Android supervisada por Google con personalización limitada, orientada a gama media y a actualizaciones rápidas."
+    },
+    {
+      "termino": "Android Go",
+      "definicion": "Variante de Android diseñada para equipos muy modestos (en torno a 1 GB de RAM)."
+    },
+    {
+      "termino": "Backend",
+      "definicion": "Parte de servidor de una aplicación (bases de datos, procesamiento, nube) que puede ser común a las versiones nativas de distintas plataformas."
+    },
+    {
+      "termino": "HTML, CSS y JavaScript",
+      "definicion": "Tríada de tecnologías web: HTML aporta la estructura/contenido, CSS la presentación y JavaScript el comportamiento/interacciones."
+    },
+    {
+      "termino": "WebKit",
+      "definicion": "Motor de representación visual común a los navegadores móviles, que asegura una visualización consistente de las web apps."
+    },
+    {
+      "termino": "WebView",
+      "definicion": "Componente que actúa como navegador empotrado dentro del contenedor nativo de una app híbrida."
+    },
+    {
+      "termino": "Flutter",
+      "definicion": "Framework de desarrollo de apps multiplataforma/híbridas, con buena integración con la base de datos Firebase de Google."
+    },
+    {
+      "termino": "Guías de estilo (Human Interface / Material Design)",
+      "definicion": "Directrices oficiales de diseño de Apple (Human Interface) y Google (Material Design) que conviene seguir para la usabilidad en cada plataforma."
+    },
+    {
+      "termino": "Experiencia de usuario (UX) móvil",
+      "definicion": "Conjunto de percepciones y sensaciones del usuario antes, durante y después de interactuar con la aplicación."
+    },
+    {
+      "termino": "Arquitectura de información",
+      "definicion": "Organización de los elementos y la navegación de la app; en móvil debe ser vertical, con lo importante en la primera pantalla y mínimos toques."
+    },
+    {
+      "termino": "Contexto de uso",
+      "definicion": "Entorno cambiante y difícil de identificar en el que se usa el móvil (luz, movimiento, ruido); una de las grandes dificultades del diseño móvil."
+    },
+    {
+      "termino": "Análisis DAFO",
+      "definicion": "Estudio de Debilidades, Amenazas, Fortalezas y Oportunidades usado en el tema para comparar los modelos de app web y nativa."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-2-fc-001",
+      "pregunta": "¿Cuáles son los tres tipos principales de aplicaciones móviles?",
+      "respuesta": "Nativas, web móviles (Mobile Web) e híbridas (más las PWA como caso particular de web)."
+    },
+    {
+      "id": "te-tema-2-fc-002",
+      "pregunta": "¿Qué caracteriza a una app nativa?",
+      "respuesta": "Se desarrolla para un sistema operativo concreto, se instala desde su tienda y ofrece máximo rendimiento y acceso completo al hardware."
+    },
+    {
+      "id": "te-tema-2-fc-003",
+      "pregunta": "¿Por qué las apps nativas son más caras de desarrollar?",
+      "respuesta": "Porque no son reutilizables entre plataformas: hay que desarrollar y mantener una versión por cada sistema operativo, con especialistas distintos."
+    },
+    {
+      "id": "te-tema-2-fc-004",
+      "pregunta": "¿Cómo se accede a una aplicación Mobile Web?",
+      "respuesta": "Directamente con una URL a través del navegador del móvil, sin instalación."
+    },
+    {
+      "id": "te-tema-2-fc-005",
+      "pregunta": "¿Qué tres tecnologías se usan en una web app y qué aporta cada una?",
+      "respuesta": "HTML (estructura/contenido), CSS (presentación) y JavaScript (comportamiento/interacciones)."
+    },
+    {
+      "id": "te-tema-2-fc-006",
+      "pregunta": "¿Qué es una app híbrida desde el punto de vista técnico?",
+      "respuesta": "Una web móvil encapsulada dentro de un contenedor nativo que incluye un WebView y plugins de acceso al hardware."
+    },
+    {
+      "id": "te-tema-2-fc-007",
+      "pregunta": "¿Cuáles son los inconvenientes de las apps híbridas?",
+      "respuesta": "Suelen ser de gran tamaño y su velocidad y experiencia de usuario son algo inferiores a las de una nativa pura."
+    },
+    {
+      "id": "te-tema-2-fc-008",
+      "pregunta": "¿Qué aportan las PWA frente a una web app normal?",
+      "respuesta": "Gracias a los Service Workers pueden instalarse, ejecutarse en segundo plano, funcionar offline y enviar notificaciones push."
+    },
+    {
+      "id": "te-tema-2-fc-009",
+      "pregunta": "¿Qué es AOSP?",
+      "respuesta": "Android Open Source Project: la versión base de Android de código abierto (kernel y bibliotecas), sin apps de Google."
+    },
+    {
+      "id": "te-tema-2-fc-010",
+      "pregunta": "¿Para qué está pensado Android Go?",
+      "respuesta": "Para equipos muy modestos, con poca memoria (en torno a 1 GB de RAM)."
+    },
+    {
+      "id": "te-tema-2-fc-011",
+      "pregunta": "¿Cuál suele ser el factor de corte en la decisión de desarrollo?",
+      "respuesta": "El presupuesto disponible."
+    },
+    {
+      "id": "te-tema-2-fc-012",
+      "pregunta": "Según el análisis DAFO del tema, ¿qué modelo gana en costes?",
+      "respuesta": "El modelo de desarrollo basado en aplicaciones web."
+    },
+    {
+      "id": "te-tema-2-fc-013",
+      "pregunta": "¿Qué modelo ofrece la mejor experiencia de usuario y cuál la menor?",
+      "respuesta": "La mejor, la nativa (excelente); la menor, la Mobile Web (buena); la híbrida queda intermedia (muy buena)."
+    },
+    {
+      "id": "te-tema-2-fc-014",
+      "pregunta": "¿Cómo se puede monetizar una app nativa y cómo una Mobile Web?",
+      "respuesta": "La nativa, a través de la tienda de aplicaciones; la Mobile Web, mediante suscripciones, muros de pago o técnicas similares."
+    },
+    {
+      "id": "te-tema-2-fc-015",
+      "pregunta": "¿Cuáles son las dos grandes dificultades del diseño de UX móvil?",
+      "respuesta": "La enorme diversidad de dispositivos y el contexto de uso (cambiante y difícil de identificar)."
+    },
+    {
+      "id": "te-tema-2-fc-016",
+      "pregunta": "¿En qué orientación debe diseñarse principalmente la navegación móvil y por qué?",
+      "respuesta": "En vertical, porque la inmensa mayoría de usuarios (en torno al 94 %) usa el móvil verticalmente."
+    },
+    {
+      "id": "te-tema-2-fc-017",
+      "pregunta": "¿Qué recomendación de arquitectura de información reduce el esfuerzo del usuario?",
+      "respuesta": "Minimizar el número de toques necesarios para llegar a cada funcionalidad."
+    },
+    {
+      "id": "te-tema-2-fc-018",
+      "pregunta": "¿Qué significa que el diseño móvil debe 'repensarse' y no solo reducirse?",
+      "respuesta": "Que no basta con encoger el diseño de escritorio: hay que rediseñar la app con layouts adaptados al tamaño y la orientación del dispositivo."
+    },
+    {
+      "id": "te-tema-2-fc-019",
+      "pregunta": "Cita tres buenas prácticas en la entrada de usuario.",
+      "respuesta": "Limitar la entrada a lo esencial, mostrar valores por defecto/geolocalización y usar el teclado adecuado y biometría para guardar la sesión."
+    },
+    {
+      "id": "te-tema-2-fc-020",
+      "pregunta": "¿Qué principio rige la solicitud de permisos en una app (confiabilidad)?",
+      "respuesta": "Pedir únicamente los permisos estrictamente necesarios y justificarlos, idealmente en el momento de usar la funcionalidad."
+    },
+    {
+      "id": "te-tema-2-fc-021",
+      "pregunta": "¿Qué guías de diseño oficiales deben seguirse en Apple y en Google?",
+      "respuesta": "Human Interface (Apple) y Material Design (Google)."
+    },
+    {
+      "id": "te-tema-2-fc-022",
+      "pregunta": "Cita vías de marketing para difundir una app móvil.",
+      "respuesta": "Códigos QR, etiquetas NFC, posicionamiento SEO, redes sociales e influencers."
+    },
+    {
+      "id": "te-tema-2-fc-023",
+      "pregunta": "¿Hacia qué modelo de desarrollo tiende el mercado y por qué?",
+      "respuesta": "Hacia el híbrido/multiplataforma, porque permite una sola línea de desarrollo reutilizando conocimiento web con buena experiencia de usuario."
+    },
+    {
+      "id": "te-tema-2-fc-024",
+      "pregunta": "¿Por qué Android está más fragmentado que iOS?",
+      "respuesta": "Porque Android debe convivir con multitud de fabricantes y dispositivos (con sus variantes y capas), mientras Apple controla un sistema único."
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Tecnologías móviles",
+  "apuntes": {
+    "introduccion": "El Tema 1 ofrece una toma de contacto con la tecnología que incorporan los dispositivos móviles actuales y con las comunicaciones inalámbricas que utilizan. El enfoque es eminentemente práctico: se analizan las características reales de los dispositivos siguiendo el tipo de fichas técnicas que ofrece una web de referencia como GSMArena (procesador, memoria, pantalla, cámara, etc.).\n\nEl tema se divide en dos grandes bloques. El primero, *dispositivos móviles*, recorre los elementos y tecnologías de un smartphone que no tienen que ver con la comunicación: cuerpo, pantalla, plataforma (sistema operativo y chipset), memoria, cámara, sonido y otras características. El segundo bloque, *comunicaciones móviles*, estudia las opciones inalámbricas del dispositivo, clasificadas en redes de área extensa (WWAN, las de los operadores: 2G a 5G/6G), de área local (WLAN, el WiFi) y de área personal (WPAN, como Bluetooth y NFC).\n\nLa idea central que recorre el tema es que un móvil moderno es, en realidad, un completo computador en miniatura, cuya evolución en memoria, capacidad y comunicaciones ha sido espectacular en pocas décadas: un smartphone actual supera en millones de veces la memoria y el almacenamiento del ordenador del Apolo 11.",
+    "secciones": [
+      {
+        "titulo": "El cuerpo del dispositivo (body)",
+        "contenido": "El **cuerpo** hace referencia a las dimensiones físicas, a la robustez de construcción y al tipo de tarjeta SIM del operador.\n\n- **Dimensiones y peso**: los fabricantes buscan reducir el peso usando materiales ligeros y resistentes como el aluminio. El **peso** se considera *en la teoría* uno de los factores diferenciales o críticos de decisión: existía una línea roja histórica en torno a los 200 g (un peso mayor deforma un bolsillo de camisa e incomoda). Hoy los terminales de gama alta superan ligeramente esos 200 g porque incorporan pantallas más grandes y más componentes.\n- **Resistencia (estándar IP, Ingress Protection)**: se expresa con dos dígitos. El primero indica protección frente a sólidos/polvo (de 0, sin protección, a 6, protección total); el segundo, frente a líquidos/agua (de 0 a 8, siendo 8 inmersión continua). Por ejemplo, un IP68 resiste polvo total e inmersión; el robusto IP69K se usa en entornos industriales.\n- **Pantalla protegida**: el elemento más frágil es la pantalla, por lo que se emplean cristales muy resistentes a ralladuras como *Gorilla Glass*.\n- **Tarjeta SIM**: ha ido reduciéndose de tamaño (mini-SIM, micro-SIM, nano-SIM) y tiende a la eSIM (SIM integrada, sin tarjeta física). La SIM dispone de una pequeña memoria que puede almacenar el número de teléfono y contactos.\n- **Monederos digitales / pagos por contacto**: cada marca ofrece el suyo, como **Samsung Pay** y **Apple Pay**, que permiten pagar acercando el móvil, con tarjetas asociadas (normalmente VISA o MasterCard)."
+      },
+      {
+        "titulo": "La pantalla (display)",
+        "contenido": "Para muchos usuarios es uno de los criterios de compra decisivos. Sus elementos definitorios son el tamaño, la tecnología y la resolución.\n\n- **Tamaño**: se tiende a pantallas grandes (en torno a 6,4-6,5 pulgadas en diagonal) que maximicen la experiencia de usuario, y a que la mayor parte de la superficie frontal sea pantalla (porcentajes superiores al 83-84 %).\n- **Tecnologías de pantalla** (evolución):\n- *LCD*: retroilumina los píxeles; brillante, pero con menor precisión de color.\n- *OLED*: ofrece negros más profundos y colores saturados, pero sufrió problemas de quemado de imagen (marcas permanentes).\n- *AMOLED*: versión mejorada de OLED.\n- *Super AMOLED*: la mejora pensada para móviles; integra una capa táctil en la propia pantalla (que un televisor no necesita). Es la usada en la gama alta.\n- *Retina*: tecnología propia de Apple; alcanza densidades tan altas que el ojo humano no distingue los píxeles.\n- **Resolución y densidad (ppi)**: la resolución es el número de píxeles. Cuanto mayor sea, más nítida es la imagen y más contenido cabe. La densidad se mide en **ppi** (puntos por pulgada): a igualdad de resolución, una pantalla más pequeña tiene más ppi. En la gama alta la resolución llega a superar la capacidad perceptiva del ojo humano. Históricamente, cambios de tamaño/resolución (p. ej., en los primeros iPhone) obligaron a los desarrolladores a readaptar las aplicaciones para que se vieran bien."
+      },
+      {
+        "titulo": "Plataforma: sistema operativo y chipset (SoC)",
+        "contenido": "La plataforma aborda dos elementos esenciales: el sistema operativo y el chipset.\n\n- **Sistema operativo**: hoy dominan **Android** (de Google) e **iOS** (de Apple); los antiguos (BlackBerry/RIM, Windows Mobile con su interfaz Metro, Symbian, etc.) han desaparecido. Conviene tener la versión más reciente, sobre todo en Android, para poder actualizar y prolongar la vida útil del dispositivo. Android nombra sus versiones con postres (Cupcake, Donut... KitKat, Lollipop, etc.); iOS pasó a numerar por años (p. ej., iOS 26). Android domina el mercado mundial principalmente porque está presente en multitud de dispositivos (móviles, televisores, Chromecast, electrodomésticos, dispositivos IoT...), mientras que iOS se restringe a los productos de Apple.\n- **Chipset y procesador (CPU)**: son los componentes con más impacto en la velocidad. El **chipset** es el conjunto de chips que controla el flujo de datos entre los distintos componentes (procesador, memoria, almacenamiento, entrada/salida).\n- **SoC (System-on-a-Chip, sistema en un chip)**: a diferencia de un ordenador, en el móvil el chipset integra en un solo chip la CPU y muchísimos otros elementos (GPU, módulos de conectividad, cámara, localización, seguridad, etc.). Es como meter la placa base completa en un único chip.\n- **Núcleos (cores)**: cuantos más núcleos, más aplicaciones o servicios pueden ejecutarse simultáneamente y mayor agilidad percibida. Cada fabricante tiene sus chips: Apple (serie Bionic), Samsung (Exynos propio o Qualcomm Snapdragon). Los SoC modernos incorporan además una unidad de procesamiento neuronal (NPU) para la inteligencia artificial.\n- **Tecnología de fabricación**: cada vez más pequeña (7 nm, 3 nm...). La miniaturización ha llevado a que la *ley de Moore* (Gordon Moore, Intel), que predecía la duplicación periódica de transistores, ya no se cumpla como antaño."
+      },
+      {
+        "titulo": "Memoria: RAM y almacenamiento",
+        "contenido": "La memoria es, junto con el procesador, el elemento que más impacto tiene en el rendimiento y en la sensación de fluidez.\n\n- **Memoria RAM (memoria interna de trabajo)**: en Android no debería ser inferior a 3 GB para una operación fluida. Los terminales actuales montan 8, 12 o 16 GB. También influye su tecnología (p. ej., LPDDR5), que mejora la velocidad. Apple suele equipar menos RAM que Android y aun así rinde bien, por tratarse de un ecosistema cerrado y muy optimizado.\n- **Almacenamiento (memoria de almacenamiento)**: guarda fotos, archivos y datos de las aplicaciones. Es especialmente crítico cuando el dispositivo no admite ampliación mediante tarjetas SD: al llenarse, solo quedan dos opciones, borrar contenidos periódicamente o pagar un servicio de almacenamiento en la nube (Cloud), como iCloud de Apple. La tendencia actual es eliminar la ranura microSD y empujar al usuario hacia la nube de pago."
+      },
+      {
+        "titulo": "Cámara y sensores",
+        "contenido": "La cámara es uno de los elementos más cuidados, ya que hacer fotografías es una de las actividades principales del usuario.\n\n- **Cámara primaria (trasera)**: tiende a usar 2 o 3 cámaras (o más) para lograr distintos efectos de zoom, gran angular o nitidez.\n- **Cámara secundaria (frontal)**: usada normalmente para *selfies*.\n- Ambas se miden en megapíxeles y permiten imágenes de alta calidad (ya hay vídeo 8K y sensores de muchos megapíxeles, con el inconveniente de que ocupan mucho almacenamiento).\n\nCaracterísticas opcionales habituales de la cámara:\n- Grabación de vídeo en alta calidad y toma simultánea de fotografías.\n- Grabación con muchos fotogramas por segundo para reproducción a cámara lenta o súper-lenta.\n- *Geotagging*: almacenar en la foto el lugar donde se tomó, con ayuda del GPS.\n- Reconocimiento de caras automático para mejorar el enfoque en retratos.\n- Modo **HDR** (*High Dynamic Range*, alto rango dinámico): colores enriquecidos, ideal en paisajes.\n- Estabilización de imagen, cada vez más trabajada para vídeo."
+      },
+      {
+        "titulo": "Sonido y otras características (features)",
+        "contenido": "**Sonido**: hoy un punto decisivo es si el dispositivo conserva el conector de auriculares de 3,5 mm (jack); si no, hay que recurrir a auriculares inalámbricos, normalmente por Bluetooth. La gama alta incorpora **cancelación de ruido activa** para que el interlocutor escuche con nitidez incluso en entornos ruidosos.\n\n**Otras características (features)**: apartado tipo cajón de sastre con tecnologías diferenciadoras, especialmente en Android:\n- **Sensores de todo tipo**: biométricos (reconocimiento facial o de iris para desbloqueo), de temperatura, de presión barométrica, de ritmo cardiaco, de saturación de oxígeno en sangre (SpO2); incluso hay patentes de medición de glucosa.\n- **Carga rápida**.\n- **Carga inalámbrica** (sin cables): el móvil se deposita sobre una base conectada a la red; estándares principales **Qi** y **PMA**.\n- **ANT+**: comunicación para conectar con aparatos de fitness (típicos de gimnasios).\n- **Editores** de documentos, fotografías y vídeos integrados."
+      },
+      {
+        "titulo": "Comunicaciones móviles: clasificación general",
+        "contenido": "El segundo bloque estudia las opciones de comunicación inalámbrica del dispositivo. La clave práctica es saber **seleccionar el tipo de comunicación según las necesidades del usuario o de la aplicación** (por ejemplo, una app de transporte como Uber necesita geolocalización y datos).\n\nSe clasifican por su alcance:\n- **WWAN (red de área extensa)**: la proporcionan los operadores móviles; son las generaciones 2G, 3G, 4G y 5G (y la futura 6G). Sirven tanto para llamadas de voz como para acceso a Internet.\n- **WLAN (red de área local)**: fundamentalmente el **WiFi**.\n- **WPAN (red de área personal)**: comunicaciones de corto alcance como **Bluetooth** y **NFC**.\n\nGuía rápida de elección:\n- *WiFi*: conexiones rápidas y estables, ideal para datos intensivos, pero de alcance limitado.\n- *Bluetooth*: comunicaciones cercanas, de bajo consumo y corto alcance.\n- *5G (red móvil)*: velocidades ultrarrápidas con alcance dependiente de la cobertura."
+      },
+      {
+        "titulo": "WLAN: WiFi y el estándar 802.11",
+        "contenido": "El nombre **WiFi** es una marca comercial de la *WiFi Alliance*; aunque suene a *Hi-Fi (High Fidelity)*, fue una decisión de marketing sin relación técnica con ese término. Se basa en el estándar **IEEE 802.11**.\n\nEvolución de los estándares 802.11 (a mayor letra, en general, más velocidad):\n- **802.11b** (1999): 11 Mbps, el primero.\n- **802.11g**: 54 Mbps.\n- **802.11a**: introdujo el uso de la banda de 5 GHz (frente a los 2,4 GHz).\n- **802.11n**: mejora notable de velocidad.\n- **802.11ac**: del orden de 1,3 Gbps.\n- **802.11ax**: hasta unos 10 Gbps.\n- **802.11be**: hasta unos 46 Gbps; añade la banda de 6 GHz y la técnica **MLO (Multi-Link Operation)**, que permite conectarse a varias bandas a la vez y optimizar los canales.\n- **802.11bn**: previsto para 2028; busca usar varios puntos de acceso simultáneamente.\n\n**Renombrado comercial**: para simplificar, la WiFi Alliance renombró los estándares: 802.11n = **WiFi 4**, ac = **WiFi 5**, ax = **WiFi 6**, be = **WiFi 7** y bn = **WiFi 8**. Las bandas habituales son 2,4 GHz (más alcance) y 5 GHz (más velocidad), y empieza a aparecer la de 6 GHz."
+      },
+      {
+        "titulo": "WPAN: Bluetooth",
+        "contenido": "**Bluetooth** es una tecnología de comunicación de corto alcance y bajo consumo. Su nombre proviene del rey vikingo *Harald Bluetooth* (Harald Blåtand), y su logo combina las runas de sus iniciales (H y B). Originalmente exigía mucha proximidad entre dispositivos; hoy puede alcanzar hasta unos 200 metros en condiciones ideales.\n\n**Clases (según potencia y alcance)**:\n- *Clase 1*: ~100 m, ~100 mW; uso industrial/comercial, conexiones robustas.\n- *Clase 2*: ~5-10 m; la más común, presente en la mayoría de dispositivos de consumo.\n- *Clase 3*: ~1 m, menor consumo.\n- *Clase 4*: muy corto alcance.\nLa cobertura puede ampliarse encadenando dispositivos/repetidores de clase superior.\n\n**Dos ramas**:\n- *Bluetooth clásico*: hasta ~3 Mbps; auriculares, sistemas de información de vehículos.\n- *Bluetooth Low Energy (BLE)*: mayor velocidad y alcance, pensado para bajo consumo.\n\n**Versiones (evolución)**:\n- *1.0* (1999): 1 Mbps, ~10 m, la primera.\n- *2.0* (2004): tecnología EDR, ~3 Mbps, ~30 m; al principio solo para transferencia de ficheros.\n- *3.0* (2009): ~24 Mbps (apoyándose en WiFi), pero mayor consumo.\n- *4.0* (2010): introduce el **Low Energy (BLE)**, ~60 m.\n- *5.0* (2016): duplica la velocidad y cuadruplica el alcance (hasta ~240 m), con mejor estabilidad y menor consumo.\nLas versiones 1.0-3.0 son las *clásicas* y de la 4.0 en adelante son *Low Energy*. Los modos de conexión pueden ser uno-a-uno, uno-a-varios o malla (*mesh*, muchos a muchos)."
+      },
+      {
+        "titulo": "WPAN: NFC",
+        "contenido": "**NFC (Near Field Communication)** es una comunicación inalámbrica de muy corto alcance que experimentó un gran auge tras la pandemia por el pago sin contacto.\n\n- Opera en la banda de **13,56 MHz** y **no requiere licencia** de uso.\n- Alcance muy reducido (unos 10-15 cm) y velocidad muy baja (inferior a 1 Mbps), suficiente para sus usos habituales.\n- Aprobada en 2003; llegó a los móviles en 2006 (Nokia 6131). Hoy la incorporan prácticamente todos los terminales.\n- *Punto débil*: posibles fraudes/robos en pagos por proximidad; existen fundas y tarjetas con blindaje anti-robo. No obstante, las operaciones quedan asociadas a una persona, lo que dificulta el fraude impune.\n\n**Modos de funcionamiento**:\n- *Activo (peer-to-peer)*: ambos dispositivos generan campo de radiofrecuencia y necesitan energía; permite mayor velocidad (móvil a móvil, móvil a vehículo).\n- *Pasivo*: solo un dispositivo (maestro) genera el campo y alimenta al otro (esclavo), al que envía los datos.\n- *Bidireccional (emulación de tarjeta, card emulation)*: el dispositivo activo lee los datos del pasivo; es el modo de los pagos con tarjeta y de la lectura de tarjetas de transporte (metro/bus).\n\nUna aplicación cercana son las **balizas o beacons**, que junto al BLE permiten interacciones de proximidad (se estudian en otro tema)."
+      },
+      {
+        "titulo": "WWAN: generaciones de redes móviles (1G a 6G)",
+        "contenido": "Las redes de los operadores se organizan en generaciones; cada salto mejora la **velocidad de datos** y reduce la **latencia** (tiempo de acceso).\n\n- **1G** (1979): analógica.\n- **2G**: primera generación **digital**; usa el protocolo **GSM**, tarjetas SIM y el concepto de **celdas** (estaciones base que se superponen para cubrir un área). Permite voz, SMS y MMS. Sus extensiones: *2,5G (GPRS)*, ~114 kbps, y *2,75G (EDGE)*.\n- **3G**: gran salto en transmisión de voz y datos; estándar **UMTS** (~2 Mbps) y su evolución **HSPA/HSPA+** (~42 Mbps), que fusiona tecnologías para mejorar la velocidad. Añade mayor seguridad mediante autenticación contra la red (evita redes fraudulentas). Marcó el boom de Internet móvil y multimedia. Su apagado está en marcha desde 2022 aproximadamente, aunque se ha ido retrasando; se mantiene en parte como respaldo y para zonas rurales mientras se mejoran las redes.\n- **4G (LTE)**: velocidades de 100 Mbps a 1 Gbps; usa el **protocolo IP**, lo que permite la convergencia de redes cableadas e inalámbricas, mejora la **calidad de servicio (QoS)** y soporta voz sobre IP (VoIP) y la nube. Mayor consumo que el WiFi.\n- **5G**: generación actual. Velocidades de hasta ~10 Gbps, **latencia muy baja** (en torno a 1 ms, comunicación casi en tiempo real) y **alta densidad de conexiones** (clave para el IoT). Incorpora el **network slicing**, que divide la red física en varias redes virtuales independientes (análogo a las VLAN), útil para separar tráficos por seguridad. Coexisten dos modos de despliegue: **NSA (Non-Standalone)**, que se apoya en la infraestructura troncal 4G (más barato pero limitado por ella), y **SA (Standalone)**, totalmente 5G y más rápido.\n- **6G**: aún sin estándar definido; se espera hacia 2030, con velocidades del orden de 200 Gbps y latencias aún menores (en torno a la décima parte que el 5G), usando bandas ultra-anchas."
+      }
+    ]
+  },
+  "resumen": [
+    "Un smartphone moderno es un computador completo en miniatura cuya evolución en memoria, almacenamiento y comunicaciones ha sido enorme en pocas décadas.",
+    "El cuerpo del dispositivo se describe por dimensiones, peso, resistencia (estándar IP, con un dígito para sólidos/polvo y otro para líquidos/agua), protección de pantalla (Gorilla Glass), tipo de SIM y monederos digitales (Samsung Pay, Apple Pay).",
+    "La pantalla se define por tamaño, tecnología (LCD, OLED, AMOLED, Super AMOLED, Retina) y resolución/densidad (ppi), que en gama alta supera la capacidad del ojo humano.",
+    "El SoC (sistema en un chip) integra CPU y muchos otros componentes en un solo chip; junto con la memoria RAM es lo que más impacto tiene en el rendimiento percibido.",
+    "En Android la RAM no debería bajar de 3 GB; el almacenamiento es crítico si no admite tarjeta SD, obligando a borrar datos o a pagar almacenamiento en la nube.",
+    "La cámara distingue primaria (trasera, varias lentes) y secundaria (frontal); entre sus funciones opcionales están geotagging, HDR, cámara lenta y estabilización.",
+    "Otras características relevantes son los sensores biométricos y de salud (SpO2, ritmo cardiaco), la carga rápida e inalámbrica (Qi/PMA) y ANT+ para fitness.",
+    "Las comunicaciones se clasifican por alcance en WWAN (operadores: 2G-5G), WLAN (WiFi) y WPAN (Bluetooth, NFC), y se eligen según las necesidades del usuario o de la aplicación.",
+    "El WiFi se basa en el estándar IEEE 802.11, cuyas versiones (b, g, a, n, ac, ax, be, bn) se renombraron comercialmente como WiFi 4 a WiFi 8.",
+    "Bluetooth es de corto alcance y bajo consumo; se organiza en clases (por alcance), dos ramas (clásico y Low Energy/BLE, desde la versión 4.0) y versiones de la 1.0 a la 5.0+.",
+    "NFC opera a 13,56 MHz, sin licencia, con alcance de pocos centímetros; sus modos son activo (peer-to-peer), pasivo y bidireccional (emulación de tarjeta para pagos).",
+    "Cada generación de red móvil mejora velocidad y reduce latencia: 2G digital con GSM y celdas, 3G con UMTS/HSPA, 4G con protocolo IP y QoS, 5G con baja latencia y network slicing.",
+    "El 5G se despliega en modo NSA (apoyado en 4G) o SA (totalmente 5G) y es clave para el IoT por su alta densidad de conexiones; el 6G se espera hacia 2030."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "SoC (System-on-a-Chip)",
+      "definicion": "Chip que integra la CPU y la mayoría de componentes de un dispositivo móvil (GPU, memoria, conectividad, etc.); es el 'corazón' del móvil y, con la RAM, el que más impacto tiene en el rendimiento."
+    },
+    {
+      "termino": "Chipset",
+      "definicion": "Conjunto de chips que controla el flujo de datos entre los distintos componentes del sistema (procesador, memoria, almacenamiento y entrada/salida)."
+    },
+    {
+      "termino": "Estándar IP (Ingress Protection)",
+      "definicion": "Código de dos dígitos que indica la resistencia del dispositivo: el primero frente a sólidos/polvo (0-6) y el segundo frente a líquidos/agua (0-8)."
+    },
+    {
+      "termino": "Gorilla Glass",
+      "definicion": "Tecnología de cristal muy resistente usada para proteger la pantalla frente a ralladuras y golpes accidentales."
+    },
+    {
+      "termino": "Super AMOLED",
+      "definicion": "Tecnología de pantalla, evolución de OLED/AMOLED, que integra la capa táctil en la propia pantalla; habitual en la gama alta."
+    },
+    {
+      "termino": "Retina",
+      "definicion": "Tecnología de pantalla propia de Apple con una densidad de píxeles tan alta que el ojo humano no los distingue."
+    },
+    {
+      "termino": "ppi (puntos por pulgada)",
+      "definicion": "Densidad de píxeles de una pantalla; a igualdad de resolución, una pantalla más pequeña presenta mayor ppi."
+    },
+    {
+      "termino": "RAM",
+      "definicion": "Memoria de trabajo del dispositivo; en Android se recomienda que no sea inferior a 3 GB para un funcionamiento fluido."
+    },
+    {
+      "termino": "HDR (High Dynamic Range)",
+      "definicion": "Modo de captura con colores enriquecidos y alto rango dinámico, especialmente útil en paisajes."
+    },
+    {
+      "termino": "Geotagging",
+      "definicion": "Función que almacena en la fotografía el lugar donde se tomó, utilizando el GPS."
+    },
+    {
+      "termino": "ANT+",
+      "definicion": "Mecanismo de comunicación inalámbrica usado principalmente para conectar con dispositivos de fitness."
+    },
+    {
+      "termino": "Carga inalámbrica (Qi/PMA)",
+      "definicion": "Sistema que carga el móvil sin cables al depositarlo sobre una base conectada a la red; sus estándares principales son Qi y PMA."
+    },
+    {
+      "termino": "WWAN / WLAN / WPAN",
+      "definicion": "Clasificación de comunicaciones por alcance: de área extensa (operadores, 2G-5G), de área local (WiFi) y de área personal (Bluetooth, NFC)."
+    },
+    {
+      "termino": "IEEE 802.11",
+      "definicion": "Estándar técnico en el que se basa el WiFi; sus versiones (n, ac, ax, be, bn) se renombraron como WiFi 4 a WiFi 8."
+    },
+    {
+      "termino": "MLO (Multi-Link Operation)",
+      "definicion": "Técnica del WiFi 7 (802.11be) que permite conectarse simultáneamente a varias bandas para optimizar los canales."
+    },
+    {
+      "termino": "Bluetooth Low Energy (BLE)",
+      "definicion": "Rama de Bluetooth de bajo consumo, introducida en la versión 4.0, con mayor alcance y eficiencia energética."
+    },
+    {
+      "termino": "NFC (Near Field Communication)",
+      "definicion": "Comunicación inalámbrica de muy corto alcance (a 13,56 MHz, sin licencia) usada para pagos por contacto, lectura de etiquetas y tarjetas de transporte."
+    },
+    {
+      "termino": "Emulación de tarjeta (card emulation)",
+      "definicion": "Modo bidireccional de NFC en el que el móvil actúa como una tarjeta para pagos o acceso."
+    },
+    {
+      "termino": "GSM",
+      "definicion": "Protocolo de la red 2G, primera generación digital, que introdujo las tarjetas SIM y el SMS."
+    },
+    {
+      "termino": "Celda",
+      "definicion": "Zona geográfica de cobertura atendida por una estación base; las celdas se superponen para cubrir un área en las redes móviles."
+    },
+    {
+      "termino": "LTE",
+      "definicion": "Nombre técnico de la red 4G, basada en el protocolo IP, con velocidades de 100 Mbps a 1 Gbps y mejor calidad de servicio."
+    },
+    {
+      "termino": "Latencia",
+      "definicion": "Tiempo de retardo en el acceso a los datos; se reduce en cada generación de red (en 5G ronda 1 ms), permitiendo comunicación casi en tiempo real."
+    },
+    {
+      "termino": "Network slicing",
+      "definicion": "Característica del 5G que divide la red física en varias redes virtuales independientes, de forma análoga a las VLAN."
+    },
+    {
+      "termino": "5G SA / NSA",
+      "definicion": "Modos de despliegue del 5G: Standalone (totalmente 5G) y Non-Standalone (apoyado en la infraestructura troncal 4G)."
+    },
+    {
+      "termino": "Ley de Moore",
+      "definicion": "Predicción de Gordon Moore sobre la duplicación periódica del número de transistores; con la miniaturización extrema (3 nm) ya no se cumple como antes."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-1-fc-001",
+      "pregunta": "¿Qué es un SoC?",
+      "respuesta": "Un System-on-a-Chip: un chip que integra la CPU y la mayoría de componentes del móvil (GPU, conectividad, memoria, etc.). Es el 'corazón' del dispositivo."
+    },
+    {
+      "id": "te-tema-1-fc-002",
+      "pregunta": "¿Qué dos componentes tienen más impacto en el rendimiento percibido de un móvil?",
+      "respuesta": "El SoC (procesador) y la memoria RAM."
+    },
+    {
+      "id": "te-tema-1-fc-003",
+      "pregunta": "¿Qué indica cada dígito del estándar IP (Ingress Protection)?",
+      "respuesta": "El primer dígito, la protección frente a sólidos/polvo (0-6); el segundo, frente a líquidos/agua (0-8)."
+    },
+    {
+      "id": "te-tema-1-fc-004",
+      "pregunta": "¿Para qué sirve el Gorilla Glass?",
+      "respuesta": "Es un cristal muy resistente que protege la pantalla frente a ralladuras y golpes accidentales."
+    },
+    {
+      "id": "te-tema-1-fc-005",
+      "pregunta": "Ordena de más antigua a más moderna estas tecnologías de pantalla: AMOLED, LCD, Super AMOLED, OLED.",
+      "respuesta": "LCD, OLED, AMOLED y Super AMOLED."
+    },
+    {
+      "id": "te-tema-1-fc-006",
+      "pregunta": "¿Qué es la densidad ppi de una pantalla?",
+      "respuesta": "Los puntos (píxeles) por pulgada; a igualdad de resolución, una pantalla más pequeña tiene mayor ppi."
+    },
+    {
+      "id": "te-tema-1-fc-007",
+      "pregunta": "¿Cuál es la RAM mínima recomendada en Android para una operación fluida?",
+      "respuesta": "No debería ser inferior a 3 GB."
+    },
+    {
+      "id": "te-tema-1-fc-008",
+      "pregunta": "¿Por qué es crítico el almacenamiento si el móvil no admite tarjetas SD?",
+      "respuesta": "Porque al llenarse solo quedan dos opciones: borrar contenidos con frecuencia o pagar un servicio de almacenamiento en la nube."
+    },
+    {
+      "id": "te-tema-1-fc-009",
+      "pregunta": "¿Qué significa HDR en la cámara?",
+      "respuesta": "High Dynamic Range (alto rango dinámico): modo de captura con colores enriquecidos, útil sobre todo en paisajes."
+    },
+    {
+      "id": "te-tema-1-fc-010",
+      "pregunta": "¿Qué es el geotagging?",
+      "respuesta": "Almacenar en la fotografía el lugar donde se tomó, con ayuda del GPS."
+    },
+    {
+      "id": "te-tema-1-fc-011",
+      "pregunta": "¿Qué es ANT+?",
+      "respuesta": "Un mecanismo de comunicación inalámbrica usado principalmente para conectar con dispositivos de fitness."
+    },
+    {
+      "id": "te-tema-1-fc-012",
+      "pregunta": "Cita dos monederos digitales presentes en móviles.",
+      "respuesta": "Samsung Pay y Apple Pay."
+    },
+    {
+      "id": "te-tema-1-fc-013",
+      "pregunta": "¿Cómo se clasifican las comunicaciones móviles por su alcance?",
+      "respuesta": "En WWAN (área extensa, operadores), WLAN (área local, WiFi) y WPAN (área personal, Bluetooth y NFC)."
+    },
+    {
+      "id": "te-tema-1-fc-014",
+      "pregunta": "¿En qué estándar técnico se basa el WiFi?",
+      "respuesta": "En el estándar IEEE 802.11."
+    },
+    {
+      "id": "te-tema-1-fc-015",
+      "pregunta": "¿A qué versiones IEEE corresponden WiFi 4, 5, 6 y 7?",
+      "respuesta": "WiFi 4 = 802.11n, WiFi 5 = 802.11ac, WiFi 6 = 802.11ax y WiFi 7 = 802.11be."
+    },
+    {
+      "id": "te-tema-1-fc-016",
+      "pregunta": "¿Qué es la técnica MLO del WiFi 7?",
+      "respuesta": "Multi-Link Operation: permite conectarse simultáneamente a varias bandas para optimizar los canales."
+    },
+    {
+      "id": "te-tema-1-fc-017",
+      "pregunta": "¿De dónde proviene el nombre 'Bluetooth'?",
+      "respuesta": "Del rey vikingo Harald Bluetooth (Blåtand); su logo combina las runas de las iniciales H y B."
+    },
+    {
+      "id": "te-tema-1-fc-018",
+      "pregunta": "¿Cuál es la clase de Bluetooth más común en dispositivos de consumo y su alcance?",
+      "respuesta": "La Clase 2, con un alcance aproximado de 5 a 10 metros."
+    },
+    {
+      "id": "te-tema-1-fc-019",
+      "pregunta": "¿En qué versión de Bluetooth aparece el Low Energy (BLE)?",
+      "respuesta": "En la versión 4.0 (2010)."
+    },
+    {
+      "id": "te-tema-1-fc-020",
+      "pregunta": "¿En qué banda opera NFC y qué alcance tiene?",
+      "respuesta": "Opera en 13,56 MHz (sin licencia) y tiene un alcance muy corto, de unos 10-15 cm."
+    },
+    {
+      "id": "te-tema-1-fc-021",
+      "pregunta": "¿Qué modo de NFC se usa para los pagos con tarjeta?",
+      "respuesta": "El modo bidireccional o de emulación de tarjeta (card emulation)."
+    },
+    {
+      "id": "te-tema-1-fc-022",
+      "pregunta": "¿Qué generación de red móvil fue la primera digital y qué protocolo usaba?",
+      "respuesta": "La 2G, que usaba el protocolo GSM e introdujo la SIM y el SMS."
+    },
+    {
+      "id": "te-tema-1-fc-023",
+      "pregunta": "¿Qué aportó la 4G (LTE) al usar el protocolo IP?",
+      "respuesta": "La convergencia de redes cableadas e inalámbricas, mejor calidad de servicio (QoS) y soporte de VoIP, con velocidades de 100 Mbps a 1 Gbps."
+    },
+    {
+      "id": "te-tema-1-fc-024",
+      "pregunta": "¿Qué es el network slicing del 5G?",
+      "respuesta": "La división de la red física en varias redes virtuales independientes, de forma análoga a las VLAN."
+    },
+    {
+      "id": "te-tema-1-fc-025",
+      "pregunta": "¿Qué diferencia hay entre 5G SA y 5G NSA?",
+      "respuesta": "SA (Standalone) funciona íntegramente con tecnología 5G; NSA (Non-Standalone) se apoya en la infraestructura troncal 4G."
+    },
+    {
+      "id": "te-tema-1-fc-026",
+      "pregunta": "¿Por qué el 5G es clave para el IoT?",
+      "respuesta": "Por su baja latencia y, sobre todo, su alta densidad de conexiones, que permite conectar miles de dispositivos en la misma red."
+    },
+    {
+      "id": "te-tema-1-fc-027",
+      "pregunta": "¿Por qué Android domina el mercado mundial frente a iOS?",
+      "respuesta": "Porque está presente en multitud de dispositivos (móviles, televisores, Chromecast, electrodomésticos, IoT...), mientras que iOS se limita a los productos de Apple."
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Diseño de la experiencia de usuario (UX)",
+  "apuntes": {
+    "introduccion": "El Tema 4 profundiza en la **experiencia de usuario (UX, User Experience)**, que hoy se considera un factor diferenciador clave a la hora de comercializar productos o servicios: en un mercado de máxima competencia, importa tanto o más la experiencia del usuario que la propia tecnología empleada.\n\nSe estudia la UX como filosofía centrada en el usuario, su diferencia con la interfaz de usuario (UI), la metodología del **diseño centrado en el usuario (DCU)** y el **proceso de diseño de UX** con sus cuatro fases (investigación, análisis, implementación y evaluación), así como las técnicas de cada una. El tema cierra con buenas prácticas de **prototipado**, herramienta clave para comunicar y validar el producto con el usuario.\n\nLa idea de fondo es que un buen diseño no obliga al usuario a adaptarse al producto (cambiando su comportamiento con una curva de aprendizaje), sino que parte de conocer profundamente al usuario para crear productos útiles, usables y deseables que generen satisfacción y fidelidad.",
+    "secciones": [
+      {
+        "titulo": "La experiencia de usuario (UX): importancia, estrategias push/pull y accesibilidad",
+        "contenido": "El éxito o fracaso de un producto depende en gran medida de **cómo lo aceptan los usuarios**: si no se diseña pensando en ellos, difícilmente funcionará a nivel óptimo. Por eso, hoy tiene más importancia la **experiencia de usuario (UX)** que el propio desarrollo o la tecnología usada. Lograr una UX satisfactoria genera **fidelidad** hacia la marca (Apple, Nike, BMW, etc.).\n\n**Relación con los clientes (marketing)**: las relaciones deben ser **duraderas y bidireccionales**, integrando al usuario en el proceso (escucharlo, pedir feedback). Existen dos estrategias:\n- **Push (empuje)**: la empresa intenta vender lanzando mensajes al usuario (anuncios de TV, spam, llamadas telefónicas, propaganda). Típica de empresas que aún deben darse a conocer. Ejemplos: vender un seguro por teléfono, un supermercado que anuncia ofertas.\n- **Pull (atracción)**: se atrae al usuario y se cuenta con su feedback; el cliente acude por sí mismo. Típica de marcas consolidadas (Apple presenta su móvil y la gente lo compra; el buscador de Google). Las empresas con solera suelen combinar ambas.\n\n**Accesibilidad**: diseñar pensando en personas con discapacidad (p. ej. etiquetas de texto alternativo en imágenes desde HTML5, para lectores de pantalla) amplía el público al que se llega y mejora la aceptación. Es un aspecto que conviene tener siempre presente."
+      },
+      {
+        "titulo": "UX frente a UI y los conceptos de cliente, consumidor y usuario",
+        "contenido": "Hay que distinguir dos conceptos que se confunden a menudo:\n- **Diseño de la experiencia de usuario (UXD, User Experience Design)**: el modo en que el usuario **disfruta globalmente** del producto al interactuar con él. Incluye diseño de interacciones, prototipado, arquitectura de la información y escenarios.\n- **Diseño de la interfaz de usuario (UID, User Interface Design)**: el **medio o herramienta** con la que el usuario interactúa; es la cara visible del producto (aspectos visuales: colores, tipografía, layouts, iconos).\nLa analogía clásica: si el producto son los cereales, la **UI es la cuchara** y la **UX es todo el acto de disfrutar el desayuno**.\n\n**Cliente, consumidor y usuario** (según la explicación de clase, que matiza el temario):\n- **Cliente**: persona u organización que **compra o paga** el producto o servicio; no necesariamente lo consume.\n- **Consumidor**: quien **consume o usa** el producto; puede coincidir o no con el cliente. Ejemplo: en un restaurante que compra ingredientes, el restaurante es el cliente y el comensal es el consumidor; otro ejemplo: los padres compran (cliente) y el bebé usa (consumidor).\n- **Usuario**: referido al ámbito tecnológico/informático; quien **hace uso** de plataformas, software o aplicaciones, sin comprarlas ni gastarlas físicamente (licencias, sistemas operativos, apps). La bibliografía técnica habla de *usuario*."
+      },
+      {
+        "titulo": "Componentes de la UX: utilidad, usabilidad y deseabilidad",
+        "contenido": "La UX se entiende mejor como tres capas concéntricas, leídas **de dentro hacia fuera** (en ese orden de prioridad):\n- **Utilidad** (lo más básico): el producto **me resulta útil y satisface mis necesidades**; resuelve el problema que tengo.\n- **Usabilidad** (capa intermedia): puedo **usarlo de forma sencilla**, es fácil e intuitivo. La usabilidad es la facilidad de uso que permite lograr los objetivos de modo eficiente y efectivo; es uno de los atributos de la UX (la UX va mucho más allá de la usabilidad).\n- **Deseabilidad** (capa exterior): el producto me **gusta y provoca emociones positivas**; su apariencia y las sensaciones que transmite son buenas (incluye estatus, reputación de marca).\n\nEjemplo ilustrativo (el del coche Dacia vs Mercedes): ambos son **útiles** (te llevan de A a B) y **usables** (se conducen igual), pero el Mercedes gana en **deseabilidad** por el lujo, la imagen y el estatus que aporta. Conclusión: hay que cubrir desde lo más básico (utilidad) hasta lo final (deseabilidad), pues todo importa.\n\nEn resumen, la UX es el conjunto de factores que provocan una percepción positiva o negativa de un producto, incluyendo tanto datos objetivos como las **emociones** percibidas por el usuario."
+      },
+      {
+        "titulo": "El diseño centrado en el usuario (DCU)",
+        "contenido": "El **diseño centrado en el usuario (DCU, User-Centered Design, UCD)** es la metodología con mayor consenso para lograr una buena UX. Pone el foco en crear productos que satisfagan las necesidades concretas de los usuarios con el mayor grado de satisfacción, adaptando la tecnología a sus expectativas.\n\nSu clave es que **cambia radicalmente el paradigma** de otros procesos de diseño: en lugar de que el usuario se adapte al producto (con una curva de aprendizaje), es el producto el que se diseña a partir de la información sobre el usuario.\n\nAntes de diseñar hay que responder y documentar **tres cuestiones**:\n- **¿Quiénes** van a usar el producto? (público objetivo, segmentación de la audiencia o nichos).\n- **¿Por qué** se va a usar? (propósito, qué emociones y utilidad aporta).\n- **¿Cómo** se va a usar? (contexto de uso: momento, lugar, condiciones).\n\nEs un **proceso iterativo y cíclico**, cuyo feedback es la evaluación y las pruebas con usuarios, y que termina cuando se alcanzan los objetivos. Está recogido en la norma **ISO 13407** (revisada en 2010 y reemplazada por la **ISO 9241-210**, *ergonomía de la interacción persona-sistema*), que define cuatro etapas: (1) **definición del contexto de uso**, (2) **especificación de requisitos**, (3) **producción de soluciones de diseño** y (4) **evaluación** (si se cumplen los objetivos, se termina; si no, se vuelve a iterar)."
+      },
+      {
+        "titulo": "Psicología y necesidades del usuario",
+        "contenido": "Un elemento clave del diseño UX es entender que el producto debe responder a una **necesidad** del usuario (sensación de carencia física o psíquica). Si no satisface una demanda real, difícilmente tendrá éxito.\n\n**Pirámide de Maslow**: el psicólogo Abraham Maslow estableció una jerarquía de necesidades. De la base a la cima: (A) fisiológicas o básicas (alimentación, agua, descanso), (B) seguridad (vivienda, empleo), (C) sociales (afecto, asociación, aceptación), (D) autoestima (reconocimiento, respeto, éxito) y (E) autorrealización (desarrollo del potencial). Cuanto **más básica** sea la necesidad que el producto cubre, mayores posibilidades de éxito. Las necesidades son dinámicas y cambian con la sociedad y la situación personal.\n\n**Psicología del usuario**: conjunto de reacciones cerebrales que un diseño provoca. Diseñar implica **inducir o encaminar** al usuario para que sienta o piense determinadas cosas; por eso, cuanto mejor comprendamos sus pensamientos y emociones, mejores diseñadores seremos. Ante un mismo diseño, distintas personas pueden interpretarlo de forma muy diferente (de ahí la importancia de la **psicología del color** y la identidad de marca).\n- Los productos **bien diseñados** son fáciles de interpretar y aportan pistas (normalmente visuales) sobre su funcionamiento.\n- Los productos **mal diseñados** no dan pistas o son contradictorias, resultan complicados y generan **frustración** (lo peor que puede ocurrir)."
+      },
+      {
+        "titulo": "Metodología de diseño UX: las cuatro fases",
+        "contenido": "El diseño de experiencias de usuario estudia la relación del usuario con el producto de forma **holística**, desde el 'antes' de adquirirlo hasta el 'después' de dejar de usarlo, teniendo en cuenta no solo las necesidades objetivas sino también las **emociones**.\n\nAunque hay muchas propuestas, todas confluyen en **cuatro fases** que forman un ciclo de mejora continua:\n- **Investigación**: conocer a las personas que usarán el producto (entrevistas, encuestas, creación de 'personas' y 'escenarios').\n- **Análisis**: asimilar e interpretar la información obtenida, planificar la estrategia e identificar objetivos (Customer Journey Mapping, touch points).\n- **Implementación**: generar soluciones de diseño según las necesidades del usuario, concretando el proyecto en un **prototipo** (técnica del blueprint).\n- **Evaluación**: cuantificar, analizar y evaluar los resultados, y optimizar si es necesario (prototipado, test de usuarios).\n\nEl usuario es siempre el centro del que parten todas las decisiones."
+      },
+      {
+        "titulo": "Fase de investigación: técnicas para conocer al usuario",
+        "contenido": "El primer paso es **conocer la realidad** que rodea al producto y, sobre todo, **conocer al usuario**, partiendo de necesidades reales. El mejor método es la **observación** (los usuarios saben lo que necesitan, pero el diseñador debe ofrecer la solución; como decía Henry Ford: 'si hubiera preguntado a la gente qué quería, me habrían dicho que un caballo más rápido'). Técnicas:\n- **Encuestas y entrevistas**: diálogo que descubre opiniones, motivaciones y deseos. En las *entrevistas de indagación* hay que mantener **neutralidad** y preparar preguntas cuya respuesta desconocemos (guion escrito). Una variante es el **Focus Group** (grupo de usuarios cuya interacción aporta información adicional).\n- **Card sorting (clasificación de tarjetas)**: analizar cómo los usuarios **ordenan y agrupan** conceptos escritos en tarjetas, para comprender sus **modelos mentales**. Puede ser cualitativo o cuantitativo, y **abierto** (agrupación libre) o **cerrado** (grupos predefinidos). Es rápido y barato, pero requiere análisis cuidadoso.\n- **Aproximación etnográfica**: estudio del comportamiento de los sujetos en su contexto real, con un observador que se integra en esa 'microsociedad'.\n- **Creación de 'personas' y 'escenarios'**: tras recoger la información, se sintetiza creando **personajes ficticios con características reales** de los usuarios (deben ser **arquetipos**, no estereotipos), con nombre, edad, foto, ocupación, motivaciones, etc. Los **escenarios** son descripciones de situaciones concretas en las que cada 'persona' interactúa con el producto, contextualizando su uso."
+      },
+      {
+        "titulo": "Fase de análisis: Customer Journey Mapping y touch points",
+        "contenido": "Conocidos los usuarios, el análisis estudia la **interacción** que se producirá entre ellos y el producto, localizando los **puntos de contacto** que determinarán las acciones, emociones y satisfacción.\n\n**Customer Journey Mapping (CJM) o Viaje por la Experiencia de Usuario**: herramienta **visual** que escenifica, mediante un diagrama, el proceso completo del cliente desde antes de la compra hasta el fin de uso. Identifica los puntos de contacto y permite mejorar la UX, tanto en fase de diseño (con usuarios ficticios) como en uso real. Cada etapa se define por:\n- **Momentos**: objetivos a cumplir en esa etapa, duración, eficiencia.\n- **Artefactos**: puntos de interacción críticos donde el producto debe responder al usuario.\n- **Sensaciones**: estado emocional del usuario (alegrías o decepciones) a lo largo del viaje.\nSuele realizarse en grupo sobre una gran pizarra.\n\n**Touch points (puntos de contacto)**: cada interacción del usuario con la marca o producto (por Internet, usándolo, hablando de él) genera estímulos y emociones que quedan grabados en su experiencia. Son muy importantes **antes** de la compra (influyen en las expectativas) y **después** (ponen a prueba esas expectativas, llevando a la fidelización si la respuesta es positiva o a la pérdida del cliente si es negativa). Etapas típicas: awareness, knowledge, consideration, selection, satisfaction, loyalty, advocacy."
+      },
+      {
+        "titulo": "Fase de implementación: prototipo y blueprint",
+        "contenido": "La implementación trata de **concretar lo planificado**, generando soluciones de diseño según las necesidades del usuario y plasmando el proyecto en un **prototipo** (en su fase inicial).\n\n**Blueprint o plano de servicio**: técnica que **visualiza las especificaciones y procesos** de un producto o servicio, asimilando las conclusiones del Customer Journey Mapping. Con él se finaliza la formalización del diseño: sirve de guía (hoja de ruta) para la empresa, indicando cómo deben realizarse las interacciones entre clientes y empleados y cómo los sistemas internos apoyan el servicio. El diagrama blueprint se subdivide en:\n- **Evidencia física**: elementos físicos con los que el usuario interactúa.\n- **Acciones del cliente**: tipo de interacción de los usuarios.\n- **Puntos de contacto**.\n- **Acciones no visibles**: las que realizan empleados o programas de soporte (back-stage).\n- **Apoyos o soportes**: necesarios para la prestación del servicio.\n\nEl blueprint distingue las líneas de interacción, de visibilidad y de interacción interna (front-stage vs back-stage)."
+      },
+      {
+        "titulo": "Fase de evaluación: prototipado y test de usuarios",
+        "contenido": "La evaluación, parte fundamental del proceso, sirve para **cuantificar, analizar y evaluar** los resultados, conocer la satisfacción de los usuarios y **localizar fallos** para optimizar el producto. Técnicas:\n\n**Prototipado**: permite probar la **usabilidad** del producto **antes de su puesta en marcha**, detectando errores y reduciendo riesgos. Puede usarse en la fase inicial o tras la evaluación, e implica a usuarios potenciales y a los trabajadores que respaldarán el servicio. Tipos de prototipos de servicio:\n- **Role playing**: recreación del servicio en un ensayo (con clientes o empleados que actúan como clientes).\n- **Creación de maquetas**: representación esquemática (wireframe en web, modelado en papel, vídeo).\n\n**Test de usuarios**: analiza el nivel de usabilidad observando cómo usuarios de distintos perfiles interactúan con el producto, registrando los problemas. Según **Nielsen**, para cubrir el 100 % de los posibles usuarios bastan **15 personas** representativas, repartidas en **3 pruebas de 5 personas** cada una. No solo identifica errores, sino el **porqué**; para conocer los pensamientos del usuario se usa el **protocolo think-aloud** (pensar en voz alta). También se analizan los **ficheros log** del servidor (patrones de navegación) y el **web usage mining** (minería de uso web: relaciones estadísticas entre visitas a secciones).\n\n**Otras técnicas**: evaluaciones **heurísticas** (buscar problemas de usabilidad), **eye tracking** (percepción visual: qué atrae o distrae), shadowing, grupos de discusión, triadas, mistery shopping, etc."
+      },
+      {
+        "titulo": "Buenas prácticas en el proceso de prototipado",
+        "contenido": "Recomendaciones consolidadas sobre el prototipado:\n- **Definir claramente el alcance**: dejar claro al cliente que un prototipo rápido NO es una versión codificada y operativa, sino una ayuda para **visualizar** la experiencia del producto final.\n- **¿Qué prototipar?**: las interacciones complejas, nuevas funcionalidades, cambios en el flujo de trabajo o en el diseño/tecnología.\n- **¿Cuánto prototipar?**: regla del **20/80**: concentrarse en el **20 % de la funcionalidad que se usará el 80 % del tiempo** (la funcionalidad clave más frecuente).\n- **Dotar de una historia**: identificar caminos/escenarios de experiencia que el prototipo debe simular.\n\n**Grados de fidelidad** del prototipo (cómo de próximo a la solución final):\n- **Fidelidad visual**: del boceto al estilo muy definido. Mostrar alta fidelidad visual demasiado pronto distrae al usuario hacia el diseño.\n- **Fidelidad funcional**: de estático a totalmente interactivo; distrae menos y a mayor interactividad permite pruebas de usabilidad.\n- **Fidelidad de contenido**: del 'lorem ipsum' a textos reales; muy distractora, solo en las últimas etapas.\n\n**Qué hacer**: trabajar de forma colaborativa; rebajar expectativas (el prototipo es un medio, no un fin); incluir retardos realistas en alta fidelidad; reutilizar prototipos anteriores; recordar siempre que es un trabajo en evolución.\n**Qué NO hacer**: prototipar funcionalidades inviables (consultar a desarrollo); considerar cada cambio pedido como un nuevo requisito; iniciar una evaluación sin preguntas concretas; prototiparlo todo (casi nunca es necesario)."
+      }
+    ]
+  },
+  "resumen": [
+    "Hoy la experiencia de usuario (UX) importa tanto o más que la propia tecnología; una buena UX genera satisfacción y fidelidad a la marca.",
+    "Existen dos estrategias de relación con el cliente: push (empuje, intentar vender) y pull (atraer e integrar el feedback del usuario); las marcas consolidadas combinan ambas.",
+    "La accesibilidad (p. ej. textos alternativos en imágenes) amplía el público alcanzable y mejora la aceptación del producto.",
+    "La UX es el modo en que el usuario disfruta globalmente del producto; la UI es solo el medio o interfaz con el que interactúa.",
+    "Según la clase, cliente es quien compra/paga, consumidor quien consume/usa y usuario quien usa plataformas o software a nivel tecnológico.",
+    "La UX se compone de tres capas concéntricas en orden: utilidad (lo básico), usabilidad (facilidad de uso) y deseabilidad (emociones y estatus).",
+    "El diseño centrado en el usuario (DCU) parte de conocer al usuario y cambia el paradigma: el producto se adapta al usuario, no al revés.",
+    "El DCU responde a tres preguntas (quién, por qué y cómo) y es iterativo; la ISO 13407 (luego ISO 9241-210) define cuatro etapas: contexto de uso, requisitos, soluciones y evaluación.",
+    "La pirámide de Maslow jerarquiza las necesidades (fisiológicas, seguridad, sociales, autoestima, autorrealización); cuanto más básica sea la que cubre un producto, más éxito.",
+    "El proceso de diseño UX tiene cuatro fases: investigación, análisis, implementación y evaluación, formando un ciclo de mejora continua centrado en el usuario.",
+    "En investigación se usan entrevistas, encuestas, focus group, card sorting, etnografía y la creación de 'personas' (arquetipos) y 'escenarios'.",
+    "En análisis se emplea el Customer Journey Mapping (momentos, artefactos y sensaciones) y el estudio de los touch points o puntos de contacto.",
+    "En implementación se concreta el prototipo, apoyándose en el blueprint o plano de servicio, que distingue acciones visibles y no visibles.",
+    "En evaluación se usan el prototipado y el test de usuarios (regla de Nielsen: 15 personas en 3 pruebas de 5, con protocolo think-aloud).",
+    "Buenas prácticas de prototipado: definir el alcance, aplicar la regla 20/80, gestionar la fidelidad (visual, funcional, de contenido) y recordar que el prototipo es un medio, no un fin."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Experiencia de usuario (UX)",
+      "definicion": "Conjunto de factores, objetivos y emocionales, que provocan una percepción positiva o negativa del producto al interactuar el usuario con él."
+    },
+    {
+      "termino": "Interfaz de usuario (UI)",
+      "definicion": "Cara visible del producto; el medio o herramienta con la que el usuario interactúa (colores, tipografía, layouts, iconos)."
+    },
+    {
+      "termino": "UXD vs UID",
+      "definicion": "Diseño de la experiencia de usuario (cómo se disfruta el producto) frente a diseño de la interfaz (cómo se interactúa con él)."
+    },
+    {
+      "termino": "Estrategia push / pull",
+      "definicion": "Push: la empresa empuja mensajes para vender; pull: atrae al usuario e integra su feedback. Las marcas consolidadas combinan ambas."
+    },
+    {
+      "termino": "Cliente / consumidor / usuario",
+      "definicion": "Cliente compra o paga; consumidor consume o usa el producto; usuario hace uso de plataformas o software a nivel tecnológico (según la explicación de clase)."
+    },
+    {
+      "termino": "Utilidad, usabilidad y deseabilidad",
+      "definicion": "Las tres capas concéntricas de la UX, en ese orden: ser útil, ser fácil de usar y provocar emociones positivas."
+    },
+    {
+      "termino": "Usabilidad",
+      "definicion": "Facilidad de uso que permite a los usuarios lograr sus objetivos de modo eficiente y efectivo; es uno de los atributos de la UX."
+    },
+    {
+      "termino": "Diseño centrado en el usuario (DCU)",
+      "definicion": "Metodología que crea productos a partir de las necesidades del usuario; cambia el paradigma para que el producto se adapte al usuario."
+    },
+    {
+      "termino": "ISO 13407 / ISO 9241-210",
+      "definicion": "Normas que definen el proceso iterativo de DCU en cuatro etapas: contexto de uso, requisitos, soluciones de diseño y evaluación."
+    },
+    {
+      "termino": "Pirámide de Maslow",
+      "definicion": "Jerarquía de necesidades (fisiológicas, seguridad, sociales, autoestima y autorrealización); cuanto más básica sea la que cubre un producto, mayor éxito."
+    },
+    {
+      "termino": "Psicología del usuario",
+      "definicion": "Conjunto de reacciones cerebrales que provoca un diseño; un buen diseño da pistas y evita la frustración del usuario."
+    },
+    {
+      "termino": "Fases del diseño UX",
+      "definicion": "Investigación, análisis, implementación y evaluación: ciclo de mejora continua centrado en el usuario."
+    },
+    {
+      "termino": "Card sorting",
+      "definicion": "Técnica de investigación en la que los usuarios ordenan y agrupan tarjetas con conceptos, revelando sus modelos mentales (abierto o cerrado)."
+    },
+    {
+      "termino": "Aproximación etnográfica",
+      "definicion": "Estudio del comportamiento de los sujetos en su contexto real mediante un observador integrado en él."
+    },
+    {
+      "termino": "Personas y escenarios",
+      "definicion": "Personajes ficticios con características reales (arquetipos) y descripciones de situaciones en las que interactúan con el producto."
+    },
+    {
+      "termino": "Customer Journey Mapping (CJM)",
+      "definicion": "Herramienta visual de la fase de análisis que escenifica el viaje del usuario por momentos, artefactos y sensaciones."
+    },
+    {
+      "termino": "Touch points",
+      "definicion": "Puntos de contacto entre el usuario y la marca que generan emociones y condicionan las expectativas antes y después de la compra."
+    },
+    {
+      "termino": "Blueprint (plano de servicio)",
+      "definicion": "Técnica de implementación que visualiza procesos y especificaciones del servicio, distinguiendo acciones visibles y no visibles."
+    },
+    {
+      "termino": "Prototipado",
+      "definicion": "Creación de versiones provisionales para probar la usabilidad antes del lanzamiento; incluye role playing y maquetas (wireframes)."
+    },
+    {
+      "termino": "Test de usuarios (regla de Nielsen)",
+      "definicion": "Prueba de usabilidad con usuarios reales; según Nielsen bastan 15 personas en 3 pruebas de 5, a menudo con protocolo think-aloud."
+    },
+    {
+      "termino": "Regla 20/80 del prototipado",
+      "definicion": "Concentrarse en el 20 % de la funcionalidad que se usa el 80 % del tiempo (la funcionalidad clave más frecuente)."
+    },
+    {
+      "termino": "Grados de fidelidad",
+      "definicion": "Dimensiones del prototipo: visual, funcional y de contenido, que se aumentan progresivamente para no distraer al usuario."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-4-fc-001",
+      "pregunta": "¿Qué es la experiencia de usuario (UX)?",
+      "respuesta": "Una filosofía centrada en crear productos útiles, usables y deseables; el conjunto de factores objetivos y emocionales que provocan una percepción positiva o negativa del producto."
+    },
+    {
+      "id": "te-tema-4-fc-002",
+      "pregunta": "¿Cuál es la diferencia entre UX y UI?",
+      "respuesta": "La UX es el modo en que el usuario disfruta globalmente del producto; la UI es solo el medio o interfaz con el que interactúa (la cara visible)."
+    },
+    {
+      "id": "te-tema-4-fc-003",
+      "pregunta": "¿Qué diferencia hay entre estrategia push y pull?",
+      "respuesta": "Push empuja mensajes para vender (TV, spam, llamadas); pull atrae al usuario e integra su feedback (Apple, Google). Las marcas consolidadas combinan ambas."
+    },
+    {
+      "id": "te-tema-4-fc-004",
+      "pregunta": "Según la clase, ¿qué diferencia a cliente, consumidor y usuario?",
+      "respuesta": "El cliente compra/paga, el consumidor consume/usa el producto y el usuario hace uso de plataformas o software a nivel tecnológico."
+    },
+    {
+      "id": "te-tema-4-fc-005",
+      "pregunta": "¿Cuáles son las tres capas de la UX y en qué orden?",
+      "respuesta": "Utilidad (lo más básico), usabilidad y deseabilidad (la más externa)."
+    },
+    {
+      "id": "te-tema-4-fc-006",
+      "pregunta": "¿Qué es la usabilidad?",
+      "respuesta": "La facilidad de uso que permite al usuario lograr sus objetivos de modo eficiente y efectivo; es uno de los atributos de la UX."
+    },
+    {
+      "id": "te-tema-4-fc-007",
+      "pregunta": "¿Por qué el ejemplo Dacia vs Mercedes ilustra la deseabilidad?",
+      "respuesta": "Porque ambos son igual de útiles y usables, pero el Mercedes gana en deseabilidad por el lujo, la imagen y el estatus que aporta."
+    },
+    {
+      "id": "te-tema-4-fc-008",
+      "pregunta": "¿Qué es el diseño centrado en el usuario (DCU) y qué paradigma cambia?",
+      "respuesta": "Una metodología que crea productos a partir de las necesidades del usuario; cambia el paradigma para que el producto se adapte al usuario y no al revés."
+    },
+    {
+      "id": "te-tema-4-fc-009",
+      "pregunta": "¿Qué tres preguntas hay que responder en el DCU?",
+      "respuesta": "¿Quiénes van a usarlo?, ¿por qué se va a usar? y ¿cómo se va a usar? (contexto de uso)."
+    },
+    {
+      "id": "te-tema-4-fc-010",
+      "pregunta": "¿Qué cuatro etapas define la ISO 13407 para el DCU?",
+      "respuesta": "Definición del contexto de uso, especificación de requisitos, producción de soluciones de diseño y evaluación."
+    },
+    {
+      "id": "te-tema-4-fc-011",
+      "pregunta": "¿Qué establece la pirámide de Maslow respecto al éxito de un producto?",
+      "respuesta": "Que cuanto más básica sea la necesidad que el producto cubre (fisiológica, seguridad...), mayores posibilidades de éxito tiene."
+    },
+    {
+      "id": "te-tema-4-fc-012",
+      "pregunta": "¿Qué es lo peor que puede provocar un producto mal diseñado?",
+      "respuesta": "Frustración en el usuario (por no dar pistas o darlas contradictorias)."
+    },
+    {
+      "id": "te-tema-4-fc-013",
+      "pregunta": "¿Cuáles son las cuatro fases del proceso de diseño UX?",
+      "respuesta": "Investigación, análisis, implementación y evaluación."
+    },
+    {
+      "id": "te-tema-4-fc-014",
+      "pregunta": "Cita tres técnicas de la fase de investigación.",
+      "respuesta": "Entrevistas/encuestas (y focus group), card sorting, aproximación etnográfica y creación de 'personas' y 'escenarios'."
+    },
+    {
+      "id": "te-tema-4-fc-015",
+      "pregunta": "¿Qué es el card sorting?",
+      "respuesta": "Una técnica en la que los usuarios ordenan y agrupan tarjetas con conceptos para comprender sus modelos mentales; puede ser abierto o cerrado."
+    },
+    {
+      "id": "te-tema-4-fc-016",
+      "pregunta": "¿Qué son las 'personas' en UX y en qué se diferencian de los estereotipos?",
+      "respuesta": "Personajes ficticios con características reales de los usuarios; deben ser arquetipos (reflejo fiel de un grupo), no estereotipos (simplificaciones)."
+    },
+    {
+      "id": "te-tema-4-fc-017",
+      "pregunta": "¿Qué es el Customer Journey Mapping y qué tres elementos define cada etapa?",
+      "respuesta": "Una herramienta visual que escenifica el viaje del usuario; cada etapa se define por momentos, artefactos y sensaciones."
+    },
+    {
+      "id": "te-tema-4-fc-018",
+      "pregunta": "¿Qué son los touch points?",
+      "respuesta": "Los puntos de contacto entre el usuario y la marca que generan emociones y condicionan las expectativas antes y después de la compra."
+    },
+    {
+      "id": "te-tema-4-fc-019",
+      "pregunta": "¿Qué es el blueprint o plano de servicio?",
+      "respuesta": "Una técnica de la implementación que visualiza los procesos y especificaciones del servicio, distinguiendo acciones visibles y no visibles."
+    },
+    {
+      "id": "te-tema-4-fc-020",
+      "pregunta": "Según Nielsen, ¿con cuántas personas se cubre el 100 % de los usuarios en un test?",
+      "respuesta": "Con 15 personas representativas, repartidas en 3 pruebas de 5 personas cada una."
+    },
+    {
+      "id": "te-tema-4-fc-021",
+      "pregunta": "¿Qué es el protocolo think-aloud?",
+      "respuesta": "Un método de test en el que el usuario transmite en voz alta sus pensamientos mientras usa el producto, para analizar el porqué de sus dudas."
+    },
+    {
+      "id": "te-tema-4-fc-022",
+      "pregunta": "¿Qué dice la regla 20/80 del prototipado?",
+      "respuesta": "Que conviene concentrarse en el 20 % de la funcionalidad que se usará el 80 % del tiempo (la funcionalidad clave más frecuente)."
+    },
+    {
+      "id": "te-tema-4-fc-023",
+      "pregunta": "¿Cuáles son los tres grados de fidelidad de un prototipo?",
+      "respuesta": "Fidelidad visual, fidelidad funcional y fidelidad de contenido; se aumentan progresivamente para no distraer al usuario."
+    },
+    {
+      "id": "te-tema-4-fc-024",
+      "pregunta": "¿Cuál es el propósito de la fase de evaluación?",
+      "respuesta": "Cuantificar y analizar los resultados para localizar fallos e ítems de mejora y optimizar el producto."
+    }
+  ]
+}

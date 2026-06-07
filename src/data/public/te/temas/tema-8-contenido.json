@@ -1,0 +1,270 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-8",
+  "titulo": "Tema 8. Blockchain",
+  "apuntes": {
+    "introduccion": "El Tema 8 estudia la **cadena de bloques (blockchain)**, una tecnología disruptiva (a menudo situada en la cuarta revolución industrial) cuyo gran aporte es incorporar a Internet algo de lo que carecía: la **confianza** sin necesidad de intermediarios.\n\nSe abordan los **fundamentos** (qué es la cadena de bloques y la tecnología de registro distribuido DLT), las **plataformas** basadas en blockchain (Bitcoin, Ethereum, Hyperledger), los **smart contracts** (contratos inteligentes) y, desde el punto de vista del usuario, las **criptomonedas**: monederos (wallets) y casas de cambio (exchanges).\n\nLa idea clave es que blockchain no es solo criptomonedas: es una forma de registrar transacciones de manera segura, transparente e inmutable en una red de nodos sin autoridad central, con multitud de aplicaciones (banca, logística, identidad, seguros, etc.).",
+    "secciones": [
+      {
+        "titulo": "Fundamentos: confianza y tecnología de registro distribuido (DLT)",
+        "contenido": "La tecnología **blockchain o cadena de bloques** hace posible incorporar a Internet la **confianza**: permite, por ejemplo, transferir dinero sin comisiones bancarias, abrir la puerta de un apartamento alquilado o votar electrónicamente sin manipulaciones, todo **sin intermediarios tradicionales**.\n\nTécnicamente, blockchain es un tipo de **DLT (Distributed Ledger Technology, tecnología de libro de registro distribuido)**. Viene de la idea de la **contabilidad distribuida** (un 'libro mayor' digital). Una cadena de bloques no es más que una **lista**: cada registro, llamado **bloque** (que incluye una o más transacciones), está **criptográficamente asegurado** y contiene un **puntero hash** enlazado de forma indestructible al bloque anterior.\n\nEsto da sus características fundamentales: es **inmutable** (no se puede alterar un bloque sin alterar todos los posteriores, por lo que es inútil hackear uno solo), **distribuido**, **compartido** y de **solo anexar** (append only: solo permite añadir información). Tipos de redes blockchain:\n- **Autorizadas (con permisos)**: redes privadas; hay que tener acceso para participar.\n- **Sin permisos**: redes públicas; cualquiera puede participar.\n- **Híbridas**: combinan una parte pública (sin permisos) y otra privada (con permisos)."
+      },
+      {
+        "titulo": "Estructura: bloques, red P2P y consenso",
+        "contenido": "Los bloques **no se almacenan en una base de datos centralizada**, sino que se **distribuyen en una red de nodos P2P (peer to peer, entre iguales)**, lo que evita un único punto de hackeo. Existen numerosas copias de la cadena, todas con la misma confianza (ninguna privilegiada); si alguien intenta modificar una copia, las demás la rechazan.\n\nLa cadena solo se puede actualizar mediante **consenso** entre todos los nodos: ninguno puede modificarla por su cuenta.\n\n**Funcionamiento general** (ejemplo: A quiere enviar dinero a B):\n1. Se crea la transacción y se representa como un 'bloque'.\n2. El bloque se transmite a todos los nodos de la red.\n3. Los nodos (incluidos los mineros) validan/aprueban que la transacción es válida.\n4. El bloque se añade a la cadena (registro indeleble y transparente).\n5. El movimiento se completa (el dinero se mueve de A a B).\n\nEn Bitcoin se genera un bloque cada unos **10 minutos** (en otras tecnologías, cada ~12 segundos). Cada bloque referencia al anterior, formando la cadena. El tamaño de bloque es pequeño (del orden de 1 a 4 MB en Bitcoin) precisamente para poder distribuirlo con rapidez a todos los nodos.\n\nVentajas: integridad, **trazabilidad completa** (cada bloque enlazado al anterior), interoperabilidad (vía APIs) y privacidad (criptografía). Sus principios: **seguridad, transparencia, inmutabilidad y consenso**."
+      },
+      {
+        "titulo": "Funcionamiento criptográfico: clave pública y privada",
+        "contenido": "Blockchain aplica la **criptografía de clave pública y privada**. Ejemplo de una transacción de Bitcoin de Alicia a Bernardo:\n- Bernardo (receptor) envía su **clave pública** a Alicia (emisora).\n- Alicia crea la transacción incluyendo la clave pública de Bernardo (destinatario) y la cantidad a transferir.\n- Alicia **firma la transacción con su clave privada** secreta, declarando que esa cantidad pasa a ser de Bernardo.\n- La transacción se difunde a todos los nodos conectados, que **validan las firmas** y el valor antes de aceptarla y retransmitirla.\n- Si es correcta, se propaga por toda la red (la moneda queda definida como una cadena de firmas digitales). Si hay error o intento de falsificación, no se transmite: son los propios usuarios quienes aseguran el correcto funcionamiento.\n\nEs importante que las **claves públicas sean cortas** (para poder intercambiarlas con agilidad, por QR o por teléfono) y a la vez seguras. Por eso se usa la **criptografía de curva elíptica**, que crea claves más cortas con el mismo nivel de seguridad: una clave de curva elíptica de 256 bits equivale a una clave RSA de 2048 bits."
+      },
+      {
+        "titulo": "Plataformas: Bitcoin, Ethereum y Hyperledger",
+        "contenido": "Las plataformas más importantes basadas en blockchain son:\n- **Bitcoin**: el ejemplo más conocido; un sistema de **pagos P2P sin intermediarios** (sin bancos ni cámaras de compensación), inventado por **Satoshi Nakamoto** (2008). Su cadena de bloques es pública y descargable (ocupa ya cientos de GB).\n- **Ethereum**: plataforma que, además de su criptomoneda, destaca por los **smart contracts**.\n- **Hyperledger**: denominación 'paraguas' de varios proyectos **open source** de la **Linux Foundation** para blockchains **empresariales**; el más importante es **Hyperledger Fabric** (contribución principal de IBM).\n\nDos distinciones clave:\n- **Con/sin permisos**: **Bitcoin y Ethereum son DLT SIN permisos** (un nodo puede unirse o abandonar la red en cualquier momento). **Hyperledger es CON permisos** (el acceso lo controla el propietario u organización).\n- **Criptomoneda nativa**: Bitcoin y Ethereum **tienen** criptomoneda nativa; Hyperledger **no** la tiene (en despliegues corporativos no se necesita), y no por ello es menos útil.\n- **Smart contracts**: solo **Ethereum y Hyperledger** disponen de la capacidad de usar contratos inteligentes; Bitcoin no."
+      },
+      {
+        "titulo": "Smart contracts (contratos inteligentes)",
+        "contenido": "Los **contratos inteligentes (smart contracts)** son **aplicaciones que se ejecutan sobre una cadena de bloques**. Encapsulan la **lógica de negocio** de un contrato y realizan automáticamente las transacciones cuando se cumplen determinadas condiciones (ejecución autónoma). Fueron ideados en los años 90 (la idea se atribuye a Nick Szabo).\n\nEstán disponibles en **Ethereum** (la plataforma por excelencia) y en **Hyperledger**. Ethereum usa un potente lenguaje de programación propio llamado **Solidity**. Se pueden crear desde combinaciones muy sencillas (un contrato de apuesta entre dos partes) hasta relaciones multiparte complejas, similares a contratos societarios.\n\n**Cuestión jurídica**: se debate si un smart contract es un 'contrato' en sentido jurídico. Hay tres posturas: (1) la parte 'smart' va más allá del concepto jurídico de contrato (es autosuficiente, no necesita jurisdicción estatal); (2) al prescindir de obligarse jurídicamente, no sería un contrato amparado por el derecho; (3) postura intermedia: aprovechar las ventajas prácticas sin renunciar a los remedios del derecho contractual tradicional si el mecanismo falla. En la práctica **no está regulado** en la mayoría de países (en España no hay ley específica; en la UE solo se aplica legislación si hay compartición de datos personales)."
+      },
+      {
+        "titulo": "Minería, prueba de trabajo y árbol de Merkle",
+        "contenido": "Un **minero de Bitcoin** es una persona que ejecuta un programa **en su ordenador** y ayuda a **verificar las transacciones** incluyéndolas en el registro inalterable (la cadena). El minado requiere gran capacidad de cómputo: hardware específico (GPUs y **ASICs**, circuitos integrados de aplicación específica).\n\nEl minado resuelve el problema criptográfico del sistema de consenso llamado **prueba de trabajo (Proof of Work)**: se propone un nuevo bloque; se combinan el **hash** de la cabecera del bloque más reciente, el nuevo bloque y un número incremental llamado **nonce**; el hash resultante se compara con un **objetivo (target)**; si no es menor, se cambia el nonce y se reintenta (millones de veces). Quien lo encuentra primero gana una recompensa en bitcoins (monedas nuevas). Hay un máximo de **21 millones de bitcoins**. La **dificultad** de minado es mayor cuanto menor es el valor objetivo.\n\n**Árbol de Merkle**: estructura de datos en forma de árbol (binario), patentada en 1979 por Ralph Merkle, usada para almacenar eficientemente las transacciones. Las transacciones se agrupan por pares y se calcula su **hash (SHA-256)**; los hashes se vuelven a agrupar y a hashear, hasta llegar a un único hash, la **raíz (Merkle root)**. Ventajas: solo hace falta almacenar el nodo raíz (que se suele firmar para garantizar la integridad); permite comprobar si una transacción pertenece al árbol con complejidad **O(log n)**; si una transacción se modifica, cambian los hashes y se detecta (por eso la cadena es inmutable)."
+      },
+      {
+        "titulo": "Monederos (wallets): ligeros, fríos y hardware",
+        "contenido": "Para gestionar criptomonedas se usan **monederos (wallets)**; para obtenerlas, las **casas de cambio (exchanges)**. Tipos de monederos:\n- **Ligeros (light wallets)**: los más usados por su sencillez; son **aplicaciones** que permiten operar al instante **sin descargar toda la cadena de bloques** (que no necesitan). Usan la funcionalidad **SPV (Simplified Payment Verification)** descrita por Satoshi Nakamoto: obtienen de otros nodos solo la información de las transacciones de sus direcciones, verificando que los bloques existen y son válidos. Como contrapartida, dependen de información externa.\n- **Direcciones HD (Hierarchical Deterministic)**: la mayoría de monederos actuales generan **una dirección nueva por cada transacción** (a partir de una **semilla de 12 palabras**, estándar BIP 32), para aumentar el anonimato y evitar el seguimiento por reutilización de direcciones. La semilla permite restaurar el wallet en otro dispositivo.\n- **Fríos (cold wallets)**: soporte **no electrónico** donde se registra la clave privada; el formato típico es el **paper wallet** (monedero en papel) con dos códigos QR, uno para la **clave privada** y otro para la **dirección pública**. Para usar los fondos se importa o se 'barre' la clave privada. Adecuados para activos a largo plazo y muy seguros (al no estar conectados).\n- **Hardware (hardware wallets)**: dispositivos USB (p. ej. Ledger Nano S) que **firman la transacción internamente sin exponer la clave privada**; al retirar el dispositivo, nadie puede comprometerla.\n\n(Nota: los monederos 'calientes', conectados a Internet, son los más usados pero también los más expuestos a ataques.)"
+      },
+      {
+        "titulo": "Casas de cambio (exchanges) y aplicaciones del blockchain",
+        "contenido": "Las **casas de cambio (exchanges)** dan liquidez al ecosistema: permiten intercambiar moneda de curso legal (**FIAT**) por criptomonedas y viceversa, y la compraventa entre criptomonedas o tokens, a cambio de **comisiones**. A diferencia de un wallet, el exchange **custodia los fondos** del cliente (cuando este deposita cripto, transfiere el control a una dirección del exchange).\n\nMedidas de seguridad de los exchanges:\n- **Direcciones multifirma (multisig)**: distribuyen la clave entre varios actores (la casa, el usuario y un tercero de confianza); si una se ve comprometida, no se pueden mover los fondos sin las demás.\n- **Almacenamiento en frío**: solo una **fracción** de las reservas está online; el grueso se guarda en **cold wallets** con seguridad física.\n- Normativas **AML/KYC (Anti Money Laundering / Know Your Customer)**: deben identificar al cliente y registrar las operaciones (controles crecientes en muchos países).\n\n**Aplicaciones del blockchain** (más allá de las criptomonedas): logística y alimentación (trazabilidad y procedencia), industria (gemelos digitales, gestión de stocks), banca (conciliación y liquidaciones, smart contracts), seguros (teleperitaje automático), ciberseguridad (gestión de identidad), recursos humanos (verificación de credenciales y títulos) y restauración (control de calidad y fidelización). Su gran valor común es la **trazabilidad** y la **eliminación de intermediarios**."
+      }
+    ]
+  },
+  "resumen": [
+    "Blockchain aporta confianza a Internet, permitiendo transacciones sin intermediarios tradicionales.",
+    "Técnicamente es una DLT (tecnología de registro distribuido): una lista de bloques criptográficamente enlazados, inmutable, distribuida, compartida y de solo anexar.",
+    "Los bloques se distribuyen en una red de nodos P2P y la cadena solo se actualiza por consenso; no hay copia privilegiada ni autoridad central.",
+    "Las redes pueden ser con permisos (privadas), sin permisos (públicas) o híbridas.",
+    "El funcionamiento se basa en la criptografía de clave pública/privada; se usa curva elíptica para tener claves cortas y seguras (256 bits ≈ RSA 2048).",
+    "Bitcoin (Satoshi Nakamoto, 2008) es el ejemplo más conocido: pagos P2P sin intermediarios; su cadena es pública y muy grande.",
+    "Bitcoin y Ethereum son DLT sin permisos y tienen criptomoneda nativa; Hyperledger (Linux Foundation) es con permisos y no tiene criptomoneda nativa.",
+    "Solo Ethereum y Hyperledger admiten smart contracts; Ethereum usa el lenguaje Solidity.",
+    "Los smart contracts ejecutan automáticamente las condiciones de un contrato; su validez jurídica es discutida y apenas están regulados.",
+    "El minado verifica transacciones mediante la prueba de trabajo (Proof of Work): hallar un nonce cuyo hash sea menor que un objetivo; hay un máximo de 21 millones de bitcoins.",
+    "El árbol de Merkle (binario, SHA-256) almacena las transacciones de forma eficiente y permite verificar la pertenencia con complejidad O(log n).",
+    "Los monederos pueden ser ligeros (apps con SPV, sin descargar la cadena), fríos (papel) o hardware (USB que firma sin exponer la clave); usan direcciones HD para el anonimato.",
+    "Las casas de cambio (exchanges) cambian FIAT por cripto, custodian los fondos, usan multifirma y almacenamiento en frío, y cumplen normativas AML/KYC.",
+    "El blockchain se aplica en logística, banca, seguros, identidad, RRHH y trazabilidad de productos, no solo en criptomonedas."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Blockchain (cadena de bloques)",
+      "definicion": "Lista de bloques criptográficamente enlazados que registra transacciones de forma segura, inmutable y sin intermediarios."
+    },
+    {
+      "termino": "DLT (Distributed Ledger Technology)",
+      "definicion": "Tecnología de libro de registro distribuido; el tipo de tecnología del que blockchain forma parte."
+    },
+    {
+      "termino": "Bloque",
+      "definicion": "Registro de la cadena que contiene una o más transacciones, asegurado criptográficamente y enlazado al bloque anterior mediante un puntero hash."
+    },
+    {
+      "termino": "Red P2P / consenso",
+      "definicion": "Los bloques se distribuyen entre nodos iguales (peer to peer) y la cadena solo se actualiza por consenso, sin autoridad central."
+    },
+    {
+      "termino": "Inmutabilidad / append only",
+      "definicion": "Propiedad de la cadena: no se puede alterar un bloque sin alterar los posteriores; solo se permite añadir información."
+    },
+    {
+      "termino": "Redes con/sin permisos",
+      "definicion": "Con permisos (privadas, controladas por un propietario) o sin permisos (públicas, cualquiera puede participar); también híbridas."
+    },
+    {
+      "termino": "Criptografía de clave pública/privada",
+      "definicion": "Base de las transacciones: el receptor comparte su clave pública y el emisor firma con su clave privada."
+    },
+    {
+      "termino": "Criptografía de curva elíptica",
+      "definicion": "Permite claves más cortas con la misma seguridad; 256 bits de curva elíptica equivalen a 2048 bits de RSA."
+    },
+    {
+      "termino": "Bitcoin",
+      "definicion": "Sistema de pagos P2P sin intermediarios inventado por Satoshi Nakamoto (2008); el ejemplo más conocido de blockchain."
+    },
+    {
+      "termino": "Ethereum",
+      "definicion": "Plataforma blockchain sin permisos con criptomoneda nativa, conocida por los smart contracts (lenguaje Solidity)."
+    },
+    {
+      "termino": "Hyperledger",
+      "definicion": "Proyecto open source de la Linux Foundation para blockchains empresariales con permisos y sin criptomoneda nativa (p. ej. Hyperledger Fabric)."
+    },
+    {
+      "termino": "Smart contract (contrato inteligente)",
+      "definicion": "Aplicación que se ejecuta sobre blockchain y realiza automáticamente las transacciones de un contrato al cumplirse las condiciones."
+    },
+    {
+      "termino": "Solidity",
+      "definicion": "Lenguaje de programación de Ethereum para desarrollar smart contracts."
+    },
+    {
+      "termino": "Minero / Proof of Work",
+      "definicion": "Persona/ordenador que verifica transacciones resolviendo un problema criptográfico (prueba de trabajo) a cambio de una recompensa en bitcoins."
+    },
+    {
+      "termino": "Nonce",
+      "definicion": "Número incremental que se combina con el hash del bloque para que el resultado sea menor que un objetivo en la prueba de trabajo."
+    },
+    {
+      "termino": "Árbol de Merkle",
+      "definicion": "Estructura de árbol binario de hashes (SHA-256) que almacena transacciones de forma eficiente; verificar pertenencia es O(log n)."
+    },
+    {
+      "termino": "Wallet ligero (SPV)",
+      "definicion": "Monedero-aplicación que opera sin descargar toda la cadena, usando Simplified Payment Verification para consultar solo sus transacciones."
+    },
+    {
+      "termino": "Dirección HD (Hierarchical Deterministic)",
+      "definicion": "Genera una dirección nueva por transacción a partir de una semilla de 12 palabras (BIP 32), aumentando el anonimato."
+    },
+    {
+      "termino": "Cold wallet / paper wallet",
+      "definicion": "Monedero frío en soporte no electrónico (papel) con la clave privada y la dirección pública en códigos QR; muy seguro."
+    },
+    {
+      "termino": "Hardware wallet",
+      "definicion": "Dispositivo USB que firma las transacciones internamente sin exponer la clave privada (p. ej. Ledger Nano S)."
+    },
+    {
+      "termino": "Exchange (casa de cambio)",
+      "definicion": "Plataforma que cambia moneda legal (FIAT) por criptomonedas y custodia los fondos; usa multifirma, cold storage y normativas AML/KYC."
+    },
+    {
+      "termino": "AML/KYC",
+      "definicion": "Anti Money Laundering / Know Your Customer: normativas que obligan a los exchanges a identificar a sus clientes y registrar operaciones."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-8-fc-001",
+      "pregunta": "¿Qué aporta blockchain a Internet?",
+      "respuesta": "La confianza: permite realizar transacciones de forma segura sin intermediarios tradicionales."
+    },
+    {
+      "id": "te-tema-8-fc-002",
+      "pregunta": "¿Qué es técnicamente blockchain?",
+      "respuesta": "Un tipo de tecnología de registro distribuido (DLT, Distributed Ledger Technology): una lista de bloques criptográficamente enlazados."
+    },
+    {
+      "id": "te-tema-8-fc-003",
+      "pregunta": "¿Cómo se almacenan los bloques de una blockchain?",
+      "respuesta": "Distribuidos en una red de nodos P2P (peer to peer), no en una base de datos centralizada."
+    },
+    {
+      "id": "te-tema-8-fc-004",
+      "pregunta": "¿Cómo se actualiza la cadena de bloques?",
+      "respuesta": "Solo mediante consenso entre todos los nodos; ninguno puede modificarla por su cuenta."
+    },
+    {
+      "id": "te-tema-8-fc-005",
+      "pregunta": "¿Por qué es inmutable la cadena de bloques?",
+      "respuesta": "Porque no se puede alterar un bloque sin alterar todos los posteriores (cada uno enlaza con el anterior), así que es inútil hackear uno solo."
+    },
+    {
+      "id": "te-tema-8-fc-006",
+      "pregunta": "¿Qué tipos de redes blockchain existen según el acceso?",
+      "respuesta": "Con permisos (privadas), sin permisos (públicas) e híbridas."
+    },
+    {
+      "id": "te-tema-8-fc-007",
+      "pregunta": "¿Por qué se usa criptografía de curva elíptica en Bitcoin?",
+      "respuesta": "Porque permite claves más cortas con la misma seguridad (256 bits de curva elíptica ≈ 2048 bits de RSA)."
+    },
+    {
+      "id": "te-tema-8-fc-008",
+      "pregunta": "¿Qué es Bitcoin y quién lo inventó?",
+      "respuesta": "Un sistema de pagos P2P sin intermediarios, inventado por Satoshi Nakamoto en 2008."
+    },
+    {
+      "id": "te-tema-8-fc-009",
+      "pregunta": "¿Cuáles son las dos principales alternativas a Bitcoin?",
+      "respuesta": "Ethereum y Hyperledger."
+    },
+    {
+      "id": "te-tema-8-fc-010",
+      "pregunta": "¿Qué DLT son sin permisos y cuál es con permisos?",
+      "respuesta": "Bitcoin y Ethereum son sin permisos; Hyperledger es con permisos."
+    },
+    {
+      "id": "te-tema-8-fc-011",
+      "pregunta": "¿Qué plataformas admiten smart contracts y qué lenguaje usa Ethereum?",
+      "respuesta": "Ethereum y Hyperledger; Ethereum usa el lenguaje Solidity (Bitcoin no admite smart contracts)."
+    },
+    {
+      "id": "te-tema-8-fc-012",
+      "pregunta": "¿Qué es un smart contract?",
+      "respuesta": "Una aplicación que se ejecuta sobre blockchain y realiza automáticamente las transacciones de un contrato cuando se cumplen las condiciones."
+    },
+    {
+      "id": "te-tema-8-fc-013",
+      "pregunta": "¿Tienen los smart contracts validez jurídica clara?",
+      "respuesta": "No; es discutida y apenas están regulados (en España no hay ley específica)."
+    },
+    {
+      "id": "te-tema-8-fc-014",
+      "pregunta": "¿Qué es un minero de Bitcoin?",
+      "respuesta": "Una persona que ejecuta un programa en su ordenador y ayuda a verificar las transacciones incluyéndolas en el registro inalterable."
+    },
+    {
+      "id": "te-tema-8-fc-015",
+      "pregunta": "¿En qué consiste la prueba de trabajo (Proof of Work)?",
+      "respuesta": "En encontrar un nonce tal que el hash del bloque sea menor que un objetivo; quien lo logra primero recibe la recompensa."
+    },
+    {
+      "id": "te-tema-8-fc-016",
+      "pregunta": "¿Cuál es el número máximo de bitcoins?",
+      "respuesta": "21 millones."
+    },
+    {
+      "id": "te-tema-8-fc-017",
+      "pregunta": "¿Qué es el árbol de Merkle y qué ventaja aporta?",
+      "respuesta": "Un árbol binario de hashes (SHA-256) que almacena transacciones de forma eficiente; verificar la pertenencia de una transacción es O(log n)."
+    },
+    {
+      "id": "te-tema-8-fc-018",
+      "pregunta": "¿Por qué los wallets ligeros no necesitan descargar toda la cadena?",
+      "respuesta": "Porque usan SPV (Simplified Payment Verification): consultan a otros nodos solo la información de sus propias direcciones."
+    },
+    {
+      "id": "te-tema-8-fc-019",
+      "pregunta": "¿Qué son las direcciones HD y para qué sirven?",
+      "respuesta": "Hierarchical Deterministic: generan una dirección nueva por transacción (desde una semilla de 12 palabras) para aumentar el anonimato."
+    },
+    {
+      "id": "te-tema-8-fc-020",
+      "pregunta": "¿Qué es un cold wallet o monedero frío?",
+      "respuesta": "Un soporte no electrónico donde se registra la clave privada, como un paper wallet (monedero en papel)."
+    },
+    {
+      "id": "te-tema-8-fc-021",
+      "pregunta": "¿Qué es un hardware wallet?",
+      "respuesta": "Un dispositivo USB (p. ej. Ledger Nano S) que firma las transacciones internamente sin exponer la clave privada."
+    },
+    {
+      "id": "te-tema-8-fc-022",
+      "pregunta": "¿Qué es una casa de cambio (exchange) y qué la diferencia de un wallet?",
+      "respuesta": "Una plataforma que cambia FIAT por criptomonedas; a diferencia de un wallet, custodia los fondos del cliente."
+    },
+    {
+      "id": "te-tema-8-fc-023",
+      "pregunta": "¿Qué medidas de seguridad usan los exchanges?",
+      "respuesta": "Direcciones multifirma, almacenamiento en frío (cold wallets) del grueso de las reservas y normativas AML/KYC."
+    },
+    {
+      "id": "te-tema-8-fc-024",
+      "pregunta": "Cita tres aplicaciones del blockchain más allá de las criptomonedas.",
+      "respuesta": "Trazabilidad en logística/alimentación, banca (liquidaciones), seguros (teleperitaje), identidad, RRHH (verificación de títulos)."
+    }
+  ]
+}

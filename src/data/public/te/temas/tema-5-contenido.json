@@ -1,0 +1,230 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. Realidad extendida",
+  "apuntes": {
+    "introduccion": "El Tema 5 aborda la **realidad extendida (XR, eXtended Reality)**, un término que engloba todas las tecnologías inmersivas que amplían la realidad combinando, en mayor o menor medida, el mundo físico y el digital.\n\nSe estudian, primero, los **conceptos y la terminología** (realidad virtual, realidad aumentada, realidad mixta y virtualidad aumentada) y el **continuum de la realidad-virtualidad** de Milgram, que los ordena en un eje entre lo totalmente real y lo totalmente virtual. Después se ven las **tecnologías** necesarias, agrupadas en *tracking* (seguimiento) y *visualización*, y finalmente las **aplicaciones y servicios** de RA y RV en distintos sectores.\n\nLa idea clave es que existe mucha confusión terminológica (es muy común decir 'realidad aumentada' cuando en realidad se habla de 'realidad mixta', o usar 'realidad virtual' como cajón de sastre). El criterio que distingue cada modalidad es el grado de mezcla entre realidad y virtualidad y, sobre todo, si hay o no interacción/integración con el entorno real.",
+    "secciones": [
+      {
+        "titulo": "Realidad extendida (XR): concepto y continuum de Milgram",
+        "contenido": "La **realidad extendida (XR)** es un **hiperónimo**: un término que engloba varias modalidades de realidad generada por ordenador con mayor o menor intervención del mundo físico. Agrupa la realidad virtual (RV), la realidad aumentada (RA), la realidad mixta (RM) y la virtualidad aumentada (VA).\n\nEs una tecnología en auge que, aunque ya tiene años, ha progresado mucho en la última década, sobre todo en los campos militar, industrial, médico y de videojuegos.\n\nTodas estas modalidades se ordenan en el **continuum de la realidad-virtualidad**, propuesto por el profesor **Paul Milgram** (Universidad de Toronto) junto con **Fumio Kishino** en **1994**. Es un eje que va, de izquierda a derecha:\n- **Realidad** (mundo totalmente físico).\n- **Realidad aumentada (RA)**: el mundo real con algún elemento virtual superpuesto.\n- **Realidad mixta (RM)**: integración de objetos virtuales en el espacio real.\n- **Virtualidad aumentada (VA)**: mundo virtual con elementos del mundo real.\n- **Realidad virtual (RV)** (mundo totalmente sintético).\n\nEn la práctica se tiende a simplificar usando solo dos extremos: **realidad virtual** (cuando todo es mundo sintético) y **realidad aumentada** (englobando de forma poco ortodoxa la RM y la VA, es decir, todos los casos en que se mezclan realidad y virtualidad). En los medios de comunicación el término 'realidad extendida' apenas aparece."
+      },
+      {
+        "titulo": "Realidad virtual (RV)",
+        "contenido": "La **realidad virtual (VR, Virtual Reality)** es una realidad **simulada y creada por ordenador, totalmente inmersiva**, que **aísla al usuario del mundo físico**. Todo lo que captan los sentidos (sobre todo la vista y el oído) está generado por ordenador en tiempo real.\n\nRequiere dispositivos: **gafas/cascos** y, a veces, mandos **hápticos** para manejar objetos. Los escenarios pueden tener relación con la realidad (lanzar triples en un partido de la NBA, visitar un museo remoto, una autoescuela virtual) o ser totalmente ficticios u oníricos.\n\nEs la modalidad de la que más se habla (a menudo incorrectamente, como sinónimo de cualquier experiencia inmersiva). Una limitación clásica es el **mareo** (cinetosis): de hecho, el primer casco de RV (Sega VR, 1993, para Mega Drive, unos 200 dólares) no llegó a comercializarse porque los usuarios se mareaban.\n\nIdea clave: la RV es **totalmente inmersiva** y **requiere gafas/dispositivos**; nos sumerge en un mundo enteramente virtual."
+      },
+      {
+        "titulo": "Realidad aumentada (RA) y sus niveles",
+        "contenido": "En la **realidad aumentada (AR, Augmented Reality)** se visualiza el mundo real que nos rodea y se '**aumenta**' o mejora esa vista con gráficos estáticos, audio o vídeo superpuestos. **No es inmersiva.**\n\nLa visión del mundo real puede ser:\n- **Directa**: con gafas no inmersivas (vemos el mundo directamente).\n- **Indirecta**: con gafas inmersivas que, mediante una cámara, nos muestran la realidad circundante (también el caso del móvil).\n\nIdea clave (definición estricta): en la RA **no hay ningún tipo de interacción entre el entorno real y el virtual**; las imágenes simplemente se superponen como efecto visual, sin inteligencia asociada (esto la distingue de la realidad mixta).\n\n**Niveles de realidad aumentada** (según la explicación de clase):\n- **Nivel 1 – Códigos QR**: la información se activa al leer un código QR (típico en productos infantiles).\n- **Nivel 2 – Marcadores de posición / patrones**: se reconocen patrones o marcadores físicos.\n- **Nivel 3 – Geolocalización**: la información se activa según la posición (GPS).\n- **Nivel 4 – Visión aumentada**: el nivel más alto, con dispositivos tipo casco (**HMD, Head-Mounted Display**), no solo móviles.\n\nEjemplos: **Pokémon GO**, IKEA Place, aplicaciones de industria 4.0 que muestran el manual de una máquina al enfocarla."
+      },
+      {
+        "titulo": "Realidad mixta (RM)",
+        "contenido": "La **realidad mixta (MR, Mixed Reality)** mezcla los conceptos de realidad aumentada y realidad virtual. Su diferencia fundamental con la RA es que aquí los objetos virtuales **tienen profundidad** y se crea la ilusión de que están **perfectamente integrados en el espacio real** (no son una simple superposición).\n\nConsecuencias de esa integración:\n- Un objeto virtual puede **taparse total o parcialmente (oclusión)** si pasa por delante de él un elemento del mundo real.\n- Los objetos digitales se muestran como si existieran físicamente y **se puede interactuar** con ellos (verlos desde distintos ángulos, moverlos).\n\nEs la modalidad **más extendida** en los dispositivos actuales, porque es lo que se busca: interacción 3D con elementos integrados en el entorno. Se logra con tecnologías de reconocimiento de superficies (escaneo del entorno).\n\n**Dispositivos de realidad mixta**:\n- **Microsoft HoloLens** (1 en 2016, ~3.000 $; 2 en 2019, ~3.800 $, con Snapdragon; descatalogadas en 2024). Escanean el entorno para introducir en él los objetos virtuales.\n- **Apple Vision Pro** (2023, ~3.500 $, sensores LIDAR, cuatro cámaras para los ojos, chip M-series).\n- **Meta Quest** (de Oculus, empresa absorbida por Facebook/Meta en 2014; más asequibles, ~550 €).\n- **HTC Vive**.\n\nAtención: hay mucha confusión terminológica; es muy común llamar 'realidad aumentada' a lo que en realidad es realidad mixta."
+      },
+      {
+        "titulo": "Virtualidad aumentada (VA)",
+        "contenido": "La **virtualidad aumentada (AV, Augmented Virtuality)**, también llamada **realidad fusionada (Merged Reality)**, es la inversa de la realidad mixta: parte de un **mundo virtual** en el que se **integran objetos o estímulos del mundo real**. Está más próxima al extremo virtual del continuum.\n\nEjemplos:\n- Una mesa del mundo real que aparece como mesa virtual (o como un cofre del tesoro que impide el avance).\n- **Ver nuestras propias manos reales** en tiempo real dentro del mundo virtual.\n- Estar en una mazmorra virtual cuyas paredes coinciden con las paredes reales de la habitación.\n\nResumen de la diferencia: la **realidad aumentada/mixta** aumenta el **entorno real** con elementos virtuales, mientras que la **virtualidad aumentada** aumenta el **entorno virtual** con estímulos del mundo físico."
+      },
+      {
+        "titulo": "Tecnologías de tracking (seguimiento)",
+        "contenido": "La RV y la RA requieren grandes cuotas de tecnología, con el objetivo de que el usuario disfrute la experiencia de la forma más sencilla posible (idealmente sin cables ni dispositivos muy aparatosos). Se distinguen dos grupos: tracking y visualización.\n\nLas **tecnologías de tracking (seguimiento)** detectan correctamente la **posición** de los elementos usados (gafas, controladores, cabeza, manos) dentro del espacio tridimensional. Deben gestionar datos de **rotación** y de **traslación** sobre los tres ejes perpendiculares, lo que da lugar a los **seis grados de libertad (6DoF, six degrees of freedom)**: tres de traslación (arriba/abajo, izquierda/derecha, adelante/atrás) y tres de rotación (**pitch, roll y yaw**).\n\nLa tendencia dominante es el **seguimiento óptico**, que mediante cámaras de **luz visible e infrarroja** y algoritmos de visión por ordenador emula nuestra **visión estereoscópica**. Hay dos tendencias:\n- **Internos** (se llevan encima): la cámara la porta el usuario en sus gafas (por ejemplo, las HoloLens). Suelen ser de gama más asequible.\n- **Externos**: cámaras fijas externas, propias de sistemas de RV de gama alta (PlayStation VR, Oculus Rift)."
+      },
+      {
+        "titulo": "Tecnologías de visualización",
+        "contenido": "Las **tecnologías de visualización** se encargan de mostrar las imágenes al usuario.\n\n- El dispositivo principal para una experiencia realista de RV o RA son las **gafas**, con **pantallas estereoscópicas** que proporcionan amplio campo de visión, sensación de profundidad y nitidez.\n- En el caso específico de la **realidad aumentada/mixta**, los dispositivos estrella, tanto por conveniencia (se llevan siempre encima) como por coste, suelen ser los **móviles y las tabletas**.\n\nLíneas de futuro:\n- En **RV**: gafas reducidas a la mínima expresión, muy cómodas, e incluso **lentillas inteligentes** especiales (todavía en fase de prototipo, con paneles microLED).\n- En **RA/RM**: pantallas que permitan **visión 3D en móviles sin necesidad de gafas** (pantallas holográficas, como el móvil RED Hydrogen One).\n\nNota histórica: las **Google Glass** (2012, ~1.500 $) fueron retiradas en 2015 por el rechazo social (privacidad de la cámara), algo que vuelve a ocurrir hoy con gafas con cámara como las Ray-Ban Meta."
+      },
+      {
+        "titulo": "Aplicaciones y servicios de RA y RV",
+        "contenido": "Las aplicaciones van mucho más allá de los juegos. Principales ámbitos:\n- **Educación**: uno de los campos más propicios ('una imagen vale más que mil palabras'); por ejemplo, visualizar órganos del cuerpo humano o la tabla periódica de los elementos en 3D.\n- **Ventas**: Audi, con su **VR Experience** en los concesionarios, permite al cliente ver cómo sería el vehículo que está configurando (carrocería, color, neumáticos) antes de fabricarlo.\n- **Diseño y fabricación industrial**: diseñar y probar piezas virtualmente antes de fabricarlas (verificación de turbinas), consultar **documentación técnica sin ocupar las manos** o llamar a expertos con vídeo en tiempo real. Muy ligado a la industria 4.0 y los gemelos digitales (digital twins).\n- **Medicina y salud**: formación de cirujanos, y tratamiento de **fobias y ansiedad** (miedo a volar, a insectos, etc.) mediante exposición controlada en RV; también entretenimiento adaptado para niños hospitalizados.\n- **Juegos**: cada vez más videojuegos con gafas (Pokémon GO en RA; DOOM VFR, Resident Evil en RV).\n\nEl objetivo de elegir una u otra tecnología de realidad extendida depende de la necesidad: si se quiere inmersión total, RV; si se quiere enriquecer el mundo real, RA; si se necesita interactuar con objetos integrados en el entorno, RM."
+      }
+    ]
+  },
+  "resumen": [
+    "La realidad extendida (XR) es un hiperónimo que engloba la realidad virtual, la aumentada, la mixta y la virtualidad aumentada.",
+    "El continuum de la realidad-virtualidad de Milgram y Kishino (1994) ordena estas modalidades entre lo totalmente real y lo totalmente virtual: Realidad, RA, RM, VA, RV.",
+    "La realidad virtual es totalmente inmersiva, está creada por ordenador, aísla del mundo físico y requiere gafas o cascos.",
+    "La realidad aumentada visualiza el mundo real y le superpone elementos virtuales; no es inmersiva y, en sentido estricto, no hay interacción entre lo real y lo virtual.",
+    "La visión en RA puede ser directa (gafas no inmersivas) o indirecta (cámara), y tiene niveles: QR, marcadores, geolocalización y visión aumentada (HMD).",
+    "La realidad mixta integra objetos virtuales con profundidad en el espacio real, permite oclusión e interacción, y es la modalidad más extendida.",
+    "La virtualidad aumentada parte de un mundo virtual en el que se integran objetos o estímulos del mundo real (como ver las propias manos en el juego).",
+    "Las tecnologías de tracking detectan la posición con seis grados de libertad (6DoF: traslación y rotación), normalmente mediante seguimiento óptico estereoscópico.",
+    "El seguimiento óptico puede ser interno (cámaras en las gafas, como HoloLens) o externo (cámaras fijas, como PlayStation VR u Oculus Rift).",
+    "El dispositivo de visualización por excelencia son las gafas con pantallas estereoscópicas; en RA/RM destacan móviles y tabletas.",
+    "Dispositivos de realidad mixta: Microsoft HoloLens, Apple Vision Pro, Meta Quest y HTC Vive.",
+    "Las aplicaciones de RA/RV abarcan educación, ventas (Audi VR), industria 4.0, medicina (cirugía, tratamiento de fobias) y videojuegos."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Realidad extendida (XR)",
+      "definicion": "Hiperónimo que engloba todas las tecnologías inmersivas que mezclan realidad y virtualidad: RV, RA, RM y VA."
+    },
+    {
+      "termino": "Continuum de la realidad-virtualidad",
+      "definicion": "Eje propuesto por Milgram y Kishino (1994) que ordena las modalidades desde lo totalmente real hasta lo totalmente virtual."
+    },
+    {
+      "termino": "Realidad virtual (RV / VR)",
+      "definicion": "Realidad simulada por ordenador, totalmente inmersiva, que aísla al usuario del mundo físico; requiere gafas o cascos."
+    },
+    {
+      "termino": "Realidad aumentada (RA / AR)",
+      "definicion": "Visualización del mundo real aumentada con elementos virtuales superpuestos; no es inmersiva y, en sentido estricto, sin interacción real-virtual."
+    },
+    {
+      "termino": "Niveles de RA",
+      "definicion": "Códigos QR, marcadores de posición, geolocalización y visión aumentada (con casco/HMD), de menor a mayor sofisticación."
+    },
+    {
+      "termino": "Realidad mixta (RM / MR)",
+      "definicion": "Modalidad en la que los objetos virtuales tienen profundidad y se integran en el espacio real, con oclusión e interacción posibles."
+    },
+    {
+      "termino": "Oclusión",
+      "definicion": "Efecto de la RM por el que un objeto virtual se tapa total o parcialmente si pasa por delante un elemento del mundo real."
+    },
+    {
+      "termino": "Virtualidad aumentada (VA / AV)",
+      "definicion": "También llamada realidad fusionada; mundo virtual en el que se integran objetos o estímulos del mundo real."
+    },
+    {
+      "termino": "Visión directa / indirecta",
+      "definicion": "En RA, ver el mundo real directamente (gafas no inmersivas) o a través de una cámara (gafas inmersivas o móvil)."
+    },
+    {
+      "termino": "Tracking (seguimiento)",
+      "definicion": "Tecnologías que detectan la posición de gafas, controladores y cuerpo en el espacio 3D para la realidad extendida."
+    },
+    {
+      "termino": "6DoF (seis grados de libertad)",
+      "definicion": "Tres datos de traslación y tres de rotación (pitch, roll y yaw) que describen el movimiento completo en el espacio."
+    },
+    {
+      "termino": "Seguimiento óptico",
+      "definicion": "Tracking mediante cámaras de luz visible e infrarroja y visión por ordenador, emulando la visión estereoscópica humana."
+    },
+    {
+      "termino": "Tracking interno / externo",
+      "definicion": "Interno: cámaras en las propias gafas (HoloLens); externo: cámaras fijas separadas (PlayStation VR, Oculus Rift)."
+    },
+    {
+      "termino": "HMD (Head-Mounted Display)",
+      "definicion": "Dispositivo de visualización montado en la cabeza (casco o gafas) usado en realidad extendida."
+    },
+    {
+      "termino": "HoloLens / Vision Pro / Meta Quest",
+      "definicion": "Dispositivos de realidad mixta de Microsoft, Apple y Meta, respectivamente."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-5-fc-001",
+      "pregunta": "¿Qué es la realidad extendida (XR)?",
+      "respuesta": "Un hiperónimo que engloba todas las tecnologías inmersivas que mezclan realidad y virtualidad: realidad virtual, aumentada, mixta y virtualidad aumentada."
+    },
+    {
+      "id": "te-tema-5-fc-002",
+      "pregunta": "¿Quién y cuándo propuso el continuum de la realidad-virtualidad?",
+      "respuesta": "Paul Milgram y Fumio Kishino, en 1994."
+    },
+    {
+      "id": "te-tema-5-fc-003",
+      "pregunta": "¿Cómo se ordenan las modalidades en el continuum, de lo real a lo virtual?",
+      "respuesta": "Realidad, realidad aumentada (RA), realidad mixta (RM), virtualidad aumentada (VA) y realidad virtual (RV)."
+    },
+    {
+      "id": "te-tema-5-fc-004",
+      "pregunta": "¿Qué caracteriza a la realidad virtual?",
+      "respuesta": "Es totalmente inmersiva, está creada por ordenador, aísla del mundo físico y requiere gafas o cascos."
+    },
+    {
+      "id": "te-tema-5-fc-005",
+      "pregunta": "¿Qué es la realidad aumentada y es inmersiva?",
+      "respuesta": "Es visualizar el mundo real aumentándolo con elementos virtuales superpuestos; NO es inmersiva."
+    },
+    {
+      "id": "te-tema-5-fc-006",
+      "pregunta": "En sentido estricto, ¿hay interacción entre lo real y lo virtual en la realidad aumentada?",
+      "respuesta": "No; las imágenes simplemente se superponen como efecto visual, sin inteligencia asociada (eso la distingue de la realidad mixta)."
+    },
+    {
+      "id": "te-tema-5-fc-007",
+      "pregunta": "¿Cuáles son los cuatro niveles de realidad aumentada?",
+      "respuesta": "Códigos QR, marcadores de posición, geolocalización y visión aumentada (con casco/HMD)."
+    },
+    {
+      "id": "te-tema-5-fc-008",
+      "pregunta": "¿Qué diferencia a la realidad mixta de la realidad aumentada?",
+      "respuesta": "En la mixta los objetos virtuales tienen profundidad y se integran en el espacio real (con oclusión e interacción), no son una simple superposición."
+    },
+    {
+      "id": "te-tema-5-fc-009",
+      "pregunta": "¿Qué es la oclusión en realidad mixta?",
+      "respuesta": "Que un objeto virtual se tapa total o parcialmente cuando un elemento del mundo real pasa por delante de él."
+    },
+    {
+      "id": "te-tema-5-fc-010",
+      "pregunta": "¿Qué es la virtualidad aumentada?",
+      "respuesta": "Un mundo virtual en el que se integran objetos o estímulos del mundo real (por ejemplo, ver las propias manos dentro del juego); también se llama realidad fusionada."
+    },
+    {
+      "id": "te-tema-5-fc-011",
+      "pregunta": "¿Cuál es la diferencia resumida entre realidad mixta y virtualidad aumentada?",
+      "respuesta": "La realidad mixta aumenta el entorno real con elementos virtuales; la virtualidad aumentada aumenta el entorno virtual con elementos del mundo real."
+    },
+    {
+      "id": "te-tema-5-fc-012",
+      "pregunta": "¿Qué son los seis grados de libertad (6DoF)?",
+      "respuesta": "Tres datos de traslación y tres de rotación (pitch, roll y yaw) que describen el movimiento completo en el espacio 3D."
+    },
+    {
+      "id": "te-tema-5-fc-013",
+      "pregunta": "¿Qué dos grandes grupos de tecnologías requiere la realidad extendida?",
+      "respuesta": "Las de tracking (seguimiento) y las de visualización."
+    },
+    {
+      "id": "te-tema-5-fc-014",
+      "pregunta": "¿En qué consiste el seguimiento óptico?",
+      "respuesta": "En usar cámaras de luz visible e infrarroja y visión por ordenador para emular la visión estereoscópica y detectar la posición."
+    },
+    {
+      "id": "te-tema-5-fc-015",
+      "pregunta": "¿Qué diferencia el tracking interno del externo?",
+      "respuesta": "El interno lleva las cámaras en las propias gafas (HoloLens); el externo usa cámaras fijas separadas (PlayStation VR, Oculus Rift)."
+    },
+    {
+      "id": "te-tema-5-fc-016",
+      "pregunta": "¿Cuál es el dispositivo de visualización por excelencia en realidad extendida?",
+      "respuesta": "Las gafas con pantallas estereoscópicas; en realidad aumentada/mixta destacan también móviles y tabletas."
+    },
+    {
+      "id": "te-tema-5-fc-017",
+      "pregunta": "Cita tres dispositivos de realidad mixta.",
+      "respuesta": "Microsoft HoloLens, Apple Vision Pro y Meta Quest (también HTC Vive)."
+    },
+    {
+      "id": "te-tema-5-fc-018",
+      "pregunta": "¿Por qué fueron retiradas las Google Glass en 2015?",
+      "respuesta": "Por el rechazo social, sobre todo por la privacidad asociada a su cámara."
+    },
+    {
+      "id": "te-tema-5-fc-019",
+      "pregunta": "Cita cuatro ámbitos de aplicación de la realidad extendida.",
+      "respuesta": "Educación, ventas (Audi VR Experience), diseño/fabricación industrial y medicina (cirugía, tratamiento de fobias); además de los videojuegos."
+    },
+    {
+      "id": "te-tema-5-fc-020",
+      "pregunta": "¿Qué ejemplo de RA es el más conocido?",
+      "respuesta": "Pokémon GO."
+    },
+    {
+      "id": "te-tema-5-fc-021",
+      "pregunta": "¿Por qué la realidad mixta es la modalidad más extendida en los dispositivos actuales?",
+      "respuesta": "Porque permite interactuar con objetos virtuales integrados en el entorno real, no solo superponerlos."
+    },
+    {
+      "id": "te-tema-5-fc-022",
+      "pregunta": "¿Por qué no llegó a comercializarse el casco de RV de Sega de 1993?",
+      "respuesta": "Porque los usuarios se mareaban (cinetosis), un riesgo que llevó a no ponerlo a la venta."
+    }
+  ]
+}

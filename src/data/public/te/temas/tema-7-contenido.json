@@ -1,0 +1,262 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-7",
+  "titulo": "Tema 7. Internet de las cosas (IoT). Parte II",
+  "apuntes": {
+    "introduccion": "El Tema 7 es la segunda parte del IoT y aborda cómo se **aplica** todo lo anterior a la vida real. Se estudian cuatro grandes bloques: los **modelos de computación específicos para IoT** (Edge y Fog computing, que complementan a la nube), las **ciudades inteligentes (smart cities)**, los **gemelos digitales (digital twins)** y la **gestión de proyectos IoT**.\n\nLa idea de partida es que, cuando hay millones de dispositivos sensorizados generando datos, el modelo tradicional de computación en la nube produce **tiempos de latencia elevados**: para muchas aplicaciones, cuando los datos llegan a la nube para analizarse, ya es tarde para actuar. Por eso se acerca el procesamiento a la fuente de datos.\n\nEl tema conecta con temas anteriores: las comunicaciones (5G, LPWAN), la experiencia de usuario (UX, relevante también en proyectos IoT) y la sensorización. Se cierra con la práctica de Tinkercad (simulación de un dispositivo IoT).",
+    "secciones": [
+      {
+        "titulo": "Más allá de la nube: latencia y evolución de los modelos de computación",
+        "contenido": "La **computación en la nube (cloud computing)** tiene grandes ventajas (flexibilidad, escalabilidad, seguridad, acceso simultáneo), pero un gran inconveniente para el IoT: los **tiempos de latencia** no son cortos. Con millones de dispositivos generando enormes volúmenes de datos, cuando estos llegan a la nube para analizarse a menudo ya es tarde para actuar.\n\nPor eso surgen arquitecturas **complementarias** (no sustitutivas) a la nube, orientadas a reducir la latencia acercando el procesamiento a la fuente de datos.\n\nEvolución de los modelos de computación:\n- **Mainframes** (años 60-70): superordenadores centralizados con 'terminales tontos'.\n- **Cliente-servidor** (años 80): reparte la responsabilidad entre cliente y servidor.\n- **Cloud** (2005): modelo centralizado en la nube, con acceso transparente a una infraestructura.\n- **Fog computing** y **Edge computing** (en torno a 2014-2020): modelos distribuidos que acercan el procesamiento al origen de los datos.\n\nIdea clave: la división entre el 'núcleo (core)' y el 'extremo (edge)' de la red no depende tanto de la ubicación física como de dónde situaríamos el dispositivo en un diagrama de red."
+      },
+      {
+        "titulo": "Edge computing (computación en el extremo)",
+        "contenido": "El **Edge computing** ('computación en el extremo o borde de la red') lleva el procesamiento **cerca de la fuente de datos**, a veces en el **propio dispositivo**, sin necesidad de enviarlos a la nube.\n\nVentajas:\n- **Mejora la velocidad y el rendimiento**; permite procesamiento en **tiempo real**.\n- Es muy adecuado para dispositivos con **conectividad pobre** o sin acceso fácil a la nube.\n- Si cae la conexión, no se pierde el acceso/funcionamiento local.\n\nEjemplos:\n- Decirle a Siri o Google 'pon una alarma' o 'modo avión': se procesa en el propio dispositivo, sin Internet.\n- **Vehículos autónomos**: la decisión de frenar debe ser inmediata; no puede esperar a la nube.\n- Realidad aumentada, **cirugía asistida** por ordenador, mantenimiento industrial, drones de rescate y aplicaciones de respuesta inmediata (salvamento, alertas meteorológicas).\n\nDiferencia técnica clave: el Edge computing hace el procesamiento en los **propios dispositivos**. En el ámbito móvil se trabaja en Edge computing para aprovechar el **5G** (latencia de 1 ms), colocando nodos de procesamiento cerca de las antenas (red de acceso radio); esto da una posición privilegiada a los operadores con red propia, que si además ofrecen LPWAN cierran el círculo para gestionar grandes volúmenes de dispositivos IoT."
+      },
+      {
+        "titulo": "Fog computing y el modelo de tres capas",
+        "contenido": "El **Fog computing** ('computación en la niebla'), término acuñado por **Cisco**, es una estructura **descentralizada** que introduce una **capa intermedia** entre los dispositivos y la nube. El almacenamiento y el procesamiento se distribuyen de la forma más lógica entre la fuente de datos y la nube, en **nodos cercanos** (routers, gateways, servidores de la red local u otros dispositivos IoT).\n\nDiferencia técnica clave con el Edge: el Fog computing desplaza la inteligencia/validación de datos a la **red local**, mientras que el Edge lo hace en los **propios dispositivos**. Ambos buscan reducir latencia, costes y congestión, acercando los centros de datos.\n\n**Modelo de tres capas** (no sustituyen al cloud, lo **complementan**):\n- **Edge (extremo)**: millones de dispositivos; procesamiento en el propio dispositivo o muy cerca.\n- **Fog (niebla)**: nodos intermedios en la red local; un poco más lejos.\n- **Cloud (nube)**: los datacenters; el nivel más lejano.\n\nLa idea es **no subir a la nube** salvo los datos realmente necesarios para almacenar, y hacerlo en un momento posterior, no en el del procesamiento. Ejemplos: sanidad (sensores del paciente en el edge, servidores del hospital en el fog), smart cities (semáforos sincronizados), industria 4.0, transporte ferroviario (microcentros de datos)."
+      },
+      {
+        "titulo": "Ciudades inteligentes (smart cities)",
+        "contenido": "Una **ciudad inteligente (smart city)** es un término que aglutina diversas tecnologías del momento (**IoT, e-Mobility, Data Science, IA**). En el fondo, se ocupa de las técnicas que usa una ciudad para su **transformación digital**, con el fin de ser más acogedora, **eficiente**, respetuosa con el medio ambiente, centrada en el ciudadano y, en consecuencia, más **competitiva**.\n\nAunque parezca que el centro es la tecnología, una parte fundamental es la **colaboración de una ciudadanía comprometida**: gracias a la tecnología (una simple app), los ciudadanos pueden dar **retroalimentación (feedback)** continua, informando de socavones, mobiliario urbano dañado, semáforos estropeados o basuras no recogidas. Por eso algunas fuentes prefieren hablar de **'crowdsourced city'** (ciudad de colaboración abierta distribuida) más que de smart city.\n\nEjemplos de aplicaciones: gestión de residuos (SmartWaste, contenedores con GPS; pruebas piloto en 2018 en La Rioja, Cantabria y Canarias), Smart Parking (plazas libres), semáforos e iluminación, gestión de parques y jardines (calidad del aire, humedad), flujos de personas, apps de inundaciones (Chennai, India, 2015). España es uno de los países europeos con más ciudades inteligentes (Santander fue pionera; existe un Plan Nacional de Ciudades Inteligentes)."
+      },
+      {
+        "titulo": "Privacidad y vigilancia en las smart cities",
+        "contenido": "Un asunto muy debatido en las implementaciones de smart cities es **hasta qué punto se deben extraer y procesar datos**. Las cuestiones de **privacidad y soberanía de los datos** deben abordarse con cuidado.\n\nPuede haber **pérdida de control** para los ciudadanos si las cámaras y sensores pueden seguir sus pasos vayan donde vayan, y si los algoritmos influyen en su vida diaria. La monitorización del transporte público, de los aparcamientos (parquímetros con matrícula) o de la telemetría de consumos en viviendas se puede usar potencialmente para **vigilancia masiva**.\n\nComo casi toda tecnología, una smart city puede gestionarse para bien o convertirse en un **aparato de control**. El ejemplo extremo es el **'crédito social' de China**, que combina entradas tradicionales, sociales y online para generar una puntuación que condiciona el acceso a servicios, préstamos, viajes, etc. (similar a un capítulo de *Black Mirror*). La clave del problema no es la tecnología en sí, sino **quién la controla** y con qué fines."
+      },
+      {
+        "titulo": "Gemelos digitales (digital twins)",
+        "contenido": "Un **gemelo digital (digital twin)** es una **réplica digital** de un producto, proceso o sistema físico, construida a partir de la **información obtenida mediante sensores**. Es una réplica **actualizada y exacta** que ofrece información precisa sobre el objeto y la dinámica de su funcionamiento a lo largo de su ciclo de vida.\n\nDiferencia con una **simulación**: una simulación estudia un único proceso; el gemelo digital ejecuta **múltiples procesos a la vez** y, sobre todo, se **retroalimenta con datos reales en tiempo real** del objeto físico (es una simbiosis del mundo físico y el virtual).\n\nPermite:\n- **Anticiparse a problemas** o anomalías antes de que se produzcan (**analítica predictiva**).\n- Probar **modificaciones** para nuevos productos sin riesgo.\n- Simular ajustes personalizados a petición de clientes.\n\nTecnologías que aglutina: **inteligencia artificial**, **aprendizaje automático (machine learning)**, analítica predictiva y telemetría de sensores. Requisito imprescindible: deben existir **datos reales del homólogo físico** (sin ellos no se puede construir). Mecánica: los sensores obtienen datos en tiempo real → se envían a un sistema local o en la nube → se procesan y comparan con datos anteriores y modelos ideales → se genera el gemelo digital, donde se validan los cambios **antes** de pasar a la producción física.\n\nReduce el tiempo de salida al mercado (time to market) casi a la mitad e incrementa la productividad. Usos: motores de aviación, locomotoras de alta velocidad, plataformas petrolíferas, turbinas eólicas, centrales nucleares, medicina, espacio y Fórmula 1. Inconveniente: puede ser **caro** de implementar."
+      },
+      {
+        "titulo": "Proyectos IoT: ciclos de vida del software",
+        "contenido": "Un **proyecto** es un esfuerzo **temporal** para crear un **único producto o servicio** (se distingue de las **operaciones**, que mantienen el producto durante su vida). En IoT, el producto suele ser **software** (acompañado del hardware con sensores/actuadores). La **gestión de proyectos** aplica conocimientos, técnicas y herramientas para satisfacer las necesidades de los **interesados (stakeholders)**.\n\nEl **ciclo de vida del software** abarca la evolución del producto **desde su concepción hasta su retirada**, dividida en fases. Modelos principales:\n- **Cascada**: fases secuenciales (requisitos, diseño, implementación, verificación, mantenimiento). Problema: la verificación va al final, por lo que **no permite detectar errores a tiempo**; corregir un fallo en los requisitos obliga a 'desandar' con gran coste.\n- **Espiral** (Boehm, 1986): iterativo, con **gestión del riesgo** y control de calidad; participación continua del cliente y generación de prototipos. Exige equipos muy preparados.\n- **Iterativo e incremental** (de los más usados hoy): entrega al cliente **'algo de valor' de forma continua**; cada iteración añade funcionalidades hasta el producto final, en pequeños entregables.\n\nUna **metodología** es un conjunto de procedimientos para producir y mantener software, definiendo fases, tareas y participantes. Ejemplos: Métrica 3, SSADM, RUP, XP, PRINCE2, IPMA, ISO 21500. La definición de **requisitos** es un paso crucial y nada trivial. El **PMI (Project Management Institute)** estandariza la dirección de proyectos; ofrece la certificación **PMP**, cuyos conocimientos recoge la guía **PMBOK** (un marco de buenas prácticas, no una metodología)."
+      },
+      {
+        "titulo": "Gestión ágil de proyectos: Scrum y Kanban",
+        "contenido": "Las **metodologías ágiles** adaptan la forma de trabajo a las condiciones del proyecto, dando flexibilidad e inmediatez para reducir costes e incrementar la productividad al avisar pronto de los errores. Son muy útiles cuando los **requisitos no están claros o son muy cambiantes** (como en IoT). Las más usadas: Scrum, Kanban, Scrumban y XP.\n\n- **Scrum** (Nonaka y Takeuchi, años 80; el nombre viene del rugby): planifica en **iteraciones llamadas sprints** (de 2 a 4 semanas), cada una con un **entregable** para el cliente. Los requisitos se anotan priorizados en una **pila (backlog)** de producto; del backlog se pasan tareas a la pila del sprint con un responsable. Riesgo: la pila del sprint puede acumular un exceso de tareas (quemar al equipo).\n- **Kanban** (Japón, ~1950, Toyota): gestiona el flujo de trabajo de forma visual con un **tablero** (columnas: backlog, en curso, hecho...). Su clave es la **limitación del trabajo en curso (WIP, Work In Progress)**: un número máximo de tareas por etapa, lo que evita la sobrecarga. Mide el **tiempo de ciclo** (tiempo medio para completar un elemento). Entrega valor de forma continua (no por sprints).\n\n**Enfoques** de estimación (alcance, tiempo y coste):\n- **Tradicional**: el **alcance es fijo** y el tiempo y el coste son variables (a menudo acaba en desastre si piden más funcionalidades).\n- **Ágil**: el **tiempo y el coste son fijos** y el alcance es variable; es más realista. Conviene usar dos infraestructuras (entorno de desarrollo/pruebas y entorno de producción) y vigilar costes ocultos (complejidad estructural, complejidad del código, cambios del entorno externo). Perfiles habituales del equipo: analista de negocio, jefe de proyecto, arquitecto de sistemas, ingeniero de desarrollo, experto en IoT y experto en UX."
+      }
+    ]
+  },
+  "resumen": [
+    "El cloud tiene ventajas pero alta latencia; con millones de dispositivos IoT, cuando los datos llegan a la nube suele ser tarde para actuar.",
+    "Los modelos de computación evolucionaron de mainframes a cliente-servidor, cloud y, finalmente, Fog y Edge computing, que acercan el procesamiento a la fuente.",
+    "El Edge computing procesa cerca de la fuente o en el propio dispositivo, permitiendo tiempo real; ideal para conectividad pobre y casos como los vehículos autónomos.",
+    "El Fog computing (de Cisco) añade una capa intermedia que procesa en la red local, entre los dispositivos y la nube.",
+    "El modelo de tres capas (Edge, Fog, Cloud) no sustituye a la nube, sino que la complementa para subir solo lo necesario.",
+    "Una smart city aplica IoT, movilidad y datos para hacer la ciudad más eficiente, sostenible y competitiva, con la colaboración (feedback) ciudadana como pieza clave.",
+    "Las smart cities plantean un debate de privacidad: la sensorización y las cámaras pueden derivar en vigilancia masiva, como el crédito social de China.",
+    "Un gemelo digital es una réplica digital de un objeto físico construida con datos de sensores, que se retroalimenta en tiempo real y permite analítica predictiva.",
+    "La diferencia con una simulación es que el gemelo digital integra múltiples procesos y datos reales en tiempo real, y requiere datos del homólogo físico para existir.",
+    "Un proyecto es un esfuerzo temporal para crear un único producto o servicio; en IoT el producto suele ser software con hardware de sensores/actuadores.",
+    "El ciclo de vida del software va de la concepción a la retirada; modelos: cascada (no detecta errores a tiempo), espiral (gestión del riesgo) e iterativo-incremental (entrega valor continuo).",
+    "Las metodologías ágiles (Scrum, Kanban, XP) sirven cuando los requisitos son cambiantes; Scrum usa sprints y backlog, y Kanban limita el trabajo en curso (WIP).",
+    "El enfoque tradicional fija el alcance y deja variar tiempo y coste; el enfoque ágil fija tiempo y coste y deja variar el alcance (más realista).",
+    "El PMI estandariza la gestión de proyectos con la certificación PMP y la guía PMBOK (buenas prácticas, no una metodología)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Latencia (en cloud)",
+      "definicion": "Retardo entre el envío del dato y su procesamiento en la nube; principal inconveniente del cloud para el IoT en tiempo real."
+    },
+    {
+      "termino": "Edge computing",
+      "definicion": "Computación en el extremo: procesa los datos cerca de la fuente o en el propio dispositivo, reduciendo la latencia."
+    },
+    {
+      "termino": "Fog computing",
+      "definicion": "Computación en la niebla (de Cisco): capa intermedia que procesa en la red local entre los dispositivos y la nube."
+    },
+    {
+      "termino": "Modelo de tres capas (Edge-Fog-Cloud)",
+      "definicion": "Arquitectura que combina procesamiento en el dispositivo (Edge), en la red local (Fog) y en los datacenters (Cloud); las capas se complementan."
+    },
+    {
+      "termino": "Smart city (ciudad inteligente)",
+      "definicion": "Ciudad que aplica IoT, movilidad y datos para ser más eficiente, sostenible, centrada en el ciudadano y competitiva."
+    },
+    {
+      "termino": "Crowdsourced city",
+      "definicion": "Ciudad de colaboración abierta distribuida: enfoque que destaca el feedback y la participación ciudadana sobre la mera tecnología."
+    },
+    {
+      "termino": "Crédito social",
+      "definicion": "Sistema (ejemplo de China) que puntúa a los ciudadanos combinando datos tradicionales, sociales y online, condicionando su acceso a servicios; ejemplo de vigilancia masiva."
+    },
+    {
+      "termino": "Gemelo digital (digital twin)",
+      "definicion": "Réplica digital de un objeto físico construida con datos de sensores, que se retroalimenta en tiempo real para análisis y simulación."
+    },
+    {
+      "termino": "Analítica predictiva",
+      "definicion": "Técnica que permite anticipar problemas o anomalías antes de que se produzcan; clave en los gemelos digitales."
+    },
+    {
+      "termino": "Proyecto vs operaciones",
+      "definicion": "El proyecto es un esfuerzo temporal que crea un único producto y termina al entregarlo; las operaciones lo mantienen durante su vida útil."
+    },
+    {
+      "termino": "Ciclo de vida del software",
+      "definicion": "Evolución del producto software desde su concepción hasta su retirada, dividida en fases."
+    },
+    {
+      "termino": "Modelo en cascada",
+      "definicion": "Ciclo de vida secuencial cuya verificación al final impide detectar a tiempo errores en requisitos o diseño."
+    },
+    {
+      "termino": "Modelo en espiral",
+      "definicion": "Ciclo de vida iterativo (Boehm, 1986) con gestión del riesgo y participación continua del cliente."
+    },
+    {
+      "termino": "Modelo iterativo e incremental",
+      "definicion": "Ciclo de vida que entrega valor al cliente de forma continua, añadiendo funcionalidades en sucesivas versiones."
+    },
+    {
+      "termino": "Metodología (de software)",
+      "definicion": "Conjunto de procedimientos para producir y mantener software, definiendo fases, tareas, objetivos y participantes."
+    },
+    {
+      "termino": "PMI / PMP / PMBOK",
+      "definicion": "Instituto que estandariza la gestión de proyectos (PMI), su certificación (PMP) y su guía de buenas prácticas (PMBOK, que no es una metodología)."
+    },
+    {
+      "termino": "Scrum",
+      "definicion": "Metodología ágil basada en iteraciones (sprints de 2-4 semanas) con entregables, y una pila o backlog de requisitos priorizados."
+    },
+    {
+      "termino": "Kanban",
+      "definicion": "Metodología ágil (Toyota, ~1950) que visualiza el flujo en un tablero y limita el trabajo en curso (WIP), midiendo el tiempo de ciclo."
+    },
+    {
+      "termino": "WIP (Work In Progress)",
+      "definicion": "Limitación del número de tareas que pueden estar en progreso en cada etapa del flujo de trabajo en Kanban."
+    },
+    {
+      "termino": "Enfoque tradicional vs ágil",
+      "definicion": "Tradicional: alcance fijo, tiempo y coste variables; ágil: tiempo y coste fijos, alcance variable (más realista)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-7-fc-001",
+      "pregunta": "¿Cuál es el principal inconveniente del cloud para el IoT?",
+      "respuesta": "Los tiempos de latencia: con tantos datos, cuando llegan a la nube para analizarse a menudo ya es tarde para actuar."
+    },
+    {
+      "id": "te-tema-7-fc-002",
+      "pregunta": "Ordena la evolución de los modelos de computación.",
+      "respuesta": "Mainframes, cliente-servidor, cloud y, por último, Fog y Edge computing."
+    },
+    {
+      "id": "te-tema-7-fc-003",
+      "pregunta": "¿Qué es el Edge computing?",
+      "respuesta": "La computación en el extremo: procesa los datos cerca de la fuente o en el propio dispositivo, reduciendo la latencia."
+    },
+    {
+      "id": "te-tema-7-fc-004",
+      "pregunta": "¿Qué es el Fog computing y quién acuñó el término?",
+      "respuesta": "La computación en la niebla, una capa intermedia que procesa en la red local entre los dispositivos y la nube; el término lo acuñó Cisco."
+    },
+    {
+      "id": "te-tema-7-fc-005",
+      "pregunta": "¿Cuál es la diferencia técnica entre Edge y Fog computing?",
+      "respuesta": "El Edge procesa en los propios dispositivos; el Fog desplaza el procesamiento a la red local."
+    },
+    {
+      "id": "te-tema-7-fc-006",
+      "pregunta": "¿Sustituyen el Edge y el Fog computing a la nube?",
+      "respuesta": "No: la complementan, en un modelo de tres capas (Edge, Fog, Cloud) que busca subir a la nube solo lo necesario."
+    },
+    {
+      "id": "te-tema-7-fc-007",
+      "pregunta": "Pon un ejemplo de Edge computing en el móvil.",
+      "respuesta": "Pedirle a Siri o Google que ponga una alarma o el modo avión: se procesa en el propio dispositivo, sin Internet."
+    },
+    {
+      "id": "te-tema-7-fc-008",
+      "pregunta": "¿Qué es una smart city?",
+      "respuesta": "Una ciudad que aplica IoT, movilidad y datos para ser más eficiente, sostenible, centrada en el ciudadano y competitiva."
+    },
+    {
+      "id": "te-tema-7-fc-009",
+      "pregunta": "¿Por qué es clave la ciudadanía en una smart city?",
+      "respuesta": "Porque, gracias a la tecnología, aporta feedback continuo (informa de averías, basuras, etc.); de ahí el término 'crowdsourced city'."
+    },
+    {
+      "id": "te-tema-7-fc-010",
+      "pregunta": "¿Qué riesgo plantean las smart cities?",
+      "respuesta": "La pérdida de privacidad y la vigilancia masiva mediante cámaras y sensores; el ejemplo extremo es el crédito social de China."
+    },
+    {
+      "id": "te-tema-7-fc-011",
+      "pregunta": "¿Qué es un gemelo digital (digital twin)?",
+      "respuesta": "Una réplica digital de un objeto físico construida con datos de sensores, que se retroalimenta en tiempo real para análisis y simulación."
+    },
+    {
+      "id": "te-tema-7-fc-012",
+      "pregunta": "¿En qué se diferencia un gemelo digital de una simulación?",
+      "respuesta": "El gemelo integra múltiples procesos a la vez y se retroalimenta con datos reales en tiempo real del objeto físico."
+    },
+    {
+      "id": "te-tema-7-fc-013",
+      "pregunta": "¿Qué requisito imprescindible tiene un gemelo digital?",
+      "respuesta": "Que existan datos reales procedentes del homólogo físico; sin ellos no se puede construir."
+    },
+    {
+      "id": "te-tema-7-fc-014",
+      "pregunta": "¿Qué permite la analítica predictiva en un gemelo digital?",
+      "respuesta": "Anticiparse a posibles problemas o anomalías antes de que se produzcan, y validar cambios antes de la producción física."
+    },
+    {
+      "id": "te-tema-7-fc-015",
+      "pregunta": "¿Qué diferencia un proyecto de las operaciones?",
+      "respuesta": "El proyecto es temporal y termina al crear/entregar el producto; las operaciones lo mantienen durante toda su vida útil."
+    },
+    {
+      "id": "te-tema-7-fc-016",
+      "pregunta": "¿Qué abarca el ciclo de vida del software?",
+      "respuesta": "La evolución del producto desde su concepción hasta su retirada, dividida en fases."
+    },
+    {
+      "id": "te-tema-7-fc-017",
+      "pregunta": "¿Cuál es el problema del modelo en cascada?",
+      "respuesta": "Que la verificación va al final, por lo que no permite detectar a tiempo errores en los requisitos o el diseño (corregir cuesta mucho)."
+    },
+    {
+      "id": "te-tema-7-fc-018",
+      "pregunta": "¿Qué caracteriza al modelo iterativo e incremental?",
+      "respuesta": "Que entrega 'algo de valor' al cliente de forma continua, añadiendo funcionalidades en sucesivas versiones."
+    },
+    {
+      "id": "te-tema-7-fc-019",
+      "pregunta": "¿Qué es el PMBOK?",
+      "respuesta": "Una guía de buenas prácticas de gestión de proyectos del PMI (no es una metodología); su certificación asociada es la PMP."
+    },
+    {
+      "id": "te-tema-7-fc-020",
+      "pregunta": "¿Qué caracteriza a Scrum?",
+      "respuesta": "Planifica en iteraciones (sprints de 2-4 semanas) con entregables, y usa una pila o backlog de requisitos priorizados."
+    },
+    {
+      "id": "te-tema-7-fc-021",
+      "pregunta": "¿Qué es el WIP en Kanban?",
+      "respuesta": "Work In Progress: la limitación del número de tareas que pueden estar en progreso en cada etapa del flujo de trabajo."
+    },
+    {
+      "id": "te-tema-7-fc-022",
+      "pregunta": "¿Cuándo son útiles las metodologías ágiles?",
+      "respuesta": "Cuando los requisitos no están claros o son muy cambiantes, como en los proyectos de software/IoT."
+    },
+    {
+      "id": "te-tema-7-fc-023",
+      "pregunta": "Diferencia entre enfoque tradicional y ágil en la estimación.",
+      "respuesta": "El tradicional fija el alcance y varía tiempo y coste; el ágil fija tiempo y coste y varía el alcance (más realista)."
+    },
+    {
+      "id": "te-tema-7-fc-024",
+      "pregunta": "¿Por qué se usan entornos de desarrollo y de producción separados?",
+      "respuesta": "Para desarrollar y probar sin afectar al producto final; el de producción es donde reside el sistema para los usuarios reales."
+    }
+  ]
+}

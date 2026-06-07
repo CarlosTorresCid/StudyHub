@@ -1,0 +1,277 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Introducción a las metodologías ágiles",
+  "apuntes": {
+    "introduccion": "Este tema sienta las bases conceptuales de toda la asignatura. Antes de entrar en metodologías concretas como Scrum o XP, es imprescindible distinguir con claridad qué es un proceso de software, qué es un modelo de proceso y qué es una metodología. A partir de ahí, se analizan los distintos flujos de proceso posibles, se estudia el origen y contenido del Manifiesto Ágil (2001), y se hace un recorrido por las principales metodologías ágiles que han surgido desde entonces, entendiendo qué aspecto del Manifiesto enfatiza cada una. El tema cierra con una reflexión crítica sobre cuándo conviene aplicar metodologías ágiles y qué factores deben considerarse.",
+    "secciones": [
+      {
+        "titulo": "Conceptos fundamentales: proceso, modelo y metodología",
+        "contenido": "Es esencial no confundir estos tres conceptos, que habitualmente se usan de forma imprecisa:\n\n**Proceso de software:** es una serie de actividades relacionadas que conducen a la elaboración de un producto software. Incluye actividades como comunicación con el cliente, planificación, modelado (análisis y diseño), construcción (código y pruebas) y despliegue.\n\n**Modelo de proceso de software:** es una representación simplificada y abstracta de ese proceso, que nos ayuda a comprenderlo. El modelo en cascada (waterfall), por ejemplo, es un modelo de proceso, no una metodología. Sobre un mismo modelo pueden definirse múltiples metodologías distintas.\n\n**Metodología de desarrollo de software:** es la aplicación práctica de un modelo de proceso. Define actividades, acciones, tareas concretas, roles del equipo, artefactos que se producen y cómo se organizan. Va más allá del modelo, pues establece quién hace qué, cómo se toman decisiones, qué documentación se genera, qué herramientas se usan, etc.\n\nEjemplo aclaratorio: waterfall NO es una metodología; es un modelo de proceso. Las metodologías que se apoyan en ese modelo (secuencial) serían metodologías basadas en cascada."
+      },
+      {
+        "titulo": "Flujos de proceso",
+        "contenido": "Las actividades del proceso de software (especificación, diseño, implementación, pruebas, despliegue, evolución) pueden combinarse y secuenciarse de distintas maneras, dando lugar a los llamados flujos de proceso. Existen cuatro flujos canónicos:\n\n**1. Flujo lineal:** ejecuta todas las actividades de forma secuencial. Cada actividad comienza cuando termina la anterior. Es el modelo en cascada clásico. Ventaja: simplicidad y previsibilidad. Inconveniente: inflexible ante cambios; el despliegue ocurre una sola vez al final.\n\n**2. Flujo iterativo:** repite una o más actividades antes de pasar a la siguiente. Por ejemplo, implementación y pruebas pueden alternarse en ciclos hasta que el resultado sea satisfactorio. Permite corregir errores de forma anticipada.\n\n**3. Flujo evolutivo o incremental:** se trabaja en ciclos completos (especificación → diseño → implementación → pruebas → despliegue), pero cada ciclo entrega un incremento funcional del software. El cliente recibe versiones parciales y crecientes del producto. Hay que distinguir dos variantes: el **modelo incremental** parte de una especificación completa desde el inicio y la implementa en porciones; el **modelo evolutivo** mejora progresivamente la comprensión del sistema en cada ciclo, por lo que la especificación también puede cambiar. Los modelos ágiles siempre utilizan flujos iterativos, evolutivos o incrementales.\n\n**4. Flujo paralelo:** ejecuta varias actividades de forma simultánea. Es habitual en proyectos grandes, donde diferentes equipos trabajan en paralelo sobre distintos subsistemas o módulos."
+      },
+      {
+        "titulo": "Metodologías tradicionales frente a metodologías ágiles",
+        "contenido": "Las **metodologías tradicionales** (también llamadas 'pesadas') se caracterizan por:\n- Fases estrictamente definidas y secuenciales.\n- Gran peso de la documentación: cada fase produce documentos que deben ser aprobados antes de continuar.\n- Cambios costosos: modificar los requisitos en fases avanzadas implica revisar documentación y rediseño.\n- Planificación exhaustiva al inicio del proyecto.\n\nLas **metodologías ágiles** surgen para resolver los problemas de las anteriores. Sus rasgos fundamentales son:\n- Enfoques iterativos: el software se entrega en incrementos frecuentes.\n- Menor carga documental: la documentación existe pero se mantiene en el nivel estrictamente necesario.\n- Adaptación al cambio: se asume que los requisitos cambiarán y el proceso lo contempla.\n- Equipos pequeños, autoorganizados y ubicados en el mismo lugar (o comunicados de forma efectiva).\n- Colaboración continua con el cliente.\n\nImportante: muchas personas prefieren hablar de **frameworks** en lugar de metodologías ágiles, porque estos marcos no son rígidos; requieren adaptación al contexto concreto de cada organización, equipo o proyecto."
+      },
+      {
+        "titulo": "El Manifiesto Ágil: origen y cuatro valores fundamentales",
+        "contenido": "En febrero de 2001, diecisiete expertos en desarrollo y gestión de proyectos se reunieron en Utah (EE. UU.) para compartir experiencias y reflexionar sobre mejores formas de desarrollar software. El resultado fue el **Manifiesto Ágil**, que se concreta en cuatro valores fundamentales y doce principios.\n\nLos cuatro valores son:\n\n**1. Individuos e interacciones, sobre procesos y herramientas.**\nEl software lo construyen personas. El factor clave del éxito es el equipo: las relaciones entre sus miembros, la comunicación y la capacidad de construir un entorno de trabajo colaborativo. Los procesos y herramientas son útiles, pero secundarios respecto a las personas.\n\n**2. Software funcional, sobre documentación extensa.**\nLa documentación es necesaria, pero debe mantenerse en el nivel estrictamente imprescindible para cumplir su misión. Lo que realmente importa es entregar software que funcione. La documentación que no aporta valor es un coste, no un activo.\n\n**3. Colaboración con el cliente, sobre negociación contractual.**\nEl cliente no es un agente externo al que se le entrega el producto al final; es un participante activo durante todo el desarrollo. Su retroalimentación continua es imprescindible para construir el producto correcto.\n\n**4. Respuesta al cambio, sobre el seguimiento estricto de un plan.**\nLos requisitos cambian. En lugar de resistirse al cambio o verlo como un problema, las metodologías ágiles lo aceptan y gestionan activamente. Un plan rígido que no puede adaptarse a nueva información es una fuente de fracaso.\n\nEl manifiesto aclara explícitamente: 'aunque reconocemos valor en los elementos de la derecha, valoramos más los elementos que aparecen a la izquierda'. Es decir, no se niega la utilidad de los procesos, la documentación, los contratos o los planes, sino que se les da menos peso."
+      },
+      {
+        "titulo": "Los doce principios del Manifiesto Ágil",
+        "contenido": "Los firmantes del Manifiesto elaboraron también doce principios que concretan y desarrollan los cuatro valores:\n\n1. **Satisfacción del cliente mediante entregas tempranas y continuas** de software con valor.\n2. **Bienvenida al cambio en los requisitos**, incluso en etapas tardías del desarrollo. La agilidad aprovecha el cambio para dar ventaja competitiva al cliente.\n3. **Entrega frecuente de software funcional**, en periodos cortos (semanas o pocos meses).\n4. **Negocio y desarrollo trabajan juntos** a lo largo del proyecto, con comunicación diaria.\n5. **Motivación y empoderamiento del equipo**: los proyectos se construyen en torno a personas motivadas, dándoles el entorno y el apoyo que necesitan.\n6. **La comunicación oral cara a cara** es el método más eficiente y efectivo para transmitir información.\n7. **El software funcional es la medida principal del progreso**.\n8. **Ritmo constante y sostenido**: el desarrollo ágil promueve un ritmo de trabajo sostenible indefinidamente.\n9. **Atención continua a la excelencia técnica y el buen diseño** mejora la agilidad.\n10. **Simplicidad**: maximizar la cantidad de trabajo no realizado es esencial.\n11. **Equipos autoorganizados**: las mejores arquitecturas, requisitos y diseños emergen de equipos que se organizan a sí mismos.\n12. **Reflexión periódica sobre cómo ser más efectivos** y ajuste del comportamiento del equipo en consecuencia (mejora continua)."
+      },
+      {
+        "titulo": "Panorama de las principales metodologías ágiles",
+        "contenido": "Desde el Manifiesto Ágil han surgido numerosas metodologías y frameworks. Lo relevante no es memorizarlas todas, sino entender cómo cada una enfatiza distintos aspectos del Manifiesto. Las más importantes en el contexto de esta asignatura son:\n\n**Scrum:** es fundamentalmente un marco general del proceso. Propone una manera de organizar el trabajo, las reuniones y la colaboración con el cliente. Define roles (Product Owner, Scrum Master, equipo de desarrollo), artefactos (pila del producto, pila del sprint) y eventos (sprint, reunión de planificación, scrum diario, revisión, retrospectiva). Su enfoque es administrativo y de gestión del proceso más que de prácticas técnicas de ingeniería.\n\n**Programación Extrema (XP):** desarrollada principalmente por Kent Beck. Está muy centrada en la ingeniería: propone prácticas técnicas concretas (desarrollo guiado por pruebas, programación en parejas, integración continua, refactorización, propiedad colectiva del código, etc.). Es la metodología con mayor énfasis en la calidad técnica del software.\n\n**Crystal:** familia de metodologías creadas por Alistair Cockburn (originalmente para IBM en 1991). Muy centradas en las personas, la gestión del equipo y su bienestar. Varía en función del tamaño del equipo: Crystal Clear (menos de 8 personas), Crystal Yellow (10–20), Crystal Orange (25–50), Crystal Red (51–100), etc. Sus prioridades comunes son: seguridad en la obtención de resultados, eficiencia en el proceso y aceptación de las normas de la metodología.\n\n**Feature-Driven Development (FDD):** centrada en la entrega de valor y el diseño del producto. Sus iteraciones son muy cortas (menos de dos semanas) y se articulan en torno a *características* (features): funcionalidades sencillas con aportación de valor de negocio, siguiendo el patrón acción + resultado + objeto (ej.: 'Calcular el importe total de un pedido'). Tiene un fuerte énfasis en el diseño y sigue un modelo de 5 pasos: (1) modelo de dominio general, (2) jerarquía de características en tres niveles (área de dominio, actividades, características concretas), (3) planificación por características, (4) diseño por característica, (5) desarrollo por característica.\n\n**Adaptive Software Development (ASD):** propuesta por Jim Highsmith. Parte de la convicción de que las necesidades del cliente siempre cambiarán, tanto durante el proyecto como tras su finalización. Sus objetivos son concienciar a la organización de trabajar *con* el cambio (no contra él), facilitar la gestión del cambio y la comunicación, y definir estrategias de desarrollo rápido pero disciplinado. Sustituye las fases tradicionales (planificación, diseño, construcción) por un ciclo de tres fases más abstractas: especulación, colaboración y aprendizaje."
+      },
+      {
+        "titulo": "ASD en detalle: el ciclo especulación-colaboración-aprendizaje",
+        "contenido": "ASD plantea un modelo de proceso cíclico muy abstracto organizado en tres fases:\n\n**Fase de especulación:** el término 'especulación' reconoce la naturaleza incierta de los sistemas complejos y anima a la exploración. Aunque la planificación no se abandona, el equipo asume que los planes pueden cambiar. Esta fase comprende dos prácticas:\n- *Iniciación del proyecto:* definir la misión y objetivos, entender las restricciones, establecer la organización, identificar requisitos preliminares, estimar tamaño y alcance, e identificar los principales riesgos. Dura entre 2 y 5 días en proyectos pequeños y hasta 3 semanas en proyectos grandes.\n- *Planificación adaptativa:* con la información de alcance y recursos, se define un marco temporal para el proyecto, se establece el número de iteraciones y la duración de cada una. Cada iteración queda asociada a un objetivo temático general.\n\n**Fase de colaboración:** en ASD se parte de que los sistemas complejos no se construyen, sino que *evolucionan*. Esta fase implica desarrollo orientado a componentes con un equipo multidisciplinar. La comunicación es especialmente importante.\n\n**Fase de aprendizaje:** al final de cada ciclo se revisa la calidad del sistema con el cliente y el equipo reflexiona sobre el proceso desarrollado para mejorar en la siguiente iteración."
+      },
+      {
+        "titulo": "Crystal en detalle: propiedades fundamentales",
+        "contenido": "Crystal define siete propiedades que considera fundamentales para el buen funcionamiento de un equipo de desarrollo. Las tres primeras son consideradas imprescindibles:\n\n1. **Entregas frecuentes:** el equipo debe entregar software funcional con regularidad, en periodos que van de una semana a cuatro meses como máximo.\n2. **Mejora reflexiva:** el equipo dialoga periódicamente sobre su propia práctica para identificar qué funciona y qué no.\n3. **Comunicación osmótica:** el equipo comparte un espacio de trabajo común para que la información fluya de forma natural, como por 'ósmosis'.\n4. **Seguridad personal:** cada miembro del equipo debe sentirse libre para expresar sus ideas y preocupaciones sin temor a represalias.\n5. **Focus:** el equipo debe poder concentrarse en la tarea sin interrupciones externas excesivas.\n6. **Acceso directo a usuarios expertos:** el equipo necesita retroalimentación directa de personas expertas en el dominio del problema.\n7. **Entorno tecnológicamente apropiado:** las herramientas deben ser las adecuadas para el proyecto.\n\nCrystal adapta sus prescripciones al tamaño del equipo, siendo más ligera (menos reglas) para equipos pequeños y más estructurada para equipos más grandes."
+      },
+      {
+        "titulo": "Escalabilidad de los métodos ágiles",
+        "contenido": "Las metodologías ágiles nacieron pensadas para equipos pequeños, autoorganizados y ubicados en el mismo lugar. Sin embargo, los grandes sistemas presentan características que dificultan su aplicación directa:\n\n- **Subsistemas asignados a equipos distintos:** dificultad de visión global y comunicación entre equipos.\n- **Conexión entre distintos subsistemas:** las dependencias entre equipos complican los desarrollos incrementales.\n- **Sujetos a regulación externa:** en algunos sectores (financiero, aeronáutico, sanitario) existen normas que obligan a seguir metodologías específicas, incompatibles con enfoques puramente ágiles.\n- **Desarrollo prolongado en el tiempo:** aumenta la probabilidad de cambios importantes en los requisitos.\n- **Muchos stakeholders:** cuando hay muchos tipos de usuario y partes interesadas, la comunicación continua con todos es muy difícil.\n\nAdemás, las grandes organizaciones suelen tener reticencias ante los métodos ágiles por desconocimiento, falta de experiencia previa o por la existencia de normas internas burocráticas difícilmente compatibles con la informalidad ágil.\n\nPara abordar estos problemas, las principales metodologías ofrecen extensiones de escalado (como Scrum de Scrums en el caso de Scrum) y existe una mayor necesidad de documentación, herramientas tecnológicas de comunicación y gestión del código."
+      },
+      {
+        "titulo": "Factores para elegir una metodología ágil",
+        "contenido": "El hecho de que los métodos ágiles presenten ventajas no significa que sean siempre la mejor opción. Antes de elegir una metodología, deben considerarse al menos seis factores:\n\n**1. Tamaño del proyecto y del equipo.**\n¿Cuántas personas componen el equipo? ¿Están en el mismo lugar o distribuidos geográficamente? Las metodologías ágiles fueron diseñadas inicialmente para equipos reducidos. Cuanto mayor y más distribuido sea el equipo, más dificultades habrá para aplicar la agilidad de forma directa.\n\n**2. Volatilidad de los requisitos.**\n¿Están los requisitos claros y estables, o es probable que cambien? Si los requisitos son muy estables desde el inicio, una metodología más planificada puede ser más eficiente. Si hay incertidumbre, la agilidad aporta mayor valor.\n\n**3. Criticidad del sistema.**\n¿Podemos desplegar incrementos del sistema mientras está en producción? Los sistemas críticos (banca, control aéreo, sanidad) exigen validación formal y trazabilidad que puede ser difícil de combinar con el enfoque iterativo puro.\n\n**4. Disponibilidad del cliente.**\nLas metodologías ágiles requieren retroalimentación continua del cliente. Si el cliente no puede implicarse activamente en el proceso (por tiempo, distancia o perfil), la agilidad pierde parte de su eficacia.\n\n**5. Experiencia y preparación del equipo.**\n¿Ha trabajado el equipo antes con metodologías ágiles? ¿Tiene experiencia en estimación, en autorganización? Un equipo sin experiencia previa puede tener dificultades para aplicar la metodología correctamente.\n\n**6. Cultura de la organización y del entorno.**\n¿Es la organización capaz de asumir la informalidad, las reuniones diarias, la documentación reducida? La agilidad a menudo implica un cambio cultural profundo, y si la organización no está preparada, la metodología fracasará independientemente de su calidad teórica."
+      }
+    ]
+  },
+  "resumen": [
+    "Un proceso de software es una serie de actividades relacionadas que producen software; un modelo de proceso es su representación abstracta; una metodología concreta define roles, artefactos y actividades específicas.",
+    "Waterfall no es una metodología, sino un modelo de proceso; sobre él pueden definirse múltiples metodologías distintas.",
+    "Los cuatro flujos de proceso canónicos son: lineal (secuencial), iterativo (repetición de fases), evolutivo o incremental (entregas parciales crecientes) y paralelo (actividades simultáneas).",
+    "Las metodologías ágiles se caracterizan por ciclos iterativos, menor documentación, adaptación al cambio, equipos autoorganizados y colaboración continua con el cliente.",
+    "El Manifiesto Ágil nació en febrero de 2001 de una reunión de diecisiete expertos en Utah y se articula en cuatro valores y doce principios.",
+    "Los cuatro valores del Manifiesto son: individuos e interacciones sobre procesos, software funcional sobre documentación, colaboración con el cliente sobre contratos, y respuesta al cambio sobre seguir un plan.",
+    "Los doce principios del Manifiesto concretan los valores: entregas tempranas, bienvenida al cambio, frecuencia de entrega, colaboración diaria, motivación, comunicación oral, software como medida de progreso, ritmo sostenible, excelencia técnica, simplicidad, autoorganización y mejora continua.",
+    "Scrum es un marco centrado en la gestión del proceso; XP está centrada en prácticas técnicas de ingeniería; Crystal se centra en las personas y el equipo; FDD se centra en la entrega de características de negocio; ASD se centra en la adaptación al cambio a nivel organizacional.",
+    "Crystal adapta sus reglas al tamaño del equipo (Clear, Yellow, Orange, Red) y define siete propiedades fundamentales, de las que las tres primeras son imprescindibles: entregas frecuentes, mejora reflexiva y comunicación osmótica.",
+    "FDD trabaja con características (features) descritas como acción + resultado + objeto, en iteraciones de menos de dos semanas, siguiendo un modelo de cinco pasos que enfatiza el diseño.",
+    "ASD sustituye las fases tradicionales por el ciclo especulación-colaboración-aprendizaje, reconociendo la naturaleza incierta de los sistemas complejos.",
+    "Los métodos ágiles nacieron para equipos pequeños y presentan dificultades de escalado en grandes sistemas: múltiples equipos, dependencias, regulación externa, muchos stakeholders y desarrollo prolongado.",
+    "Los seis factores principales para decidir si usar una metodología ágil son: tamaño del equipo, volatilidad de requisitos, criticidad del sistema, disponibilidad del cliente, experiencia del equipo y cultura organizacional."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Proceso de software",
+      "definicion": "Serie de actividades relacionadas (comunicación, planificación, modelado, construcción, despliegue) que conducen a la elaboración de un producto software."
+    },
+    {
+      "termino": "Modelo de proceso de software",
+      "definicion": "Representación simplificada y abstracta del proceso de software que ayuda a comprenderlo. El modelo en cascada es un ejemplo; no es en sí mismo una metodología."
+    },
+    {
+      "termino": "Metodología de desarrollo de software",
+      "definicion": "Aplicación práctica de un modelo de proceso que define actividades, roles, artefactos y reglas concretas para planificar y construir un sistema software."
+    },
+    {
+      "termino": "Flujo lineal",
+      "definicion": "Flujo de proceso en el que las actividades se ejecutan de forma estrictamente secuencial, una tras otra. Base del modelo en cascada."
+    },
+    {
+      "termino": "Flujo iterativo",
+      "definicion": "Flujo de proceso en el que una o más actividades se repiten en ciclos hasta alcanzar el resultado deseado antes de avanzar a la siguiente fase."
+    },
+    {
+      "termino": "Flujo evolutivo o incremental",
+      "definicion": "Flujo de proceso en el que se realizan ciclos completos que entregan versiones funcionales y crecientes del software. En el incremental la especificación es estable; en el evolutivo mejora la comprensión del sistema en cada ciclo."
+    },
+    {
+      "termino": "Flujo paralelo",
+      "definicion": "Flujo de proceso en el que varias actividades o módulos se desarrollan simultáneamente, habitual en proyectos grandes con múltiples equipos."
+    },
+    {
+      "termino": "Manifiesto Ágil",
+      "definicion": "Documento firmado en febrero de 2001 por 17 expertos en desarrollo software que establece cuatro valores y doce principios como base de las metodologías ágiles."
+    },
+    {
+      "termino": "Framework (en agilidad)",
+      "definicion": "Marco de trabajo que guía el proceso de desarrollo sin prescribirlo de forma rígida, permitiendo adaptación al contexto de cada organización o proyecto. Muchas 'metodologías' ágiles son en realidad frameworks."
+    },
+    {
+      "termino": "Scrum",
+      "definicion": "Framework ágil centrado en la gestión del proceso. Define roles (Product Owner, Scrum Master, equipo), artefactos (pila del producto, pila del sprint) y eventos (sprint, reuniones) para organizar el trabajo en iteraciones cortas."
+    },
+    {
+      "termino": "Programación Extrema (XP)",
+      "definicion": "Metodología ágil desarrollada por Kent Beck, muy centrada en prácticas técnicas de ingeniería: TDD, programación en parejas, integración continua, refactorización, propiedad colectiva del código, etc."
+    },
+    {
+      "termino": "Crystal",
+      "definicion": "Familia de metodologías ágiles creada por Alistair Cockburn, centradas en las personas y el equipo. Se adaptan al tamaño del equipo: Clear (<8), Yellow (10-20), Orange (25-50), Red (51-100)."
+    },
+    {
+      "termino": "Feature-Driven Development (FDD)",
+      "definicion": "Metodología ágil centrada en la entrega de características (features) de valor de negocio, con iteraciones muy cortas (<2 semanas) y fuerte énfasis en el diseño, siguiendo un modelo de 5 pasos."
+    },
+    {
+      "termino": "Feature (FDD)",
+      "definicion": "Unidad de trabajo en FDD: funcionalidad sencilla con aportación de valor de negocio, descrita con el patrón: acción + resultado + objeto. Ejemplo: 'Calcular el importe total de un pedido'."
+    },
+    {
+      "termino": "Adaptive Software Development (ASD)",
+      "definicion": "Metodología ágil propuesta por Jim Highsmith que asume que los requisitos siempre cambiarán. Sustituye las fases tradicionales por el ciclo especulación-colaboración-aprendizaje para gestionar la incertidumbre."
+    },
+    {
+      "termino": "Comunicación osmótica (Crystal)",
+      "definicion": "Propiedad de Crystal que consiste en compartir un espacio de trabajo común para que la información relevante fluya de forma natural entre los miembros del equipo, sin necesidad de reuniones formales para cada intercambio."
+    },
+    {
+      "termino": "Escalabilidad de métodos ágiles",
+      "definicion": "Capacidad de aplicar metodologías ágiles, diseñadas para equipos pequeños, a proyectos grandes con múltiples equipos, subsistemas y stakeholders. Presenta dificultades asociadas a comunicación, dependencias y regulación."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-1-fc-001",
+      "pregunta": "¿Cuál es la diferencia entre modelo de proceso y metodología de software?",
+      "respuesta": "Un modelo de proceso es una representación abstracta de cómo se organiza el desarrollo (ej.: cascada). Una metodología es la aplicación práctica de ese modelo, con roles, artefactos y actividades concretas definidas."
+    },
+    {
+      "id": "isa-tema-1-fc-002",
+      "pregunta": "¿Waterfall es una metodología o un modelo de proceso?",
+      "respuesta": "Es un modelo de proceso, no una metodología. Sobre el modelo en cascada pueden definirse múltiples metodologías diferentes."
+    },
+    {
+      "id": "isa-tema-1-fc-003",
+      "pregunta": "¿En qué consiste el flujo de proceso lineal?",
+      "respuesta": "Las actividades se ejecutan de forma estrictamente secuencial: cada actividad comienza cuando termina la anterior. El despliegue ocurre una única vez al final."
+    },
+    {
+      "id": "isa-tema-1-fc-004",
+      "pregunta": "¿En qué se diferencia el flujo incremental del flujo evolutivo?",
+      "respuesta": "En el incremental la especificación es estable desde el inicio y se implementa en partes. En el evolutivo la comprensión del sistema mejora en cada ciclo y la especificación puede cambiar entre iteraciones."
+    },
+    {
+      "id": "isa-tema-1-fc-005",
+      "pregunta": "¿Cuándo y dónde surgió el Manifiesto Ágil?",
+      "respuesta": "En febrero de 2001, durante una reunión de 17 expertos en Utah (EE. UU.)."
+    },
+    {
+      "id": "isa-tema-1-fc-006",
+      "pregunta": "¿Cuáles son los cuatro valores del Manifiesto Ágil?",
+      "respuesta": "1. Individuos e interacciones sobre procesos y herramientas. 2. Software funcional sobre documentación extensa. 3. Colaboración con el cliente sobre negociación contractual. 4. Respuesta al cambio sobre seguimiento estricto del plan."
+    },
+    {
+      "id": "isa-tema-1-fc-007",
+      "pregunta": "¿El Manifiesto Ágil niega el valor de los procesos, la documentación y los contratos?",
+      "respuesta": "No. Reconoce valor en los elementos de la derecha (procesos, documentación, contratos, planes), pero afirma que los elementos de la izquierda se valoran más."
+    },
+    {
+      "id": "isa-tema-1-fc-008",
+      "pregunta": "¿Cuántos principios establece el Manifiesto Ágil y cuál es el primero?",
+      "respuesta": "12 principios. El primero establece que la prioridad máxima es satisfacer al cliente mediante entregas tempranas y continuas de software con valor."
+    },
+    {
+      "id": "isa-tema-1-fc-009",
+      "pregunta": "¿Qué metodología ágil está más centrada en prácticas técnicas de ingeniería?",
+      "respuesta": "Programación Extrema (XP), desarrollada por Kent Beck. Propone prácticas concretas como TDD, programación en parejas, integración continua y refactorización."
+    },
+    {
+      "id": "isa-tema-1-fc-010",
+      "pregunta": "¿En qué se diferencia Scrum de XP desde el punto de vista de su enfoque?",
+      "respuesta": "Scrum propone un marco general del proceso (reuniones, roles, documentos). XP está centrada en prácticas técnicas de ingeniería concretas. Pueden combinarse."
+    },
+    {
+      "id": "isa-tema-1-fc-011",
+      "pregunta": "¿Qué variante de Crystal se usa para equipos de entre 25 y 50 personas?",
+      "respuesta": "Crystal Orange."
+    },
+    {
+      "id": "isa-tema-1-fc-012",
+      "pregunta": "¿Cuáles son las tres prioridades comunes a todas las variantes de Crystal?",
+      "respuesta": "1. Seguridad en la obtención de resultados (según recursos). 2. Eficiencia en el proceso. 3. Aceptación de la metodología impuesta."
+    },
+    {
+      "id": "isa-tema-1-fc-013",
+      "pregunta": "¿Cuáles son las tres propiedades fundamentales e ineludibles de Crystal?",
+      "respuesta": "Entregas frecuentes, mejora reflexiva y comunicación osmótica."
+    },
+    {
+      "id": "isa-tema-1-fc-014",
+      "pregunta": "¿Qué patrón de descripción utilizan las features en FDD?",
+      "respuesta": "Acción + resultado + objeto. Ejemplo: 'Calcular el importe total de un pedido' o 'Enviar un mensaje de confirmación al comprador'."
+    },
+    {
+      "id": "isa-tema-1-fc-015",
+      "pregunta": "¿Cuántos pasos sigue el modelo de proceso de FDD?",
+      "respuesta": "5 pasos: (1) modelo de dominio general, (2) jerarquía de características, (3) planificación por características, (4) diseño por característica, (5) desarrollo por característica."
+    },
+    {
+      "id": "isa-tema-1-fc-016",
+      "pregunta": "¿Cuál es la premisa fundamental de la metodología ASD?",
+      "respuesta": "Las necesidades del cliente van a cambiar siempre, tanto durante el proyecto como tras su finalización. ASD ayuda a las organizaciones a adaptarse al cambio en lugar de resistirlo."
+    },
+    {
+      "id": "isa-tema-1-fc-017",
+      "pregunta": "¿Cuáles son las tres fases del ciclo de vida de ASD?",
+      "respuesta": "Especulación, colaboración y aprendizaje."
+    },
+    {
+      "id": "isa-tema-1-fc-018",
+      "pregunta": "¿En qué consiste la fase de especulación en ASD?",
+      "respuesta": "Reconoce la naturaleza incierta de los sistemas complejos. Incluye la iniciación del proyecto (definir misión, objetivos, restricciones, riesgos) y la planificación adaptativa (marco temporal, iteraciones)."
+    },
+    {
+      "id": "isa-tema-1-fc-019",
+      "pregunta": "¿En qué consiste la fase de aprendizaje en ASD?",
+      "respuesta": "En revisar la calidad del sistema con el cliente y reflexionar sobre el proceso desarrollado para mejorar en la siguiente iteración."
+    },
+    {
+      "id": "isa-tema-1-fc-020",
+      "pregunta": "¿Por qué los métodos ágiles tienen dificultades para escalar a grandes sistemas?",
+      "respuesta": "Porque nacieron para equipos pequeños colocados en el mismo lugar. En grandes sistemas hay múltiples equipos con dependencias, dificultad de comunicación, regulación externa, muchos stakeholders y desarrollo prolongado."
+    },
+    {
+      "id": "isa-tema-1-fc-021",
+      "pregunta": "Menciona los seis factores principales para decidir si usar una metodología ágil.",
+      "respuesta": "1. Tamaño del proyecto y del equipo. 2. Volatilidad de los requisitos. 3. Criticidad del sistema. 4. Disponibilidad del cliente. 5. Experiencia y preparación del equipo. 6. Cultura de la organización."
+    },
+    {
+      "id": "isa-tema-1-fc-022",
+      "pregunta": "¿Por qué la criticidad del sistema puede desaconsejar el uso de metodologías ágiles?",
+      "respuesta": "Porque los sistemas críticos (banca, control aéreo, sanidad) requieren trazabilidad y validación formal que puede ser difícil de combinar con despliegues iterativos frecuentes."
+    },
+    {
+      "id": "isa-tema-1-fc-023",
+      "pregunta": "¿Qué significa que las metodologías ágiles son 'frameworks' más que metodologías estrictas?",
+      "respuesta": "Que no prescriben de forma rígida todos los detalles del proceso, sino que ofrecen un marco flexible que debe adaptarse a las características concretas de cada organización, equipo o proyecto."
+    },
+    {
+      "id": "isa-tema-1-fc-024",
+      "pregunta": "¿Cuál es el flujo de proceso que siempre utilizan las metodologías ágiles?",
+      "respuesta": "Siempre se apoyan en flujos iterativos, evolutivos o incrementales. Nunca en flujos puramente lineales."
+    },
+    {
+      "id": "isa-tema-1-fc-025",
+      "pregunta": "¿Qué dice el principio 10 del Manifiesto Ágil sobre la simplicidad?",
+      "respuesta": "Que la simplicidad (el arte de maximizar la cantidad de trabajo no realizado) es esencial. Se debe hacer solo lo necesario, evitando complejidad innecesaria."
+    },
+    {
+      "id": "isa-tema-1-fc-026",
+      "pregunta": "¿Qué enfatiza Crystal sobre la comunicación en equipos de trabajo?",
+      "respuesta": "Enfatiza la comunicación osmótica: compartir un espacio físico común para que la información fluya de forma natural, sin necesidad de reuniones formales para cada intercambio de información."
+    },
+    {
+      "id": "isa-tema-1-fc-027",
+      "pregunta": "¿Cuánto puede durar como máximo la iteración en FDD?",
+      "respuesta": "Menos de dos semanas."
+    },
+    {
+      "id": "isa-tema-1-fc-028",
+      "pregunta": "¿Qué metodología ágil se preocupa por la adaptación al cambio a nivel de toda la organización, no solo del equipo de desarrollo?",
+      "respuesta": "ASD (Adaptive Software Development)."
+    }
+  ]
+}

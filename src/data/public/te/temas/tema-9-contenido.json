@@ -1,0 +1,239 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-9",
+  "titulo": "Tema 9. Conducción autónoma",
+  "apuntes": {
+    "introduccion": "El Tema 9 estudia las tecnologías que hacen posible la **conducción autónoma**. Se organiza en tres grandes bloques:\n\n- Los **Sistemas Avanzados de Asistencia al Conductor (ADAS)**, que mejoran la seguridad al volante gracias a la sensorización, la visión artificial, la inteligencia artificial y el control, y que son el camino hacia el vehículo totalmente autónomo.\n- La **clasificación en 6 niveles de autonomía** (del 0 al 5) definida por la **SAE** en el estándar **SAE J3016**.\n- Las **comunicaciones V2X (Vehicle to Everything)**, entre el vehículo y el resto de actores de la circulación (otros vehículos, infraestructura y peatones), pieza clave para la conducción autónoma.\n\nLa idea central es que la tecnología necesaria para conducir de forma autónoma ya existe; lo que falta es que se reduzca de tamaño, se abarate y se resuelvan los retos legales, sociales, éticos y de seguridad informática.",
+    "secciones": [
+      {
+        "titulo": "Sistemas Avanzados de Asistencia al Conductor (ADAS)",
+        "contenido": "Los **ADAS (Advanced Driver Assistance Systems, Sistemas Avanzados de Asistencia al Conductor)** son el conjunto de desarrollos que los fabricantes de automóviles incorporan para **incrementar la seguridad** de los vehículos. Su introducción gradual ya mejora la seguridad en carretera y supone una evolución en la **sensorización, inteligencia y control** que finalmente permitirá disponer de vehículos totalmente autónomos.\n\nSe apoyan en varias tecnologías que han avanzado mucho en la última década: **inteligencia artificial, visión artificial, robótica y comunicaciones**, junto con sensores cada vez mejores.\n\nDato clave: las pruebas piloto demuestran que **ya existe toda la tecnología necesaria** para la conducción autónoma; el reto es comercializarla de forma más reducida, ligera y económica, además de resolver las cuestiones legales y éticas."
+      },
+      {
+        "titulo": "Sensores y ejemplos de sistemas ADAS",
+        "contenido": "Los ADAS se basan en distintos **sensores**, elegidos según la distancia y lo que se quiera medir: **cámaras, radar (de corto/medio y largo alcance), LIDAR y ultrasonidos**.\n\nEjemplos de funcionamiento:\n- Los **ultrasonidos y las cámaras** amplían la percepción del entorno y pueden, por ejemplo, frenar el vehículo automáticamente si aparece algo de repente con la marcha atrás puesta.\n- La combinación de **radar y cámaras frontales** ofrece aceleración, cambio de marcha y frenado para mantener el vehículo centrado en el carril y para la conducción en caravana con velocidad variable (control de crucero adaptativo).\n- Otros ADAS combinan las cámaras frontales con **análisis y procesamiento visual** para leer señales de tráfico en tiempo real o detectar obstáculos (peatones, ciclistas, otros vehículos).\n\nLos sistemas ADAS se han ido introduciendo por **épocas** (de los años 50-2000 con cruise control, cinturones y ABS, hasta 2025+ con autopilot de autopista)."
+      },
+      {
+        "titulo": "Clasificación de los ADAS por nivel de asistencia activa",
+        "contenido": "Según el grado de asistencia activa, los ADAS se clasifican en **tres grupos** (no confundir con los 6 niveles SAE):\n- **Sistemas de información al conductor**: solo informan; el control y la decisión siguen siendo del conductor en todos los casos. Ejemplos: cámaras de visión trasera, pantallas con visión 360º, detección de vehículos en ángulos muertos, detección de salida de carril, reconocimiento de señales de tráfico, visión nocturna con identificación de elementos, avisos (aceite, presión de ruedas, cinturones, lluvia).\n- **Sistemas parcialmente autónomos**: el vehículo asume el control en situaciones muy concretas, pero el conductor puede **anularlo en todo momento**. Ejemplos: control de crucero activo/adaptativo, asistencia de mantenimiento de carril, aparcamiento semiautomático, frenado automático anticolisiones, asistencia en atascos.\n- **Sistemas altamente autónomos**: el vehículo **toma el control completo** en determinados momentos. Ejemplos: aparcamiento automático, monitorización del estado del conductor con toma de control cuando está impedido o afectado.\n\nPor encima de estos está el vehículo **totalmente autónomo**, que puede funcionar por su cuenta, con o sin conductor."
+      },
+      {
+        "titulo": "Retos: coste, espacio, ámbito legal, ético y seguridad",
+        "contenido": "Aunque la tecnología existe, los vehículos autónomos presentan varios **inconvenientes y retos**:\n- **Inconvenientes técnicos actuales**: los sistemas electrónicos de las pruebas **ocupan mucho espacio** y son **mucho más caros** que el propio coche (hasta dos órdenes de magnitud). El despliegue será el habitual: primero en gama alta/lujo, luego gama media y finalmente todos los vehículos.\n- **Cuestiones legales y sociales**: reformulación de los seguros, determinación de la **culpabilidad** en accidentes con vehículos autónomos, y la **confianza** de las personas. La legislación varía por países (p. ej. el nivel 3 de Mercedes es legal en Alemania, EE. UU. y Suiza, pero no en España).\n- **Ética**: casos extremos en los que el vehículo debe decidir a quién proteger en un accidente inevitable. El proyecto **Moral Machine (MIT)** recopila opiniones (crowdsourcing) sobre estos dilemas; en la práctica, la prioridad de los fabricantes suele ser proteger a los ocupantes.\n- **Seguridad informática y de las comunicaciones**: es una preocupación de primer orden, ya que los vehículos se comunican entre sí y con la infraestructura. Hay que **protegerse de hacking e intrusiones** (firmware malicioso, ataques al bus del vehículo, man-in-the-middle, etc.). Como los ADAS involucran a muchos terceros fabricantes, se usan **certificaciones** que garanticen la transitividad de la confianza."
+      },
+      {
+        "titulo": "Niveles de autonomía SAE J3016 (de 0 a 5)",
+        "contenido": "La **SAE (Sociedad de Ingenieros de Automoción)** define en el estándar **SAE J3016** **seis niveles** de autonomía (del 0 al 5). A mayor nivel, menor grado de atención humana:\n- **Nivel 0 – Sin automatización**: solo el conductor; como mucho sistemas de aviso.\n- **Nivel 1 – Asistente de conducción**: una función automatizada (control de crucero o mantenimiento de carril).\n- **Nivel 2 – Semiautonomía**: el vehículo puede gestionar aceleración, frenado y dirección; el conductor puede soltar las manos del volante pero debe permanecer **alerta** y supervisar constantemente.\n- **Nivel 3 – Autonomía condicionada**: el vehículo conduce solo en **entornos controlados** (autopistas, autovías) y condiciones concretas; aquí entra en juego el posicionamiento GNSS y las cámaras.\n- **Nivel 4 – Alto nivel de autonomía**: el vehículo opera **sin supervisión** en áreas donde tenga toda la información.\n- **Nivel 5 – Autonomía total**: conducción completamente autónoma; se puede prescindir del conductor.\n\nCada nivel suma cada vez más sensores. Ejemplos comerciales: **Tesla Autopilot** (nivel 2, hay que estar atento), **Mercedes Drive Pilot** (nivel 3), **Stellantis AutoDrive 1.0** (nivel 3, en desarrollo), **BMW Personal Pilot** (nivel 3). La fabricación masiva de vehículos de nivel 5 puede estar a 10-15 años."
+      },
+      {
+        "titulo": "Comunicaciones V2X: tipos",
+        "contenido": "Las **comunicaciones V2X (Vehicle to Everything)** son las que se establecen entre el vehículo y su entorno; son un elemento esencial de los ADAS del futuro y de la conducción totalmente autónoma. Permiten que los vehículos se comuniquen continuamente para reducir accidentes (seguridad activa y pasiva). Tipos principales:\n- **V2V (Vehículo a Vehículo)**: detección mutua, ángulos muertos, intersecciones, frenazos del coche de delante.\n- **V2I (Vehículo a Infraestructura)**: comunicación con semáforos, paneles, etc. (p. ej. tiempo restante para el rojo, alertas de peatones).\n- **V2P (Vehículo a Peatón)**: aviso al aproximarse a cruces o pasos de cebra peligrosos sin semáforo (importante porque los peatones miran el móvil).\n- **I2P (Infraestructura a Peatón)**: avisos a peatones (p. ej. ambulancia o vehículo errático que se aproxima).\n\nOtras posibilidades citadas: **V2N / V2Cloud** (vehículo a la nube, para actualizaciones OTA y diagnóstico remoto) y **V2D** (vehículo a dispositivo, como Android Auto o CarPlay). Ejemplos de uso: recarga bidireccional entre vehículos, conocer el tiempo del semáforo o alertar de un camión lento en una curva."
+      },
+      {
+        "titulo": "Tecnologías de comunicación V2X y posicionamiento GNSS",
+        "contenido": "Existen **dos estándares** de comunicación V2X, orientados a los mismos casos de uso y con idénticas capas de red, seguridad y aplicación, pero **incompatibles entre sí**:\n- **802.11p / DSRC (Dedicated Short-Range Communications)**: derivado del **WiFi** (a veces llamado WAVE), pensado para comunicaciones dedicadas de corto alcance. Entró en producción en 2017 (EE. UU. y Japón) y se comercializa en la UE desde 2019. Rango ~225 m; **posible pérdida de paquetes** en alta densidad de tráfico; evoluciona hacia 802.11bd (compatible hacia atrás).\n- **C-V2X (Cellular V2X)**: desarrollado por el **3GPP** (organismo de estándares móviles); usa tecnología celular. Mayor rango (por encima de 450 m en modo directo), **garantiza que no hay pérdida de paquetes**, se centra en **Edge Computing** y evoluciona hacia 5G (5G New Radio). Salió más tarde y es incompatible con DSRC.\n\nAdemás, es **absolutamente clave** disponer de **localización de alta precisión y exactitud**. Gracias a los **GNSS (Sistemas Globales de Navegación por Satélite)** —Galileo, GPS, GLONASS y BeiDou— se obtienen con alta precisión: **ubicación** (exactitudes inferiores a 1 m; para vehículos autónomos se busca ~0,2 m), **tiempo** (fuente primaria de sincronización), **velocidad** y **orientación** (con ayuda de mapas precisos)."
+      }
+    ]
+  },
+  "resumen": [
+    "Los ADAS (Sistemas Avanzados de Asistencia al Conductor) incrementan la seguridad y son el camino hacia el vehículo totalmente autónomo.",
+    "Se apoyan en sensores (cámaras, radar, LIDAR, ultrasonidos) y en IA, visión artificial, robótica y comunicaciones.",
+    "Por nivel de asistencia activa los ADAS se clasifican en tres grupos: de información al conductor, parcialmente autónomos y altamente autónomos.",
+    "Los sistemas de información solo informan (control del conductor); los parcialmente autónomos toman el control pero el conductor puede anularlo; los altamente autónomos toman el control completo.",
+    "La tecnología para la conducción autónoma ya existe, pero ocupa mucho espacio y es muy cara; falta abaratarla y miniaturizarla.",
+    "Quedan retos legales (seguros, culpabilidad), éticos (Moral Machine) y de seguridad informática (protección frente a hacking).",
+    "La SAE define en el estándar SAE J3016 seis niveles de autonomía, del 0 (solo conductor) al 5 (autonomía total).",
+    "En el nivel 2 el conductor debe permanecer alerta; el nivel 3 funciona en entornos controlados; el nivel 5 prescinde del conductor.",
+    "Ejemplos: Tesla Autopilot (nivel 2); Mercedes Drive Pilot, Stellantis y BMW (nivel 3).",
+    "Las comunicaciones V2X (Vehicle to Everything) conectan el vehículo con su entorno: V2V, V2I, V2P e I2P (también V2N/cloud y V2D).",
+    "Hay dos estándares V2X incompatibles: 802.11p/DSRC (derivado de WiFi, posible pérdida de paquetes) y C-V2X (del 3GPP, sin pérdida, orientado a Edge y 5G).",
+    "Es clave la localización de alta precisión: los GNSS (Galileo, GPS, GLONASS, BeiDou) dan ubicación (<1 m), tiempo, velocidad y orientación.",
+    "Las comunicaciones V2X harán posible tanto mayor seguridad como la conducción totalmente autónoma."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "ADAS",
+      "definicion": "Advanced Driver Assistance Systems: conjunto de sistemas avanzados de asistencia al conductor que aumentan la seguridad del vehículo."
+    },
+    {
+      "termino": "Sensores ADAS",
+      "definicion": "Cámaras, radar, LIDAR y ultrasonidos que perciben el entorno del vehículo según la distancia a medir."
+    },
+    {
+      "termino": "Sistemas de información al conductor",
+      "definicion": "ADAS que solo informan (cámaras 360º, ángulo muerto, señales, salida de carril); el control sigue siendo del conductor."
+    },
+    {
+      "termino": "Sistemas parcialmente autónomos",
+      "definicion": "ADAS que toman el control en situaciones concretas, pero el conductor puede anularlos en todo momento (crucero adaptativo, mantenimiento de carril)."
+    },
+    {
+      "termino": "Sistemas altamente autónomos",
+      "definicion": "ADAS que toman el control completo del vehículo en determinados momentos (aparcamiento automático, monitorización del conductor)."
+    },
+    {
+      "termino": "Control de crucero adaptativo",
+      "definicion": "Sistema que ajusta automáticamente la velocidad según el vehículo de delante mediante radar y cámara frontal."
+    },
+    {
+      "termino": "SAE J3016",
+      "definicion": "Estándar de la Sociedad de Ingenieros de Automoción (SAE) que define los seis niveles de autonomía del vehículo (0 a 5)."
+    },
+    {
+      "termino": "Niveles de autonomía (0-5)",
+      "definicion": "0 sin automatización, 1 asistencia, 2 semiautonomía (alerta), 3 autonomía condicionada, 4 alto nivel, 5 autonomía total."
+    },
+    {
+      "termino": "Nivel 5 (autonomía total)",
+      "definicion": "El vehículo es totalmente autosuficiente y se puede prescindir del conductor."
+    },
+    {
+      "termino": "Moral Machine",
+      "definicion": "Proyecto del MIT que recopila opiniones (crowdsourcing) sobre dilemas éticos en accidentes inevitables de vehículos autónomos."
+    },
+    {
+      "termino": "V2X (Vehicle to Everything)",
+      "definicion": "Conjunto de comunicaciones entre el vehículo y su entorno (otros vehículos, infraestructura, peatones)."
+    },
+    {
+      "termino": "V2V",
+      "definicion": "Comunicación vehículo a vehículo: detección mutua, ángulos muertos, intersecciones."
+    },
+    {
+      "termino": "V2I",
+      "definicion": "Comunicación vehículo a infraestructura: semáforos, paneles, tiempos de paso, alertas."
+    },
+    {
+      "termino": "V2P / I2P",
+      "definicion": "Vehículo a peatón (avisos en cruces sin semáforo) e infraestructura a peatón (avisos de ambulancias o vehículos erráticos)."
+    },
+    {
+      "termino": "802.11p / DSRC",
+      "definicion": "Estándar V2X derivado de WiFi para comunicaciones dedicadas de corto alcance; posible pérdida de paquetes en alta densidad."
+    },
+    {
+      "termino": "C-V2X (Cellular V2X)",
+      "definicion": "Estándar V2X del 3GPP basado en tecnología celular; garantiza la no pérdida de paquetes, se centra en Edge Computing y evoluciona hacia 5G. Incompatible con DSRC."
+    },
+    {
+      "termino": "GNSS",
+      "definicion": "Sistemas Globales de Navegación por Satélite (Galileo, GPS, GLONASS, BeiDou) que aportan ubicación, tiempo, velocidad y orientación de alta precisión."
+    },
+    {
+      "termino": "Localización de alta precisión",
+      "definicion": "Requisito clave de V2X: exactitud inferior a 1 m (≈0,2 m para vehículos autónomos), sincronización temporal y orientación precisa."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-9-fc-001",
+      "pregunta": "¿Qué son los ADAS?",
+      "respuesta": "Un conjunto de Sistemas Avanzados de Asistencia al Conductor (Advanced Driver Assistance Systems) que incrementan la seguridad del vehículo."
+    },
+    {
+      "id": "te-tema-9-fc-002",
+      "pregunta": "¿En qué tres grupos se clasifican los ADAS por su asistencia activa?",
+      "respuesta": "Sistemas de información al conductor, sistemas parcialmente autónomos y sistemas altamente autónomos."
+    },
+    {
+      "id": "te-tema-9-fc-003",
+      "pregunta": "¿Qué caracteriza a un sistema ADAS de información al conductor?",
+      "respuesta": "Solo informa; el control y la decisión siguen siendo del conductor (cámaras 360º, ángulo muerto, señales de tráfico)."
+    },
+    {
+      "id": "te-tema-9-fc-004",
+      "pregunta": "¿Qué diferencia a un sistema parcialmente autónomo de uno altamente autónomo?",
+      "respuesta": "En el parcial el conductor puede anular el control en todo momento; en el altamente autónomo el vehículo toma el control completo."
+    },
+    {
+      "id": "te-tema-9-fc-005",
+      "pregunta": "¿Qué sensores se usan en los ADAS?",
+      "respuesta": "Cámaras, radar (corto/medio y largo alcance), LIDAR y ultrasonidos, según la distancia a medir."
+    },
+    {
+      "id": "te-tema-9-fc-006",
+      "pregunta": "¿Cuáles son los principales inconvenientes actuales de la electrónica de los vehículos autónomos?",
+      "respuesta": "El espacio que ocupa y su elevado coste (hasta dos órdenes de magnitud más que el coche)."
+    },
+    {
+      "id": "te-tema-9-fc-007",
+      "pregunta": "¿Qué organismo define los niveles de autonomía y en qué estándar?",
+      "respuesta": "La SAE (Sociedad de Ingenieros de Automoción), en el estándar SAE J3016."
+    },
+    {
+      "id": "te-tema-9-fc-008",
+      "pregunta": "¿Cuántos niveles de autonomía hay y cómo se numeran?",
+      "respuesta": "Seis niveles, del 0 al 5."
+    },
+    {
+      "id": "te-tema-9-fc-009",
+      "pregunta": "¿Qué nivel de autonomía permite prescindir totalmente del conductor?",
+      "respuesta": "El nivel 5 (autonomía total)."
+    },
+    {
+      "id": "te-tema-9-fc-010",
+      "pregunta": "¿Qué se exige al conductor en el nivel 2 (semiautonomía)?",
+      "respuesta": "Puede soltar las manos del volante pero debe permanecer alerta y supervisar de forma constante."
+    },
+    {
+      "id": "te-tema-9-fc-011",
+      "pregunta": "¿En qué nivel está el Autopilot de Tesla?",
+      "respuesta": "En el nivel 2, por lo que el conductor debe permanecer atento a la carretera."
+    },
+    {
+      "id": "te-tema-9-fc-012",
+      "pregunta": "¿Qué es el proyecto Moral Machine?",
+      "respuesta": "Una iniciativa del MIT que recopila opiniones sobre dilemas éticos de los vehículos autónomos en accidentes inevitables."
+    },
+    {
+      "id": "te-tema-9-fc-013",
+      "pregunta": "¿Qué significa V2X?",
+      "respuesta": "Vehicle to Everything: las comunicaciones entre el vehículo y todo su entorno."
+    },
+    {
+      "id": "te-tema-9-fc-014",
+      "pregunta": "¿Qué tipos de comunicación V2X existen?",
+      "respuesta": "V2V (vehículo-vehículo), V2I (vehículo-infraestructura), V2P (vehículo-peatón) e I2P (infraestructura-peatón); también V2N/cloud y V2D."
+    },
+    {
+      "id": "te-tema-9-fc-015",
+      "pregunta": "¿Para qué sirve la comunicación V2I?",
+      "respuesta": "Para comunicar el vehículo con la infraestructura, p. ej. semáforos que indican el tiempo restante o alertas de peatones."
+    },
+    {
+      "id": "te-tema-9-fc-016",
+      "pregunta": "¿Qué dos estándares de comunicación se usan hoy para V2X?",
+      "respuesta": "802.11p/DSRC (derivado de WiFi) y C-V2X (Cellular V2X, del 3GPP); son incompatibles entre sí."
+    },
+    {
+      "id": "te-tema-9-fc-017",
+      "pregunta": "¿De qué tecnología deriva el estándar 802.11p?",
+      "respuesta": "Del WiFi; se diseñó para comunicaciones dedicadas de corto alcance (DSRC)."
+    },
+    {
+      "id": "te-tema-9-fc-018",
+      "pregunta": "¿Qué ventaja tiene C-V2X frente a DSRC en cuanto a fiabilidad?",
+      "respuesta": "C-V2X garantiza que no hay pérdida de paquetes en alta densidad de tráfico, mientras que en DSRC sí es posible."
+    },
+    {
+      "id": "te-tema-9-fc-019",
+      "pregunta": "¿Por qué es clave el GNSS en la conducción autónoma?",
+      "respuesta": "Porque aporta localización de alta precisión: ubicación (<1 m), tiempo, velocidad y orientación necesarios para V2X."
+    },
+    {
+      "id": "te-tema-9-fc-020",
+      "pregunta": "Cita cuatro sistemas GNSS.",
+      "respuesta": "Galileo, GPS, GLONASS y BeiDou."
+    },
+    {
+      "id": "te-tema-9-fc-021",
+      "pregunta": "¿Qué precisión de ubicación se busca para vehículos autónomos?",
+      "respuesta": "Exactitudes inferiores a 1 metro, idealmente en torno a 0,2 metros."
+    },
+    {
+      "id": "te-tema-9-fc-022",
+      "pregunta": "¿Qué retos no técnicos plantea la conducción autónoma?",
+      "respuesta": "Legales (seguros, culpabilidad en accidentes), sociales (confianza), éticos y de seguridad informática frente al hacking."
+    }
+  ]
+}

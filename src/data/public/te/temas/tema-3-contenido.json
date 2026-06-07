@@ -1,0 +1,302 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. Servicios basados en localización",
+  "apuntes": {
+    "introduccion": "El Tema 3 responde a una pregunta aparentemente sencilla pero rica en matices: ¿cómo nos localizamos con un dispositivo móvil y qué servicios podemos construir sobre esa ubicación?\n\nSe estudian, primero, los **servicios basados en localización (LBS)** y sus clasificaciones; después, las **tecnologías** que hacen posible la localización (basadas en red y basadas en terminal) y los **métodos** concretos de cálculo; a continuación, la localización por satélite mediante **GNSS** (GPS, Galileo, GLONASS, BeiDou y sistemas regionales); las métricas de calidad de la posición, es decir, la diferencia entre **precisión y exactitud**; y, por último, la localización en interiores mediante **balizas o beacons**.\n\nLa idea central es que cada servicio exige un nivel distinto de exactitud y que ninguna tecnología sirve para todo: el GNSS es excelente en exteriores pero falla en interiores (donde entran los beacons o el WiFi), y la red del operador localiza cualquier dispositivo pero con menor precisión. Este tema es la base de la Actividad 1 (registro de una ruta GNSS y análisis de su exactitud).",
+    "secciones": [
+      {
+        "titulo": "Servicios basados en localización (LBS): definición y orientación",
+        "contenido": "Los **servicios basados en localización (LBS, Location Based Services)** son aquellos que integran la **ubicación** (geográfica, de red o conceptual) de un dispositivo móvil con **otra información de contexto** relevante, ofreciendo al usuario un **valor añadido**. Coloquialmente se conocen como *geolocalización móvil*. Van desde mapas y guiado básicos hasta aplicaciones sofisticadas de realidad aumentada (como en su momento Pokémon Go). Tuvieron su origen en torno a 2001 (compañías nórdicas como Telia Sonera).\n\nConviene distinguir el LBS del GPS: el GPS es el *medio* que ubica al usuario, y el LBS es el *servicio de valor añadido* que se construye por encima de esa ubicación.\n\nUna primera clasificación distingue según la **orientación**:\n- **Orientados a personas**: su propósito es determinar la ubicación de una persona o usar su posición para ofrecerle un servicio (recomendaciones, alertas, compartir ubicación...). La **persona controla siempre el servicio**: decide cuándo se obtiene y se usa su ubicación, puede limitar la duración de la cesión y desactivarla en cualquier momento (por protección de la privacidad). Ejemplos: compartir ubicación en WhatsApp o Google Maps.\n- **Orientados a dispositivos**: son externos al usuario; este no gestiona su propia ubicación, sino que se localiza la posición de dispositivos u objetos (seguimiento de activos). El dispositivo, normalmente, se autogestiona y rastrea de forma continua. Ejemplos: gestión de flotas, recuperación de vehículos robados y servicios de carsharing (alquiler de coches, motos o patinetes), que incluso ofrecen telemetría como el nivel de batería."
+      },
+      {
+        "titulo": "Clasificación según el grado de intervención y exigencia de exactitud",
+        "contenido": "Según el **grado de intervención** del sujeto de la localización, los LBS pueden ser:\n- **Reactivos**: se activan **explícitamente por el usuario**. Siguen un modelo similar al **cliente-servidor**: el usuario invoca el servicio, este obtiene su ubicación, la procesa y entrega resultados contextualizados. La interacción es **síncrona**. Ejemplos: buscar farmacias de guardia o restaurantes cercanos.\n- **Proactivos (de tipo Push)**: se inicializan **automáticamente** cuando se produce un evento de localización predefinido (entrar, acercarse o salir de una zona). La interacción es **asíncrona** y requiere **monitorización continua** del usuario. Ejemplo: marketing móvil que envía una oferta al acercarse a una tienda. Su inconveniente es que pueden resultar invasivos (notificaciones, falta de control).\n\nAdemás, cada aplicación LBS tiene un **grado de exigencia de exactitud** distinto para ser viable. Por ejemplo, guiar a un peatón hasta un cajero requiere alta exactitud, mientras que la información de tráfico tolera mucho menos. Niveles orientativos:\n- **Alta**: direcciones y guiado, emergencias, seguimiento de activos valiosos.\n- **Media-Alta**: realidad aumentada, comercio electrónico móvil, publicidad geolocalizada.\n- **Media**: gestión de flotas.\n- **Media-Baja**: información de tráfico."
+      },
+      {
+        "titulo": "Tecnologías de localización: basada en red vs. basada en terminal",
+        "contenido": "Existen dos grandes tecnologías físicas para localizar un dispositivo móvil:\n\n- **Localización basada en red**: la realiza la **infraestructura del operador** móvil. Sus ventajas: la información **siempre está disponible** si el dispositivo está conectado a la red, es **independiente del tipo de dispositivo** (no hace falta que sea smartphone) y **requiere datos mínimos** (menor consumo). El operador siempre sabe, como mínimo, qué antena (BTS / Nodo-B / eNodoB) da servicio. La posición se obtiene por **trilateración/triangulación** de la señal de varias antenas; su precisión empeora con obstáculos, edificios o interiores.\n- **Localización basada en terminal**: es el **propio dispositivo** el que, de forma **autónoma**, calcula su posición usando el receptor GPS/GNSS y otros sensores (acelerómetro, giroscopio, WiFi, etc.), que vienen **integrados de fábrica**. Su ventaja es la **mayor privacidad** (el cálculo es local) y el aprovechamiento de varias tecnologías a la vez.\n\nLa localización en red puede ser **descendente (downlink)**, donde el móvil usa las señales de las estaciones base para situarse, o **ascendente (uplink)**, donde varias estaciones (normalmente tres) triangulan al dispositivo. En ambos casos suele requerirse visibilidad directa, lo que genera errores en interiores."
+      },
+      {
+        "titulo": "Métodos de localización en red (RSSI, AOA, TOA, TDOA)",
+        "contenido": "Para afinar la localización basada en red se combinan varios métodos (tanto en redes 5G como en WiFi):\n\n- **RSSI (Received Signal Strength Indicator)**: localización por **nivel de señal**. Estima la distancia según la potencia de señal recibida en cada estación (influyen la ganancia de antena y la potencia transmitida). Es el método más sencillo y usado, pero pierde fiabilidad con muros y obstáculos.\n- **AOA (Angle of Arrival)**: estima la posición según los **ángulos** de llegada de la señal entre el terminal y las estaciones base, mediante antenas inteligentes.\n- **TOA (Time of Arrival)**: usa el **tiempo** que tarda la señal en llegar del terminal a la estación. En teoría es perfecto (definido para el vacío), pero en la realidad necesita **sincronización de relojes**, hardware de alta precisión y corrección de errores; además sufre con los obstáculos y la falta de línea de visión directa.\n- **TDOA (Time Difference of Arrival)**: usa la **diferencia** entre los tiempos de llegada a distintas estaciones (normalmente tres). Es más sencillo que el TOA porque **no requiere sincronizar los relojes** del terminal ni hardware de alta precisión; calcula la posición mediante **hipérbolas** a partir de las diferencias por pares.\n\nEstos cuatro métodos (RSSI, AOA, TOA y TDOA) se utilizan combinados en la práctica."
+      },
+      {
+        "titulo": "Localización basada en GNSS: concepto y segmentos",
+        "contenido": "La tecnología basada en terminal más extendida es el **GNSS (Global Navigation Satellite System, Sistema de Navegación Global por Satélite)**: una **constelación de satélites** que transmiten señales desde el espacio con datos de tiempo e información de ayuda; los receptores (incluidos en los móviles) usan esas señales para calcular su ubicación (latitud, longitud, etc.). Por definición, un GNSS ofrece **cobertura global**.\n\nTodo GNSS se compone de **tres segmentos**:\n- **Segmento espacial**: los satélites, con sus órbitas y altitudes.\n- **Segmento de control**: las estaciones terrestres que captan y monitorizan las señales y comprueban el correcto posicionamiento de los satélites.\n- **Segmento usuario**: los receptores (nuestros dispositivos móviles) que reciben la señal.\n\nEl GNSS es la opción más interesante de localización móvil por su cobertura global y exactitud, pero presenta inconvenientes: **alto consumo energético** del receptor, **mala cobertura en interiores** y un **tiempo de primera adquisición (TTFF, Time To First Fix)** que puede ser de varios minutos al encenderlo en una ubicación nueva."
+      },
+      {
+        "titulo": "GNSS globales: GPS, Galileo, GLONASS y BeiDou",
+        "contenido": "Los cuatro GNSS **globales** actuales son:\n- **GPS (Global Positioning System)**, de **EE. UU.**, operado por el Departamento de Defensa. Constelación de **24 slots** (ampliados con varios satélites por slot hasta unos 32, algunos de backup). Orbitan a algo más de **19.000-20.000 km** y ofrece una exactitud del orden de **5 metros** (se comprometieron a unos pocos metros). Sus satélites tienen generaciones *legacy* (antiguas) y modernas; el fabricante actual es Boeing.\n- **Galileo**, de la **Unión Europea** (Agencia Espacial Europea). Es de **creación, gestión y uso CIVIL** (rasgo distintivo frente al resto). En marcha desde 2016; consta de unos **26 satélites** en 8 slots, y orbita algo más alto (~23.000 km). Tiene estaciones de control en **Madrid** y **Maspalomas (Canarias)**. Diversos estudios indican que su precisión es **mejor que la del GPS**.\n- **GLONASS**, de **Rusia** (Ministerio de Defensa). Es el **más antiguo** (desarrollado por la URSS en 1982). Constelación en torno a 24 satélites, orbitando a unos **19.100 km**. La precisión militar y la civil no son iguales.\n- **BeiDou (BDS)**, de **China** (uso civil y militar). Tres constelaciones con un total de unos **35 satélites** (BeiDou 1, 2 y 3); precisión pretendida de **2 a 5 metros**.\n\nLas órbitas de todos ellos rondan los 19.000-23.000 km, siendo Galileo el más alto."
+      },
+      {
+        "titulo": "GNSS regionales: IRNSS (NAVIC) y QZSS (Michibiki)",
+        "contenido": "Además de los globales, existen GNSS de **ámbito regional**, que solo cubren una zona del planeta:\n- **IRNSS (NAVIC)**, de la **India**: de uso civil y militar, con muy pocos satélites (**siete** en órbita) situados a unos **36.000 km**. Lanzado a partir de 2013, da cobertura a la India y a una franja de hasta unos 1.500 km alrededor.\n- **QZSS (Michibiki)**, de **Japón**: de carácter **civil**, operado por la agencia espacial japonesa. Tiene **cinco satélites** a unos **32.000 km**, con lanzamiento a partir de 2010.\n\nLos sistemas regionales orbitan algo más alto (30.000 y pico km) que los globales (19.000-23.000 km). Conviene recordar que los receptores GNSS modernos de los móviles pueden captar **varias constelaciones a la vez** (por ejemplo GPS y Galileo simultáneamente), lo que mejora el posicionamiento."
+      },
+      {
+        "titulo": "A-GPS, TTFF y limitaciones del receptor móvil",
+        "contenido": "Para mitigar los inconvenientes del GNSS en los móviles se usa el **GNSS asistido**. En el caso del **A-GPS (GPS asistido)**, la tecnología GPS se integra con la **red del operador móvil**, que ayuda al dispositivo a acelerar la búsqueda de la ubicación. En resumen, **A-GPS = GNSS + red móvil**.\n\nMejoras que aporta el A-GPS frente al GPS:\n- **Precisión mejorada**.\n- **Reducción del tiempo de adquisición** de posición (menor TTFF).\n- **Menor consumo energético** del dispositivo.\n- **Mayor sensibilidad** del receptor.\n\nLos receptores móviles pueden ser de **monofrecuencia** o de **frecuencia dual**; los de frecuencia dual (gama más alta) mejoran la calidad de la señal.\n\nHay que tener en cuenta que el receptor GNSS de un smartphone se comporta **peor** que un dispositivo GNSS de propósito específico: el hardware compite por espacio y batería con el resto del móvil, y sobre todo la **antena GNSS** está integrada por motivos de diseño y es menos eficiente que las antenas optimizadas de los receptores profesionales. Por ello cabe esperar peor precisión y exactitud posicional en un móvil."
+      },
+      {
+        "titulo": "Precisión y exactitud en la localización",
+        "contenido": "Son dos métricas distintas para evaluar la calidad de la posición (según el Vocabulario Internacional de Metrología):\n- **Exactitud**: proximidad entre un **valor medido y el valor verdadero** (real). Se evalúa con **una** medida frente a un punto de referencia bien conocido.\n- **Precisión**: proximidad entre los valores obtenidos en **mediciones repetidas** del mismo objeto bajo las mismas condiciones; denota **repetibilidad**, es decir, la **dispersión** de las medidas, expresada con la desviación típica o la varianza. Se evalúa con **varias** medidas.\n\nIdea clave: la exactitud mide *cómo de cerca está la medida del valor real*; la precisión mide *cómo de juntas están las medidas entre sí*.\n\nPara los cálculos, las posiciones se registran en grados decimales con el **datum WGS-84** (sistema de referencia original del GPS, equivalente al **ETRS-89** europeo) y se transforman a coordenadas planimétricas en metros (sistema **UTM**). Un *datum* es el conjunto de parámetros de origen para medir en la Tierra (que no es un elipsoide perfecto).\n\nFórmulas (error planimétrico, en metros):\n- **Exactitud** de cada observación i: Exactitud_i = raíz cuadrada de (exi² + eyi²), donde exi = Xi − Xreal y eyi = Yi − Yreal (diferencias respecto al valor real).\n- **Precisión** de cada observación i: Precisión_i = raíz cuadrada de (DeltaX² + DeltaY²), donde DeltaX y DeltaY son las diferencias respecto a la **media muestral** de longitud y latitud (en vez del valor real). Como referencia, un grado de latitud equivale a unos 111,32 km."
+      },
+      {
+        "titulo": "Beacons: localización por proximidad en interiores",
+        "contenido": "En interiores, la señal GNSS no llega o llega muy atenuada, por lo que se usan otras técnicas: potencia de señal WiFi, sensores geomagnéticos y, especialmente, las **balizas o beacons**.\n\nLas **balizas (beacons)** son dispositivos pequeños que usan **Bluetooth Low Energy (BLE)** (la rama de bajo consumo, de la versión 4.0 de Bluetooth). Transmiten cíclicamente una señal de radio con un **identificador (ID) único** en el mundo. Su alcance es de unos **10 a 40 metros** y su pila puede durar **hasta cuatro años**. El término *beacon* fue acuñado por Apple.\n\n**Funcionamiento**: cuando un móvil con Bluetooth activado se acerca al área de cobertura, (1) detecta el beacon, (2) obtiene su ID y (3) con ese ID la app muestra información del entorno o contexto. Los beacons pueden estructurarse con un **Major Number** (identifica una zona, p. ej. una sala de museo) y un **Minor Number** (identifica el dispositivo u objeto concreto, p. ej. un cuadro).\n\n**Tipos**:\n- **iBeacon**: el formato de **Apple**.\n- **Eddystone**: el de **Google**, más versátil porque puede enviar más que el ID (URL, telemetría) y permite apps de guiado en interiores.\n\n**Ventajas**: consumo mínimo (gracias a BLE), independencia de las redes de datos y cobertura en interiores. **Inconvenientes**: requiere tener el Bluetooth activado y su adopción aún no es generalizada. Usos: museos, catedrales, aeropuertos (guiado al equipaje), supermercados, hospitales (localización de personal y suministros)."
+      }
+    ]
+  },
+  "resumen": [
+    "Los servicios basados en localización (LBS) integran la ubicación de un dispositivo con información de contexto para dar un valor añadido al usuario.",
+    "Los LBS se clasifican por orientación (a personas, donde el usuario controla su ubicación, o a dispositivos, que se autogestionan) y por grado de intervención (reactivos/síncronos o proactivos-push/asíncronos).",
+    "Cada aplicación LBS exige un nivel distinto de exactitud: alta en guiado y emergencias, baja en información de tráfico.",
+    "Existen dos tecnologías de localización: basada en red (la realiza el operador, vale para cualquier dispositivo y siempre está disponible) y basada en terminal (la calcula el propio móvil con GPS y sensores, con mayor privacidad).",
+    "Los métodos de localización en red son RSSI (nivel de señal), AOA (ángulo de llegada), TOA (tiempo de llegada) y TDOA (diferencia de tiempos, mediante hipérbolas y sin sincronizar relojes).",
+    "Un GNSS es una constelación de satélites con cobertura global y consta de tres segmentos: espacial (satélites), de control (estaciones terrestres) y usuario (receptores).",
+    "Los GNSS globales son GPS (EE. UU.), Galileo (UE, de uso civil), GLONASS (Rusia, el más antiguo) y BeiDou (China); además hay regionales como IRNSS/NAVIC (India) y QZSS/Michibiki (Japón).",
+    "El A-GPS combina GNSS con la red móvil para mejorar la precisión, reducir el tiempo de adquisición (TTFF), bajar el consumo y aumentar la sensibilidad.",
+    "El receptor y la antena GNSS de un móvil son menos eficientes que los de un dispositivo GNSS específico, por lo que su precisión y exactitud son peores.",
+    "La exactitud mide la proximidad de una medida al valor real; la precisión mide la dispersión (repetibilidad) de varias medidas.",
+    "Las posiciones se registran con datum WGS-84 (equivalente al ETRS-89) y se calculan en metros con coordenadas UTM.",
+    "En interiores se usan beacons: balizas BLE con un ID único, alcance de 10-40 m y pila de hasta 4 años, en formatos iBeacon (Apple) y Eddystone (Google, más versátil)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "LBS (Location Based Services)",
+      "definicion": "Servicios que integran la ubicación de un dispositivo móvil con información de contexto para ofrecer un valor añadido al usuario."
+    },
+    {
+      "termino": "LBS orientado a personas",
+      "definicion": "Servicio cuyo fin es localizar a una persona; esta controla siempre cuándo y cuánto tiempo se usa su ubicación (privacidad)."
+    },
+    {
+      "termino": "LBS orientado a dispositivos",
+      "definicion": "Servicio externo al usuario que localiza dispositivos u objetos que se autogestionan (p. ej. gestión de flotas o carsharing)."
+    },
+    {
+      "termino": "LBS reactivo",
+      "definicion": "Servicio activado explícitamente por el usuario, con interacción síncrona similar al modelo cliente-servidor (p. ej. buscar farmacias)."
+    },
+    {
+      "termino": "LBS proactivo (Push)",
+      "definicion": "Servicio que se inicia automáticamente ante un evento de localización; interacción asíncrona con monitorización continua."
+    },
+    {
+      "termino": "Localización basada en red",
+      "definicion": "La realiza la infraestructura del operador; está siempre disponible, vale para cualquier dispositivo y requiere datos mínimos."
+    },
+    {
+      "termino": "Localización basada en terminal",
+      "definicion": "El propio dispositivo calcula su posición de forma autónoma con GPS y sensores integrados; ofrece mayor privacidad."
+    },
+    {
+      "termino": "RSSI",
+      "definicion": "Método de localización por nivel de señal recibida; el más sencillo, pero sensible a muros y obstáculos."
+    },
+    {
+      "termino": "AOA (Angle of Arrival)",
+      "definicion": "Método que estima la posición según los ángulos de llegada de la señal mediante antenas inteligentes."
+    },
+    {
+      "termino": "TOA (Time of Arrival)",
+      "definicion": "Método basado en el tiempo de llegada de la señal; teóricamente perfecto, pero requiere sincronizar relojes y hardware preciso."
+    },
+    {
+      "termino": "TDOA (Time Difference of Arrival)",
+      "definicion": "Método basado en la diferencia de tiempos de llegada (hipérbolas); no necesita sincronizar relojes ni hardware de alta precisión."
+    },
+    {
+      "termino": "GNSS",
+      "definicion": "Sistema de Navegación Global por Satélite: constelación de satélites que da cobertura global para calcular la ubicación."
+    },
+    {
+      "termino": "Segmentos GNSS",
+      "definicion": "Espacial (satélites), de control (estaciones terrestres que monitorizan) y usuario (receptores como los móviles)."
+    },
+    {
+      "termino": "GPS",
+      "definicion": "GNSS de EE. UU. (Departamento de Defensa), con unos 24 slots a ~19.000-20.000 km y exactitud del orden de 5 metros."
+    },
+    {
+      "termino": "Galileo",
+      "definicion": "GNSS de la Unión Europea, de gestión y uso civil, con unos 26 satélites y mejor precisión que el GPS según diversos estudios."
+    },
+    {
+      "termino": "GLONASS",
+      "definicion": "GNSS de Rusia, el más antiguo (1982), gestionado por su Ministerio de Defensa."
+    },
+    {
+      "termino": "BeiDou (BDS)",
+      "definicion": "GNSS de China, de uso civil y militar, con tres constelaciones y una precisión pretendida de 2 a 5 metros."
+    },
+    {
+      "termino": "IRNSS (NAVIC) y QZSS (Michibiki)",
+      "definicion": "GNSS regionales de India (civil/militar, 7 satélites) y Japón (civil, 5 satélites), que solo cubren su zona."
+    },
+    {
+      "termino": "A-GPS",
+      "definicion": "GPS asistido por la red móvil (GNSS + red); mejora la precisión, reduce el TTFF, baja el consumo y aumenta la sensibilidad."
+    },
+    {
+      "termino": "TTFF (Time To First Fix)",
+      "definicion": "Tiempo de primera adquisición de posición; puede ser de varios minutos al encender el receptor en una ubicación nueva."
+    },
+    {
+      "termino": "Exactitud",
+      "definicion": "Proximidad entre un valor medido y el valor verdadero; se evalúa con una medida frente a un punto de referencia conocido."
+    },
+    {
+      "termino": "Precisión",
+      "definicion": "Proximidad (repetibilidad) entre medidas repetidas; se expresa con la dispersión, como la desviación típica o la varianza."
+    },
+    {
+      "termino": "Datum WGS-84 / ETRS-89",
+      "definicion": "Sistema geodésico de referencia del GPS (WGS-84) y su equivalente europeo (ETRS-89); las coordenadas se calculan en metros con UTM."
+    },
+    {
+      "termino": "Beacon (baliza)",
+      "definicion": "Dispositivo BLE pequeño que emite cíclicamente un ID único; permite localización por proximidad en interiores (alcance 10-40 m)."
+    },
+    {
+      "termino": "iBeacon y Eddystone",
+      "definicion": "Tipos de baliza: iBeacon (Apple) y Eddystone (Google), siendo Eddystone más versátil (puede enviar URL y telemetría)."
+    },
+    {
+      "termino": "Major / Minor Number",
+      "definicion": "Identificadores de un beacon: el Major distingue una zona y el Minor un dispositivo u objeto concreto."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-3-fc-001",
+      "pregunta": "¿Qué es un servicio basado en localización (LBS)?",
+      "respuesta": "Un servicio que integra la ubicación de un dispositivo móvil con información de contexto para ofrecer al usuario un valor añadido."
+    },
+    {
+      "id": "te-tema-3-fc-002",
+      "pregunta": "¿En qué se diferencian los LBS orientados a personas y a dispositivos?",
+      "respuesta": "En los orientados a personas, el usuario controla siempre su ubicación; en los orientados a dispositivos, estos se autogestionan y el usuario no interviene."
+    },
+    {
+      "id": "te-tema-3-fc-003",
+      "pregunta": "¿Qué caracteriza a un LBS reactivo?",
+      "respuesta": "Se activa explícitamente por el usuario y tiene interacción síncrona, similar al modelo cliente-servidor (p. ej. buscar farmacias cercanas)."
+    },
+    {
+      "id": "te-tema-3-fc-004",
+      "pregunta": "¿Qué caracteriza a un LBS proactivo o de tipo Push?",
+      "respuesta": "Se inicia automáticamente ante un evento de localización; la interacción es asíncrona y requiere monitorización continua."
+    },
+    {
+      "id": "te-tema-3-fc-005",
+      "pregunta": "¿Qué tipo de aplicación LBS usan los servicios de carsharing?",
+      "respuesta": "LBS orientados a dispositivos."
+    },
+    {
+      "id": "te-tema-3-fc-006",
+      "pregunta": "¿Qué ventajas tiene la localización basada en red?",
+      "respuesta": "Siempre está disponible, es independiente del tipo de dispositivo y requiere datos mínimos (la realiza el operador)."
+    },
+    {
+      "id": "te-tema-3-fc-007",
+      "pregunta": "¿Qué ventaja principal aporta la localización basada en terminal?",
+      "respuesta": "Mayor privacidad, ya que el propio dispositivo calcula su posición de forma local con GPS y sensores integrados."
+    },
+    {
+      "id": "te-tema-3-fc-008",
+      "pregunta": "¿En qué se basa el método de localización RSSI?",
+      "respuesta": "En el nivel (potencia) de señal recibida en cada estación base; es el método más sencillo."
+    },
+    {
+      "id": "te-tema-3-fc-009",
+      "pregunta": "¿Qué mide el método TOA y qué inconveniente tiene?",
+      "respuesta": "El tiempo de llegada de la señal; necesita sincronización de relojes y hardware de alta precisión."
+    },
+    {
+      "id": "te-tema-3-fc-010",
+      "pregunta": "¿Por qué el TDOA es más sencillo que el TOA?",
+      "respuesta": "Porque usa la diferencia de tiempos de llegada (hipérbolas) y no requiere sincronizar los relojes ni hardware de alta precisión."
+    },
+    {
+      "id": "te-tema-3-fc-011",
+      "pregunta": "¿Qué es un GNSS?",
+      "respuesta": "Un Sistema de Navegación Global por Satélite: una constelación de satélites con cobertura global para calcular la ubicación."
+    },
+    {
+      "id": "te-tema-3-fc-012",
+      "pregunta": "¿Cuáles son los tres segmentos de un GNSS?",
+      "respuesta": "El segmento espacial (satélites), el de control (estaciones terrestres) y el de usuario (receptores)."
+    },
+    {
+      "id": "te-tema-3-fc-013",
+      "pregunta": "Cita los cuatro GNSS globales y su país/región.",
+      "respuesta": "GPS (EE. UU.), Galileo (Unión Europea), GLONASS (Rusia) y BeiDou (China)."
+    },
+    {
+      "id": "te-tema-3-fc-014",
+      "pregunta": "¿Qué rasgo distingue a Galileo de los demás GNSS globales?",
+      "respuesta": "Que es de creación, gestión y uso civil (los demás están gestionados por ministerios de defensa o son civil/militar)."
+    },
+    {
+      "id": "te-tema-3-fc-015",
+      "pregunta": "¿Cuál es el GNSS más antiguo?",
+      "respuesta": "GLONASS (Rusia), desarrollado por la URSS en 1982."
+    },
+    {
+      "id": "te-tema-3-fc-016",
+      "pregunta": "Cita dos GNSS regionales.",
+      "respuesta": "IRNSS/NAVIC (India) y QZSS/Michibiki (Japón)."
+    },
+    {
+      "id": "te-tema-3-fc-017",
+      "pregunta": "¿Qué es el A-GPS?",
+      "respuesta": "GPS asistido por la red móvil (GNSS + red móvil), que mejora la precisión, reduce el tiempo de adquisición, baja el consumo y aumenta la sensibilidad."
+    },
+    {
+      "id": "te-tema-3-fc-018",
+      "pregunta": "¿Qué es el TTFF?",
+      "respuesta": "El Time To First Fix o tiempo de primera adquisición de posición, que puede ser de varios minutos al encender el receptor en una ubicación nueva."
+    },
+    {
+      "id": "te-tema-3-fc-019",
+      "pregunta": "¿Cuál es la diferencia entre exactitud y precisión?",
+      "respuesta": "La exactitud mide la proximidad de una medida al valor real; la precisión mide la dispersión (repetibilidad) entre varias medidas."
+    },
+    {
+      "id": "te-tema-3-fc-020",
+      "pregunta": "¿Cómo se calcula la exactitud planimétrica de una observación?",
+      "respuesta": "Como la raíz cuadrada de (exi² + eyi²), donde exi = Xi − Xreal y eyi = Yi − Yreal."
+    },
+    {
+      "id": "te-tema-3-fc-021",
+      "pregunta": "¿Qué datum se usa para registrar posiciones GNSS y cuál es su equivalente europeo?",
+      "respuesta": "El datum WGS-84, cuyo equivalente europeo es el ETRS-89; las coordenadas se calculan en metros con UTM."
+    },
+    {
+      "id": "te-tema-3-fc-022",
+      "pregunta": "¿Qué es un beacon y qué tecnología usa?",
+      "respuesta": "Una baliza pequeña que emite cíclicamente un ID único mediante Bluetooth Low Energy (BLE) para localización por proximidad en interiores."
+    },
+    {
+      "id": "te-tema-3-fc-023",
+      "pregunta": "¿Cuáles son los dos tipos de beacon y cuál es más versátil?",
+      "respuesta": "iBeacon (Apple) y Eddystone (Google); Eddystone es más versátil porque puede enviar URL y telemetría además del ID."
+    },
+    {
+      "id": "te-tema-3-fc-024",
+      "pregunta": "¿Qué distinguen el Major Number y el Minor Number de un beacon?",
+      "respuesta": "El Major Number identifica una zona (p. ej. una sala) y el Minor Number un dispositivo u objeto concreto."
+    },
+    {
+      "id": "te-tema-3-fc-025",
+      "pregunta": "¿Por qué el receptor GNSS de un móvil rinde peor que un GNSS específico?",
+      "respuesta": "Porque su hardware compite por espacio y batería y, sobre todo, la antena GNSS está integrada y es menos eficiente que las antenas optimizadas profesionales."
+    },
+    {
+      "id": "te-tema-3-fc-026",
+      "pregunta": "¿Por qué los beacons funcionan bien en interiores frente al GNSS?",
+      "respuesta": "Porque la señal GNSS no llega o llega muy atenuada en interiores, mientras que los beacons BLE dan cobertura de proximidad sin depender de satélites."
+    }
+  ]
+}

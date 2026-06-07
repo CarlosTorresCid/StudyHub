@@ -1,0 +1,224 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-6",
+  "titulo": "Tema 6. Internet de las cosas (IoT). Parte I",
+  "apuntes": {
+    "introduccion": "El Tema 6 es la primera parte del **Internet de las cosas (IoT, Internet of Things)**, una de las tecnologías que más está transformando nuestro entorno. La idea central es que cualquier objeto físico puede conectarse a Internet (o a una red) para intercambiar datos de forma autónoma, sin intervención de personas.\n\nSe estudian los **fundamentos** (qué es un objeto conectado, cómo interactúa mediante servicios y cómo se comunica de forma automática), los **niveles de inteligencia** de los objetos, los **tipos de dispositivos** (comerciales y de fabricación propia, DIY) con sus plataformas de backend, y las **comunicaciones** específicas para IoT (las redes LPWAN).\n\nUn matiz importante que se repite es la **seguridad y la privacidad**: muchos dispositivos IoT (asistentes como Alexa o Google Home, cámaras, etc.) están permanentemente escuchando o monitorizando, y a menudo se despliegan con poca seguridad o contraseñas por defecto. Este tema es la base de la Actividad 2 (grupal), que usa la plataforma ThingSpeak.",
+    "secciones": [
+      {
+        "titulo": "Fundamentos del IoT: concepto e historia",
+        "contenido": "El **Internet de las cosas (IoT)** es un sistema que utiliza **objetos físicos** (normalmente con una parte digital/electrónica) que se **comunican con otros sistemas u objetos de forma autónoma** (sin personas), mediante Internet u otros protocolos (RFID, Bluetooth, radiofrecuencia, etc.).\n\nEl objeto puede ser de lo más variado: un sensor, un electrodoméstico, un vehículo o un dispositivo diseñado para una tarea. Pueden ser **muy simples** (un alimento etiquetado con un chip RFID con su información de fabricación) o **muy complejos** (un camión con sensores, GPS y un sistema embebido con conexión a Internet). Los más complejos son los que tienen capacidad de procesamiento, memoria y comunicación.\n\n**Historia** (hitos):\n- **1982**: se conecta a Internet una máquina de Coca-Cola (en la Universidad Carnegie Mellon), de la que se podían obtener datos remotamente; se considera el primer dispositivo IoT.\n- **1990**: John Romkey conecta una tostadora a Internet mediante TCP/IP, pudiendo encenderla y apagarla remotamente.\n- **1999**: **Kevin Ashton** (del Auto-ID Center del MIT) acuña el término **Internet of Things**.\n\nLas aplicaciones del IoT son múltiples: monitorización de entornos u objetos (en tiempo real o no), control remoto de sistemas, obtención de avisos y alertas, y automatización de procesos. Combinado con la inteligencia artificial, su potencial se multiplica."
+      },
+      {
+        "titulo": "Componentes del objeto: parte física y servicios",
+        "contenido": "Cada objeto IoT tiene **dos partes claramente diferenciadas**:\n- **Parte física (hardware)**: los circuitos, **sensores**, **actuadores** y microcontroladores que captan datos del entorno y realizan acciones físicas.\n- **Parte lógica (software) / servicios**: las funciones o acciones que el objeto puede hacer (su catálogo de funcionalidad). Procesan los datos y, según el comportamiento, toman decisiones.\n\nLos objetos **interactúan mediante 'servicios'** (también llamados comandos, acciones o habilidades): son las cosas que el objeto sabe hacer. Otros objetos, dispositivos o aplicaciones se comunican con él a través de esos servicios. Por ejemplo, una puerta conectada puede tener los servicios *abrir* y *cerrar*, invocables por Internet desde el móvil; o una cerradura con el servicio *reconocer* (huella dactilar).\n\nEn la práctica, esos servicios se implementan como **APIs** (REST, MQTT, etc.). Los objetos más simples solo permiten conocer su identidad o información básica; los más complejos pueden obtener datos del entorno, analizarlos e iniciar comunicaciones."
+      },
+      {
+        "titulo": "Comunicación autónoma entre objetos",
+        "contenido": "Una idea clave del IoT es la **comunicación entre objetos de forma automática y autónoma**, sin intervención humana. Un objeto puede desencadenar acciones en otros.\n\nEjemplo típico (acción-reacción): un sistema de seguridad doméstico en el que la **cerradura** (con servicio *reconocer*) detecta la huella; si la identificación es correcta, avisa a las **luces del salón** para que se enciendan; si es incorrecta, envía un **correo o notificación de alarma** al móvil o avisa a un sistema de alarma. El sistema puede ampliarse con más objetos: por ejemplo, la gestión de la luz comunicándose con una aplicación en la nube que analiza el gasto eléctrico.\n\nLa comunicación se realiza mediante el envío y recepción de información digital. Este encadenamiento autónomo de servicios entre varios objetos es lo que da al IoT su potencia para automatizar procesos."
+      },
+      {
+        "titulo": "Niveles de inteligencia de los objetos",
+        "contenido": "Los objetos IoT tienen distintos **niveles de inteligencia** según sus capacidades. El nivel depende de las posibilidades técnicas del objeto y del uso que se le dé. Se distinguen **tres categorías** (de menor a mayor inteligencia):\n\n- **1. Manejo de información** (el nivel más bajo): el objeto **gestiona su propia información** (pregrabada o captada por sensores), normalmente sobre su estado o el entorno, y la **devuelve cuando se le pregunta**. Ejemplos: una cámara que devuelve su identificador; una taza que indica si está llena o vacía y su temperatura.\n- **2. Notificación**: el objeto es capaz de **notificar cambios o situaciones** a otros dispositivos o personas por iniciativa propia (no controla su actividad, pero informa ante eventos). Ejemplos: un sensor de presencia que avisa 'hay una persona'; un termostato que notifica 'temperatura alta' a un ventilador.\n- **3. Toma de decisiones** (el nivel más alto): el objeto puede **autoadministrarse**, ejecutar **lógica de negocio** y **tomar decisiones** que controlan su funcionalidad total o parcialmente. Ejemplo: un ventilador que consulta la temperatura y decide girar, aumentar/reducir velocidad o apagarse.\n\nLa inteligencia del sistema puede estar localizada en un solo objeto o repartida en el conjunto de objetos de la red."
+      },
+      {
+        "titulo": "Toma de decisiones: distribuida y centralizada",
+        "contenido": "Cuando hay varios objetos, la inteligencia y la toma de decisiones pueden organizarse de dos formas (no excluyentes):\n- **Distribuida**: la decisión se reparte entre varios objetos que se comunican entre sí (por ejemplo, varios ventiladores que consultan sensores de temperatura y se coordinan: '¿qué hacemos?'). Uno de ellos puede tomar la decisión final.\n- **Centralizada**: existe un **sistema central** (a menudo en la **nube**, o en un **servidor local**) que da soporte a varios objetos: recibe sus datos, los analiza, toma las decisiones y las envía de vuelta para que los objetos las apliquen.\n\nEl esquema centralizado en la nube es habitual (por ejemplo, cámaras de vigilancia cuya app procesa los datos). Por seguridad, también puede montarse el servidor en local y acceder por VPN, lo que mejora la privacidad frente a depender de la nube de un fabricante."
+      },
+      {
+        "titulo": "Dispositivos IoT: comerciales, DIY y plataformas",
+        "contenido": "Existen dos grandes vías para tener dispositivos IoT:\n- **Soluciones comerciales** (ya hechas): familias completas de sensores y actuadores, sobre todo para el hogar. **Sensores de seguridad** (humo/incendios, monóxido de carbono, intrusión en ventanas, inundación, apertura de puertas) y **sensores/actuadores de confort** (termostatos digitales, temperatura/humedad, iluminación con cambio cromático, enchufes inteligentes). Un ejemplo de familia comercial es SmartThings de Samsung.\n- **Soluciones propias (filosofía DIY, Do It Yourself)**: usando placas de propósito general como **Arduino**, **Raspberry Pi**, **Intel Edison** o **BeagleBone**, junto a multitud de sensores y complementos. Da gran flexibilidad, pero exige tiempo y conocimientos. (Nota: una Raspberry Pi es en realidad un pequeño ordenador completo, más potente y caro que un Arduino, que es un microcontrolador.)\n\nPara recoger y procesar los datos de los sensores suele hacer falta un **backend**, simplificado mediante **plataformas** que ofrecen analíticas, informes y notificaciones, y una **API** para conectarse:\n- **Propietarias**: como el servicio cloud de **SmartThings** (Samsung), que solo funciona con dispositivos de la marca.\n- **Abiertas**: como **ThingSpeak**, que permite conectar dispositivos de distintos fabricantes o propios (es la que se usa en la Actividad 2). ThingSpeak organiza los datos en **canales** con **campos (fields)** y se gestiona con **API keys** (de lectura y escritura)."
+      },
+      {
+        "titulo": "Comunicaciones IoT: redes LPWAN",
+        "contenido": "Como los dispositivos IoT se ubican tanto en interiores como en exteriores (a menudo en entornos remotos y operados por **baterías**), necesitan comunicaciones inalámbricas de área extensa (WWAN). Pueden usar redes móviles tradicionales (2.5G/3G/4G), pero lo más adecuado son las redes **LPWAN (Low Power Wide Area Network)**.\n\nCaracterísticas de las **LPWAN**: **consumo muy reducido**, **gran cobertura** (mayor que las redes móviles tradicionales) y, como contrapartida, **ancho de banda muy bajo** (kbps o pocos Mbps). Esto encaja con los dispositivos IoT, que envían muy poca información pero requieren muchas conexiones y larga autonomía.\n\nHay **dos grandes grupos** de tecnologías LPWAN:\n- **Estándar**: **LTE-M** y **NB-IoT** (variantes de LTE, sobre redes móviles). Al apoyarse en infraestructura móvil, soportan más casos de uso (voz, movilidad). Velocidades: LTE-M (1-10 Mbps), NB-IoT (0,1-1 Mbps).\n- **Propietarias**: **Sigfox** y **LoRa**, para datos muy pequeños (Sigfox, unos pocos bps; LoRa, <50 kbps), con muy bajo consumo.\n\nOrden creciente de velocidad: **Sigfox < NB-IoT < LTE-M**. A mayor capacidad, mayor coste y consumo. Los casos de uso se reparten: NB-IoT para parquímetros, sensores, alumbrado, ciudades inteligentes o agricultura; LTE-M para dispositivos industriales, wearables, máquinas expendedoras o seguimiento de activos."
+      }
+    ]
+  },
+  "resumen": [
+    "El IoT (Internet de las cosas) conecta objetos físicos a Internet u otras redes para que intercambien datos de forma autónoma, sin intervención de personas.",
+    "Hitos históricos: máquina de Coca-Cola conectada (1982), tostadora con TCP/IP (1990) y acuñación del término por Kevin Ashton en el MIT (1999).",
+    "Cada objeto IoT tiene una parte física (hardware: sensores, actuadores) y una parte lógica de servicios o acciones (su catálogo de funcionalidad).",
+    "Los objetos interactúan mediante servicios, implementados normalmente como APIs (REST, MQTT).",
+    "Una idea clave es la comunicación automática y autónoma entre objetos, que permite encadenar acciones (acción-reacción).",
+    "Los objetos tienen tres niveles de inteligencia: manejo de información (responde cuando se le pregunta), notificación (avisa de cambios) y toma de decisiones (se autoadministra).",
+    "Cuando hay varios objetos, la toma de decisiones puede ser distribuida (entre objetos) o centralizada (en la nube o un servidor local).",
+    "Los dispositivos IoT pueden ser comerciales (familias como SmartThings) o de fabricación propia (DIY) con placas como Arduino, Raspberry Pi o BeagleBone.",
+    "El backend de recogida y análisis de datos se simplifica con plataformas como SmartThings (propietaria) o ThingSpeak (abierta), que ofrecen una API.",
+    "Las comunicaciones IoT suelen usar redes LPWAN: bajo consumo, gran cobertura y poco ancho de banda.",
+    "Las LPWAN se dividen en estándar (LTE-M y NB-IoT, variantes de LTE) y propietarias (Sigfox y LoRa).",
+    "El orden creciente de velocidad es Sigfox, NB-IoT y LTE-M; a mayor capacidad, mayor coste y consumo."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "IoT (Internet de las cosas)",
+      "definicion": "Sistema de objetos físicos con parte digital que se comunican de forma autónoma entre sí y con otros sistemas, mediante Internet u otros protocolos."
+    },
+    {
+      "termino": "Kevin Ashton",
+      "definicion": "Investigador del Auto-ID Center del MIT que acuñó el término 'Internet of Things' en 1999."
+    },
+    {
+      "termino": "Servicio (en IoT)",
+      "definicion": "Acción, comando o habilidad que un objeto puede realizar; los objetos interactúan entre sí a través de sus servicios (implementados como APIs)."
+    },
+    {
+      "termino": "Parte física / parte lógica",
+      "definicion": "Hardware del objeto (sensores, actuadores, circuitos) frente a su software o catálogo de servicios y acciones."
+    },
+    {
+      "termino": "Sensor / actuador",
+      "definicion": "Sensor: capta datos del entorno; actuador: realiza acciones físicas; ambos forman la parte física de un objeto IoT."
+    },
+    {
+      "termino": "Comunicación autónoma",
+      "definicion": "Capacidad de los objetos IoT de comunicarse entre sí y desencadenar acciones sin intervención humana."
+    },
+    {
+      "termino": "Nivel de inteligencia: manejo de información",
+      "definicion": "Nivel más bajo: el objeto gestiona su propia información y la devuelve cuando se le pregunta."
+    },
+    {
+      "termino": "Nivel de inteligencia: notificación",
+      "definicion": "El objeto toma la iniciativa para avisar de cambios o situaciones a otros dispositivos o personas."
+    },
+    {
+      "termino": "Nivel de inteligencia: toma de decisiones",
+      "definicion": "Nivel más alto: el objeto se autoadministra, ejecuta lógica de negocio y toma decisiones que controlan su funcionalidad."
+    },
+    {
+      "termino": "Toma de decisiones distribuida / centralizada",
+      "definicion": "Distribuida: repartida entre varios objetos; centralizada: en un sistema central (nube o servidor local) que decide por todos."
+    },
+    {
+      "termino": "DIY (Do It Yourself)",
+      "definicion": "Filosofía de crear soluciones IoT propias con placas de propósito general en lugar de comprar productos comerciales."
+    },
+    {
+      "termino": "Arduino / Raspberry Pi / BeagleBone",
+      "definicion": "Placas para crear dispositivos IoT propios; la Raspberry Pi es un pequeño ordenador completo, más potente que el microcontrolador Arduino."
+    },
+    {
+      "termino": "SmartThings",
+      "definicion": "Plataforma y familia de dispositivos IoT propietaria de Samsung, que funciona con dispositivos de la marca."
+    },
+    {
+      "termino": "ThingSpeak",
+      "definicion": "Plataforma abierta de backend para IoT que recoge, analiza y visualiza datos mediante canales, campos y una API (usada en la Actividad 2)."
+    },
+    {
+      "termino": "LPWAN (Low Power Wide Area Network)",
+      "definicion": "Redes de bajo consumo y gran cobertura para IoT, con ancho de banda muy reducido (kbps o pocos Mbps)."
+    },
+    {
+      "termino": "LTE-M y NB-IoT",
+      "definicion": "Tecnologías LPWAN estándar, variantes de LTE sobre redes móviles; LTE-M es más rápida que NB-IoT."
+    },
+    {
+      "termino": "Sigfox y LoRa",
+      "definicion": "Tecnologías LPWAN propietarias, para datos muy pequeños y muy bajo consumo."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-6-fc-001",
+      "pregunta": "¿Qué es el IoT (Internet de las cosas)?",
+      "respuesta": "Un sistema de objetos físicos con parte digital que se comunican de forma autónoma entre sí y con otros sistemas mediante Internet u otros protocolos."
+    },
+    {
+      "id": "te-tema-6-fc-002",
+      "pregunta": "¿Quién acuñó el término 'Internet of Things' y cuándo?",
+      "respuesta": "Kevin Ashton, del Auto-ID Center del MIT, en 1999."
+    },
+    {
+      "id": "te-tema-6-fc-003",
+      "pregunta": "¿Cuál se considera el primer dispositivo IoT?",
+      "respuesta": "Una máquina de Coca-Cola conectada a Internet en 1982 (en la Universidad Carnegie Mellon)."
+    },
+    {
+      "id": "te-tema-6-fc-004",
+      "pregunta": "¿Cuáles son las dos partes de un objeto IoT?",
+      "respuesta": "La parte física (hardware: sensores, actuadores) y la parte lógica de servicios o acciones."
+    },
+    {
+      "id": "te-tema-6-fc-005",
+      "pregunta": "¿Mediante qué interactúan los objetos en IoT?",
+      "respuesta": "Mediante servicios (acciones, comandos o habilidades), implementados normalmente como APIs."
+    },
+    {
+      "id": "te-tema-6-fc-006",
+      "pregunta": "¿Cuáles son los tres niveles de inteligencia de un objeto IoT?",
+      "respuesta": "Manejo de información (responde cuando se le pregunta), notificación (avisa de cambios) y toma de decisiones (se autoadministra)."
+    },
+    {
+      "id": "te-tema-6-fc-007",
+      "pregunta": "¿Qué caracteriza al nivel de inteligencia 'manejo de información'?",
+      "respuesta": "Es el más bajo: el objeto gestiona su propia información y la devuelve cuando se le pregunta."
+    },
+    {
+      "id": "te-tema-6-fc-008",
+      "pregunta": "¿Qué permite el nivel de 'toma de decisiones'?",
+      "respuesta": "Que el objeto se autoadministre, ejecute lógica de negocio y tome decisiones que controlan su funcionalidad."
+    },
+    {
+      "id": "te-tema-6-fc-009",
+      "pregunta": "¿De qué dos formas puede organizarse la toma de decisiones con varios objetos?",
+      "respuesta": "De forma distribuida (entre los objetos) o centralizada (en la nube o un servidor que decide por todos)."
+    },
+    {
+      "id": "te-tema-6-fc-010",
+      "pregunta": "¿Qué es la filosofía DIY en IoT?",
+      "respuesta": "Do It Yourself: crear soluciones propias con placas como Arduino, Raspberry Pi o BeagleBone en vez de comprar productos comerciales."
+    },
+    {
+      "id": "te-tema-6-fc-011",
+      "pregunta": "¿Qué diferencia a una Raspberry Pi de un Arduino?",
+      "respuesta": "La Raspberry Pi es un pequeño ordenador completo (más potente y caro); el Arduino es un microcontrolador más sencillo."
+    },
+    {
+      "id": "te-tema-6-fc-012",
+      "pregunta": "Cita una plataforma de backend IoT propietaria y una abierta.",
+      "respuesta": "Propietaria: SmartThings (Samsung); abierta: ThingSpeak."
+    },
+    {
+      "id": "te-tema-6-fc-013",
+      "pregunta": "¿Qué son las redes LPWAN y qué las caracteriza?",
+      "respuesta": "Redes de bajo consumo y gran cobertura para IoT, con un ancho de banda muy reducido (kbps o pocos Mbps)."
+    },
+    {
+      "id": "te-tema-6-fc-014",
+      "pregunta": "¿Cuáles son las dos LPWAN estándar y las dos propietarias?",
+      "respuesta": "Estándar: LTE-M y NB-IoT; propietarias: Sigfox y LoRa."
+    },
+    {
+      "id": "te-tema-6-fc-015",
+      "pregunta": "Ordena de menor a mayor velocidad: Sigfox, LTE-M y NB-IoT.",
+      "respuesta": "Sigfox, NB-IoT y LTE-M."
+    },
+    {
+      "id": "te-tema-6-fc-016",
+      "pregunta": "¿Por qué las LPWAN tienen poco ancho de banda?",
+      "respuesta": "Porque los dispositivos IoT envían muy poca información y necesitan muy bajo consumo (suelen ir con baterías) y mucha cobertura."
+    },
+    {
+      "id": "te-tema-6-fc-017",
+      "pregunta": "Cita tres aplicaciones generales del IoT.",
+      "respuesta": "Monitorización de entornos/objetos, control remoto de sistemas, avisos/alertas y automatización de procesos."
+    },
+    {
+      "id": "te-tema-6-fc-018",
+      "pregunta": "¿Cómo organiza ThingSpeak los datos?",
+      "respuesta": "En canales con campos (fields), gestionados mediante API keys de lectura y escritura."
+    },
+    {
+      "id": "te-tema-6-fc-019",
+      "pregunta": "¿Qué ventaja aportan LTE-M y NB-IoT por apoyarse en redes móviles?",
+      "respuesta": "Soportan más casos de uso (incluida la movilidad y la voz) al usar la infraestructura móvil existente."
+    },
+    {
+      "id": "te-tema-6-fc-020",
+      "pregunta": "¿Qué problema de seguridad es habitual en el IoT?",
+      "respuesta": "Muchos dispositivos se despliegan con poca seguridad o con contraseñas por defecto, y monitorizan/escuchan de forma permanente."
+    }
+  ]
+}
