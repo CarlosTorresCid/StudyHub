@@ -111,3 +111,35 @@
     justify-content: center;
   }
 }
+
+
+/* ── Filtro activo por temática ─────────────────────────────── */
+
+.exam-active-filter {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.exam-active-filter strong {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .exam-active-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .exam-active-filter .btn {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,1147 @@
+[
+  {
+    "id": "isa-tema-1-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿En qué consiste la fase de aprendizaje de la metodología ASD?",
+    "opciones": [
+      "Estudiar el dominio de aplicación antes de comenzar.",
+      "Adquirir conocimientos sobre una tecnología concreta.",
+      "Revisar la calidad del producto desde el punto de vista del cliente y reflexionar sobre el proceso desarrollado.",
+      "Esta no es una fase de ASD."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La fase de Aprendizaje (Learn) en ASD es la tercera fase del ciclo. En ella el equipo revisa la calidad del producto con el cliente y reflexiona sobre el propio proceso para mejorar en la siguiente iteración.",
+    "fuentes": [
+      "isa-tema-1-comentarios-adicionales.txt",
+      "Tema1.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-1-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Menciona y justifica 4 aspectos a considerar al elegir la metodología de desarrollo de un proyecto, para decantarnos por una metodología ágil.",
+    "respuestaModelo": "Los seis factores a considerar son: 1) Tamaño del proyecto y del equipo: las metodologías ágiles fueron diseñadas para equipos pequeños; a mayor tamaño, más difícil la adaptación. 2) Volatilidad de los requisitos: si los requisitos son cambiantes o poco definidos, el enfoque ágil es más adecuado que uno tradicional que exige especificación estable. 3) Criticidad del sistema: sistemas donde los fallos tienen consecuencias graves pueden requerir documentación exhaustiva incompatible con la agilidad. 4) Disponibilidad y accesibilidad del cliente: las metodologías ágiles requieren implicación continua del cliente; si no puede participar activamente, el enfoque ágil pierde valor. 5) Experiencia y preparación del equipo: equipos sin experiencia ágil necesitan un período de aprendizaje. 6) Cultura de la organización: la agilidad implica un cambio cultural; organizaciones muy jerarquizadas o burocráticas encontrarán resistencia.",
+    "criteriosCorreccion": [
+      "Menciona al menos 4 de los 6 factores correctos.",
+      "Justifica cada factor explicando por qué influye en la elección.",
+      "No confunde los factores con ventajas genéricas de la agilidad.",
+      "La respuesta cabe en aproximadamente 1 página."
+    ],
+    "fuentes": [
+      "ModeloA_2025-Ordinaria.docx",
+      "isa-tema-1-comentarios-adicionales.txt",
+      "OrientacionesISA_1.pdf"
+    ],
+    "observaciones": "Pregunta real del Ejercicio 1, Modelo A, convocatoria ordinaria 2025. Respuesta orientativa elaborada a partir del contenido docente disponible.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuáles de las siguientes características debe poseer una buena historia de usuario?",
+    "opciones": [
+      "INVEST: innovadora, negociable, verificable, entendible, sencilla y temporalizable.",
+      "INVEST: independiente, negociable, valiosa, estimable, pequeña y verificable.",
+      "SMART: específica, medible, alcanzable, relevante y acotada en el tiempo.",
+      "SMART: sencilla, manejable, asequible, razonable y temporalizable."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "INVEST son las características de las historias de usuario: Independent, Negotiable, Valuable, Estimable, Small, Testable. SMART es el criterio para las TAREAS (Specific, Measurable, Achievable, Relevant, Time-boxed). Las opciones A, C y D contienen definiciones incorrectas.",
+    "fuentes": [
+      "Tema2.pdf",
+      "isa-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué herramienta visual procedente de Kanban se utiliza habitualmente en proyectos Scrum?",
+    "opciones": [
+      "Las tarjetas de historias de usuario.",
+      "El Burndown Chart.",
+      "El tablero Kanban.",
+      "Ninguna de las respuestas anteriores es correcta."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El tablero Kanban es la herramienta visual de origen Kanban que se incorpora habitualmente en proyectos Scrum para visualizar el estado de las tareas. El Burndown Chart es propio de Scrum, no de Kanban.",
+    "fuentes": [
+      "Tema2.pdf",
+      "isa-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cómo podemos estimar la complejidad de implementación de las historias de usuario en Scrum?",
+    "opciones": [
+      "Empleando puntos de historia y técnicas como el «póker de planificación».",
+      "Las historias de usuario siempre deben estimarse de manera precisa en horas de trabajo.",
+      "Preguntando al Product Owner sobre la complejidad de implementación de cada historia.",
+      "No es necesario estimar la duración de implementación de cada historia. Si no se puede completar en un sprint se continúa en el siguiente."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Las historias se estiman en puntos de historia (complejidad relativa) usando técnicas como el póker de planificación, donde el equipo de desarrollo vota su estimación. Las horas son para las tareas, no para las historias. El PO no estima la complejidad técnica.",
+    "fuentes": [
+      "Tema2.pdf",
+      "isa-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-1",
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica los roles de Scrum: Product Owner, Equipo de desarrollo y Scrum Master.",
+    "respuestaModelo": "Product Owner: responsable del éxito del producto; define y prioriza el Product Backlog; maximiza el ROI; es el interlocutor con el cliente y los stakeholders; acepta o rechaza el incremento al final del sprint. Equipo de desarrollo: entre 3 y 9 personas, autoorganizado, multifuncional, sin sub-equipos ni roles fijos internos; estiman la complejidad de las historias, se comprometen con el Sprint Goal y entregan el incremento. Scrum Master: facilitador del proceso; asegura que se comprende y aplica Scrum; elimina los impedimentos que bloquean al equipo; NO es el jefe de proyecto.",
+    "criteriosCorreccion": [
+      "Define correctamente el Product Owner (priorización del backlog, comunicación con cliente).",
+      "Define correctamente el equipo de desarrollo (tamaño 3-9, autoorganizado, multifuncional).",
+      "Define correctamente el Scrum Master (facilitador, eliminador de impedimentos, no jefe de proyecto).",
+      "Distingue claramente los tres roles entre sí."
+    ],
+    "fuentes": [
+      "Soluciones_Examenes_ISA_rocio.pdf",
+      "Preguntas_Examen_Final_reviewed.docx",
+      "Tema2.pdf"
+    ],
+    "observaciones": "Pregunta real del Modelo B 2022. Respuesta elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-practica-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Para una aplicación dada (por ejemplo, una app para encontrar bares y restaurantes cercanos con opción de reserva), elabora una pila de producto con 5 historias de usuario no triviales. Las historias no pueden ser de login, logout, crear usuario ni otras triviales.",
+    "solucionOrientativa": "Ejemplo para app Find&Book (bares/restaurantes):\n1. Como cliente, quiero buscar bares cercanos a mi ubicación filtrados por tipo de cocina, para encontrar opciones que se adapten a mis gustos.\n2. Como cliente, quiero ver las valoraciones y comentarios de otros usuarios sobre un local, para tomar una decisión informada antes de ir.\n3. Como cliente, quiero realizar una reserva en un local seleccionado indicando fecha, hora y número de personas, para asegurar mi mesa.\n4. Como propietario, quiero gestionar la disponibilidad de mesas de mi local en tiempo real, para evitar overbooking.\n5. Como administrador, quiero moderar los comentarios publicados en la plataforma, para garantizar que cumplen las normas de uso.",
+    "criteriosCorreccion": [
+      "5 historias en formato correcto: 'Como <rol>, quiero <funcionalidad> para <beneficio>'.",
+      "Ninguna es trivial (no login, logout, crear cuenta, etc.).",
+      "Cada historia aporta valor de negocio real.",
+      "Las historias son independientes entre sí (criterio INVEST).",
+      "Se identifican al menos 2 tipos de usuario distintos."
+    ],
+    "fuentes": [
+      "ISA__Examenes_anteriores.pdf",
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Practica_Examen.docx"
+    ],
+    "observaciones": "El Ejercicio 2, Apartado 1 (1 punto) pide siempre 5 historias de usuario no triviales para el proyecto propuesto. Solución orientativa elaborada a partir de ejemplos resueltos disponibles.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-2-practica-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Para una aplicación dada, define el equipo Scrum y planifica el primer sprint seleccionando 3 historias de usuario, descomponiéndolas en tareas SMART estimadas en horas, y verifica que la carga total es asumible para el equipo.",
+    "solucionOrientativa": "Equipo tipo: 1 PO + 1 SM + 4 developers = ~150 horas efectivas (1 sprint de 1 semana, 37,5 h/persona × 4 devs).\nEjemplo con 3 historias del apartado anterior:\n- HU-01 (buscar locales): Tarea T1.1 Frontend buscador (8h), T1.2 Integración API mapas (10h), T1.3 Filtros (6h), T1.4 Tests (4h) = 28h\n- HU-03 (realizar reserva): T3.1 Formulario reserva (8h), T3.2 Lógica disponibilidad (10h), T3.3 Notificación confirmación (6h), T3.4 Tests (4h) = 28h\n- HU-04 (gestionar disponibilidad): T4.1 Panel propietario (10h), T4.2 Actualización tiempo real (8h), T4.3 Tests (6h) = 24h\nTotal: 80h < 150h disponibles. Sprint asumible.",
+    "criteriosCorreccion": [
+      "Define el equipo con roles (PO, SM, devs) y tamaño (3-9 devs).",
+      "Calcula las horas efectivas del sprint (nº devs × horas/dev).",
+      "Descompone cada historia en al menos 3 tareas SMART.",
+      "Estima cada tarea en horas.",
+      "Suma el total y verifica que es <= horas disponibles."
+    ],
+    "fuentes": [
+      "ISA__Examenes_anteriores.pdf",
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf"
+    ],
+    "observaciones": "El Ejercicio 2, Apartado 2 (2 puntos) siempre pide planificación de sprint. Solución orientativa con valores típicos de los exámenes resueltos.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-3-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuáles son los valores principales que promueve XP?",
+    "opciones": [
+      "Las pruebas unitarias, el feedback, la simplicidad y la programación en parejas.",
+      "La comunicación, la simplicidad, la retroalimentación, el coraje y el respeto.",
+      "El coraje, la comunicación, el diseño simple, las pequeñas entregas y la metáfora.",
+      "La comunicación, el cliente in situ, las pequeñas entregas, la refactorización y el respeto."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los 5 valores de XP son: comunicación, simplicidad, retroalimentación (feedback), coraje y respeto. Las otras opciones mezclan prácticas con valores, o incluyen elementos incorrectos.",
+    "fuentes": [
+      "isa-tema-3-comentarios-adicionales.txt",
+      "Tema3.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-3-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuáles son algunos de los canales que permiten la retroalimentación en XP?",
+    "opciones": [
+      "Las pruebas y el diálogo con el cliente.",
+      "La puesta en producción temprana del sistema empleando la práctica de pequeñas entregas.",
+      "El juego de la planificación y la integración continua.",
+      "Todas las respuestas anteriores son correctas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La retroalimentación en XP proviene de múltiples canales: las pruebas (detectan errores), el diálogo con el cliente (valida funcionalidades), las pequeñas entregas (feedback real temprano) y el juego de planificación con integración continua (feedback del proceso).",
+    "fuentes": [
+      "isa-tema-3-comentarios-adicionales.txt",
+      "Tema3.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-3-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "El ciclo de vida en XP considera las siguientes fases fundamentales:",
+    "opciones": [
+      "Planificación, diseño, codificación y pruebas, de manera secuencial.",
+      "Planificación, diseño, codificación y pruebas de manera solapada entre sí, con una fase previa de estudio de viabilidad al inicio del proyecto.",
+      "Planificación, diseño, codificación y pruebas, solapadas entre sí, y precedidas de una fase de análisis al comienzo del proyecto.",
+      "Ninguna de las respuestas anteriores es correcta."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El ciclo de vida de XP tiene una fase de estudio de viabilidad al inicio, seguida de las fases de planificación, diseño, codificación y pruebas que se ejecutan de forma solapada y continua en cada iteración. No son secuenciales.",
+    "fuentes": [
+      "isa-tema-3-comentarios-adicionales.txt",
+      "Tema3.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-3-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3",
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica las siguientes prácticas básicas de XP: pequeñas entregas, test-driven development, refactorización y propiedad del código compartida.",
+    "respuestaModelo": "Pequeñas entregas (small releases): XP busca poner el sistema en producción cuanto antes con un subconjunto reducido de funcionalidades de alto valor. A partir de esa primera versión, las entregas son muy cortas (1-2 semanas) y añaden mejoras incrementales. Reduce riesgo, da feedback real al cliente y mantiene al equipo enfocado en aportar valor.\n\nTest-Driven Development (TDD): el programador escribe primero la prueba unitaria (rojo), después el código mínimo para hacerla pasar (verde) y finalmente refactoriza. Las pruebas actúan como especificación viva, guían el diseño y reducen regresiones.\n\nRefactorización: reestructuración continua del código sin alterar su comportamiento externo, persiguiendo simplicidad y flexibilidad. Evita la deuda técnica. Solo es viable con una buena batería de pruebas automáticas (sinergia con TDD).\n\nPropiedad del código compartida: cualquier miembro puede modificar cualquier parte del código si detecta una mejora. Implica acceso global al código, visión común del sistema, aprendizaje cruzado y resiliencia del equipo ante bajas. Va de la mano con la integración continua.",
+    "criteriosCorreccion": [
+      "Explica correctamente pequeñas entregas (frecuencia, valor, feedback).",
+      "Explica correctamente TDD (ciclo rojo-verde-refactor).",
+      "Explica correctamente refactorización (mejora estructura sin cambiar comportamiento).",
+      "Explica correctamente propiedad compartida (cualquier miembro puede modificar cualquier parte).",
+      "La respuesta cabe en 1 página."
+    ],
+    "fuentes": [
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf",
+      "examen_1_2023_resuelto.docx",
+      "Modelo_A_2022_ISA.docx"
+    ],
+    "observaciones": "Pregunta real de examen en Modelo C 2023 y Modelo A 2022. Es una de las preguntas más recurrentes del Tema 3.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-3-desarrollo-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica los siguientes roles que propone la metodología XP: programador, cliente, rastreador y jefe de proyecto.",
+    "respuestaModelo": "Programador: es el rol central de XP. Diseña, estima, prueba (TDD) e implementa el código. Trabaja en parejas (pair programming), puede modificar cualquier parte del código (propiedad compartida) y es responsable de la calidad técnica.\n\nCliente: representa al negocio dentro del equipo. Escribe las historias de usuario, las prioriza, define los criterios de aceptación y está disponible para responder dudas del equipo durante el desarrollo. En XP el cliente es un miembro más del equipo.\n\nRastreador (Tracker): hace seguimiento del progreso del proyecto, mide la velocidad del equipo (historias completadas por iteración), registra métricas y detecta desviaciones respecto al plan. Ayuda al equipo a estimar mejor en iteraciones futuras.\n\nJefe de proyecto (Coach o Manager): facilita las condiciones para que el equipo trabaje eficientemente. Gestiona las relaciones externas, protege al equipo de interrupciones y apoya en la resolución de problemas organizativos. No dirige el trabajo técnico.",
+    "criteriosCorreccion": [
+      "Define correctamente el rol del programador (implementación, TDD, pair programming).",
+      "Define correctamente el rol del cliente (historias, priorización, disponibilidad).",
+      "Define correctamente el rol del rastreador (métricas, seguimiento).",
+      "Define correctamente el rol del jefe de proyecto (facilitador externo, no director técnico)."
+    ],
+    "fuentes": [
+      "ModeloA_2025-Ordinaria.docx",
+      "isa-tema-3-comentarios-adicionales.txt",
+      "Soluciones_Examenes_ISA_principal.pdf"
+    ],
+    "observaciones": "Pregunta real del Ejercicio 1, Modelo A 2025, Tema B.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-4-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Enuncia y explica 3 posibles beneficios del desarrollo basado en reutilización, y 3 posibles problemas o dificultades.",
+    "respuestaModelo": "BENEFICIOS:\n1. Reducción del riesgo (técnico y económico): el valor y la calidad del software reutilizado es ya conocido. Reduce la incertidumbre respecto al coste y comportamiento del componente.\n2. Reducción de la duración del proyecto: al aprovechar elementos ya existentes se elimina el tiempo de desarrollarlos desde cero.\n3. Aumento de la fiabilidad: los componentes reutilizados han sido probados en desarrollos anteriores, lo que reduce la probabilidad de que contengan defectos.\n\nPROBLEMAS:\n1. Problemas de mantenimiento (jardines vallados): si no se tiene acceso al código fuente o al conocimiento necesario para modificar el componente, el mantenimiento se complica gravemente.\n2. Costes de creación y mantenimiento de librerías de componentes: mantener un catálogo de componentes reutilizables requiere inversión continuada.\n3. Costes de integración: integrar componentes con interfaces diferentes puede requerir desarrollar adaptadores específicos, añadiendo coste y complejidad.",
+    "criteriosCorreccion": [
+      "Enuncia correctamente al menos 3 beneficios de los que aparecen en el temario.",
+      "Enuncia correctamente al menos 3 problemas de los que aparecen en el temario.",
+      "Explica cada punto con suficiente detalle (no se limita a enumerar).",
+      "No confunde beneficios con problemas."
+    ],
+    "fuentes": [
+      "ISA_modeloB_2024.docx",
+      "ISA_examen_3_Resuelto.docx",
+      "Preguntas_Examen_Final_reviewed.docx",
+      "isa-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta real que apareció en Modelo B julio 2023 y Modelo B julio 2024 (misma pregunta en dos convocatorias distintas). Es el contenido más recurrente del Tema 4 en el examen.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Por qué los requisitos no funcionales son importantes a la hora de definir la arquitectura de un sistema?",
+    "opciones": [
+      "Porque la arquitectura de un sistema determina características como el rendimiento general, la protección o la disponibilidad.",
+      "Porque uno de los requisitos no funcionales debe ser siempre la arquitectura del sistema.",
+      "Porque imponen restricciones sobre la metodología de desarrollo que debe emplearse.",
+      "Ninguna de las respuestas anteriores es correcta."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La arquitectura define cómo se organizan y comunican los componentes del sistema, lo que determina directamente características no funcionales como rendimiento, protección o disponibilidad. Por eso los requisitos no funcionales son una entrada clave en las decisiones arquitectónicas.",
+    "fuentes": [
+      "Tema5.pdf",
+      "isa-tema-5-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué entendemos como protección de un sistema?",
+    "opciones": [
+      "La capacidad del sistema para protegerse de amenazas o ataques externos.",
+      "La capacidad del sistema para evitar que se produzcan fallos, o recuperarse ante la ocurrencia de un fallo.",
+      "El nivel de rendimiento general del sistema.",
+      "La fracción del tiempo total que el sistema está funcionando correctamente y proporcionando a sus usuarios los servicios solicitados."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En ISA, 'protección' (safety en inglés) se refiere a la capacidad de evitar fallos o recuperarse de ellos. No confundir con 'seguridad' (security), que es la protección ante intrusiones externas (opción A). La opción D define disponibilidad.",
+    "fuentes": [
+      "Tema5.pdf",
+      "isa-tema-5-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Distinción seguridad/protección señalada por el profesor como fuente de confusión habitual.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de las siguientes es una arquitectura apropiada para favorecer la mantenibilidad del sistema?",
+    "opciones": [
+      "Una arquitectura fuertemente centralizada, donde todos los datos y capacidad de cómputo se acumulan en una única máquina.",
+      "Una arquitectura de capas, donde cada una de las capas puede ofrecer servicios a otras.",
+      "Una arquitectura repartida entre componentes de granularidad pequeña o mediana y débilmente acoplados entre sí.",
+      "Una arquitectura de N versiones de software."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La mantenibilidad se mejora con componentes de granularidad pequeña, sustituibles independientemente, y bajo acoplamiento entre ellos. La centralización (A) dificulta el mantenimiento; las capas (B) mejoran la organización pero no específicamente la mantenibilidad; las N versiones (D) mejoran la tolerancia a fallos.",
+    "fuentes": [
+      "Tema5.pdf",
+      "isa-tema-5-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-test-004",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué entendemos como un «cliente pesado»?",
+    "opciones": [
+      "Aquel que se conecta con un servidor empleando protocolos antiguos no estandarizados.",
+      "Aquel que solo contiene la capa de presentación de datos al usuario y ofrece interactividad con el sistema.",
+      "Un cliente que solo puede ejecutarse en PC de escritorio, pero no en dispositivos más ligeros como tabletas y móviles.",
+      "Un cliente que, además de contener la capa de presentación, contiene lógica de negocio y almacena y manipula datos."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El cliente pesado contiene presentación + lógica de negocio + datos locales. El cliente ligero (opción B) solo contiene la capa de presentación. Las opciones A y C son incorrectas.",
+    "fuentes": [
+      "Tema5.pdf",
+      "isa-tema-5-comentarios-adicionales.txt",
+      "OrientacionesISA_1.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-test-005",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "En un patrón de arquitectura de «tuberías y filtros», ¿qué es un filtro?",
+    "opciones": [
+      "Cualquier elemento que se interpone entre un cliente y un servidor y analiza los datos enviados para bloquear o no la petición.",
+      "Un componente que recibe unos datos de entrada, los procesa, y proporciona unos resultados.",
+      "Un componente que se conecta con otro a través de algún mecanismo de comunicación, de manera que es posible procesar datos de manera encadenada e incremental.",
+      "Las respuestas B y C son correctas."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Un filtro es el nodo especializado que recibe datos de entrada, los procesa y produce resultados. La opción C describe más bien la tubería (pipes). La opción A confunde el concepto con un firewall o proxy de seguridad.",
+    "fuentes": [
+      "Tema5.pdf",
+      "isa-tema-5-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica la arquitectura de tuberías y filtros, sus elementos principales, y pon un ejemplo ayudándote de un esquema o dibujo.",
+    "respuestaModelo": "La arquitectura de tuberías y filtros (pipes and filters) modela sistemas cuyos componentes principales son nodos especializados en aceptar datos de entrada, procesarlos y producir resultados. Estos nodos se denominan filtros y se conectan entre sí mediante tuberías (mecanismos de comunicación). La representación gráfica tiene forma de grafo dirigido.\n\nElementos principales:\n- Filtros: componentes independientes que reciben datos, los transforman y producen salida. No conocen qué hay antes ni después de ellos en el grafo.\n- Tuberías: mecanismos de comunicación que transportan los datos de un filtro al siguiente.\n\nCaracterísticas: los filtros son independientes entre sí, lo que promueve la reutilización y permite sustituirlos o reordenarlos.\n\nEjemplo clásico: compilación de código. El código fuente pasa por: Analizador léxico → Analizador sintáctico → Analizador semántico → Generador de código → Enlazador → Ejecutable. Cada fase es un filtro independiente.",
+    "criteriosCorreccion": [
+      "Define correctamente qué son los filtros y las tuberías.",
+      "Menciona la forma de grafo dirigido de la arquitectura.",
+      "Señala la independencia de los filtros como característica clave.",
+      "Incluye un ejemplo concreto con esquema (p.ej. compilación).",
+      "La respuesta cabe en 1 página."
+    ],
+    "fuentes": [
+      "ISA__Examenes_anteriores.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf",
+      "Tema5.pdf"
+    ],
+    "observaciones": "Pregunta real del Ejercicio 2 del examen de 2021 Modelo A. Respuesta elaborada a partir del contenido docente.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-5-practica-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5",
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Para una aplicación dada, realiza un diseño arquitectónico general aplicando 3 patrones de arquitectura estudiados en la asignatura. Dibuja el diagrama de arquitectura y justifica qué problema resuelve cada patrón en la aplicación.",
+    "solucionOrientativa": "Ejemplo para una app de gestión de ópticas (cliente de escritorio):\n1. Arquitectura Cliente-Servidor (cliente pesado): la app de escritorio (cliente pesado con lógica local) se comunica con servidores centrales. Resuelve el problema de distribuir la lógica entre el cliente y los servicios centrales, permitiendo acceso desde múltiples sucursales.\n2. Arquitectura Multicapa: organiza el sistema en capas (presentación, lógica de negocio, acceso a datos), separando responsabilidades y facilitando el mantenimiento y la evolución independiente de cada capa.\n3. Arquitectura de Repositorio de Datos: centraliza los datos (clientes, productos, pedidos) en un repositorio común accesible por todos los módulos, garantizando consistencia y evitando duplicidades.",
+    "criteriosCorreccion": [
+      "Nombra correctamente los 3 patrones.",
+      "Justifica el problema que resuelve cada patrón en la aplicación concreta (no una descripción genérica).",
+      "Incluye un diagrama de arquitectura coherente con los patrones elegidos.",
+      "Los patrones son todos estudiados en la asignatura (T5 o T6)."
+    ],
+    "fuentes": [
+      "ISA__Examenes_anteriores.pdf",
+      "ExamenEjemplosEj2.pdf",
+      "ISA_examen_3_Resuelto.docx",
+      "Soluciones_Examenes_ISA_principal.pdf"
+    ],
+    "observaciones": "El Ejercicio 2, Apartado 3 (2 puntos) de todos los exámenes pide siempre este tipo de respuesta. Solución orientativa elaborada a partir de exámenes resueltos disponibles.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué tecnología distingue fundamentalmente al cloud computing de modelos distribuidos anteriores?",
+    "opciones": [
+      "Las arquitecturas orientadas a servicios.",
+      "Las tecnologías de modelado de datos.",
+      "Las tecnologías de virtualización.",
+      "Las tecnologías de comunicación basadas en TCP/IP."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La virtualización es la tecnología clave del cloud: permite que múltiples máquinas virtuales compartan el mismo hardware físico, haciendo posible la asignación dinámica y elástica de recursos bajo demanda.",
+    "fuentes": [
+      "Tema6.pdf",
+      "isa-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Si quisiéramos desarrollar una nueva aplicación de escritorio para sincronizar documentos locales con la nube, ¿qué tipo de modelo de servicio elegiríamos?",
+    "opciones": [
+      "IaaS o PaaS.",
+      "IaaS o SaaS.",
+      "Únicamente podríamos elegir un servicio IaaS.",
+      "Únicamente podríamos elegir un servicio PaaS."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Para desarrollar una nueva aplicación necesitamos infraestructura (IaaS) o una plataforma de desarrollo/despliegue (PaaS). SaaS es para usar software ya hecho, no para desarrollarlo.",
+    "fuentes": [
+      "Tema6.pdf",
+      "isa-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Dónde están localizados los recursos computacionales en un modelo de despliegue de cloud privado?",
+    "opciones": [
+      "Pueden estar dentro de las instalaciones de la organización usuaria.",
+      "Pueden estar fuera de las instalaciones del usuario, dentro de la propiedad de un proveedor.",
+      "Deben estar siempre dentro de las instalaciones del usuario.",
+      "Las respuestas A y B son correctas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El cloud privado puede estar físicamente en las instalaciones de la propia organización (on-premise) o en las instalaciones de un proveedor externo (hosted private cloud). Lo que lo define como privado es que la infraestructura está dedicada en exclusiva a una única organización.",
+    "fuentes": [
+      "Tema6.pdf",
+      "isa-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-test-004",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿En qué consiste el estilo arquitectónico CQRS (Command and Query Responsibility Segregation)?",
+    "opciones": [
+      "En separar físicamente las bases de datos en pequeñas partes para mejorar la escalabilidad.",
+      "En separar físicamente las bases de datos con información de los usuarios, de las que almacenan información del dominio de aplicación.",
+      "En separar las responsabilidades de lectura y escritura en las bases de datos, aislando la parte del sistema que modifica datos de la que los consulta.",
+      "Consiste en almacenar los datos que se escriben en la base de datos, y los datos consultados en una memoria caché rápida."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "CQRS separa el modelo de escritura (commands, que modifican datos) del modelo de lectura (queries, que solo consultan). Esto permite optimizar y escalar cada tipo de operación de forma independiente.",
+    "fuentes": [
+      "Tema6.pdf",
+      "isa-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-test-005",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Por qué el patrón de equilibrado de carga basado en colas ayuda a mejorar la resistencia de un sistema?",
+    "opciones": [
+      "Porque ayuda a regular el flujo de peticiones enviadas a los servicios, y de esta manera es más difícil que se produzcan sobrecargas que conduzcan a un error.",
+      "Porque prioriza los mensajes en función del servicio destinatario, y de esta manera cada servicio procesa solo las peticiones que le corresponden.",
+      "Porque permite agrupar todos los mensajes en una misma cola y así el mantenimiento del sistema es más sencillo.",
+      "Todas las respuestas anteriores son correctas."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La cola actúa como buffer entre productores y consumidores. Transforma un flujo impredecible de peticiones en uno más uniforme, evitando que picos puntuales saturen el servicio y causen errores. También permite escalar el servicio cuando la cola crece.",
+    "fuentes": [
+      "Tema6.pdf",
+      "isa-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica las siguientes características fundamentales del Cloud Computing según el NIST: 1) Autoservicio a demanda, 2) Agrupación de recursos, 3) Rápida elasticidad y 4) Medición del servicio.",
+    "respuestaModelo": "1) Autoservicio bajo demanda: el usuario puede aprovisionar recursos computacionales (servidores, almacenamiento, red) sin necesidad de interacción humana con el proveedor, a través de APIs o paneles de control.\n\n2) Agrupación de recursos: el proveedor pone recursos físicos y virtuales a disposición de múltiples clientes (multi-tenant), asignándolos y reasignándolos dinámicamente en función de la demanda. El usuario generalmente no controla ni conoce la ubicación exacta de los recursos.\n\n3) Rápida elasticidad: los recursos pueden aprovisionarse y liberarse de forma rápida y en muchos casos automática según varía la demanda. Para el consumidor, la capacidad de aprovisionamiento parece ilimitada.\n\n4) Medición del servicio: el uso de los recursos es monitorizado y medido automáticamente, ofreciendo transparencia para el proveedor (para facturar) y para el consumidor (para controlar su gasto). Es la base del modelo pay-per-use.",
+    "criteriosCorreccion": [
+      "Define correctamente autoservicio (sin intervención humana del proveedor).",
+      "Define correctamente agrupación (multi-tenant, asignación dinámica).",
+      "Define correctamente elasticidad (rapidez, automatización, parecen ilimitados).",
+      "Define correctamente medición (monitorización, transparencia, pay-per-use).",
+      "La respuesta cabe en 1 página."
+    ],
+    "fuentes": [
+      "examen_1_2023_resuelto.docx",
+      "Modelo_A_2022_ISA.docx",
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf"
+    ],
+    "observaciones": "Pregunta real que apareció en Modelo C 2023 y Modelo A 2022 como Tema B del Ejercicio 1. Una de las preguntas más recurrentes.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-6-desarrollo-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explica los siguientes factores de calidad del Cloud: 1) Disponibilidad, 2) Resiliencia, 3) Seguridad y 4) Escalabilidad.",
+    "respuestaModelo": "1) Disponibilidad: fracción del tiempo total en que el sistema está en funcionamiento y es capaz de atender peticiones. En el cloud clásico, la escalabilidad permite ajustar los recursos a la demanda, evitando que picos de tráfico reduzcan la disponibilidad.\n\n2) Resiliencia (o resistencia): capacidad del sistema para detectar errores, recuperarse de ellos y volver a un estado normal de funcionamiento. Implica monitorización continua y mecanismos de recuperación ante fallos.\n\n3) Seguridad: protección del sistema frente a amenazas externas (accesos no autorizados, ataques). Las aplicaciones cloud son accesibles desde Internet, lo que aumenta su vulnerabilidad y exige patrones de seguridad específicos.\n\n4) Escalabilidad y elasticidad: capacidad de responder al aumento de carga manteniendo el rendimiento. La elasticidad añade la rapidez y automatización del escalado. Puede ser vertical (máquinas más potentes) u horizontal (más máquinas, preferido en cloud).",
+    "criteriosCorreccion": [
+      "Define correctamente disponibilidad (fracción de tiempo operativo).",
+      "Define correctamente resiliencia (detección de errores, recuperación).",
+      "Define correctamente seguridad (protección ante amenazas externas).",
+      "Define correctamente escalabilidad/elasticidad, incluyendo la diferencia vertical/horizontal."
+    ],
+    "fuentes": [
+      "Preguntas_Examen_Final_reviewed.docx",
+      "ISA_modeloB_2024.docx",
+      "Soluciones_Examenes_ISA_principal.pdf"
+    ],
+    "observaciones": "Pregunta real de Modelo B 2023 y 2024 como Tema B del Ejercicio 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-7-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿En qué tres categorías suelen agruparse los patrones de diseño?",
+    "opciones": [
+      "Creacionales, estructurales y conductuales.",
+      "Creativos, estructurales y de comportamiento.",
+      "Adaptativos, compuestos y mediadores.",
+      "Todas las respuestas anteriores son correctas."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Las tres categorías GoF son creacionales, estructurales y de comportamiento (también llamada conductual). Las opciones B y C contienen términos incorrectos. La opción D es incorrecta porque las otras dos opciones contienen errores.",
+    "fuentes": [
+      "Tema7.pdf",
+      "isa-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-7-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué tipo de problemas ayuda a resolver el patrón Observador?",
+    "opciones": [
+      "El comportamiento de un objeto depende de su estado interno.",
+      "Es necesario garantizar que en cada instante solo existe una instancia de un objeto.",
+      "Los cambios de estado de un objeto deben ser notificados a un conjunto de objetos interesados.",
+      "Necesitamos adaptar la interfaz de un componente para que un cliente existente pueda utilizarla."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Observer resuelve el problema de la notificación: cuando el estado del sujeto cambia, debe notificar automáticamente a todos sus observadores. La opción A describe el patrón State, la B Singleton y la D Adapter.",
+    "fuentes": [
+      "Tema7.pdf",
+      "isa-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-7-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué tipo de problemas ayuda a resolver el patrón Singleton?",
+    "opciones": [
+      "El comportamiento de un objeto depende de su estado interno.",
+      "Es necesario garantizar que en cada instante solo existe una instancia de un objeto.",
+      "Los cambios de estado de un objeto deben ser notificados a un conjunto de objetos interesados.",
+      "Necesitamos adaptar la interfaz de un componente para que un cliente existente pueda utilizarla."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Singleton garantiza que una clase tiene una única instancia con un punto de acceso global. La opción A describe State, la C Observer y la D Adapter.",
+    "fuentes": [
+      "Tema7.pdf",
+      "isa-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-7-desarrollo-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Los patrones de diseño de software pueden clasificarse en tres grandes categorías: creacionales, estructurales y de comportamiento. Explica qué persigue cada categoría y pon un ejemplo de patrón en cada caso con su diagrama.",
+    "respuestaModelo": "CREACIONALES — objetivo: abstraer y controlar la creación de objetos, ocultando los detalles concretos al cliente. Ejemplos: Singleton, Abstract Factory, Builder, Prototype.\nEjemplo Singleton: Configuracion { -instancia: Configuracion; -Configuracion(); +getInstancia(): Configuracion }. El constructor es privado y solo se accede vía getInstancia(), garantizando una única instancia.\n\nESTRUCTURALES — objetivo: componer clases y objetos para formar estructuras más grandes manteniéndolas flexibles. Ejemplos: Adapter, Composite, Facade, Proxy.\nEjemplo Adapter: Cliente → Interfaz objetivo → Adaptador → Servicio existente con interfaz distinta. El Adaptador traduce las llamadas de la interfaz objetivo a la interfaz existente.\n\nDE COMPORTAMIENTO — objetivo: describir cómo se comunican y reparten responsabilidades los objetos. Ejemplos: Observer, State, Mediator, Chain of Responsibility.\nEjemplo Observer: Sujeto { observadores: List<Observer>; +attach(o); +detach(o); +notify() }. Cuando cambia el estado del Sujeto, recorre la lista y llama a update() en cada observador.",
+    "criteriosCorreccion": [
+      "Explica correctamente el objetivo de los creacionales (abstraer la creación).",
+      "Explica correctamente el objetivo de los estructurales (componer estructuras).",
+      "Explica correctamente el objetivo de los de comportamiento (comunicación y responsabilidades).",
+      "Incluye un ejemplo válido con diagrama simplificado para cada categoría.",
+      "La respuesta cabe en 1 página."
+    ],
+    "fuentes": [
+      "ISA_2025_B.docx",
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf"
+    ],
+    "observaciones": "Pregunta real del Ejercicio 1, Modelo B 2025, Tema A. Es la pregunta del Tema 7 más probable para el Ejercicio 1.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-7-practica-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Para una aplicación dada, elabora un diseño detallado del software aplicando 2 patrones de diseño de Gamma (GoF) que resuelvan problemas concretos de la aplicación. Describe el problema que resuelve cada patrón en la aplicación y dibuja un diagrama de clases simplificado.",
+    "solucionOrientativa": "Ejemplo para app de reserva de bares/restaurantes (AroundMe):\n1. Observer: cuando un local cambia su disponibilidad o precio, las distintas vistas de la app (lista, mapa, favoritos) se actualizan automáticamente. Diagrama: Sujeto (Local) con attach/detach/notify → Observer (Vista).\n2. Facade (BookingFacade): interfaz unificada que simplifica el acceso al conjunto de servicios internos (búsqueda, disponibilidad, reserva, pago, notificación). El cliente solo interactúa con la fachada. Diagrama: Cliente → BookingFacade → {BusquedaService, DisponibilidadService, ReservaService, NotificacionService}.",
+    "criteriosCorreccion": [
+      "Nombra correctamente los 2 patrones GoF elegidos.",
+      "Justifica el problema que resuelve cada patrón en la aplicación concreta.",
+      "Incluye un diagrama de clases simplificado y adaptado al proyecto.",
+      "Los patrones son de los estudiados en la asignatura."
+    ],
+    "fuentes": [
+      "ISA__Examenes_anteriores.pdf",
+      "Soluciones_Examenes_ISA_principal.pdf",
+      "Soluciones_Examenes_ISA_rocio.pdf",
+      "ExamenEjemplosEj2.pdf"
+    ],
+    "observaciones": "El Ejercicio 2, Apartado 4 (2 puntos) pide siempre 2 patrones GoF aplicados. Solución orientativa elaborada a partir de exámenes resueltos.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-001",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿De qué se encargan las técnicas de validación del software?",
+    "opciones": [
+      "De comprobar la correcta especificación de requisitos según las necesidades del usuario.",
+      "De garantizar que el sistema final cumple con las expectativas del cliente o usuario.",
+      "De responder a la pregunta «¿estamos construyendo el sistema correcto?»",
+      "Todas las respuestas anteriores son correctas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La validación se ocupa de verificar que el sistema construido es el correcto desde el punto de vista del usuario. Todas las opciones A, B y C describen aspectos correctos de la validación.",
+    "fuentes": [
+      "Tema8.pdf",
+      "isa-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-002",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es el objetivo principal de las pruebas del sistema?",
+    "opciones": [
+      "Comprobar la corrección funcional de las capacidades implementadas.",
+      "Comprobar el correcto funcionamiento del sistema en un entorno operativo real, con especial atención a los requisitos no funcionales.",
+      "Garantizar la adecuación del sistema a las necesidades del cliente.",
+      "Comprobar la correcta interacción entre componentes del sistema en el entorno de desarrollo."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las pruebas del sistema verifican el comportamiento en un entorno operativo real, poniendo el foco en requisitos no funcionales (rendimiento, seguridad, recuperación, etc.). La opción A describe pruebas funcionales/validación; la C pruebas de aceptación; la D pruebas de integración.",
+    "fuentes": [
+      "Tema8.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-003",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de las siguientes es una ventaja del enfoque de desarrollo TDD?",
+    "opciones": [
+      "Ayuda a construir código que se comprueba de manera automática.",
+      "Aumenta la productividad de los equipos de desarrollo.",
+      "Ayuda a mejorar el diseño del producto, aunque no haya una fase específica dedicada a ello.",
+      "Las respuestas A y C son correctas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "TDD tiene dos ventajas principales reflejadas en estas opciones: genera una batería de pruebas automáticas asociadas al código (opción A) y obliga a reflexionar sobre el diseño al escribir los tests primero (opción C, TDD como técnica de diseño). La opción B es discutible y no se menciona como ventaja directa en el temario.",
+    "fuentes": [
+      "Tema8.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-004",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿El concepto TDD es sinónimo de…?",
+    "opciones": [
+      "Pruebas automatizadas.",
+      "Test-first.",
+      "BDD.",
+      "ATDD."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "TDD es sinónimo de test-first: escribir la prueba primero, antes que el código que la hace pasar. No es lo mismo que pruebas automatizadas (herramienta), ni BDD (extensión con lenguaje natural), ni ATDD (variante con pruebas de aceptación).",
+    "fuentes": [
+      "Tema8.pdf",
+      "isa-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-005",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿En qué consiste el patrón AAA dentro de la técnica TDD?",
+    "opciones": [
+      "En escribir los test teniendo en cuenta los intereses del usuario final.",
+      "En definir las pruebas teniendo en cuenta las acciones esperadas por parte del usuario.",
+      "En diseñar cada nuevo módulo antes de proceder a su implementación.",
+      "En estructurar las pruebas comenzando por la definición de parámetros de entrada, colocar luego las acciones a ejecutar y, finalmente, comprobar los resultados esperados."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El patrón AAA (Arrange-Act-Assert) estructura las pruebas unitarias en tres secciones: Arrange (preparar datos y entorno), Act (invocar el método probado) y Assert (verificar el resultado). La opción D describe exactamente esto.",
+    "fuentes": [
+      "Tema8.pdf",
+      "isa-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-006",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de los siguientes emparejamientos agrupa palabras que podemos considerar conceptualmente similares dentro de los enfoques TDD y BDD?",
+    "opciones": [
+      "Act y When, Arrange y Given, Assert y Then.",
+      "Act y When, Assert y Given, Arrange y Then.",
+      "Act y Then, Arrange y Given, Assert y When.",
+      "Ninguna de las respuestas anteriores es correcta."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La equivalencia correcta es: Arrange = Given (contexto inicial), Act = When (acción ejecutada), Assert = Then (resultado esperado).",
+    "fuentes": [
+      "Tema8.pdf",
+      "isa-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-007",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué beneficios aporta la técnica de desarrollo ATDD sobre TDD?",
+    "opciones": [
+      "Garantiza que el sistema no será finalizado hasta que se verifiquen todas las pruebas de aceptación.",
+      "Ayuda a modelar las pruebas desde el punto de vista de los resultados esperados por el cliente.",
+      "Involucra en el proceso de desarrollo y pruebas a un número mayor de stakeholders.",
+      "Las respuestas B y C son correctas."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "ATDD aporta dos ventajas clave sobre TDD: modela las pruebas desde la perspectiva del cliente (B) e involucra a más stakeholders como clientes, analistas y testers (C). La opción A, aunque razonable, no es la principal ventaja descrita en el temario.",
+    "fuentes": [
+      "Tema8.pdf",
+      "isa-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-008",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Qué palabras proporciona el lenguaje Gherkin para definir la secuencia de pasos de una funcionalidad?",
+    "opciones": [
+      "Step, Given, When, Feature.",
+      "Feature, Given, When, Then.",
+      "And, But, Example, Feature.",
+      "Given, When, Then, And, But."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Las palabras clave de Gherkin para definir pasos son Given, When, Then (equivalentes a Arrange, Act, Assert), más And y But para encadenar pasos del mismo tipo. Feature y Example/Scenario son para organizar los casos de prueba, no para definir pasos individuales.",
+    "fuentes": [
+      "Tema8.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-tema-8-test-009",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Cuando empleamos un enfoque de desarrollo dirigido por las pruebas, esto significa que:",
+    "opciones": [
+      "Debemos definir todas las pruebas al comienzo del desarrollo del sistema.",
+      "Debemos escribir las pruebas inmediatamente después de finalizar la fase de diseño.",
+      "Debemos emplear obligatoriamente un framework apropiado que ayude a automatizar las pruebas.",
+      "Ninguna de las respuestas anteriores es correcta."
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "TDD no obliga a definir todas las pruebas al inicio (se van escribiendo antes de cada unidad de código), no requiere esperar a la fase de diseño (se entremezclan diseño y código) ni requiere obligatoriamente un framework de testing.",
+    "fuentes": [
+      "Tema8.pdf"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  }
+]

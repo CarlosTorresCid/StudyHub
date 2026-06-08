@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import QuestionPracticeCard from '../components/QuestionPracticeCard';
+import { exportQuestionsToWord } from '../utils/exportToWord';
 import './SubjectPage.css';
 import './ExamPartPage.css';
 
@@ -204,6 +205,10 @@ export default function ExamPartPage() {
     selectedOrigen !== 'todos' ||
     selectedRevision !== 'todas';
 
+    const exportSubtitle = hasFilters
+  ? `Preguntas filtradas. Mostrando ${sortedQuestions.length} de ${baseQuestions.length}.`
+  : `Total de preguntas: ${baseQuestions.length}. Ordenadas por tema y patrón.`;
+
   const clearFilters = () => {
     setSelectedTema('todos');
     setSelectedGroup('todos');
@@ -238,6 +243,43 @@ export default function ExamPartPage() {
       ) : (
         <>
           <div className="exam-filters">
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 12 }}>
+<button
+  className="btn btn-ghost btn-sm"
+  onClick={() =>
+    exportQuestionsToWord({
+      subject,
+      questions: sortedQuestions,
+      title: `${part.nombre}`,
+      subtitle: hasFilters
+        ? `Preguntas filtradas. Mostrando ${sortedQuestions.length} de ${baseQuestions.length}.`
+        : `Total de preguntas: ${baseQuestions.length}. Ordenadas por tema y patrón.`,
+      fileSuffix: `${parteId}-preguntas`,
+    })
+  }
+  disabled={sortedQuestions.length === 0}
+>
+  ⬇ Descargar preguntas visibles
+</button>
+
+  {hasFilters && (
+    <button
+      className="btn btn-ghost btn-sm"
+      onClick={() =>
+        exportQuestionsToWord({
+          subject,
+          questions: baseQuestions,
+          title: `${part.nombre} - todas las preguntas`,
+          subtitle: `Total de preguntas: ${baseQuestions.length}`,
+          fileSuffix: `${parteId}-todas-las-preguntas`,
+        })
+      }
+    >
+      ⬇ Descargar parte completa
+    </button>
+  )}
+</div>
             <div className="exam-filters-row">
               <select
                 className="exam-filter-select"
