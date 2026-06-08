@@ -1,0 +1,166 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-7",
+  "titulo": "Visión Artificial (Fundamentos)",
+  "apuntes": {
+    "introduccion": "Este tema introduce los fundamentos de la visión artificial, diferenciando entre visión por computador y visión humana, y explicando cómo se representan, procesan y analizan las imágenes digitales.",
+    "secciones": [
+      {
+        "id": "seccion-1",
+        "titulo": "1. Procesamiento y análisis digital de imágenes: definición y áreas",
+        "contenido": "El **procesamiento digital de imágenes** (también llamado *imágenes por computadora*) se puede definir como la adquisición y el procesamiento de información de la imagen por parte del ordenador. El campo surgió históricamente de la ingeniería eléctrica como extensión del tratamiento de señales, mientras que la informática fue responsable en gran parte de la evolución de las aplicaciones de visión artificial.\n\nLa distinción clave que organiza este campo es la del **destino de la imagen de salida**:\n\n- **Aplicaciones de visión por computador**: las imágenes procesadas son para el uso de un ordenador. El sistema adquiere, procesa e interpreta de forma autónoma la imagen para ejecutar una acción sin mediación humana directa. Ejemplos: control de calidad en fábricas, robots en Marte, detección automática de defectos.\n- **Aplicaciones de visión humana**: las imágenes de salida son para el consumo humano. Requieren entender cómo funciona el sistema visual humano. Los temas principales son restauración, mejora y compresión de imágenes.\n\nEl **análisis de imágenes** es un componente clave en el desarrollo y despliegue de *ambas* áreas. Implica investigar los datos de imágenes para llevar a cabo una aplicación específica, viendo más allá de los datos en bruto. El proceso de análisis requiere herramientas como:\n- **Segmentación de imágenes**: uno de los primeros pasos; identifica regiones u objetos de nivel superior a partir de los datos en bruto.\n- **Transformaciones de imágenes**: para encontrar información de frecuencia espacial.\n- **Extracción de características**: obtiene información de nivel superior (colores, formas).\n- **Clasificación de patrones**: toma la información de alto nivel e identifica los objetos que aparecen en la imagen."
+      },
+      {
+        "id": "seccion-2",
+        "titulo": "2. Procesamiento de imágenes para visión humana: restauración, mejora y compresión",
+        "contenido": "Las aplicaciones de visión humana implican que un ser humano forma parte del sistema: las imágenes deben ser examinadas por personas. Los tres temas principales son:\n\n**Restauración de imágenes**\nEs el proceso de tomar una imagen con alguna degradación conocida o estimada y devolverle su aspecto original. Requiere conocer el proceso de degradación para desarrollar un modelo de la distorsión; a continuación se aplica el proceso inverso para restaurar la imagen.\n- Ejemplos de uso: exploración espacial (eliminar artefactos por fluctuaciones mecánicas en naves, compensar fallos en telescopios), fotografía y publicación.\n- Técnicas: eliminación de ruido, compensación de distorsión geométrica.\n\n**Mejora de imágenes**\nConsiste en tomar una imagen y mejorarla visualmente, aprovechando la respuesta del sistema de visión humano. No intenta revertir un proceso físico: aplica heurísticas orientadas a la percepción.\n- Técnicas más simples: ampliar el contraste (a menudo con resultados dramáticos) y aumentar la nitidez.\n- Los métodos de mejora tienden a ser específicos del problema (los de satélite pueden no ser adecuados para imágenes médicas).\n\n**Diferencia clave restauración vs. mejora:** los métodos de restauración modelan e intentan revertir una degradación física conocida; los de mejora aprovechan el conocimiento del sistema visual humano para que la imagen resulte más agradable o útil visualmente, sin necesidad de modelar el proceso de degradación.\n\n**Compresión de imágenes**\nConsiste en reducir la cantidad normalmente masiva de datos necesarios para representar una imagen. Se hace eliminando datos visualmente innecesarios y aprovechando la redundancia inherente de la mayoría de las imágenes.\n- Explotando los aspectos fisiológicos y psicológicos del sistema visual humano, los datos de imagen estática pueden reducirse entre **10 y 50 veces**.\n- Los datos de vídeo (imagen en movimiento) pueden reducirse por un factor de **100 a 200**.\n- La cantidad de compresión y la calidad de la imagen comprimida dependen en gran medida de la imagen concreta.\n- Consideración crítica: en contextos médicos (PET, CT, RM), la compresión no debe eliminar información clínicamente relevante."
+      },
+      {
+        "id": "seccion-3",
+        "titulo": "3. La imagen digital: representación y notación",
+        "contenido": "La señal de vídeo analógica se convierte en imagen digital mediante el muestreo continuo de la señal a velocidad fija. El valor de la señal en cada instante se convierte en un número que corresponde al brillo de la imagen en ese punto.\n\nUna vez en formato digital, la imagen se representa como una **matriz bidimensional de datos**, donde cada punto de datos se conoce como un **píxel** (*pixel element*, elemento de imagen).\n\n**Notación estándar:**\n`I(r, c)` = brillo de la imagen en el punto (r, c), donde r = fila y c = columna.\n\nEsta notación es coherente con la forma en que las matrices se definen en la mayoría de los lenguajes de programación. Atención: en algunas normas de resolución (p.ej. 640×480 o 1920×1080) se indican primero las columnas y luego las filas en forma de coordenadas I(x,y). Hay que prestar atención a qué coordenada es la fila y cuál es la columna para no confundirse.\n\n**Sistemas de captura:**\n- Una **cámara analógica** necesita un **digitalizador de imágenes** para conectarse al ordenador. Este dispositivo convierte la señal de vídeo continua (analógica) en una imagen digital muestreada. No comprime, no aumenta la resolución ni elimina el ruido: su función exclusiva es la conversión analógico-digital.\n- Una **cámara digital** produce directamente la imagen en formato digital.\n\n**Vídeo entrelazado:** cada cuadro (*frame*) se compone de dos campos (líneas pares e impares). El **impulso de sincronización vertical** indica al hardware que inicie un nuevo campo o cuadro completo (no una línea horizontal, que la gestiona el impulso de sincronización horizontal).\n\n**Interfaces de conexión de cámaras digitales al ordenador:**\n- GigE (Gigabit Ethernet): adecuado para largas distancias (~80 m o más).\n- FireWire (IEEE 1394).\n- USB 3.0.\n- Camera Link: alta velocidad pero distancias muy cortas.\nPara distancias largas (80 m) la interfaz más adecuada es **Gigabit Ethernet**."
+      },
+      {
+        "id": "seccion-4",
+        "titulo": "4. Niveles de representación y procesamiento de imágenes",
+        "contenido": "El procesamiento digital de imágenes opera a distintos niveles de abstracción. La siguiente tabla muestra los niveles de menor a mayor abstracción (de abajo arriba):\n\n- **Datos de imagen en bruto** → representación: Píxel\n- **Preprocesamiento** → representación: Subimagen - Entorno\n- **Detección de bordes** → representación: Líneas y bordes\n- **Segmentación** → representación: Segmentos\n- **Transformaciones** → representación: Espectro\n- **Extracción de características** → representación: Características - Objetos\n\n**Principio clave de la jerarquía:** al pasar de los niveles más bajos (píxel) a los niveles más altos (características-objetos), la **cantidad de datos disminuye** y el **nivel de abstracción de la información aumenta**.\n\n- En el nivel más bajo tratamos con el gran número de píxeles individuales: operaciones de preprocesamiento de bajo nivel.\n- El siguiente nivel es el entorno: un píxel y sus píxeles circundantes (operaciones locales para suavizar ruido, por ejemplo).\n- A medida que se sube, obtenemos representaciones de nivel cada vez mayor con reducción en la cantidad de datos.\n\nEsta relación inversa entre cantidad de datos y nivel de abstracción es fundamental para entender los sistemas de visión artificial: a medida que el sistema «entiende» más la imagen, maneja menos datos pero con más significado semántico."
+      },
+      {
+        "id": "seccion-5",
+        "titulo": "5. Formación de la imagen y el espectro electromagnético",
+        "contenido": "Las imágenes digitales se forman porque la energía interactúa con un dispositivo (sensor) que responde de una manera que se puede medir. Estas mediciones se realizan en varios puntos a través de una rejilla de dos dimensiones para crear la imagen.\n\n**El espectro electromagnético (EM):**\nConsiste en luz visible, infrarroja (IR), ultravioleta (UV), rayos X, microondas, ondas de radio y ondas gamma. La radiación electromagnética son campos eléctricos y magnéticos perpendiculares entre sí y a la dirección de propagación, de naturaleza sinusoidal. Todas las ondas viajan a ~3×10⁸ m/s en el espacio libre y se clasifican por frecuencia o longitud de onda.\n\n**Ventaja del computador sobre el sistema visual humano:**\nEl sistema visual humano se limita a las longitudes de onda visibles de la luz (una pequeña parte del espectro EM). El computador puede tratar *casi todo* el espectro electromagnético —desde los rayos gamma hasta las ondas de radio— y procesar otras modalidades como ecografía o resonancia magnética (RM).\n\nEsto tiene aplicaciones prácticas importantes:\n- **Infrarrojos**: detectar radiación invisible al ojo (temperatura, seres vivos en oscuridad).\n- **Ultravioleta reflejado**: detectar huellas dactilares latentes no visibles a simple vista.\n- **Rayos X**: diagnóstico médico, control de seguridad.\n- **Microondas / radar**: imagen de satélite con cualquier condición meteorológica.\n\n**Aplicaciones de la visión por ordenador:**\nLos sistemas de visión por computador se utilizan en entornos muy diversos: desde plantas de fabricación (control de calidad, detección de defectos) a quirófanos de hospitales, la superficie de Marte, o sistemas de análisis de imágenes de satélite que procesan miles de imágenes diarias. Se usan especialmente cuando las tareas son tediosas, se trabaja en ambientes hostiles, se requiere alta tasa de procesamiento, o se usa información de bandas no visibles."
+      }
+    ]
+  },
+  "resumen": [
+    "El **Tema 7** introduce los fundamentos de la visión artificial. La distinción central es entre **visión por computador** (la imagen de salida es para la máquina) y **visión humana** (la imagen es para personas). Para esta última los procesos principales son **restauración** (modelar e invertir una degradación conocida), **mejora** (aprovechar la percepción humana para que la imagen sea más agradable) y **compresión** (reducir datos aprovechando redundancia y limitaciones perceptivas; factor 10-50× para estáticas, 100-200× para vídeo).",
+    "Una imagen digital es una **matriz bidimensional** donde `I(r,c)` es el brillo en fila r, columna c. Al escalar la jerarquía de procesamiento (de píxel a características-objetos), **la cantidad de datos disminuye y la abstracción aumenta**. Los sensores pueden captar casi todo el **espectro electromagnético**, lo que da al ordenador una ventaja fundamental sobre el sistema visual humano, limitado a la luz visible."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Visión por computador vs. visión humana",
+      "definicion": "Visión por computador: la imagen de salida es procesada directamente por la máquina (sin mediación humana). Visión humana: la imagen de salida es para ser vista por personas."
+    },
+    {
+      "termino": "Análisis de imágenes",
+      "definicion": "Investigación de los datos de imagen para llevar a cabo una aplicación específica. Herramientas: segmentación, transformaciones, extracción de características, clasificación de patrones."
+    },
+    {
+      "termino": "Segmentación de imágenes",
+      "definicion": "Uno de los primeros pasos en análisis: identifica regiones u objetos de nivel superior a partir de los datos en bruto de la imagen."
+    },
+    {
+      "termino": "Restauración de imágenes",
+      "definicion": "Proceso de tomar una imagen con degradación conocida/estimada y devolverle su aspecto original, modelando la distorsión y aplicando el proceso inverso. Objetiva/matemática."
+    },
+    {
+      "termino": "Mejora de imágenes",
+      "definicion": "Proceso de mejorar visualmente una imagen aprovechando la respuesta del sistema visual humano. No requiere conocer el proceso de degradación; aplica heurísticas perceptivas. Subjetiva."
+    },
+    {
+      "termino": "Compresión de imágenes",
+      "definicion": "Reducir la cantidad masiva de datos que representa una imagen eliminando redundancia e información visualmente innecesaria. Factor: 10-50× para imágenes estáticas, 100-200× para vídeo."
+    },
+    {
+      "termino": "Píxel (pixel element)",
+      "definicion": "Elemento de imagen: el punto de dato individual en la matriz bidimensional que representa la imagen digital. Notación: I(r,c) = brillo en fila r, columna c."
+    },
+    {
+      "termino": "Jerarquía de niveles de procesamiento",
+      "definicion": "De bajo a alto: Datos en bruto (Píxel) → Preprocesamiento (Subimagen-Entorno) → Detección de bordes (Líneas y bordes) → Segmentación (Segmentos) → Transformaciones (Espectro) → Extracción de características (Características-Objetos). Al subir: menos datos, más abstracción."
+    },
+    {
+      "termino": "Digitalizador de imágenes",
+      "definicion": "Dispositivo que convierte la señal de vídeo analógica continua en una imagen digital muestreada. No comprime, no aumenta resolución, no elimina ruido: solo realiza la conversión A/D."
+    },
+    {
+      "termino": "Impulso de sincronización vertical",
+      "definicion": "Señal en el vídeo entrelazado que indica al hardware que inicie un nuevo campo o cuadro completo (no una nueva línea horizontal, que la gestiona el impulso horizontal)."
+    },
+    {
+      "termino": "Espectro electromagnético (EM)",
+      "definicion": "Rango completo de radiación: rayos gamma, rayos X, ultravioleta, luz visible, infrarroja, microondas, ondas de radio. El ordenador puede trabajar con casi todo el espectro; el ojo humano solo con la banda visible."
+    },
+    {
+      "termino": "Gigabit Ethernet para cámaras",
+      "definicion": "Interfaz de conexión de cámaras industriales adecuada para distancias largas (~80 m o más). Contraste: Camera Link es rápida pero de distancia muy corta; USB 3.0 y FireWire tienen limitaciones de distancia."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es la diferencia fundamental entre visión por computador y visión humana?",
+      "respuesta": "En visión por computador la imagen de salida es procesada directamente por la máquina sin mediación humana. En visión humana la imagen de salida está destinada a ser vista por personas."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿En qué se diferencia restaurar una imagen de mejorarla?",
+      "respuesta": "Restaurar: modela una degradación conocida y aplica el proceso inverso para recuperar el aspecto original (proceso objetivo). Mejorar: aprovecha la percepción humana para que la imagen sea más agradable visualmente, sin modelar degradación (proceso subjetivo/heurístico)."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Qué factor de reducción permite la compresión de imágenes estáticas aprovechando el sistema visual humano?",
+      "respuesta": "Entre 10 y 50 veces para imágenes estáticas; hasta 100-200 veces para datos de vídeo."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cómo se representa una imagen digital y cuál es la notación estándar?",
+      "respuesta": "Como una matriz bidimensional. Notación: I(r,c) = brillo en el punto (r,c), donde r = fila y c = columna."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué ocurre con la cantidad de datos y la abstracción al subir en la jerarquía de niveles de procesamiento de imágenes?",
+      "respuesta": "La cantidad de datos disminuye y el nivel de abstracción aumenta. Se pasa de millones de píxeles en el nivel más bajo a unos pocos datos muy significativos en el nivel más alto (características-objetos)."
+    },
+    {
+      "id": 6,
+      "pregunta": "Enumera los 6 niveles de la jerarquía de procesamiento de imágenes de menor a mayor abstracción.",
+      "respuesta": "(1) Datos de imagen en bruto → Píxel. (2) Preprocesamiento → Subimagen-Entorno. (3) Detección de bordes → Líneas y bordes. (4) Segmentación → Segmentos. (5) Transformaciones → Espectro. (6) Extracción de características → Características-Objetos."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Qué hace exactamente un digitalizador de imágenes?",
+      "respuesta": "Convierte la señal de vídeo analógica continua en una imagen digital muestreada. No comprime, no aumenta la resolución ni elimina el ruido: solo realiza la conversión analógico-digital."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Para qué sirve el impulso de sincronización vertical en el vídeo entrelazado?",
+      "respuesta": "Para indicar al hardware que inicie un nuevo campo o cuadro completo (no una nueva línea horizontal, que es gestionada por el impulso de sincronización horizontal)."
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Qué ventaja fundamental tiene el ordenador sobre el sistema visual humano para capturar imágenes?",
+      "respuesta": "El ordenador puede trabajar con casi todo el espectro electromagnético (rayos X, infrarrojos, ultravioleta, microondas, etc.), mientras que el sistema visual humano se limita a las longitudes de onda visibles, que cubren solo una pequeña parte del espectro."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué tipo de sensor usaría un sistema para detectar huellas dactilares latentes no visibles a simple vista?",
+      "respuesta": "Ultravioleta reflejado, ya que las huellas latentes no son visibles en el espectro visible pero sí en ultravioleta."
+    },
+    {
+      "id": 11,
+      "pregunta": "Un sistema detecta automáticamente piezas defectuosas en una fábrica. ¿Es visión humana o visión por computador? ¿Por qué?",
+      "respuesta": "Visión por computador. La imagen es procesada y usada directamente por la máquina para tomar decisiones (descartar la pieza) sin mediación humana directa."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué condición es imprescindible al comprimir un vídeo médico para transmitirlo por red?",
+      "respuesta": "Que la compresión no elimine información clínicamente relevante. En imagen médica la pérdida de datos puede tener consecuencias diagnósticas graves."
+    },
+    {
+      "id": 13,
+      "pregunta": "Un algoritmo suaviza ruido realizando operaciones sobre cada píxel y sus vecinos. ¿En qué niveles de la jerarquía trabaja?",
+      "respuesta": "En los niveles más bajos: datos de imagen en bruto (Píxel) y preprocesamiento (Subimagen-Entorno)."
+    },
+    {
+      "id": 14,
+      "pregunta": "Un ingeniero necesita conectar una cámara industrial a un ordenador a 80 metros. ¿Qué interfaz es la más adecuada?",
+      "respuesta": "Gigabit Ethernet (GigE), ya que permite distancias de conexión largas. Camera Link es rápida pero de distancia muy corta; USB 3.0 y FireWire tienen limitaciones similares."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Cuál es el objetivo de la segmentación de imágenes y en qué nivel de la jerarquía se sitúa?",
+      "respuesta": "Identificar regiones u objetos de nivel superior a partir de los datos en bruto de la imagen. Se sitúa en el nivel intermedio-alto de la jerarquía, produciendo representación en segmentos."
+    }
+  ]
+}

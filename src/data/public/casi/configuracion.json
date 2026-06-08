@@ -1,1 +1,19 @@
-{ "id": "casi", "estructuraExamen": [] }
+{
+  "id": "casi",
+  "estructuraExamen": [
+    {
+      "id": "parte-test",
+      "nombre": "Tipo test",
+      "tipos": ["test", "verdadero_falso"],
+      "icono": "🔤",
+      "desc": "Preguntas de opción múltiple y verdadero/falso"
+    },
+    {
+      "id": "parte-cortas",
+      "nombre": "Preguntas cortas",
+      "tipos": ["corta", "desarrollo"],
+      "icono": "✍️",
+      "desc": "Preguntas de respuesta abierta"
+    }
+  ]
+}

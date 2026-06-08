@@ -8,7 +8,9 @@
   padding-bottom: 32px;
   border-bottom: 1px solid var(--border);
 }
+
 .subject-hero-icon { font-size: 40px; margin-top: 4px; }
+
 .subject-hero-abrev {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
@@ -18,13 +20,31 @@
   text-transform: uppercase;
   margin-bottom: 4px;
 }
+
 .subject-hero-name {
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 6px;
 }
+
 .subject-hero-desc { color: var(--text-muted); font-size: 14px; }
+
+.subject-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.subject-actions-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
 .subject-empty {
   background: var(--surface);
@@ -35,10 +55,17 @@
   color: var(--text-muted);
   line-height: 2;
 }
+
 .subject-empty code {
   background: var(--surface3);
   padding: 2px 8px;
   border-radius: 4px;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.subject-empty-extra {
+  margin-top: 12px;
   font-size: 13px;
   color: var(--accent);
 }
@@ -64,6 +91,7 @@
   padding: 16px 20px;
   transition: all var(--transition);
 }
+
 .topic-row:hover {
   border-color: var(--subject-color);
   background: var(--surface2);
@@ -80,6 +108,7 @@
 }
 
 .topic-row-info { flex: 1; min-width: 0; }
+
 .topic-row-title {
   font-weight: 600;
   font-size: 15px;
@@ -88,6 +117,7 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
 .topic-no-content {
   font-size: 11px;
   color: var(--text-dim);
@@ -96,6 +126,7 @@
   border-radius: 100px;
   font-weight: 500;
 }
+
 .topic-seen {
   font-size: 11px;
   color: var(--success);
@@ -104,6 +135,7 @@
   border-radius: 100px;
   font-weight: 500;
 }
+
 .topic-row-meta {
   display: flex;
   align-items: center;
@@ -124,6 +156,7 @@
   color: var(--text-dim);
   transition: transform var(--transition);
 }
+
 .topic-row:hover .topic-row-arrow {
   transform: translateX(4px);
   color: var(--subject-color);
@@ -148,6 +181,15 @@
 
   .subject-hero-name {
     font-size: 22px;
+  }
+
+  .subject-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .subject-actions .btn {
+    justify-content: center;
   }
 
   .topics-header {

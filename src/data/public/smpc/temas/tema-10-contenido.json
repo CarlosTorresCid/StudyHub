@@ -1,0 +1,163 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-10",
+  "titulo": "Segmentación de Imágenes Digitales",
+  "apuntes": {
+    "introduccion": "En este tema se estudia segmentación de imágenes digitales, sus conceptos principales y técnicas asociadas.",
+    "secciones": [
+      {
+        "titulo": "1. Concepto y objetivo de la segmentación",
+        "contenido": "El proceso de análisis de imágenes nos obliga a tomar grandes cantidades de datos de píxeles de bajo nivel y extraer información útil. El **objetivo de la segmentación** es encontrar regiones que representan objetos o partes significativas de los mismos.\n\nLa división de una imagen en regiones correspondientes a los objetos de interés es **necesaria antes** de que se pueda realizar cualquier procesamiento a un nivel más alto que el del píxel. La identificación de objetos reales, pseudoobjetos o sombras, o el poder encontrar algo de interés dentro de la imagen, requiere algún tipo de segmentación.\n\nEsencialmente, segmentar es **clasificar**: agrupar los píxeles en regiones conexas con un significado semántico común.\n\nLos métodos de segmentación buscarán objetos que:\n- Tienen un cierto grado de **homogeneidad** dentro de sí mismos (los píxeles del mismo objeto son similares entre sí), O\n- Tienen un cierto grado de **contraste** con los objetos de su frontera (los objetos son distintos de lo que los rodea).\n\nLa mayoría de los algoritmos de segmentación son modificaciones, extensiones o combinaciones de estos dos conceptos básicos. Las medidas de homogeneidad y contraste pueden incluir características como **escala de grises, color y textura**. Una vez realizada una segmentación preliminar, se pueden incorporar propiedades de nivel superior (forma, color del objeto) al proceso."
+      },
+      {
+        "titulo": "2. Tres categorías de técnicas de segmentación",
+        "contenido": "Las técnicas de segmentación de imágenes se dividen en tres categorías principales:\n\n**1. Crecimiento y contracción de regiones**\nTrabajan en el **dominio espacial** de la imagen: usan un dominio basado en la fila y la columna (r, c). Agrupan o separan píxeles vecinos en función de criterios de homogeneidad local. Desde la perspectiva del agrupamiento, esta categoría puede considerarse un subconjunto de los métodos de agrupación en regiones conexas pero limitada al dominio espacial.\n\n**2. Métodos de agrupamiento (clustering)**\nSe pueden aplicar a **cualquier dominio**: cualquier espacio n-dimensional de color o características, cuyos componentes pueden incluir incluso las coordenadas (r, c) del dominio espacial. Son más generales que los métodos de crecimiento de regiones porque no están restringidos al dominio espacial.\n\n**3. Detección de bordes (contornos)**\nDetectan las fronteras entre regiones. Los métodos de detección de contorno son extensibles de la técnica de detección de bordes. Son pasos importantes en la segmentación: la detección de líneas y bordes es un paso previo clave en una categoría de métodos de segmentación."
+      },
+      {
+        "titulo": "3. Umbralización",
+        "contenido": "La **umbralización** es una de las técnicas de segmentación más simples y usadas. La entrada es típicamente una imagen en escala de grises o en color; la salida más simple es una **imagen binaria** que representa la segmentación.\n\n**Funcionamiento básico:**\n- La segmentación está determinada por un único parámetro: el **umbral de intensidad**.\n- En una sola pasada, cada píxel se compara con el umbral.\n- Si la intensidad del píxel es *mayor* que el umbral → el píxel se fija a blanco (primer plano).\n- Si la intensidad es *menor* que el umbral → el píxel se establece a negro (fondo). (O viceversa.)\n\nTipos de umbralización:\n\n**Umbralización fija**\nUsa un umbral constante para toda la imagen. Funciona bien cuando la imagen presenta **suficiente contraste** entre los objetos y el fondo, y la iluminación es uniforme. Falla con iluminación no uniforme porque un único umbral no puede adaptarse a variaciones locales de brillo.\n\n**Umbralización generalizada**\nUsa múltiples criterios o una función más compleja para determinar el umbral. Más flexible que la fija.\n\n**Umbralización adaptativa (variable)**\nEl umbral **varía** según la zona de la imagen. Se calcula un umbral diferente para distintas regiones, lo que la hace robusta ante variaciones locales de iluminación. Es la solución adecuada cuando la iluminación no es uniforme.\n\n**Multiumbralización**\nTrabaja con **diferentes niveles de gris**: en lugar de producir una imagen binaria, segmenta la imagen en múltiples niveles, asignando a cada píxel una de varias categorías posibles. Útil cuando hay varios objetos distintos con diferentes intensidades.\n\n**Umbralización de banda (band thresholding)**\nSe usa para **separar los objetos del fondo** usando una banda de valores de intensidad en lugar de un único umbral. Los píxeles cuya intensidad cae dentro de la banda se marcan como objeto; el resto como fondo.\n\n**Semiumbralización**\nTrata de **eliminar el fondo**: mantiene los píxeles del objeto con sus valores originales y convierte el fondo a un valor constante (normalmente 0). Combina la detección de umbral con la preservación de información en el área de interés."
+      },
+      {
+        "titulo": "4. Detección de contornos",
+        "contenido": "Los operadores de detección de bordes y líneas representan los diferentes tipos de operadores en uso hoy en día. Muchos se implementan por medio de **máscaras de convolución**, y la mayoría se basan en **aproximaciones discretas a los operadores diferenciales**.\n\n**Principio fundamental:**\nLas operaciones diferenciales miden la tasa de cambio de una función; en este caso, la **función de brillo de la imagen**. Un gran cambio en el brillo de la imagen sobre una distancia espacial pequeña indica la presencia de un **borde**.\n\n**Dos tipos de respuesta de los operadores:**\n- Algunos operadores devuelven **información de orientación**: indican la dirección del borde (ángulo). Son necesarios cuando la dirección de las estructuras importa: reconocimiento de caracteres (OCR), detección de carriles en conducción, análisis de estructuras anatómicas en imágenes médicas.\n- Otros solo devuelven **información de existencia**: indican si hay o no una diferencia de intensidad en cada punto, sin dar la dirección.\n\n**Textura:**\nLa textura de una región describe los patrones que se repiten en ella. Para determinar la textura de forma ascendente se usa la **media y la varianza** de los valores de intensidad de los píxeles de la región. Un **texel** es un *elemento básico de la textura* (la unidad elemental de patrón que se repite en una región texturizada).\n\n**Relación histograma → umbral:**\nPara encontrar un mínimo entre los lóbulos de un histograma (que permite determinar un umbral entre dos grupos de intensidades) se aplica un **filtro de paso bajo** al histograma, suavizando sus picos y valles para identificar los mínimos con mayor claridad."
+      }
+    ]
+  },
+  "resumen": [
+    "El **Tema 10** aborda la segmentación de imágenes: dividir la imagen en **regiones significativas** que representan objetos o partes de interés, necesaria antes de cualquier análisis de nivel superior al píxel. Los algoritmos buscan regiones con **homogeneidad interna** o **contraste con la frontera** (en escala de grises, color o textura).",
+    "Las tres categorías son: **crecimiento/contracción de regiones** (dominio espacial r,c), **clustering** (cualquier espacio n-dimensional) y **detección de bordes/contornos**.",
+    "La **umbralización** es la técnica más simple: compara cada píxel con un umbral y genera una imagen binaria. Tipos: **fija** (funciona con suficiente contraste), **adaptativa** (umbral variable, robusta ante iluminación no uniforme), **multiumbralización** (diferentes niveles de gris), **de banda** (separa objetos del fondo) y **semiumbralización** (elimina el fondo preservando los valores del objeto).",
+    "La **detección de contornos** usa operadores diferenciales discretos (máscaras de convolución): un gran cambio de brillo en distancia pequeña = borde. Algunos operadores devuelven también la **orientación** del borde."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Segmentación de imágenes",
+      "definicion": "Dividir una imagen en regiones significativas que representan objetos o partes de interés. Necesaria antes de cualquier procesamiento de nivel superior al píxel. Esencialmente es clasificar píxeles en grupos."
+    },
+    {
+      "termino": "Homogeneidad vs. contraste (criterios)",
+      "definicion": "Los dos criterios básicos de segmentación: homogeneidad (los píxeles dentro de la región son similares) y contraste (la región difiere de sus regiones vecinas). La mayoría de algoritmos combinan ambos."
+    },
+    {
+      "termino": "Crecimiento y contracción de regiones",
+      "definicion": "Técnica de segmentación que trabaja en el dominio espacial (r,c). Agrupa o separa píxeles vecinos por criterios de homogeneidad local. Subconjunto de los métodos de clustering pero restringido al dominio espacial."
+    },
+    {
+      "termino": "Clustering (agrupamiento)",
+      "definicion": "Técnica de segmentación aplicable a cualquier espacio n-dimensional de color o características. Más general que el crecimiento de regiones porque no está restringida al dominio espacial."
+    },
+    {
+      "termino": "Umbralización",
+      "definicion": "Técnica de segmentación que compara cada píxel con un umbral de intensidad y produce una imagen binaria (primer plano / fondo)."
+    },
+    {
+      "termino": "Umbralización fija",
+      "definicion": "Usa un umbral constante para toda la imagen. Funciona cuando hay suficiente contraste e iluminación uniforme. Falla con iluminación no uniforme."
+    },
+    {
+      "termino": "Umbralización adaptativa",
+      "definicion": "El umbral varía según la zona de la imagen. Robusta ante variaciones locales de iluminación. Característica: es variable."
+    },
+    {
+      "termino": "Multiumbralización",
+      "definicion": "Trabaja con diferentes niveles de gris: segmenta la imagen en más de dos categorías (no solo binaria). Útil cuando hay varios objetos con distintas intensidades."
+    },
+    {
+      "termino": "Umbralización de banda",
+      "definicion": "Usa una banda de valores de intensidad para separar objetos del fondo. Los píxeles dentro de la banda = objeto; fuera = fondo."
+    },
+    {
+      "termino": "Semiumbralización",
+      "definicion": "Elimina el fondo: mantiene los píxeles del objeto con sus valores originales y convierte el fondo a un valor constante (normalmente 0)."
+    },
+    {
+      "termino": "Detección de contornos (bordes)",
+      "definicion": "Operadores que detectan bordes mediante aproximaciones discretas a operadores diferenciales. Principio: gran cambio de brillo en distancia espacial pequeña = borde. Se implementan con máscaras de convolución."
+    },
+    {
+      "termino": "Orientación del borde",
+      "definicion": "Información que algunos operadores de detección devuelven además de la existencia del borde: la dirección del borde. Necesaria en reconocimiento de caracteres, detección de carriles y análisis médico."
+    },
+    {
+      "termino": "Textura y texel",
+      "definicion": "Textura: patrones que se repiten en una región. Se determina usando media y varianza. Texel: elemento básico de la textura (unidad mínima del patrón que se repite)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es el objetivo de la segmentación de imágenes?",
+      "respuesta": "Identificar regiones u objetos de nivel superior a partir de los datos en bruto de la imagen. Dividir la imagen en regiones significativas que representan objetos, necesario antes de cualquier procesamiento de nivel superior al píxel."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuáles son los dos criterios básicos de los algoritmos de segmentación?",
+      "respuesta": "Homogeneidad (los píxeles dentro de la región son similares entre sí) y contraste (la región difiere de sus regiones vecinas). La mayoría de algoritmos son combinaciones de ambos."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuáles son las tres categorías de técnicas de segmentación?",
+      "respuesta": "(1) Crecimiento y contracción de regiones: dominio espacial (r,c). (2) Clustering (agrupamiento): cualquier espacio n-dimensional. (3) Detección de bordes/contornos: extensión de la detección de bordes."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿En qué se diferencia el crecimiento de regiones del clustering?",
+      "respuesta": "El crecimiento de regiones trabaja solo en el dominio espacial (r,c). El clustering puede aplicarse a cualquier espacio n-dimensional de color o características, incluidas las coordenadas espaciales. El crecimiento de regiones es un caso particular del clustering restringido al dominio espacial."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿En qué consiste la umbralización y qué produce?",
+      "respuesta": "Compara la intensidad de cada píxel con un umbral de intensidad en una sola pasada. Produce una imagen binaria: píxeles > umbral = blanco (primer plano); píxeles < umbral = negro (fondo), o viceversa."
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Cuándo funciona la umbralización fija y cuándo falla?",
+      "respuesta": "Funciona cuando la imagen presenta suficiente contraste entre los objetos e iluminación uniforme. Falla con iluminación no uniforme porque un único umbral no puede adaptarse a variaciones locales de brillo."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Cuál es la característica principal de la umbralización adaptativa?",
+      "respuesta": "Es variable: el umbral cambia según la zona de la imagen. Calcula un umbral diferente para distintas regiones, siendo robusta ante variaciones de iluminación no uniforme."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Con qué trabaja la multiumbralización?",
+      "respuesta": "Con diferentes niveles de gris: segmenta la imagen en más de dos categorías (no solo binaria), asignando a cada píxel una de varias categorías en función de su nivel de intensidad."
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Para qué se usa la umbralización de banda?",
+      "respuesta": "Para separar los objetos del fondo: los píxeles cuya intensidad cae dentro de una banda de valores se marcan como objeto; el resto como fondo."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué hace la semiumbralización?",
+      "respuesta": "Elimina el fondo: mantiene los píxeles del objeto con sus valores originales y convierte los píxeles del fondo a un valor constante (normalmente 0)."
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Cómo funcionan los operadores de detección de contornos?",
+      "respuesta": "Se basan en aproximaciones discretas a operadores diferenciales. Miden la tasa de cambio de la función de brillo: un gran cambio de brillo sobre una distancia espacial pequeña indica la presencia de un borde. Se implementan con máscaras de convolución."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué diferencia hay entre operadores que devuelven orientación y los que no?",
+      "respuesta": "Los que devuelven orientación indican también la dirección del borde. Los que no, solo indican si existe o no una diferencia de intensidad en cada punto. La orientación es necesaria en OCR, detección de carriles y análisis médico."
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cómo se determina la textura de una región y qué es un texel?",
+      "respuesta": "La textura se determina usando la media y la varianza de los valores de intensidad. Un texel es el elemento básico de la textura: la unidad mínima del patrón que se repite en la región texturizada."
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué transformación ayuda a encontrar un mínimo entre los lóbulos de un histograma?",
+      "respuesta": "Un filtro de paso bajo aplicado al histograma. Suaviza los picos y valles para identificar con mayor claridad los mínimos que pueden usarse como umbrales entre grupos de intensidades."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿En qué aplicaciones es especialmente necesaria la información de orientación de los bordes?",
+      "respuesta": "En reconocimiento de caracteres (OCR), detección de carriles en conducción autónoma y análisis médico (estructuras anatómicas). En todas ellas la dirección de las estructuras es parte de la información necesaria."
+    }
+  ]
+}

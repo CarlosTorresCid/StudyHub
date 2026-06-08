@@ -1,0 +1,170 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-8",
+  "titulo": "Análisis de Imágenes Digitales",
+  "apuntes": {
+    "introduccion": "El **Tema 8** cubre el análisis de imágenes digitales estructurado en tres etapas: **preprocesamiento** (eliminar ruido e información irrelevante, extraer ROI, transformar espacio de color), **reducción de datos** (dominio espacial o de frecuencia + filtrado para extraer características) y **análisis de características** (evaluar las características extraídas). El proceso es frecuentemente iterativo gracias al circuito de retroalimentación.",
+    "secciones": [
+      {
+        "titulo": "1. Etapas del proceso de análisis de imágenes",
+        "contenido": "El proceso de análisis de imágenes digitales se divide en **tres etapas principales**:\n\n**1. Preprocesamiento**\nElimina el ruido (información no deseada que puede resultar del proceso de adquisición) y la información irrelevante visualmente innecesaria. Otros pasos pueden incluir:\n- Modificar la escala de grises o la cuantificación espacial (reducir bits por píxel o tamaño).\n- Búsqueda de **regiones de interés (ROI)** para el posterior procesamiento.\n- Transformación del espacio de color.\n- Reducción de datos tanto en resolución como en brillo.\n\nLos requisitos del preprocesamiento son normalmente obvios y simples. Ejemplos:\n- Eliminar los bordes de imágenes tomadas mirando por una ventana.\n- Para una pinza robótica: reducir una imagen en escala de grises a una imagen binaria que contenga solo el contorno del objeto a manipular.\n\n**2. Reducción de datos**\nImplica la reducción de los datos en el dominio espacial y/o la transformación de los datos a otro dominio (el **dominio de la frecuencia**), seguida de la extracción de características para el análisis.\n\nEl flujo detallado después del preprocesamiento puede ser:\n- Segmentación de la imagen en el dominio espacial, O\n- Conversión al dominio de la frecuencia mediante transformación matemática.\n- Filtrado para reducir datos y extraer características.\n\n**3. Análisis de características**\nSe examinan y analizan las características extraídas en la etapa anterior y se evalúan para su uso en la aplicación concreta.\n\n**Circuito de retroalimentación:** tras el análisis, existe un bucle de retroalimentación que permite examinar los resultados según la aplicación. Esto hace que el proceso sea frecuentemente **iterativo**: no se completa hasta obtener resultados satisfactorios."
+      },
+      {
+        "titulo": "2. Preprocesado: operaciones y objetivos",
+        "contenido": "Los algoritmos, técnicas y operadores de preprocesamiento realizan el procesamiento inicial que facilita la posterior reducción de datos y análisis. Es una etapa especialmente relevante cuando se trabaja con modelos de IA, porque el coste computacional (tokens) de procesar una imagen sin preprocesar puede ser innecesariamente alto.\n\nOperaciones incluidas en el preprocesado:\n- **Extracción de regiones de interés (ROI)**: delimitar la zona de la imagen que contiene la información relevante para la aplicación.\n- **Operaciones matemáticas básicas**: suma, resta, multiplicación, operaciones lógicas sobre los valores de píxel.\n- **Mejora sencilla de características**: realzar aspectos específicos de la imagen (contraste, nitidez).\n- **Transformación del espacio de color**: por ejemplo, convertir de RGB a escala de grises, o a otro espacio de color (HSV, LAB) más adecuado para el análisis.\n- **Reducción de datos**: tanto en resolución (submuestreo) como en brillo (cuantificación).\n\nTodas las operaciones del tema pueden explicarse desde la **teoría de filtros**: un filtro es un mecanismo de transformación de una señal de entrada al que se aplica una función de transferencia para obtener una señal de salida. Las imágenes y los sonidos son señales en este sentido."
+      },
+      {
+        "titulo": "3. Operaciones básicas sobre imágenes",
+        "contenido": "Las operaciones básicas se aplican para mejorar o destacar elementos de la imagen capturada, con el fin de obtener buenos resultados en las fases posteriores de segmentación y clasificación.\n\n**3.1 Operaciones matemático-lógicas**\n\n- **Suma de imágenes**: combina dos imágenes sumando sus valores de píxel. Se usa para combinar información de varias fuentes o añadir señales.\n- **Resta de imágenes**: diferencia entre dos imágenes. Útil para detectar cambios entre frames, detectar movimiento o eliminar fondos estáticos.\n- **Multiplicación de imágenes**: producto de los valores de píxel. Se usa para **añadir textura** a una imagen (modulación de una imagen con una máscara de textura).\n- **Conjunción (AND lógico)**: intersección de dos imágenes binarias. Se usa para **borrar (enmascarar) píxeles** de una imagen.\n- **Disyunción (OR lógico)**: unión de dos imágenes binarias. Se usa para **añadir píxeles** a una imagen.\n- **Negación (NOT lógico)**: invierte todos los valores de píxel. Se usa para obtener el **negativo de la imagen** (lo oscuro se vuelve claro y viceversa).\n\n**3.2 Operaciones sobre el histograma**\n\nEl **histograma** de una imagen representa la distribución de frecuencias de los niveles de intensidad (cuántos píxeles tienen cada valor de brillo).\n\n- **Aumento de contraste**: expande el rango dinámico de los niveles de intensidad. Se aplica una función de transformación con *pendiente > 1* en el histograma (equivale a un filtro de paso alto en el dominio del histograma).\n- **Reducción de contraste**: comprime el rango de intensidades. Función con *pendiente < 1* (equivale a un filtro de paso bajo en el histograma).\n- **Ecualización del histograma**: redistribuye los niveles de intensidad para conseguir una **distribución más uniforme**. No aumenta el contraste directamente, sino que redistribuye la información de brillo de forma más homogénea, lo que suele resultar en una mejora visual de la imagen."
+      },
+      {
+        "titulo": "4. Filtrado espacial",
+        "contenido": "Los **filtros espaciales** actúan sobre la imagen en conjunto (a nivel global), a diferencia de las operaciones puntuales que actúan píxel a píxel. Por eso pueden producir efectos globales sobre la imagen, aunque también resulta más complicado elegir un buen filtro.\n\nLa operación más usada en el filtrado espacial es la **función de convolución**, definida sobre la matriz de la imagen como una función discreta de dos variables. La convolución combina la imagen original con una **máscara** (o *kernel*): una pequeña matriz de coeficientes que define el efecto del filtro.\n\n**4.1 Filtros de suavizado (paso bajo espacial)**\nReducen las variaciones bruscas de intensidad entre píxeles vecinos, suavizando la imagen y eliminando ruido de alta frecuencia. La operación principal es el **promediado** de los píxeles adyacentes (media de la vecindad). A mayor tamaño de la máscara, mayor suavizado pero mayor pérdida de detalle.\n\n**4.2 Filtros de obtención de contorno (paso alto espacial)**\nResaltan los bordes y contornos de la imagen, donde hay cambios bruscos de intensidad. La operación es el cálculo de la **derivada direccional** (gradiente de la función de brillo). Un cambio grande en el brillo sobre una distancia espacial pequeña indica la presencia de un borde. Los operadores se implementan mediante máscaras de convolución que aproximan operadores diferenciales discretos.\n\n**4.3 Filtro de la Laplaciana**\nEs el operador diferencial de segundo orden. A diferencia de los filtros de gradiente (primer orden), la Laplaciana detecta bordes de forma isotrópica (sin preferencia de dirección). Produce una respuesta fuerte donde hay cambios bruscos de intensidad en cualquier dirección. Se usa habitualmente para realzar detalles finos y bordes de todas las orientaciones."
+      }
+    ]
+  },
+  "resumen": [
+    "El **Tema 8** cubre el análisis de imágenes digitales estructurado en tres etapas: **preprocesamiento** (eliminar ruido e información irrelevante, extraer ROI, transformar espacio de color), **reducción de datos** (dominio espacial o de frecuencia + filtrado para extraer características) y **análisis de características** (evaluar las características extraídas). El proceso es frecuentemente iterativo gracias al circuito de retroalimentación.",
+    "Las **operaciones básicas** incluyen operaciones matemático-lógicas (suma, resta, multiplicación, AND, OR, NOT con sus usos específicos) y operaciones sobre el histograma (aumento/reducción de contraste, ecualización que busca distribución uniforme de intensidades).",
+    "El **filtrado espacial** usa convolución con máscaras: filtros de suavizado (promedian vecindad, eliminan ruido), filtros de contorno (calculan derivada direccional, resaltan bordes) y la Laplaciana (derivada de segundo orden, isotrópica)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Etapas del análisis de imágenes",
+      "definicion": "Tres etapas: (1) Preprocesamiento (ruido, ROI, espacio de color). (2) Reducción de datos (dominio espacial o frecuencial + extracción de características). (3) Análisis de características (evaluar y aplicar)."
+    },
+    {
+      "termino": "Ruido en imágenes",
+      "definicion": "Información no deseada que puede resultar del proceso de adquisición de imágenes. Se elimina en la etapa de preprocesamiento."
+    },
+    {
+      "termino": "ROI (Region Of Interest)",
+      "definicion": "Región de interés. Zona de la imagen que contiene la información relevante para la aplicación. Se extrae en el preprocesamiento."
+    },
+    {
+      "termino": "Histograma de imagen",
+      "definicion": "Representación de la distribución de frecuencias de los niveles de intensidad: cuántos píxeles tienen cada valor de brillo. Base para operaciones de contraste y ecualización."
+    },
+    {
+      "termino": "Ecualización del histograma",
+      "definicion": "Redistribuye los niveles de intensidad para conseguir una distribución más uniforme. No aumenta el contraste directamente, sino que homogeneiza la distribución de información de brillo."
+    },
+    {
+      "termino": "Suma de imágenes",
+      "definicion": "Combina dos imágenes sumando sus valores de píxel. Útil para combinar fuentes o añadir señales."
+    },
+    {
+      "termino": "Resta de imágenes",
+      "definicion": "Diferencia entre valores de píxel de dos imágenes. Útil para detectar cambios, movimiento o eliminar fondos estáticos."
+    },
+    {
+      "termino": "Multiplicación de imágenes",
+      "definicion": "Producto de los valores de píxel de dos imágenes. Se usa para añadir textura a una imagen."
+    },
+    {
+      "termino": "Conjunción (AND) de imágenes",
+      "definicion": "Operación lógica AND entre dos imágenes. Se usa para borrar (enmascarar) píxeles de una imagen."
+    },
+    {
+      "termino": "Disyunción (OR) de imágenes",
+      "definicion": "Operación lógica OR entre dos imágenes. Se usa para añadir píxeles a una imagen."
+    },
+    {
+      "termino": "Negación (NOT) de imagen",
+      "definicion": "Operación lógica NOT. Invierte todos los valores de píxel: obtiene el negativo de la imagen."
+    },
+    {
+      "termino": "Filtrado espacial / convolución",
+      "definicion": "Filtros que actúan sobre la imagen en conjunto mediante convolución con una máscara (kernel). Producen efectos globales. Tipos: suavizado (promediado, paso bajo), contorno (derivada, paso alto) y Laplaciana (segundo orden, isotrópico)."
+    },
+    {
+      "termino": "Filtro de suavizado",
+      "definicion": "Promedia los píxeles adyacentes (vecindad). Elimina ruido de alta frecuencia y suaviza la imagen. Mayor máscara = mayor suavizado y más pérdida de detalle."
+    },
+    {
+      "termino": "Filtro de contorno (gradiente)",
+      "definicion": "Calcula la derivada direccional de la función de brillo. Resalta bordes donde hay cambios bruscos de intensidad. Se implementa con máscaras de convolución (aproximación discreta de operadores diferenciales)."
+    },
+    {
+      "termino": "Laplaciana",
+      "definicion": "Operador diferencial de segundo orden. Detecta bordes de forma isotrópica (sin preferencia de dirección). Responde a cambios bruscos de intensidad en todas las orientaciones."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuáles son las tres etapas del proceso de análisis de imágenes digitales?",
+      "respuesta": "(1) Preprocesamiento: eliminar ruido e información irrelevante. (2) Reducción de datos: dominio espacial o frecuencial + extracción de características. (3) Análisis de características: evaluar las características extraídas para la aplicación."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Para qué sirve el preprocesamiento y qué operaciones incluye?",
+      "respuesta": "Para facilitar la posterior reducción de datos y análisis eliminando ruido e información irrelevante. Incluye: extracción de ROI, operaciones matemáticas básicas, mejora sencilla, transformación del espacio de color y reducción de datos (resolución o brillo)."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Qué es el circuito de retroalimentación en el análisis de imágenes?",
+      "respuesta": "Un bucle que, tras el análisis, permite examinar los resultados específicos de la aplicación y repetir el proceso. Hace que el análisis sea frecuentemente iterativo: no termina hasta obtener resultados satisfactorios."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Para qué se usa la multiplicación de dos imágenes?",
+      "respuesta": "Para añadir textura a una imagen (modulación de una imagen con una máscara de textura)."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Para qué se usa la conjunción (AND lógico) de dos imágenes?",
+      "respuesta": "Para borrar (enmascarar) píxeles de una imagen: los píxeles donde la máscara vale 0 se ponen a 0 en la imagen resultante."
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Para qué se usa la disyunción (OR lógico) de dos imágenes?",
+      "respuesta": "Para añadir píxeles a una imagen: el resultado tiene píxeles activos donde cualquiera de las dos imágenes los tiene activos."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Para qué se usa la negación de una imagen?",
+      "respuesta": "Para obtener el negativo de la imagen: invierte todos los valores de píxel, por lo que lo oscuro se vuelve claro y viceversa."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Qué busca la ecualización del histograma?",
+      "respuesta": "Una distribución más uniforme de los niveles de intensidad. Redistribuye la información de brillo de forma homogénea, no aumenta el contraste directamente."
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Qué tipo de función del histograma actúa como filtro de paso alto (aumenta contraste)?",
+      "respuesta": "Una función con pendiente mayor que 1: expande el rango dinámico de los niveles de intensidad."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué tipo de función del histograma actúa como filtro de paso bajo (reduce contraste)?",
+      "respuesta": "Una función con pendiente menor que 1: comprime el rango de intensidades."
+    },
+    {
+      "id": 11,
+      "pregunta": "¿En qué consiste un filtro de suavizado espacial y qué operación realiza?",
+      "respuesta": "Promedia los píxeles adyacentes de la vecindad. Elimina ruido de alta frecuencia y suaviza la imagen. A mayor tamaño de la máscara, mayor suavizado y mayor pérdida de detalle."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué operación realiza un filtro espacial para resaltar bordes?",
+      "respuesta": "Calcula la derivada direccional (gradiente) de la función de brillo. Un cambio grande de brillo en una distancia espacial pequeña indica un borde."
+    },
+    {
+      "id": 13,
+      "pregunta": "¿En qué se diferencia el filtro Laplaciano de un filtro de gradiente para detección de bordes?",
+      "respuesta": "El Laplaciano es un operador de segundo orden e isotrópico: detecta bordes sin preferencia de dirección, respondiendo a cambios bruscos en todas las orientaciones. El gradiente es de primer orden y es direccional."
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué es la convolución en el contexto del filtrado espacial?",
+      "respuesta": "La operación matemática más usada en filtrado espacial. Combina la imagen con una máscara (kernel) pequeña de coeficientes aplicándola sobre cada píxel y su vecindad para producir el valor del píxel de salida."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Por qué los filtros espaciales son más complicados de elegir que las operaciones puntuales?",
+      "respuesta": "Porque los filtros espaciales actúan sobre la imagen en conjunto produciendo efectos globales, mientras que las operaciones puntuales actúan de forma independiente sobre cada píxel. El efecto global del filtro depende de toda la imagen."
+    }
+  ]
+}

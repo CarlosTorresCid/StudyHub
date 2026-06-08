@@ -1,0 +1,158 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-9",
+  "titulo": "Transformación de Imágenes Digitales (Fourier)",
+  "apuntes": {
+    "introduccion": "Una transformación de datos de imagen traslada los datos desde un **dominio espacial** a un espacio matemático diferente a través de una ecuación de transformación. La mayoría de las transformaciones estudiadas llevan los datos de imagen al **dominio de la frecuencia**.",
+    "secciones": [
+      {
+        "titulo": "1. Las transformaciones de imágenes: concepto y propósito",
+        "contenido": "Una transformación de datos de imagen traslada los datos desde un **dominio espacial** a un espacio matemático diferente a través de una ecuación de transformación. La mayoría de las transformaciones estudiadas llevan los datos de imagen al **dominio de la frecuencia**.\n\nCaracterística fundamental que distingue estas transformaciones de las operaciones locales (píxel a píxel): en el dominio de la frecuencia, **todos los píxeles de la entrada contribuyen a cada valor de salida**. Esto contrasta con una conversión de color, que es local (un píxel de entrada produce un píxel de salida, con correspondencia uno a uno).\n\nLas transformaciones se definieron originalmente en sus formas continuas, aunque hoy se usan en sus formas **discretas** porque las imágenes son datos discretos. El gran número de operaciones aritméticas necesarias, combinado con las cantidades masivas de datos de una imagen, requiere gran potencia de cómputo. La mayor capacidad de los ordenadores actuales hace que el uso de estas transformadas sea mucho más factible que en el pasado.\n\n**Aplicaciones de las transformaciones:** procesamiento de imágenes, análisis de vibraciones en ingeniería mecánica, análisis de circuitos en ingeniería eléctrica, compresión (JPEG, por ejemplo, elimina frecuencias que el ojo humano no percibe)."
+      },
+      {
+        "titulo": "2. La Transformada de Fourier",
+        "contenido": "La **Transformada de Fourier** es la más conocida y utilizada de las transformaciones de imagen. Fue desarrollada por **Jean Baptiste Joseph Fourier (1768–1830)** para explicar la distribución de temperatura y calor por conducción.\n\n**Qué hace:** descompone una señal compleja en una **suma ponderada** de:\n- Un **término de frecuencia cero** (el *término DC*), relacionado con el **valor medio** de la señal.\n- Una serie de **términos sinusoidales** (funciones de base), donde cada sinusoide es un **armónico** de la fundamental.\n\nTerminología clave:\n- **Fundamental** (o primer armónico): la frecuencia básica, la más baja de la señal.\n- **Armónicos**: frecuencias que son múltiplos enteros de la fundamental.\n- **Reconstrucción**: se puede reconstruir la señal original añadiendo la fundamental y todos los armónicos, con cada término ponderado por su **coeficiente de transformada** correspondiente.\n\nLas **series de Fourier** son series de tipo **trigonométrico** (basadas en funciones seno y coseno).\n\n**Intuición para imágenes:**\n- Dominio espacial = los píxeles de la imagen.\n- Dominio frecuencial = la velocidad con que cambian los píxeles de una zona a otra.\n- Cambios bruscos de píxeles (p.ej. tablero de ajedrez) = **altas frecuencias**.\n- Zonas uniformes (p.ej. pared blanca) = **bajas frecuencias**.\n- La Transformada de Fourier analiza cómo cambian los píxeles cercanos entre sí, representando toda la imagen como un espectro de frecuencias.\n\n**Aplicación a JPEG:** elimina las frecuencias que el ojo humano no percibe, reduciendo el tamaño del fichero sin pérdida perceptible de calidad."
+      },
+      {
+        "titulo": "3. Transformada Discreta de Fourier (DFT) y Transformada Rápida (FFT)",
+        "contenido": "Para imágenes (datos discretos) se utiliza la **Transformada Discreta de Fourier (DFT)**.\n\n**Complejidad computacional de la DFT para una imagen n×n:**\n- DFT directa: **O(n⁴)** — muy costoso para imágenes grandes.\n- DFT separable por filas y columnas: **O(n² log n)** — la implementación estándar.\n\nLa **Transformada Rápida de Fourier (FFT — *Fast Fourier Transform*)** es un algoritmo eficiente para calcular la DFT. Su complejidad es **O(n² log n)** para una imagen n×n.\n\nLa **Transformada Inversa de Fourier** permite recuperar la imagen en el dominio espacial a partir de su representación frecuencial. Es fundamental para el proceso de filtrado: (1) transformar al dominio frecuencial → (2) aplicar el filtro → (3) transformada inversa para volver al dominio espacial.\n\n**El teorema que relaciona las transformaciones espaciales y las de frecuencia** es el **Teorema de la Convolución**: establece que la convolución en el dominio espacial equivale a la multiplicación en el dominio frecuencial (y viceversa). Esto es extremadamente útil porque la multiplicación es computacionalmente más simple que la convolución."
+      },
+      {
+        "titulo": "4. Filtrado en el dominio de la frecuencia",
+        "contenido": "Una vez que la imagen está representada en el dominio de las frecuencias, es sencillo aplicar filtros que eliminen elementos que aparezcan con cierta **periodicidad**. Este es el gran valor del dominio frecuencial para imágenes.\n\n**Distribución de frecuencias en la imagen espectral (2D):**\n- Las componentes del espectro **cercanas a cero** (las *esquinas* de la matriz espectral) corresponden a las **bajas frecuencias** → zonas uniformes, información de fondo, contraste global.\n- Las componentes del **centro** de la imagen espectral corresponden a las **altas frecuencias** → bordes, detalles finos, ruido, cambios bruscos.\n\n**Filtro de paso bajo (low-pass)**\nElimina las **altas frecuencias** y deja pasar las bajas. Efecto: suaviza la imagen, elimina ruido de alta frecuencia, pero **borra bordes y detalles finos**. Transforma de histograma: función con **pendiente < 1**.\n\nUsos: eliminar ruido aleatorio o de alta frecuencia sin importar la preservación de bordes.\n\n**Filtro de paso alto (high-pass)**\nElimina las **bajas frecuencias** y deja pasar las altas. Efecto: **resalta bordes** y detalles finos, elimina el fondo uniforme. Un filtro de paso alto *ideal* **resalta los bordes**. Transforma de histograma: función con **pendiente > 1**.\n\nUsos: detección de bordes en el dominio frecuencial, realce de detalles.\n\n**Filtro de paso banda (band-pass)**\nDeja pasar solo un rango específico de frecuencias y elimina el resto. Especialmente útil para **eliminar patrones periódicos de interferencia** (ruido periódico) sin afectar el resto de la imagen. Cuando una interferencia es periódica, se manifiesta como **picos en frecuencias concretas** del espectro, que pueden eliminarse selectivamente sin destruir ni las bajas ni las altas frecuencias del resto de la imagen.\n\nRegla práctica del profesor: **\"siempre que se hable de interferencia periódica → filtro de paso banda\"**."
+      }
+    ]
+  },
+  "resumen": [
+    "El **Tema 9** aborda la transformación de imágenes al **dominio de la frecuencia** mediante la **Transformada de Fourier** (Fourier, 1768–1830). La idea central: la imagen en dominio espacial (píxeles) se convierte en un espectro donde cada coeficiente depende de *todos* los píxeles de entrada. La Fourier descompone la imagen en un *término DC* (valor medio) más *armónicos* (múltiplos de la fundamental).",
+    "En la imagen espectral 2D: las **esquinas** = bajas frecuencias (zonas uniformes); el **centro** = altas frecuencias (bordes, ruido). Las **series de Fourier** son de tipo trigonométrico. La DFT tiene complejidad **O(n⁴)** directa, **O(n² log n)** con FFT. El **teorema de la convolución** relaciona ambos dominios.",
+    "Filtros frecuenciales: **paso bajo** (elimina altas → suaviza, borra bordes), **paso alto** (elimina bajas → resalta bordes), **paso banda** (elimina un rango → ideal para **patrones periódicos de interferencia**)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Transformada de Fourier",
+      "definicion": "Descompone una señal compleja en término DC (valor medio) + suma ponderada de armónicos sinusoidales. Desarrollada por Fourier (1768–1830). Convierte del dominio espacial al dominio de la frecuencia."
+    },
+    {
+      "termino": "Término DC",
+      "definicion": "Componente de frecuencia cero de la transformada de Fourier. Relacionado con el valor medio de la señal (brillo medio de la imagen)."
+    },
+    {
+      "termino": "Fundamental y armónicos",
+      "definicion": "La fundamental es la frecuencia básica más baja. Los armónicos son múltiplos enteros de la fundamental. La señal se reconstruye sumando fundamental + todos los armónicos, ponderados por sus coeficientes."
+    },
+    {
+      "termino": "Series de Fourier",
+      "definicion": "Series de tipo trigonométrico (basadas en funciones seno y coseno)."
+    },
+    {
+      "termino": "Dominio espacial vs. dominio de la frecuencia",
+      "definicion": "Dominio espacial: representación de la imagen como píxeles (I(r,c)). Dominio de la frecuencia: representación como velocidad de cambio de píxeles. Altas frecuencias = cambios bruscos (bordes). Bajas frecuencias = zonas uniformes."
+    },
+    {
+      "termino": "DFT (Transformada Discreta de Fourier)",
+      "definicion": "Versión discreta de la Transformada de Fourier, aplicable a imágenes digitales. Complejidad O(n⁴) directa u O(n² log n) con separabilidad o FFT."
+    },
+    {
+      "termino": "FFT (Fast Fourier Transform)",
+      "definicion": "Algoritmo eficiente para calcular la DFT. Complejidad O(n² log n) para imagen n×n. Mucho más rápido que la DFT directa O(n⁴)."
+    },
+    {
+      "termino": "Transformada Inversa de Fourier",
+      "definicion": "Recupera la imagen en dominio espacial a partir de su representación frecuencial. Permite el filtrado: transformar → filtrar en frecuencia → transformada inversa."
+    },
+    {
+      "termino": "Teorema de la convolución",
+      "definicion": "Establece que la convolución en dominio espacial equivale a multiplicación en dominio frecuencial. Relaciona transformaciones espaciales y de frecuencia. Simplifica enormemente el cálculo de convoluciones."
+    },
+    {
+      "termino": "Filtro de paso bajo",
+      "definicion": "Elimina las altas frecuencias, deja pasar las bajas. Suaviza la imagen y elimina ruido, pero destruye bordes y detalles finos. Histograma: función con pendiente < 1."
+    },
+    {
+      "termino": "Filtro de paso alto",
+      "definicion": "Elimina las bajas frecuencias, deja pasar las altas. Resalta bordes y detalles. Un filtro de paso alto ideal resalta los bordes. Histograma: función con pendiente > 1."
+    },
+    {
+      "termino": "Filtro de paso banda",
+      "definicion": "Deja pasar o elimina un rango específico de frecuencias. Ideal para eliminar patrones periódicos de interferencia sin afectar el resto de la imagen."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es la diferencia fundamental entre la Transformada de Fourier y una conversión de espacio de color?",
+      "respuesta": "En la Transformada de Fourier todos los píxeles de entrada contribuyen a cada valor de salida en frecuencia. En una conversión de color la transformación es local: un píxel de entrada produce un píxel de salida (correspondencia uno a uno)."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué descompone la Transformada de Fourier y cuáles son sus componentes?",
+      "respuesta": "Descompone una señal compleja en: (1) un término DC (frecuencia cero, relacionado con el valor medio) y (2) términos sinusoidales (armónicos), donde la fundamental es la frecuencia más baja y los armónicos son sus múltiplos."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿De qué tipo son las series de Fourier?",
+      "respuesta": "De tipo trigonométrico (basadas en funciones seno y coseno)."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cómo se representa la imagen en el dominio de la frecuencia? ¿Qué corresponde a las altas y bajas frecuencias?",
+      "respuesta": "Como la frecuencia con que se repite cada patrón. Bajas frecuencias = zonas uniformes (pared blanca, fondo). Altas frecuencias = cambios bruscos (bordes, ruido, tablero de ajedrez). En la imagen espectral 2D: esquinas = bajas, centro = altas."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cuál es la complejidad de la DFT directa vs. la FFT para una imagen n×n?",
+      "respuesta": "DFT directa: O(n⁴). FFT (Transformada Rápida de Fourier) o DFT con separabilidad: O(n² log n). La FFT es mucho más eficiente para imágenes grandes."
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué establece el Teorema de la Convolución?",
+      "respuesta": "Que la convolución en el dominio espacial equivale a multiplicación en el dominio frecuencial. Relaciona las transformaciones espaciales y las de frecuencia, simplificando enormemente el cálculo de convoluciones."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Para qué sirve el filtro de paso bajo y qué efecto tiene en la imagen?",
+      "respuesta": "Elimina las altas frecuencias (ruido, bordes) y deja pasar las bajas. Efecto: suaviza la imagen, pero destruye bordes y detalles finos. Equivale a una función histograma con pendiente < 1."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Para qué sirve el filtro de paso alto y cuál es su efecto?",
+      "respuesta": "Elimina las bajas frecuencias (fondo uniforme) y deja pasar las altas. Efecto: resalta bordes y detalles finos. Un filtro de paso alto ideal resalta los bordes. Equivale a función histograma con pendiente > 1."
+    },
+    {
+      "id": 9,
+      "pregunta": "Una imagen tiene un patrón periódico de interferencia. ¿Qué filtro es el más adecuado y por qué?",
+      "respuesta": "Filtro de paso banda. Los patrones periódicos se manifiestan como picos en frecuencias concretas del espectro; el paso banda elimina selectivamente esas frecuencias exactas sin destruir ni las altas ni las bajas del resto de la imagen."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Por qué un filtro paso bajo NO es adecuado para eliminar ruido periódico de una imagen con bordes importantes?",
+      "respuesta": "Porque el filtro paso bajo elimina todas las altas frecuencias, destruyendo los bordes y detalles finos necesarios para el análisis. Solo eliminaría el ruido periódico si este está en alta frecuencia, pero a costa de perder también la información de bordes."
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Qué ventaja aporta trabajar en el dominio de la frecuencia para eliminar interferencias periódicas?",
+      "respuesta": "Las componentes periódicas quedan concentradas en frecuencias específicas y pueden eliminarse selectivamente, sin afectar al resto de la información de la imagen. En dominio espacial esto es mucho más difícil."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué es el término DC en la Transformada de Fourier?",
+      "respuesta": "El componente de frecuencia cero de la transformada. Está relacionado con el valor medio de la señal (equivale al brillo medio de la imagen). Es el primer término en la descomposición de Fourier."
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cómo se relaciona JPEG con la Transformada de Fourier?",
+      "respuesta": "JPEG utiliza una transformada similar (DCT, coseno discreto) para descomponer la imagen en frecuencias. Luego elimina las frecuencias que el ojo humano no percibe (altas frecuencias de poco contraste), reduciendo el tamaño del fichero sin pérdida perceptible de calidad."
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Cómo se reconstruye la señal original desde el dominio frecuencial?",
+      "respuesta": "Mediante la Transformada Inversa de Fourier: se suman la fundamental y todos los armónicos, ponderados cada uno por su coeficiente de transformada correspondiente."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Qué tipo de transformación de histograma actúa como filtro de paso alto ideal?",
+      "respuesta": "Una función con pendiente mayor que 1: expande el rango de intensidades, equivalente a resaltar las diferencias (bordes) entre píxeles vecinos."
+    }
+  ]
+}

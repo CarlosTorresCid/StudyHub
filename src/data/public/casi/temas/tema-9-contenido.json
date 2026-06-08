@@ -1,0 +1,242 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-9",
+  "titulo": "Tema 9. El Proceso de Auditoría de Sistemas de Información",
+  "apuntes": {
+    "introduccion": "El Tema 9 es la culminación de la asignatura: une todos los conceptos vistos hasta ahora y los integra en un proceso completo de auditoría. Si los temas anteriores respondían a preguntas como 'qué son los controles', 'qué tipos de auditoría existen' o 'cómo se detectan vulnerabilidades', el Tema 9 responde a: ¿cómo se lleva a cabo una auditoría de principio a fin?\n\nEl tema tiene tres grandes bloques:\n\n1. **El ciclo seguro de desarrollo de software**: cómo y cuándo debe integrarse la seguridad en el ciclo de vida del software, y por qué antes no se hacía bien.\n\n2. **Técnicas y herramientas de auditoría**: análisis estático y dinámico (SAST/DAST), fuzzing, herramientas CAT, módulos AM/SCARF y ciclo de vida de las evidencias digitales.\n\n3. **El proceso completo de auditoría informática**: el análisis de riesgos (cuantitativo vs. cualitativo) y las 10 fases del proceso de auditoría según el INCIBE.",
+    "secciones": [
+      {
+        "titulo": "El ciclo seguro de desarrollo de software — SSDLC",
+        "contenido": "Históricamente, la seguridad se introducía en el software muy tarde: normalmente en la fase de pruebas, una vez que el sistema ya funcionaba. El motivo es práctico: cuando un programador está codificando, su prioridad es que el código funcione, no que sea seguro.\n\nEl problema es que corregir un fallo de seguridad encontrado en producción es mucho más caro y difícil que haberlo detectado en la fase de diseño. Este principio — 'es más barato corregir un error en el diseño que una vez está codificado' — es el mismo que se aplica en ingeniería del software en general.\n\nEsto dio lugar al concepto de **seguridad desde el diseño** (*security by design*) y al **ciclo seguro de desarrollo de software** (SSDLC). El SSDLC integra prácticas de ciberseguridad en **todas las fases** del ciclo de vida del software, no solo en las pruebas.\n\nLas fases del SDLC clásico (según ISACA) son:\n- Planificación\n- Definición de requerimientos o análisis\n- Diseño\n- Desarrollo o codificación\n- Implementación / Pruebas\n- Terminación\n\nLo importante: en el SSDLC, la seguridad entra desde la primera fase (planificación y análisis de requisitos), no solo en las pruebas.\n\n**OWASP SAMM** (*Software Assurance Maturity Model*): iniciativa de ciberseguridad que divide el ciclo de vida del software en cinco funciones de negocio (gobernanza, diseño, implementación, verificación, operaciones) y define 90 actividades de seguridad distribuidas entre ellas. Para cada actividad establece un nivel de madurez del 0 al 3, permitiendo que una organización sepa qué tan cerca o lejos está de ser segura en su proceso de desarrollo.\n\n**BSIMM** (*Building Security In Maturity Model*): modelo similar a SAMM, pero en lugar de imponer tareas específicas, compara la seguridad de la organización con la de otras empresas del mismo sector y tamaño. Funciona como un benchmark sectorial.\n\nLo importante para el examen: no hay que saber de memoria las fases de OWASP SAMM ni de BSIMM. Lo que sí hay que saber es que existen iniciativas para integrar la seguridad en todas las fases del ciclo de vida del software, y que antes no se hacía."
+      },
+      {
+        "titulo": "Análisis estático y análisis dinámico (SAST y DAST)",
+        "contenido": "Estas dos técnicas son fundamentales para el análisis de seguridad del software y el profesor las marcó explícitamente como contenido que puede caer en el examen.\n\n**Análisis estático (SAST — Static Application Security Testing)**:\n- Se analiza el código fuente, bytecode o binario **sin ejecutar el programa**.\n- Es como revisar el código para encontrar errores de seguridad antes de que el software esté en ejecución.\n- Se puede aplicar en cualquier fase del desarrollo, incluso antes de que el programa esté terminado.\n- Detecta vulnerabilidades como inyecciones SQL en el código, variables mal inicializadas, funciones inseguras, etc.\n- Ventaja: detecta problemas muy temprano, antes de que lleguen a producción.\n- Herramientas: SonarQube, Checkmarx, Veracode.\n\n**Análisis dinámico (DAST — Dynamic Application Security Testing)**:\n- Se analiza el comportamiento del programa **mientras se está ejecutando**.\n- El software está en ejecución y se realizan pruebas sobre él (envío de peticiones, entradas maliciosas, etc.) para observar cómo responde.\n- Detecta vulnerabilidades que solo se manifiestan en tiempo de ejecución: problemas de gestión de sesión, lógica de negocio incorrecta, vulnerabilidades que dependen del estado del sistema.\n- Herramientas: Burp Suite, OWASP ZAP.\n\n**Diferencia clave**: el SAST analiza el código sin ejecutarlo; el DAST prueba el software mientras se ejecuta.\n\n**Ventaja de DAST frente a SAST**: el DAST puede encontrar vulnerabilidades que solo aparecen en ejecución real. El SAST puede generar más falsos positivos al analizar código sin contexto de ejecución.\n\n**Burp Suite**: herramienta de análisis dinámico y fuzzing web. Actúa como un proxy entre el navegador y el servidor: intercepta las peticiones HTTP, permite modificarlas y reenviarlas. Se puede usar para probar inyecciones SQL, XSS, y realizar fuzzing de formularios web probando combinaciones automáticamente hasta encontrar una que devuelva un resultado inesperado."
+      },
+      {
+        "titulo": "Fuzzing — Técnica de descubrimiento de vulnerabilidades",
+        "contenido": "El **fuzzing** es una técnica de descubrimiento de vulnerabilidades que consiste en generar entradas aleatorias o inesperadas para un programa o aplicación, y observar cómo responde. Si el software está correctamente programado, no debería responder a esas entradas de forma incorrecta. Si lo hace, se ha encontrado una posible vulnerabilidad.\n\nEjemplo práctico: la herramienta Dirb (vista en el Tema 8) hace fuzzing de directorios: prueba sistemáticamente nombres de directorios conocidos en un servidor web. Sabe cuál es la estructura típica de un servidor Apache o PHP, y va probando rutas. Si recibe un código HTTP 200 (OK), el directorio existe. Si recibe un 404 (Not Found), no existe. Así descubre todos los directorios accesibles de un servidor.\n\nBurp Suite también puede hacer fuzzing de formularios web: intercepta las peticiones y va modificando automáticamente los valores de los campos (usuario, contraseña, etc.) probando combinaciones hasta encontrar una que devuelva un resultado inesperado.\n\nEl fuzzing es especialmente relevante porque:\n- Puede detectar vulnerabilidades que el análisis manual pasaría por alto.\n- Automatiza la búsqueda exhaustiva de puntos débiles.\n- Es la base de muchas herramientas de análisis automático de vulnerabilidades.\n\nComo toda técnica de análisis de vulnerabilidades, requiere autorización previa para aplicarse sobre sistemas ajenos."
+      },
+      {
+        "titulo": "Herramientas CAT — Herramientas de Auditoría Asistidas por Ordenador",
+        "contenido": "Las herramientas **CAT** (*Computer-Assisted Audit Tools*) son herramientas de software que ayudan al auditor a realizar su trabajo de forma más eficiente y sistemática. El profesor señaló que hay que conocer los tipos y lo que hace cada uno.\n\n**Tipos de herramientas CAT**:\n\n- **Herramientas de análisis de datos**: detectan anomalías en grandes volúmenes de datos. Permiten al auditor analizar automáticamente ficheros de log, transacciones, registros de acceso, etc., para identificar patrones irregulares.\n\n- **Herramientas de monitoreo y test continuo**: monitorizan el funcionamiento de sistemas en producción de forma continua, generando alertas cuando detectan comportamientos anómalos. Equivalentes a los controles detectivos vistos en el Tema 5.\n\n- **Herramientas de auditoría de sistemas de información**: comprueban la configuración y el cumplimiento de los controles de seguridad. Verifican si los sistemas están configurados correctamente según las políticas definidas.\n\n- **Herramientas de auditoría forense**: recuperan, preservan y analizan evidencias digitales. Son las usadas en el análisis forense digital del Tema 7. Ejemplo: herramientas que reconstruyen el contenido de un pendrive formateado.\n\n- **Herramientas de gestión de pruebas**: gestionan el proceso de la auditoría: registro de evidencias, estado de las pruebas, seguimiento de hallazgos y no conformidades."
+      },
+      {
+        "titulo": "AM y SCARF — Módulos de auditoría empotrados",
+        "contenido": "**AM** (*Audit Module*) y **SCARF** (*System Control Audit Review File*) son conceptos relacionados con la monitorización de aplicaciones en producción desde dentro de la propia aplicación.\n\n**AM (Módulo de Auditoría Empotrado)**:\nEs un pequeño módulo de código integrado en la propia aplicación en producción. Monitoriza de forma continua y transparente todo lo que hace la aplicación: accesos de usuarios, escrituras a disco, accesos a impresora, reinicios, bloqueos de usuario, configuraciones de nuevos usuarios, etc. El usuario no sabe que se está monitorizando (es transparente) porque el módulo no genera mensajes visibles.\n\n**SCARF (System Control Audit Review File)**:\nEs el fichero de auditoría que genera el AM. Contiene el registro de todas las actividades monitorizadas. El auditor puede consultarlo en cualquier momento para obtener una trazabilidad completa de lo que ha estado haciendo la aplicación.\n\nCaracterísticas del AM/SCARF:\n- **Transparente**: el usuario no ve mensajes de monitorización; trabaja con normalidad.\n- **Continuo**: la monitorización no se detiene; el módulo siempre está activo.\n- **Filtrado**: solo se registran las acciones que cumplen los criterios definidos por el auditor.\n- **Trazable**: permite al auditor seguir el rastro completo de la actividad de la aplicación.\n\nNota legal: aunque la monitorización es transparente (el usuario no la ve directamente), los empleados deben ser informados de que sus sistemas están siendo monitorizados. En España, el aviso de monitorización en el inicio de sesión del sistema es obligatorio para las administraciones públicas."
+      },
+      {
+        "titulo": "Ciclo de vida de las evidencias digitales (ISO 27037)",
+        "contenido": "Las evidencias digitales tienen un ciclo de vida estandarizado por la norma **ISO 27037**. Conocer las cuatro fases es importante.\n\n**Fase 1 — Identificación**:\nLocalizar los dispositivos y fuentes de información que pueden contener evidencias. Organizar los dispositivos, evaluar su relevancia y documentarlo todo. ¿En qué equipo, soporte o sistema puede estar la evidencia que necesitamos?\n\n**Fase 2 — Adquisición**:\nCopiar las evidencias de forma forense. Se usan bloqueadores de escritura (para no modificar el original) y se obtiene una copia exacta en un soporte que no se puede sobrescribir. La integridad de la copia se verifica inmediatamente mediante funciones hash (SHA-256/SHA-512) y, cuando sea posible, con sellos de tiempo (*timestamping*).\n\n**Fase 3 — Preservación**:\nGarantizar la cadena de custodia a lo largo del tiempo. Almacenamiento seguro. Verificar periódicamente que las evidencias no han sido alteradas. Esta fase es continua hasta que las evidencias se presentan en el proceso judicial.\n\n**Fase 4 — Análisis**:\nRealizar el análisis forense sobre la copia (nunca sobre el original). El análisis debe ser reproducible: otro perito debe poder seguir los mismos pasos y llegar a las mismas conclusiones.\n\nPrincipios de las evidencias digitales: relevancia, fiabilidad, suficiencia e integridad.\n\nDos tipos de evidencias:\n- **Evidencias directas**: demuestran directamente un hecho. Tienen el mayor poder probatorio.\n- **Evidencias indirectas**: tienen menor poder demostrativo; contribuyen al conjunto probatorio pero no prueban el hecho por sí solas."
+      },
+      {
+        "titulo": "Análisis de riesgos: cuantitativo vs. cualitativo",
+        "contenido": "El análisis de riesgos es una parte fundamental del proceso de auditoría. Hay que saber diferenciar bien los dos tipos.\n\n**Análisis cualitativo**:\n- Usa escalas subjetivas en lugar de valores económicos: alto/medio/bajo, matrices de color (rojo/naranja/verde), puntuaciones del 0 al 3 o del 1 al 10.\n- Llega a un nivel de riesgo ('alto', 'crítico') pero **no dice cuánto dinero costará** si el riesgo se materializa.\n- Ejemplo: la matriz de riesgos que genera la herramienta PILAR con escala de colores → análisis cualitativo.\n- Más rápido y fácil de aplicar, aunque menos preciso.\n\n**Análisis cuantitativo**:\n- Asigna valores económicos concretos a los riesgos.\n- Combina el valor del activo, el porcentaje del activo que se perdería (factor de exposición), la probabilidad de ocurrencia y el coste del impacto.\n- Fórmula base: nivel de riesgo cuantificado = probabilidad de materialización × coste del impacto.\n- Ejemplo concreto: si el activo vale 100.000€, el impacto destruiría el 30% (30.000€), y hay un 30% de probabilidad anual → riesgo = 30.000 × 0,3 = 9.000€/año.\n- Más preciso y útil para tomar decisiones sobre si vale la pena invertir en una contramedida, pero más complejo de calcular.\n- Referencia de fórmulas: ALE = SLE × ARO (ya visto en el Tema 2).\n\nDiferencia clave: el cualitativo llega a 'riesgo alto'; el cuantitativo llega a '9.000 euros al año'. Eso es lo que los distingue."
+      },
+      {
+        "titulo": "El comité de auditoría",
+        "contenido": "El **comité de auditoría** es el órgano interno de la organización que supervisa y asesora sobre el proceso de auditoría.\n\n**Funciones principales**:\n- Asesorar a la organización sobre los controles internos a implantar.\n- Identificar las líneas de defensa y los medios de protección de activos.\n- Supervisar el trabajo de los auditores (tanto internos como externos).\n- Recibir los informes de auditoría y trasladarlos a la dirección.\n- Orientar sobre las medidas correctoras que deben tomarse tras una auditoría.\n\nEl comité de auditoría actúa como intermediario entre los auditores y la alta dirección, garantizando que los resultados de la auditoría se traducen en acciones concretas de mejora. Es quien recibe el informe final de auditoría y asesora sobre la implantación de controles posteriores."
+      },
+      {
+        "titulo": "Las 10 fases del proceso de auditoría informática (INCIBE)",
+        "contenido": "El **INCIBE** (Instituto Nacional de Ciberseguridad) define el proceso de auditoría informática en 10 fases. El profesor aclaró que no hay que memorizarlas exactamente; lo importante es entender que existen fases, saber cuántas son y comprender qué ocurre en cada etapa.\n\n**Fase 1 — Documento de objetivos y compromisos**:\nEl auditor se compromete a mantener la confidencialidad de la información que va a conocer. Se obtiene la autorización del comité de auditoría. Es el punto de partida formal.\n\n**Fase 2 — Plan de actuación (planificación)**:\nSe diseña el plan de auditoría. Se tiene en cuenta el impacto que tendrá en el negocio (las entrevistas interrumpirán a los trabajadores). Se requiere colaboración de todos los departamentos y apoyo explícito de la dirección, sin el cual los trabajadores no colaborarán.\n\n**Fase 3 — Análisis de riesgos**:\nSe realiza el inventario de activos y el análisis de riesgos. Se necesita la colaboración de los usuarios de cada área para identificar correctamente los activos. Sin saber qué activos tiene la organización, no se puede hacer el análisis.\n\n**Fase 4 — Viabilidad de la auditoría**:\nSe comprueba si la auditoría es viable: ¿se tendrá acceso a toda la información necesaria? ¿El equipo auditor tiene los conocimientos necesarios? Si no se tiene acceso o conocimiento suficiente, puede ser necesario delegar en un tercero o declinar la auditoría.\n\n**Fase 5 — Inicio de la ejecución**:\nSe establece canales de comunicación con el personal interno. Se realizan entrevistas planificadas. El auditor lidera el proceso: define los objetivos, marca los tiempos, acepta comentarios y cuenta con los representantes de los trabajadores.\n\n**Fase 6 — Recolección de evidencias**:\nSe recogen todas las evidencias usando las técnicas vistas (fingerprinting, footprinting, análisis de vulnerabilidades, etc.) como si se realizara un ataque al sistema. Se respeta el ciclo de vida de las evidencias digitales y la cadena de custodia.\n\n**Fase 7 — Verificación de cumplimiento**:\nSe realizan pruebas para verificar si la organización cumple sus políticas y la normativa legal aplicable. Hay que distinguir:\n- **Pruebas de cumplimiento**: verifican si se cumplen las políticas, procedimientos y controles declarados.\n- **Pruebas sustantivas**: verifican la integridad de las evidencias (que la cadena de custodia no se haya roto).\n\n**Fase 8 — Análisis de resultados**:\nSe analizan las evidencias recopiladas para ver si son suficientes, si son solo indicios o si tienen pleno valor probatorio. Hay que tener cuidado con las implicaciones legales de cada pieza de evidencia.\n\n**Fase 9 — Informe de resultados**:\nSe genera el informe con soporte documental completo (hallazgos + evidencias). Se presenta al comité de auditoría. El informe incluye: alcance, objetivos, métodos, vigencia y hallazgos.\n\n**Fase 10 — Resolución y seguimiento**:\nSe emite la resolución de conformidad o no conformidad. Se diagnostican los problemas y se asesora a la empresa sobre las medidas correctoras. El comité de auditoría asesora sobre los controles a implantar. La empresa toma las acciones correctoras."
+      },
+      {
+        "titulo": "OWASP — La referencia de seguridad en aplicaciones web",
+        "contenido": "**OWASP** (*Open Web Application Security Project*) es una iniciativa sin ánimo de lucro de ciberseguridad que crea metodologías y recursos para mejorar la seguridad del software. Es una referencia esencial en el sector.\n\nSus contribuciones más importantes:\n\n**OWASP Top 10**: publicación anual de las 10 vulnerabilidades más frecuentes en aplicaciones web. Es la referencia más usada en la industria para saber 'por dónde nos van a atacar más fácilmente'. Permite a los equipos de seguridad priorizar sus esfuerzos de protección.\n\n**OWASP SAMM** (*Software Assurance Maturity Model*): modelo que integra prácticas de seguridad en el ciclo de vida del desarrollo de software. Divide el ciclo en cinco funciones de negocio y 90 actividades de seguridad, con niveles de madurez del 0 al 3.\n\n**Herramientas OWASP**: como OWASP ZAP, herramienta de análisis dinámico de aplicaciones web.\n\nISACA es la asociación de auditores más importante a nivel global. Sus metodologías y estándares de auditoría son la referencia profesional del sector."
+      }
+    ]
+  },
+  "resumen": [
+    "El Tema 9 integra todo lo visto en la asignatura en el proceso completo de auditoría informática.",
+    "En el modelo clásico de desarrollo, la seguridad se introducía en las pruebas. El SSDLC (ciclo seguro de desarrollo) la integra en todas las fases desde el diseño.",
+    "OWASP publica anualmente el Top 10 de vulnerabilidades más frecuentes en aplicaciones web. OWASP SAMM y BSIMM son modelos de madurez de seguridad en el desarrollo.",
+    "Análisis estático (SAST): analiza el código sin ejecutarlo. Análisis dinámico (DAST): prueba el software mientras se ejecuta.",
+    "Ventaja del DAST frente al SAST: el DAST detecta vulnerabilidades que solo aparecen en tiempo de ejecución real.",
+    "Fuzzing: genera entradas aleatorias o inesperadas a un programa para encontrar vulnerabilidades. Herramienta: Burp Suite (también permite análisis dinámico de HTTP).",
+    "Herramientas CAT: de análisis de datos, de monitoreo continuo, de auditoría de SI, de auditoría forense y de gestión de pruebas.",
+    "AM (Audit Module): módulo empotrado en la aplicación que monitoriza de forma transparente y continua. SCARF: el fichero de auditoría que genera el AM.",
+    "Ciclo de vida de las evidencias digitales (ISO 27037): Identificación → Adquisición (copia forense con hash) → Preservación (cadena de custodia) → Análisis (sobre la copia).",
+    "Análisis cualitativo de riesgos: escala alto/medio/bajo o colores. No da valor económico. Análisis cuantitativo: asigna valor económico al riesgo (ALE = SLE × ARO).",
+    "El comité de auditoría asesora a la organización sobre controles internos, líneas de defensa y medidas correctoras. Recibe y traslada los informes de auditoría.",
+    "El proceso de auditoría (INCIBE) tiene 10 fases: desde el documento de objetivos y compromisos hasta la resolución y el diagnóstico de problemas.",
+    "Pruebas de cumplimiento: verifican que se cumplen las políticas. Pruebas sustantivas: verifican la integridad de las evidencias (cadena de custodia).",
+    "El examen tiene 10 preguntas de test (4 puntos en total, sin penalización) y 4 preguntas de desarrollo (6 puntos, máximo 1 folio por pregunta)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "SSDLC (Secure Software Development Life Cycle)",
+      "definicion": "Ciclo seguro de desarrollo de software. Integra prácticas de ciberseguridad en todas las fases del ciclo de vida del software, desde el diseño hasta la terminación. Surge del principio 'security by design': es más barato corregir fallos de seguridad en el diseño que en producción."
+    },
+    {
+      "termino": "OWASP Top 10",
+      "definicion": "Publicación anual de la iniciativa OWASP con las 10 vulnerabilidades más frecuentes en aplicaciones web. Es la referencia más usada en la industria para priorizar los esfuerzos de protección."
+    },
+    {
+      "termino": "OWASP SAMM (Software Assurance Maturity Model)",
+      "definicion": "Modelo de madurez que integra 90 actividades de seguridad distribuidas en cinco funciones del ciclo de vida del software (gobernanza, diseño, implementación, verificación, operaciones). Evalúa el nivel de madurez de seguridad en el desarrollo con una escala del 0 al 3."
+    },
+    {
+      "termino": "BSIMM (Building Security In Maturity Model)",
+      "definicion": "Modelo de madurez de seguridad en el desarrollo que, en lugar de imponer tareas, compara la seguridad de la organización con la de otras empresas del mismo sector y tamaño. Funciona como un benchmark sectorial."
+    },
+    {
+      "termino": "Análisis estático (SAST)",
+      "definicion": "Static Application Security Testing. Analiza el código fuente o binario de un programa SIN ejecutarlo. Detecta vulnerabilidades en el código antes de que el software esté en producción. Herramientas: SonarQube, Checkmarx."
+    },
+    {
+      "termino": "Análisis dinámico (DAST)",
+      "definicion": "Dynamic Application Security Testing. Analiza el comportamiento de un programa MIENTRAS se está ejecutando. Detecta vulnerabilidades que solo se manifiestan en tiempo de ejecución. Herramientas: Burp Suite, OWASP ZAP."
+    },
+    {
+      "termino": "Burp Suite",
+      "definicion": "Herramienta de análisis dinámico y fuzzing web. Actúa como proxy interceptando peticiones HTTP entre el navegador y el servidor. Permite modificar y reenviar peticiones para probar vulnerabilidades de inyección SQL, XSS y realizar fuzzing de formularios."
+    },
+    {
+      "termino": "CAT (Computer-Assisted Audit Tools)",
+      "definicion": "Herramientas de auditoría asistidas por ordenador. Tipos: análisis de datos, monitoreo continuo, auditoría de sistemas de información, auditoría forense (recuperan y preservan evidencias) y gestión de pruebas."
+    },
+    {
+      "termino": "AM (Audit Module)",
+      "definicion": "Módulo de auditoría empotrado en una aplicación en producción. Monitoriza de forma transparente y continua todas las acciones de la aplicación (accesos, escrituras, configuraciones) y las registra en el fichero SCARF."
+    },
+    {
+      "termino": "SCARF (System Control Audit Review File)",
+      "definicion": "Fichero de auditoría generado por el módulo AM. Contiene el registro completo de las actividades de la aplicación. Permite al auditor obtener trazabilidad de todo lo que ha hecho la aplicación."
+    },
+    {
+      "termino": "ISO 27037",
+      "definicion": "Norma internacional que estandariza el ciclo de vida de las evidencias digitales. Define cuatro fases: Identificación, Adquisición (copia forense con hash), Preservación (cadena de custodia) y Análisis (sobre la copia)."
+    },
+    {
+      "termino": "Pruebas de cumplimiento",
+      "definicion": "Pruebas que verifican si la organización cumple sus políticas, procedimientos y controles declarados. Se comprueba que lo que dice que se hace realmente se hace."
+    },
+    {
+      "termino": "Pruebas sustantivas",
+      "definicion": "Pruebas que verifican la integridad de las evidencias; es decir, que la cadena de custodia no se ha roto y que el contenido de las evidencias sigue siendo el mismo desde su obtención."
+    },
+    {
+      "termino": "Comité de auditoría",
+      "definicion": "Órgano interno de la organización que asesora sobre controles internos, líneas de defensa y protección de activos. Supervisa el trabajo de los auditores y traslada los informes de auditoría a la dirección. Asesora sobre las medidas correctoras a implantar."
+    },
+    {
+      "termino": "ISACA",
+      "definicion": "Information Systems Audit and Control Association. La asociación de auditores de sistemas de información más importante a nivel global. Define estándares y metodologías de auditoría informática."
+    },
+    {
+      "termino": "INCIBE",
+      "definicion": "Instituto Nacional de Ciberseguridad de España. Define el proceso de auditoría informática en 10 fases, desde el documento de objetivos hasta la resolución final."
+    },
+    {
+      "termino": "Evidencias directas",
+      "definicion": "Evidencias que demuestran directamente un hecho. Tienen el mayor poder probatorio en un proceso judicial."
+    },
+    {
+      "termino": "Evidencias indirectas",
+      "definicion": "Evidencias con menor poder demostrativo. No prueban el hecho por sí solas, pero contribuyen al conjunto probatorio."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-9-fc-001",
+      "pregunta": "¿Qué es el SSDLC y por qué surgió?",
+      "respuesta": "Ciclo Seguro de Desarrollo de Software. Surgió porque en el modelo clásico la seguridad se introducía solo en las pruebas (muy tarde y costoso). El SSDLC integra la seguridad en TODAS las fases del ciclo de vida del software desde el diseño."
+    },
+    {
+      "id": "casi-tema-9-fc-002",
+      "pregunta": "¿Cuándo se introduce la seguridad normalmente en el modelo clásico de desarrollo y cuándo debería?",
+      "respuesta": "Normalmente: en las pruebas (una vez el código ya funciona). Debería: desde el diseño, desde el principio. Es más barato corregir un fallo de seguridad en el diseño que en producción."
+    },
+    {
+      "id": "casi-tema-9-fc-003",
+      "pregunta": "¿Qué es OWASP y cuál es su publicación más conocida?",
+      "respuesta": "Iniciativa de ciberseguridad que crea metodologías y recursos para mejorar la seguridad del software. Su publicación más conocida es el OWASP Top 10: las 10 vulnerabilidades más frecuentes en aplicaciones web, publicada anualmente."
+    },
+    {
+      "id": "casi-tema-9-fc-004",
+      "pregunta": "¿Cuál es la diferencia entre análisis estático (SAST) y análisis dinámico (DAST)?",
+      "respuesta": "SAST: analiza el código SIN ejecutar el programa. DAST: prueba el software MIENTRAS se está ejecutando. Diferencia clave: el DAST detecta vulnerabilidades que solo aparecen en tiempo de ejecución."
+    },
+    {
+      "id": "casi-tema-9-fc-005",
+      "pregunta": "¿Cuál es la principal ventaja del DAST frente al SAST?",
+      "respuesta": "El DAST puede detectar vulnerabilidades que solo se manifiestan en tiempo de ejecución real y que el SAST no puede ver al analizar el código estático."
+    },
+    {
+      "id": "casi-tema-9-fc-006",
+      "pregunta": "¿Qué es Burp Suite y para qué se usa?",
+      "respuesta": "Herramienta de análisis dinámico y fuzzing web. Actúa como proxy interceptando peticiones HTTP entre el navegador y el servidor, permitiendo modificarlas y reenviarlas para probar vulnerabilidades (SQL injection, XSS, fuzzing de formularios)."
+    },
+    {
+      "id": "casi-tema-9-fc-007",
+      "pregunta": "¿Qué son las herramientas CAT y cuáles son sus tipos?",
+      "respuesta": "Computer-Assisted Audit Tools: herramientas de auditoría asistidas por ordenador. Tipos: análisis de datos, monitoreo y test continuo, auditoría de sistemas de información, auditoría forense (recuperan y preservan evidencias) y gestión de pruebas."
+    },
+    {
+      "id": "casi-tema-9-fc-008",
+      "pregunta": "¿Qué es el AM y qué es el SCARF?",
+      "respuesta": "AM (Audit Module): módulo de código empotrado en una aplicación que monitoriza de forma transparente y continua todas sus acciones. SCARF (System Control Audit Review File): el fichero de auditoría que genera el AM con el registro de todas esas actividades."
+    },
+    {
+      "id": "casi-tema-9-fc-009",
+      "pregunta": "¿Qué características tiene el módulo AM?",
+      "respuesta": "Transparente (el usuario no lo ve ni le molesta), continuo (siempre activo), filtrado (solo registra lo que cumple criterios definidos) y trazable (permite al auditor seguir toda la actividad de la aplicación)."
+    },
+    {
+      "id": "casi-tema-9-fc-010",
+      "pregunta": "¿Cuáles son las 4 fases del ciclo de vida de las evidencias digitales según la ISO 27037?",
+      "respuesta": "1. Identificación (localizar fuentes de evidencias). 2. Adquisición (copia forense con bloqueador de escritura y verificación por hash). 3. Preservación (cadena de custodia y almacenamiento seguro). 4. Análisis (sobre la copia, reproducible)."
+    },
+    {
+      "id": "casi-tema-9-fc-011",
+      "pregunta": "¿Cuál es la diferencia entre análisis cuantitativo y análisis cualitativo de riesgos?",
+      "respuesta": "Cualitativo: usa escalas (alto/medio/bajo, colores). Llega a 'riesgo alto' pero NO da valor económico. Cuantitativo: asigna valor económico al riesgo (ej: 9.000€/año). Más preciso pero más complejo. Diferencia clave: el cuantitativo dice cuánto dinero; el cualitativo dice qué nivel."
+    },
+    {
+      "id": "casi-tema-9-fc-012",
+      "pregunta": "¿La matriz de riesgos de PILAR con escala de colores es un análisis cuantitativo o cualitativo?",
+      "respuesta": "Cualitativo. Usa una escala de colores (de poco riesgo a mucho riesgo) pero no indica el coste económico del riesgo."
+    },
+    {
+      "id": "casi-tema-9-fc-013",
+      "pregunta": "¿Cuál es la función principal del comité de auditoría?",
+      "respuesta": "Asesorar a la organización sobre controles internos, líneas de defensa y medios de protección de activos. Supervisa a los auditores, recibe los informes de auditoría y orienta sobre las medidas correctoras a implantar."
+    },
+    {
+      "id": "casi-tema-9-fc-014",
+      "pregunta": "¿Cuántas fases tiene el proceso de auditoría informática según el INCIBE?",
+      "respuesta": "10 fases: desde el documento de objetivos y compromisos (fase 1) hasta la resolución de conformidad/no conformidad y el diagnóstico de problemas (fase 10)."
+    },
+    {
+      "id": "casi-tema-9-fc-015",
+      "pregunta": "¿Qué son las pruebas de cumplimiento y en qué se diferencian de las pruebas sustantivas?",
+      "respuesta": "Pruebas de cumplimiento: verifican que se cumplen las políticas, procedimientos y controles declarados (¿se hace lo que se dice que se hace?). Pruebas sustantivas: verifican la integridad de las evidencias (¿la cadena de custodia sigue intacta?)."
+    },
+    {
+      "id": "casi-tema-9-fc-016",
+      "pregunta": "¿Qué es ISACA y qué es el INCIBE?",
+      "respuesta": "ISACA: asociación de auditores de sistemas de información más importante a nivel global. INCIBE: Instituto Nacional de Ciberseguridad de España, que entre otras cosas define las 10 fases del proceso de auditoría informática."
+    },
+    {
+      "id": "casi-tema-9-fc-017",
+      "pregunta": "¿Qué diferencia hay entre evidencias directas e indirectas?",
+      "respuesta": "Las directas demuestran directamente un hecho y tienen el mayor poder probatorio. Las indirectas tienen menor poder demostrativo; no prueban el hecho por sí solas pero contribuyen al conjunto probatorio."
+    },
+    {
+      "id": "casi-tema-9-fc-018",
+      "pregunta": "¿Qué hace OWASP SAMM y cómo evalúa la madurez de seguridad?",
+      "respuesta": "Define 90 actividades de seguridad distribuidas en 5 funciones del ciclo de vida del software. Evalúa el nivel de madurez en cada actividad con una escala del 0 al 3, permitiendo saber qué tan cerca o lejos está la organización de ser segura en su desarrollo."
+    },
+    {
+      "id": "casi-tema-9-fc-019",
+      "pregunta": "¿En qué consiste la fase de adquisición del ciclo de vida de evidencias digitales?",
+      "respuesta": "Copiar las evidencias de forma forense usando bloqueadores de escritura (para no alterar el original). La copia se realiza en un soporte que no se puede sobrescribir y se verifica su integridad inmediatamente mediante funciones hash (SHA-256/SHA-512) y sellos de tiempo."
+    },
+    {
+      "id": "casi-tema-9-fc-020",
+      "pregunta": "¿Qué estructura tiene el examen de la asignatura?",
+      "respuesta": "10 preguntas de test (que suman aproximadamente 4 puntos, sin penalización por respuesta incorrecta) y 4 preguntas de desarrollo (6 puntos, máximo 1 folio por pregunta, 1,5 puntos por pregunta como máximo)."
+    }
+  ]
+}

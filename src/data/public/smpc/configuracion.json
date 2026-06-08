@@ -1,1 +1,24 @@
-{ "id": "smpc", "estructuraExamen": [] }
+{
+  "id": "smpc",
+  "estructuraExamen": [
+    {
+      "id": "parte-test",
+      "nombre": "Tipo test",
+      "tipos": [
+        "test",
+        "verdadero_falso"
+      ],
+      "icono": "🔤",
+      "desc": "Preguntas de opción múltiple y verdadero/falso"
+    },
+    {
+      "id": "parte-desarrollo",
+      "nombre": "Desarrollo",
+      "tipos": [
+        "desarrollo"
+      ],
+      "icono": "✍️",
+      "desc": "Pregunta abierta de desarrollo"
+    }
+  ]
+}

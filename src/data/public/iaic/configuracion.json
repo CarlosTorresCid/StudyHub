@@ -1,1 +1,19 @@
-{ "id": "iaic", "estructuraExamen": [] }
+{
+  "id": "iaic",
+  "estructuraExamen": [
+    {
+      "id": "parte-cortas",
+      "nombre": "Preguntas cortas",
+      "tipos": ["corta", "desarrollo"],
+      "icono": "✍️",
+      "desc": "Preguntas P1-P4 de respuesta abierta"
+    },
+    {
+      "id": "parte-problemas",
+      "nombre": "Problemas prácticos",
+      "tipos": ["practica"],
+      "icono": "🧪",
+      "desc": "Problemas PROB1-PROB2 del examen"
+    }
+  ]
+}

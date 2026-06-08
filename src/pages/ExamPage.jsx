@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import './SubjectPage.css';
 
-const EXAM_PARTS = [
+const DEFAULT_EXAM_PARTS = [
   {
     id: 'parte-test',
     nombre: 'Tipo test',
@@ -13,11 +13,32 @@ const EXAM_PARTS = [
   {
     id: 'parte-cortas',
     nombre: 'Preguntas cortas',
-    tipos: ['corta', 'desarrollo'],
+    tipos: ['corta'],
     icono: '✍️',
-    desc: 'Respuestas cortas y preguntas de desarrollo',
+    desc: 'Preguntas de respuesta breve',
+  },
+  {
+    id: 'parte-desarrollo',
+    nombre: 'Preguntas de desarrollo',
+    tipos: ['desarrollo'],
+    icono: '🧠',
+    desc: 'Preguntas teóricas de desarrollo',
   },
 ];
+
+function getExamParts(subject, questions) {
+  const configuredParts = subject?.estructuraExamen || [];
+
+  if (configuredParts.length > 0) {
+    return configuredParts;
+  }
+
+  // Fallback para asignaturas antiguas sin estructuraExamen configurada.
+  // Solo muestra bloques que realmente tengan preguntas.
+  return DEFAULT_EXAM_PARTS.filter(part =>
+    questions.some(q => part.tipos.includes(q.tipo))
+  );
+}
 
 export default function ExamPage() {
   const { asignaturaId } = useParams();
@@ -27,6 +48,7 @@ export default function ExamPage() {
   if (!subject) return <div className="page-error">Asignatura no encontrada</div>;
 
   const totalQuestions = questions.length;
+  const examParts = getExamParts(subject, questions);
 
   return (
     <div className="subject-page">
@@ -50,10 +72,18 @@ export default function ExamPage() {
             .
           </p>
         </div>
+      ) : examParts.length === 0 ? (
+        <div className="subject-empty">
+          <p>Hay preguntas publicadas, pero no hay estructura de examen configurada.</p>
+          <p style={{ fontSize: 13, marginTop: 8 }}>
+            Revisa el archivo <code>configuracion.json</code> de esta asignatura.
+          </p>
+        </div>
       ) : (
         <div className="topics-list" style={{ gap: 16 }}>
-          {EXAM_PARTS.map(part => {
+          {examParts.map(part => {
             const count = questions.filter(q => part.tipos.includes(q.tipo)).length;
+
             return (
               <div
                 key={part.id}
@@ -61,12 +91,17 @@ export default function ExamPage() {
                 style={{ alignItems: 'flex-start', flexDirection: 'column', gap: 12 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%' }}>
-                  <span style={{ fontSize: 32 }}>{part.icono}</span>
+                  <span style={{ fontSize: 32 }}>{part.icono || '📝'}</span>
+
                   <div style={{ flex: 1 }}>
                     <div className="topic-row-title">{part.nombre}</div>
-                    <div className="topic-row-meta">
-                      <span>{part.desc}</span>
-                    </div>
+
+                    {part.desc && (
+                      <div className="topic-row-meta">
+                        <span>{part.desc}</span>
+                      </div>
+                    )}
+
                     <div className="topic-row-meta" style={{ marginTop: 6 }}>
                       <span style={{ fontWeight: 600, color: 'var(--text)' }}>
                         {count} {count === 1 ? 'pregunta' : 'preguntas'}
@@ -74,6 +109,7 @@ export default function ExamPage() {
                       <span>({part.tipos.join(', ')})</span>
                     </div>
                   </div>
+
                   {count > 0 ? (
                     <Link
                       to={`/asignatura/${asignaturaId}/examen/${part.id}`}
@@ -98,7 +134,9 @@ export default function ExamPage() {
       )}
 
       <div style={{ marginTop: 32 }}>
-        <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">← Volver</Link>
+        <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">
+          ← Volver
+        </Link>
       </div>
     </div>
   );

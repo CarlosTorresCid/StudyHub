@@ -9,11 +9,68 @@ const TIPO_LABELS = {
   practica: 'Práctica',
 };
 
+function getModelLabels(q) {
+  if (Array.isArray(q.etiquetasModelo) && q.etiquetasModelo.length > 0) {
+    return q.etiquetasModelo;
+  }
+
+  if (Array.isArray(q.fuentes) && q.fuentes.length > 0) {
+    return q.fuentes;
+  }
+
+  if (Array.isArray(q.modelos) && q.modelos.length > 0) {
+    return q.modelos;
+  }
+
+  return [];
+}
+
 function StatusBadges({ q }) {
   return (
     <div className="qpc-badges">
       {q.requiereRevision && <span className="qpc-badge qpc-badge-revision">Revisar</span>}
       {q.verificada && <span className="qpc-badge qpc-badge-verified">Verificada</span>}
+    </div>
+  );
+}
+
+function QuestionModelTags({ q, onGroupClick }) {
+  const etiquetas = getModelLabels(q);
+  const numeroApariciones = q.numeroApariciones || q.apariciones?.length || etiquetas.length;
+  const grupo = q.grupoTematico || q.patronRelacionado || null;
+
+  if (etiquetas.length === 0 && !grupo && !numeroApariciones) return null;
+
+  return (
+    <div className="qpc-model-section">
+      <div className="qpc-model-summary">
+        {grupo && (
+          <button
+            type="button"
+            className="qpc-topic-chip qpc-topic-chip-clickable"
+            onClick={() => onGroupClick?.(grupo)}
+            title={`Filtrar por ${grupo}`}
+          >
+            {grupo}
+          </button>
+        )}
+
+        {numeroApariciones > 0 && (
+          <span className="qpc-appearances-chip">
+            {numeroApariciones} {numeroApariciones === 1 ? 'aparición' : 'apariciones'}
+          </span>
+        )}
+      </div>
+
+      {etiquetas.length > 0 && (
+        <div className="qpc-model-tags" aria-label="Modelos de examen donde aparece esta pregunta">
+          {etiquetas.map((etiqueta, index) => (
+            <span key={`${etiqueta}-${index}`} className="qpc-model-tag">
+              {etiqueta}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -40,6 +97,7 @@ function TestCard({ q }) {
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
 
   const handleCheck = () => setChecked(true);
+
   const handleSelect = (i) => {
     setSelected(i);
     setChecked(false);
@@ -79,11 +137,13 @@ function TestCard({ q }) {
           {!hasAnswer && checked && (
             <p className="qpc-missing">No hay respuesta correcta configurada todavía.</p>
           )}
+
           {checked && hasAnswer && (
             <div className={`qpc-result ${isCorrect ? 'correct' : 'wrong'}`}>
               {isCorrect ? '✓ Correcto' : '✗ Incorrecto'}
             </div>
           )}
+
           <button
             className="btn btn-primary"
             onClick={handleCheck}
@@ -91,8 +151,15 @@ function TestCard({ q }) {
           >
             Comprobar
           </button>
+
           {checked && (
-            <button className="btn btn-ghost" onClick={() => { setSelected(null); setChecked(false); }}>
+            <button
+              className="btn btn-ghost"
+              onClick={() => {
+                setSelected(null);
+                setChecked(false);
+              }}
+            >
               Reintentar
             </button>
           )}
@@ -112,7 +179,7 @@ function TestCard({ q }) {
 // ─── Verdadero / Falso ───────────────────────────────────────────────────────
 
 function VFCard({ q }) {
-  const [selected, setSelected] = useState(null); // true | false | null
+  const [selected, setSelected] = useState(null);
   const [checked, setChecked] = useState(false);
 
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
@@ -125,7 +192,10 @@ function VFCard({ q }) {
     return '';
   }
 
-  const handleSelect = (val) => { setSelected(val); setChecked(false); };
+  const handleSelect = (val) => {
+    setSelected(val);
+    setChecked(false);
+  };
 
   return (
     <>
@@ -142,11 +212,13 @@ function VFCard({ q }) {
         {!hasAnswer && checked && (
           <p className="qpc-missing">No hay respuesta correcta configurada todavía.</p>
         )}
+
         {checked && hasAnswer && (
           <div className={`qpc-result ${isCorrect ? 'correct' : 'wrong'}`}>
             {isCorrect ? '✓ Correcto' : '✗ Incorrecto'}
           </div>
         )}
+
         <button
           className="btn btn-primary"
           onClick={() => setChecked(true)}
@@ -154,8 +226,15 @@ function VFCard({ q }) {
         >
           Comprobar
         </button>
+
         {checked && (
-          <button className="btn btn-ghost" onClick={() => { setSelected(null); setChecked(false); }}>
+          <button
+            className="btn btn-ghost"
+            onClick={() => {
+              setSelected(null);
+              setChecked(false);
+            }}
+          >
             Reintentar
           </button>
         )}
@@ -195,6 +274,7 @@ function RevealCard({ q }) {
       {revealed && (
         <div className="qpc-respuesta">
           <span className="qpc-respuesta-label">{respuestaLabel}</span>
+
           {respuesta && respuesta.trim() ? (
             <p className="qpc-respuesta-texto">{respuesta}</p>
           ) : (
@@ -221,21 +301,26 @@ function RevealCard({ q }) {
 
 // ─── Componente principal ────────────────────────────────────────────────────
 
-export default function QuestionPracticeCard({ question: q }) {
+export default function QuestionPracticeCard({ question: q, onGroupClick }) {
   function renderBody() {
     switch (q.tipo) {
-      case 'test': return <TestCard q={q} />;
-      case 'verdadero_falso': return <VFCard q={q} />;
+      case 'test':
+        return <TestCard q={q} />;
+      case 'verdadero_falso':
+        return <VFCard q={q} />;
       case 'corta':
       case 'desarrollo':
-      case 'practica': return <RevealCard q={q} />;
-      default: return <p className="qpc-missing">Tipo de pregunta desconocido: {q.tipo}</p>;
+      case 'practica':
+        return <RevealCard q={q} />;
+      default:
+        return <p className="qpc-missing">Tipo de pregunta desconocido: {q.tipo}</p>;
     }
   }
 
   return (
     <div className="qpc">
       <QuestionHeader q={q} />
+      <QuestionModelTags q={q} onGroupClick={onGroupClick} />
       <p className="qpc-enunciado">{q.enunciado}</p>
       {renderBody()}
     </div>

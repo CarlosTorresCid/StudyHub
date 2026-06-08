@@ -1,0 +1,2144 @@
+[
+  {
+    "id": "smpc-tema-1-test-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Agentes inteligentes y sistemas multiagente",
+    "patronRelacionado": "Tipos de agentes",
+    "origen": "recopilada",
+    "enunciado": "Un agente software se considera proactivo cuando:",
+    "opciones": [
+      "Responde únicamente cuando el usuario le envía una orden explícita",
+      "Toma la iniciativa para realizar tareas sin necesidad de un estímulo externo",
+      "Percibe el entorno y reacciona a los cambios que detecta en tiempo real",
+      "Coopera con otros agentes para alcanzar objetivos compartidos"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La proactividad implica que el agente actúa dirigido por sus propios objetivos, tomando la iniciativa, frente a la reactividad (responder a estímulos) o la sociabilidad (cooperar).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P1",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P1"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-1-test-002",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Arquitecturas de agentes",
+    "patronRelacionado": "Agente reactivo vs. deliberativo",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es la principal diferencia entre un agente reactivo y uno deliberativo?",
+    "opciones": [
+      "El reactivo usa FIPA-ACL y el deliberativo usa KQML",
+      "El reactivo responde directamente a estímulos sin razonamiento simbólico; el deliberativo razona sobre sus acciones antes de actuar",
+      "El reactivo funciona en sistemas distribuidos y el deliberativo solo en sistemas locales",
+      "El reactivo necesita más recursos computacionales que el deliberativo"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El agente reactivo asocia percepción-acción sin un modelo simbólico interno; el deliberativo mantiene una representación del mundo y planifica/razona antes de actuar.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P2"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P2"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-1-test-003",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Agentes inteligentes y sistemas multiagente",
+    "patronRelacionado": "Interacción en SMA",
+    "origen": "recopilada",
+    "enunciado": "En un Sistema Multiagente (MAS), los agentes pueden interactuar de dos formas fundamentales. ¿Cuáles son?",
+    "opciones": [
+      "Directamente mediante comunicación, o indirectamente actuando sobre el entorno compartido",
+      "Mediante llamadas a procedimientos remotos (RPC) o mediante bases de datos compartidas",
+      "A través del AMS o a través del DF",
+      "Usando FIPA-SL para interacción directa y XML para interacción indirecta"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La interacción directa se realiza por paso de mensajes; la indirecta, modificando un entorno compartido que otros agentes perciben (p.ej. estigmergia).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P3"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P3"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-1-test-004",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Arquitecturas de agentes",
+    "patronRelacionado": "Arquitectura BDI",
+    "origen": "recopilada",
+    "enunciado": "La arquitectura BDI estructura el comportamiento de un agente en torno a tres elementos. ¿Cuáles son?",
+    "opciones": [
+      "Bucles, decisiones e iteraciones",
+      "Buses, datos e interfaces",
+      "Creencias, deseos e intenciones",
+      "Bloques, dominios e instancias"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "BDI = Beliefs (creencias: estado del mundo), Desires (deseos: objetivos) e Intentions (intenciones: planes/objetivos comprometidos).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P4"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P4"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-1-test-005",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Arquitecturas de agentes",
+    "patronRelacionado": "Arquitecturas híbridas en capas",
+    "origen": "recopilada",
+    "enunciado": "Las arquitecturas en capas híbridas combinan dos enfoques. ¿Cuál es su principal ventaja?",
+    "opciones": [
+      "Eliminan por completo la necesidad de comunicación entre agentes",
+      "Permiten al agente comportarse tanto de forma reactiva ante situaciones urgentes como de forma deliberativa para objetivos a largo plazo",
+      "Reducen el consumo de memoria al evitar el uso de ontologías",
+      "Garantizan que todos los agentes del sistema tomen las mismas decisiones"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las arquitecturas híbridas en capas combinan una capa reactiva (respuesta rápida) con una deliberativa (planificación), aprovechando lo mejor de ambos paradigmas.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P5"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P5"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-1-test-006",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Agentes inteligentes y sistemas multiagente",
+    "patronRelacionado": "Agente vs. objeto POO",
+    "origen": "recopilada",
+    "enunciado": "¿Qué diferencia fundamental existe entre un agente y un objeto en programación orientada a objetos?",
+    "opciones": [
+      "Los objetos tienen herencia y los agentes no",
+      "Los agentes deciden por sí mismos si ejecutan o no una acción solicitada, tienen comportamiento flexible y cada uno posee su propio hilo de control",
+      "Los objetos son autónomos y los agentes dependen de instrucciones externas",
+      "Los agentes no pueden encapsular datos ni usar paso de mensajes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "A diferencia de un objeto pasivo que ejecuta cualquier método invocado, un agente posee autonomía (un hilo propio de control) y reacciona de forma proactiva o flexible ante los mensajes.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P6",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P6",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "Aparece tanto en el recopilatorio como en el documento Preguntas_examen.txt, lo que indica alta probabilidad de examen real.",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes distintas; acumuladas."
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-007",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Historia y objetivo de FIPA",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál fue el objetivo principal que llevó a fundar la FIPA en 1996?",
+    "opciones": [
+      "Crear un lenguaje de programación orientado a agentes que sustituyera a Java",
+      "Estandarizar la infraestructura y los lenguajes necesarios para conseguir interoperabilidad entre plataformas de agentes",
+      "Desarrollar una única plataforma de agentes de código abierto para toda la industria",
+      "Regular el uso comercial de los sistemas multiagente en aplicaciones industriales"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "FIPA se creó para estandarizar y promover la interoperabilidad entre plataformas de agentes heterogéneas.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P7",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P7",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "Aparece en el recopilatorio y en Preguntas_examen.txt.",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-008",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Comunicación entre agentes",
+    "patronRelacionado": "FIPA-ACL y actos de habla",
+    "origen": "recopilada",
+    "enunciado": "El lenguaje FIPA-ACL se basa en la teoría de los actos de habla. ¿Qué implica esto?",
+    "opciones": [
+      "Que los mensajes se estructuran como documentos XML con metadatos semánticos",
+      "Que los mensajes representan acciones comunicativas con efectos sobre las actitudes mentales de los agentes",
+      "Que los mensajes solo pueden enviarse en lenguaje natural procesado",
+      "Que cada mensaje debe ir acompañado de una ontología completa del dominio"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Según la teoría de los actos de habla, comunicar es actuar: cada mensaje (performativa) es una acción comunicativa que pretende producir un efecto en las creencias/intenciones del receptor.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P8",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P8",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-009",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Comunicación entre agentes",
+    "patronRelacionado": "Pila de comunicación FIPA",
+    "origen": "recopilada",
+    "enunciado": "Dentro de la pila de comunicación FIPA, ¿en qué subnivel se especifican los protocolos de interacción (IP)?",
+    "opciones": [
+      "Subnivel 1 — Transporte",
+      "Subnivel 4 — Ontología",
+      "Subnivel 6 — Acto comunicativo",
+      "Subnivel 7 — Protocolo de interacción"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Los protocolos de interacción (p.ej. Request, Contract Net) ocupan el nivel superior de la pila, que organiza secuencias completas de mensajes en una conversación.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P9",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P9",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-010",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Páginas amarillas DF",
+    "origen": "recopilada",
+    "enunciado": "El Facilitador de Directorios (DF) en una plataforma FIPA cumple una función equivalente a:",
+    "opciones": [
+      "Un servicio de páginas blancas que localiza agentes por su nombre único",
+      "Un servicio de páginas amarillas que permite a los agentes publicar y buscar servicios",
+      "Un gestor de ciclo de vida que crea y destruye agentes",
+      "Un protocolo de transporte que enruta mensajes entre plataformas"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El DF es el servicio de páginas amarillas: los agentes registran los servicios que ofrecen y otros los buscan por tipo de servicio (no por identidad).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P10",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P10",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-011",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Ciclo de vida AMS",
+    "origen": "recopilada",
+    "enunciado": "El Sistema de Gestión de Agentes (AMS) es obligatorio en toda plataforma FIPA. ¿Qué ocurre con un agente cuando finaliza su ciclo de vida?",
+    "opciones": [
+      "El AMS borra el agente del registro y su AID queda disponible para otros agentes",
+      "El agente migra automáticamente a otra plataforma disponible",
+      "El DF notifica a todos los agentes suscritos del fin del ciclo",
+      "El agente queda en estado suspendido hasta que el AMS recibe una nueva solicitud"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El AMS gestiona el ciclo de vida: al terminar, elimina al agente del registro y libera su AID (identificador único).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P11"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P11"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-2-test-012",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Comunicación entre agentes",
+    "patronRelacionado": "Parámetros obligatorios FIPA-ACL",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es el único parámetro obligatorio en todos los mensajes FIPA-ACL, independientemente del contexto?",
+    "opciones": [
+      "El receiver, porque sin destinatario el mensaje no puede enrutarse",
+      "El ontology, para que el receptor interprete correctamente el contenido",
+      "El conversation-id, para identificar la conversación a la que pertenece el mensaje",
+      "La performativa, porque clasifica el tipo de acto comunicativo del mensaje"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La performativa (acto comunicativo: REQUEST, INFORM, etc.) es el único campo siempre obligatorio; el resto de parámetros son opcionales según el contexto.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P12",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P12",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "Aparece también en Preguntas_examen.txt como P7.",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-3-test-013",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Arquitectura JADE — Main Container",
+    "origen": "recopilada",
+    "enunciado": "En la arquitectura de JADE, los agentes residen en contenedores. ¿Qué es el Main Container?",
+    "opciones": [
+      "Un contenedor secundario dedicado exclusivamente a almacenar ontologías",
+      "El contenedor que se lanza primero, alberga el AMS y el DF, y mantiene la tabla global de todos los agentes de la plataforma",
+      "Un contenedor especial que gestiona únicamente la comunicación entre plataformas distintas",
+      "El contenedor donde se ejecutan las herramientas gráficas de JADE"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El Main Container es el primero en arrancar; aloja los agentes de sistema AMS y DF y mantiene la GADT (tabla global de agentes y contenedores).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P13",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P13",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-3-test-014",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Páginas blancas vs. amarillas",
+    "origen": "recopilada",
+    "enunciado": "JADE ofrece dos servicios de directorio. ¿Cuál es la diferencia entre páginas blancas y páginas amarillas?",
+    "opciones": [
+      "Las páginas blancas almacenan mensajes pendientes; las amarillas almacenan el historial de conversaciones",
+      "Las páginas blancas son gestionadas por el DF y las amarillas por el AMS",
+      "Las páginas blancas localizan agentes por su identidad única; las páginas amarillas registran los servicios que ofrecen los agentes",
+      "Las páginas blancas funcionan solo dentro de un contenedor; las amarillas son accesibles entre plataformas"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Páginas blancas (AMS): localizan por identidad (AID). Páginas amarillas (DF): localizan por servicio ofrecido.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P14",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P14",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-3-test-015",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Comunicación entre agentes",
+    "patronRelacionado": "Comunicación asíncrona JADE",
+    "origen": "recopilada",
+    "enunciado": "La comunicación entre agentes en JADE es asíncrona. ¿Qué ventaja concreta aporta frente a la comunicación síncrona?",
+    "opciones": [
+      "Garantiza que el receptor procesa el mensaje en menos de 100 milisegundos",
+      "Elimina la necesidad de usar protocolos de interacción como Request o Contract Net",
+      "Obliga al receptor a confirmar la recepción antes de que el emisor pueda seguir ejecutándose",
+      "Permite que el emisor envíe un mensaje aunque el receptor no esté disponible en ese momento, sin bloquear su ejecución"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "En el modelo asíncrono el mensaje se deposita en la cola del receptor; el emisor no se bloquea ni necesita que el receptor esté listo, lo que desacopla a los agentes.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P15",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P15",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-3-test-016",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3",
+      "tema-4",
+      "tema-5"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Herramientas JADE — Introspector",
+    "origen": "recopilada",
+    "enunciado": "Estás depurando un agente con múltiples comportamientos activos y quieres saber qué comportamiento se ejecuta en cada momento sin tocar el código. ¿Qué herramienta usas?",
+    "opciones": [
+      "El Sniffer",
+      "El Log Manager",
+      "El Agente Introspector (Introspector Agent)",
+      "El RMA"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El Introspector permite monitorizar el estado interno de un agente concreto: su cola de mensajes y la ejecución de sus comportamientos. El Sniffer, en cambio, espía mensajes entre agentes.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P16",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P16",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "Aparece en Preguntas_examen.txt con redacción ligeramente ampliada ('en producción').",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta con leve variación de redacción."
+    }
+  },
+  {
+    "id": "smpc-tema-3-test-017",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Comunicación entre agentes",
+    "patronRelacionado": "Comunicación asíncrona vs. invocación directa",
+    "origen": "recopilada",
+    "enunciado": "La comunicación en JADE es asíncrona basada en mensajes. ¿Qué ventaja aporta frente a la invocación directa de métodos entre objetos?",
+    "opciones": [
+      "Permite que los mensajes se procesen siempre en el mismo orden",
+      "Garantiza que el receptor esté disponible",
+      "El emisor no se bloquea esperando al receptor y no necesita una referencia del objeto receptor, solo conocer su identidad",
+      "Permite comprimir automáticamente el contenido"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "A diferencia de la llamada a método (que requiere referencia al objeto y bloquea al llamante), el paso de mensajes solo necesita el AID del destinatario y no bloquea al emisor.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P17",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P17",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-temas-4-6-desarrollo-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-4",
+      "tema-5",
+      "tema-6"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "JADE y FIPA ACL",
+    "patronRelacionado": "Comportamientos JADE y performativas ACL",
+    "origen": "recopilada",
+    "enunciado": "El agente software que decide cuándo lanzar la orden de limpieza debe: (a) escuchar continuamente los resultados del análisis de imagen, y (b) enviar la orden al robot mediante un mensaje. Indica qué tipo de comportamiento JADE usarías para cada una de estas dos tareas, justificando tu elección. Explica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "Para escuchar continuamente (a) se usa un CyclicBehaviour, ya que se ejecuta indefinidamente y nunca termina: es ideal para un proceso de monitorización constante.\n\nPara enviar la orden (b) se usa un OneShotBehaviour, dado que la acción de lanzar el aviso es puntual y debe ejecutarse una sola vez al detectarse la suciedad.\n\nLa performativa ACL idónea es REQUEST, ya que su función estándar es indicar que el emisor (agente) quiere que el receptor (robot) realice una acción.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Identifica correctamente CyclicBehaviour para la monitorización continua y justifica que nunca termina",
+      "Identifica correctamente OneShotBehaviour para la orden puntual y justifica que se ejecuta una sola vez",
+      "Identifica REQUEST como performativa adecuada y justifica que su función es pedir que el receptor realice una acción"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Temas 4-6 Desarrollo P1",
+      "Preguntas_examen.txt — Parque solar P3"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Temas 4-6",
+      "Preguntas_examen.txt — Parque solar"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "Aparece en el recopilatorio como pregunta del contexto del parque solar y en Preguntas_examen.txt.",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes con el mismo contexto."
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-018",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Visión humana vs. visión por computador",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es la diferencia fundamental entre una aplicación de visión humana y una de visión por ordenador?",
+    "opciones": [
+      "La visión humana usa cámaras analógicas; la visión por ordenador usa cámaras digitales",
+      "En visión humana la imagen de salida es para ser vista por personas; en visión por ordenador es procesada directamente por la máquina",
+      "La visión por ordenador solo puede trabajar con luz visible; la visión humana puede usar infrarrojos",
+      "La visión humana requiere más potencia de cálculo que la visión por ordenador"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La visión por ordenador busca la automatización del análisis para que una máquina tome decisiones de forma autónoma, sin requerir la interpretación de un observador humano.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P18",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P18",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-019",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Aplicaciones de visión por computador",
+    "origen": "recopilada",
+    "enunciado": "Un sistema de control de calidad en una fábrica detecta automáticamente piezas defectuosas. ¿En qué categoría encaja?",
+    "opciones": [
+      "Aplicación de visión humana, porque un humano diseñó el algoritmo",
+      "Aplicación de compresión de imágenes, porque reduce los datos de la imagen",
+      "Aplicación de visión por ordenador, porque la imagen es procesada y usada por la máquina",
+      "Aplicación de restauración de imágenes, porque corrige defectos visuales"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El sistema adquiere, procesa e interpreta de forma autónoma la imagen para ejecutar una acción industrial (descartar la pieza) sin mediación humana directa.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P19"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P19"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-020",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Espectro electromagnético y sensores",
+    "origen": "recopilada",
+    "enunciado": "¿Por qué el ordenador tiene una ventaja sobre el sistema visual humano a la hora de capturar imágenes?",
+    "opciones": [
+      "El ordenador procesa imágenes más rápido porque tiene más neuronas que el ojo humano",
+      "El ordenador puede trabajar con todo el espectro electromagnético (rayos X, infrarrojos, etc.), mientras que el humano solo percibe la luz visible",
+      "El ojo humano no puede detectar colores, pero el ordenador sí",
+      "El ordenador no necesita sensores para capturar imágenes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los sensores artificiales permiten expandir la percepción a rangos de radiación (infrarrojos, rayos X, UV) que resultan invisibles para la fisiología ocular humana.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P20",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P20",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-021",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Restauración vs. mejora",
+    "origen": "recopilada",
+    "enunciado": "¿En qué se diferencia restaurar una imagen de mejorarla?",
+    "opciones": [
+      "Restaurar amplía el contraste; mejorar elimina el ruido",
+      "Restaurar modela y revierte una degradación conocida; mejorar aprovecha la percepción humana para hacer la imagen más agradable visualmente",
+      "Restaurar comprime los datos; mejorar los descomprime",
+      "No hay diferencia, son sinónimos en procesamiento de imágenes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La restauración es un proceso matemático objetivo (modelar e invertir un defecto físico de captura); la mejora aplica heurísticas subjetivas orientadas a la percepción humana.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P21"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P21"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-022",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Compresión de imágenes",
+    "origen": "recopilada",
+    "enunciado": "La compresión de imágenes es útil porque las imágenes digitales son pesadas. ¿Qué técnica permite reducir el tamaño sin apenas pérdida perceptible?",
+    "opciones": [
+      "Aumentar la resolución de la imagen antes de comprimirla",
+      "Convertir la imagen a escala de grises antes de almacenarla",
+      "Eliminar todos los píxeles con valor de brillo igual a cero",
+      "Aprovechar la redundancia inherente y los límites fisiológicos del sistema visual humano"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La compresión eficiente elimina la información redundante y las frecuencias/variaciones cromáticas que el ojo humano no puede discriminar debido a sus límites biológicos.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P22"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P22"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-023",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Imagen digital — representación matricial",
+    "origen": "recopilada",
+    "enunciado": "¿Qué estructura de datos se utiliza sobre todo para trabajar con imágenes digitales organizadas por filas y columnas?",
+    "opciones": [
+      "Una lista enlazada de píxeles",
+      "Un árbol binario de búsqueda",
+      "Una matriz bidimensional",
+      "Un vector unidimensional ordenado por brillo"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Una imagen digital se modela como una cuadrícula y se representa mediante una matriz bidimensional, facilitando la indexación por coordenadas espaciales (x, y).",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P23"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P23"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-024",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Digitalizador de imágenes",
+    "origen": "recopilada",
+    "enunciado": "Una cámara analógica necesita un digitalizador de imágenes para conectarse al ordenador. ¿Qué hace exactamente?",
+    "opciones": [
+      "Comprime la imagen para que ocupe menos espacio en memoria",
+      "Convierte la señal de vídeo continua (analógica) en una imagen digital muestreada",
+      "Aumenta la resolución de la imagen antes de enviarla al ordenador",
+      "Elimina el ruido de la señal antes de transmitirla"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El digitalizador toma la señal analógica continua y realiza muestreo y cuantización para transformarla en valores digitales discretos.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P24"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P24"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-025",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Vídeo entrelazado",
+    "origen": "recopilada",
+    "enunciado": "En el vídeo entrelazado, cada cuadro (frame) se compone de dos campos. ¿Para qué sirve el impulso de sincronización vertical?",
+    "opciones": [
+      "Para indicar al hardware que inicie una nueva línea horizontal",
+      "Para comprimir el cuadro antes de transmitirlo",
+      "Para indicar al hardware que inicie un nuevo campo o cuadro completo",
+      "Para convertir la señal PAL a NTSC"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El impulso de sincronización vertical indica que el barrido de pantalla ha terminado y debe reiniciarse un nuevo campo o cuadro completo desde el inicio.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P25"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P25"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-026",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Compresión vídeo médico",
+    "origen": "recopilada",
+    "enunciado": "Se desea comprimir un vídeo médico para transmitirlo por red (reducción hasta x200). ¿Qué condición es imprescindible para que sea válida?",
+    "opciones": [
+      "Que la compresión sea con pérdidas para maximizar la reducción",
+      "Que la reducción no elimine información clínicamente relevante para la percepción humana",
+      "Que el vídeo sea convertido a escala de grises antes de comprimirse",
+      "Que el factor de compresión sea siempre el mismo independientemente de la imagen"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En el ámbito médico, cualquier compresión con pérdidas debe asegurar que los datos descartados no comprometan la visibilidad de patologías o detalles cruciales para el diagnóstico.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P26"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P26"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-027",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Sensores IR",
+    "origen": "recopilada",
+    "enunciado": "Un sistema usa sensores infrarrojos para contar insectos en un jardín. ¿Qué ventaja conceptual tiene respecto a usar cámaras de luz visible?",
+    "opciones": [
+      "Los sensores infrarrojos tienen mayor resolución que las cámaras convencionales",
+      "Los insectos emiten o reflejan radiación infrarroja no captable por el ojo humano, permitiendo detectarlos donde serían invisibles visualmente",
+      "Los sensores infrarrojos comprimen mejor las imágenes para almacenamiento",
+      "El infrarrojo permite procesar imágenes más rápido"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El espectro infrarrojo permite aislar objetivos por sus firmas térmicas o reflexión de onda larga, independientemente de las condiciones de iluminación visible.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P27"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P27"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-028",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Sensores UV — huellas dactilares",
+    "origen": "recopilada",
+    "enunciado": "Un sistema detecta huellas dactilares latentes no visibles a simple vista. ¿Qué tipo de imagen usa más probablemente?",
+    "opciones": [
+      "Imágenes en escala de grises con alta compresión",
+      "Imágenes en el espectro visible con mayor resolución",
+      "Imágenes ultravioletas reflejadas, que revelan trazas invisibles al ojo humano",
+      "Imágenes infrarrojas de alta temperatura corporal"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La radiación ultravioleta interactúa de forma selectiva con las trazas y aceites orgánicos de la piel, revelando el relieve de la huella en un rango invisible al ojo.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P28"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P28"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-029",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Aplicaciones de visión por computador — satélite",
+    "origen": "recopilada",
+    "enunciado": "Un sistema de análisis de imágenes de satélite procesa miles de imágenes diarias para predecir el tiempo. ¿Qué justifica mejor usar visión por ordenador en lugar de humana?",
+    "opciones": [
+      "Las imágenes de satélite tienen muy poca resolución y no merecen análisis humano",
+      "El volumen de datos, la velocidad de procesamiento requerida y el acceso a bandas no visibles hacen inviable el análisis humano",
+      "Los humanos no pueden interpretar imágenes meteorológicas sin formación específica",
+      "Las imágenes de satélite solo se pueden ver en monitores especiales"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El volumen de datos desborda el análisis manual por el enorme flujo continuo de fotogramas y la necesidad de integrar simultáneamente canales espectrales no visibles.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P29"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P29"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-030",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Interfaces de cámara — GigE",
+    "origen": "recopilada",
+    "enunciado": "Un ingeniero necesita conectar una cámara industrial a un ordenador situado a 80 metros sin usar fibra óptica. ¿Qué interfaz es la más adecuada?",
+    "opciones": [
+      "USB 3.0, que alcanza hasta 30 metros con conmutadores",
+      "Camera Link, que permite hasta 10 metros",
+      "FireWire S3200, que alcanza hasta 72 metros con conmutadores",
+      "Gigabit Ethernet, que alcanza hasta 100 metros sin necesidad de fibra"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "GigE Vision (Gigabit Ethernet) permite transmisión estable a altas velocidades con cable de cobre hasta 100 m, cubriendo de sobra los 80 m requeridos.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P30",
+      "Preguntas_examen.txt — P31"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P30",
+      "Preguntas_examen.txt — P31"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-7-test-031",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Compresión de vídeo",
+    "origen": "recopilada",
+    "enunciado": "La compresión de vídeo puede reducir los datos entre 100 y 200 veces. ¿Qué principio lo hace posible sin pérdida visual inaceptable?",
+    "opciones": [
+      "Eliminar los píxeles defectuosos y recalcular los vecinos mediante interpolación bilineal",
+      "Aplicar transformaciones de frecuencia espacial para eliminar las altas frecuencias que el ojo no percibe",
+      "Aprovechar la redundancia inherente de las imágenes y explotar los aspectos fisiológicos y psicológicos del sistema visual humano",
+      "Reducir la resolución hasta el mínimo que permita la clasificación de patrones"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La compresión de vídeo explota la redundancia espacial de cada fotograma y la redundancia temporal (píxeles que no cambian entre instantes), omitiendo datos imperceptibles.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P31"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P31"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-8-test-032",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-7",
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Jerarquía de niveles de procesamiento",
+    "origen": "recopilada",
+    "enunciado": "En la jerarquía de niveles de procesamiento de imágenes, ¿qué ocurre al pasar de los niveles bajos (píxel) a los altos (características-objetos)?",
+    "opciones": [
+      "Disminuye la cantidad de datos y aumenta el nivel de abstracción de la información",
+      "Aumenta la cantidad de datos y disminuye el nivel de abstracción",
+      "La cantidad de datos permanece igual pero se reorganizan",
+      "Aumentan tanto los datos como la abstracción simultáneamente"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Al ascender en la pirámide de procesamiento, el volumen de datos en bruto se reduce al transformarse en descriptores y conceptos lógicos de mayor semántica y abstracción.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P32",
+      "Preguntas_examen.txt — P32"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P32",
+      "Preguntas_examen.txt — P32"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-8-test-033",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Preprocesamiento — niveles de trabajo",
+    "origen": "recopilada",
+    "enunciado": "Un algoritmo recibe la imagen en bruto y realiza operaciones locales sobre cada píxel y sus vecinos para suavizar el ruido. ¿En qué dos niveles inferiores trabaja?",
+    "opciones": [
+      "Extracción de características y segmentación",
+      "Datos de imagen en bruto y preprocesamiento (subimagen-entorno)",
+      "Clasificación de patrones y transformaciones",
+      "Segmentación y detección de bordes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La manipulación directa de matrices de intensidades para limpiar interferencias corresponde a los eslabones iniciales: carga de datos en bruto y preprocesamiento local.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P33",
+      "Preguntas_examen.txt — P32"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P33",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-8-desarrollo-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8",
+      "tema-1"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Preprocesamiento y autonomía del agente",
+    "origen": "recopilada",
+    "enunciado": "Un agente de visión artificial recibe una imagen con ruido antes de procesarla. Explica qué es el preprocesamiento, por qué es necesario realizarlo antes de la segmentación, y qué propiedad del agente le permite decidir de forma autónoma cuándo aplicarlo sin necesidad de intervención humana.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "El preprocesamiento consiste en preparar la imagen aplicando operaciones para eliminar ruido (información no deseada generada en la adquisición) y extraer regiones de interés.\n\nEs necesario hacerlo antes porque la segmentación busca objetos de nivel superior en la imagen; si la imagen tiene ruido, la segmentación fallará o será imprecisa.\n\nLa propiedad que le permite decidir sin intervención humana directa es la Autonomía.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Define correctamente el preprocesamiento (eliminar ruido, extraer ROI)",
+      "Justifica por qué es previo a la segmentación (ruido arruina la segmentación)",
+      "Identifica la Autonomía como propiedad del agente que permite actuar sin intervención humana"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 8 Desarrollo",
+      "Preguntas_examen.txt — Desarrollo 2"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 8",
+      "Preguntas_examen.txt — Desarrollo 2"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-9-test-034",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Transformada de Fourier — transformación global",
+    "origen": "recopilada",
+    "enunciado": "La principal diferencia entre transformar una imagen a un espacio de color alternativo y aplicarle la Transformada de Fourier es que:",
+    "opciones": [
+      "Solo los píxeles del borde contribuyen al resultado",
+      "La imagen resultante tiene doble resolución",
+      "Todos los píxeles de entrada contribuyen a cada valor de salida en frecuencia",
+      "Solo contribuyen los píxeles más brillantes"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La Transformada de Fourier es una transformación global: cada coeficiente de frecuencia se calcula a partir de TODOS los píxeles de entrada, a diferencia de una conversión de color, que es local por píxel.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P34",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P34",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-9-test-035",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-7",
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Espectro electromagnético y sensores",
+    "origen": "recopilada",
+    "enunciado": "Los sensores de imagen no se limitan a capturar luz visible. ¿Qué ventaja práctica aporta esto respecto al sistema visual humano?",
+    "opciones": [
+      "Mayor resolución",
+      "Acceso a casi todo el espectro electromagnético",
+      "Menor latencia neural",
+      "Mayor velocidad de captura"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Capturar fuera del visible (IR, UV, rayos X…) da acceso a casi todo el espectro electromagnético, revelando información imposible de obtener con visión humana.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P35",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P35",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-9-test-036",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Filtros frecuenciales — interferencia periódica",
+    "origen": "recopilada",
+    "enunciado": "Una imagen tiene un patrón periódico de interferencia. ¿Por qué es ventajoso trabajar en el dominio de la frecuencia para eliminarlo?",
+    "opciones": [
+      "Porque consume menos memoria",
+      "Porque no existen filtros espaciales equivalentes",
+      "Porque las componentes periódicas quedan concentradas en frecuencias específicas y pueden eliminarse selectivamente",
+      "Porque Fourier convierte automáticamente esas componentes en ceros"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Un patrón periódico se manifiesta como picos en frecuencias concretas del espectro; basta con anular selectivamente esas frecuencias (filtro de muesca/banda) sin afectar al resto.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P36",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P36",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-9-desarrollo-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Transformada de Fourier — ventaja y datos",
+    "origen": "recopilada",
+    "enunciado": "Las imágenes capturadas de placas fotovoltaicas presentan un patrón periódico de interferencia causado por el reflejo del sol. ¿Qué ventaja fundamental ofrece trabajar en el dominio de la frecuencia para eliminar ese patrón frente a trabajar directamente sobre los píxeles? ¿Qué ocurre con los datos de la imagen cuando se aplica la Transformada de Fourier?",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "La ventaja fundamental es que permite filtrar elementos que aparecen con cierta periodicidad de forma mucho más flexible y eficiente, logrando eliminar por completo los patrones de ruido periódico.\n\nAl aplicar la Transformada de Fourier, los datos espaciales (los niveles de gris de cada píxel) se trasladan al dominio espectral, provocando que cada píxel de entrada contribuya a todos los valores de salida. La señal se descompone en un término DC (relacionado con el valor medio) y términos sinusoidales o armónicos.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Explica que el dominio de la frecuencia permite filtrar interferencias periódicas de forma flexible y selectiva",
+      "Indica que al aplicar la TF todos los píxeles contribuyen a cada valor de salida (transformación global)",
+      "Menciona la descomposición en término DC y armónicos"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 9 Desarrollo P1 (Parque solar)",
+      "Preguntas_examen.txt — Parque solar P1"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 9 P1",
+      "Preguntas_examen.txt — Parque solar P1"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes (parque solar)."
+    }
+  },
+  {
+    "id": "smpc-tema-9-desarrollo-002",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9",
+      "tema-1",
+      "tema-3"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Fourier + SMA — ventajas combinadas",
+    "origen": "recopilada",
+    "enunciado": "Un agente de procesamiento recibe imágenes de una cámara industrial con ruido periódico y debe filtrarlas antes de enviar los resultados a otros agentes del sistema. Explica qué ventaja ofrece trabajar en el dominio de la frecuencia (Fourier) para eliminar ese ruido, y razona por qué un sistema multiagente es más adecuado que un sistema centralizado para gestionar este proceso en tiempo real.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "La ventaja de Fourier es que permite aislar y eliminar interferencias o ruido periódico que serían muy difíciles de tratar directamente sobre los píxeles.\n\nUn sistema multiagente es ideal en tiempo real frente a uno centralizado porque en JADE cada agente tiene su propio hilo de control y la comunicación es asíncrona, lo que permite un procesamiento descentralizado donde múltiples agentes procesan imágenes simultáneamente sin bloquearse entre sí.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Explica la ventaja de Fourier para ruido periódico",
+      "Menciona que en SMA cada agente tiene su propio hilo de control",
+      "Menciona que la comunicación asíncrona permite procesamiento descentralizado sin bloqueos",
+      "Contrasta con un sistema centralizado (procesamiento secuencial, cuello de botella)"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 9 Desarrollo P2",
+      "Preguntas_examen.txt — Desarrollo 4"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 9 P2",
+      "Preguntas_examen.txt — Desarrollo 4"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-9-desarrollo-003",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Filtros frecuenciales — paso bajo vs. paso banda",
+    "origen": "recopilada",
+    "enunciado": "Un sistema detecta defectos en piezas metálicas. Las imágenes tienen interferencia periódica por iluminación fluorescente. Un compañero propone aplicar un filtro paso bajo para limpiarla; otro lo discute. ¿Quién tiene razón y por qué? ¿Qué filtro sería más adecuado para eliminar exclusivamente el patrón periódico sin destruir el resto de la información?",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "(a) Tiene razón el compañero que discute el filtro paso bajo. Un filtro paso bajo conserva las bajas frecuencias pero elimina las altas, produciendo un suavizado general. Como el objetivo es detectar defectos superficiales, borrar todas las altas frecuencias destruiría los bordes y detalles finos necesarios para visualizar dichos defectos.\n\n(b) Lo más adecuado sería un Filtro Paso Banda (band-pass) o un filtro selectivo direccional. Estos filtros conservan o eliminan un rango específico de frecuencias, de modo que solo se modifican las frecuencias exactas (y su dirección) del patrón periódico fluorescente, dejando intactas el resto de frecuencias (altas y bajas) para no perder ni el contraste general ni la nitidez de los bordes.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Identifica que el filtro paso bajo destruiría los bordes/detalles finos necesarios para detectar defectos",
+      "Propone filtro paso banda o filtro selectivo direccional",
+      "Justifica que el paso banda elimina solo las frecuencias exactas de la interferencia periódica sin afectar el resto"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 9 Desarrollo P3",
+      "Preguntas_examen.txt — Desarrollo 5"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 9 P3",
+      "Preguntas_examen.txt — Desarrollo 5"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-10-test-037",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Segmentación — objetivo",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es el objetivo de la segmentación de imágenes?",
+    "opciones": [
+      "Comprimir la imagen para reducir su tamaño en disco",
+      "Convertir la imagen de analógica a digital",
+      "Identificar regiones o objetos de nivel superior a partir de los datos en bruto de la imagen",
+      "Mejorar el contraste y la nitidez de la imagen"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La segmentación agrupa los píxeles en regiones conexas con un significado semántico común, facilitando el aislamiento y reconocimiento posterior de objetos.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P37"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P37"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    }
+  },
+  {
+    "id": "smpc-tema-10-test-038",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Detección de bordes — orientación",
+    "origen": "recopilada",
+    "enunciado": "Algunos operadores de detección de bordes devuelven también la orientación del borde. ¿En qué tipo de aplicación real es especialmente necesaria la información de orientación?",
+    "opciones": [
+      "Solo en compresión de imagen",
+      "En reconocimiento de caracteres, detección de carriles y análisis médico",
+      "Solo en realidad aumentada",
+      "Solo en umbralización"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Conocer la orientación del borde es clave donde la dirección de las estructuras importa: trazos de caracteres (OCR), líneas de carril en conducción y estructuras anatómicas en análisis médico.",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — P38",
+      "Preguntas_examen.txt"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Test P38",
+      "Preguntas_examen.txt"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-10-desarrollo-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10",
+      "tema-9"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Segmentación — criterios y categorías",
+    "origen": "recopilada",
+    "enunciado": "Tras eliminar la interferencia periódica de las imágenes de placas fotovoltaicas, el sistema aplica segmentación para aislar las zonas sucias. Explica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "Los algoritmos siguen dos criterios principales basados en medidas como color, textura o escala de grises: la homogeneidad (los píxeles dentro de la región son similares) y el contraste (diferencia con las regiones vecinas).\n\nLas tres categorías principales son:\n• Crecimiento y contracción de regiones: trabajan en el dominio espacial agrupando píxeles vecinos.\n• Métodos de agrupamiento (clustering): agrupan píxeles en cualquier espacio n-dimensional.\n• Detección de bordes / contornos: extensión matemática de la detección de bordes para delimitar zonas.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Menciona los dos criterios: homogeneidad y contraste",
+      "Nombra y describe crecimiento/contracción de regiones (dominio espacial)",
+      "Nombra y describe clustering (n-dimensional)",
+      "Nombra y describe detección de bordes/contornos"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 10 Desarrollo P1 (Parque solar)",
+      "Preguntas_examen.txt — Parque solar P2"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 10 P1",
+      "Preguntas_examen.txt — Parque solar P2"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-tema-10-desarrollo-002",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10",
+      "tema-1"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Umbralización — limitaciones y coordinación SMA",
+    "origen": "recopilada",
+    "enunciado": "En un sistema multiagente de análisis de imágenes médicas, varios agentes colaboran para segmentar células en imágenes microscópicas. Explica en qué consiste la segmentación por umbralización, qué limitación tiene en imágenes con iluminación no uniforme, y qué mecanismo de coordinación entre agentes permitiría compensar esa limitación repartiendo el análisis por zonas de la imagen.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "La umbralización consiste en transformar la imagen en una imagen binaria (blanco como primer plano y negro como fondo) comparando la intensidad de cada píxel con un umbral.\n\nSu mayor limitación con un umbral fijo es que asume que hay suficiente contraste, por lo que falla cuando hay variaciones de iluminación (iluminación no uniforme).\n\nPara compensarlo repartiendo el trabajo, los agentes pueden usar el protocolo Contract Net (un mercado descentralizado donde un agente gestor anuncia el trabajo por zonas y otros actúan como contratistas) o bien una Estructuración Organizacional que divida jerárquicamente las tareas.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Define correctamente umbralización (imagen binaria, comparación con umbral)",
+      "Identifica la limitación: umbral fijo falla con iluminación no uniforme",
+      "Menciona Contract Net o Estructuración Organizacional como mecanismo de coordinación",
+      "Relaciona el mecanismo con el reparto de zonas"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Tema 10 Desarrollo P2",
+      "Preguntas_examen.txt — Desarrollo 3"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Tema 10 P2",
+      "Preguntas_examen.txt — Desarrollo 3"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-integradora-desarrollo-001",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7",
+      "tema-8",
+      "tema-9",
+      "tema-10"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Aplicaciones de sistemas multiagente",
+    "patronRelacionado": "Pipeline de visión + dominio frecuencia",
+    "origen": "recopilada",
+    "enunciado": "Un sistema de videovigilancia urbana captura imágenes continuas de una calle para detectar automáticamente objetos abandonados (bolsas, maletas) sobre el pavimento. Describe el proceso completo respondiendo a: (1) ¿en qué se diferencian visión por computador y visión humana y cuál corresponde aquí?; (2) las tres etapas del pipeline de análisis y qué se consigue en cada una; (3) ¿qué ventaja aporta trabajar en el dominio de la frecuencia para filtrar el ruido de fondo exterior?",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "1) La diferencia principal radica en quién procesa y decide: en visión humana las imágenes se procesan para que las consuma visualmente una persona; en visión por computador es el ordenador quien procesa y toma decisiones de forma automática. Este sistema corresponde a visión por computador, porque detecta maletas de forma autónoma sin un humano vigilando constantemente.\n\n2) Tres etapas del pipeline:\n• Segmentación: aísla las siluetas de los objetos estáticos separándolas del fondo.\n• Extracción de características: obtiene información cuantitativa de alto nivel (formas, colores, contornos, texturas) de los píxeles segmentados.\n• Clasificación de patrones: identifica los objetos en categorías evaluando el vector de características.\n\n3) El dominio de la frecuencia permite filtrar elementos de ruido periódicos (lluvia, viento, oscilaciones rítmicas) de forma más flexible y eficiente que en el dominio espacial, empleando filtros que seleccionen el intervalo exacto de frecuencias del ruido y también su dirección.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Diferencia correctamente visión por computador (máquina decide) de visión humana (persona decide)",
+      "Clasifica el sistema como visión por computador con justificación",
+      "Describe segmentación, extracción de características y clasificación de patrones",
+      "Explica la ventaja del dominio frecuencial para ruido periódico"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Parte III Desarrollo P1 (Videovigilancia)",
+      "Preguntas_examen.txt — Desarrollo 1"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Integrador P1",
+      "Preguntas_examen.txt — Desarrollo 1"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-integradora-desarrollo-002",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1",
+      "tema-3",
+      "tema-7",
+      "tema-8",
+      "tema-9",
+      "tema-10"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Aplicaciones de sistemas multiagente",
+    "patronRelacionado": "Visión artificial + SMA — complementariedad",
+    "origen": "recopilada",
+    "enunciado": "La visión artificial y los sistemas multiagente son dos tecnologías que, combinadas, permiten construir sistemas autónomos capaces de percibir, razonar y actuar en entornos complejos. Explica cómo se complementan ambas tecnologías y qué ventajas aporta su combinación en aplicaciones reales.",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "Complementariedad: la visión artificial aporta la capacidad de percepción (adquirir, preprocesar, segmentar, extraer características y clasificar imágenes), mientras que el sistema multiagente aporta la capa de razonamiento, coordinación y actuación: agentes autónomos que interpretan esa información, deciden y cooperan. La visión es el 'sentido' y los agentes son el 'cerebro distribuido'.\n\nVentajas de la combinación: (a) Distribución y escalabilidad: cada agente, con su propio hilo de control y comunicación asíncrona (JADE), puede procesar distintas cámaras o zonas en paralelo sin bloquearse; (b) Robustez: el fallo de un agente no detiene todo el sistema; (c) Coordinación flexible: mediante protocolos como Contract Net los agentes reparten dinámicamente el análisis; (d) Tiempo real: el procesamiento descentralizado permite reaccionar ágilmente. Ejemplos: videovigilancia, control de calidad industrial, parques solares, análisis médico.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "Explica el rol de la visión artificial (percepción) y del SMA (razonamiento/coordinación)",
+      "Menciona al menos dos ventajas concretas (distribución, robustez, coordinación, tiempo real)",
+      "Aporta al menos un ejemplo de aplicación real"
+    ],
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Parte III Desarrollo P2",
+      "Preguntas_examen.txt — Desarrollo 6"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Recopilatorio SMPC — Desarrollo Integrador P2",
+      "Preguntas_examen.txt — Desarrollo 6"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 2,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "equivalente",
+      "comentario": "Misma pregunta en dos fuentes."
+    }
+  },
+  {
+    "id": "smpc-integradora-desarrollo-003",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-4",
+      "tema-5",
+      "tema-6",
+      "tema-9",
+      "tema-10"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "grupoTematico": "Aplicaciones de sistemas multiagente",
+    "patronRelacionado": "Parque solar — Fourier + segmentación + comportamientos",
+    "origen": "recopilada",
+    "enunciado": "Una empresa gestora de parques solares desarrolla un sistema inteligente que monitoriza en tiempo real las placas fotovoltaicas mediante cámaras. Responde a las tres cuestiones: (P1) Las imágenes tienen un patrón periódico de interferencia por el reflejo del sol. ¿Qué ventaja ofrece el dominio de la frecuencia y qué ocurre con los datos al aplicar la TF? (P2) Una vez eliminada la interferencia, el sistema aplica segmentación. Explica los criterios fundamentales y las tres categorías principales. (P3) El agente debe (a) escuchar continuamente los resultados y (b) enviar la orden al robot. ¿Qué comportamiento JADE usarías para cada tarea y qué performativa ACL para la orden de limpieza?",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "explicacion": "",
+    "respuestaModelo": "P1: La ventaja es que permite filtrar elementos periódicos de forma flexible y eficiente. Al aplicar la TF, los datos espaciales se trasladan al dominio espectral: cada píxel contribuye a todos los valores de salida. La señal se descompone en término DC y armónicos sinusoidales.\n\nP2: Los algoritmos siguen criterios de homogeneidad (píxeles similares dentro de la región) y contraste (diferencia con regiones vecinas), usando medidas de color, textura o escala de grises. Las tres categorías son: (1) Crecimiento/contracción de regiones (dominio espacial); (2) Clustering (cualquier espacio n-dimensional); (3) Detección de bordes/contornos.\n\nP3: Para (a) escuchar continuamente → CyclicBehaviour (se ejecuta indefinidamente). Para (b) enviar la orden → OneShotBehaviour (acción puntual, una sola vez). La performativa ACL adecuada es REQUEST, ya que indica que el emisor quiere que el receptor (robot) realice una acción.",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [
+      "P1: Ventaja del dominio frecuencial para ruido periódico y descripción de la TF (transformación global, término DC + armónicos)",
+      "P2: Criterios homogeneidad + contraste; tres categorías correctas y descritas",
+      "P3: CyclicBehaviour para escuchar + OneShotBehaviour para enviar + justificación; REQUEST como performativa + justificación"
+    ],
+    "fuentes": [
+      "Preguntas_examen.txt — Parque solar (enunciado completo)",
+      "Recopilatorio_Preguntas_SMPC.pdf"
+    ],
+    "modelos": [],
+    "etiquetasModelo": [
+      "Preguntas_examen.txt — Parque solar completo"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "Pregunta de desarrollo complejo que integra los tres grandes bloques del temario (Fourier, Segmentación, JADE/ACL). Aparece con enunciado completo en Preguntas_examen.txt.",
+    "requiereRevision": false,
+    "verificada": true,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": "Aunque sus partes aparecen desglosadas en otras preguntas, este enunciado integrador completo es único."
+    }
+  }
+]

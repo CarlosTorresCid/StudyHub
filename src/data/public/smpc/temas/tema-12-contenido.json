@@ -1,0 +1,153 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-12",
+  "titulo": "Procesamiento de Lenguaje Natural",
+  "apuntes": {
+    "introduccion": "Este tema aborda procesamiento de lenguaje natural.",
+    "secciones": [
+      {
+        "titulo": "1. Reconocimiento automático del habla (RAH)",
+        "contenido": "La **tecnología de reconocimiento automático de voz** puede definirse como la **transcripción automática, dirigida por ordenador, del lenguaje hablado en texto legible en tiempo real**. Permite a un ordenador identificar las palabras que una persona pronuncia en un micrófono o teléfono y convertirlas en texto escrito.\n\nConseguir que una máquina comprenda el discurso hablado fluido ha impulsado la investigación durante más de cincuenta años.\n\n**Estado actual y limitaciones:**\nAunque la tecnología avanza con rapidez, aún no alcanza la comprensión de todo discurso en cualquier entorno acústico o pronunciado por cualquier persona. Las cuatro principales variables que afectan al rendimiento del sistema son:\n- **El hablante (acento)**: cada persona tiene características de habla únicas. Acentos distintos de los datos de entrenamiento reducen la precisión.\n- **Tamaño del vocabulario**: vocabularios grandes son más difíciles de manejar.\n- **Fluidez del discurso**: el habla continua (sin pausas claras entre palabras) es más exigente que el habla controlada.\n- **Dispositivos de sonido**: la calidad del micrófono y las condiciones acústicas del entorno impactan en el rendimiento.\n\n**Precisión alcanzable:**\n- Un sistema entrenado para reconocer la voz de un hablante individual puede alcanzar una precisión **mayor del 90%** con vocabularios grandes.\n- Comercialmente, bajo condiciones óptimas, se afirma una precisión del **98–99%**.\n\n**Objetivo final** de la investigación: que un ordenador reconozca en tiempo real, con el **100% de precisión**, todas las palabras inteligibles que cualquier persona pronuncie, independientemente del vocabulario, el ruido, las características del hablante o el acento.\n\n**Origen de la tecnología:** fue inicialmente diseñada para personas con discapacidad (p.ej. discapacidades muscoesqueléticas por esclerosis múltiple, parálisis, artritis), para lograr la máxima productividad en el trabajo con ordenadores.\n\n**Flujo del proceso de reconocimiento:**\n1. El hablante decide qué decir y pronuncia una oración (secuencia de palabras, posiblemente con pausas y otros sonidos).\n2. El programa produce una forma de onda de voz que representa las palabras, sonidos extraños y pausas de la entrada hablada.\n3. El software convierte la señal de voz en una secuencia de vectores medida a lo largo de la duración de la señal.\n4. Usando un decodificador sintáctico, se genera una secuencia válida de representaciones.\n\n**Tres características clave** de los sistemas avanzados: vocabularios grandes, comprensión del habla continua e independencia de los altavoces."
+      },
+      {
+        "titulo": "2. Las tres etapas del reconocimiento automático del habla",
+        "contenido": "Un sistema completo de reconocimiento automático del habla consta de tres etapas en este orden preciso:\n\n**Etapa 1 — Procesamiento de la señal**\nEs la primera etapa. La señal acústica de voz (analógica) se digitaliza y se extrae la información relevante. En esta etapa se aplican:\n- Métodos de análisis espectral para modelar la señal acústica.\n- Filtrado óptimo probabilístico, útil para eliminar el ruido de fondo.\n- El uso de la **prosódica** (el ritmo, la entonación y el acento del habla): se aplica en la etapa de *procesamiento de la señal*.\n\n**Etapa 2 — Clasificación de fonemas**\nEs la segunda etapa. Los fonemas son las unidades mínimas de sonido del lenguaje. En esta etapa se identifican qué fonemas componen la señal procesada. Las herramientas utilizadas son:\n- **Redes neuronales**: tienen aplicaciones en la clasificación de fonemas.\n- **Modelos ocultos de Markov (HMM, *Hidden Markov Models*)**: se utilizan en esta etapa para modelar la variabilidad y secuencialidad de los fonemas.\n\n**Etapa 3 — Modelado de lenguaje**\nEs la tercera etapa. Una vez clasificados los fonemas, se combinan para formar palabras y oraciones, aplicando conocimiento lingüístico y estadístico:\n- **Bigramáticas**: algoritmo para analizar el lenguaje. Un bigrama modela la probabilidad de que una palabra aparezca dado que la palabra anterior es conocida; se usa para desambiguar secuencias de palabras similares.\n\n**Resumen del orden de etapas (para memorizar):**\n1. Procesamiento de la señal → señal acústica a vectores.\n2. Clasificación de fonemas → identificar las unidades mínimas de sonido.\n3. Modelado de lenguaje → combinar fonemas en palabras y oraciones."
+      },
+      {
+        "titulo": "3. Lingüística computacional",
+        "contenido": "La **lingüística computacional** es una disciplina entre la lingüística y la informática que se ocupa de los aspectos computacionales de la facultad humana del lenguaje. Pertenece a las ciencias cognitivas y **se solapa con el campo de la inteligencia artificial**.\n\nEs una rama de la informática cuyo objetivo es **construir modelos computacionales de la cognición humana**. Tiene componentes teóricos y aplicados.\n\n**Lingüística computacional teórica:**\nRetoma temas de la lingüística teórica y la ciencia cognitiva. Se ocupa de las teorías formales sobre el conocimiento lingüístico necesario para la generación y comprensión del lenguaje. Hoy, estas teorías han alcanzado un grado de complejidad que solo puede administrarse mediante computadoras. Los lingüistas computacionales desarrollan modelos formales que simulan aspectos de la facultad humana del lenguaje e implementan esos modelos como programas de ordenador, que sirven para evaluar y desarrollar las teorías. Los hallazgos de la psicología cognitiva —especialmente la **psicolingüística**— juegan un papel importante. La relevancia de los modelos computacionales para la investigación psicolingüística ha dado lugar a una nueva subdisciplina: la **psicolingüística computacional**.\n\n**Lingüística computacional aplicada:**\nSe centra en resultados prácticos del modelado del uso del lenguaje humano. Los métodos, técnicas, herramientas y aplicaciones de esta área se subsumen bajo el término **ingeniería lingüística** o **tecnología del lenguaje (humano)**. Aunque los sistemas existentes están lejos de la capacidad humana, las aplicaciones prácticas son enormes: traductores automáticos, correctores, sistemas de búsqueda, chatbots, asistentes de voz.\n\n**PLN (Procesamiento de Lenguaje Natural):** consiste en construir sistemas computacionales capaces de comprender y generar lenguaje humano en todas sus formas. Es el área aplicada de la lingüística computacional orientada a construir sistemas que interactúan con el lenguaje humano (texto y voz)."
+      }
+    ]
+  },
+  "resumen": [
+    "El **Tema 12** aborda el **Procesamiento de Lenguaje Natural (PLN)** en dos grandes bloques. El primero es el **reconocimiento automático del habla**: transcripción automática de voz a texto en tiempo real. Sus cuatro variables clave son: hablante (acento), tamaño del vocabulario, fluidez del discurso y dispositivos de sonido. Un sistema completo tiene **tres etapas en orden**: (1) **procesamiento de la señal** (análisis espectral, filtrado de ruido, prosódica), (2) **clasificación de fonemas** (redes neuronales, modelos ocultos de Markov/HMM) y (3) **modelado de lenguaje** (bigramáticas).",
+    "El segundo bloque es la **lingüística computacional**: disciplina entre lingüística e informática que **se solapa con la IA**. Su objetivo es construir modelos computacionales de la cognición humana. Tiene vertiente teórica (psicolingüística computacional) y aplicada (**ingeniería lingüística**). El PLN es su área aplicada."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Reconocimiento automático del habla (RAH)",
+      "definicion": "Transcripción automática, dirigida por ordenador, del lenguaje hablado en texto legible en tiempo real. Identifica palabras pronunciadas en micrófono o teléfono y las convierte en texto."
+    },
+    {
+      "termino": "Variables que afectan al rendimiento del RAH",
+      "definicion": "Cuatro variables: (1) hablante/acento, (2) tamaño del vocabulario, (3) fluidez del discurso, (4) dispositivos de sonido."
+    },
+    {
+      "termino": "Etapa 1: Procesamiento de la señal",
+      "definicion": "Primera etapa del RAH. Digitaliza y procesa la señal acústica. Herramientas: análisis espectral, filtrado óptimo probabilístico (elimina ruido), prosódica."
+    },
+    {
+      "termino": "Etapa 2: Clasificación de fonemas",
+      "definicion": "Segunda etapa del RAH. Identifica los fonemas (unidades mínimas de sonido) en la señal. Herramientas: redes neuronales y modelos ocultos de Markov (HMM)."
+    },
+    {
+      "termino": "Etapa 3: Modelado de lenguaje",
+      "definicion": "Tercera etapa del RAH. Combina los fonemas clasificados para formar palabras y oraciones. Herramienta: bigramáticas (analizan el lenguaje modelando la probabilidad de pares de palabras)."
+    },
+    {
+      "termino": "Modelos ocultos de Markov (HMM)",
+      "definicion": "Modelos probabilísticos utilizados en la etapa de clasificación de fonemas del RAH. Modelan la variabilidad y secuencialidad de los sonidos del habla."
+    },
+    {
+      "termino": "Bigramática",
+      "definicion": "Algoritmo para analizar el lenguaje, usado en la etapa de modelado de lenguaje. Modela la probabilidad de que una palabra aparezca dado que se conoce la palabra anterior."
+    },
+    {
+      "termino": "Prosódica",
+      "definicion": "Estudio del ritmo, la entonación y el acento del habla. Se aplica en la etapa de procesamiento de la señal del RAH."
+    },
+    {
+      "termino": "Filtrado óptimo probabilístico",
+      "definicion": "Herramienta de procesamiento de señal usada en el RAH para eliminar el ruido de fondo de la señal de voz."
+    },
+    {
+      "termino": "Lingüística computacional",
+      "definicion": "Disciplina entre lingüística e informática. Se solapa con la IA. Objetivo: construir modelos computacionales de la cognición humana. Tiene vertiente teórica y aplicada."
+    },
+    {
+      "termino": "Ingeniería lingüística / tecnología del lenguaje",
+      "definicion": "Término bajo el que se subsumen los métodos, técnicas y aplicaciones de la lingüística computacional aplicada."
+    },
+    {
+      "termino": "PLN (Procesamiento de Lenguaje Natural)",
+      "definicion": "Área aplicada de la lingüística computacional. Consiste en construir sistemas computacionales capaces de comprender y generar lenguaje humano en todas sus formas."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Cómo se define el reconocimiento automático del habla?",
+      "respuesta": "Transcripción automática, dirigida por ordenador, del lenguaje hablado en texto legible en tiempo real. Permite identificar las palabras pronunciadas en un micrófono o teléfono y convertirlas en texto escrito."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuáles son las cuatro variables que determinan el rendimiento de un sistema de reconocimiento del habla?",
+      "respuesta": "(1) El hablante (acento). (2) Tamaño del vocabulario. (3) Fluidez del discurso. (4) Dispositivos de sonido (calidad del micrófono y entorno acústico)."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuáles son las tres etapas de un sistema completo de reconocimiento automático del habla, en orden?",
+      "respuesta": "(1) Procesamiento de la señal. (2) Clasificación de fonemas. (3) Modelado de lenguaje."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Qué se hace en la etapa de procesamiento de la señal?",
+      "respuesta": "Se digitaliza y procesa la señal acústica. Herramientas: análisis espectral (para modelar la señal), filtrado óptimo probabilístico (elimina ruido) y prosódica (ritmo, entonación, acento)."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué se hace en la etapa de clasificación de fonemas y qué herramientas se usan?",
+      "respuesta": "Se identifican los fonemas (unidades mínimas de sonido) de la señal procesada. Herramientas: redes neuronales y modelos ocultos de Markov (HMM)."
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué se hace en la etapa de modelado de lenguaje y qué herramienta se usa?",
+      "respuesta": "Se combinan los fonemas para formar palabras y oraciones usando conocimiento lingüístico y estadístico. Herramienta: bigramáticas (algoritmos para analizar el lenguaje)."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿En qué etapa del RAH se usan los modelos ocultos de Markov (HMM)?",
+      "respuesta": "En la etapa de clasificación de fonemas (segunda etapa)."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿En qué etapa se aplica la prosódica?",
+      "respuesta": "En la etapa de procesamiento de la señal (primera etapa)."
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Para qué sirve el filtrado óptimo probabilístico en el RAH?",
+      "respuesta": "Para eliminar el ruido de la señal de voz durante el procesamiento de la señal."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué es una bigramática?",
+      "respuesta": "Un algoritmo para analizar el lenguaje, usado en el modelado de lenguaje. Modela la probabilidad de que una palabra aparezca dado que se conoce la palabra anterior."
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Con qué campo se solapa principalmente la lingüística computacional?",
+      "respuesta": "Con la inteligencia artificial (IA)."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Cuál es el objetivo de la lingüística computacional?",
+      "respuesta": "Construir modelos computacionales de la cognición humana. Estudia los aspectos computacionales de la facultad humana del lenguaje."
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Qué es la ingeniería lingüística?",
+      "respuesta": "El término bajo el que se subsumen los métodos, técnicas, herramientas y aplicaciones de la lingüística computacional aplicada (también llamada tecnología del lenguaje humano)."
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué precisión puede alcanzar un sistema de RAH entrenado para un hablante individual?",
+      "respuesta": "Mayor del 90% con vocabularios grandes. Comercialmente, bajo condiciones óptimas, se afirma un 98-99% de precisión."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Para quién fue inicialmente diseñada la tecnología de reconocimiento de voz?",
+      "respuesta": "Para personas con discapacidad (p.ej. discapacidades muscoesqueléticas por esclerosis múltiple, parálisis, artritis), para que puedan lograr la máxima productividad en el trabajo con ordenadores."
+    }
+  ]
+}
