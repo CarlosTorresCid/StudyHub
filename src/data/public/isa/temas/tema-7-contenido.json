@@ -1,0 +1,310 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-7",
+  "titulo": "Tema 7. Patrones de diseño de software",
+  "apuntes": {
+    "introduccion": "Un patrón de diseño es una solución reutilizable a un problema que se repite con frecuencia en el desarrollo de software. No es código concreto, sino una descripción o plantilla que puede aplicarse en múltiples contextos. Los patrones de diseño buscan aumentar la cohesión y reducir el acoplamiento del sistema. El libro de referencia es el del grupo 'Gang of Four' (GoF), que recopila 13 patrones agrupados en tres categorías: creacionales, estructurales y de comportamiento. Además, existe una categoría separada de patrones de interacción (UI), orientada al diseño de interfaces de usuario. Este tema estudia las tres categorías GoF con sus patrones principales, y ofrece una introducción a los patrones de interacción.",
+    "secciones": [
+      {
+        "titulo": "Características y elementos de un patrón de diseño",
+        "contenido": "Un patrón de diseño debe cumplir dos características fundamentales:\n- **Repetibilidad**: debe ser efectivo en más de una ocasión, no ser una solución de un único caso.\n- **Generalidad**: debe ser aplicable a múltiples contextos, no estar ligado a una tecnología o dominio concreto.\n\nCada patrón se describe habitualmente mediante un conjunto estándar de elementos:\n- **Nombre**: identificador único del patrón.\n- **Clasificación**: a qué categoría pertenece (creacional, estructural, comportamiento).\n- **Intención**: qué hace el patrón y qué problema resuelve.\n- **Motivación**: escenario concreto que ilustra el problema y la solución.\n- **Estructura**: diagrama de clases que muestra los participantes y sus relaciones.\n- **Consecuencias**: ventajas e inconvenientes de aplicar el patrón.\n- **Implementación**: consideraciones para llevarlo a código.\n- **Código ejemplo**: fragmento de código ilustrativo.\n- **Usos conocidos**: sistemas reales donde se ha aplicado.\n- **Patrones relacionados**: otros patrones con los que interactúa o se puede combinar.\n\nImportante: **los patrones pueden complicar el diseño** introduciendo clases e interfaces adicionales. Deben usarse en su justa medida, solo cuando aportan valor real. Su objetivo final es aumentar la cohesión y disminuir el acoplamiento."
+      },
+      {
+        "titulo": "Las tres categorías de patrones GoF",
+        "contenido": "El libro del Gang of Four (Gamma, Helm, Johnson, Vlissides, 1994) agrupa los patrones de diseño en tres grandes categorías:\n\n**Patrones creacionales**: ayudan en la tarea de construcción de nuevos objetos con características complejas. Abstraen y controlan el proceso de creación, ocultando los detalles concretos al cliente. Los patrones del libro son: Fábrica Abstracta (Abstract Factory), Constructor (Builder), Prototipo (Prototype) y Singleton. También existe el Método Fábrica (Factory Method), no tratado en profundidad pero perteneciente a esta categoría.\n\n**Patrones estructurales**: ayudan a ensamblar objetos y clases en estructuras más grandes, manteniendo la flexibilidad y eficiencia del sistema. Los patrones del libro son: Adaptador (Adapter), Compuesto (Composite), Fachada (Facade) y Proxy.\n\n**Patrones de comportamiento**: ayudan a resolver problemas de comunicación entre objetos, proponiendo algoritmos adecuados y distribuyendo responsabilidades. Los patrones del libro son: Cadena de Responsabilidad (Chain of Responsibility), Mediador (Mediator), Observador (Observer) y Estado (State). El Método Plantilla (Template Method) también pertenece a esta categoría."
+      },
+      {
+        "titulo": "Patrón Abstract Factory (Fábrica Abstracta)",
+        "contenido": "**Categoría**: Creacional.\n\n**Problema**: necesitamos crear familias de objetos relacionados sin especificar sus clases concretas. El cliente necesita usar objetos de distintos tipos que comparten una interfaz, pero la implementación concreta depende del contexto (plataforma, estilo, configuración).\n\n**Solución**: se define una interfaz de fábrica abstracta con métodos para crear cada tipo de objeto de la familia. Las fábricas concretas implementan esta interfaz, creando objetos de un tipo concreto. El cliente trabaja siempre con la interfaz abstracta, sin conocer qué tipos concretos se están usando.\n\n**Estructura**: existe una interfaz `FabricaAbstracta` con métodos como `crearBoton()` y `crearTabla()`. Las clases `FabricaTipo1` y `FabricaTipo2` implementan esta interfaz. Los productos creados (`BotonTipo1`, `BotonTipo2`) comparten también una interfaz común (`Boton` con método `onClick()`).\n\n**Ejemplos de aplicación**:\n- Componentes de interfaz de usuario que deben adaptarse a la plataforma (Windows, Mac, Linux): la fábrica concreta crea los botones, ventanas o menús propios de esa plataforma.\n- Videojuego con varios tipos de personajes que tienen operaciones comunes (saltar, atacar, correr).\n- Familia de muebles (Silla, Sofá, Mesa) disponibles en variantes de estilo (Moderno, Victoriano, Art Déco).\n\n**Clave**: todos los objetos creados por una fábrica concreta tienen una interfaz de manipulación común. Da igual que un botón sea del Tipo A o B: siempre tendrá un método `click()`, aunque el comportamiento difiera."
+      },
+      {
+        "titulo": "Patrón Builder (Constructor)",
+        "contenido": "**Categoría**: Creacional.\n\n**Problema**: la creación de un objeto es un proceso complejo con múltiples pasos, y el mismo proceso de construcción puede producir representaciones o resultados diferentes.\n\n**Solución**: se define una interfaz `Builder` (Constructor) con métodos para ir añadiendo las diferentes partes del objeto (`addPartA()`, `addPartB()`, etc.) y un método `build()` que devuelve el objeto final construido. Las clases constructoras concretas implementan esta interfaz para cada tipo de representación posible.\n\n**Ejemplo real**: `Notification.Builder` en Android. El mismo proceso de construcción paso a paso permite crear notificaciones con distintos títulos, iconos, acciones y prioridades.\n\n**Diferencia con Abstract Factory**: Abstract Factory crea familias de objetos relacionados de una vez; Builder construye un único objeto complejo paso a paso."
+      },
+      {
+        "titulo": "Patrón Prototype (Prototipo)",
+        "contenido": "**Categoría**: Creacional.\n\n**Problema**: necesitamos crear muchas copias de objetos ya configurados, y crear cada uno desde cero sería costoso o complicado.\n\n**Solución**: todos los prototipos implementan una interfaz común con un método `clone()`. Cada prototipo concreto sabe cómo clonarse a sí mismo, devolviendo una copia idéntica (o parametrizada si se permite personalización).\n\n**Ejemplos de aplicación**:\n- Un videojuego que necesita crear muchas copias de un tipo de enemigo en un momento dado.\n- Un editor de gráficos vectoriales donde es necesario crear distintas formas que comparten muchas características comunes.\n\n**Clave**: el cliente no necesita conocer la clase concreta del objeto que clona; simplemente llama a `clone()` sobre cualquier prototipo."
+      },
+      {
+        "titulo": "Patrón Singleton",
+        "contenido": "**Categoría**: Creacional.\n\n**Problema**: necesitamos garantizar que en todo momento solo existe una única instancia de un determinado tipo de objeto, y que hay un punto de acceso global a esa instancia.\n\n**Solución**: la clase oculta su constructor (haciéndolo privado) y define un método estático `getInstance()` que devuelve siempre la misma instancia. La primera vez que se llama, crea la instancia; las siguientes, devuelve la ya creada.\n\n**Diagrama simplificado**:\n`Configuracion { -instancia: Configuracion; -Configuracion(); +getInstancia(): Configuracion }`\n\nLa flecha del cliente apunta a `getInstancia()`. La clase tiene una flecha de dependencia reflexiva (se devuelve a sí misma).\n\n**Ejemplos de aplicación**:\n- Objeto de configuración global de una aplicación.\n- Gestor de conexión a base de datos.\n- Controlador de sesión de usuario.\n- Gestor central de eventos en un sistema domótico.\n\n**Nota sobre multihilo**: en aplicaciones multihilo, el método `getInstance()` debe incluir un mecanismo de bloqueo (synchronized/mutex) para evitar que dos hilos creen instancias simultáneamente."
+      },
+      {
+        "titulo": "Patrón Adapter (Adaptador)",
+        "contenido": "**Categoría**: Estructural.\n\n**Problema**: queremos usar un componente existente (Service) que tiene una interfaz incompatible con la que espera el cliente. No podemos o no queremos modificar el código existente.\n\n**Solución**: se intercala una clase `Adapter` que implementa la interfaz que espera el cliente (`ClientInterface`) y contiene internamente una referencia al servicio incompatible. El adaptador traduce las llamadas del cliente al formato que entiende el servicio.\n\n**Dos implementaciones posibles**:\n- **Objeto Adaptador (composición)**: el `Adapter` implementa la interfaz objetivo y contiene una referencia al `Service` como atributo. Es la más habitual y flexible.\n- **Clase Adaptadora (herencia)**: el `Adapter` hereda tanto de la clase existente como de la interfaz objetivo. Solo posible en lenguajes que soporten herencia múltiple.\n\n**Ejemplos de aplicación**:\n- Editor de dibujo que necesita consumir una librería de terceros para crear objetos gráficos con interfaz diferente.\n- Aplicación que consume información de diferentes APIs que ofrecen los mismos servicios pero con nomenclatura distinta.\n\n**Clave**: el cliente no se acopla al adaptador concreto, sino a la interfaz objetivo. Si el servicio cambia, basta con crear un nuevo adaptador sin tocar el código cliente."
+      },
+      {
+        "titulo": "Patrón Composite (Compuesto)",
+        "contenido": "**Categoría**: Estructural.\n\n**Problema**: necesitamos manipular elementos individuales y composiciones de esos elementos de manera uniforme, sin que el cliente tenga que distinguir si está tratando con un objeto simple o un grupo.\n\n**Solución**: se define una interfaz `Component` con el método `operation()`. Las hojas (`Leaf`) implementan directamente la interfaz. Los compuestos (`Composite`) también implementan la interfaz, pero además mantienen una lista de hijos (otros Components, que pueden ser Leaf o Composite). Cuando se llama a `operation()` en un Composite, este delega en sus hijos.\n\n**Estructura**: `Component (interfaz) → Leaf / Composite`. El `Composite` tiene una relación de agregación con `Component` (contiene una lista de componentes hijos).\n\n**Ejemplos de aplicación**:\n- Sistema de archivos: carpetas (Composite) contienen archivos (Leaf) u otras carpetas. La operación `calcularTamaño()` funciona igual para archivos y carpetas.\n- Editor gráfico: las formas individuales son Leaf; los grupos de formas son Composite. Se puede seleccionar y mover un grupo igual que una forma individual.\n- Sistema de comentarios anidados: un comentario puede contener respuestas que a su vez contienen más respuestas."
+      },
+      {
+        "titulo": "Patrón Facade (Fachada)",
+        "contenido": "**Categoría**: Estructural.\n\n**Problema**: el sistema tiene un subsistema complejo con múltiples clases e interfaces. El cliente necesita usar ese subsistema pero no quiere (o no debe) conocer todos sus detalles internos.\n\n**Solución**: se crea una clase `Facade` que ofrece una interfaz unificada y simplificada al subsistema. El cliente solo interactúa con la fachada, que internamente coordina las llamadas a las clases del subsistema.\n\n**Ventajas**: reduce el acoplamiento entre el cliente y el subsistema; los cambios internos del subsistema no afectan al cliente mientras la fachada mantenga su interfaz.\n\n**Ejemplos de aplicación**:\n- `BookingFacade` con métodos `buscarLocal()`, `comprobarDisponibilidad()`, `reservar()`, que internamente coordina varios servicios (búsqueda, disponibilidad, pago, notificaciones).\n- SDK de una librería compleja que expone una API simplificada.\n\n**Nota para el examen**: Facade es el patrón de diseño que aparece con más frecuencia en las soluciones del Ejercicio 2 del examen. Prácticamente en todos los proyectos se justifica una fachada que simplifique el acceso al sistema."
+      },
+      {
+        "titulo": "Patrón Proxy",
+        "contenido": "**Categoría**: Estructural.\n\n**Problema**: queremos controlar el acceso a un objeto, añadiendo funcionalidad adicional (caché, carga diferida, seguridad, registro) sin modificar el objeto original.\n\n**Solución**: el `Proxy` implementa la misma interfaz que el objeto real (`RealSubject`), por lo que el cliente no nota la diferencia. El Proxy contiene una referencia al objeto real y decide cuándo y cómo delegarle las llamadas, pudiendo añadir lógica antes o después.\n\n**Tipos de proxy según uso**:\n- **Proxy de caché**: almacena resultados de operaciones costosas para devolverlos directamente en futuras peticiones iguales.\n- **Proxy de carga diferida (lazy load)**: no crea el objeto real hasta que realmente se necesita.\n- **Proxy de seguridad**: verifica permisos antes de delegar al objeto real.\n- **Proxy de registro (logging)**: registra las operaciones realizadas.\n\n**Ejemplos de aplicación**:\n- Clase que hace solicitudes HTTP a otro servicio: el proxy cachea las respuestas para evitar peticiones repetidas.\n- Acceso a base de datos con control de permisos.\n\n**Diferencia con Adapter**: el Proxy mantiene la misma interfaz que el objeto real; el Adapter cambia la interfaz para hacerla compatible con la que espera el cliente."
+      },
+      {
+        "titulo": "Patrón Chain of Responsibility (Cadena de Responsabilidad)",
+        "contenido": "**Categoría**: Comportamiento.\n\n**Problema**: se genera un evento o petición que puede ser procesado por uno o varios objetos diferentes, y no queremos que el emisor de la petición deba saber de antemano quién la procesará.\n\n**Solución**: se establece una cadena de objetos receptores. Cada objeto de la cadena decide si puede procesar la petición o si debe pasarla al siguiente. El emisor y el receptor quedan completamente desacoplados.\n\n**Implementación**: se define una clase abstracta con un método de procesamiento y una referencia al sucesor. Cada clase concreta implementa la lógica de decisión: procesar si puede, o delegar al sucesor si no.\n\n**Ejemplo clásico**: sistema de ayuda contextual en un procesador de texto. Al pulsar sobre un elemento de la interfaz, la ayuda se busca en el elemento específico; si no tiene ayuda propia, delega en el elemento padre, y así sucesivamente hasta llegar al elemento más genérico.\n\n**Otros ejemplos**: filtros HTTP en servidores web (autenticación → autorización → logging → procesamiento); validación de formularios en cadena; sistema de permisos jerárquicos.\n\n**Relación con Observer**: ambos desacoplan emisor y receptor. La cadena de responsabilidad es más adecuada cuando la petición debe ser procesada por un único objeto de la cadena; Observer cuando múltiples objetos deben ser notificados del mismo cambio."
+      },
+      {
+        "titulo": "Patrón Mediator (Mediador)",
+        "contenido": "**Categoría**: Comportamiento.\n\n**Problema**: existe un conjunto de objetos que colaboran entre sí intercambiando información, lo que genera un alto acoplamiento entre todos ellos. Añadir, eliminar o modificar un colaborador implica cambios en muchos otros.\n\n**Solución**: se introduce un objeto mediador centralizado que coordina todas las comunicaciones. Los componentes ya no se conocen entre sí: solo conocen al mediador. Cuando ocurre algo en un componente, lo notifica al mediador, que decide a qué otros componentes informar o qué acciones tomar.\n\n**Estructura**: los `Component` tienen una referencia a la interfaz `Mediator`. Cuando un componente cambia o necesita comunicarse, llama a `mediator.notify(this)`. El mediador concreto (`ConcreteMediator`) contiene referencias a todos los componentes y encapsula su lógica de coordinación.\n\n**Ejemplo clásico**: formulario con múltiples campos interrelacionados. Si activar un botón depende de que varios campos estén correctamente rellenos, y el estado de un campo afecta a otros, el mediador centraliza toda esa lógica de validación y activación.\n\n**Combinación con Observer**: el mediador y el observador son complementarios. Sin mediador, los objetos se observan mutuamente (alto acoplamiento). Con un mediador, basta con que el mediador observe a todos los objetos y reaccione ante sus cambios.\n\n**Nota**: el Mediador no tiene un diagrama de clases formal estricto porque es una idea más abstracta, pero la estructura básica siempre incluye componentes con referencia al mediador y un mediador concreto con referencias a todos los componentes."
+      },
+      {
+        "titulo": "Patrón Observer (Observador)",
+        "contenido": "**Categoría**: Comportamiento.\n\n**Problema**: un conjunto de objetos debe ser notificado automáticamente cuando se produce un cambio en el estado de otro objeto, sin que ese objeto conozca quiénes son los interesados ni cuántos hay.\n\n**Solución**: se definen dos tipos de objeto: el **Sujeto** (donde se producen los cambios) y los **Observadores** (que quieren ser notificados). El Sujeto mantiene una lista de observadores. Cuando su estado cambia, llama a `notify()` que recorre la lista y llama a `update()` en cada observador.\n\n**Métodos clave del Sujeto**:\n- `attach(observer)`: añade un observador a la lista.\n- `detach(observer)`: elimina un observador de la lista.\n- `notify()`: notifica a todos los observadores llamando a su método `update()`.\n\n**Método clave del Observador**:\n- `update()`: recibe la notificación y puede pedir el estado actual al sujeto con `getState()`.\n\n**Diagrama simplificado**: `Sujeto { observadores: List<Observer>; +attach(o); +detach(o); +notify() }`. `Observer { +update() }`. Cuando cambia el estado del Sujeto, llama a `notify()`, que itera sobre la lista y llama a `update()` en cada observador.\n\n**Ejemplos de aplicación**:\n- Sistema domótico: sensores (sujetos) notifican a varios controladores (observadores) cuando cambia su valor.\n- Indicador de fortaleza de contraseña: el campo de texto (sujeto) notifica al indicador (observador) cada vez que cambia su contenido.\n- Listeners de eventos en interfaces gráficas.\n\n**El profesor subraya** que en la corrección del examen mira específicamente que aparezcan los métodos `attach()`, `detach()` y `notify()` en el diagrama."
+      },
+      {
+        "titulo": "Patrón State (Estado)",
+        "contenido": "**Categoría**: Comportamiento.\n\n**Problema**: el comportamiento de un objeto depende de su estado interno, y ese comportamiento cambia en tiempo de ejecución según el estado. Una implementación directa resulta en grandes bloques `switch/if` que son difíciles de mantener (código espagueti).\n\n**Solución**: en lugar de gestionar el estado con condicionales, se encapsula cada estado en una clase separada. El objeto principal (`Context`) delega el comportamiento en el objeto de estado actual. Cuando el estado cambia, se cambia el objeto de estado.\n\n**Estructura**: el `Context` tiene una referencia a la interfaz `State`. Cada `ConcreteState` implementa el comportamiento apropiado para ese estado. El Context delega las peticiones de comportamiento al estado actual.\n\n**Ejemplo clásico de videojuego**: un personaje con distintos atributos (raza, nivel de energía, número de heridas) tiene comportamientos distintos según su estado. En lugar de un enorme `if/switch`, cada combinación de estado se encapsula en una clase.\n\n**Otros ejemplos**:\n- Semáforo: cada estado (Rojo, Ámbar, Verde) encapsula su propio comportamiento y transiciones.\n- Pedido en un e-commerce: estados Borrador → Enviado → Aprobado → Entregado, cada uno con operaciones permitidas diferentes.\n- Sistema domótico: cada modo de funcionamiento (ocupado, ausente, noche) tiene un comportamiento diferente ante los mismos eventos."
+      },
+      {
+        "titulo": "Patrones de interacción (UI)",
+        "contenido": "Los patrones de interacción son buenas prácticas para resolver problemas habituales de usabilidad en el diseño de interfaces de usuario. Son distintos de los patrones GoF: no hablan de clases y objetos, sino de cómo diseñar lo que el usuario ve e interactúa.\n\n**Características**:\n- No existen catálogos normalizados o estándar: hay varios catálogos independientes, cada uno con su propia clasificación.\n- Son soluciones probadas a problemas de usabilidad recurrentes.\n\n**Principales catálogos**:\n- **ui-patterns.com** (UI Patterns): categorías de entrada de datos, navegación, trabajo con datos, social, etc.\n- **welie.com** (Patterns in Interaction Design): categorías de navegación, búsqueda, compras, personalización, etc.\n- **User Interface Design Patterns**: categorías de búsqueda, visualización de datos, selección, jerarquías, etc.\n\n**Ejemplos de patrones de interacción**:\n- **Indicador de fuerza de contraseña** (Password Strength Meter): categoría entrada de información/formularios. Problema: el usuario no sabe si su contraseña es suficientemente robusta. Solución: mostrar una barra o indicador que va cambiando de color/texto mientras el usuario escribe, reflejando la fortaleza de la contraseña.\n- **Carrusel**: categoría navegación. Problema: el usuario desea navegar entre una serie de elementos del catálogo y tal vez seleccionarlos. Solución: presentar los elementos en un carrusel deslizable.\n- **Indicador de reacciones**: permite a los usuarios expresar reacciones rápidas a un contenido.\n\n**Importante para el examen**: en el Ejercicio 2, cuando se piden patrones de interacción, hay que indicar el catálogo utilizado y enlazarlo, y describir el problema que resuelve. No hay que copiar diagramas del catálogo."
+      }
+    ]
+  },
+  "resumen": [
+    "Un patrón de diseño es una solución reutilizable a un problema recurrente en el desarrollo de software. Debe ser repetible (efectivo en más de una ocasión) y general (aplicable a múltiples contextos).",
+    "Los patrones de diseño buscan aumentar la cohesión y reducir el acoplamiento. Pueden complicar el diseño añadiendo clases extra, por lo que deben usarse con criterio.",
+    "Los 13 patrones GoF se agrupan en tres categorías: creacionales (construcción de objetos), estructurales (composición de clases/objetos) y de comportamiento (comunicación y responsabilidades).",
+    "Abstract Factory crea familias de objetos relacionados con una interfaz común, sin especificar las clases concretas. Útil para componentes de UI por plataforma.",
+    "Builder encapsula un proceso de construcción complejo en pasos que puede producir distintos resultados. Útil para objetos configurables como notificaciones.",
+    "Prototype permite clonar objetos ya configurados mediante una interfaz clone(). Útil para crear muchas copias de objetos complejos.",
+    "Singleton garantiza una única instancia de una clase con un punto de acceso global. Implementación: constructor privado + método estático getInstance().",
+    "Adapter permite que clases con interfaces incompatibles trabajen juntas intercalando una clase traductora. Puede implementarse por composición (objeto adaptador) o herencia (clase adaptadora).",
+    "Composite permite tratar objetos individuales (Leaf) y composiciones (Composite) de forma uniforme mediante una interfaz Component común.",
+    "Facade ofrece una interfaz simplificada a un subsistema complejo, reduciendo el acoplamiento entre cliente y subsistema.",
+    "Proxy controla el acceso a un objeto manteniendo la misma interfaz, añadiendo funcionalidad de caché, lazy load, seguridad o logging.",
+    "Chain of Responsibility establece una cadena de objetos donde cada uno decide si procesa la petición o la pasa al siguiente, desacoplando emisor y receptor.",
+    "Mediator centraliza la comunicación entre múltiples objetos colaboradores para reducir el acoplamiento. Se combina bien con Observer.",
+    "Observer define un modelo publicación-suscripción: el Sujeto notifica automáticamente a sus Observadores cuando cambia su estado. Métodos clave: attach(), detach(), notify().",
+    "State encapsula cada estado de un objeto en una clase separada, evitando grandes bloques condicionales y facilitando el mantenimiento.",
+    "Los patrones de interacción (UI) resuelven problemas de usabilidad. No están normalizados; existen catálogos como ui-patterns.com y welie.com. En el examen hay que citar el catálogo y enlazarlo."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Patrón de diseño",
+      "definicion": "Solución reutilizable a un problema que se repite con frecuencia en el desarrollo de software. Debe ser repetible (efectivo en más de una ocasión) y general (aplicable a múltiples contextos)."
+    },
+    {
+      "termino": "Patrones creacionales",
+      "definicion": "Categoría GoF que ayuda en la construcción de nuevos objetos con características complejas, abstrayendo y controlando el proceso de creación y ocultando los detalles concretos al cliente."
+    },
+    {
+      "termino": "Patrones estructurales",
+      "definicion": "Categoría GoF que ayuda a ensamblar objetos y clases en estructuras más grandes, manteniendo la flexibilidad y eficiencia del sistema."
+    },
+    {
+      "termino": "Patrones de comportamiento",
+      "definicion": "Categoría GoF que ayuda a resolver problemas de comunicación entre objetos, distribuyendo responsabilidades y colaboraciones."
+    },
+    {
+      "termino": "Abstract Factory (Fábrica Abstracta)",
+      "definicion": "Patrón creacional que permite crear familias de objetos relacionados sin especificar sus clases concretas. Usa una interfaz de fábrica abstracta cuyos métodos crean los objetos de la familia."
+    },
+    {
+      "termino": "Builder (Constructor)",
+      "definicion": "Patrón creacional que encapsula un proceso de construcción complejo en pasos (addPartA, addPartB, build()). El mismo proceso puede producir representaciones distintas."
+    },
+    {
+      "termino": "Prototype (Prototipo)",
+      "definicion": "Patrón creacional que permite clonar objetos ya configurados mediante una interfaz clone(). El prototipo sabe clonarse a sí mismo."
+    },
+    {
+      "termino": "Singleton",
+      "definicion": "Patrón creacional que garantiza que una clase tiene una única instancia con un punto de acceso global. Se implementa con constructor privado y método estático getInstance()."
+    },
+    {
+      "termino": "Adapter (Adaptador)",
+      "definicion": "Patrón estructural que permite la colaboración entre clases con interfaces incompatibles, intercalando una clase adaptadora que traduce las llamadas."
+    },
+    {
+      "termino": "Composite (Compuesto)",
+      "definicion": "Patrón estructural que permite tratar objetos individuales (Leaf) y composiciones (Composite) de forma uniforme mediante una interfaz Component con un método operation()."
+    },
+    {
+      "termino": "Facade (Fachada)",
+      "definicion": "Patrón estructural que ofrece una interfaz simplificada y unificada a un subsistema complejo, reduciendo el acoplamiento entre el cliente y el subsistema."
+    },
+    {
+      "termino": "Proxy",
+      "definicion": "Patrón estructural que controla el acceso a un objeto real manteniendo la misma interfaz, añadiendo funcionalidad adicional como caché, lazy load, seguridad o logging."
+    },
+    {
+      "termino": "Chain of Responsibility (Cadena de Responsabilidad)",
+      "definicion": "Patrón de comportamiento que establece una cadena de objetos donde cada uno decide si procesa la petición o la pasa al siguiente, desacoplando completamente emisor y receptor."
+    },
+    {
+      "termino": "Mediator (Mediador)",
+      "definicion": "Patrón de comportamiento que introduce un objeto central que coordina las comunicaciones entre múltiples colaboradores, reduciendo el acoplamiento entre ellos."
+    },
+    {
+      "termino": "Observer (Observador)",
+      "definicion": "Patrón de comportamiento donde el Sujeto notifica automáticamente a sus Observadores cuando cambia su estado. Métodos clave: attach(), detach(), notify() en el Sujeto y update() en el Observador."
+    },
+    {
+      "termino": "State (Estado)",
+      "definicion": "Patrón de comportamiento que encapsula cada estado de un objeto en una clase separada. El Context delega el comportamiento al objeto de estado actual, evitando grandes bloques condicionales."
+    },
+    {
+      "termino": "Patrones de interacción (UI)",
+      "definicion": "Buenas prácticas para resolver problemas de usabilidad en interfaces de usuario. No están normalizados; existen catálogos como ui-patterns.com, welie.com. Son distintos de los patrones GoF."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-7-fc-001",
+      "pregunta": "¿Cuáles son las tres categorías de patrones GoF?",
+      "respuesta": "Creacionales (controlan la creación de objetos), estructurales (componen clases/objetos en estructuras mayores) y de comportamiento (distribuyen responsabilidades y comunicación entre objetos)."
+    },
+    {
+      "id": "isa-tema-7-fc-002",
+      "pregunta": "¿Cuáles son los cuatro patrones creacionales GoF estudiados en la asignatura?",
+      "respuesta": "Abstract Factory (Fábrica Abstracta), Builder (Constructor), Prototype (Prototipo) y Singleton."
+    },
+    {
+      "id": "isa-tema-7-fc-003",
+      "pregunta": "¿Cuáles son los cuatro patrones estructurales GoF estudiados?",
+      "respuesta": "Adapter (Adaptador), Composite (Compuesto), Facade (Fachada) y Proxy."
+    },
+    {
+      "id": "isa-tema-7-fc-004",
+      "pregunta": "¿Cuáles son los patrones de comportamiento GoF estudiados?",
+      "respuesta": "Chain of Responsibility (Cadena de Responsabilidad), Mediator (Mediador), Observer (Observador), State (Estado) y Template Method (Método Plantilla)."
+    },
+    {
+      "id": "isa-tema-7-fc-005",
+      "pregunta": "¿Qué problema resuelve el patrón Abstract Factory?",
+      "respuesta": "Crear familias de objetos relacionados sin especificar sus clases concretas, permitiendo que el cliente trabaje con una interfaz abstracta independientemente del tipo concreto creado."
+    },
+    {
+      "id": "isa-tema-7-fc-006",
+      "pregunta": "¿En qué se diferencia Abstract Factory de Builder?",
+      "respuesta": "Abstract Factory crea familias de objetos relacionados de una vez; Builder construye un único objeto complejo paso a paso (addPartA, addPartB, build()), pudiendo producir distintas representaciones."
+    },
+    {
+      "id": "isa-tema-7-fc-007",
+      "pregunta": "¿Cuál es la interfaz clave del patrón Prototype?",
+      "respuesta": "El método clone(). Todos los prototipos lo implementan y cada uno sabe cómo clonarse a sí mismo devolviendo una copia."
+    },
+    {
+      "id": "isa-tema-7-fc-008",
+      "pregunta": "¿Cómo se implementa el patrón Singleton?",
+      "respuesta": "Constructor privado (para que nadie pueda crear instancias directamente) + método estático getInstance() que devuelve siempre la misma instancia, creándola solo la primera vez."
+    },
+    {
+      "id": "isa-tema-7-fc-009",
+      "pregunta": "Da un ejemplo de diagrama simplificado del Singleton.",
+      "respuesta": "Configuracion { -instancia: Configuracion; -Configuracion(); +getInstancia(): Configuracion }. El cliente accede solo a través de getInstancia()."
+    },
+    {
+      "id": "isa-tema-7-fc-010",
+      "pregunta": "¿Qué problema resuelve el patrón Adapter?",
+      "respuesta": "Permitir que clases con interfaces incompatibles trabajen juntas, intercalando una clase adaptadora que implementa la interfaz esperada por el cliente y traduce las llamadas al servicio existente."
+    },
+    {
+      "id": "isa-tema-7-fc-011",
+      "pregunta": "¿Cuáles son las dos formas de implementar el patrón Adapter?",
+      "respuesta": "Objeto Adaptador (composición): el Adapter contiene una referencia al Service. Clase Adaptadora (herencia): el Adapter hereda tanto de la interfaz objetivo como del Service existente."
+    },
+    {
+      "id": "isa-tema-7-fc-012",
+      "pregunta": "¿Qué estructura usa el patrón Composite?",
+      "respuesta": "Interfaz Component con método operation(). Leaf implementa directamente. Composite también implementa la interfaz y mantiene una lista de hijos (Component), delegando operation() en ellos."
+    },
+    {
+      "id": "isa-tema-7-fc-013",
+      "pregunta": "¿Qué ventaja aporta el patrón Facade?",
+      "respuesta": "Reduce el acoplamiento entre el cliente y el subsistema. El cliente solo conoce la fachada; los cambios internos del subsistema no le afectan mientras la interfaz de la fachada se mantenga estable."
+    },
+    {
+      "id": "isa-tema-7-fc-014",
+      "pregunta": "¿En qué se diferencia Proxy de Adapter?",
+      "respuesta": "El Proxy mantiene la misma interfaz que el objeto real, añadiendo funcionalidad extra (caché, seguridad, lazy load). El Adapter cambia la interfaz para hacerla compatible con la que espera el cliente."
+    },
+    {
+      "id": "isa-tema-7-fc-015",
+      "pregunta": "¿Qué hace el patrón Chain of Responsibility?",
+      "respuesta": "Establece una cadena de objetos donde cada uno decide si procesa la petición o la pasa al siguiente. Desacopla completamente al emisor del receptor."
+    },
+    {
+      "id": "isa-tema-7-fc-016",
+      "pregunta": "¿Qué problema resuelve el patrón Mediator?",
+      "respuesta": "El alto acoplamiento entre múltiples objetos que colaboran entre sí. El Mediator centraliza toda la comunicación: los componentes solo conocen al mediador, no entre sí."
+    },
+    {
+      "id": "isa-tema-7-fc-017",
+      "pregunta": "¿Con qué patrón se combina bien el Mediator y por qué?",
+      "respuesta": "Con Observer. El mediador puede observar a todos los componentes: cuando uno cambia, el mediador es notificado (update) y decide qué otros componentes afectar. Reduce el acoplamiento respecto a tener todos los objetos observándose mutuamente."
+    },
+    {
+      "id": "isa-tema-7-fc-018",
+      "pregunta": "¿Cuáles son los tres métodos clave del Sujeto en el patrón Observer?",
+      "respuesta": "attach(observer): añade un observador a la lista. detach(observer): elimina un observador. notify(): recorre la lista y llama a update() en cada observador."
+    },
+    {
+      "id": "isa-tema-7-fc-019",
+      "pregunta": "¿Qué método implementa el Observador en el patrón Observer?",
+      "respuesta": "El método update(), que es llamado por el Sujeto cuando cambia su estado. El observador puede entonces pedir el estado actual con getState()."
+    },
+    {
+      "id": "isa-tema-7-fc-020",
+      "pregunta": "¿Qué problema resuelve el patrón State?",
+      "respuesta": "El comportamiento de un objeto que depende de su estado interno y cambia en tiempo de ejecución. En lugar de grandes bloques if/switch, cada estado se encapsula en una clase concreta."
+    },
+    {
+      "id": "isa-tema-7-fc-021",
+      "pregunta": "¿Qué diferencia los patrones de interacción (UI) de los patrones GoF?",
+      "respuesta": "Los UI resuelven problemas de usabilidad en el diseño visual e interactivo de interfaces de usuario (lo que el usuario ve). Los GoF resuelven problemas de estructura y comunicación en el código de software."
+    },
+    {
+      "id": "isa-tema-7-fc-022",
+      "pregunta": "Nombra dos catálogos de patrones de interacción.",
+      "respuesta": "ui-patterns.com y welie.com (Patterns in Interaction Design). También existe User Interface Design Patterns (goo.gl/HEsFn5)."
+    },
+    {
+      "id": "isa-tema-7-fc-023",
+      "pregunta": "¿Qué patrón de interacción resuelve el problema de que el usuario no sabe si su contraseña es suficientemente robusta?",
+      "respuesta": "El indicador de fuerza de contraseña (Password Strength Meter), de la categoría entrada de información/formularios. Muestra una barra o indicador que refleja la fortaleza mientras el usuario escribe."
+    },
+    {
+      "id": "isa-tema-7-fc-024",
+      "pregunta": "¿Cuándo NO conviene aplicar un patrón de diseño?",
+      "respuesta": "Cuando complica el diseño sin aportar valor real. Los patrones introducen clases adicionales e interfaces; si el problema no lo justifica, añaden complejidad innecesaria."
+    },
+    {
+      "id": "isa-tema-7-fc-025",
+      "pregunta": "¿Cuál es el patrón de diseño más frecuente en las soluciones del Ejercicio 2 del examen?",
+      "respuesta": "Facade (Fachada). Aparece en casi todas las soluciones de los exámenes anteriores como una fachada que simplifica el acceso al sistema (BookingFacade, DroneFacade, BankingFacade, etc.)."
+    },
+    {
+      "id": "isa-tema-7-fc-026",
+      "pregunta": "¿Qué patrón usarías para un sistema donde distintas vistas de una app deben actualizarse automáticamente cuando cambia un dato?",
+      "respuesta": "Observer. Las vistas son los observadores y el modelo de datos es el sujeto. Cuando el dato cambia, el sujeto llama a notify() y todas las vistas actualizan su representación."
+    },
+    {
+      "id": "isa-tema-7-fc-027",
+      "pregunta": "¿Qué patrón usarías para garantizar que hay una única instancia del gestor de conexión a base de datos?",
+      "respuesta": "Singleton. Constructor privado y método estático getInstance() aseguran que solo existe una instancia del gestor en todo el sistema."
+    },
+    {
+      "id": "isa-tema-7-fc-028",
+      "pregunta": "¿Qué patrón usarías para integrar una librería de pagos externa que tiene una interfaz diferente a la que usa tu sistema?",
+      "respuesta": "Adapter. Se crea un adaptador que implementa la interfaz que espera el sistema y traduce internamente las llamadas a la interfaz de la librería externa."
+    },
+    {
+      "id": "isa-tema-7-fc-029",
+      "pregunta": "¿Qué patrón usarías para modelar los estados de un pedido (Borrador → Enviado → Aprobado → Entregado) con comportamientos distintos en cada estado?",
+      "respuesta": "State. Cada estado del pedido se encapsula en una clase concreta que implementa el comportamiento apropiado y las transiciones permitidas para ese estado."
+    },
+    {
+      "id": "isa-tema-7-fc-030",
+      "pregunta": "¿Qué patrón usarías para un sistema de archivos donde carpetas y archivos deben poder operarse de la misma manera?",
+      "respuesta": "Composite. Los archivos son Leaf y las carpetas son Composite. Ambos implementan la interfaz Component con el método operation() (por ejemplo, calcularTamaño()), permitiendo tratarlos uniformemente."
+    }
+  ]
+}

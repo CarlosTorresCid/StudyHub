@@ -1,0 +1,307 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. Scrum",
+  "apuntes": {
+    "introduccion": "Scrum es el framework ágil más utilizado en la industria del software. A diferencia de XP, que se centra en prácticas técnicas concretas, Scrum propone un marco general de administración del proceso: define quién hace qué (roles), qué se produce (artefactos) y cuándo se reúne el equipo (eventos). Su fundamento es empírico: cualquier decisión debe tomarse a partir del conocimiento acumulado por la experiencia. Este tema estudia en profundidad todos los componentes de Scrum, desde sus orígenes hasta las técnicas de estimación y las estrategias de escalado para proyectos grandes.",
+    "secciones": [
+      {
+        "titulo": "Orígenes y filosofía de Scrum",
+        "contenido": "Scrum es un framework de desarrollo de software creado por Jeff Sutherland a comienzos de la década de 1990, aunque sus raíces conceptuales se remontan a un artículo de Takeuchi y Nonaka publicado en Harvard Business Review en 1986, titulado 'The New New Product Development Game'. En ese artículo, los autores describían cómo empresas japonesas y estadounidenses estaban adoptando un método holístico para el desarrollo de productos, en el que el equipo avanzaba como una unidad, como en el rugby: la pelota pasa dentro del equipo mientras se mueve como una unidad en el campo. Precisamente de ahí proviene el nombre: scrum es una formación del rugby.\n\nScrum no es propiamente una metodología, sino un **marco general de trabajo** para el desarrollo de productos complejos. Se centra en la **administración iterativa del proceso** y no tanto en prácticas específicas de ingeniería. No prescribe actividades concretas de desarrollo ni especifica en detalle cómo organizarse internamente, sino que proporciona un contexto en el que los propios implicados creen su proceso.\n\nEsto hace que Scrum sea especialmente apropiado para **combinarlo con otras metodologías** (como XP) y que sea aplicable incluso fuera del desarrollo software.\n\nScrum tiene una **fundamentación empírica**: defiende que cualquier decisión debe tomarse a partir del conocimiento acumulado por la experiencia. Para poder establecer un control del proceso empírico, Scrum se asienta sobre tres pilares:\n- **Transparencia:** toda la información relevante del proyecto debe estar disponible y ser accesible para todos los participantes. Los artefactos, los objetivos y el estado del desarrollo deben ser visibles (tableros, wikis, repositorios).\n- **Inspección:** no basta con que la información esté disponible; los participantes deben revisarla activamente para detectar problemas, desviaciones o aspectos incompletos.\n- **Adaptación:** cuando se detecta cualquier problema o desviación, se deben tomar medidas correctoras de forma inmediata, sin esperar a que el problema se agrave."
+      },
+      {
+        "titulo": "Valores de Scrum",
+        "contenido": "Scrum se adhiere a los cuatro valores del Manifiesto Ágil y, además, añade cuatro valores específicos propios:\n\n**Cómo Scrum recoge los cuatro valores del Manifiesto Ágil:**\n\n- *Individuos e interacciones sobre procesos y herramientas:* los equipos Scrum toman el control y la responsabilidad del desarrollo, se autoorganizan, resuelven sus propios problemas con la ayuda del Scrum Master y se comunican a través de reuniones de carácter generalmente informal. No existe la figura del jefe de proyecto que asigne tareas individualmente.\n- *Software funcional sobre documentación extensa:* al final de cada sprint se entrega al cliente una nueva versión del producto lista para su utilización. La documentación es una herramienta intermedia de apoyo y no constituye en sí misma un producto entregable.\n- *Colaboración con el cliente sobre negociación contractual:* Scrum adopta la figura del **Product Owner** como representante del cliente y los stakeholders dentro del equipo. Su misión es maximizar el valor del producto y colaborar con el equipo de desarrollo para que las iteraciones se orienten hacia la generación de valor real.\n- *Respuesta al cambio sobre seguimiento de un plan:* el enfoque de reuniones y artefactos permite que todos los participantes tengan información actualizada sobre el proyecto, lo que facilita la detección de cambios y la toma rápida de decisiones. La pila de producto puede modificarse en cualquier momento.\n\n**Valores específicos de Scrum (añadidos al Manifiesto):**\n- **Compromiso:** el equipo se compromete a sacar adelante el trabajo acordado en cada sprint.\n- **Coraje:** el equipo colabora para afrontar retos complejos y tomar las decisiones oportunas, aunque sean difíciles.\n- **Focalización:** en cada sprint, el equipo se centra exclusivamente en el trabajo comprometido para ese período.\n- **Apertura:** todos los miembros tienen acceso a la información actualizada sobre el proceso y el producto (relacionado con el pilar de transparencia)."
+      },
+      {
+        "titulo": "Las tres fases de Scrum: prejuego, juego y postjuego",
+        "contenido": "Una forma útil de entender el proceso Scrum en su conjunto es verlo como tres grandes fases:\n\n**Fase 1 — Prejuego:**\nMisión: preparar el trabajo. Se definen y analizan las funcionalidades esperadas del sistema. Los documentos fundamentales de esta fase son el Product Backlog (pila del producto) y el Sprint Backlog (pila del sprint), que permiten mantener los requisitos del sistema en su conjunto y los asociados a cada iteración. Incluye también la formación del equipo y la planificación inicial.\n\n**Fase 2 — Juego:**\nMisión: ejecutar el desarrollo. Las tareas de desarrollo se distribuyen entre los miembros del equipo. Durante cada sprint (iteración) se realiza el seguimiento del proceso mediante las reuniones diarias (Daily Scrum) de corta duración. Es la fase principal, donde se produce el software.\n\n**Fase 3 — Postjuego:**\nMisión: revisar y mejorar. Al final de cada iteración se evalúa la entrega. Comprende dos reuniones clave: la **revisión del sprint** (se muestra el incremento al Product Owner y stakeholders, que lo aceptan o rechazan) y la **retrospectiva del sprint** (el equipo analiza su trabajo y propone mejoras para la siguiente iteración)."
+      },
+      {
+        "titulo": "Los roles de Scrum",
+        "contenido": "Scrum define exactamente **tres roles**. Todos ellos forman el 'Equipo Scrum':\n\n**Product Owner (Dueño del Producto / PO):**\nEs el responsable último del éxito del producto. Su misión principal es **maximizar el valor del producto** y, para ello, gestiona la pila del producto (Product Backlog). Sus responsabilidades incluyen:\n- Comprender los objetivos del producto.\n- Comunicarse con el cliente, usuarios y stakeholders.\n- Definir los requisitos y mantener el Product Backlog priorizado.\n- Determinar el alcance de cada iteración (qué entra en cada sprint).\n- Aceptar o rechazar la versión entregada al final de cada sprint.\n\nEl PO es el interlocutor entre el equipo técnico y el negocio. Conoce el mercado, los objetivos de los usuarios y prioriza según el valor de negocio. No tiene por qué tener perfil técnico, y precisamente por eso **no asigna la complejidad de las historias**: eso es responsabilidad del equipo de desarrollo.\n\n**Scrum Master (SM):**\nEs el facilitador del proceso Scrum. Su rol es asegurarse de que el equipo comprende y aplica correctamente el framework. **No es un jefe de proyecto**: no asigna tareas ni toma decisiones técnicas. Sus funciones son:\n- Eliminar impedimentos que bloquean al equipo.\n- Facilitar las reuniones y asegurar su correcta ejecución.\n- Proteger al equipo de interferencias externas.\n- Fomentar la autoorganización del equipo.\n- Ayudar a la organización a adoptar Scrum correctamente.\n\n**Equipo de Desarrollo:**\nFormado por profesionales que trabajan para entregar un incremento del producto al final de cada sprint. Sus características definitorias son:\n- **Tamaño:** entre 3 y 9 personas. Equipos más pequeños pueden tener dificultades de diversidad; más grandes generan problemas de coordinación.\n- **Autoorganización:** el equipo decide internamente cómo realizar el trabajo.\n- **Multifuncionalidad:** tiene todas las habilidades necesarias para entregar el incremento sin depender de agentes externos.\n- **Sin sub-equipos ni títulos jerárquicos** dentro del equipo."
+      },
+      {
+        "titulo": "Los artefactos de Scrum",
+        "contenido": "Scrum define tres artefactos principales que soportan la gestión del proceso:\n\n**Pila del Producto (Product Backlog):**\nEs la lista ordenada y priorizada de todo lo que se necesita para mejorar el producto. Contiene los **Product Backlog Items (PBIs)**, que son los requisitos del sistema. Es propiedad del **Product Owner**, quien la gestiona y prioriza en todo momento. Está en constante evolución: se añaden, eliminan y reordenan elementos a medida que cambian las necesidades del negocio.\n\nImportante: la guía oficial de Scrum habla de 'PBIs', no necesariamente de historias de usuario. Las historias de usuario provienen de XP y son la forma más habitual de expresar los PBIs, pero no son obligatorias en Scrum.\n\n**Pila del Sprint (Sprint Backlog):**\nEs el conjunto de PBIs seleccionados del Product Backlog para el sprint actual, más las tareas concretas de implementación en las que el equipo los descompone. Es propiedad del **equipo de desarrollo**, que la gestiona. Representa el compromiso del equipo para el sprint.\n\n**Incremento:**\nEs la suma de todos los PBIs completados durante el sprint y el valor de los incrementos de todos los sprints anteriores. Debe ser un producto 'terminado, utilizable y potencialmente desplegable'. Es la entrega tangible al final de cada sprint."
+      },
+      {
+        "titulo": "Los eventos de Scrum",
+        "contenido": "Scrum define cinco eventos o reuniones. Todos tienen una **duración máxima controlada** (time-box) para evitar que consuman tiempo de desarrollo en exceso:\n\n**El Sprint:**\nEs cada uno de los períodos de tiempo de **duración fija**, nunca superior a un mes (habitualmente 1 a 4 semanas), durante el cual se crea un incremento del producto. Durante un sprint:\n- No se realizan cambios que puedan afectar al objetivo del sprint.\n- La duración permanece constante a lo largo del proyecto.\n- El sprint es el contenedor del resto de eventos.\n\n**Planificación del Sprint (Sprint Planning) — hasta 8 horas:**\nReunión al inicio de cada sprint en la que se definen el objetivo del sprint y el Sprint Backlog. El PO presenta los PBIs más prioritarios; el equipo de desarrollo los analiza, se compromete con un conjunto de ellos y los descompone en tareas concretas. La salida es el **Sprint Goal** (objetivo del sprint) y el **Sprint Backlog** (pila del sprint con tareas).\n\n**Scrum Diario (Daily Scrum) — 15 minutos:**\nReunión diaria del equipo de desarrollo (sin presencia obligatoria del PO ni del SM) en la que cada miembro responde tres preguntas:\n- ¿Qué hice ayer para avanzar hacia el objetivo del sprint?\n- ¿Qué voy a hacer hoy?\n- ¿Existe algún impedimento que me bloquea?\n\nSu objetivo es inspeccionar el progreso y adaptarse si es necesario. No es una reunión de informe al Scrum Master.\n\n**Revisión del Sprint (Sprint Review) — 2 a 4 horas:**\nReunión al final del sprint en la que el equipo muestra el incremento al PO y a los stakeholders invitados. Se recoge feedback y se decide si el incremento se acepta o no. El Product Backlog puede actualizarse en función de lo aprendido.\n\n**Retrospectiva del Sprint (Sprint Retrospective) — 1 a 3 horas:**\nReunión del equipo Scrum (incluyendo el SM) al final del sprint para reflexionar sobre el proceso de trabajo. Se analizan qué aspectos funcionaron bien, cuáles no y se proponen mejoras concretas para el siguiente sprint. Es una reunión de mejora continua del proceso."
+      },
+      {
+        "titulo": "Las historias de usuario y el criterio INVEST",
+        "contenido": "Las **historias de usuario** son la forma más habitual de expresar los PBIs del Product Backlog, aunque técnicamente provienen de la metodología XP y no son obligatorias en Scrum. Permiten capturar los requisitos desde la perspectiva del usuario.\n\n**Formato estándar:**\nComo *[rol de usuario]*, quiero *[funcionalidad]* para *[beneficio o valor].\n\nEjemplo: 'Como comprador registrado, quiero guardar productos en una lista de favoritos para poder encontrarlos fácilmente en el futuro.'\n\nLas historias no deben ser triviales. No son válidas historias como 'iniciar sesión', 'cerrar sesión' o 'crear usuario', salvo que aporten un valor diferencial concreto.\n\n**Criterio INVEST:**\nUna buena historia de usuario debe cumplir las siguientes características:\n- **I — Independiente (Independent):** idealmente, no debe depender de otras historias para poder implementarse. Es la característica más difícil de conseguir.\n- **N — Negociable (Negotiable):** su alcance y detalle pueden negociarse entre el equipo y el PO. No es un contrato fijo.\n- **V — Valiosa (Valuable):** debe aportar valor real al cliente o usuario. Si no aporta valor, no tiene cabida en el Product Backlog.\n- **E — Estimable (Estimable):** debe ser posible valorar el esfuerzo necesario para implementarla. Si no se puede estimar, probablemente es demasiado grande o imprecisa.\n- **S — Pequeña (Small):** debe ser lo suficientemente pequeña para completarse en un sprint. Las historias grandes se denominan 'épicas' y deben descomponerse.\n- **T — Verificable (Testable):** debe poder comprobarse si ha sido implementada correctamente mediante pruebas o criterios de aceptación definidos."
+      },
+      {
+        "titulo": "Descomposición en tareas y el criterio SMART",
+        "contenido": "Una historia de usuario es la descripción de una funcionalidad a alto nivel. Para poder planificar y realizar el seguimiento del sprint, es imprescindible **descomponer cada historia de usuario en tareas concretas de implementación** durante la reunión de planificación del sprint.\n\n**¿Por qué es importante esta descomposición?**\n- Permite al equipo establecer un compromiso de trabajo más realista y detallado.\n- Facilita la estimación en horas de cada tarea concreta.\n- Mejora el seguimiento del progreso durante el sprint (tablero Kanban, burndown chart).\n- Permite asignar tareas a miembros del equipo con las habilidades adecuadas.\n\n**Criterio SMART para las tareas:**\nLas tareas en las que se descomponen las historias deben ser:\n- **S — Específicas (Specific):** bien definidas, sin ambigüedad.\n- **M — Medibles (Measurable):** debe poderse saber cuándo están terminadas.\n- **A — Alcanzables (Achievable):** realizables en el tiempo del sprint.\n- **R — Relevantes (Relevant):** contribuyen directamente a completar la historia.\n- **T — Acotadas en el tiempo (Time-boxed):** con una duración estimada en horas.\n\n**Diferencia clave INVEST vs. SMART:** INVEST se aplica a las **historias de usuario** (PBIs, nivel de requisito), mientras que SMART se aplica a las **tareas** en las que se descomponen esas historias (nivel de implementación)."
+      },
+      {
+        "titulo": "Estimaciones ágiles: puntos de historia y burndown chart",
+        "contenido": "Scrum no prescribe un método de estimación concreto, pero el enfoque más habitual es el siguiente:\n\n**Estimación de historias con puntos de historia (Story Points):**\nLos puntos de historia no miden tiempo, sino **complejidad relativa**: sirven para comparar historias entre sí. No hay una conversión directa a horas. El equipo de desarrollo dialoga con el PO para comprender cada historia y asigna una puntuación usando una escala simplificada, normalmente inspirada en Fibonacci: {0, 1, 3, 5, 8, 13, 21, 40, 100}.\n\nLa utilidad está en la comparación: si una historia tiene 2 puntos y otra tiene 8, la segunda es aproximadamente cuatro veces más compleja que la primera.\n\n**¿Quién estima?** El equipo de desarrollo. El PO prioriza el valor de negocio, pero no asigna complejidades técnicas porque no tiene por qué tener conocimiento técnico. La estimación es una decisión del equipo.\n\n**Técnica del Póker de Planificación:** cada miembro del equipo elige simultáneamente una carta con su estimación (para evitar el efecto de anclaje). Si hay discrepancias, se debate y se vuelve a estimar hasta llegar a un consenso.\n\n**Estimación de tareas en horas:**\nDurante la planificación del sprint, una vez descompuestas las historias en tareas, sí se estiman estas en horas. Es más fácil estimar con precisión una tarea concreta (ej.: 'implementar el controlador de login: 4 horas') que una historia completa.\n\n**Burndown Chart (gráfica de quemado):**\nHerramienta de seguimiento visual del sprint. Muestra el trabajo restante (en horas o en número de tareas) a lo largo de los días del sprint. La línea ideal de referencia indica cómo debería avanzar el progreso. Permite detectar rápidamente si el equipo está por delante o por detrás de lo esperado y tomar medidas correctoras."
+      },
+      {
+        "titulo": "Escalado de Scrum a grandes proyectos",
+        "contenido": "Scrum está pensado para equipos pequeños (3-9 personas). Cuando el proyecto requiere más personas, se distribuye el trabajo en **varios equipos Scrum simultáneos**, definiendo cauces de comunicación adicionales.\n\n**Dos estrategias de distribución de equipos:**\n\n**1. Agrupación por especialidades:**\nCada equipo se forma con personas del mismo perfil técnico (equipo de frontend, equipo de backend, equipo de QA, etc.). Los subsistemas o funcionalidades se asignan a cada equipo especializado.\n- *Ventaja:* mayor eficiencia técnica y profundidad de conocimiento en el área especializada.\n- *Desventaja:* riesgo de 'silos' de conocimiento, dependencias entre equipos, visión parcial del producto, menor autonomía para entregar funcionalidades completas end-to-end.\n\n**2. Agrupación por historias:**\nCada equipo es multidisciplinar (incluye desarrolladores de frontend, backend, QA, etc.) y cada uno asume y entrega historias de usuario completas de forma autónoma.\n- *Ventaja:* mayor autonomía, entregas más completas centradas en el usuario, equipos más alineados con el valor del producto.\n- *Desventaja:* mayor necesidad de coordinación entre equipos para evitar duplicidades y dependencias técnicas.\n\n**Scrum de Scrums:**\nCuando trabajan varios equipos Scrum simultáneamente, se necesita una reunión de sincronización entre ellos. El **Scrum de Scrums** es una reunión periódica (frecuentemente diaria, posterior al Daily Scrum de cada equipo) en la que un representante técnico de cada equipo se reúne con los representantes del resto para:\n- Compartir qué ha hecho su equipo desde la última reunión.\n- Qué hará hasta la próxima.\n- Qué impedimentos tienen.\n- Qué impedimentos pueden afectar a otros equipos.\n\nEste representante debe tener perfil técnico y capacidad de tomar decisiones sobre el proceso.\n\n**Gestión del Product Backlog en proyectos grandes:**\nExisten varias opciones: un único PO con un único PB (máxima coherencia, posible cuello de botella), un PO con varios PBs (uno por equipo), o varios POs con varios PBs. Cada opción tiene sus implicaciones en cuanto a coherencia de visión y carga de trabajo."
+      },
+      {
+        "titulo": "Extensiones de Scrum: Scrumban y Scrum+XP",
+        "contenido": "Scrum es un marco flexible especialmente apropiado para combinarse con elementos de otras metodologías:\n\n**Scrumban (Scrum + Kanban):**\nKanban es un método que hace énfasis en la entrega continua, visualizando el flujo de trabajo y evitando saturaciones. Sus tres principios básicos son: visualización del flujo de trabajo (mediante el tablero Kanban), limitación del trabajo en curso (WIP) y gestión del flujo.\n\nEn Scrumban se adopta el tablero Kanban para visualizar el progreso dentro del sprint. En la variante más integrada, se tiende hacia un modelo de flujo continuo en el que la pila del sprint deja de ser necesaria y todas las tareas pendientes se gestionan desde el tablero.\n\n**Scrum + XP:**\nLa combinación más frecuente. Scrum aporta el marco de gestión del proceso (roles, reuniones, artefactos) mientras XP aporta las prácticas técnicas concretas: TDD, programación en parejas, integración continua, refactorización, propiedad colectiva del código, etc. Esta combinación cubre tanto el 'qué hacer' y 'cuándo' (Scrum) como el 'cómo hacerlo técnicamente' (XP)."
+      }
+    ]
+  },
+  "resumen": [
+    "Scrum es un marco general de trabajo (framework) para el desarrollo de productos complejos, basado en la administración iterativa del proceso; no prescribe prácticas técnicas concretas.",
+    "Su fundamentación es empírica y se asienta sobre tres pilares: transparencia, inspección y adaptación.",
+    "Scrum recoge los 4 valores del Manifiesto Ágil y añade 4 propios: compromiso, coraje, focalización y apertura.",
+    "El proceso Scrum puede verse en tres grandes fases: prejuego (preparación y Product Backlog), juego (ejecución de sprints con dailies) y postjuego (revisión y retrospectiva).",
+    "Los tres roles de Scrum son: Product Owner (maximiza el valor del producto y gestiona el PB), Scrum Master (facilita el proceso, no es jefe de proyecto) y equipo de desarrollo (3-9 personas, autoorganizado, multifuncional).",
+    "Los artefactos son: Product Backlog (lista priorizada de PBIs, propiedad del PO), Sprint Backlog (PBIs + tareas del sprint, propiedad del equipo) e Incremento (entrega potencialmente desplegable al final del sprint).",
+    "Los eventos son: Sprint (1-4 semanas), Sprint Planning (hasta 8h), Daily Scrum (15 min), Sprint Review (2-4h) y Sprint Retrospective (1-3h).",
+    "Las historias de usuario siguen el formato 'Como [rol], quiero [funcionalidad] para [beneficio]' y deben cumplir el criterio INVEST: Independiente, Negociable, Valiosa, Estimable, Small (pequeña) y Testable (verificable).",
+    "Las tareas en las que se descomponen las historias deben ser SMART: Specific, Measurable, Achievable, Relevant y Time-boxed.",
+    "Las historias se estiman en puntos de historia (complejidad relativa) con técnicas como el Póker de Planificación; las tareas se estiman en horas. El Burndown Chart permite seguir el progreso del sprint.",
+    "Para escalar Scrum a proyectos grandes existen dos estrategias: equipos por especialidades (eficiencia técnica, riesgo de silos) y equipos por historias (autonomía end-to-end, mayor coordinación).",
+    "El Scrum de Scrums es una reunión periódica de representantes técnicos de cada equipo para sincronizar avances e impedimentos en proyectos multi-equipo.",
+    "Scrum se combina fácilmente con Kanban (Scrumban) y con XP (Scrum+XP), siendo esta última la combinación más frecuente en la industria."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Scrum",
+      "definicion": "Framework ágil de administración iterativa del proceso de desarrollo, basado en equipos pequeños, autoorganizados y multifuncionales. Define roles, artefactos y eventos, pero no prescribe prácticas técnicas concretas."
+    },
+    {
+      "termino": "Transparencia (pilar Scrum)",
+      "definicion": "Toda la información relevante del proyecto debe estar disponible y ser accesible para todos los participantes del proceso."
+    },
+    {
+      "termino": "Inspección (pilar Scrum)",
+      "definicion": "Los participantes deben revisar activamente la información disponible para detectar problemas o desviaciones respecto a los objetivos."
+    },
+    {
+      "termino": "Adaptación (pilar Scrum)",
+      "definicion": "Cuando se detecta un problema o desviación, se deben tomar medidas correctoras de forma inmediata."
+    },
+    {
+      "termino": "Product Owner (PO)",
+      "definicion": "Rol de Scrum responsable de maximizar el valor del producto. Gestiona y prioriza el Product Backlog, representa al cliente y acepta o rechaza los incrementos de cada sprint."
+    },
+    {
+      "termino": "Scrum Master (SM)",
+      "definicion": "Rol de Scrum que facilita el proceso, elimina impedimentos y asegura que el equipo aplica correctamente el framework. No es un jefe de proyecto ni asigna tareas."
+    },
+    {
+      "termino": "Equipo de Desarrollo",
+      "definicion": "Grupo de 3 a 9 profesionales autoorganizados y multifuncionales que producen el incremento del producto en cada sprint. No hay sub-equipos ni jerarquías internas."
+    },
+    {
+      "termino": "Product Backlog (Pila del Producto)",
+      "definicion": "Lista ordenada y priorizada de todo lo que se necesita para mejorar el producto, expresada como PBIs. Es propiedad del Product Owner y está en constante evolución."
+    },
+    {
+      "termino": "Sprint Backlog (Pila del Sprint)",
+      "definicion": "Conjunto de PBIs seleccionados para el sprint actual más las tareas en las que el equipo los descompone. Es propiedad del equipo de desarrollo y representa su compromiso para el sprint."
+    },
+    {
+      "termino": "Sprint",
+      "definicion": "Iteración de duración fija (1-4 semanas, nunca más de un mes) que produce un incremento del producto terminado, utilizable y potencialmente desplegable. Durante el sprint no se introducen cambios en el objetivo."
+    },
+    {
+      "termino": "Daily Scrum (Scrum Diario)",
+      "definicion": "Reunión diaria de 15 minutos del equipo de desarrollo para inspeccionar el progreso e identificar impedimentos. Cada miembro responde: qué hizo ayer, qué hará hoy y si hay impedimentos."
+    },
+    {
+      "termino": "Sprint Review (Revisión del Sprint)",
+      "definicion": "Reunión al final del sprint (2-4 horas) en la que el equipo muestra el incremento al PO y stakeholders para obtener feedback. El PO acepta o rechaza la entrega."
+    },
+    {
+      "termino": "Sprint Retrospective (Retrospectiva del Sprint)",
+      "definicion": "Reunión al final del sprint (1-3 horas) en la que el equipo Scrum reflexiona sobre el proceso de trabajo para mejorar continuamente en el siguiente sprint."
+    },
+    {
+      "termino": "Historia de usuario",
+      "definicion": "Forma de expresar un PBI desde la perspectiva del usuario: 'Como [rol], quiero [funcionalidad] para [beneficio]'. Proviene de XP, no es obligatoria en Scrum pero es la práctica más habitual."
+    },
+    {
+      "termino": "INVEST",
+      "definicion": "Criterio de calidad de las historias de usuario: Independiente, Negociable, Valiosa (Valuable), Estimable, Small (pequeña) y Testable (verificable)."
+    },
+    {
+      "termino": "SMART",
+      "definicion": "Criterio de calidad de las tareas en las que se descomponen las historias: Specific, Measurable, Achievable, Relevant y Time-boxed (acotada en el tiempo)."
+    },
+    {
+      "termino": "Puntos de historia (Story Points)",
+      "definicion": "Unidad de medida de la complejidad relativa de las historias de usuario, no del tiempo. Se usa una escala inspirada en Fibonacci {0,1,3,5,8,13,21,40,100}. Los estima el equipo de desarrollo, no el PO."
+    },
+    {
+      "termino": "Póker de Planificación",
+      "definicion": "Técnica de estimación en la que cada miembro del equipo elige simultáneamente una carta con su estimación de complejidad para evitar el efecto de anclaje. Si hay discrepancias, se debate y se vuelve a estimar."
+    },
+    {
+      "termino": "Burndown Chart (Gráfica de quemado)",
+      "definicion": "Herramienta visual de seguimiento del sprint que muestra el trabajo restante (en horas o tareas) a lo largo de los días. Permite detectar si el equipo va por delante o por detrás de la planificación."
+    },
+    {
+      "termino": "Scrum de Scrums",
+      "definicion": "Reunión periódica de representantes técnicos de cada equipo Scrum en proyectos multi-equipo, para sincronizar avances, impedimentos y dependencias entre equipos."
+    },
+    {
+      "termino": "Scrumban",
+      "definicion": "Extensión de Scrum que incorpora el tablero Kanban y sus principios (visualización del flujo, limitación del WIP) para mejorar la gestión del trabajo dentro del sprint."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-2-fc-001",
+      "pregunta": "¿De dónde proviene el nombre 'Scrum' y qué significa?",
+      "respuesta": "Del rugby: es una formación en la que dos equipos se enfrentan para ganar el control del balón. Representa el trabajo en equipo coordinado y orientado a un objetivo común."
+    },
+    {
+      "id": "isa-tema-2-fc-002",
+      "pregunta": "¿Scrum es una metodología o un framework? ¿Cuál es la diferencia práctica?",
+      "respuesta": "Es un framework. No prescribe prácticas técnicas concretas ni actividades de implementación detalladas; proporciona un contexto de gestión del proceso en el que el equipo crea su propio método de trabajo."
+    },
+    {
+      "id": "isa-tema-2-fc-003",
+      "pregunta": "¿Cuáles son los tres pilares de Scrum?",
+      "respuesta": "Transparencia (información accesible a todos), inspección (revisión activa de la información) y adaptación (tomar medidas correctoras al detectar problemas)."
+    },
+    {
+      "id": "isa-tema-2-fc-004",
+      "pregunta": "¿Cuáles son los cuatro valores específicos de Scrum, adicionales al Manifiesto Ágil?",
+      "respuesta": "Compromiso, coraje, focalización y apertura."
+    },
+    {
+      "id": "isa-tema-2-fc-005",
+      "pregunta": "¿Cómo recoge Scrum el valor ágil 'individuos e interacciones sobre procesos'?",
+      "respuesta": "A través de equipos autoorganizados que toman sus propias decisiones, resuelven sus problemas con la ayuda del Scrum Master y se comunican mediante reuniones de carácter informal."
+    },
+    {
+      "id": "isa-tema-2-fc-006",
+      "pregunta": "¿Cómo recoge Scrum el valor ágil 'colaboración con el cliente'?",
+      "respuesta": "A través de la figura del Product Owner, que representa al cliente dentro del equipo Scrum y colabora con el equipo de desarrollo para orientar cada iteración hacia la máxima generación de valor."
+    },
+    {
+      "id": "isa-tema-2-fc-007",
+      "pregunta": "¿Cuáles son las tres fases generales de Scrum?",
+      "respuesta": "Prejuego (preparación y Product Backlog), juego (ejecución de sprints con dailies) y postjuego (revisión del sprint y retrospectiva)."
+    },
+    {
+      "id": "isa-tema-2-fc-008",
+      "pregunta": "¿Cuáles son los tres roles de Scrum?",
+      "respuesta": "Product Owner, Scrum Master y equipo de desarrollo."
+    },
+    {
+      "id": "isa-tema-2-fc-009",
+      "pregunta": "¿Cuál es la misión principal del Product Owner?",
+      "respuesta": "Maximizar el valor del producto. Para ello gestiona y prioriza el Product Backlog y actúa de interlocutor entre el negocio y el equipo técnico."
+    },
+    {
+      "id": "isa-tema-2-fc-010",
+      "pregunta": "¿El Scrum Master es el jefe de proyecto del equipo?",
+      "respuesta": "No. El Scrum Master es un facilitador, no un jefe de proyecto. No asigna tareas ni toma decisiones técnicas; elimina impedimentos y asegura que el equipo aplica correctamente Scrum."
+    },
+    {
+      "id": "isa-tema-2-fc-011",
+      "pregunta": "¿Cuál es el tamaño recomendado del equipo de desarrollo en Scrum?",
+      "respuesta": "Entre 3 y 9 personas. El equipo debe ser autoorganizado, multifuncional y sin sub-equipos ni jerarquías internas."
+    },
+    {
+      "id": "isa-tema-2-fc-012",
+      "pregunta": "¿Cuáles son los tres artefactos de Scrum?",
+      "respuesta": "Product Backlog (pila del producto), Sprint Backlog (pila del sprint) e Incremento."
+    },
+    {
+      "id": "isa-tema-2-fc-013",
+      "pregunta": "¿Quién es el propietario del Product Backlog y quién del Sprint Backlog?",
+      "respuesta": "El Product Backlog es propiedad del Product Owner. El Sprint Backlog es propiedad del equipo de desarrollo."
+    },
+    {
+      "id": "isa-tema-2-fc-014",
+      "pregunta": "¿Qué es un incremento en Scrum?",
+      "respuesta": "La suma de todos los PBIs completados durante el sprint, que debe ser un producto terminado, utilizable y potencialmente desplegable al finalizar el sprint."
+    },
+    {
+      "id": "isa-tema-2-fc-015",
+      "pregunta": "¿Cuánto puede durar como máximo un sprint?",
+      "respuesta": "Un mes (4 semanas). Lo habitual son sprints de 1 a 4 semanas de duración fija y constante."
+    },
+    {
+      "id": "isa-tema-2-fc-016",
+      "pregunta": "¿Qué duración máxima tiene la reunión de planificación del sprint (Sprint Planning)?",
+      "respuesta": "Hasta 8 horas para un sprint de un mes. La salida es el Sprint Goal y el Sprint Backlog."
+    },
+    {
+      "id": "isa-tema-2-fc-017",
+      "pregunta": "¿Cuánto dura el Daily Scrum y qué tres preguntas responde cada miembro?",
+      "respuesta": "15 minutos. Las tres preguntas son: (1) ¿Qué hice ayer?, (2) ¿Qué haré hoy?, (3) ¿Hay algún impedimento?"
+    },
+    {
+      "id": "isa-tema-2-fc-018",
+      "pregunta": "¿Cuál es la diferencia entre la Sprint Review y la Sprint Retrospective?",
+      "respuesta": "La Review (2-4h) muestra el incremento al PO y stakeholders para obtener feedback sobre el producto. La Retrospective (1-3h) es interna del equipo Scrum y analiza el proceso de trabajo para mejorar en el siguiente sprint."
+    },
+    {
+      "id": "isa-tema-2-fc-019",
+      "pregunta": "¿Cuál es el formato estándar de una historia de usuario?",
+      "respuesta": "Como [rol de usuario], quiero [funcionalidad] para [beneficio o valor que aporta]."
+    },
+    {
+      "id": "isa-tema-2-fc-020",
+      "pregunta": "¿Qué significa el acrónimo INVEST aplicado a historias de usuario?",
+      "respuesta": "Independent (independiente), Negotiable (negociable), Valuable (valiosa), Estimable (estimable), Small (pequeña) y Testable (verificable)."
+    },
+    {
+      "id": "isa-tema-2-fc-021",
+      "pregunta": "¿Qué significa el acrónimo SMART aplicado a las tareas?",
+      "respuesta": "Specific (específica), Measurable (medible), Achievable (alcanzable), Relevant (relevante) y Time-boxed (acotada en el tiempo)."
+    },
+    {
+      "id": "isa-tema-2-fc-022",
+      "pregunta": "¿INVEST aplica a historias de usuario o a tareas? ¿Y SMART?",
+      "respuesta": "INVEST aplica a las historias de usuario (PBIs). SMART aplica a las tareas en las que se descomponen esas historias durante la planificación del sprint."
+    },
+    {
+      "id": "isa-tema-2-fc-023",
+      "pregunta": "¿Qué miden los puntos de historia y quién los asigna?",
+      "respuesta": "Miden la complejidad relativa de las historias de usuario, no el tiempo. Los asigna el equipo de desarrollo (no el Product Owner)."
+    },
+    {
+      "id": "isa-tema-2-fc-024",
+      "pregunta": "¿En qué consiste el Póker de Planificación?",
+      "respuesta": "Técnica de estimación en la que cada miembro del equipo elige simultáneamente una carta con su estimación de complejidad para evitar el efecto de anclaje. Si hay discrepancias, se debate y se vuelve a votar."
+    },
+    {
+      "id": "isa-tema-2-fc-025",
+      "pregunta": "¿Qué muestra un Burndown Chart y para qué sirve?",
+      "respuesta": "Muestra el trabajo restante (en horas o tareas) a lo largo de los días del sprint. Sirve para visualizar si el equipo va al ritmo adecuado y detectar desviaciones a tiempo."
+    },
+    {
+      "id": "isa-tema-2-fc-026",
+      "pregunta": "¿Cuáles son las dos estrategias para escalar Scrum a proyectos grandes?",
+      "respuesta": "Agrupación por especialidades (equipos técnicos especializados) y agrupación por historias (equipos multidisciplinares que entregan funcionalidades completas end-to-end)."
+    },
+    {
+      "id": "isa-tema-2-fc-027",
+      "pregunta": "¿Cuál es la principal ventaja e inconveniente de agrupar equipos por especialidades?",
+      "respuesta": "Ventaja: mayor eficiencia técnica y profundidad de conocimiento. Inconveniente: riesgo de silos, dependencias entre equipos y menor visión global del producto."
+    },
+    {
+      "id": "isa-tema-2-fc-028",
+      "pregunta": "¿Cuál es la principal ventaja e inconveniente de agrupar equipos por historias?",
+      "respuesta": "Ventaja: mayor autonomía y entregas end-to-end centradas en el usuario. Inconveniente: mayor necesidad de coordinación entre equipos para evitar duplicidades y conflictos técnicos."
+    },
+    {
+      "id": "isa-tema-2-fc-029",
+      "pregunta": "¿Qué es el Scrum de Scrums?",
+      "respuesta": "Reunión periódica (normalmente diaria, tras el Daily Scrum de cada equipo) en la que representantes técnicos de cada equipo Scrum se sincronizan sobre avances, planes e impedimentos que puedan afectar a otros equipos."
+    },
+    {
+      "id": "isa-tema-2-fc-030",
+      "pregunta": "¿Qué es Scrumban y qué aporta Kanban a Scrum?",
+      "respuesta": "Scrumban es la combinación de Scrum y Kanban. Kanban aporta la visualización del flujo de trabajo mediante el tablero Kanban y la limitación del trabajo en curso (WIP), mejorando la gestión del avance dentro del sprint."
+    }
+  ]
+}

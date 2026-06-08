@@ -1,0 +1,316 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. Patrones de arquitectura de sistemas",
+  "apuntes": {
+    "introduccion": "Este tema aborda los patrones de arquitectura de sistemas: soluciones de alto nivel reutilizables para organizar la estructura general de un sistema software. A diferencia de los patrones de diseño (que se aplican a escala de clases u objetos), los patrones de arquitectura definen cómo se organizan los grandes componentes o subsistemas de un sistema y cómo se comunican entre sí. El tema se estructura en tres bloques: las ventajas de un buen diseño arquitectónico, la influencia de los requisitos no funcionales sobre la arquitectura, los cuatro patrones generales más importantes (cliente-servidor, tuberías y filtros, multicapa y repositorio), y los patrones específicos para tolerancia a fallos y sistemas distribuidos.",
+    "secciones": [
+      {
+        "titulo": "El diseño arquitectónico y sus ventajas",
+        "contenido": "El diseño arquitectónico de un sistema es una representación esquemática de **alto nivel** que prescinde de los detalles de implementación y muestra la misión de los elementos del sistema en su contexto: qué grandes bloques componen el sistema, cómo se relacionan y qué responsabilidades tiene cada uno.\n\nUn buen diseño arquitectónico aporta tres tipos de ventajas:\n\n**Reutilización**: al identificar los componentes principales y sus relaciones, el diseño arquitectónico permite detectar subsistemas que pueden ser reutilizados en otros proyectos. También facilita emplear patrones de arquitectura conocidos, que son en sí mismos soluciones reutilizadas de diseños anteriores.\n\n**Análisis del sistema**: el diseño define las relaciones que se establecen entre sistemas y subsistemas, analizando interfaces, formas de intercambio de datos, frecuencia y volumen de las comunicaciones, especialización de cada subsistema, etc. Estas decisiones afectan directamente a los requisitos no funcionales como el rendimiento o la fiabilidad. Permite también aumentar la cohesión y reducir el acoplamiento de los subsistemas.\n\n**Comunicación**: la documentación generada por el diseño arquitectónico permite discutir y razonar sobre las características del sistema con todos los participantes del proyecto (desarrolladores, cliente, gestores), favoreciendo el intercambio de información y la planificación."
+      },
+      {
+        "titulo": "Patrones de arquitectura: concepto",
+        "contenido": "Los patrones de arquitectura son maneras de *representar, compartir y reutilizar conocimiento sobre sistemas software* (Sommerville, 2011). Cada patrón encapsula experiencias de utilidad en desarrollos anteriores para resolver tipos de problemas recurrentes en la organización de un sistema.\n\nCada patrón arquitectónico incluye:\n- Una descripción del tipo de problema para el que es adecuado.\n- Recomendaciones de aplicación.\n- Descripción de sus fortalezas y debilidades.\n\nEl objetivo es aplicar soluciones probadas en lugar de tener que reinventar la organización del sistema desde cero. Los patrones no son plantillas rígidas: deben adaptarse al contexto concreto de cada sistema."
+      },
+      {
+        "titulo": "Requisitos no funcionales y su influencia en la arquitectura",
+        "contenido": "Los requisitos no funcionales son requisitos que especifican criterios para evaluar la *operación* de un sistema (cómo debe comportarse), en lugar de sus comportamientos específicos (qué debe hacer). A diferencia de los requisitos funcionales, los no funcionales suelen definirse de forma estadística o cuantitativa (por ejemplo: el sistema deberá procesar al menos 20.000 solicitudes por segundo).\n\nLos cinco requisitos no funcionales más relevantes para la arquitectura son:\n\n**Rendimiento**: nivel de aprovechamiento de los recursos. Se mide por ejemplo como número de tareas por unidad de tiempo. Impacta en la arquitectura porque obliga a: definir una distribución de procesos adecuada (los procesos críticos en máquinas potentes), evitar retardos adicionales en las comunicaciones (si la velocidad es clave, no conviene tener máquinas muy dispersas geográficamente).\n\n**Seguridad**: protección del sistema ante intrusiones externas (attacks, amenazas). Se mide por ejemplo como número de intentos de intrusión detectados. Guía hacia: agrupar los recursos críticos en un único lugar con protecciones reforzadas, diseñar arquitecturas de capas con niveles de seguridad diferenciados.\n\n**Protección**: capacidad del sistema para evitar fallos o recuperarse cuando se producen. Se mide por ejemplo como número de bugs detectados o fallos por período. Guía hacia: concentrar las operaciones complejas o peligrosas para su aislamiento, incluir mecanismos de redundancia.\n\n**Disponibilidad**: fracción del tiempo total que el sistema está funcionando correctamente y proporcionando servicios a sus usuarios. Se mejora mediante: sistemas redundantes (si un componente falla, otro toma el relevo), facilitar las tareas de mantenimiento o actualización sin interrumpir el servicio.\n\n**Mantenibilidad**: facilidad para mantener o evolucionar el sistema. Se mejora mediante: componentes de granularidad pequeña que puedan sustituirse de forma independiente, separación entre productores y consumidores de datos, sistemas de bajo acoplamiento.\n\nEn ocasiones estos requisitos están en conflicto entre sí (por ejemplo, un sistema muy seguro puede ser menos eficiente), y es necesario tomar soluciones de compromiso en función de la importancia relativa de cada requisito."
+      },
+      {
+        "titulo": "Patrón Cliente-Servidor",
+        "contenido": "El patrón cliente-servidor es el más extendido en los sistemas informáticos actuales. Distingue dos tipos de componentes:\n\n- Un conjunto de **servidores** que proporcionan servicios a otros componentes (servidores de datos, de archivos, de impresión, etc.).\n- Un conjunto de **clientes** que solicitan servicios a los servidores.\n- Una **red o middleware** que permite la conexión entre clientes y servidores.\n\nEn función de cómo está distribuida la lógica entre cliente y servidor, se distinguen dos variantes:\n\n**Cliente ligero**: la mayor parte de la lógica reside en el servidor. El cliente se reduce principalmente a la capa de presentación de la información. Ejemplos: navegadores web, aplicaciones web (los cálculos y la lógica de negocio ocurren en el servidor). Ventaja: el cliente puede ser un dispositivo sencillo. Inconveniente: el servidor soporta más carga.\n\n**Cliente pesado**: el cliente contiene, además de la capa de presentación, lógica de negocio y en muchos casos almacena y manipula datos localmente. Ejemplos: aplicaciones de escritorio como Photoshop, clientes de bases de datos, aplicaciones de gestión empresarial con varias sucursales. Ventaja: distribuye la carga de cómputo. Inconveniente: mayor complejidad del cliente y dificultades de actualización.\n\nEl patrón cliente-servidor es altamente flexible: los servidores pueden a su vez actuar como clientes frente a otros servidores, dando lugar a arquitecturas multinivel. Por ejemplo, en un museo virtual multiusuario, los clientes acceden a servidores que a su vez actúan como clientes frente a repositorios de datos, formando un modelo de dos capas en cada servidor."
+      },
+      {
+        "titulo": "Patrón Tuberías y Filtros (Pipes and Filters)",
+        "contenido": "Las arquitecturas de tuberías y filtros modelan sistemas cuyos componentes principales son **nodos especializados** en aceptar datos de entrada, procesarlos y producir resultados. Estos nodos reciben el nombre de **filtros**, y se conectan entre sí a través de mecanismos de comunicación denominados **tuberías** (pipes).\n\nCaracterísticas clave:\n- La representación gráfica de la arquitectura tiene forma de **grafo dirigido**: los datos fluyen en una dirección determinada a través de los filtros.\n- Cada filtro es **independiente** de los demás: no conoce qué hay antes ni después de él en el grafo. Esto promueve la reutilización y el intercambio de filtros.\n- Los filtros pueden reordenarse, sustituirse o añadirse sin afectar al resto del sistema, siempre que los formatos de datos sean compatibles.\n\nEste patrón es especialmente adecuado para sistemas de procesamiento de datos en cadena. El ejemplo más clásico es la **compilación de código**: el código fuente pasa sucesivamente por un analizador léxico (lexer), un analizador sintáctico (parser), un analizador semántico, un generador de código y un enlazador (linker) hasta producir el ejecutable. Cada fase es un filtro que recibe la salida del anterior como entrada.\n\nOtros ejemplos: pipelines de procesamiento de imágenes, procesamiento de señales de audio o video, transformación de datos en sistemas ETL.\n\n**Ventajas**: alta reutilización de filtros, fácil paralelización (diferentes filtros pueden ejecutarse en paralelo o en hardware específico), facilidad para sustituir o añadir etapas.\n**Inconvenientes**: la transferencia de datos entre filtros puede ser un cuello de botella si los volúmenes son grandes; el formato de datos entre filtros debe estar bien definido."
+      },
+      {
+        "titulo": "Patrón Multicapa",
+        "contenido": "En una arquitectura multicapa, el sistema se descompone en diferentes **capas**, cada una especializada en un conjunto de responsabilidades. Las capas se organizan jerárquicamente de forma que:\n- Cada capa solo **conoce a las capas adyacentes** (la inmediatamente superior y la inmediatamente inferior).\n- Cada capa ofrece servicios a la capa **superior**.\n- Cada capa utiliza los servicios de la capa **inferior**.\n\nEsta organización favorece la **separación de responsabilidades**: los cambios en una capa afectan como máximo a sus capas adyacentes, lo que mejora la mantenibilidad y la posibilidad de sustituir una capa sin alterar el resto.\n\nTambién soporta el **enfoque incremental** de construcción de sistemas: se pueden desarrollar primero las capas inferiores (las más básicas o de infraestructura) y luego las superiores.\n\nLa organización típica en sistemas de información empresariales es de tres capas:\n1. **Capa de presentación**: interfaz de usuario, lo que el usuario ve y con lo que interactúa.\n2. **Capa de negocio (lógica de aplicación)**: las reglas de negocio y la lógica del sistema.\n3. **Capa de datos (acceso a datos)**: almacenamiento y recuperación de información.\n\nEjemplo emblemático: la **arquitectura de Android**, que se organiza en capas: Linux Kernel, HAL (Hardware Abstraction Layer), Android Runtime + bibliotecas nativas, Java API Framework y aplicaciones del sistema.\n\nLa arquitectura multicapa se puede combinar con el patrón cliente-servidor: en ese caso, cada capa puede implementarse como un servidor separado (arquitectura cliente-servidor multinivel). Esto puede plantear problemas de escalabilidad (no siempre está claro qué servicios incluir en cada capa y cómo replicarlos)."
+      },
+      {
+        "titulo": "Patrón Repositorio de Datos",
+        "contenido": "El patrón de repositorio es adecuado para sistemas que trabajan con **grandes cantidades de información compartida** entre varios subsistemas.\n\nEstructura: existen componentes **generadores** de datos y componentes **consumidores**, y todos ellos acceden a un **repositorio común** donde los datos quedan almacenados y centralizados.\n\nEjemplo típico: un **sistema de gestión hospitalaria (HIS)**. Varios subsistemas independientes (admisiones en urgencias, gestión en planta, gestión en consulta, administración hospitalaria, asignación de camas) necesitan acceder y actualizar los datos de los pacientes. En lugar de que cada subsistema gestione su propia copia, todos acceden a un repositorio central con los datos de pacientes.\n\nCaracterísticas:\n- El repositorio está **lógicamente centralizado**, aunque a nivel físico pueda estar distribuido en diferentes máquinas (para facilitar la escalabilidad).\n- Todos los participantes deben acordar un **modelo de datos común**.\n- La centralización de datos facilita la consistencia, pero convierte al repositorio en el punto más **vulnerable** del sistema (si falla, todos los subsistemas se ven afectados).\n\nEste patrón no presenta diferencias estructurales fundamentales respecto del cliente-servidor, pero su enfoque está en la concentración de los datos en el repositorio común, no en los servicios que ofrecen los servidores."
+      },
+      {
+        "titulo": "Arquitecturas tolerantes a fallos: confiabilidad",
+        "contenido": "La **confiabilidad** de un sistema (Sommerville, 2011) es una propiedad agregada que tiene en cuenta la protección, la fiabilidad, la disponibilidad, la seguridad y otros atributos, y refleja el grado en que los usuarios pueden confiar en el sistema.\n\nLos **sistemas críticos** son aquellos cuyo mal funcionamiento puede dañar a personas, el entorno o el equipamiento (sistemas médicos, sistemas de control de vuelo, sistemas de distribución de energía, etc.). Para estos sistemas es especialmente importante diseñar arquitecturas tolerantes a fallos.\n\nExisten dos patrones principales de arquitectura tolerante a fallos: los **sistemas de protección** y la **programación de varias versiones**."
+      },
+      {
+        "titulo": "Sistemas de protección",
+        "contenido": "Un sistema de protección es un componente que **monitoriza en paralelo** el correcto funcionamiento de otro sistema (el sistema controlado). Sus características:\n\n- Monitoriza el **estado del entorno** a través de sensores independientes (punto de vista externo).\n- Monitoriza el **funcionamiento del proceso** controlado (punto de vista interno).\n- Si detecta desviaciones del comportamiento esperado, tiene **prioridad** para tomar acciones correctoras sobre los actuadores del sistema.\n\nEstructura típica: el entorno del sistema envía información a dos conjuntos de sensores: los sensores de control (que alimentan al sistema de control) y los sensores de protección (que alimentan al sistema de protección). Ambos sistemas actúan sobre los actuadores, pero el sistema de protección tiene prioridad sobre el de control cuando detecta anomalías.\n\nEste patrón es habitual en sistemas industriales, instalaciones de seguridad, sistemas médicos y cualquier contexto donde un fallo del sistema principal podría tener consecuencias graves."
+      },
+      {
+        "titulo": "Programación de varias versiones (N-version programming)",
+        "contenido": "Este patrón consiste en desarrollar **varias versiones independientes del mismo sistema** (denominadas versiones A, B, C...) y ejecutarlas en paralelo. Las salidas de todas las versiones se comparan mediante un **sistema de votación**: si hay discrepancias, las salidas inconsistentes o que no se producen a tiempo se descartan.\n\nCaracterísticas adicionales que aumentan la robustez:\n- Las diferentes versiones se desarrollan por **equipos independientes**, a veces usando tecnologías o lenguajes distintos.\n- Se ejecutan en **máquinas diferentes e independientes**.\n- Todas parten de la **misma especificación**, pero se implementan de forma separada.\n\nLa lógica de este enfoque es que si un equipo comete un error en su implementación (por un bug en una librería, un error de lógica, etc.), los otros equipos probablemente no han cometido el mismo error. Así, el sistema de votación puede detectar y cortar el fallo de una versión concreta.\n\nEs una forma de **redundancia a nivel de software**: similar en filosofía a la redundancia hardware, pero aplicada al desarrollo. Ejemplos de aplicación: sistemas de guiado en vehículos autónomos, sistemas de control de reactores nucleares, sistemas de aviación.\n\nEste patrón no es incompatible con los sistemas de protección: cada versión puede a su vez tener su propio sistema de protección interno."
+      },
+      {
+        "titulo": "Arquitecturas de sistemas distribuidos",
+        "contenido": "Un sistema distribuido es una **colección de computadores independientes** que se muestran al usuario como un único sistema cohesionado. El usuario no sabe cómo están distribuidos ni cómo se ejecutan.\n\nVentajas de los sistemas distribuidos:\n- **Compartición de recursos**: hardware, software y datos pueden compartirse entre nodos.\n- **Empleo de protocolos estandarizados**: facilita la interoperabilidad.\n- **Concurrencia y paralelización**: múltiples nodos pueden trabajar simultáneamente.\n- **Escalabilidad**: es posible añadir nodos para adaptarse a incrementos de demanda.\n- **Tolerancia a fallos**: la redundancia distribuida permite que el sistema siga funcionando aunque fallen algunos nodos.\n\nLos tres patrones de arquitectura distribuida principales estudiados son: **maestro-esclavo**, **componentes distribuidos** y **P2P**."
+      },
+      {
+        "titulo": "Arquitectura Maestro-Esclavo",
+        "contenido": "La arquitectura maestro-esclavo es muy utilizada en **sistemas con restricciones en tiempo real** y en sistemas de control (robótica, domótica, control de tráfico, sistemas SCADA).\n\nEstructura: existe un **nodo maestro** que es el responsable de coordinar al resto de nodos (**esclavos**). Puede haber diferentes nodos esclavos especializados en distintas tareas.\n\nCaracterística importante: en esta arquitectura **no siempre el maestro es el servidor y el esclavo el cliente**, ni al revés. Depende del diseño concreto:\n- El esclavo puede enviar periódicamente información al maestro (el maestro actúa como servidor para los esclavos que son clientes).\n- O el maestro puede solicitar periódicamente información a los esclavos (el maestro actúa como cliente frente a los esclavos que son servidores).\n\nEs una arquitectura centralizada donde el maestro toma las decisiones y coordina el sistema. Ejemplos: sistemas de control de tráfico, robots industriales, sistemas domóticos, sistemas SCADA de plantas industriales."
+      },
+      {
+        "titulo": "Arquitectura de Componentes Distribuidos",
+        "contenido": "La arquitectura de componentes distribuidos es un enfoque más flexible que la arquitectura multicapa cliente-servidor. En lugar de organizar el sistema en capas fijas con responsabilidades claras, el sistema se diseña como un **conjunto de servicios comunicados a través de un middleware**.\n\nEl middleware es una capa de software que permite la comunicación entre componentes distribuidos en distintas máquinas, abstrayendo los detalles de la red y los protocolos de comunicación.\n\n**Ventajas** frente a la arquitectura multicapa multinivel:\n- Se simplifica el diseño: no hay que decidir qué servicios pertenecen a cada capa.\n- Aumenta la flexibilidad para realizar modificaciones: los componentes son más independientes.\n\n**Desventajas**:\n- Puede resultar más complejo comprender el sistema en su conjunto.\n- No existen middleware estandarizados universalmente, lo que puede provocar problemas de portabilidad.\n\nEl middleware actúa como intermediario: los componentes no se comunican directamente entre sí, sino a través del middleware que enruta los mensajes y gestiona los detalles de comunicación."
+      },
+      {
+        "titulo": "Arquitectura P2P (Peer-to-Peer)",
+        "contenido": "Las arquitecturas P2P (entre pares) contienen varios nodos que se intercomunican en condiciones de **igualdad**. Todos los elementos del modelo son homogéneos: ofrecen las mismas interfaces y servicios. Cada nodo es simultáneamente **cliente y servidor** para el resto.\n\nExisten dos variantes principales:\n\n**P2P descentralizada pura**: todos los nodos son enrutadores. Cuando un nodo necesita un recurso que está en otro nodo lejano, la solicitud de búsqueda se propaga de nodo en nodo hasta encontrar el recurso, y entonces se establece una conexión directa entre los nodos involucrados. Ejemplo: protocolos como Gnutella o BitTorrent.\n\n**P2P semicentralizada (superpares)**: algunos nodos actúan como \"superpares\" (supernodos) con mayor capacidad y responsabilidad que el resto. Mantienen información sobre qué recursos están disponibles en qué nodos, actuando como directorios parciales. Esto agiliza la búsqueda de recursos sin requerir un servidor central completo.\n\nAplicaciones habituales:\n- Compartición de archivos (BitTorrent, Gnutella).\n- Mensajería (versiones anteriores de Skype).\n- Cómputo distribuido: el sistema SETI@home distribuía el análisis de señales de radio-telescopios entre millones de nodos voluntarios.\n\n**Ventaja**: aprovechamiento óptimo de los recursos distribuidos, sin depender de servidores centrales.\n**Inconveniente**: dificultades de gestión, seguridad y control del sistema."
+      }
+    ]
+  },
+  "resumen": [
+    "El diseño arquitectónico es una representación de alto nivel que prescinde de detalles y muestra la organización general de los componentes del sistema y sus relaciones.",
+    "Un buen diseño arquitectónico aporta tres ventajas: reutilización de subsistemas, análisis de relaciones entre componentes, y comunicación entre los participantes del proyecto.",
+    "Los requisitos no funcionales clave que condicionan la arquitectura son: rendimiento, seguridad, protección, disponibilidad y mantenibilidad.",
+    "Los patrones de arquitectura son soluciones reutilizables que encapsulan experiencias previas de diseño. Incluyen recomendaciones de aplicación, fortalezas y debilidades.",
+    "El patrón cliente-servidor distingue clientes (que solicitan servicios) y servidores (que los proporcionan), conectados por middleware. La lógica puede estar más en el servidor (cliente ligero) o más en el cliente (cliente pesado).",
+    "En tuberías y filtros, los filtros son nodos especializados en procesar datos conectados por tuberías. La arquitectura tiene forma de grafo dirigido. Los filtros son independientes entre sí, lo que favorece la reutilización.",
+    "En la arquitectura multicapa, cada capa se especializa en un conjunto de responsabilidades y solo conoce a sus capas adyacentes. Ejemplo clásico: arquitectura de Android.",
+    "En la arquitectura de repositorio, múltiples subsistemas comparten datos a través de un repositorio centralizado común. Ejemplo: sistema de gestión hospitalaria.",
+    "La confiabilidad agrupa protección, fiabilidad, disponibilidad y seguridad, y refleja el grado en que los usuarios pueden confiar en el sistema.",
+    "Los sistemas de protección monitorizan en paralelo al sistema controlado y tienen prioridad para tomar acciones correctoras si detectan anomalías.",
+    "La programación de varias versiones (N-version) desarrolla implementaciones independientes de la misma especificación con equipos distintos y elige la salida por votación.",
+    "Los sistemas distribuidos son colecciones de computadores independientes que se presentan al usuario como un único sistema. Sus ventajas incluyen compartición de recursos, escalabilidad y tolerancia a fallos.",
+    "La arquitectura maestro-esclavo tiene un nodo coordinador (maestro) y nodos especializados (esclavos). Es frecuente en sistemas de tiempo real y control.",
+    "La arquitectura P2P tiene nodos homogéneos que actúan simultáneamente como clientes y servidores. Puede ser descentralizada pura o semicentralizada (superpares)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Diseño arquitectónico",
+      "definicion": "Representación esquemática de alto nivel de un sistema software que muestra sus componentes principales, sus responsabilidades y sus relaciones, prescindiendo de los detalles de implementación."
+    },
+    {
+      "termino": "Patrón de arquitectura",
+      "definicion": "Solución reutilizable que encapsula conocimiento y experiencia de diseños anteriores para resolver tipos de problemas recurrentes en la organización de sistemas software."
+    },
+    {
+      "termino": "Requisito no funcional",
+      "definicion": "Requisito que especifica criterios para evaluar cómo opera un sistema (rendimiento, seguridad, disponibilidad, etc.) en lugar de qué comportamientos específicos realiza."
+    },
+    {
+      "termino": "Rendimiento (arquitectura)",
+      "definicion": "Requisito no funcional relativo al nivel de aprovechamiento de los recursos. Influye en la distribución de procesos entre máquinas y en la minimización de retardos en las comunicaciones."
+    },
+    {
+      "termino": "Seguridad (arquitectura)",
+      "definicion": "Requisito no funcional relativo a la protección del sistema ante intrusiones y amenazas externas. Guía hacia arquitecturas de capas y agrupación de recursos críticos."
+    },
+    {
+      "termino": "Protección (arquitectura)",
+      "definicion": "Requisito no funcional relativo a la capacidad del sistema para evitar fallos o recuperarse de ellos. Guía hacia mecanismos de redundancia y aislamiento de operaciones complejas."
+    },
+    {
+      "termino": "Disponibilidad (arquitectura)",
+      "definicion": "Fracción del tiempo total que el sistema está funcionando correctamente y proporcionando servicios. Se mejora con sistemas redundantes y diseños que faciliten el mantenimiento sin interrupciones."
+    },
+    {
+      "termino": "Mantenibilidad (arquitectura)",
+      "definicion": "Facilidad para mantener o evolucionar el sistema. Se mejora con componentes de granularidad pequeña, bajo acoplamiento y separación entre productores y consumidores de datos."
+    },
+    {
+      "termino": "Cliente ligero",
+      "definicion": "En el patrón cliente-servidor, cliente que únicamente contiene la capa de presentación. La mayor parte de la lógica reside en el servidor. Ejemplo: navegador web."
+    },
+    {
+      "termino": "Cliente pesado",
+      "definicion": "En el patrón cliente-servidor, cliente que, además de la presentación, contiene lógica de negocio y en muchos casos almacena y manipula datos localmente. Ejemplo: aplicación de escritorio como Photoshop."
+    },
+    {
+      "termino": "Filtro (tuberías y filtros)",
+      "definicion": "Componente de una arquitectura de tuberías y filtros que recibe datos de entrada, los procesa y produce resultados. Es independiente del resto de filtros."
+    },
+    {
+      "termino": "Tubería (tuberías y filtros)",
+      "definicion": "Mecanismo de comunicación que conecta dos filtros en una arquitectura de tuberías y filtros, permitiendo que los datos fluyan de un filtro al siguiente."
+    },
+    {
+      "termino": "Arquitectura multicapa",
+      "definicion": "Patrón en el que el sistema se divide en capas especializadas, donde cada capa solo conoce a sus adyacentes y ofrece servicios a la capa superior."
+    },
+    {
+      "termino": "Arquitectura de repositorio",
+      "definicion": "Patrón en el que múltiples subsistemas comparten grandes cantidades de información a través de un repositorio centralizado común, con componentes generadores y consumidores de datos."
+    },
+    {
+      "termino": "Confiabilidad",
+      "definicion": "Propiedad agregada de un sistema que tiene en cuenta protección, fiabilidad, disponibilidad, seguridad y otros atributos. Refleja el grado en que los usuarios pueden confiar en el sistema."
+    },
+    {
+      "termino": "Sistema de protección",
+      "definicion": "Patrón de tolerancia a fallos que consiste en un componente que monitoriza en paralelo el funcionamiento de otro sistema y tiene prioridad para tomar acciones correctoras si detecta desviaciones."
+    },
+    {
+      "termino": "Programación de varias versiones (N-version)",
+      "definicion": "Patrón de tolerancia a fallos que desarrolla varias implementaciones independientes de la misma especificación con equipos distintos. Las salidas se comparan mediante votación para detectar fallos en alguna versión."
+    },
+    {
+      "termino": "Arquitectura maestro-esclavo",
+      "definicion": "Arquitectura distribuida centralizada con un nodo maestro que coordina a nodos esclavos especializados. Habitual en sistemas de tiempo real y control. El rol de cliente/servidor entre maestro y esclavo puede invertirse según el diseño."
+    },
+    {
+      "termino": "Middleware",
+      "definicion": "Capa de software que facilita la comunicación entre componentes distribuidos en distintas máquinas, abstrayendo los detalles de red y protocolos de comunicación."
+    },
+    {
+      "termino": "Arquitectura P2P (peer-to-peer)",
+      "definicion": "Arquitectura distribuida donde todos los nodos son homogéneos y actúan simultáneamente como clientes y servidores. Puede ser descentralizada pura (todos los nodos enrutan) o semicentralizada (con superpares)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-5-fc-001",
+      "pregunta": "¿Qué es el diseño arquitectónico de un sistema?",
+      "respuesta": "Una representación esquemática de alto nivel que muestra los componentes principales del sistema, sus responsabilidades y sus relaciones, prescindiendo de los detalles de implementación."
+    },
+    {
+      "id": "isa-tema-5-fc-002",
+      "pregunta": "¿Qué tres ventajas aporta un buen diseño arquitectónico?",
+      "respuesta": "1. Reutilización (identifica subsistemas reutilizables). 2. Análisis (define relaciones entre componentes y permite razonar sobre requisitos no funcionales). 3. Comunicación (facilita el diálogo entre todos los participantes del proyecto)."
+    },
+    {
+      "id": "isa-tema-5-fc-003",
+      "pregunta": "¿Cuáles son los cinco requisitos no funcionales más relevantes para la arquitectura?",
+      "respuesta": "Rendimiento, seguridad, protección, disponibilidad y mantenibilidad."
+    },
+    {
+      "id": "isa-tema-5-fc-004",
+      "pregunta": "¿Cómo influye el requisito de rendimiento en la arquitectura?",
+      "respuesta": "Obliga a distribuir los procesos adecuadamente (procesos críticos en máquinas potentes) y a minimizar los retardos en las comunicaciones entre componentes."
+    },
+    {
+      "id": "isa-tema-5-fc-005",
+      "pregunta": "¿Cómo influye el requisito de seguridad en la arquitectura?",
+      "respuesta": "Guía hacia agrupar los recursos críticos en ubicaciones protegidas y diseñar arquitecturas de capas con niveles de seguridad diferenciados."
+    },
+    {
+      "id": "isa-tema-5-fc-006",
+      "pregunta": "¿Cómo influye el requisito de mantenibilidad en la arquitectura?",
+      "respuesta": "Guía hacia componentes de granularidad pequeña y sustituibles independientemente, bajo acoplamiento entre componentes, y separación entre productores y consumidores de datos."
+    },
+    {
+      "id": "isa-tema-5-fc-007",
+      "pregunta": "¿Cuáles son los tres elementos del patrón cliente-servidor?",
+      "respuesta": "Servidores (ofrecen servicios), clientes (solicitan servicios) y una red o middleware que permite la conexión entre ambos."
+    },
+    {
+      "id": "isa-tema-5-fc-008",
+      "pregunta": "¿Qué es un cliente ligero?",
+      "respuesta": "Un cliente que únicamente contiene la capa de presentación. La mayor parte de la lógica reside en el servidor. Ejemplo: navegador web."
+    },
+    {
+      "id": "isa-tema-5-fc-009",
+      "pregunta": "¿Qué es un cliente pesado?",
+      "respuesta": "Un cliente que, además de la presentación, contiene lógica de negocio y en muchos casos almacena y manipula datos localmente. Ejemplo: Photoshop u otra aplicación de escritorio."
+    },
+    {
+      "id": "isa-tema-5-fc-010",
+      "pregunta": "¿Qué es un filtro en el patrón de tuberías y filtros?",
+      "respuesta": "Un componente que recibe datos de entrada, los procesa y produce resultados. Es independiente del resto de filtros del sistema."
+    },
+    {
+      "id": "isa-tema-5-fc-011",
+      "pregunta": "¿Qué forma tiene la representación gráfica de una arquitectura de tuberías y filtros?",
+      "respuesta": "Grafo dirigido: los datos fluyen en una dirección determinada a través de los filtros conectados por tuberías."
+    },
+    {
+      "id": "isa-tema-5-fc-012",
+      "pregunta": "¿Por qué el patrón de tuberías y filtros favorece la reutilización?",
+      "respuesta": "Porque los filtros son independientes entre sí: cada uno desconoce qué hay antes o después de él. Pueden reordenarse, sustituirse o añadirse sin afectar al resto, siempre que los formatos de datos sean compatibles."
+    },
+    {
+      "id": "isa-tema-5-fc-013",
+      "pregunta": "Pon un ejemplo clásico del patrón tuberías y filtros.",
+      "respuesta": "La compilación de código: el código fuente pasa sucesivamente por un analizador léxico, analizador sintáctico, analizador semántico, generador de código y enlazador hasta producir el ejecutable."
+    },
+    {
+      "id": "isa-tema-5-fc-014",
+      "pregunta": "¿Qué principio rige la comunicación entre capas en una arquitectura multicapa?",
+      "respuesta": "Cada capa solo conoce a sus capas adyacentes (superior e inferior) y únicamente ofrece servicios a la capa inmediatamente superior."
+    },
+    {
+      "id": "isa-tema-5-fc-015",
+      "pregunta": "¿Cuáles son las tres capas típicas en una arquitectura multicapa de sistemas de información?",
+      "respuesta": "Capa de presentación (interfaz de usuario), capa de negocio (lógica de aplicación) y capa de datos (acceso al almacenamiento)."
+    },
+    {
+      "id": "isa-tema-5-fc-016",
+      "pregunta": "¿Qué ejemplo de arquitectura multicapa usa el profesor en clase?",
+      "respuesta": "La arquitectura de Android: Linux Kernel, HAL, Android Runtime + bibliotecas nativas, Java API Framework y aplicaciones del sistema."
+    },
+    {
+      "id": "isa-tema-5-fc-017",
+      "pregunta": "¿Para qué tipo de sistemas es adecuado el patrón de repositorio?",
+      "respuesta": "Para sistemas que trabajan con grandes cantidades de información compartida entre varios subsistemas, con componentes generadores y consumidores que acceden a un repositorio común."
+    },
+    {
+      "id": "isa-tema-5-fc-018",
+      "pregunta": "¿Cuál es el punto más vulnerable de una arquitectura de repositorio?",
+      "respuesta": "El propio repositorio centralizado: si falla, todos los subsistemas que dependen de él se ven afectados."
+    },
+    {
+      "id": "isa-tema-5-fc-019",
+      "pregunta": "¿Qué es la confiabilidad de un sistema?",
+      "respuesta": "Propiedad agregada que tiene en cuenta protección, fiabilidad, disponibilidad, seguridad y otros atributos. Refleja el grado en que los usuarios pueden confiar en el sistema (Sommerville, 2011)."
+    },
+    {
+      "id": "isa-tema-5-fc-020",
+      "pregunta": "¿Cuáles son los dos patrones de arquitectura tolerante a fallos estudiados en el tema?",
+      "respuesta": "Los sistemas de protección (monitorización en paralelo) y la programación de varias versiones (N-version programming)."
+    },
+    {
+      "id": "isa-tema-5-fc-021",
+      "pregunta": "¿Cómo funciona un sistema de protección?",
+      "respuesta": "Monitoriza en paralelo al sistema controlado (estado del entorno a través de sensores independientes y funcionamiento del proceso). Si detecta desviaciones del comportamiento esperado, tiene prioridad para tomar acciones correctoras."
+    },
+    {
+      "id": "isa-tema-5-fc-022",
+      "pregunta": "¿En qué consiste la programación de varias versiones (N-version programming)?",
+      "respuesta": "Se desarrollan varias versiones independientes del mismo sistema por equipos distintos (a veces con tecnologías diferentes), se ejecutan en máquinas separadas y sus salidas se comparan mediante votación para detectar fallos en alguna versión."
+    },
+    {
+      "id": "isa-tema-5-fc-023",
+      "pregunta": "¿Por qué en la programación de varias versiones los equipos de desarrollo son independientes?",
+      "respuesta": "Para que los errores cometidos por un equipo (bug en una librería, error de lógica) no sean los mismos que los otros equipos podrían cometer. Así el sistema de votación puede detectar qué versión está fallando."
+    },
+    {
+      "id": "isa-tema-5-fc-024",
+      "pregunta": "¿Cuáles son cuatro ventajas de los sistemas distribuidos?",
+      "respuesta": "Compartición de recursos, escalabilidad para adaptarse a la demanda, tolerancia a fallos al facilitar la redundancia, y posibilidad de concurrencia y paralelización."
+    },
+    {
+      "id": "isa-tema-5-fc-025",
+      "pregunta": "¿En qué tipo de sistemas se utiliza habitualmente la arquitectura maestro-esclavo?",
+      "respuesta": "En sistemas con restricciones en tiempo real y sistemas de control: robótica, domótica, control de tráfico, sistemas SCADA, sistemas industriales."
+    },
+    {
+      "id": "isa-tema-5-fc-026",
+      "pregunta": "¿Es siempre el maestro el servidor y el esclavo el cliente en una arquitectura maestro-esclavo?",
+      "respuesta": "No. Depende del diseño: el esclavo puede enviar información periódicamente al maestro (maestro como servidor), o el maestro puede solicitar información a los esclavos (maestro como cliente)."
+    },
+    {
+      "id": "isa-tema-5-fc-027",
+      "pregunta": "¿Qué es el middleware en el contexto de componentes distribuidos?",
+      "respuesta": "Una capa de software que permite la comunicación entre componentes distribuidos en distintas máquinas, abstrayendo los detalles de red y protocolos. Los componentes no se comunican directamente, sino a través del middleware."
+    },
+    {
+      "id": "isa-tema-5-fc-028",
+      "pregunta": "¿Qué diferencia hay entre una arquitectura P2P descentralizada pura y una semicentralizada?",
+      "respuesta": "En la descentralizada pura todos los nodos enrutan las búsquedas de forma distribuida. En la semicentralizada existen superpares que mantienen directorios parciales de recursos, agilizando las búsquedas sin un servidor central completo."
+    },
+    {
+      "id": "isa-tema-5-fc-029",
+      "pregunta": "¿En qué se diferencia el patrón de repositorio del patrón cliente-servidor?",
+      "respuesta": "Estructuralmente son similares, pero el foco es diferente: el repositorio está orientado a la concentración de los datos en un almacén común compartido, mientras que el cliente-servidor se centra en los servicios que ofrecen los servidores."
+    },
+    {
+      "id": "isa-tema-5-fc-030",
+      "pregunta": "¿Qué ventaja tiene la arquitectura de componentes distribuidos frente a la multicapa multinivel?",
+      "respuesta": "Mayor flexibilidad: no hay que decidir qué servicios pertenecen a cada capa fija. Los componentes son más independientes y los cambios más sencillos. Como contrapartida, el sistema puede ser más difícil de comprender en su conjunto."
+    }
+  ]
+}

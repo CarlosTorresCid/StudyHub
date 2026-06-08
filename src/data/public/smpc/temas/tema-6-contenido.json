@@ -1,0 +1,144 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-6",
+  "titulo": "Tema 6. Programación Avanzada con JADE (II): Comunicación y Descubrimiento de Agentes",
+  "apuntes": {
+    "introduccion": "El Tema 6 aborda la comunicación avanzada y el descubrimiento de agentes en JADE. Se explica la comunicación asíncrona basada en mensajes (ACLMessage), el uso de MessageTemplate para filtrar mensajes, la gestión de conversaciones mediante campos de control, y cómo los agentes publican y buscan servicios en el Directory Facilitator (DF). También se muestran buenas prácticas de implementación y ejemplo de conversación Contract Net.",
+    "secciones": [
+      {
+        "titulo": "1. Comunicación entre agentes en JADE",
+        "contenido": "La comunicación en JADE se basa en **mensaje asíncrono**: cada agente tiene un buzón privado donde se depositan los mensajes. Los mensajes son instancias de `jade.lang.acl.ACLMessage`, compatibles con FIPA-ACL.\n\nCampos principales:\n- sender: AID del emisor.\n- receivers: uno o varios AID destinatarios.\n- performativa: intención del emisor (REQUEST, INFORM, CFP, PROPOSE, ACCEPT_PROPOSAL, REFUSE, etc.).\n- content: información real del mensaje.\n- otros campos: language, ontology, conversation-id, reply-with, in-reply-to."
+      },
+      {
+        "titulo": "2. Envío y recepción de mensajes",
+        "contenido": "**Envío:** crear ACLMessage, configurar campos y llamar a `send()`.\n\n**Recepción:** `receive()` devuelve el primer mensaje de la cola o null si está vacía. Se recomienda usar `receive()` + `block()` dentro de behaviours.\n\n**Recepción bloqueante:** `blockingReceive()` bloquea el hilo del agente y no se recomienda dentro de behaviours; usar solo en setup() o takeDown()."
+      },
+      {
+        "titulo": "3. Plantillas de mensajes: MessageTemplate",
+        "contenido": "Permite que diferentes behaviours lean selectivamente mensajes de la misma cola.\n- Crear plantillas con `MatchPerformative()`, `MatchConversationId()`, `MatchInReplyTo()`.\n- Combinar plantillas con `and()` / `or()`.\n- Usar con `receive(mt)` para filtrar mensajes que cumplan la plantilla."
+      },
+      {
+        "titulo": "4. Conversaciones complejas: campos de control",
+        "contenido": "Para conversaciones con múltiples pasos:\n- conversation-id: identifica la conversación.\n- reply-with: etiqueta única del mensaje original.\n- in-reply-to: referencia al reply-with del mensaje al que se responde.\n\nEjemplo: behaviour Negociador con pasos 0..3 implementando Contract Net.\n- Paso 0: enviar CFP.\n- Paso 1: recibir PROPOSE/REFUSE.\n- Paso 2: enviar ACCEPT_PROPOSAL/REJECT_PROPOSAL.\n- Paso 3: recibir INFORM/FAILURE.\n\nSe puede usar `jade.proto.ContractNetInitiator` para simplificar la implementación."
+      },
+      {
+        "titulo": "5. Descubrimiento de agentes: Directory Facilitator",
+        "contenido": "El DF (Directory Facilitator) permite publicar y buscar servicios.\n- Registro de servicios: `DFService.register(this, dfd)` en setup().\n- Baja de servicios: `DFService.deregister(this)` en takeDown().\n- Búsqueda: `DFService.search(agent, plantilla)`.\n- Clases implicadas: `DFAgentDescription`, `ServiceDescription`, `Property`.\n- Uso de TickerBehaviour para búsquedas periódicas, o FIPA-Subscribe para suscripción automática a cambios."
+      }
+    ]
+  },
+  "resumen": [
+    "Comunicación asíncrona mediante ACLMessage con buzón privado para cada agente.",
+    "send() para enviar mensajes; receive() + block() para recibir; blockingReceive() solo en setup()/takeDown().",
+    "MessageTemplate permite filtrar mensajes por performativa, conversation-id, in-reply-to.",
+    "conversation-id, reply-with e in-reply-to controlan conversaciones multi-paso.",
+    "Ejemplo: Negociador implementa Contract Net en 4 pasos usando campos de control.",
+    "Directory Facilitator (DF) permite publicar, dar de baja y buscar servicios.",
+    "Registro: DFService.register() en setup(), deregister() en takeDown().",
+    "Búsqueda periódica con TickerBehaviour o suscripción FIPA-Subscribe.",
+    "Clases de descripción: DFAgentDescription, ServiceDescription, Property.",
+    "Uso de jade.proto para implementar protocolos FIPA (ej. ContractNetInitiator)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "ACLMessage",
+      "definicion": "Clase para representar mensajes FIPA-ACL; campos principales: sender, receivers, performativa, content, language, ontology, conversation-id, reply-with, in-reply-to."
+    },
+    {
+      "termino": "send()",
+      "definicion": "Envía un mensaje ACL a los receptores especificados."
+    },
+    {
+      "termino": "receive()",
+      "definicion": "Devuelve el primer mensaje de la cola o null si no hay mensajes; no bloquea el hilo."
+    },
+    {
+      "termino": "block()",
+      "definicion": "Marca el behaviour como en espera hasta que llegue un mensaje, sin bloquear el hilo."
+    },
+    {
+      "termino": "blockingReceive()",
+      "definicion": "Bloquea el hilo completo del agente hasta recibir un mensaje; usar solo en setup() o takeDown()."
+    },
+    {
+      "termino": "MessageTemplate",
+      "definicion": "Permite filtrar mensajes en la cola para que un behaviour reciba solo los que coinciden con criterios definidos; se crea con MatchPerformative(), MatchConversationId(), MatchInReplyTo() y combinaciones and()/or()."
+    },
+    {
+      "termino": "conversation-id",
+      "definicion": "Identificador de la conversación, igual en todos los mensajes de una misma conversación."
+    },
+    {
+      "termino": "reply-with / in-reply-to",
+      "definicion": "Campos de control de mensajes para vincular respuestas a mensajes originales y crear plantillas inequívocas."
+    },
+    {
+      "termino": "DFService",
+      "definicion": "Clase que simplifica la interacción con el DF: register(), deregister(), search()."
+    },
+    {
+      "termino": "DFAgentDescription / ServiceDescription / Property",
+      "definicion": "Clases para describir agentes y servicios en DF: tipo de servicio, nombre, propiedades."
+    },
+    {
+      "termino": "FIPA-Subscribe",
+      "definicion": "Mecanismo de suscripción al DF para recibir notificaciones automáticas de registro o baja de servicios."
+    },
+    {
+      "termino": "jade.proto.ContractNetInitiator",
+      "definicion": "Implementación del protocolo Contract Net como máquina de estados finitos; permite reusar protocolos FIPA sin implementarlos manualmente."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-6-fc-001",
+      "pregunta": "¿Qué diferencia hay entre receive() y blockingReceive()?",
+      "respuesta": "receive() devuelve null si no hay mensajes y no bloquea; blockingReceive() bloquea el hilo completo del agente, impidiendo que otros behaviours se ejecuten."
+    },
+    {
+      "id": "smpc-tema-6-fc-002",
+      "pregunta": "¿Qué hace block() en un Behaviour?",
+      "respuesta": "Marca el behaviour como en espera hasta que llegue un mensaje sin bloquear el hilo del agente."
+    },
+    {
+      "id": "smpc-tema-6-fc-003",
+      "pregunta": "¿Para qué sirve MessageTemplate?",
+      "respuesta": "Para filtrar mensajes que un behaviour puede recibir, usando criterios como performativa, conversation-id o in-reply-to."
+    },
+    {
+      "id": "smpc-tema-6-fc-004",
+      "pregunta": "¿Qué campos de control se usan para conversaciones complejas?",
+      "respuesta": "conversation-id, reply-with e in-reply-to."
+    },
+    {
+      "id": "smpc-tema-6-fc-005",
+      "pregunta": "¿Qué performativas se usan en el ejemplo comprador/vendedor de libros?",
+      "respuesta": "CFP, PROPOSE, ACCEPT_PROPOSAL, REFUSE, INFORM, FAILURE."
+    },
+    {
+      "id": "smpc-tema-6-fc-006",
+      "pregunta": "¿Cómo publica un agente sus servicios en el DF?",
+      "respuesta": "DFService.register(this, dfd) en setup(); DFService.deregister(this) en takeDown()."
+    },
+    {
+      "id": "smpc-tema-6-fc-007",
+      "pregunta": "¿Cómo busca un agente servicios en el DF?",
+      "respuesta": "Crea un DFAgentDescription plantilla y llama a DFService.search(agente, plantilla), devolviendo un array de agentes que ofrecen el servicio."
+    },
+    {
+      "id": "smpc-tema-6-fc-008",
+      "pregunta": "¿Por qué usar un TickerBehaviour para buscar agentes en el DF?",
+      "respuesta": "Porque los agentes pueden aparecer y desaparecer; permite mantener actualizada la lista de agentes. Alternativa: suscripción FIPA-Subscribe."
+    },
+    {
+      "id": "smpc-tema-6-fc-009",
+      "pregunta": "¿Qué soporte ofrece jade.proto para protocolos FIPA?",
+      "respuesta": "Implementaciones listas como ContractNetInitiator para reusar el protocolo Contract Net como máquina de estados finitos."
+    },
+    {
+      "id": "smpc-tema-6-fc-010",
+      "pregunta": "¿Una plantilla de mensajes sirve para enviar o recibir mensajes?",
+      "respuesta": "Para filtrar los mensajes que se reciben; receive(mt) devuelve solo mensajes que coinciden con la plantilla."
+    }
+  ]
+}

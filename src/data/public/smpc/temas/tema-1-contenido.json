@@ -1,0 +1,186 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Agentes y Sistemas Multiagente",
+  "apuntes": {
+    "introduccion": "El Tema 1 introduce el paradigma de la Programación Orientada a Agentes (AOP), sus características principales y su aplicación en Sistemas Multiagente (SMA). Se abordan tipos de agentes, arquitecturas, coordinación, comunicación y estándares como FIPA y FIPA-ACL.",
+    "secciones": [
+      {
+        "titulo": "1. La Programación Orientada a Agentes (AOP)",
+        "contenido": "La **Programación Orientada a Agentes (AOP)** es un paradigma de software que modela una aplicación como una colección de componentes llamados **agentes**, caracterizados por autonomía, proactividad y capacidad comunicativa. Los agentes pueden tomar decisiones, actuar proactivamente y comunicarse con otros agentes y usuarios.\n\nEl modelo arquitectónico es peer-to-peer y se aplica en dominios como control de procesos, diagnóstico de sistemas, fabricación y logística."
+      },
+      {
+        "titulo": "2. Tipos de agentes",
+        "contenido": "Los agentes pueden clasificarse según su comportamiento:\n- **Autónomos**: actúan sin intervención humana directa.\n- **Sociales**: cooperan con otros agentes o humanos.\n- **Reactivos**: responden al entorno sin modelo interno.\n- **Proactivos**: actúan dirigidos por metas internas.\n\nCapacidades adicionales: móvil, veraz, benevolente, racional y aprendiz.\nDiferencia con objetos POO: los agentes deciden ejecutar acciones, los objetos solo reaccionan a métodos invocados."
+      },
+      {
+        "titulo": "3. Arquitecturas de agentes",
+        "contenido": "Principales arquitecturas:\n- **Basadas en lógica (simbólicas)**: manipulan conocimiento simbólico, comprensibles pero lentas.\n- **Reactivas**: asignación directa situación → acción, ej. subsunción de Brooks.\n- **BDI (Creencias, Deseos, Intenciones)**: modelo deliberativo más usado.\n- **En capas (híbridas)**: combinan reactividad y deliberación, con estratificación horizontal o vertical."
+      },
+      {
+        "titulo": "4. Sistemas Multiagente (SMA / MAS)",
+        "contenido": "Un SMA es un conjunto de agentes que interactúan, cooperan o compiten. Los agentes pueden tener objetivos comunes o conflictivos, y logran objetivos más rápido trabajando en paralelo sobre subproblemas distintos."
+      },
+      {
+        "titulo": "5. Comunicación y coordinación en los SMA",
+        "contenido": "Comunicación mediante **ACL** basada en la teoría del acto de habla. Coordinación mediante:\n- Estructuración organizacional.\n- Contract Net (gestor y contratistas).\n- Planificación multiagente: centralizada o distribuida.\n- Negociación: competitiva o cooperativa."
+      },
+      {
+        "titulo": "6. La FIPA: historia y fundamentos",
+        "contenido": "**FIPA** (1996) estandarizó la infraestructura y comunicación entre agentes.\n- Adopta FIPA-ACL basado en la teoría del acto de habla.\n- Promueve interoperabilidad abierta entre plataformas heterogéneas.\n- Historia y aplicaciones incluyen middleware, comunicación, interacción con software y aplicaciones específicas."
+      },
+      {
+        "titulo": "7. Lenguajes de programación orientados a agentes",
+        "contenido": "Deben incluir estructuras que representen un agente y mecanismos para creencias, metas, planes, roles y normas."
+      }
+    ]
+  },
+  "resumen": [
+    "Introducción a la AOP y las propiedades de los agentes: autonomía, proactividad y comunicación.",
+    "Tipos de agentes: autónomos, sociales, reactivos y proactivos, con capacidades adicionales.",
+    "Arquitecturas de agentes: lógica simbólica, reactivas, BDI y capas híbridas.",
+    "Sistemas Multiagente: interacción, cooperación, competencia y paralelismo en subproblemas.",
+    "Comunicación en SMA: ACL, teorías de acto de habla, coordinación mediante estructuras organizacionales, Contract Net, planificación y negociación.",
+    "FIPA y FIPA-ACL: estandarización de comunicación, interoperabilidad y fundamentos históricos.",
+    "Lenguajes de programación orientados a agentes: estructuras para agentes, creencias, metas, planes, roles y normas."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "AOP",
+      "definicion": "Paradigma de software que modela una aplicación como colección de agentes autónomos, proactivos y comunicativos en entornos distribuidos."
+    },
+    {
+      "termino": "Agente autónomo",
+      "definicion": "Opera sin intervención directa de humanos u otros agentes; toma decisiones de forma independiente."
+    },
+    {
+      "termino": "Proactividad",
+      "definicion": "Capacidad del agente de tomar la iniciativa guiado por sus metas sin estímulos externos."
+    },
+    {
+      "termino": "SMA",
+      "definicion": "Conjunto de agentes que interactúan entre sí, cooperan o compiten, para modelar sistemas complejos."
+    },
+    {
+      "termino": "Arquitectura reactiva",
+      "definicion": "Toma decisiones como asignación directa situación→acción; ejemplo: subsunción de Brooks."
+    },
+    {
+      "termino": "Arquitectura BDI",
+      "definicion": "Modelo deliberativo que organiza el comportamiento del agente en Creencias, Deseos e Intenciones."
+    },
+    {
+      "termino": "Arquitectura en capas",
+      "definicion": "Combina comportamiento reactivo y deliberativo mediante capas jerarquizadas."
+    },
+    {
+      "termino": "Contract Net",
+      "definicion": "Protocolo de coordinación descentralizado basado en anuncios de contratos, ofertas y adjudicación a contratistas."
+    },
+    {
+      "termino": "Planificación multiagente centralizada",
+      "definicion": "Un agente coordinador recibe planes parciales, detecta conflictos y genera un plan global coherente."
+    },
+    {
+      "termino": "Planificación multiagente distribuida",
+      "definicion": "Cada agente mantiene un modelo de los planes de los demás y se comunica para eliminar conflictos."
+    },
+    {
+      "termino": "Negociación competitiva",
+      "definicion": "Agentes con objetivos independientes que no ceden en beneficio de un bien mayor."
+    },
+    {
+      "termino": "Negociación cooperativa",
+      "definicion": "Agentes que persiguen un objetivo común diseñado centralmente."
+    },
+    {
+      "termino": "FIPA",
+      "definicion": "Foundation for Intelligent Physical Agents, estandariza la infraestructura y comunicación de agentes desde 1996."
+    },
+    {
+      "termino": "FIPA-ACL",
+      "definicion": "Lenguaje de comunicación de agentes basado en la teoría del acto de habla de Searle; facilita interoperabilidad entre plataformas."
+    },
+    {
+      "termino": "Acto de habla",
+      "definicion": "Cada mensaje enviado por un agente es una acción comunicativa que produce un efecto en las creencias o intenciones del receptor."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-1-fc-001",
+      "pregunta": "¿Qué propiedades principales caracterizan a un agente?",
+      "respuesta": "Autonomía, proactividad y capacidad comunicativa."
+    },
+    {
+      "id": "smpc-tema-1-fc-002",
+      "pregunta": "Diferencia entre un agente y un objeto en POO",
+      "respuesta": "El objeto ejecuta métodos pasivamente; el agente decide por sí mismo qué acciones ejecutar y posee su propio hilo de control."
+    },
+    {
+      "id": "smpc-tema-1-fc-003",
+      "pregunta": "¿Qué significa que un agente sea proactivo?",
+      "respuesta": "Toma la iniciativa guiado por sus propios objetivos sin estímulo externo."
+    },
+    {
+      "id": "smpc-tema-1-fc-004",
+      "pregunta": "Tipos de arquitecturas de agentes",
+      "respuesta": "Lógica simbólica, reactivas, BDI y en capas (híbridas)."
+    },
+    {
+      "id": "smpc-tema-1-fc-005",
+      "pregunta": "Ventaja de la arquitectura de subsunción de Brooks",
+      "respuesta": "Más eficiente y rápida en entornos dinámicos; agentes perciben y actúan sin planificación."
+    },
+    {
+      "id": "smpc-tema-1-fc-006",
+      "pregunta": "Significado de BDI",
+      "respuesta": "Beliefs (Creencias), Desires (Deseos), Intentions (Intenciones)."
+    },
+    {
+      "id": "smpc-tema-1-fc-007",
+      "pregunta": "Ventaja de las arquitecturas en capas",
+      "respuesta": "Combina reacción ante situaciones urgentes y deliberación para objetivos a largo plazo."
+    },
+    {
+      "id": "smpc-tema-1-fc-008",
+      "pregunta": "Formas de interacción en un SMA",
+      "respuesta": "Directa: comunicación y negociación; Indirecta: actuando sobre el entorno compartido."
+    },
+    {
+      "id": "smpc-tema-1-fc-009",
+      "pregunta": "En qué consiste el Contract Net",
+      "respuesta": "Gestor anuncia contrato, contratistas presentan ofertas, se adjudica al más adecuado."
+    },
+    {
+      "id": "smpc-tema-1-fc-010",
+      "pregunta": "Diferencia planificación centralizada y distribuida",
+      "respuesta": "Centralizada: agente coordinador genera plan global; Distribuida: agentes se comunican para resolver conflictos de manera autónoma."
+    },
+    {
+      "id": "smpc-tema-1-fc-011",
+      "pregunta": "Fundación y objetivo de FIPA",
+      "respuesta": "Fundada en 1996, estandariza infraestructura y comunicación para interoperabilidad entre agentes."
+    },
+    {
+      "id": "smpc-tema-1-fc-012",
+      "pregunta": "Por qué se adoptó FIPA-ACL y no KQML",
+      "respuesta": "Porque FIPA-ACL tiene semántica formal; KQML carece de ella."
+    },
+    {
+      "id": "smpc-tema-1-fc-013",
+      "pregunta": "Base teórica de FIPA-ACL",
+      "respuesta": "Teoría del acto de habla de Searle: comunicar es actuar, cada mensaje es un acto con efecto en creencias o intenciones del receptor."
+    },
+    {
+      "id": "smpc-tema-1-fc-014",
+      "pregunta": "Diferencia negociación competitiva y cooperativa",
+      "respuesta": "Competitiva: objetivos independientes; Cooperativa: objetivo común centralmente diseñado."
+    },
+    {
+      "id": "smpc-tema-1-fc-015",
+      "pregunta": "Desventaja de la arquitectura de subsunción",
+      "respuesta": "Los sensores pueden ser insuficientes y no permite que el agente aprenda de la experiencia."
+    }
+  ]
+}

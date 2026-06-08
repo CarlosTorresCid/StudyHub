@@ -1,0 +1,371 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. La Plataforma JADE",
+  "apuntes": {
+    "introduccion": "El Tema 3 presenta JADE, una plataforma middleware orientada a agentes que facilita el desarrollo de Sistemas Multiagente en Java. JADE cumple con los estándares FIPA, proporciona un entorno de ejecución distribuido basado en contenedores, permite la comunicación asíncrona entre agentes y ofrece herramientas gráficas para administrar, monitorizar y depurar plataformas multiagente. El tema se centra en qué es JADE, cómo se diseñan sus agentes, cómo se organiza su arquitectura, cómo se lanza la plataforma y qué herramientas ofrece para trabajar con agentes.",
+    "secciones": [
+      {
+        "titulo": "1. Qué es JADE",
+        "contenido": "**JADE** (*Java Agent DEvelopment Framework*) es una plataforma de software middleware que simplifica la construcción de aplicaciones distribuidas basadas en agentes software. Es uno de los middleware orientados a agentes más extendidos.\n\nJADE está implementado completamente en **Java**, lo que permite aprovechar las características del lenguaje y sus bibliotecas. Proporciona una API sencilla para construir Sistemas Multiagente sin necesidad de dominar en profundidad toda la teoría de agentes.\n\nSus características principales son:\n\n- Está implementado en Java.\n- Proporciona una API sencilla y amigable.\n- Es un sistema middleware distribuido.\n- Cumple con los estándares FIPA.\n- Gestiona la comunicación entre agentes de forma asíncrona.\n- Proporciona un entorno de ejecución para agentes.\n- Ofrece soporte al ciclo de vida de los agentes.\n- Incluye herramientas gráficas para administración y depuración.\n\nJADE fue desarrollado inicialmente por el Departamento de I+D de Telecom Italia. Fue liberado como código abierto en el año 2000 y se distribuye bajo licencia **LGPL**."
+      },
+      {
+        "titulo": "2. Licencia LGPL de JADE",
+        "contenido": "JADE se distribuye bajo licencia **LGPL** (*Lesser General Public License*).\n\nEsta licencia permite:\n\n- Ejecutar JADE en productos comerciales.\n- Realizar y distribuir copias.\n- Acceder al código fuente.\n- Modificar el código fuente.\n- Usar JADE junto con software propietario.\n\nLa diferencia importante respecto a la licencia GPL es que la LGPL **no impone restricciones al software que usa JADE**. Por tanto, una aplicación propietaria puede utilizar JADE sin tener que convertirse automáticamente en software libre."
+      },
+      {
+        "titulo": "3. Los agentes software según JADE",
+        "contenido": "El diseño de JADE está influido por la idea de agente software como entidad autónoma y proactiva.\n\nUn agente JADE es autónomo porque no debe exponer directamente sus referencias internas ni permitir que otros agentes controlen sus servicios mediante llamadas directas. Por este motivo, un agente no proporciona referencias sobre su propio objeto a otros agentes.\n\nAdemás, cada agente tiene su **propio hilo de ejecución**, que utiliza para controlar su ciclo de vida y decidir cuándo realizar sus acciones.\n\nLos agentes también están **débilmente acoplados**. Esto significa que no dependen directamente unos de otros mediante referencias de objetos. La comunicación se realiza mediante mensajes asíncronos. Un agente puede enviar un mensaje a otro sin que el receptor esté necesariamente disponible en ese momento.\n\nEn JADE, los agentes pueden decir “no”: reciben mensajes, pero mantienen la capacidad de decidir si aceptan, rechazan, procesan o descartan esos mensajes."
+      },
+      {
+        "titulo": "4. Comunicación asíncrona entre agentes",
+        "contenido": "La forma básica de comunicación entre agentes JADE es la **comunicación asíncrona basada en mensajes**.\n\nUn agente que desea comunicarse envía un mensaje a uno o varios destinatarios. No necesita tener una referencia directa al objeto receptor, sino conocer su identidad, es decir, su **AID**. El sistema de transporte de JADE se encarga de resolver esa identidad y entregar el mensaje.\n\nEsta comunicación tiene varias ventajas:\n\n- No hay dependencia temporal entre emisor y receptor.\n- El emisor no queda bloqueado esperando a que el receptor procese el mensaje.\n- El receptor puede decidir qué mensajes procesar y en qué orden.\n- El receptor puede descartar mensajes que no le interesen.\n- La multidifusión puede implementarse como una operación atómica.\n\nGracias a este modelo, JADE favorece sistemas flexibles, distribuidos y débilmente acoplados."
+      },
+      {
+        "titulo": "5. Sistema peer-to-peer en JADE",
+        "contenido": "JADE funciona como un sistema **peer-to-peer (P2P)**. Cada agente se identifica mediante un nombre único global llamado **AID**.\n\nLos agentes pueden unirse a una plataforma o abandonarla en cualquier momento. Además, pueden descubrir otros agentes mediante los servicios de páginas blancas y páginas amarillas.\n\nLas **páginas blancas**, proporcionadas por el AMS, permiten localizar agentes por su identidad. Las **páginas amarillas**, proporcionadas por el DF, permiten localizar agentes por los servicios que ofrecen.\n\nEsta arquitectura P2P encaja con la idea de Sistemas Multiagente, donde los agentes se comunican y coordinan sin depender necesariamente de una estructura centralizada rígida."
+      },
+      {
+        "titulo": "6. Arquitectura de JADE: contenedores",
+        "contenido": "En JADE, los agentes no se ejecutan directamente sobre la plataforma, sino dentro de entidades llamadas **contenedores**.\n\nUn contenedor es un proceso que se ejecuta sobre la **máquina virtual Java (JVM)** y que constituye parte del runtime de JADE. Los contenedores proporcionan los servicios necesarios para lanzar agentes, ejecutar sus comportamientos y gestionar su ciclo de vida.\n\nLos contenedores pueden ejecutarse en máquinas diferentes de una red. Por eso JADE se considera una plataforma verdaderamente distribuida.\n\nUna plataforma JADE puede estar formada por varios contenedores conectados entre sí. Uno de ellos se lanza primero y actúa como contenedor principal."
+      },
+      {
+        "titulo": "7. Main Container",
+        "contenido": "El **Main Container** es el primer contenedor que se lanza en una plataforma JADE. Al iniciarse, arranca la plataforma y permite que los demás contenedores se registren en él.\n\nPor defecto, este contenedor se llama *Main Container*, mientras que los demás suelen llamarse *Container-1*, *Container-2*, etc., aunque estos nombres pueden modificarse por línea de comandos.\n\nEl Main Container tiene responsabilidades exclusivas:\n\n- Mantiene una **tabla de contenedores (TC)** con referencias y direcciones de transporte de todos los contenedores de la plataforma.\n- Alberga la **GADT (Global Agent Descriptor Table)**, que contiene la ubicación y el estado de todos los agentes.\n- Lanza automáticamente los dos agentes especiales del sistema: **AMS** y **DF**.\n\nEl Main Container no suele ser un cuello de botella gracias a las cachés locales de los contenedores, pero sí representa un posible punto único de fallo."
+      },
+      {
+        "titulo": "8. GADT, LADT y política LRU",
+        "contenido": "La **GADT (Global Agent Descriptor Table)** es la Tabla Global de Descriptores de Agentes. Reside en el Main Container y registra la ubicación y el estado de todos los agentes de la plataforma.\n\nPara evitar que el Main Container se convierta en un cuello de botella, cada contenedor mantiene una caché local llamada **LADT (Local Agent Descriptor Table)**.\n\nCuando un contenedor necesita localizar a un agente, sigue este proceso:\n\n1. Busca primero en su LADT local.\n2. Si no encuentra la información, consulta al Main Container.\n3. La referencia obtenida se guarda en la LADT para usos futuros.\n\nLa LADT utiliza una política de sustitución **LRU (Least Recently Used)**, que descarta los elementos menos recientemente utilizados. Esta política está pensada para optimizar conversaciones largas entre agentes.\n\nSi la LADT contiene una dirección obsoleta porque el agente ha migrado o ha terminado, el contenedor recibe una excepción y refresca su caché consultando al Main Container."
+      },
+      {
+        "titulo": "9. Main Container como punto único de fallo",
+        "contenido": "Aunque el Main Container no suele ser un cuello de botella gracias al uso de la LADT, sí puede representar un **punto único de fallo**.\n\nEsto significa que, si el Main Container falla, puede afectar al funcionamiento de toda la plataforma. Para reducir este riesgo, JADE ofrece el **Servicio de Replicación Principal**, que permite distribuir el control entre varias instancias del contenedor principal.\n\nDe esta forma se mejora la tolerancia a fallos de la plataforma."
+      },
+      {
+        "titulo": "10. Lanzamiento de JADE",
+        "contenido": "JADE puede lanzarse desde la línea de comandos.\n\nPara lanzar el Main Container con interfaz gráfica se utiliza:\n\n`java jade.Boot -gui`\n\nAl ejecutarse, JADE muestra información de inicialización, arranque de servicios estándar, inicio del MTP HTTP y confirmación de que el Main Container está listo.\n\nPara lanzar un contenedor no principal conectado al Main Container de un host concreto se utiliza:\n\n`java jade.Boot -container -host tatooine`\n\nPara lanzar un contenedor con un agente específico se usa el formato:\n\n`java jade.Boot -container -host tatooine NombreAgente:NombreClase`\n\nPor ejemplo:\n\n`java jade.Boot -container -host tatooine Pepe:HelloWorldAgent`\n\nEl formato consiste en indicar el nombre local del agente, dos puntos y la clase Java correspondiente."
+      },
+      {
+        "titulo": "11. Herramientas gráficas de JADE",
+        "contenido": "JADE incluye varias herramientas gráficas para administrar, monitorizar y depurar agentes y plataformas. Se accede a ellas desde el menú **Tools** del RMA.\n\nEstas herramientas son muy útiles durante el desarrollo, aunque pueden afectar al rendimiento. Por ello, en producción se recomienda evitarlas salvo que sean necesarias.\n\nLas principales herramientas son:\n\n- **RMA**: consola gráfica de administración de la plataforma.\n- **DummyAgent**: herramienta para enviar mensajes ACL personalizados.\n- **Sniffer**: herramienta para observar conversaciones entre agentes.\n- **Introspector**: herramienta para depurar el comportamiento interno de un agente.\n- **Log Manager**: herramienta para modificar niveles de logging en tiempo de ejecución."
+      },
+      {
+        "titulo": "12. RMA, DummyAgent, Sniffer, Introspector y Log Manager",
+        "contenido": "**RMA (Remote Monitoring Agent)** es la consola gráfica principal de JADE. Permite visualizar y administrar la plataforma distribuida, incluyendo contenedores y agentes. Se lanza usando la opción `-gui`.\n\n**DummyAgent** permite enviar mensajes ACL personalizados a agentes y observar sus respuestas. Es útil para comprobar cómo responde un agente ante determinados estímulos.\n\n**Sniffer** permite depurar y documentar conversaciones entre agentes. Muestra gráficamente los mensajes intercambiados: cada flecha representa un mensaje y cada color puede representar una conversación. Puede utilizar filtros de agentes y performativas.\n\n**Introspector** se utiliza para depurar un único agente. Permite monitorizar su ciclo de vida, sus colas de mensajes enviados y recibidos, y su cola de comportamientos. También permite ejecutar comportamientos paso a paso. Un paso equivale a una ejecución del método `action()` de una instancia de Behaviour.\n\n**Log Manager** permite modificar el nivel de logging de clases concretas en tiempo de ejecución sin reiniciar la plataforma. Es útil para depurar problemas en producción sin interrumpir el servicio."
+      },
+      {
+        "titulo": "13. Funcionalidades principales de JADE",
+        "contenido": "JADE proporciona un conjunto amplio de funcionalidades orientadas al desarrollo de Sistemas Multiagente:\n\n- **API independiente de ubicación**: el programador puede usar la API sin saber dónde se ejecuta físicamente el agente.\n- **Páginas blancas (AMS)**: registro de agentes, asignación de AID y control del ciclo de vida.\n- **Páginas amarillas (DF)**: registro y búsqueda de servicios ofrecidos por agentes.\n- **Movilidad**: posibilidad de migrar agentes entre procesos y máquinas.\n- **Ontologías**: soporte para definir y utilizar ontologías compartidas.\n- **Protocolos de interacción**: implementación de protocolos estándar FIPA.\n- **Herramientas gráficas**: RMA, Sniffer, DummyAgent, Introspector y Log Manager.\n\nEstas funcionalidades convierten a JADE en una plataforma práctica para construir, ejecutar y depurar Sistemas Multiagente distribuidos."
+      }
+    ]
+  },
+  "resumen": [
+    "JADE significa Java Agent DEvelopment Framework y es un middleware para construir Sistemas Multiagente en Java.",
+    "JADE fue desarrollado inicialmente por Telecom Italia y liberado como código abierto en el año 2000.",
+    "JADE se distribuye bajo licencia LGPL, lo que permite usarlo en productos comerciales y junto con software propietario.",
+    "JADE cumple con los estándares FIPA y proporciona comunicación asíncrona entre agentes.",
+    "Los agentes JADE son autónomos, proactivos y disponen de su propio hilo de ejecución.",
+    "La comunicación en JADE se basa en mensajes asíncronos y no requiere referencias directas a objetos receptores.",
+    "Cada agente se identifica mediante un AID único global.",
+    "Los agentes se ejecutan dentro de contenedores, que son procesos sobre la JVM.",
+    "El Main Container es el primer contenedor que se lanza y alberga la GADT, el AMS y el DF.",
+    "La GADT almacena la ubicación y estado de todos los agentes de la plataforma.",
+    "Cada contenedor mantiene una LADT, una caché local que evita que el Main Container sea un cuello de botella.",
+    "La LADT utiliza una política LRU, que descarta los elementos menos recientemente usados.",
+    "El Main Container puede ser un punto único de fallo, aunque JADE ofrece un Servicio de Replicación Principal para mitigarlo.",
+    "JADE incluye herramientas gráficas como RMA, DummyAgent, Sniffer, Introspector y Log Manager.",
+    "El Sniffer sirve para observar conversaciones entre agentes, mientras que el Introspector permite depurar un único agente paso a paso."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "JADE",
+      "definicion": "Java Agent DEvelopment Framework. Plataforma middleware distribuida para construir Sistemas Multiagente en Java, compatible con FIPA."
+    },
+    {
+      "termino": "Middleware",
+      "definicion": "Capa de software que proporciona servicios intermedios para facilitar el desarrollo y ejecución de aplicaciones distribuidas."
+    },
+    {
+      "termino": "Licencia LGPL",
+      "definicion": "Licencia de código abierto que permite usar JADE en productos comerciales y combinarlo con software propietario sin imponer restricciones al software que lo utiliza."
+    },
+    {
+      "termino": "Agente JADE",
+      "definicion": "Entidad software autónoma y proactiva con su propio hilo de ejecución, capaz de comunicarse mediante mensajes asíncronos."
+    },
+    {
+      "termino": "Comunicación asíncrona",
+      "definicion": "Modelo de comunicación en el que el emisor envía un mensaje sin quedar bloqueado esperando a que el receptor lo procese."
+    },
+    {
+      "termino": "AID",
+      "definicion": "Agent Identifier. Identificador único global de un agente en JADE, utilizado para localizarlo y enviarle mensajes."
+    },
+    {
+      "termino": "Sistema peer-to-peer",
+      "definicion": "Modelo en el que los agentes pueden comunicarse entre sí como pares, sin necesidad de depender de llamadas directas a objetos."
+    },
+    {
+      "termino": "Contenedor JADE",
+      "definicion": "Proceso que se ejecuta sobre la JVM y alberga agentes, proporcionando los servicios necesarios para su ejecución y ciclo de vida."
+    },
+    {
+      "termino": "Main Container",
+      "definicion": "Contenedor principal de JADE. Es el primero en lanzarse, inicia la plataforma, mantiene la tabla de contenedores y alberga la GADT, el AMS y el DF."
+    },
+    {
+      "termino": "TC (Tabla de Contenedores)",
+      "definicion": "Tabla mantenida por el Main Container con referencias y direcciones de transporte de todos los contenedores de la plataforma."
+    },
+    {
+      "termino": "GADT",
+      "definicion": "Global Agent Descriptor Table. Tabla global de descriptores de agentes que contiene la ubicación y el estado de todos los agentes de la plataforma."
+    },
+    {
+      "termino": "LADT",
+      "definicion": "Local Agent Descriptor Table. Caché local mantenida por cada contenedor con información parcial de la GADT."
+    },
+    {
+      "termino": "LRU",
+      "definicion": "Least Recently Used. Política de sustitución de caché que elimina los elementos menos recientemente utilizados."
+    },
+    {
+      "termino": "AMS",
+      "definicion": "Agent Management System. Agente especial del sistema que proporciona páginas blancas y gestiona el ciclo de vida de los agentes."
+    },
+    {
+      "termino": "DF",
+      "definicion": "Directory Facilitator. Agente especial que proporciona páginas amarillas, permitiendo registrar y buscar servicios ofrecidos por agentes."
+    },
+    {
+      "termino": "RMA",
+      "definicion": "Remote Monitoring Agent. Consola gráfica de administración y monitorización de la plataforma JADE."
+    },
+    {
+      "termino": "DummyAgent",
+      "definicion": "Herramienta de JADE que permite enviar mensajes ACL personalizados a agentes para probar su comportamiento."
+    },
+    {
+      "termino": "Sniffer",
+      "definicion": "Herramienta de JADE que permite monitorizar y visualizar gráficamente conversaciones entre agentes."
+    },
+    {
+      "termino": "Introspector",
+      "definicion": "Herramienta de JADE para depurar un único agente, controlar su ciclo de vida, observar sus colas y ejecutar comportamientos paso a paso."
+    },
+    {
+      "termino": "Log Manager",
+      "definicion": "Herramienta que permite modificar niveles de logging de clases específicas en tiempo de ejecución sin reiniciar la plataforma."
+    },
+    {
+      "termino": "Servicio de Replicación Principal",
+      "definicion": "Servicio de JADE que permite mitigar el punto único de fallo del Main Container distribuyendo el control entre varias instancias."
+    },
+    {
+      "termino": "Movilidad",
+      "definicion": "Capacidad de JADE para permitir que agentes migren entre procesos y máquinas, incluyendo código y, con restricciones, estado."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-3-fc-001",
+      "pregunta": "¿Qué significa JADE?",
+      "respuesta": "Java Agent DEvelopment Framework."
+    },
+    {
+      "id": "smpc-tema-3-fc-002",
+      "pregunta": "¿Qué es JADE?",
+      "respuesta": "Una plataforma middleware distribuida para construir aplicaciones basadas en agentes software en Java."
+    },
+    {
+      "id": "smpc-tema-3-fc-003",
+      "pregunta": "¿Quién desarrolló inicialmente JADE?",
+      "respuesta": "El Departamento de I+D de Telecom Italia."
+    },
+    {
+      "id": "smpc-tema-3-fc-004",
+      "pregunta": "¿En qué año se liberó JADE como código abierto?",
+      "respuesta": "En el año 2000."
+    },
+    {
+      "id": "smpc-tema-3-fc-005",
+      "pregunta": "¿Bajo qué licencia se distribuye JADE?",
+      "respuesta": "Bajo licencia LGPL."
+    },
+    {
+      "id": "smpc-tema-3-fc-006",
+      "pregunta": "¿Qué ventaja tiene la licencia LGPL frente a la GPL en el caso de JADE?",
+      "respuesta": "Permite usar JADE en productos comerciales y combinarlo con software propietario sin imponer restricciones al software que lo utiliza."
+    },
+    {
+      "id": "smpc-tema-3-fc-007",
+      "pregunta": "¿Por qué JADE se considera compatible con FIPA?",
+      "respuesta": "Porque cumple los estándares FIPA de comunicación y gestión de agentes."
+    },
+    {
+      "id": "smpc-tema-3-fc-008",
+      "pregunta": "¿Por qué un agente JADE es autónomo?",
+      "respuesta": "Porque tiene su propio hilo de ejecución y decide cuándo realizar sus acciones sin ceder el control directo a otros agentes."
+    },
+    {
+      "id": "smpc-tema-3-fc-009",
+      "pregunta": "¿Por qué en JADE un agente no debe proporcionar referencias de su propio objeto a otros agentes?",
+      "respuesta": "Para evitar que otras entidades coopten el control de sus servicios y preservar su autonomía."
+    },
+    {
+      "id": "smpc-tema-3-fc-010",
+      "pregunta": "¿Cómo se comunican básicamente los agentes en JADE?",
+      "respuesta": "Mediante comunicación asíncrona basada en mensajes."
+    },
+    {
+      "id": "smpc-tema-3-fc-011",
+      "pregunta": "¿Qué necesita conocer un agente para enviar un mensaje a otro en JADE?",
+      "respuesta": "Solo necesita conocer su AID, no una referencia directa al objeto receptor."
+    },
+    {
+      "id": "smpc-tema-3-fc-012",
+      "pregunta": "¿Qué ventaja tiene la comunicación asíncrona para el emisor?",
+      "respuesta": "El emisor no queda bloqueado esperando a que el receptor procese el mensaje."
+    },
+    {
+      "id": "smpc-tema-3-fc-013",
+      "pregunta": "¿Qué ventaja tiene la comunicación asíncrona para el receptor?",
+      "respuesta": "El receptor puede decidir qué mensajes procesar, cuáles descartar y en qué orden atenderlos."
+    },
+    {
+      "id": "smpc-tema-3-fc-014",
+      "pregunta": "¿Qué es un AID?",
+      "respuesta": "El identificador único global de un agente en JADE."
+    },
+    {
+      "id": "smpc-tema-3-fc-015",
+      "pregunta": "¿Dónde se ejecutan los agentes en JADE?",
+      "respuesta": "Dentro de contenedores JADE que se ejecutan sobre la máquina virtual Java."
+    },
+    {
+      "id": "smpc-tema-3-fc-016",
+      "pregunta": "¿Qué es un contenedor JADE?",
+      "respuesta": "Un proceso sobre la JVM que alberga agentes y proporciona servicios para su ejecución y ciclo de vida."
+    },
+    {
+      "id": "smpc-tema-3-fc-017",
+      "pregunta": "¿Por qué JADE es una plataforma verdaderamente distribuida?",
+      "respuesta": "Porque sus contenedores pueden ejecutarse en máquinas diferentes de una red."
+    },
+    {
+      "id": "smpc-tema-3-fc-018",
+      "pregunta": "¿Qué es el Main Container?",
+      "respuesta": "El primer contenedor que se lanza en JADE y que inicia la plataforma."
+    },
+    {
+      "id": "smpc-tema-3-fc-019",
+      "pregunta": "¿Qué componentes especiales lanza automáticamente el Main Container?",
+      "respuesta": "El AMS y el DF."
+    },
+    {
+      "id": "smpc-tema-3-fc-020",
+      "pregunta": "¿Qué responsabilidades tiene el Main Container?",
+      "respuesta": "Mantiene la tabla de contenedores, alberga la GADT y lanza el AMS y el DF."
+    },
+    {
+      "id": "smpc-tema-3-fc-021",
+      "pregunta": "¿Qué es la GADT?",
+      "respuesta": "La Tabla Global de Descriptores de Agentes, que contiene la ubicación y estado de todos los agentes."
+    },
+    {
+      "id": "smpc-tema-3-fc-022",
+      "pregunta": "¿Dónde reside la GADT?",
+      "respuesta": "En el Main Container."
+    },
+    {
+      "id": "smpc-tema-3-fc-023",
+      "pregunta": "¿Qué es la LADT?",
+      "respuesta": "Una caché local de cada contenedor con información parcial de la GADT."
+    },
+    {
+      "id": "smpc-tema-3-fc-024",
+      "pregunta": "¿Para qué sirve la LADT?",
+      "respuesta": "Para evitar que el Main Container sea consultado constantemente y se convierta en un cuello de botella."
+    },
+    {
+      "id": "smpc-tema-3-fc-025",
+      "pregunta": "¿Qué política usa la LADT?",
+      "respuesta": "La política LRU, Least Recently Used."
+    },
+    {
+      "id": "smpc-tema-3-fc-026",
+      "pregunta": "¿Qué ocurre si la LADT contiene una dirección obsoleta?",
+      "respuesta": "El contenedor recibe una excepción y refresca su caché consultando al Main Container."
+    },
+    {
+      "id": "smpc-tema-3-fc-027",
+      "pregunta": "¿Es el Main Container un cuello de botella?",
+      "respuesta": "No necesariamente, porque la LADT reduce las consultas al Main Container."
+    },
+    {
+      "id": "smpc-tema-3-fc-028",
+      "pregunta": "¿Qué problema sí puede tener el Main Container?",
+      "respuesta": "Puede ser un punto único de fallo."
+    },
+    {
+      "id": "smpc-tema-3-fc-029",
+      "pregunta": "¿Cómo se mitiga el punto único de fallo del Main Container?",
+      "respuesta": "Con el Servicio de Replicación Principal."
+    },
+    {
+      "id": "smpc-tema-3-fc-030",
+      "pregunta": "¿Qué comando lanza el Main Container con interfaz gráfica?",
+      "respuesta": "java jade.Boot -gui"
+    },
+    {
+      "id": "smpc-tema-3-fc-031",
+      "pregunta": "¿Qué comando lanza un contenedor no principal conectado a un host?",
+      "respuesta": "java jade.Boot -container -host nombreHost"
+    },
+    {
+      "id": "smpc-tema-3-fc-032",
+      "pregunta": "¿Qué formato se usa para lanzar un agente específico en JADE?",
+      "respuesta": "NombreAgente:NombreClase"
+    },
+    {
+      "id": "smpc-tema-3-fc-033",
+      "pregunta": "¿Qué es el RMA?",
+      "respuesta": "La consola gráfica de administración y monitorización de la plataforma JADE."
+    },
+    {
+      "id": "smpc-tema-3-fc-034",
+      "pregunta": "¿Para qué sirve DummyAgent?",
+      "respuesta": "Para enviar mensajes ACL personalizados a agentes y comprobar su comportamiento."
+    },
+    {
+      "id": "smpc-tema-3-fc-035",
+      "pregunta": "¿Para qué sirve el Sniffer?",
+      "respuesta": "Para monitorizar y visualizar gráficamente conversaciones entre agentes."
+    },
+    {
+      "id": "smpc-tema-3-fc-036",
+      "pregunta": "¿Para qué sirve el Introspector?",
+      "respuesta": "Para depurar un único agente, observar su ciclo de vida, colas de mensajes y ejecutar comportamientos paso a paso."
+    },
+    {
+      "id": "smpc-tema-3-fc-037",
+      "pregunta": "¿Qué diferencia hay entre Sniffer e Introspector?",
+      "respuesta": "El Sniffer observa conversaciones entre agentes; el Introspector depura el comportamiento interno de un único agente."
+    },
+    {
+      "id": "smpc-tema-3-fc-038",
+      "pregunta": "¿Qué equivale a un paso en el Introspector?",
+      "respuesta": "Una ejecución del método action() de una instancia de Behaviour."
+    },
+    {
+      "id": "smpc-tema-3-fc-039",
+      "pregunta": "¿Para qué sirve Log Manager?",
+      "respuesta": "Para modificar niveles de logging en tiempo de ejecución sin reiniciar la plataforma."
+    },
+    {
+      "id": "smpc-tema-3-fc-040",
+      "pregunta": "¿Qué funcionalidades principales ofrece JADE?",
+      "respuesta": "API independiente de ubicación, AMS, DF, movilidad, ontologías, protocolos FIPA y herramientas gráficas."
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. Programación Avanzada con JADE (I): Comportamientos",
+  "apuntes": {
+    "introduccion": "El Tema 5 aborda la programación avanzada con JADE centrada en los **comportamientos** (behaviours), que representan las unidades de tarea de los agentes. Se estudia cómo se crean, planifican y ejecutan los comportamientos, los tipos básicos y temporales, y se analiza un caso práctico de agentes comprador y vendedor de libros para ilustrar su uso.",
+    "secciones": [
+      {
+        "titulo": "1. Los comportamientos: concepto y estructura básica",
+        "contenido": "Los **behaviours** son la unidad de tarea de un agente JADE. Se implementan como clases que extienden `jade.core.behaviours.Behaviour`.\n\nMétodos obligatorios:\n- `action()`: define la operación que realiza el comportamiento.\n- `done()`: indica si el comportamiento ha terminado y puede eliminarse.\n\nMétodos opcionales:\n- `onStart()`: se ejecuta antes de la primera llamada a `action()`.\n- `onEnd()`: se ejecuta después de que `done()` devuelva true (no se invoca si se elimina con `removeBehaviour()`).\n\nCada comportamiento tiene acceso a `myAgent`, la referencia al agente que lo ejecuta. Para ejecutar un comportamiento nuevamente, se debe llamar a `reset()`."
+      },
+      {
+        "titulo": "2. Planificación cooperativa de comportamientos",
+        "contenido": "Un agente puede ejecutar varios comportamientos de forma concurrente. La planificación en JADE es **cooperativa**: `action()` se ejecuta hasta que retorna, y el programador decide cuándo pasar a otro comportamiento.\n\nVentajas:\n- Un solo hilo Java por agente, ahorro de recursos.\n- Conmutación rápida entre comportamientos.\n- Sin problemas de sincronización.\n- Permite persistencia y movilidad del agente.\n\nPeligro: un `action()` que nunca retorna bloquea al agente."
+      },
+      {
+        "titulo": "3. Tipos de comportamientos primarios",
+        "contenido": "**OneShotBehaviour**: ejecuta `action()` una vez, `done()` devuelve true.\n**CyclicBehaviour**: ejecuta `action()` repetidamente, `done()` devuelve false.\n**Comportamiento genérico**: usa una variable de estado para controlar la ejecución secuencial; termina cuando se cumple la condición final.\n\nSe pueden componer comportamientos para tareas complejas."
+      },
+      {
+        "titulo": "4. Comportamientos temporales: WakerBehaviour y TickerBehaviour",
+        "contenido": "**WakerBehaviour**: ejecuta `onWake()` una sola vez tras un tiempo de espera. \n**TickerBehaviour**: ejecuta `onTick()` repetidamente con intervalo fijo, indefinidamente salvo eliminación o stop().\nDiferencia: WakerBehaviour → una vez; TickerBehaviour → repetidamente."
+      },
+      {
+        "titulo": "5. Caso de estudio: agentes comprador y vendedor de libros",
+        "contenido": "Sistema de comercio de libros de segunda mano:\n\n**AgenteComprador:**\n- `GestorCompras` (TickerBehaviour): consulta periódicamente disponibilidad y precios.\n- `Negociador` (comportamiento genérico): gestiona negociación con vendedor.\n\n**AgenteVendedor:**\n- `GestorPrecios` (TickerBehaviour): ajusta precio linealmente hasta fecha límite.\n- `PedirOfertas` (CyclicBehaviour): atiende solicitudes de compradores.\n- `OrdenarCompras` (CyclicBehaviour): procesa órdenes de compra.\n\nRecomendación: definir los behaviours como clases internas de la clase del agente."
+      }
+    ]
+  },
+  "resumen": [
+    "Introducción a los behaviours de JADE como unidades de tarea de un agente.",
+    "Métodos obligatorios de Behaviour: action() y done(); opcionales: onStart() y onEnd().",
+    "Planificación cooperativa: un hilo por agente, action() se ejecuta hasta que retorna.",
+    "Tipos de comportamientos: OneShotBehaviour, CyclicBehaviour y comportamiento genérico con steps.",
+    "Comportamientos temporales: WakerBehaviour (una vez) y TickerBehaviour (repetidamente).",
+    "Caso práctico: AgenteComprador y AgenteVendedor de libros, con TickerBehaviour, CyclicBehaviour y comportamientos genéricos.",
+    "Buenas prácticas: definir comportamientos como clases internas, usar reset() si se ejecutan nuevamente."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Behaviour",
+      "definicion": "Unidad de tarea de un agente JADE. Clase que extiende Behaviour. Métodos obligatorios: action() y done()."
+    },
+    {
+      "termino": "action()",
+      "definicion": "Define las operaciones del comportamiento en cada ejecución. Se ejecuta hasta que retorna."
+    },
+    {
+      "termino": "done()",
+      "definicion": "Devuelve true cuando el comportamiento ha terminado y debe eliminarse del conjunto activo de behaviours."
+    },
+    {
+      "termino": "onStart()",
+      "definicion": "Método opcional ejecutado antes de la primera llamada a action() para inicialización."
+    },
+    {
+      "termino": "onEnd()",
+      "definicion": "Método opcional ejecutado después de que done() devuelve true, para limpieza. No se invoca si se elimina con removeBehaviour()."
+    },
+    {
+      "termino": "Planificación cooperativa",
+      "definicion": "Modelo de ejecución de behaviours donde action() se ejecuta hasta retornar. Un hilo Java por agente, sin conflictos de sincronización."
+    },
+    {
+      "termino": "OneShotBehaviour",
+      "definicion": "Behaviour que se ejecuta una sola vez. done() siempre devuelve true."
+    },
+    {
+      "termino": "CyclicBehaviour",
+      "definicion": "Behaviour que se ejecuta indefinidamente hasta que se elimine. done() devuelve false."
+    },
+    {
+      "termino": "Comportamiento genérico",
+      "definicion": "Behaviour con variable de estado que controla operaciones secuenciales; termina cuando se cumple la condición final."
+    },
+    {
+      "termino": "WakerBehaviour",
+      "definicion": "Ejecuta onWake() una sola vez tras un retardo especificado."
+    },
+    {
+      "termino": "TickerBehaviour",
+      "definicion": "Ejecuta onTick() repetidamente con un intervalo fijo hasta que se detenga explícitamente."
+    },
+    {
+      "termino": "Comportamiento abusivo",
+      "definicion": "Behaviour cuyo action() nunca retorna, bloqueando al agente y evitando que otros behaviours se ejecuten."
+    },
+    {
+      "termino": "Persistencia del agente",
+      "definicion": "Capacidad de guardar el estado del agente para reanudarlo después, posible gracias a la planificación cooperativa."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-5-fc-001",
+      "pregunta": "¿Qué métodos obligatorios debe implementar todo Behaviour?",
+      "respuesta": "action() y done()."
+    },
+    {
+      "id": "smpc-tema-5-fc-002",
+      "pregunta": "¿Qué hace onStart()?",
+      "respuesta": "Se ejecuta una vez antes de la primera llamada a action() para inicialización."
+    },
+    {
+      "id": "smpc-tema-5-fc-003",
+      "pregunta": "¿Qué hace onEnd()?",
+      "respuesta": "Se ejecuta una vez después de que done() devuelve true; no se invoca si se elimina con removeBehaviour()."
+    },
+    {
+      "id": "smpc-tema-5-fc-004",
+      "pregunta": "¿Qué significa planificación cooperativa en JADE?",
+      "respuesta": "Un solo hilo por agente; action() se ejecuta hasta que retorna; el programador decide cuándo pasa a otro comportamiento."
+    },
+    {
+      "id": "smpc-tema-5-fc-005",
+      "pregunta": "Tipos primarios de comportamiento en JADE",
+      "respuesta": "OneShotBehaviour, CyclicBehaviour y comportamiento genérico con steps."
+    },
+    {
+      "id": "smpc-tema-5-fc-006",
+      "pregunta": "Diferencia entre WakerBehaviour y TickerBehaviour",
+      "respuesta": "WakerBehaviour se ejecuta una vez tras un retardo; TickerBehaviour se ejecuta repetidamente con intervalo fijo."
+    },
+    {
+      "id": "smpc-tema-5-fc-007",
+      "pregunta": "Caso práctico de agentes comprador y vendedor de libros",
+      "respuesta": "AgenteComprador: GestorCompras (TickerBehaviour), Negociador (genérico). AgenteVendedor: GestorPrecios (TickerBehaviour), PedirOfertas y OrdenarCompras (CyclicBehaviour)."
+    },
+    {
+      "id": "smpc-tema-5-fc-008",
+      "pregunta": "Buena práctica al definir comportamientos en JADE",
+      "respuesta": "Definirlos como clases internas del agente para acceder a recursos del agente y la GUI."
+    },
+    {
+      "id": "smpc-tema-5-fc-009",
+      "pregunta": "Qué hacer antes de ejecutar un Behaviour por segunda vez",
+      "respuesta": "Invocar reset() para evitar resultados inesperados."
+    },
+    {
+      "id": "smpc-tema-5-fc-010",
+      "pregunta": "Qué ocurre con un comportamiento abusivo",
+      "respuesta": "Si su action() nunca retorna, bloquea al agente e impide que otros behaviours se ejecuten."
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-6",
+  "titulo": "Tema 6. Arquitectura de aplicaciones en la nube",
+  "apuntes": {
+    "introduccion": "La computación en la nube (Cloud Computing) es más que una tecnología concreta: es la combinación de un conjunto de tecnologías que ha permitido un nuevo modelo de acceso a servicios, desde capacidades básicas de infraestructura de cómputo hasta aplicaciones de software listas para usar. Este tema estudia los fundamentos del Cloud Computing según la definición del NIST, sus modelos de servicio y despliegue, los factores de calidad específicos de las aplicaciones en la nube y los principales estilos arquitectónicos y patrones de diseño que se aplican en este contexto.",
+    "secciones": [
+      {
+        "titulo": "Definición y fundamentos del Cloud Computing",
+        "contenido": "El **Cloud Computing** es un modelo que permite el acceso por red ubicuo, conveniente y bajo demanda a un conjunto compartido de recursos computacionales configurables (redes, servidores, almacenamiento, aplicaciones y servicios) que pueden ser rápidamente aprovisionados y liberados con un esfuerzo mínimo de administración o interacción con el proveedor de servicios. (Definición del NIST - Instituto Nacional de Estándares y Tecnología).\n\nDos ideas fundamentales sustentan el cloud computing:\n- **Virtualización**: permite que múltiples máquinas virtuales compartan el mismo hardware físico, haciendo posible la asignación dinámica de recursos.\n- **Hardware y software como servicio**: los recursos computacionales se consumen como un servicio externo, sin necesidad de poseerlos ni mantenerlos físicamente.\n\nEl cloud no surgió de la nada: es la evolución histórica de arquitecturas anteriores, pasando por P2P, clústeres, grid computing y la virtualización, hasta llegar al modelo de servicios bajo demanda que conocemos hoy."
+      },
+      {
+        "titulo": "Las cinco características esenciales del Cloud (NIST)",
+        "contenido": "La definición del NIST identifica cinco características que todo sistema cloud debe cumplir:\n\n**1. Autoservicio bajo demanda**: el usuario o consumidor del servicio puede aprovisionar unilateralmente, a voluntad, los recursos computacionales necesarios, sin necesidad de intervención humana por parte del proveedor. Esto se consigue a través de interfaces sencillas de administración como APIs o paneles de control.\n\n**2. Acceso amplio desde la red**: los recursos compartidos son accesibles desde una variedad de dispositivos (PCs, tabletas, móviles) a través de mecanismos estandarizados, con la única condición de contar con conexión a la red.\n\n**3. Agrupación de recursos**: la propiedad de los recursos es compartida. El proveedor pone recursos físicos y virtuales a disposición de múltiples clientes (modelo multi-tenant), asignando y reasignando en función de la demanda de cada consumidor. El usuario generalmente no sabe ni controla la ubicación exacta de los recursos.\n\n**4. Rápida elasticidad**: el aprovisionamiento de recursos en función de la demanda se realiza de forma rápida y en muchos casos automática. Desde el punto de vista del consumidor, esta capacidad de aprovisionamiento parece ilimitada: puede aumentar o reducir recursos cuando los necesite.\n\n**5. Medición del servicio**: la utilización de los diferentes tipos de recursos es monitorizada y medida, ofreciendo transparencia tanto para el proveedor (para facturar) como para el consumidor (para controlar su gasto). Es el modelo pay-per-use o pago por uso."
+      },
+      {
+        "titulo": "Modelos de servicio: IaaS, PaaS y SaaS",
+        "contenido": "Los modelos de servicio cloud se distinguen por la carga de gestión que recae sobre el proveedor versus el usuario. Cuanto más alto es el nivel, más gestión asume el proveedor y menos el usuario.\n\n**IaaS (Infrastructure as a Service — Infraestructura como Servicio)**: el proveedor ofrece recursos de infraestructura básicos como máquinas virtuales, almacenamiento y redes. El usuario es libre de instalar y configurar el sistema operativo y todos los elementos superiores (middleware, bases de datos, aplicaciones). La responsabilidad de administrar las capas superiores recae en el usuario. Ejemplo: AWS EC2, AWS S3, Azure Virtual Machines.\n\n**PaaS (Platform as a Service — Plataforma como Servicio)**: el proveedor ofrece una plataforma de desarrollo y despliegue administrada. El usuario no gestiona la infraestructura subyacente (servidores, sistema operativo, red) pero sí controla las aplicaciones desplegadas y posiblemente la configuración del entorno. Ejemplo: Google App Engine, Heroku, Vercel.\n\n**SaaS (Software as a Service — Software como Servicio)**: el usuario simplemente se suscribe y usa el software a través del navegador u otro cliente, sin gestionar nada de la infraestructura, plataforma ni desarrollo. Es el nivel más alto. Ejemplo: Gmail, Office 365, Salesforce, Dropbox, Slack.\n\n**Extensiones más recientes**:\n- **CaaS (Containers as a Service)**: infraestructura basada en contenedores (Docker, Kubernetes).\n- **FaaS (Functions as a Service / Serverless)**: ejecución de funciones individuales bajo demanda sin gestionar servidores. Ejemplo: AWS Lambda.\n\nLa variedad de oferta tiende a ser mayor en los niveles superiores (SaaS), que son también los más conocidos por el gran público."
+      },
+      {
+        "titulo": "Modelos de despliegue",
+        "contenido": "Los modelos de despliegue definen quién puede acceder a la infraestructura cloud y dónde está ubicada físicamente:\n\n**Cloud privado**: la infraestructura está dedicada en exclusiva a una única organización. Puede estar ubicada dentro de las propias instalaciones de la organización (on-premise) o en las instalaciones de un proveedor externo. Ofrece mayor control y seguridad, pero requiere mayor inversión.\n\n**Cloud comunitario**: los recursos están dedicados en exclusiva a un conjunto de organizaciones que comparten intereses comunes (por ejemplo, entidades del sector sanitario o administraciones públicas). Los costes y la gestión se reparten entre ellas.\n\n**Cloud público**: la infraestructura está disponible para el acceso del público general. Los recursos son gestionados por un proveedor externo que los ofrece a múltiples usuarios. Ejemplo: AWS, Azure, Google Cloud Platform.\n\n**Cloud híbrido**: combina elementos de dos o más de los modelos anteriores (privado + público, por ejemplo), permitiendo que las organizaciones mantengan cargas de trabajo sensibles en cloud privado y utilicen cloud público para picos de demanda."
+      },
+      {
+        "titulo": "Calidad de las aplicaciones en la nube",
+        "contenido": "Las aplicaciones cloud presentan características de calidad específicas que hay que tratar con especial atención:\n\n**Disponibilidad**: fracción del tiempo total en que el sistema está en funcionamiento y es capaz de atender peticiones. En el modelo clásico on-premise, mantener alta disponibilidad implicaba sobredimensionar recursos y desperdiciarlos. El cloud permite gestionar los recursos a demanda, adaptándose a los cambios de carga sin desperdiciar.\n\n**Resiliencia**: capacidad del sistema para detectar errores, recuperarse de ellos y volver a un estado normal de funcionamiento. La naturaleza distribuida de las aplicaciones cloud multiplica los puntos potenciales de fallo, por lo que la resiliencia debe diseñarse explícitamente.\n\n**Seguridad**: protección de datos y servicios frente a amenazas externas. Las aplicaciones cloud son accesibles desde Internet y, en muchos casos, para el público general, lo que aumenta su vulnerabilidad frente a usuarios maliciosos.\n\n**Escalabilidad y elasticidad**: capacidad de responder al aumento de carga manteniendo el nivel de rendimiento. Se puede escalar de dos formas:\n- **Escalado vertical (scale-up)**: aumentar la potencia de las máquinas existentes (más CPU, más RAM, más almacenamiento). Tiene un límite físico y es más costoso.\n- **Escalado horizontal (scale-out)**: añadir más máquinas de menor tamaño. Es más flexible, más barato y permite ajustes más finos a la demanda. Es el enfoque preferido en cloud.\n\nLa **elasticidad** añade el componente de rapidez y automatización al escalado: los recursos se aprovisionan y liberan de forma casi inmediata y automática según varía la demanda."
+      },
+      {
+        "titulo": "Estilos arquitectónicos en la nube: N-Capas",
+        "contenido": "El estilo de **N-capas** en cloud es la aplicación del patrón multicapa estudiado en el Tema 5, pero adaptado a un entorno distribuido donde cada capa puede implementarse como uno o varios servidores separados.\n\nExisten dos variantes según cómo cada capa puede acceder a las demás:\n\n**Arquitectura de capa cerrada**: cada capa solo puede efectuar llamadas a la capa inmediatamente inferior. Se limita la dependencia entre capas, lo que mejora la modularidad. Como contrapartida, puede generar un tráfico innecesario cuando una capa simplemente pasa solicitudes a la siguiente sin añadir valor, con la consiguiente pérdida de rendimiento.\n\n**Arquitectura de capa abierta**: cada capa puede realizar llamadas a cualquiera de las capas inferiores (no solo a la inmediatamente inferior). Se elimina el tráfico innecesario, pero a costa de aumentar el acoplamiento entre capas, lo que dificulta el mantenimiento.\n\nEn la práctica, los sistemas N-capas en cloud frecuentemente incluyen balanceadores de carga entre las capas para distribuir el tráfico y permitir escalar horizontalmente cada nivel de forma independiente."
+      },
+      {
+        "titulo": "Estilo Web-Cola-Trabajador (Web-Queue-Worker, WQW)",
+        "contenido": "El estilo **Web-Queue-Worker (WQW)** es típico de aplicaciones cloud con tareas de larga duración o que requieren uso intensivo de la CPU en el back-end.\n\nEstructura de tres componentes:\n- **Front-end web**: servidor web que recibe las solicitudes HTTP de los usuarios. Generalmente no realiza procesamiento pesado.\n- **Cola de mensajes asíncronos**: actúa como intermediario entre el front-end y el back-end. El front-end deposita las tareas en la cola en lugar de esperar a que se completen. Esto desacopla temporalmente ambos extremos y actúa como un buffer.\n- **Trabajador back-end (Worker)**: proceso especializado en tareas de larga duración con uso intensivo de la CPU. Consume las tareas de la cola y las procesa.\n\nEl diagrama completo incluye también un CDN para el contenido estático (imágenes, CSS, JS) y una caché para mejorar el rendimiento de lecturas frecuentes.\n\n**Ventajas**: desacopla la carga entre el front-end y el procesamiento pesado; si la cola crece, se puede escalar el Worker de forma independiente; el usuario no queda bloqueado esperando tareas lentas."
+      },
+      {
+        "titulo": "Estilo Microservicios",
+        "contenido": "Las aplicaciones de **microservicios** están formadas por muchos servicios pequeños e independientes, cada uno de los cuales implementa una capacidad de negocio concreta.\n\nCaracterísticas clave:\n- Cada microservicio se **comunica con los demás a través de APIs** (generalmente APIs REST o mensajes). La API actúa como fachada entre el cliente y el servicio.\n- No es necesario que compartan el mismo framework de desarrollo, aunque sí deben acordar un protocolo de comunicación.\n- Los microservicios son **independientes entre sí**: pueden desarrollarse, desplegarse y actualizarse de forma autónoma sin afectar al resto.\n- Cada microservicio **tiene sus propios datos** (base de datos propia), evitando el acoplamiento por datos compartidos.\n- **Facilitan la escalabilidad**: cada microservicio puede escalar de manera independiente según su carga específica, sin necesidad de escalar todo el sistema.\n- **Aumentan la cohesión**: cada microservicio se especializa en funciones concretas y bien delimitadas.\n\nEjemplo emblemático: la arquitectura de Netflix, compuesta por cientos de microservicios independientes que implementan cada capacidad del sistema (recomendaciones, streaming, facturación, etc.)."
+      },
+      {
+        "titulo": "Patrón CQRS (Command and Query Responsibility Segregation)",
+        "contenido": "El modelo tradicional **CRUD** (Create-Read-Update-Delete) funciona bien en aplicaciones sencillas, pero en sistemas más complejos puede haber grandes diferencias entre las operaciones de lectura y las de escritura:\n- Las **lecturas** (queries) pueden ser muy frecuentes y requerir manipulación de grandes volúmenes de datos para devolver el formato adecuado.\n- Las **escrituras** (commands) pueden ser más esporádicas, pero estar sujetas a validaciones complejas o lógica de negocio elaborada.\n\n**CQRS** (Segregación de Responsabilidades de Consultas y Comandos) separa las operaciones de lectura y escritura, aislando las partes del sistema que modifican datos de las que simplemente los leen. Se pueden tener bases de datos separadas y optimizadas para cada tipo de operación, sincronizadas mediante eventos.\n\n**Ventaja fundamental**: la independencia entre lectura y escritura permite escalarlas de forma independiente. Si el sistema recibe muchas más lecturas que escrituras, se puede escalar solo la parte de lectura sin tocar la de escritura.\n\nCQRS se aplica especialmente en sistemas con alta carga de lectura asimétrica respecto a la escritura."
+      },
+      {
+        "titulo": "Patrón Back-end para Front-end (BFF)",
+        "contenido": "El patrón **Back-end for Front-end (BFF)** resuelve el problema de tener que servir aplicaciones cliente muy diferentes (web, móvil, consola, smart TV) desde un único back-end.\n\n**Problema**: cuando una aplicación es accedida desde dispositivos muy distintos, las necesidades de datos, el volumen de información, la frecuencia de actualización y las operaciones requeridas difieren significativamente. Un back-end único tiene que satisfacer a todos los tipos de cliente, lo que lo hace complejo y difícil de mantener. Los cambios en un tipo de cliente repercuten en todos los demás.\n\n**Solución**: definir un back-end específico para cada tipo de interfaz de usuario. Cada back-end está optimizado para el dispositivo concreto que atiende (escritorio, móvil, consola, etc.), es más pequeño y más sencillo de mantener. Todos los back-ends específicos continúan consumiendo el mismo conjunto de servicios internos del sistema.\n\n**Ventajas**: facilita el diseño, la implementación y el mantenimiento; permite el escalado independiente de cada back-end; aísla los cambios de un tipo de cliente del resto.\n\nEjemplo: la arquitectura de Netflix usa BFF para atender de forma óptima a sus distintos tipos de clientes (smart TV, móvil, navegador web, etc.)."
+      },
+      {
+        "titulo": "Patrón Equilibrado de carga basado en colas",
+        "contenido": "**Problema**: muchas aplicaciones cloud ejecutan tareas que invocan un conjunto de servicios compartidos. Cuando un servicio es consumido por múltiples tareas, es difícil predecir la carga futura. Pueden producirse picos de peticiones que saturen el servicio y provoquen errores.\n\n**Solución**: introducir una **cola de mensajes intermedia** entre las tareas (productores) y el servicio (consumidor), permitiendo que las peticiones sean suministradas al servicio a un ritmo más controlado. La cola actúa como un buffer.\n\n**Beneficios**:\n- Transforma un flujo de peticiones muy variable e impredecible en un flujo más uniforme hacia el servicio.\n- Si la cola crece (señal de que la demanda supera la capacidad), es posible escalar el servicio de forma rápida gracias a la elasticidad del cloud.\n- Mejora la resiliencia: si el servicio falla momentáneamente, las peticiones esperan en la cola en lugar de perderse.\n\nEste patrón está relacionado con el estilo WQW: la cola de mensajes del WQW actúa precisamente como este equilibrador de carga."
+      },
+      {
+        "titulo": "Patrón Cola de prioridades",
+        "contenido": "El patrón de **cola de prioridades** resuelve el problema de que no todas las solicitudes en una cola tienen la misma importancia.\n\n**Solución 1 — Reordenamiento dentro de la cola**: las solicitudes llevan asociada una prioridad. La cola las reordena automáticamente para que las de mayor prioridad sean atendidas antes. Problema: las solicitudes de prioridad baja pueden sufrir \"muerte por inanición\" (starving) si siempre hay solicitudes de prioridad alta llegando.\n\n**Solución 2 — Colas separadas por nivel de prioridad**: se crean varias colas independientes, una por nivel de prioridad. Cada cola puede tener asignados consumidores (workers) y hardware específico según el tipo de tarea. Esta solución es más robusta y permite ajustar el equipamiento según la naturaleza de cada tipo de tarea.\n\nEsta segunda solución combina bien con la escalabilidad del cloud: las colas de alta prioridad pueden escalar más agresivamente que las de baja prioridad."
+      },
+      {
+        "titulo": "Patrón Cache-Aside",
+        "contenido": "**Problema**: las operaciones continuas de lectura y escritura sobre bases de datos lentas perjudican el rendimiento del sistema.\n\n**Solución**: almacenar los datos en una **memoria caché** (más rápida que la base de datos), de manera que cuando sean solicitados ya estén disponibles.\n\nFuncionamiento detallado con cuatro elementos (cliente, servicio/aplicación, caché, almacenamiento):\n\n**En operaciones de lectura**:\n1. La aplicación busca primero el dato en la caché.\n2. Si está (cache hit), lo devuelve directamente al cliente.\n3. Si no está (cache miss), lo obtiene del almacenamiento (base de datos).\n4. Lo devuelve al cliente Y lo almacena en la caché para futuras peticiones.\n\n**En operaciones de escritura**: la aplicación escribe en la base de datos y también actualiza o invalida el dato en la caché.\n\nLa lógica de qué datos cachear se basa en la frecuencia de acceso: en sistemas como Instagram o TikTok, las publicaciones recientes son las más consultadas, por lo que tiene mucho sentido mantenerlas en caché. Los datos más antiguos y raramente consultados no necesitan estar cacheados."
+      },
+      {
+        "titulo": "Patrón Sharding (Particionamiento)",
+        "contenido": "**Problema**: cuando el almacén de datos crece mucho, un único servidor presenta limitaciones de espacio, de recursos computacionales y de ancho de banda, lo que impacta en el rendimiento.\n\n**Solución**: el **sharding** consiste en repartir los datos en **shards** (fragmentos), donde cada shard contiene una porción del total. Ningún shard tiene todos los datos, solo una parte.\n\nPara acceder a un dato, el sistema consulta un **catálogo de shards** (un diccionario que indica en qué shard está cada dato) y accede al shard correspondiente, preferiblemente al más cercano geográficamente para minimizar la latencia.\n\n**Ventaja principal**: facilita mucho el escalado horizontal. En lugar de adquirir un almacenamiento único más grande (escalado vertical, caro), simplemente se añaden más shards distribuyendo los datos. Herramientas como Elasticsearch automatizan la gestión del catálogo y la distribución de datos entre shards."
+      },
+      {
+        "titulo": "Otros patrones cloud relevantes",
+        "contenido": "El tema incluye varios patrones adicionales agrupados por categoría:\n\n**Patrones de resistencia (resiliencia)**:\n- **Reintento (Retry)**: si se produce un error transitorio (fallo puntual de red, sobrecarga momentánea), el sistema reintenta la operación automáticamente un número determinado de veces antes de declarar el fallo, con intervalos variables entre intentos.\n- **Agente supervisor de estado (Health Endpoint Monitoring)**: el sistema expone un endpoint de salud que puede ser consultado periódicamente para verificar que está funcionando correctamente. Facilita la detección temprana de problemas.\n\n**Patrones de seguridad**:\n- **Identidad federada**: en lugar de gestionar la autenticación internamente, el sistema delega en un proveedor de identidad externo (IdP). Este emite tokens de seguridad (mediante un Security Token Service, STS) que el sistema acepta para autenticar y autorizar a los usuarios. Ejemplo: \"Iniciar sesión con Google\" o \"Iniciar sesión con Microsoft\".\n- **Gatekeeper**: un componente actúa como intermediario (puerta de enlace) entre los clientes y los servicios internos, validando y filtrando las peticiones para evitar que peticiones maliciosas lleguen a los servicios sensibles.\n\n**Patrones de gestión de datos**:\n- **Hosting de contenido estático (CDN - Content Delivery Network)**: el contenido estático (imágenes, CSS, JavaScript, vídeos) se sirve desde servidores distribuidos geográficamente próximos al usuario, reduciendo la latencia y descargando al servidor principal."
+      }
+    ]
+  },
+  "resumen": [
+    "Cloud Computing es un modelo de acceso bajo demanda a recursos computacionales compartidos, configurables, rápidamente aprovisionables y liberables con mínimo esfuerzo de administración (definición NIST).",
+    "Las cinco características NIST del cloud son: autoservicio bajo demanda, acceso amplio desde la red, agrupación de recursos, rápida elasticidad y medición del servicio.",
+    "Los tres modelos de servicio fundamentales son IaaS (infraestructura), PaaS (plataforma) y SaaS (software). Cuanto más alto el nivel, más gestión asume el proveedor.",
+    "Los cuatro modelos de despliegue son: cloud privado (uso exclusivo de una organización), comunitario (varias organizaciones), público (acceso general) e híbrido (combinación).",
+    "Los factores de calidad clave en cloud son: disponibilidad, resiliencia, seguridad y escalabilidad/elasticidad.",
+    "El escalado horizontal (más máquinas) es preferible al vertical (máquinas más potentes) en cloud: es más flexible, más barato y permite ajustes más finos.",
+    "Los estilos arquitectónicos cloud incluyen N-capas (con variante cerrada y abierta), Web-Queue-Worker y Microservicios.",
+    "El estilo WQW desacopla el front-end del back-end intensivo en cómputo mediante una cola de mensajes asíncronos.",
+    "Los microservicios son servicios pequeños, independientes, con datos propios, comunicados por APIs. Facilitan el escalado independiente y la cohesión.",
+    "CQRS separa las operaciones de lectura y escritura para poder escalarlas de forma independiente según sus necesidades distintas.",
+    "BFF (Back-end for Front-end) define un back-end específico por tipo de cliente (móvil, web, consola), facilitando el diseño y el mantenimiento.",
+    "El equilibrado de carga basado en colas introduce un buffer entre productores y consumidores para regularizar el flujo de peticiones.",
+    "La cola de prioridades atiende primero las solicitudes más importantes, ya sea reordenando dentro de una sola cola o con colas separadas por nivel de prioridad.",
+    "Cache-Aside almacena en caché los datos más consultados; si no están en caché (miss), se leen de la base de datos y se guardan para futuras peticiones.",
+    "Sharding particiona horizontalmente el almacén de datos en fragmentos (shards), facilitando el escalado horizontal del almacenamiento."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Cloud Computing",
+      "definicion": "Modelo que permite el acceso por red bajo demanda a un conjunto compartido de recursos computacionales configurables que pueden ser rápidamente aprovisionados y liberados con mínimo esfuerzo de administración (NIST)."
+    },
+    {
+      "termino": "Autoservicio bajo demanda",
+      "definicion": "Característica cloud que permite al usuario aprovisionar recursos computacionales sin necesidad de intervención humana por parte del proveedor, a través de APIs o paneles de control."
+    },
+    {
+      "termino": "Agrupación de recursos (multi-tenant)",
+      "definicion": "Característica cloud en la que el proveedor comparte recursos físicos y virtuales entre múltiples clientes, asignándolos y reasignándolos dinámicamente según la demanda."
+    },
+    {
+      "termino": "Rápida elasticidad",
+      "definicion": "Característica cloud que permite aprovisionar y liberar recursos de forma rápida y automática según varía la demanda. Para el consumidor, la capacidad parece ilimitada."
+    },
+    {
+      "termino": "Medición del servicio",
+      "definicion": "Característica cloud que implica la monitorización y medición del uso de recursos, ofreciendo transparencia para proveedor y consumidor. Base del modelo pay-per-use."
+    },
+    {
+      "termino": "IaaS (Infrastructure as a Service)",
+      "definicion": "Modelo de servicio cloud en el que el proveedor ofrece infraestructura (máquinas virtuales, almacenamiento, red). El usuario gestiona el SO y las capas superiores. Ejemplo: AWS EC2."
+    },
+    {
+      "termino": "PaaS (Platform as a Service)",
+      "definicion": "Modelo de servicio cloud en el que el proveedor ofrece una plataforma de desarrollo y despliegue administrada. El usuario gestiona solo sus aplicaciones. Ejemplo: Google App Engine, Heroku."
+    },
+    {
+      "termino": "SaaS (Software as a Service)",
+      "definicion": "Modelo de servicio cloud en el que el usuario consume software directamente a través del navegador. El proveedor gestiona todo. Ejemplo: Gmail, Office 365, Salesforce."
+    },
+    {
+      "termino": "Resiliencia (cloud)",
+      "definicion": "Capacidad del sistema cloud para detectar errores, recuperarse de ellos y volver a un estado normal de funcionamiento."
+    },
+    {
+      "termino": "Escalado vertical (scale-up)",
+      "definicion": "Aumentar la potencia de las máquinas existentes (más CPU, RAM, almacenamiento). Tiene un límite físico y es más costoso que el escalado horizontal."
+    },
+    {
+      "termino": "Escalado horizontal (scale-out)",
+      "definicion": "Añadir más máquinas de menor tamaño para distribuir la carga. Es más flexible, más barato y el enfoque preferido en cloud."
+    },
+    {
+      "termino": "Web-Queue-Worker (WQW)",
+      "definicion": "Estilo arquitectónico cloud con un front-end que recibe solicitudes, una cola de mensajes asíncronos como intermediario, y un worker back-end que realiza el procesamiento intensivo."
+    },
+    {
+      "termino": "Microservicios",
+      "definicion": "Estilo arquitectónico en el que la aplicación se compone de muchos servicios pequeños e independientes, cada uno con sus datos propios, comunicados por APIs y escalables de forma independiente."
+    },
+    {
+      "termino": "CQRS (Command and Query Responsibility Segregation)",
+      "definicion": "Patrón que separa las operaciones de escritura (commands) y de lectura (queries), permitiendo optimizar y escalar cada tipo de forma independiente."
+    },
+    {
+      "termino": "BFF (Back-end for Front-end)",
+      "definicion": "Patrón que define un back-end específico para cada tipo de cliente (móvil, web, consola), optimizando cada uno para el dispositivo que atiende y facilitando su mantenimiento independiente."
+    },
+    {
+      "termino": "Cache-Aside",
+      "definicion": "Patrón que almacena datos frecuentemente consultados en una caché rápida. En lectura: busca en caché; si hay miss, lee de la BD y guarda en caché. En escritura: actualiza BD y caché."
+    },
+    {
+      "termino": "Sharding",
+      "definicion": "Patrón que particiona horizontalmente el almacén de datos en shards (fragmentos), cada uno con información parcial. Facilita el escalado horizontal del almacenamiento."
+    },
+    {
+      "termino": "Cola de prioridades",
+      "definicion": "Patrón que asocia prioridades a las solicitudes en cola para atender primero las más importantes. Se implementa reordenando en una cola o con colas separadas por nivel de prioridad."
+    },
+    {
+      "termino": "Identidad federada",
+      "definicion": "Patrón de seguridad que delega la autenticación en un proveedor de identidad externo (IdP), que emite tokens de seguridad (STS) que el sistema acepta para autenticar usuarios."
+    },
+    {
+      "termino": "CDN (Content Delivery Network) / Hosting de contenido estático",
+      "definicion": "Patrón que sirve el contenido estático (imágenes, CSS, JS) desde servidores distribuidos geográficamente cercanos al usuario, reduciendo latencia y descargando al servidor principal."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-6-fc-001",
+      "pregunta": "¿Cuáles son las cinco características esenciales del Cloud Computing según el NIST?",
+      "respuesta": "1. Autoservicio bajo demanda. 2. Acceso amplio desde la red. 3. Agrupación de recursos. 4. Rápida elasticidad. 5. Medición del servicio."
+    },
+    {
+      "id": "isa-tema-6-fc-002",
+      "pregunta": "¿Qué significa 'autoservicio bajo demanda' en cloud?",
+      "respuesta": "El usuario puede aprovisionar recursos computacionales sin intervención humana del proveedor, a través de APIs o paneles de control."
+    },
+    {
+      "id": "isa-tema-6-fc-003",
+      "pregunta": "¿Qué significa 'rápida elasticidad' en cloud?",
+      "respuesta": "Los recursos se aprovisionan y liberan de forma rápida y automática según varía la demanda. Para el consumidor, la capacidad parece ilimitada."
+    },
+    {
+      "id": "isa-tema-6-fc-004",
+      "pregunta": "¿Qué significa 'medición del servicio' en cloud?",
+      "respuesta": "El uso de recursos es monitorizado y medido automáticamente, ofreciendo transparencia para proveedor y consumidor. Es la base del modelo pay-per-use."
+    },
+    {
+      "id": "isa-tema-6-fc-005",
+      "pregunta": "¿Qué ofrece el modelo IaaS y quién gestiona qué?",
+      "respuesta": "El proveedor ofrece infraestructura básica (VMs, almacenamiento, red). El usuario gestiona el sistema operativo y todo lo que hay encima. Ejemplo: AWS EC2."
+    },
+    {
+      "id": "isa-tema-6-fc-006",
+      "pregunta": "¿Qué ofrece el modelo PaaS?",
+      "respuesta": "Una plataforma de desarrollo y despliegue administrada. El usuario no gestiona infraestructura, solo sus aplicaciones. Ejemplo: Google App Engine, Heroku."
+    },
+    {
+      "id": "isa-tema-6-fc-007",
+      "pregunta": "¿Qué ofrece el modelo SaaS?",
+      "respuesta": "Software directamente listo para usar, accesible a través del navegador. El proveedor gestiona todo. Ejemplo: Gmail, Office 365, Salesforce."
+    },
+    {
+      "id": "isa-tema-6-fc-008",
+      "pregunta": "¿Cuáles son los cuatro modelos de despliegue cloud?",
+      "respuesta": "Cloud privado (una organización), comunitario (varias organizaciones con intereses comunes), público (acceso general) e híbrido (combinación de modelos)."
+    },
+    {
+      "id": "isa-tema-6-fc-009",
+      "pregunta": "¿Cuáles son los factores de calidad específicos de las aplicaciones cloud?",
+      "respuesta": "Disponibilidad, resiliencia, seguridad y escalabilidad/elasticidad."
+    },
+    {
+      "id": "isa-tema-6-fc-010",
+      "pregunta": "¿Qué es la resiliencia en una aplicación cloud?",
+      "respuesta": "La capacidad del sistema para detectar errores, recuperarse de ellos y volver a un estado normal de funcionamiento."
+    },
+    {
+      "id": "isa-tema-6-fc-011",
+      "pregunta": "¿Cuál es la diferencia entre escalado vertical y escalado horizontal?",
+      "respuesta": "Vertical (scale-up): máquinas más potentes. Horizontal (scale-out): más máquinas. El horizontal es más flexible y preferido en cloud."
+    },
+    {
+      "id": "isa-tema-6-fc-012",
+      "pregunta": "¿Qué es una arquitectura de capa cerrada en N-capas cloud?",
+      "respuesta": "Cada capa solo puede hacer llamadas a la capa inmediatamente inferior. Limita el acoplamiento pero puede generar tráfico innecesario y pérdida de rendimiento."
+    },
+    {
+      "id": "isa-tema-6-fc-013",
+      "pregunta": "¿Cuáles son los tres componentes del estilo Web-Queue-Worker?",
+      "respuesta": "Front-end web (recibe solicitudes), cola de mensajes asíncronos (buffer intermediario) y worker back-end (procesamiento intensivo en CPU)."
+    },
+    {
+      "id": "isa-tema-6-fc-014",
+      "pregunta": "¿Por qué el estilo WQW mejora la escalabilidad?",
+      "respuesta": "Porque el front-end y el worker back-end están desacoplados por la cola. Si la cola crece (más demanda), se puede escalar solo el worker de forma independiente."
+    },
+    {
+      "id": "isa-tema-6-fc-015",
+      "pregunta": "¿Cuáles son las características clave de los microservicios?",
+      "respuesta": "Servicios pequeños e independientes, comunicados por APIs, con datos propios, escalables independientemente, sin compartir framework de desarrollo."
+    },
+    {
+      "id": "isa-tema-6-fc-016",
+      "pregunta": "¿Qué problema resuelve CQRS?",
+      "respuesta": "El desequilibrio entre operaciones de lectura (muy frecuentes, devuelven grandes volúmenes) y escritura (menos frecuentes, con validación compleja). CQRS las separa para poder optimizarlas y escalarlas de forma independiente."
+    },
+    {
+      "id": "isa-tema-6-fc-017",
+      "pregunta": "¿Qué problema resuelve el patrón BFF (Back-end for Front-end)?",
+      "respuesta": "El problema de atender desde un único back-end a clientes muy distintos (móvil, web, consola). BFF define un back-end específico y optimizado para cada tipo de cliente."
+    },
+    {
+      "id": "isa-tema-6-fc-018",
+      "pregunta": "¿Qué ventaja aporta BFF frente a un back-end único?",
+      "respuesta": "Facilita el diseño, implementación y mantenimiento; permite el escalado independiente de cada back-end; aísla los cambios de un tipo de cliente del resto."
+    },
+    {
+      "id": "isa-tema-6-fc-019",
+      "pregunta": "¿Cómo funciona el patrón de equilibrado de carga basado en colas?",
+      "respuesta": "Introduce una cola como buffer entre las tareas (productores) y el servicio (consumidor). Transforma un flujo impredecible de peticiones en uno más uniforme, y permite detectar cuándo escalar el servicio."
+    },
+    {
+      "id": "isa-tema-6-fc-020",
+      "pregunta": "¿Cuáles son las dos formas de implementar el patrón de cola de prioridades?",
+      "respuesta": "1. Reordenamiento dentro de una sola cola (riesgo de starvation). 2. Colas separadas por nivel de prioridad (solución más robusta, permite hardware específico por tipo de tarea)."
+    },
+    {
+      "id": "isa-tema-6-fc-021",
+      "pregunta": "¿Qué es el problema de 'muerte por inanición' (starvation) en la cola de prioridades?",
+      "respuesta": "Que las solicitudes de baja prioridad nunca son atendidas porque siempre hay solicitudes de alta prioridad en la cola. Ocurre en la implementación de reordenamiento dentro de una sola cola."
+    },
+    {
+      "id": "isa-tema-6-fc-022",
+      "pregunta": "Describe el flujo de lectura del patrón Cache-Aside.",
+      "respuesta": "1. La aplicación busca el dato en la caché. 2. Si está (hit), lo devuelve. 3. Si no está (miss), lo lee de la base de datos. 4. Lo devuelve al cliente Y lo guarda en la caché para futuras peticiones."
+    },
+    {
+      "id": "isa-tema-6-fc-023",
+      "pregunta": "¿Qué es el sharding?",
+      "respuesta": "Particionamiento horizontal del almacén de datos en fragmentos (shards), cada uno con información parcial. Se usa un catálogo de shards para localizar los datos. Facilita el escalado horizontal del almacenamiento."
+    },
+    {
+      "id": "isa-tema-6-fc-024",
+      "pregunta": "¿Qué es el patrón de identidad federada?",
+      "respuesta": "Delegar la autenticación en un proveedor de identidad externo (IdP), que emite tokens de seguridad (STS) que el sistema acepta. Ejemplo: 'Iniciar sesión con Google'."
+    },
+    {
+      "id": "isa-tema-6-fc-025",
+      "pregunta": "¿Qué es el patrón Reintento (Retry)?",
+      "respuesta": "Si se produce un error transitorio, el sistema reintenta la operación automáticamente un número determinado de veces con intervalos variables entre intentos, antes de declarar el fallo definitivo."
+    },
+    {
+      "id": "isa-tema-6-fc-026",
+      "pregunta": "¿Para qué sirve un CDN (Content Delivery Network)?",
+      "respuesta": "Servir contenido estático (imágenes, CSS, JS) desde servidores distribuidos geográficamente cercanos al usuario, reduciendo la latencia y descargando al servidor principal."
+    },
+    {
+      "id": "isa-tema-6-fc-027",
+      "pregunta": "¿Cuál es la tecnología fundamental que distingue al cloud de modelos distribuidos anteriores?",
+      "respuesta": "La virtualización, que permite que múltiples máquinas virtuales compartan el mismo hardware físico y que los recursos se asignen y liberen dinámicamente."
+    },
+    {
+      "id": "isa-tema-6-fc-028",
+      "pregunta": "¿Qué son FaaS y CaaS?",
+      "respuesta": "FaaS (Functions as a Service / Serverless): ejecución de funciones individuales bajo demanda sin gestionar servidores (ej: AWS Lambda). CaaS (Containers as a Service): infraestructura basada en contenedores como Docker/Kubernetes."
+    },
+    {
+      "id": "isa-tema-6-fc-029",
+      "pregunta": "¿Qué tiene de diferente el cloud privado respecto al público?",
+      "respuesta": "En el privado, la infraestructura está dedicada en exclusiva a una única organización (mayor control y seguridad, mayor coste). En el público, está disponible para el acceso del público general, gestionada por un proveedor externo."
+    },
+    {
+      "id": "isa-tema-6-fc-030",
+      "pregunta": "¿Para qué tipo de aplicación es idóneo el estilo WQW?",
+      "respuesta": "Para aplicaciones con un front-end web que recibe solicitudes y un back-end que realiza tareas de larga duración o con uso intensivo de la CPU, donde no conviene que el usuario espere bloqueado la respuesta."
+    }
+  ]
+}

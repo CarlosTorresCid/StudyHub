@@ -1,0 +1,137 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Programación Básica con JADE",
+  "apuntes": {
+    "introduccion": "El Tema 4 cubre la programación básica con JADE, incluyendo la creación de agentes, el ciclo de vida, identificación mediante AID, paso de argumentos y el uso de herramientas gráficas para monitoreo y depuración de agentes. Se presentan ejemplos prácticos como el HelloWorldAgent, destacando buenas prácticas y métodos clave.",
+    "secciones": [
+      {
+        "titulo": "1. La consola de gestión y el ENS",
+        "contenido": "Para gestionar y depurar aplicaciones multiagente, JADE proporciona el **Servicio de Notificación de Eventos (ENS)**, base de todas las herramientas gráficas.\n\nHerramientas gráficas incluidas:\n- **RMA**: consola principal para administrar la plataforma (contenedores y agentes), se lanza con `-gui`.\n- **DummyAgent**: permite enviar mensajes ACL personalizados y observar respuestas.\n- **Sniffer**: monitoriza conversaciones entre varios agentes, con representación gráfica y filtros por agente o performativa.\n- **Introspector**: depura un agente individual, monitorea ciclo de vida, colas de mensajes y ejecuta comportamientos paso a paso.\n- **Log Manager**: modifica niveles de logging de clases específicas en tiempo de ejecución sin reiniciar la plataforma."
+      },
+      {
+        "titulo": "2. Creación básica de agentes en JADE",
+        "contenido": "Crear un agente implica extender `jade.core.Agent` e implementar el método `setup()`:\n```java\nimport jade.core.Agent;\npublic class AgenteHolaMundo extends Agent {\n  protected void setup() {\n    System.out.println(\"Hola Mundo. Soy un agente!\");\n  }\n}\n```\n- Se pueden lanzar múltiples instancias.\n- Los agentes no exponen referencias a objetos; interactúan mediante mensajes asíncronos.\n- No definir constructores; inicializar todo en `setup()`.\n- Métodos del ciclo de vida:\n  - `setup()`: inicialización.\n  - `takeDown()`: limpieza antes de finalizar.\n  - `doDelete()`: solicitar terminación.\n  - `getArguments()`: recuperar argumentos de entrada."
+      },
+      {
+        "titulo": "3. Identificadores de agentes: AID y GUID",
+        "contenido": "Cada agente tiene un **AID (Agent Identifier)** que incluye:\n- **GUID (Global Unique IDentifier)**: formato `nombreLocal@nombrePlataforma`.\n- **Direcciones de transporte**: para comunicación entre plataformas.\n\nMétodos de la clase AID:\n- `getLocalName()`: devuelve el nombre local.\n- `getName()`: devuelve el GUID completo.\n- `getAllAddresses()`: devuelve direcciones de transporte.\n\nConstrucción:\n- AID a partir del nombre local: `new AID(\"Pedro\", AID.ISLOCALNAME)`.\n- AID a partir del GUID: `new AID(\"Pedro@plataforma-1\", AID.ISGUID)`."
+      },
+      {
+        "titulo": "4. Lanzamiento de agentes y paso de argumentos",
+        "contenido": "Compilación: `javac -classpath <ruta_jade> AgenteHolaMundo.java`\n\nLanzamiento básico: `java -classpath <ruta> jade.Boot -name plataforma-1 Pedro:AgenteHolaMundo`\n\nLanzamiento con GUI: `java jade.Boot -gui`\n\nLanzamiento en contenedor no principal: `java jade.Boot -container -host tatooine Pepe:HelloWorldAgent`\n\nPaso de argumentos: `java -cp <...> jade.Boot -name plataforma-1 Pedro:AgenteHolaMundo(arg1 arg2)`\n- Recuperación: `Object[] args = getArguments();`.\n- Solo Strings desde línea de comandos; otros tipos deben pasar programáticamente.\n- Alternativas: GUI RMA o in-process interface."
+      },
+      {
+        "titulo": "5. Agente HelloWorldAgent: ejemplo completo",
+        "contenido": "Ejemplo de agente con comportamiento cíclico:\n- Cada mensaje recibido se imprime y se responde con \"Hola!\".\n- Se añade un `CyclicBehaviour` dentro de `setup()`.\n- `receive()` devuelve `null` si no hay mensajes.\n- `block()` bloquea solo el comportamiento, no el hilo del agente.\n- `createReply()` genera un mensaje de respuesta con `receiver` e `in-reply-to` configurados.\n- `send()` envía el mensaje."
+      }
+    ]
+  },
+  "resumen": [
+    "Introducción a la programación básica de agentes en JADE.",
+    "Uso del ENS y herramientas gráficas RMA, DummyAgent, Sniffer, Introspector y Log Manager.",
+    "Creación de agentes extendiendo jade.core.Agent e implementando setup().",
+    "Métodos clave del ciclo de vida: setup(), takeDown(), doDelete(), getArguments().",
+    "Identificación de agentes mediante AID y GUID; unicidad del nombre local.",
+    "Paso de argumentos a agentes y recuperación mediante getArguments().",
+    "Ejemplo completo HelloWorldAgent: comportamiento cíclico, receive(), createReply(), send(), block()."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "ENS",
+      "definicion": "Event Notification Service, base de todas las herramientas gráficas de JADE; permite suscribirse a eventos del sistema."
+    },
+    {
+      "termino": "setup()",
+      "definicion": "Método de inicialización del agente donde se colocan behaviours, GUI, conexiones y registro en DF."
+    },
+    {
+      "termino": "takeDown()",
+      "definicion": "Método que se invoca antes de que un agente termine para limpiar recursos y dar de baja servicios."
+    },
+    {
+      "termino": "doDelete()",
+      "definicion": "Método que solicita al agente finalizar su ejecución, desencadenando takeDown()."
+    },
+    {
+      "termino": "getArguments()",
+      "definicion": "Recupera los argumentos de entrada del agente como Object[]. Solo Strings desde línea de comandos."
+    },
+    {
+      "termino": "AID",
+      "definicion": "Agent Identifier; contiene el GUID del agente y direcciones de transporte."
+    },
+    {
+      "termino": "GUID",
+      "definicion": "Global Unique Identifier; formato nombreLocal@nombrePlataforma."
+    },
+    {
+      "termino": "getLocalName()",
+      "definicion": "Devuelve el nombre local del agente, suficiente para comunicación intra-plataforma."
+    },
+    {
+      "termino": "getName()",
+      "definicion": "Devuelve el GUID completo del agente."
+    },
+    {
+      "termino": "createReply()",
+      "definicion": "Crea un mensaje de respuesta a partir de un mensaje recibido con receiver e in-reply-to configurados."
+    },
+    {
+      "termino": "block()",
+      "definicion": "Marca un Behaviour como en espera hasta que llegue un mensaje nuevo, sin bloquear el hilo del agente."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-4-fc-001",
+      "pregunta": "¿Qué es el ENS en JADE?",
+      "respuesta": "Event Notification Service, base de todas las herramientas gráficas de JADE, permite recibir notificaciones de eventos de la plataforma."
+    },
+    {
+      "id": "smpc-tema-4-fc-002",
+      "pregunta": "¿Qué método de Agent se usa para inicializar un agente?",
+      "respuesta": "setup()"
+    },
+    {
+      "id": "smpc-tema-4-fc-003",
+      "pregunta": "¿Cuál es la función de takeDown()?",
+      "respuesta": "Limpiar recursos y dar de baja servicios antes de que el agente termine su ejecución."
+    },
+    {
+      "id": "smpc-tema-4-fc-004",
+      "pregunta": "¿Qué hace doDelete()?",
+      "respuesta": "Solicita al agente que termine su ejecución, invocando takeDown() automáticamente."
+    },
+    {
+      "id": "smpc-tema-4-fc-005",
+      "pregunta": "¿Cómo se recuperan los argumentos de entrada de un agente?",
+      "respuesta": "Con el método getArguments(), devuelve Object[]."
+    },
+    {
+      "id": "smpc-tema-4-fc-006",
+      "pregunta": "¿Qué contiene un AID?",
+      "respuesta": "GUID del agente y direcciones de transporte."
+    },
+    {
+      "id": "smpc-tema-4-fc-007",
+      "pregunta": "¿Qué es un GUID en JADE?",
+      "respuesta": "Global Unique Identifier del agente, formato nombreLocal@nombrePlataforma."
+    },
+    {
+      "id": "smpc-tema-4-fc-008",
+      "pregunta": "¿Para qué sirve createReply()?",
+      "respuesta": "Crear un mensaje de respuesta a un mensaje recibido con campos receiver e in-reply-to correctamente configurados."
+    },
+    {
+      "id": "smpc-tema-4-fc-009",
+      "pregunta": "¿Qué hace block() dentro de un Behaviour?",
+      "respuesta": "Marca el Behaviour como en espera hasta que llegue un nuevo mensaje, sin bloquear el hilo del agente."
+    },
+    {
+      "id": "smpc-tema-4-fc-010",
+      "pregunta": "Ejemplo de agente que responde mensajes cíclicamente",
+      "respuesta": "HelloWorldAgent, que imprime mensajes recibidos y responde con 'Hola!' usando un CyclicBehaviour en setup()."
+    }
+  ]
+}

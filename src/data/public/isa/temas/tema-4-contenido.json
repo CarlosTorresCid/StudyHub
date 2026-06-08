@@ -1,0 +1,281 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Desarrollo de software basado en reutilización",
+  "apuntes": {
+    "introduccion": "La reutilización del software es una filosofía o estrategia que guía el proceso de ingeniería para aprovechar código y conocimientos generados previamente, en lugar de construir todo desde cero en cada proyecto. El tema estudia los objetivos que persigue esta estrategia, los factores que la han impulsado, los distintos niveles y técnicas de reutilización existentes, el proceso de desarrollo basado en componentes (CBSE) y los beneficios y problemas que conlleva adoptar este enfoque. La reutilización no se limita al código: también se reutilizan diseños, patrones y conocimiento especializado.",
+    "secciones": [
+      {
+        "titulo": "Objetivos y factores que impulsan la reutilización",
+        "contenido": "La reutilización del software persigue tres grandes objetivos:\n\n**1. Reducir el tiempo de entrega de los sistemas.** Al aprovechar elementos ya existentes (librerías, componentes, frameworks, aplicaciones completas) se evita diseñar, implementar y probar esas partes desde cero.\n\n**2. Aumentar la calidad del software desarrollado.** Los componentes reutilizados han sido probados y usados en proyectos anteriores, por lo que su tasa de defectos suele ser menor que la del código nuevo. La calidad está, en parte, validada por el uso previo.\n\n**3. Reducir los costes de desarrollo y mantenimiento.** El ahorro en tiempo se traduce directamente en reducción de costes. Además, el mantenimiento de partes del sistema puede delegarse al proveedor del componente.\n\n**Factores que han impulsado la reutilización en los últimos tiempos:**\n\n- **Iniciativas Open Source:** ponen a disposición de los desarrolladores grandes cantidades de código reutilizable en forma de librerías, frameworks e incluso aplicaciones completas que pueden adaptarse a necesidades concretas.\n- **Estándares tecnológicos:** la popularización de estándares (APIs REST/JSON/XML, protocolos web, etc.) facilita el desarrollo de servicios generales adaptables e interoperables entre distintos sistemas."
+      },
+      {
+        "titulo": "Enfoques de la reutilización: oportunista y proactivo",
+        "contenido": "Antes de ver los niveles, conviene distinguir dos grandes enfoques con los que se puede afrontar la reutilización:\n\n**Enfoque oportunista:** aprovecha los recursos disponibles cuando son necesarios, pensando en el presente. El equipo busca qué componentes, librerías o frameworks ya existen y puede reutilizar en el proyecto actual. Es reactivo: no planifica la reutilización de antemano.\n\n**Enfoque proactivo:** considera el aprovechamiento futuro, pensando en el largo plazo. El equipo diseña sus componentes con la intención de que puedan ser reutilizados en futuros proyectos. Supone una inversión: crear componentes más genéricos y bien documentados tiene un coste adicional en el proyecto actual, pero genera valor para el futuro.\n\nEn la práctica, la mayoría de los proyectos combinan ambos enfoques."
+      },
+      {
+        "titulo": "Niveles de granularidad en la reutilización",
+        "contenido": "Según la cantidad y complejidad del código reutilizado, se distinguen tres niveles de granularidad. Los niveles superiores incluyen siempre a los inferiores.\n\n**Grano fino — a nivel de objetos y funciones:**\nEs el nivel más antiguo históricamente y el más extendido. Se reutilizan funciones individuales, clases, módulos y librerías. Ejemplos: usar una librería matemática, reutilizar una clase de conexión a base de datos, importar un módulo de validación de email. Es la reutilización que cualquier programador hace de forma cotidiana al añadir una dependencia a su proyecto.\n\n**Grano medio — a nivel de componentes:**\nSe reutilizan fragmentos de código más grandes: subsistemas completos u objetos individuales complejos que encapsulan funcionalidades específicas. Ejemplos: componentes React o Angular, aplicaciones Django, controles de UI, SDKs de servicios externos (pasarela de pago, mapa, autenticación). El componente expone interfaces estandarizadas que ocultan su implementación interna (caja negra).\n\n**Grano grueso — a nivel de aplicación:**\nSe reutilizan aplicaciones completas adaptadas con mayor o menor esfuerzo, o frameworks de aplicación que imponen una estructura general. Ejemplos: sistemas ERP (SAP, Odoo), CMS (WordPress, Drupal), sistemas SaaS, plataformas de comercio electrónico. Incluye también los productos COTS (Commercial-Off-The-Shelf). El esfuerzo de adaptación es clave a considerar en este nivel."
+      },
+      {
+        "titulo": "Técnicas concretas de reutilización (orden histórico)",
+        "contenido": "Las técnicas concretas de reutilización han ido evolucionando a lo largo de la historia del software, de más simples a más complejas:\n\n**1. Funciones y librerías (programación estructurada):**\nLa técnica más antigua. Se reutilizan rutinas o funciones agrupadas en librerías. Cualquier uso de 'import' o 'include' en un proyecto es reutilización a este nivel. Ejemplo: librerías matemáticas, de manejo de ficheros, de cifrado.\n\n**2. Clases (programación orientada a objetos):**\nLa POO introduce mecanismos de reutilización más potentes: abstracción, encapsulamiento, herencia y polimorfismo. Las clases encapsulan datos y comportamiento; la herencia permite especializar clases existentes; el polimorfismo permite sustituir implementaciones. Ejemplo: heredar de una clase base para añadir comportamiento específico.\n\n**3. Patrones de diseño y arquitectura:**\nReutilización de conocimiento y soluciones de diseño: no se reutiliza código directamente, sino la solución a un problema recurrente. Un patrón documenta un problema tipo, su solución general y el contexto en el que es aplicable. Esta es la técnica más intelectual de reutilización. Ejemplos: patrón Singleton, Observer, Strategy, etc. (Tema 7) y patrones de arquitectura de sistemas (Tema 5).\n\n**4. Componentes, frameworks y aplicaciones:**\nLa técnica más reciente y de mayor granularidad. Incluye componentes de grano medio (React, Angular, SDKs), frameworks de aplicación (Django, Spring, Rails) y aplicaciones completas reutilizables (COTS, open source). Los frameworks son entornos que guían y simplifican otras técnicas de reutilización: ofrecen una arquitectura reutilizable, librerías de clases e incluso mecanismos de validación ya probados."
+      },
+      {
+        "titulo": "Frameworks de desarrollo",
+        "contenido": "Un framework es un conjunto integrado de artefactos de software que colaboran proporcionando una arquitectura reutilizable para un conjunto de aplicaciones relacionadas (Schmidth, Gokhale y Natarajan, 2004). Un framework no es solo una librería de código: reutiliza a la vez diseño (arquitectura, patrones, soluciones probadas), implementación (librerías de clases y funciones) y, a veces, validaciones (componentes ya probados y certificados).\n\nLos frameworks web modernos suelen ofrecer características comunes:\n- Seguridad: clases para autenticación de usuarios y control de acceso.\n- Páginas web dinámicas: sistemas de plantillas para generar HTML dinámico.\n- Soporte para bases de datos: clases ORM que facilitan la interacción con diferentes sistemas de base de datos sin depender de uno concreto.\n- Interacción con los usuarios: integración con frameworks de frontend.\n\nLa diferencia clave entre un framework y una librería es que el framework impone la arquitectura del sistema (el control del flujo lo tiene el framework, que llama a nuestro código), mientras que en una librería el control lo tiene nuestro código (nosotros llamamos a la librería)."
+      },
+      {
+        "titulo": "Reutilización de aplicaciones: productos COTS",
+        "contenido": "Los productos **COTS** (Commercial-Off-The-Shelf) son aplicaciones completas que se pueden adaptar a las necesidades del cliente **sin cambiar el código fuente del sistema**. Prácticamente todas las herramientas ofimáticas, de correo electrónico, sistemas ERP, CMS y productos en el lado del servidor pertenecen a esta categoría.\n\nExisten dos categorías de sistemas COTS:\n\n**Sistemas de solución COTS:**\n- Un único producto satisface los requisitos.\n- Solución genérica basada en procesos estándar.\n- El desarrollo consiste en la **configuración** del sistema.\n- El proveedor es responsable del mantenimiento.\n- El proveedor aporta la plataforma.\n\n**Sistemas integrados COTS:**\n- Se integran varios sistemas de solución.\n- Mayor flexibilidad de adaptación a los procesos del cliente.\n- El desarrollo consiste en la **integración** del sistema.\n- El **cliente** es responsable del mantenimiento.\n- El cliente debe aportar la plataforma.\n\n**Ventajas de los COTS:**\n- Implementación ultra rápida.\n- Se pueden evaluar antes de adquirirlos.\n- Ya están probados.\n- El proveedor mantiene el producto.\n\n**Problemas de los COTS:**\n- Puede obligar a modificar los procesos internos de la organización para adaptarlos al producto.\n- Difícil proceso de elección entre múltiples alternativas.\n- Posible dependencia del proveedor (intereses comerciales, el proveedor decide el futuro del producto, 'jardines vallados')."
+      },
+      {
+        "titulo": "Desarrollo basado en componentes (CBSE)",
+        "contenido": "Un **componente software** es un fragmento de código que encapsula un conjunto de funcionalidades específicas y relacionadas, expuestas a través de interfaces estandarizadas. Un componente es una 'caja negra': genérico, adaptable y configurable desde fuera.\n\nLa **Ingeniería del Software Basada en Componentes (CBSE — Component-Based Software Engineering)** define una arquitectura de colaboración entre componentes e implementa el código necesario para que funcionen juntos. Existen dos tipos de procesos CBSE:\n\n**CBSE para reutilización:**\nSe centra en el desarrollo de componentes que podrán ser reutilizados en el futuro. Supone generalizar componentes existentes. Para crear un componente reutilizable es necesario:\n- Eliminar dependencias de métodos específicos.\n- Renombrar y generalizar los servicios.\n- Gestionar excepciones que informen al consumidor de problemas.\n- Crear una interfaz específica de configuración.\n- Documentar las dependencias del componente.\n\n**CBSE con reutilización:**\nBusca desarrollar aplicaciones nuevas empleando componentes existentes. Requiere adaptar el proceso de desarrollo en cuatro pasos:\n1. **Especificación inicial genérica de requisitos:** lo suficientemente amplia como para ser adaptable.\n2. **Adaptación de los requisitos para acomodar los componentes:** se revisan los requisitos originales para acomodar los componentes disponibles (en ocasiones esto implica modificar los requisitos).\n3. **Selección e integración de los componentes:** evaluación, selección y combinación de componentes.\n4. **Evolución y mantenimiento del sistema:** incluye tres tipos de mantenimiento:\n   - *Correctivo:* corregir errores.\n   - *Perfectivo:* agregar nueva funcionalidad.\n   - *Adaptativo:* adaptar el sistema a cambios del entorno."
+      },
+      {
+        "titulo": "Estrategias de integración de componentes",
+        "contenido": "Cuando se integran varios componentes en un sistema, existen tres estrategias de composición:\n\n**Composición secuencial:**\nSe utilizan secuencialmente los servicios del componente A, y los resultados se usan como entrada para los servicios del componente B. Se necesita código 'pegamento' (controlador) para gestionar la llamada secuencial entre ambas interfaces. Ejemplo: un pipeline de procesamiento de datos.\n\n**Composición jerárquica:**\nDos componentes se conectan directamente entre sí: la interfaz 'requiere' de A debe ser compatible con la interfaz 'proporciona' de B. Puede ser necesario un adaptador si las interfaces no son directamente compatibles.\n\n**Composición aditiva:**\nSe crea un nuevo componente virtual como combinación de dos o más componentes existentes. El nuevo componente combina las interfaces de sus integrantes. Generalmente es necesaria la creación de una fachada (facade) que uniformice su uso hacia el exterior."
+      },
+      {
+        "titulo": "Beneficios de la reutilización",
+        "contenido": "La reutilización aporta los siguientes beneficios principales:\n\n- **Disminución de la duración del proyecto y los plazos de entrega:** al aprovechar elementos ya existentes se evita su diseño, implementación y prueba.\n- **Reducción de costes del proyecto:** consecuencia directa de lo anterior.\n- **Aumento de la confiabilidad del sistema:** los componentes reutilizados han sido probados en desarrollos anteriores, lo que reduce su tasa de defectos esperada.\n- **Disminución del riesgo del proyecto:** el valor y calidad del software existente es conocido; el coste y riesgo de un desarrollo desde cero son siempre más inciertos.\n- **Optimización del conocimiento especializado:** los especialistas en un área pueden desarrollar componentes reutilizables que encapsulan ese conocimiento, mientras que los desarrolladores de sistemas nuevos pueden centrarse en los aspectos específicos del dominio.\n- **Mejora de la experiencia de usuario:** la reutilización de componentes de interfaz estandarizados homogeneiza la apariencia y facilita el aprendizaje del usuario.\n- **Mejora de la arquitectura y el diseño del sistema:** obliga a un análisis más detallado y la adopción de frameworks impone buenas prácticas arquitectónicas.\n- **Inversión a futuro:** el esfuerzo en crear componentes reutilizables genera valor en proyectos futuros.\n- **Mejora del mantenimiento:** en parte delegado al proveedor del componente."
+      },
+      {
+        "titulo": "Problemas de la reutilización",
+        "contenido": "La reutilización no está exenta de inconvenientes y costes:\n\n- **Problemas de mantenimiento con componentes ajenos:** si no se tiene acceso al código fuente del componente o se desconoce su funcionamiento interno, puede ser difícil corregir errores o adaptar el componente a nuevas necesidades. Los llamados 'jardines vallados' son sistemas cerrados en los que el proveedor controla completamente el componente y restringe el acceso a su código.\n- **Coste de creación y mantenimiento de la librería de componentes:** si la organización quiere desarrollar sus propios componentes reutilizables, esto supone una inversión inicial significativa en diseño, documentación y mantenimiento.\n- **Costes de aprendizaje de los componentes utilizados:** el equipo debe invertir tiempo en comprender cómo funciona, se configura e integra un componente externo.\n- **Posibles costes de integración:** la conexión entre componentes puede requerir el desarrollo de adaptadores específicos cuando las interfaces no son directamente compatibles.\n- **Síndrome de 'no se inventó aquí' (NIH — Not Invented Here):** algunos ingenieros son reacios a utilizar software externo que no han desarrollado ellos mismos, prefiriendo reinventar la rueda. Esto puede reducir el aprovechamiento real de la reutilización en un equipo.\n\nAdemás, en el caso de los COTS, puede darse también la **dependencia del proveedor**: el futuro del componente lo decide el proveedor, no el equipo."
+      },
+      {
+        "titulo": "Factores para planificar la reutilización",
+        "contenido": "Antes de decidir qué estrategia y nivel de reutilización adoptar en un proyecto concreto, deben considerarse los siguientes factores:\n\n- **Tiempo disponible para el desarrollo:** cuanto más corto sea el plazo, más convendrá optar por niveles de granularidad mayor (COTS, frameworks completos) que reduzcan al máximo el trabajo de desarrollo.\n- **Vida esperada del sistema (futuro mantenimiento):** si el sistema va a mantenerse mucho tiempo, conviene elegir componentes con una comunidad de desarrollo activa o tener acceso al código fuente para poder realizar el mantenimiento de forma autónoma.\n- **Experiencia del equipo de desarrollo:** tanto para la reutilización de componentes existentes (hay que saber integrarlos) como para la generación de componentes reutilizables propios (hay que saber diseñarlos bien).\n- **Criticidad del sistema:** en sistemas críticos es importante tener acceso al código de las dependencias para poder auditar su comportamiento y gestionar vulnerabilidades.\n- **Dominio de la aplicación y disponibilidad de componentes:** en dominios muy específicos puede no existir componentes adecuados, lo que obliga a desarrollar desde cero o a realizar adaptaciones costosas.\n- **Plataforma de despliegue:** algunos componentes solo están disponibles para determinadas plataformas; la complejidad de integración depende también del entorno técnico."
+      }
+    ]
+  },
+  "resumen": [
+    "La reutilización del software es una filosofía de desarrollo que busca aprovechar código y conocimiento previos para reducir tiempo, coste y riesgo, y aumentar la calidad.",
+    "Los tres objetivos principales son: reducir el tiempo de entrega, aumentar la calidad del software y reducir los costes de desarrollo y mantenimiento.",
+    "Los factores que han impulsado la reutilización son las iniciativas open source y la popularización de estándares tecnológicos.",
+    "Existen dos enfoques: oportunista (aprovecha lo disponible en el presente) y proactivo (diseña pensando en la reutilización futura).",
+    "Los tres niveles de granularidad son: grano fino (funciones, clases, librerías), grano medio (componentes, subsistemas) y grano grueso (aplicaciones completas, COTS). Los niveles superiores incluyen a los inferiores.",
+    "Las técnicas de reutilización en orden histórico son: funciones y librerías, clases (POO), patrones de diseño y arquitectura, y componentes/frameworks/aplicaciones.",
+    "Un framework es un conjunto integrado de artefactos que proporciona una arquitectura reutilizable; reutiliza diseño, implementación y validaciones simultáneamente.",
+    "Los productos COTS son aplicaciones completas adaptables sin cambiar el código fuente. Se distinguen en sistemas de solución (un producto, el proveedor mantiene) y sistemas integrados (varios productos combinados, el cliente mantiene).",
+    "CBSE (Component-Based Software Engineering) distingue dos procesos: desarrollo para reutilización (crear componentes genéricos) y desarrollo con reutilización (usar componentes existentes adaptando los requisitos).",
+    "El proceso CBSE con reutilización tiene 4 pasos: especificación inicial genérica, adaptación de requisitos, selección e integración de componentes, y evolución/mantenimiento (correctivo, perfectivo, adaptativo).",
+    "Las tres estrategias de integración de componentes son: composición secuencial (A alimenta a B), jerárquica (A llama directamente a B) y aditiva (se crea un nuevo componente virtual combinando varios).",
+    "Los principales beneficios son: reducción de duración, coste y riesgo, aumento de fiabilidad, optimización de conocimiento especializado y mejora de arquitectura.",
+    "Los principales problemas son: mantenimiento limitado con componentes ajenos ('jardines vallados'), costes de librería, aprendizaje e integración, y el síndrome 'no se inventó aquí'."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Reutilización del software",
+      "definicion": "Filosofía o estrategia de desarrollo que aprovecha código y conocimiento de proyectos anteriores para reducir tiempo, coste y riesgo, y aumentar la calidad del software producido."
+    },
+    {
+      "termino": "Enfoque oportunista",
+      "definicion": "Estrategia de reutilización que aprovecha los recursos disponibles cuando son necesarios, pensando en el proyecto actual. Reactivo, no planifica la reutilización de antemano."
+    },
+    {
+      "termino": "Enfoque proactivo",
+      "definicion": "Estrategia de reutilización que diseña componentes pensando en su aprovechamiento futuro. Supone una inversión adicional en el proyecto actual para generar valor a largo plazo."
+    },
+    {
+      "termino": "Grano fino",
+      "definicion": "Nivel de reutilización a nivel de funciones, clases y librerías. Es el más antiguo históricamente y el más habitual en el día a día del desarrollo."
+    },
+    {
+      "termino": "Grano medio",
+      "definicion": "Nivel de reutilización a nivel de componentes y subsistemas completos. Ejemplos: componentes React, apps Django, SDKs de servicios externos."
+    },
+    {
+      "termino": "Grano grueso",
+      "definicion": "Nivel de reutilización a nivel de aplicaciones completas o frameworks de aplicación. Incluye COTS, ERPs, CMS y sistemas SaaS."
+    },
+    {
+      "termino": "Framework de desarrollo",
+      "definicion": "Conjunto integrado de artefactos de software que proporciona una arquitectura reutilizable para un conjunto de aplicaciones relacionadas. Reutiliza diseño, implementación y validaciones a la vez."
+    },
+    {
+      "termino": "COTS (Commercial-Off-The-Shelf)",
+      "definicion": "Productos software comerciales que se adaptan a las necesidades del cliente sin cambiar el código fuente. Ejemplos: ERPs, CMS, herramientas ofimáticas, plataformas SaaS."
+    },
+    {
+      "termino": "Sistema de solución COTS",
+      "definicion": "Tipo de COTS en el que un único producto satisface los requisitos. El desarrollo es la configuración del sistema y el proveedor es responsable del mantenimiento."
+    },
+    {
+      "termino": "Sistema integrado COTS",
+      "definicion": "Tipo de COTS en el que se integran varios sistemas de solución. El desarrollo es la integración y el cliente es responsable del mantenimiento."
+    },
+    {
+      "termino": "Componente software",
+      "definicion": "Fragmento de código que encapsula un conjunto de funcionalidades específicas expuestas a través de interfaces estandarizadas. Es una caja negra: genérico, adaptable y configurable desde fuera."
+    },
+    {
+      "termino": "CBSE (Component-Based Software Engineering)",
+      "definicion": "Ingeniería del software basada en componentes. Define una arquitectura de colaboración e implementa el código de integración para que los componentes funcionen juntos."
+    },
+    {
+      "termino": "CBSE para reutilización",
+      "definicion": "Proceso CBSE centrado en desarrollar componentes genéricos y reutilizables para que puedan ser usados en futuros proyectos. Más proactivo."
+    },
+    {
+      "termino": "CBSE con reutilización",
+      "definicion": "Proceso CBSE centrado en desarrollar nuevas aplicaciones usando componentes existentes. Más oportunista. Sus 4 pasos son: especificación genérica, adaptación de requisitos, selección e integración, y mantenimiento."
+    },
+    {
+      "termino": "Mantenimiento correctivo",
+      "definicion": "Tipo de mantenimiento orientado a corregir errores del sistema."
+    },
+    {
+      "termino": "Mantenimiento perfectivo",
+      "definicion": "Tipo de mantenimiento orientado a agregar nueva funcionalidad al sistema."
+    },
+    {
+      "termino": "Mantenimiento adaptativo",
+      "definicion": "Tipo de mantenimiento orientado a adaptar el sistema a cambios en su entorno (tecnológico, normativo, de negocio)."
+    },
+    {
+      "termino": "Composición secuencial",
+      "definicion": "Estrategia de integración en la que los servicios del componente A se usan como entrada para los servicios del componente B, de forma secuencial."
+    },
+    {
+      "termino": "Composición jerárquica",
+      "definicion": "Estrategia de integración en la que dos componentes se conectan directamente: la interfaz 'requiere' de A debe ser compatible con la interfaz 'proporciona' de B."
+    },
+    {
+      "termino": "Composición aditiva",
+      "definicion": "Estrategia de integración en la que se crea un nuevo componente virtual combinando dos o más componentes existentes, generalmente usando una fachada que uniformice su uso."
+    },
+    {
+      "termino": "Síndrome 'no se inventó aquí' (NIH)",
+      "definicion": "Actitud de algunos ingenieros contraria a reutilizar software externo, prefiriendo desarrollarlo ellos mismos. Es uno de los principales problemas humanos de la reutilización."
+    },
+    {
+      "termino": "Jardines vallados",
+      "definicion": "Sistemas o componentes cerrados en los que el proveedor controla completamente el producto y restringe el acceso al código fuente, dificultando el mantenimiento autónomo."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-4-fc-001",
+      "pregunta": "¿Cuáles son los tres objetivos principales de la reutilización del software?",
+      "respuesta": "Reducir el tiempo de entrega, aumentar la calidad del software y reducir los costes de desarrollo y mantenimiento."
+    },
+    {
+      "id": "isa-tema-4-fc-002",
+      "pregunta": "¿Qué dos factores han impulsado la reutilización del software en los últimos tiempos?",
+      "respuesta": "Las iniciativas open source (que ponen disponibles librerías y aplicaciones reutilizables) y la popularización de estándares tecnológicos (APIs, protocolos interoperables)."
+    },
+    {
+      "id": "isa-tema-4-fc-003",
+      "pregunta": "¿Cuál es la diferencia entre el enfoque oportunista y el proactivo en reutilización?",
+      "respuesta": "El oportunista aprovecha lo disponible cuando lo necesita (pensando en el ahora). El proactivo diseña componentes con intención de reutilizarlos en el futuro (pensando en el largo plazo)."
+    },
+    {
+      "id": "isa-tema-4-fc-004",
+      "pregunta": "¿Cuáles son los tres niveles de granularidad de la reutilización?",
+      "respuesta": "Grano fino (funciones, clases, librerías), grano medio (componentes, subsistemas) y grano grueso (aplicaciones completas, COTS). Los niveles superiores incluyen a los inferiores."
+    },
+    {
+      "id": "isa-tema-4-fc-005",
+      "pregunta": "¿Qué nivel de granularidad es el más antiguo históricamente?",
+      "respuesta": "El grano fino (funciones y librerías), que surgió con la programación estructurada."
+    },
+    {
+      "id": "isa-tema-4-fc-006",
+      "pregunta": "¿A qué nivel de granularidad corresponden componentes React, una app Django o un control de UI?",
+      "respuesta": "Grano medio (a nivel de componentes y subsistemas)."
+    },
+    {
+      "id": "isa-tema-4-fc-007",
+      "pregunta": "¿A qué nivel de granularidad corresponden un ERP, un CMS o un sistema SaaS?",
+      "respuesta": "Grano grueso (a nivel de aplicación completa). Son ejemplos de productos COTS."
+    },
+    {
+      "id": "isa-tema-4-fc-008",
+      "pregunta": "Enuncia las técnicas concretas de reutilización en orden cronológico histórico.",
+      "respuesta": "1) Funciones y librerías (programación estructurada), 2) Clases (POO), 3) Patrones de diseño y arquitectura, 4) Componentes, frameworks y aplicaciones enteras (open source/COTS)."
+    },
+    {
+      "id": "isa-tema-4-fc-009",
+      "pregunta": "¿Qué reutiliza un framework además de código?",
+      "respuesta": "Reutiliza diseño (arquitectura, patrones), implementación (librerías de clases) y validaciones (componentes ya probados). Es la técnica de reutilización más completa."
+    },
+    {
+      "id": "isa-tema-4-fc-010",
+      "pregunta": "¿Qué son los productos COTS y qué los diferencia de un componente normal?",
+      "respuesta": "Son aplicaciones completas (Commercial-Off-The-Shelf) que se adaptan a las necesidades del cliente sin modificar su código fuente. Un componente normal se integra en una aplicación mayor; un COTS es en sí mismo el sistema o una parte muy grande de él."
+    },
+    {
+      "id": "isa-tema-4-fc-011",
+      "pregunta": "¿Cuál es la diferencia entre sistema de solución COTS y sistema integrado COTS?",
+      "respuesta": "El de solución: un único producto, el proveedor mantiene, desarrollo = configuración. El integrado: varios productos combinados, el cliente mantiene, desarrollo = integración."
+    },
+    {
+      "id": "isa-tema-4-fc-012",
+      "pregunta": "¿Cuáles son los dos tipos de procesos CBSE?",
+      "respuesta": "CBSE para reutilización (desarrollar componentes genéricos para uso futuro) y CBSE con reutilización (desarrollar nuevas aplicaciones usando componentes existentes)."
+    },
+    {
+      "id": "isa-tema-4-fc-013",
+      "pregunta": "¿Cuáles son los 4 pasos del proceso CBSE con reutilización?",
+      "respuesta": "1) Especificación inicial genérica de requisitos, 2) Adaptación de requisitos para acomodar los componentes existentes, 3) Selección e integración de componentes, 4) Evolución y mantenimiento (correctivo, perfectivo, adaptativo)."
+    },
+    {
+      "id": "isa-tema-4-fc-014",
+      "pregunta": "¿Qué implica el paso de 'adaptación de requisitos' en CBSE con reutilización?",
+      "respuesta": "Que los requisitos originales del sistema pueden modificarse para acomodar los componentes disponibles: si no existe un componente que cubra exactamente un requisito, a veces es más eficiente ajustar el requisito que desarrollar el componente desde cero."
+    },
+    {
+      "id": "isa-tema-4-fc-015",
+      "pregunta": "¿Qué diferencia hay entre mantenimiento correctivo, perfectivo y adaptativo?",
+      "respuesta": "Correctivo: corregir errores. Perfectivo: agregar nueva funcionalidad. Adaptativo: adaptar el sistema a cambios del entorno (tecnológicos, normativos, de negocio)."
+    },
+    {
+      "id": "isa-tema-4-fc-016",
+      "pregunta": "¿En qué consiste la composición secuencial de componentes?",
+      "respuesta": "Los servicios del componente A se ejecutan y sus resultados se usan como entrada para los servicios del componente B. Requiere un controlador o código 'pegamento'."
+    },
+    {
+      "id": "isa-tema-4-fc-017",
+      "pregunta": "¿En qué consiste la composición jerárquica de componentes?",
+      "respuesta": "A y B se conectan directamente: la interfaz 'requiere' de A debe ser compatible con la interfaz 'proporciona' de B. Puede requerir un adaptador si las interfaces no coinciden exactamente."
+    },
+    {
+      "id": "isa-tema-4-fc-018",
+      "pregunta": "¿En qué consiste la composición aditiva de componentes?",
+      "respuesta": "Se crea un nuevo componente virtual combinando dos o más existentes, generalmente usando una fachada que uniformiza su interfaz hacia el exterior."
+    },
+    {
+      "id": "isa-tema-4-fc-019",
+      "pregunta": "Menciona 4 beneficios de la reutilización del software.",
+      "respuesta": "Reducción de duración y costes del proyecto, aumento de la confiabilidad (componentes ya probados), reducción del riesgo técnico y económico, y optimización del conocimiento especializado."
+    },
+    {
+      "id": "isa-tema-4-fc-020",
+      "pregunta": "¿Qué son los 'jardines vallados' en el contexto de la reutilización?",
+      "respuesta": "Sistemas o componentes cerrados en los que el proveedor controla completamente el producto y restringe el acceso al código fuente. Generan dependencia y dificultan el mantenimiento autónomo."
+    },
+    {
+      "id": "isa-tema-4-fc-021",
+      "pregunta": "¿Qué es el síndrome 'no se inventó aquí' (NIH)?",
+      "respuesta": "La actitud de algunos ingenieros reacios a reutilizar software externo, prefiriendo desarrollarlo ellos mismos. Es uno de los principales problemas culturales/humanos que limita el aprovechamiento de la reutilización."
+    },
+    {
+      "id": "isa-tema-4-fc-022",
+      "pregunta": "¿Por qué puede ser un problema reutilizar componentes ajenos para el mantenimiento?",
+      "respuesta": "Porque si no se tiene acceso al código fuente del componente o se desconoce su funcionamiento interno, es difícil corregir errores o adaptarlo a nuevas necesidades. Dependencia del proveedor."
+    },
+    {
+      "id": "isa-tema-4-fc-023",
+      "pregunta": "¿Qué factor de planificación de la reutilización es más importante si el plazo de entrega es muy corto?",
+      "respuesta": "El tiempo disponible. Cuanto más corto sea el plazo, más convendrá optar por niveles de granularidad mayor (COTS, frameworks) que reduzcan el trabajo de desarrollo al máximo."
+    },
+    {
+      "id": "isa-tema-4-fc-024",
+      "pregunta": "¿Por qué es importante el acceso al código fuente en sistemas críticos que usan componentes ajenos?",
+      "respuesta": "Para poder auditar el comportamiento del componente, gestionar vulnerabilidades y garantizar la seguridad del sistema en caso de fallo o vulnerabilidad en el componente."
+    }
+  ]
+}

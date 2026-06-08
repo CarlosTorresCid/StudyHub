@@ -1,0 +1,264 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. Programación Extrema (XP)",
+  "apuntes": {
+    "introduccion": "La Programación Extrema (eXtreme Programming, XP) es posiblemente la metodología ágil mejor conocida y más estudiada. Fue desarrollada principalmente por Kent Beck a finales de los años 90 y formalizada en sus publicaciones de 1999 y 2000. Su nombre refleja su filosofía: lleva al extremo los principios del desarrollo iterativo. A diferencia de Scrum, que es un framework de gestión del proceso, XP es una metodología con fuerte orientación hacia las prácticas técnicas de ingeniería. Propone valores, prácticas concretas y roles específicos orientados a producir el software de la mejor calidad posible, con entregas frecuentes y retroalimentación continua.",
+    "secciones": [
+      {
+        "titulo": "Filosofía y características generales de XP",
+        "contenido": "XP lleva al extremo los principios del desarrollo iterativo en tres aspectos fundamentales:\n- **Mejoras diarias del producto entregado:** nuevas versiones mejoradas del software se generan varias veces al día (integración continua).\n- **El cliente recibe incrementos funcionales con mucha frecuencia:** las entregas son pequeñas y frecuentes, buscando retroalimentación temprana.\n- **Fuerte orientación hacia las pruebas:** solo se acepta una nueva versión si todas las pruebas se ejecutan correctamente. Las pruebas no son una fase final; son el núcleo del proceso.\n\nXP hace énfasis en la **satisfacción e involucración del cliente**, y en la integración de todos los roles en un proceso de comunicación entre iguales. Su equipo ideal es pequeño, autoorganizado, y el cliente forma parte activa del equipo.\n\nA diferencia de Scrum, XP es muy **prescriptiva en cuanto a prácticas técnicas**: programación en parejas, TDD, integración continua, refactorización, etc. Esto la hace más exigente técnicamente pero también más potente en términos de calidad del código producido.\n\nXP nació en el contexto de proyectos pequeños con equipos de entre 2 y 10 programadores, con requisitos cambiantes y entornos de alto riesgo técnico."
+      },
+      {
+        "titulo": "XP frente a los modelos de proceso tradicionales",
+        "contenido": "Para entender la aportación de XP es útil compararla con los modelos de proceso previos respecto a cómo se tratan las cuatro fases tradicionales: análisis, diseño, implementación y pruebas.\n\n**Modelo en cascada:** las cuatro fases se realizan de forma estrictamente secuencial. El análisis se completa antes de empezar el diseño, el diseño antes de la implementación, y las pruebas al final de todo. Las fases son largas y los cambios costosos.\n\n**Modelo iterativo (espiral):** las cuatro fases se repiten en ciclos más cortos. En cada iteración se pasa por análisis, diseño, implementación y pruebas, produciendo versiones progresivas del software. Mejora la adaptación al cambio pero las fases siguen siendo claramente diferenciadas dentro de cada ciclo.\n\n**XP:** las cuatro actividades (análisis, diseño, implementación y pruebas) se **entremezclan continuamente** a lo largo del proyecto. No hay fases separadas; en cada momento el equipo realiza un poco de todo. Las pruebas se definen antes que el código (TDD), el diseño es continuo y simple, y el análisis ocurre constantemente a través del diálogo con el cliente in situ. Esta integración es la clave conceptual que diferencia a XP."
+      },
+      {
+        "titulo": "El modelo de proceso y el ciclo de vida en XP",
+        "contenido": "El modelo de proceso de XP tiene cuatro actividades solapadas entre sí, no secuenciales:\n\n**1. Planificación:**\nSe produce en dos niveles:\n- *Nivel de release:* el cliente elige el subconjunto más pequeño posible de historias de usuario priorizadas por valor de negocio y define el alcance de la release. Para estimar cuántas historias se pueden implementar, dialoga con el equipo en el **juego de la planificación**.\n- *Nivel de iteración:* cada release se divide en una o más iteraciones cortas. En cada iteración se escoge un grupo de historias y se descomponen en tareas que se asignan a los desarrolladores.\n\n**2. Diseño:**\nSe guía por el principio de **diseño simple**: implementar solo la funcionalidad necesaria en este momento. Se usa la **metáfora del sistema** como modelo conceptual compartido que facilita la comunicación. El diseño es continuo y evoluciona con la refactorización.\n\n**3. Codificación:**\nSiempre en **parejas de programadores** (programación en parejas). Se siguen estándares de programación comunes. La propiedad del código es compartida: cualquier programador puede modificar cualquier parte.\n\n**4. Pruebas:**\nLa práctica central es el **TDD (Test-Driven Development)**: se definen las pruebas unitarias antes de escribir el código. Solo se acepta código que supera todas las pruebas. En paralelo, el cliente (in situ) define las pruebas de aceptación que validarán las historias de usuario.\n\nEl flujo completo sería: el cliente prioriza historias → se planifica la release (juego de la planificación) → cada release se divide en iteraciones → en cada iteración: TDD + diseño simple + codificación en parejas + pruebas de aceptación del cliente."
+      },
+      {
+        "titulo": "Los cinco valores básicos de XP",
+        "contenido": "Kent Beck establece cinco valores que guían todas las actividades de un proyecto XP. Están relacionados entre sí y con las 12 prácticas:\n\n**1. Comunicación:**\nEs el primer valor y refleja que muchos problemas en proyectos software se deben a fallos de comunicación: malentendidos con el cliente, cambios no comunicados, etc. XP compensa la reducida documentación con una comunicación oral constante y directa. Prácticas como la programación en parejas y el cliente in situ refuerzan este valor.\n\n**2. Simplicidad:**\nImplementar solo lo necesario hoy, manteniendo un diseño sencillo. Maximizar el rendimiento de la inversión evitando sobreingeniería. El principio es: ¿cuál es la cosa más sencilla que podría funcionar? Se valora el trabajo no realizado como logro, no como dejadez.\n\n**3. Retroalimentación (feedback):**\nXP considera el optimismo como uno de los peligros de la programación, y el feedback como su antídoto. Se produce a diferentes plazos:\n- *Corto plazo:* pruebas unitarias (TDD) y el cliente in situ proporcionan feedback inmediato.\n- *Medio plazo:* pruebas funcionales y pruebas de aceptación del cliente.\n- *Largo plazo:* releases frecuentes al cliente/usuario final.\n\n**4. Coraje (valentía):**\nCapacidad para tomar decisiones drásticas cuando es necesario: modificar la arquitectura, eliminar código inservible, probar múltiples alternativas. El coraje es posible gracias a los otros valores: la comunicación identifica oportunidades de mejora, la simplicidad permite arriesgar cambios en sistemas sencillos, y el feedback de las pruebas da seguridad para refactorizar.\n\n**5. Respeto (añadido en 2004):**\nArticula y sostiene los cuatro valores anteriores. Tanto respeto entre los participantes del proyecto (el trabajo de cada uno tiene valor) como respeto al proyecto en sí mismo. Sin respeto mutuo, la comunicación, la simplicidad, el feedback y el coraje pierden sentido."
+      },
+      {
+        "titulo": "Las doce prácticas básicas de XP",
+        "contenido": "Las 12 prácticas son el corazón operativo de XP. Están interrelacionadas: donde una puede ser débil, las otras la refuerzan.\n\n**1. Juego de la planificación:**\nProceso dialogado para determinar rápidamente el alcance de cada iteración, combinando las prioridades de negocio (del cliente) con la factibilidad técnica (del equipo). El cliente decide qué se implementa y los plazos; el equipo estima el esfuerzo.\n\n**2. Pequeñas entregas:**\nPoner el sistema en producción cuanto antes, empezando por las funcionalidades de mayor valor. A partir de ahí, se sigue mejorando en iteraciones muy cortas. Retroalimentación temprana y frecuente.\n\n**3. Metáfora del sistema:**\nModelo conceptual compartido, sencillo y comprensible para todos (técnicos y cliente), que guía el diseño y facilita la comunicación. Funciona como un sustituto informal de la arquitectura.\n\n**4. Diseño simple:**\nImplementar solo la funcionalidad mínima necesaria hoy. El código más sencillo que supere las pruebas es el correcto. Evitar la sobreingeniería ('no lo vas a necesitar' — YAGNI). El diseño se va refinando con la refactorización.\n\n**5. TDD — Desarrollo dirigido por pruebas (Test-Driven Development):**\nLos programadores comienzan definiendo las pruebas unitarias antes de escribir el código. El ciclo es: (1) escribir una prueba que falla (rojo), (2) escribir el código mínimo para que pase (verde), (3) refactorizar. Las pruebas sirven tanto como especificación del comportamiento esperado como como red de seguridad para cambios futuros.\n\n**6. Refactorización:**\nReestructuración continua del código para mejorar su diseño interno sin cambiar su comportamiento observable. Busca siempre mayor simplicidad, legibilidad y flexibilidad. Requiere las pruebas automáticas como red de seguridad.\n\n**7. Programación en parejas:**\nDos desarrolladores trabajan juntos en la misma estación de trabajo: uno escribe el código (conductor) y el otro lo revisa en tiempo real (navegador). Los roles se intercambian con frecuencia. Beneficios: mayor calidad del código, revisión continua, transferencia de conocimiento, código más legible.\n\n**8. Propiedad del código compartida:**\nCualquier miembro del equipo tiene autorización para modificar cualquier parte del código si detecta una posible mejora. Todo el equipo es responsable del sistema en su conjunto. Requiere que todos tengan acceso y visión general del código, lo que se facilita con los estándares de programación.\n\n**9. Integración continua:**\nEl código se integra y se ejecutan todas las pruebas automáticas con mucha frecuencia (varias veces al día). Solo se acepta una integración si todas las pruebas pasan. Esto permite detectar conflictos e incompatibilidades de inmediato, evitando que se acumulen.\n\n**10. Semana de 40 horas:**\nEl equipo trabaja a un ritmo sostenible. No se permiten horas extras de forma habitual: el agotamiento reduce la calidad y la creatividad. Si se necesitan horas extras dos semanas seguidas, es señal de que hay un problema en la planificación que debe resolverse.\n\n**11. Involucración del cliente (cliente in situ):**\nEl cliente es un miembro más del equipo: está físicamente presente con el equipo de desarrollo. Define las historias de usuario, prioriza el trabajo y diseña las pruebas de aceptación que validarán cada historia. La disponibilidad directa del cliente es una de las características más exigentes de XP y también una de las más criticadas por su dificultad práctica.\n\n**12. Estándares de programación:**\nTodo el equipo sigue las mismas convenciones de nomenclatura, estilo y formato de código. Esto es imprescindible para que la propiedad colectiva del código funcione: cualquier miembro debe poder leer y modificar el código de otro sin esfuerzo adicional."
+      },
+      {
+        "titulo": "Roles en XP",
+        "contenido": "XP define roles o perfiles que aceptan la responsabilidad de determinadas tareas. A diferencia de Scrum, son más numerosos y especializados técnicamente:\n\n**Programador:**\nEs la figura central del equipo. De alta preparación técnica, es responsable del código, el diseño y las pruebas. Estima el esfuerzo de las historias, programa siempre en parejas, aplica TDD y refactoriza. Tiene visión del sistema en su conjunto gracias a la propiedad colectiva del código. También debe tener capacidad de comunicación y aceptar críticas constructivas.\n\n**Cliente:**\nConsiderado un miembro más del equipo. Es el responsable de escribir las historias de usuario, de definir las pruebas de aceptación y de priorizar el plan de releases. Idealmente está presente físicamente con el equipo (cliente in situ). Se espera que tenga cierto conocimiento técnico, aunque no sea programador. En proyectos reales, la disponibilidad permanente del cliente es una de las mayores dificultades de XP.\n\n**Tester:**\nAyuda al cliente con las pruebas funcionales, automatiza pruebas y controla que todos los tests están definidos y se ejecutan correctamente en cada integración. No es necesariamente una figura independiente del programador, pero alguien debe asumir esta responsabilidad explícitamente.\n\n**Rastreador (Tracker):**\nEl 'observa sin molestar'. Almacena datos históricos del proceso: estimaciones realizadas vs. tiempo real invertido, resultados de pruebas, número de defectos, progreso de cada iteración. Analiza posibles desviaciones sistemáticas y ayuda al equipo a mejorar sus estimaciones futuras. No interfiere en el trabajo, solo recopila métricas.\n\n**Entrenador (Coach):**\nExperto en XP, responsable del proceso en su conjunto. Asegura que todos los participantes conocen su rol y aplican correctamente los valores y prácticas. Analiza el proceso y propone mejoras. Tiene mayor importancia al comienzo del proyecto, cuando el equipo todavía no domina XP. A medida que el equipo madura, su rol pierde relevancia. Es la figura más similar al Scrum Master.\n\n**Jefe de proyecto (Big Boss / Manager):**\nGarante de que el proyecto finaliza cumpliendo los objetivos. Su principal cualidad debe ser el coraje para tomar decisiones difíciles en momentos críticos. Proporciona recursos, elimina impedimentos externos y protege al equipo de interferencias organizativas. No organiza el trabajo interno ni asigna tareas (eso es responsabilidad del equipo)."
+      },
+      {
+        "titulo": "XP Industrial (IXP): extensión a grandes organizaciones",
+        "contenido": "XP Industrial (IXP) surgió como respuesta a la necesidad de escalar XP en organizaciones con más de 500 empleados (Kerievsky, 2005). Intenta mantener el espíritu minimalista y las prácticas de ingeniería de XP, pero hace un esfuerzo adicional en incluir a la gerencia y ampliar la participación del cliente.\n\nIXP introduce seis nuevas prácticas respecto a XP tradicional:\n\n**1. Evaluación de factibilidad:** un especialista en IXP evalúa durante uno o dos días si la organización está preparada (técnica y culturalmente) para adoptar esta metodología.\n\n**2. Comunidad del proyecto:** se extiende la idea de equipo a una comunidad más amplia, que incluye, además del equipo técnico y el cliente, a miembros del equipo jurídico, de ventas y marketing, etc. Es necesario definir los roles y los canales de comunicación y coordinación.\n\n**3. Calificación del proyecto:** se establece la relación del proyecto con los objetivos estratégicos de la organización.\n\n**4. Gestión orientada a pruebas:** se definen métricas y pruebas orientadas a los objetivos de la organización, no solo a los técnicos.\n\n**5. Retrospectivas:** el equipo reflexiona periódicamente sobre su propio proceso para mejorarlo (similar a la retrospectiva de Scrum).\n\n**6. Aprendizaje continuo:** los miembros de la comunidad se forman y mejoran constantemente."
+      },
+      {
+        "titulo": "Valoración crítica y declive de XP",
+        "contenido": "Los beneficios de XP son indiscutibles: las 12 prácticas forman un sistema sinérgico en el que unas se refuerzan mutuamente. Sin embargo, la metodología presenta varias críticas importantes.\n\n**Críticas técnicas:**\n- La refactorización continua puede resultar extenuante, pero sin propiedad del código compartida y sin estándares sería imposible.\n- El diseño simple puede ser insuficiente para sistemas complejos que requieren un diseño formal de partida robusto.\n- La expresión informal de requisitos (solo historias de usuario y pruebas de aceptación) puede ser insuficiente para proyectos con especificaciones muy formales.\n- En proyectos con varios clientes con necesidades en conflicto, XP no propone una figura mediadora clara.\n\n**Razones del declive de XP:**\nEn 2018, solo un 1 % de las organizaciones usaban XP pura (aunque un 6 % usaba Scrum+XP). Las causas son:\n\n- **Muy centrada en la ingeniería:** los gestores tradicionales (managers que ya no programan) no se sienten cómodos con ella y no tienen encaje claro en sus roles. Prefieren metodologías como Scrum, donde el Scrum Master es más próximo al perfil de gestor.\n- **Elevado nivel de exigencia técnica:** los programadores deben dominar XP, análisis, diseño, TDD, refactorización, etc. Esto no es habitual y eleva los costes de personal. Además, la infraestructura de pruebas automatizadas supone un coste adicional.\n- **Irracional desde el punto de vista de negocio:** el énfasis en las pruebas y en la programación en parejas (dos personas para una tarea que podría hacer una) no es entendido ni aceptado fácilmente por los responsables de negocio que ven solo el coste.\n- **Excesiva complejidad:** demasiadas obligaciones para el programador y énfasis en las entregas continuas pueden resultar agotadores. Esto conecta directamente con el problema de la semana de 40 horas: la presión puede llevar al incumplimiento de este principio."
+      }
+    ]
+  },
+  "resumen": [
+    "XP (eXtreme Programming) fue creada por Kent Beck y lleva al extremo los principios del desarrollo iterativo, con fuerte orientación hacia las pruebas y las prácticas técnicas de ingeniería.",
+    "A diferencia de Scrum (framework de gestión), XP es prescriptiva en prácticas concretas de ingeniería: TDD, programación en parejas, integración continua, refactorización, etc.",
+    "En XP, las cuatro fases tradicionales (análisis, diseño, implementación, pruebas) se entremezclan continuamente, no son secuenciales como en cascada ni separadas por iteraciones como en el modelo espiral.",
+    "El modelo de proceso de XP tiene cuatro actividades solapadas: planificación (dos niveles: release e iteración), diseño (simple), codificación (en parejas) y pruebas (TDD).",
+    "Los cinco valores básicos de XP son: comunicación, simplicidad, retroalimentación, coraje y respeto (este último añadido en 2004 como articulador de los otros cuatro).",
+    "Las 12 prácticas son: juego de la planificación, pequeñas entregas, metáfora del sistema, diseño simple, TDD, refactorización, programación en parejas, propiedad del código compartida, integración continua, semana de 40 horas, cliente in situ y estándares de programación.",
+    "TDD es la práctica central de XP: se define la prueba antes que el código, siguiendo el ciclo rojo (prueba que falla) → verde (código mínimo) → refactorizar.",
+    "La propiedad del código es compartida: cualquier miembro puede modificar cualquier parte del sistema, lo que requiere que todos tengan visión general del código y sigan los mismos estándares.",
+    "Los roles de XP son: programador, cliente (in situ), tester, rastreador (tracker), entrenador (coach) y jefe de proyecto (big boss).",
+    "El coach es el experto en XP responsable del proceso, similar al Scrum Master; el tracker observa métricas sin interferir; el big boss garantiza objetivos sin asignar tareas.",
+    "XP Industrial (IXP) extiende XP a grandes organizaciones añadiendo 6 nuevas prácticas: evaluación de factibilidad, comunidad del proyecto, calificación, gestión orientada a pruebas, retrospectivas y aprendizaje continuo.",
+    "El declive de XP se debe principalmente a: excesivo enfoque en ingeniería (alejado de los gestores), alta exigencia técnica y coste, prácticas difíciles de justificar ante negocio (parejas, pruebas) y complejidad general."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Programación Extrema (XP)",
+      "definicion": "Metodología ágil creada por Kent Beck que lleva al extremo el desarrollo iterativo con fuerte orientación hacia las pruebas. Prescribe prácticas técnicas concretas de ingeniería, a diferencia de Scrum que es un framework de gestión del proceso."
+    },
+    {
+      "termino": "Juego de la planificación (XP)",
+      "definicion": "Práctica de XP para determinar el alcance de cada release e iteración mediante un diálogo entre el cliente (que decide qué y cuándo) y el equipo de desarrollo (que estima el esfuerzo técnico)."
+    },
+    {
+      "termino": "Pequeñas entregas (XP)",
+      "definicion": "Práctica de XP que consiste en poner el sistema en producción cuanto antes con las funcionalidades de mayor valor, continuando con mejoras en iteraciones muy cortas para obtener retroalimentación temprana."
+    },
+    {
+      "termino": "Metáfora del sistema (XP)",
+      "definicion": "Modelo conceptual simple y compartido por todos los participantes (técnicos y cliente) que guía el diseño del sistema y facilita la comunicación. Funciona como sustituto informal de la arquitectura."
+    },
+    {
+      "termino": "Diseño simple (XP)",
+      "definicion": "Práctica de XP que prescribe implementar solo la funcionalidad mínima necesaria hoy, evitando sobreingeniería. El diseño más sencillo que supere las pruebas es el correcto."
+    },
+    {
+      "termino": "TDD — Test-Driven Development",
+      "definicion": "Práctica central de XP: se escribe la prueba unitaria antes que el código. Ciclo: (1) prueba en rojo (falla), (2) código mínimo para pasar la prueba (verde), (3) refactorizar. Las pruebas sirven como especificación del comportamiento."
+    },
+    {
+      "termino": "Refactorización (XP)",
+      "definicion": "Reestructuración continua del código para mejorar su diseño interno (simplicidad, legibilidad, flexibilidad) sin cambiar su comportamiento observable. Requiere las pruebas automáticas como red de seguridad."
+    },
+    {
+      "termino": "Programación en parejas (XP)",
+      "definicion": "Práctica de XP en la que dos desarrolladores trabajan juntos en la misma estación: uno escribe (conductor) y el otro revisa en tiempo real (navegador). Mejora la calidad del código y transfiere conocimiento."
+    },
+    {
+      "termino": "Propiedad del código compartida (XP)",
+      "definicion": "Práctica de XP por la que cualquier miembro del equipo puede modificar cualquier parte del código si detecta una mejora. Todo el equipo es responsable del sistema en su conjunto."
+    },
+    {
+      "termino": "Integración continua (XP)",
+      "definicion": "Práctica de XP que consiste en integrar el código y ejecutar todas las pruebas automáticas varias veces al día. Solo se acepta una integración si todas las pruebas pasan."
+    },
+    {
+      "termino": "Semana de 40 horas (XP)",
+      "definicion": "Práctica de XP que establece un ritmo de trabajo sostenible. No se admiten horas extras habituales; si son necesarias dos semanas seguidas, es señal de un problema de planificación."
+    },
+    {
+      "termino": "Cliente in situ (XP)",
+      "definicion": "Práctica de XP que requiere que el cliente esté físicamente presente con el equipo. Define historias de usuario, prioriza el trabajo y diseña las pruebas de aceptación. Es una de las prácticas más exigentes y difíciles de cumplir."
+    },
+    {
+      "termino": "Estándares de programación (XP)",
+      "definicion": "Práctica de XP que establece convenciones comunes de nomenclatura, estilo y formato de código. Necesarios para que la propiedad colectiva funcione: cualquier miembro debe poder leer el código de otro sin esfuerzo."
+    },
+    {
+      "termino": "Coach (Entrenador) en XP",
+      "definicion": "Experto en XP responsable del proceso en su conjunto. Asegura que los participantes conocen su rol y aplican correctamente los valores y prácticas. Tiene mayor importancia al inicio del proyecto. Figura similar al Scrum Master."
+    },
+    {
+      "termino": "Tracker (Rastreador) en XP",
+      "definicion": "Rol de XP que observa sin interferir y recopila métricas del proceso: estimaciones vs. tiempo real, resultados de pruebas, defectos y progreso. Ayuda a mejorar las estimaciones futuras del equipo."
+    },
+    {
+      "termino": "XP Industrial (IXP)",
+      "definicion": "Extensión de XP para organizaciones grandes (>500 empleados). Mantiene el espíritu de XP tradicional y añade 6 nuevas prácticas: evaluación de factibilidad, comunidad del proyecto, calificación, gestión orientada a pruebas, retrospectivas y aprendizaje continuo."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-3-fc-001",
+      "pregunta": "¿Quién creó XP y cuándo se formalizó?",
+      "respuesta": "Kent Beck. Sus ideas se formalizaron en sus publicaciones de 1999 y 2000, aunque algunos principios venían desarrollándose desde los años 80."
+    },
+    {
+      "id": "isa-tema-3-fc-002",
+      "pregunta": "¿Qué significa que XP lleva 'al extremo' los principios del desarrollo iterativo?",
+      "respuesta": "Genera mejoras varias veces al día, el cliente recibe incrementos muy frecuentemente, y solo se acepta una nueva versión si todas las pruebas pasan. Todo se lleva al límite: entregas, pruebas, feedback."
+    },
+    {
+      "id": "isa-tema-3-fc-003",
+      "pregunta": "¿Cuál es la principal diferencia entre XP y Scrum?",
+      "respuesta": "Scrum es un framework de gestión del proceso (roles, reuniones, artefactos). XP está centrada en prácticas técnicas concretas de ingeniería (TDD, programación en parejas, integración continua, etc.)."
+    },
+    {
+      "id": "isa-tema-3-fc-004",
+      "pregunta": "¿Cómo trata XP las 4 fases tradicionales (análisis, diseño, implementación, pruebas) en comparación con el modelo en cascada?",
+      "respuesta": "En cascada, las 4 fases son secuenciales y largas. En XP, las 4 actividades se entremezclan continuamente a lo largo del proyecto: no hay fases separadas, todo ocurre en paralelo y de forma continua."
+    },
+    {
+      "id": "isa-tema-3-fc-005",
+      "pregunta": "¿Cuáles son los dos niveles de planificación en XP?",
+      "respuesta": "Nivel de release (el cliente prioriza historias y dialoga con el equipo en el juego de la planificación) y nivel de iteración (cada release se divide en iteraciones donde las historias se descomponen en tareas)."
+    },
+    {
+      "id": "isa-tema-3-fc-006",
+      "pregunta": "¿Cuáles son los 5 valores de XP?",
+      "respuesta": "Comunicación, simplicidad, retroalimentación, coraje y respeto (el respeto fue añadido en 2004 como articulador de los otros cuatro)."
+    },
+    {
+      "id": "isa-tema-3-fc-007",
+      "pregunta": "¿Por qué la comunicación es el primer valor de XP?",
+      "respuesta": "Porque muchos problemas en proyectos software se deben a fallos de comunicación. XP compensa la documentación reducida con comunicación oral constante y directa entre todos los participantes."
+    },
+    {
+      "id": "isa-tema-3-fc-008",
+      "pregunta": "¿Qué significa el valor de simplicidad en XP?",
+      "respuesta": "Implementar solo lo estrictamente necesario hoy, manteniendo el diseño más sencillo posible. Evitar la sobreingeniería ('no lo vas a necesitar'). Se valora el trabajo no realizado."
+    },
+    {
+      "id": "isa-tema-3-fc-009",
+      "pregunta": "¿A qué plazos se produce la retroalimentación en XP?",
+      "respuesta": "Corto plazo: pruebas unitarias (TDD) y cliente in situ. Medio plazo: pruebas funcionales y de aceptación. Largo plazo: releases frecuentes al cliente/usuario final."
+    },
+    {
+      "id": "isa-tema-3-fc-010",
+      "pregunta": "¿Qué función tiene el valor del coraje en XP y qué lo hace posible?",
+      "respuesta": "Permite tomar decisiones drásticas (cambiar arquitectura, eliminar código, probar alternativas). Lo hacen posible la comunicación (identifica oportunidades), la simplicidad (sistemas sencillos son más fáciles de cambiar) y el feedback de las pruebas (red de seguridad)."
+    },
+    {
+      "id": "isa-tema-3-fc-011",
+      "pregunta": "Enuncia las 12 prácticas básicas de XP.",
+      "respuesta": "1) Juego de la planificación, 2) Pequeñas entregas, 3) Metáfora del sistema, 4) Diseño simple, 5) TDD, 6) Refactorización, 7) Programación en parejas, 8) Propiedad del código compartida, 9) Integración continua, 10) Semana de 40 horas, 11) Cliente in situ, 12) Estándares de programación."
+    },
+    {
+      "id": "isa-tema-3-fc-012",
+      "pregunta": "¿En qué consiste el juego de la planificación en XP?",
+      "respuesta": "Proceso dialogado para determinar el alcance de cada release e iteración. El cliente decide qué se implementa y los plazos basándose en el valor de negocio; el equipo estima el esfuerzo técnico. Ninguno puede decidir solo."
+    },
+    {
+      "id": "isa-tema-3-fc-013",
+      "pregunta": "¿Cuál es el ciclo de TDD (Test-Driven Development)?",
+      "respuesta": "1) Escribir una prueba que falla (rojo). 2) Escribir el código mínimo para que la prueba pase (verde). 3) Refactorizar el código manteniendo las pruebas en verde."
+    },
+    {
+      "id": "isa-tema-3-fc-014",
+      "pregunta": "¿En qué consiste la refactorización y qué práctica la hace segura?",
+      "respuesta": "Reestructurar el código para mejorar su diseño interno sin cambiar su comportamiento observable. La hace segura el TDD: las pruebas automáticas detectan si el cambio rompe algo."
+    },
+    {
+      "id": "isa-tema-3-fc-015",
+      "pregunta": "¿Cuáles son los dos roles en la programación en parejas y cómo funcionan?",
+      "respuesta": "Conductor (escribe el código) y navegador (revisa en tiempo real). Los roles se intercambian frecuentemente. Mejora la calidad, reduce errores y distribuye el conocimiento."
+    },
+    {
+      "id": "isa-tema-3-fc-016",
+      "pregunta": "¿Qué implica la propiedad del código compartida y qué práctica la complementa?",
+      "respuesta": "Que cualquier miembro puede modificar cualquier parte del código. La complementan los estándares de programación, que garantizan que el código de todos sea legible por todos."
+    },
+    {
+      "id": "isa-tema-3-fc-017",
+      "pregunta": "¿Qué establece la práctica de la semana de 40 horas en XP?",
+      "respuesta": "Un ritmo de trabajo sostenible sin horas extras habituales. Si se necesitan horas extras dos semanas seguidas, es señal de un problema de planificación que debe resolverse."
+    },
+    {
+      "id": "isa-tema-3-fc-018",
+      "pregunta": "¿Qué hace el cliente in situ en XP y por qué es difícil de cumplir?",
+      "respuesta": "El cliente está físicamente presente con el equipo, escribe historias de usuario, prioriza y define pruebas de aceptación. Es difícil porque requiere disponibilidad total del cliente, que normalmente tiene otras responsabilidades."
+    },
+    {
+      "id": "isa-tema-3-fc-019",
+      "pregunta": "¿Cuáles son los roles de XP?",
+      "respuesta": "Programador, cliente (in situ), tester, rastreador (tracker), entrenador (coach) y jefe de proyecto (big boss)."
+    },
+    {
+      "id": "isa-tema-3-fc-020",
+      "pregunta": "¿Cuál es la función del rastreador (tracker) en XP?",
+      "respuesta": "Observa sin interferir y recopila métricas del proceso: estimaciones vs. tiempo real, resultados de pruebas, defectos, progreso. Ayuda a detectar desviaciones sistemáticas y mejorar estimaciones futuras."
+    },
+    {
+      "id": "isa-tema-3-fc-021",
+      "pregunta": "¿A qué rol de Scrum es similar el coach de XP?",
+      "respuesta": "Al Scrum Master. Ambos facilitan el proceso, aseguran el cumplimiento de la metodología y ayudan al equipo a madurar, aunque el coach de XP tiene mayor expertise técnico en las prácticas XP."
+    },
+    {
+      "id": "isa-tema-3-fc-022",
+      "pregunta": "¿Para qué tipo de organización surgió XP Industrial (IXP) y cuántas nuevas prácticas añade?",
+      "respuesta": "Para organizaciones con más de 500 empleados. Añade 6 nuevas prácticas: evaluación de factibilidad, comunidad del proyecto, calificación, gestión orientada a pruebas, retrospectivas y aprendizaje continuo."
+    },
+    {
+      "id": "isa-tema-3-fc-023",
+      "pregunta": "¿Cuáles son las principales razones del declive de XP?",
+      "respuesta": "1) Muy centrada en ingeniería (gestores tradicionales no encajan), 2) elevada exigencia técnica y coste de personal, 3) prácticas difíciles de justificar ante negocio (parejas, pruebas), 4) excesiva complejidad para el programador."
+    },
+    {
+      "id": "isa-tema-3-fc-024",
+      "pregunta": "¿Por qué XP se considera 'irracional desde el punto de vista de negocio'?",
+      "respuesta": "Porque la programación en parejas (dos personas para una tarea) y el énfasis en la infraestructura de pruebas no son entendidos fácilmente por los responsables de negocio, que solo ven el coste adicional sin percibir el valor de la calidad resultante."
+    },
+    {
+      "id": "isa-tema-3-fc-025",
+      "pregunta": "¿Cómo se relacionan entre sí la refactorización, la propiedad colectiva del código y los estándares de programación?",
+      "respuesta": "Son prácticas sinérgicas: la refactorización mejora continuamente el código, la propiedad colectiva permite que cualquiera pueda hacer esa mejora, y los estándares garantizan que el código refactorizado por uno sea legible para todos."
+    },
+    {
+      "id": "isa-tema-3-fc-026",
+      "pregunta": "¿Qué porcentaje de organizaciones usaba XP pura en 2018 según el informe VersionOne?",
+      "respuesta": "Solo un 1%, aunque un 6% adicional mencionaba usar una combinación de Scrum y XP."
+    },
+    {
+      "id": "isa-tema-3-fc-027",
+      "pregunta": "¿Por qué es importante la metáfora del sistema y qué la diferencia de una arquitectura formal?",
+      "respuesta": "Proporciona un modelo conceptual compartido y comprensible para todos (técnicos y cliente) que guía el diseño. A diferencia de una arquitectura formal, es simple e informal, accesible sin conocimientos técnicos profundos."
+    },
+    {
+      "id": "isa-tema-3-fc-028",
+      "pregunta": "¿En qué se diferencia el jefe de proyecto (big boss) de XP del jefe de proyecto tradicional?",
+      "respuesta": "El big boss no organiza el trabajo interno ni asigna tareas. Se encarga de garantizar los objetivos del proyecto, proporcionar recursos y eliminar impedimentos externos. Su principal cualidad es el coraje para tomar decisiones difíciles."
+    }
+  ]
+}

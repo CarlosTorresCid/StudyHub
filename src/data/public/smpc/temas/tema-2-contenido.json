@@ -1,0 +1,295 @@
+{
+  "asignaturaId": "smpc",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. El Estándar para Agentes: FIPA",
+  "apuntes": {
+    "introduccion": "El Tema 2 estudia el estándar FIPA, una referencia fundamental para la comunicación y gestión de agentes software. FIPA define cómo deben intercambiar mensajes los agentes, cómo se estructuran esos mensajes, qué componentes forman una plataforma de agentes y qué protocolos de interacción pueden utilizarse para coordinar conversaciones completas entre agentes. El tema se centra especialmente en FIPA-ACL, la pila de comunicación FIPA, los componentes de gestión de agentes como AMS y DF, y protocolos como Request y Contract Net.",
+    "secciones": [
+      {
+        "titulo": "1. La comunicación entre agentes: FIPA-ACL",
+        "contenido": "Uno de los aspectos fundamentales de FIPA es la **comunicación entre agentes**. Los agentes interactúan entre sí mediante **lenguajes de comunicación de agentes**, conocidos como ACL (*Agent Communication Language*).\n\nEl lenguaje **FIPA-ACL** se basa en la **teoría de los actos de habla de Searle**. Según esta teoría, comunicar no es solo transmitir información, sino realizar una acción comunicativa. Cada mensaje enviado por un agente representa un acto comunicativo o **performativa**, que puede afectar a las creencias, deseos o intenciones de los agentes implicados.\n\nFIPA-ACL define un conjunto de **22 actos comunicativos**, basados en la propuesta ARCOL de France Télécom. Cada acto comunicativo se describe mediante una forma narrativa y una semántica formal basada en lógica modal. Esta semántica es coherente con el modelo BDI, basado en creencias, deseos e intenciones.\n\nPara que un agente sea compatible con FIPA, debe ser capaz de recibir cualquier mensaje ACL y, como mínimo, responder con un mensaje de tipo **NOT-UNDERSTOOD** si no puede procesarlo.\n\nFIPA-ACL no obliga a utilizar un único lenguaje para expresar el contenido del mensaje. Existen especificaciones para FIPA-SL, FIPA-KIF y FIPA-RDF, aunque **solo FIPA-SL ha sido promovido al estado de estándar**."
+      },
+      {
+        "titulo": "2. Estructura y parámetros de un mensaje FIPA-ACL",
+        "contenido": "Un mensaje FIPA-ACL está formado por uno o más parámetros. El **único parámetro obligatorio en todos los mensajes** es la **performativa**, que indica el tipo de acto comunicativo que representa el mensaje.\n\nAunque la performativa es el único campo siempre obligatorio, normalmente un mensaje incluye también información sobre el emisor, el receptor y el contenido.\n\nLos principales parámetros de un mensaje ACL son:\n\n- **performative**: tipo de acto comunicativo. Ejemplos: REQUEST, INFORM, CFP, PROPOSE, AGREE, FAILURE, NOT-UNDERSTOOD o REFUSE.\n- **sender**: agente emisor del mensaje.\n- **receiver**: agente o agentes destinatarios.\n- **content**: información que se intercambia.\n- **reply-to**: dirección alternativa de respuesta.\n- **language**: lenguaje usado para expresar el contenido.\n- **encoding**: codificación utilizada.\n- **ontology**: ontología a la que hace referencia el contenido.\n- **protocol**: protocolo de interacción que regula la conversación.\n- **conversation-id**: identificador de la conversación.\n- **reply-with**: etiqueta que permite identificar la respuesta esperada.\n- **in-reply-to**: etiqueta del mensaje al que se responde.\n- **reply-by**: plazo máximo para recibir una respuesta.\n\nFIPA define tres codificaciones para los mensajes: **String**, basada en notación EBNF; **XML**; y **Bit-Efficient**, pensada para conexiones con bajo ancho de banda.\n\nTambién se pueden definir parámetros personalizados utilizando el prefijo **X-**."
+      },
+      {
+        "titulo": "3. La pila de comunicación FIPA",
+        "contenido": "La pila de comunicación FIPA se divide en **siete subniveles**, todos situados dentro de la capa de aplicación del modelo OSI/TCP-IP. Estos subniveles van desde los aspectos más técnicos del transporte hasta los aspectos más semánticos de la conversación entre agentes.\n\nDe menor a mayor nivel de abstracción, los siete subniveles son:\n\n- **Subnivel 1 — Transporte**: define cómo se transportan físicamente los mensajes. FIPA ha definido protocolos de transporte para IIOP, WAP y HTTP.\n- **Subnivel 2 — Codificación**: define cómo se representa el mensaje. FIPA contempla codificaciones XML, String y Bit-Efficient.\n- **Subnivel 3 — Mensajería**: define la estructura general del mensaje y sus parámetros, como emisor, receptor, tipo de acto comunicativo o tiempos de espera.\n- **Subnivel 4 — Ontología**: permite que los términos usados en el contenido hagan referencia a una ontología de aplicación. FIPA permite el uso de ontologías, pero no impone una ontología concreta.\n- **Subnivel 5 — Expresión de contenido**: corresponde al lenguaje utilizado para expresar el contenido semántico del mensaje, como FIPA-SL, FIPA-KIF o FIPA-RDF.\n- **Subnivel 6 — Acto comunicativo**: corresponde a la performativa, que clasifica el mensaje según el tipo de acto comunicativo.\n- **Subnivel 7 — Protocolo de interacción**: es el nivel más alto y organiza secuencias completas de mensajes dentro de una conversación. Ejemplos: protocolo Request y protocolo Contract Net.\n\nUna forma sencilla de recordarlo es pensar que la pila avanza desde lo más técnico, como el transporte, hasta lo más conversacional, como los protocolos de interacción."
+      },
+      {
+        "titulo": "4. La gestión de agentes en FIPA",
+        "contenido": "Además de la comunicación, FIPA define la **gestión de agentes**. Esta gestión establece una estructura normativa para que los agentes compatibles con FIPA puedan existir, funcionar, localizarse, comunicarse, migrar y ser administrados dentro de una plataforma.\n\nEl modelo de gestión de agentes se organiza en torno a varios componentes fundamentales: la **Plataforma de Agentes (AP)**, los agentes, el **Identificador de Agente (AID)**, el **Sistema de Gestión de Agentes (AMS)**, el **Facilitador de Directorio (DF)** y el **Servicio de Transporte de Mensajes (MTS)**.\n\nEstos componentes permiten que los agentes tengan una identidad, puedan registrarse, sean localizables, publiquen los servicios que ofrecen y puedan intercambiar mensajes tanto dentro de una misma plataforma como entre plataformas diferentes."
+      },
+      {
+        "titulo": "5. Plataforma de Agentes, agentes y AID",
+        "contenido": "La **Plataforma de Agentes (AP, Agent Platform)** proporciona la infraestructura física donde se despliegan los agentes. Una AP puede estar formada por máquinas, sistemas operativos, componentes de administración FIPA, los propios agentes y software de apoyo. Una plataforma puede extenderse sobre varios ordenadores, por lo que los agentes no tienen por qué residir en el mismo host.\n\nUn **agente** es un proceso computacional que habita en una AP y que normalmente ofrece uno o más servicios. Todo agente debe tener al menos un propietario y debe implementar una identidad mediante un **AID**.\n\nEl **AID (Agent Identifier)** es el identificador único de un agente. Contiene el nombre del agente y sus direcciones de transporte. El nombre se construye a partir de un **nombre local** y un **nombre de plataforma**. El nombre local puede bastar para comunicación dentro de la misma plataforma, pero el nombre completo es necesario para comunicación entre plataformas.\n\nLas direcciones de transporte incluidas en el AID se heredan de la plataforma y permiten que los mensajes lleguen al agente."
+      },
+      {
+        "titulo": "6. AMS: Sistema de Gestión de Agentes",
+        "contenido": "El **AMS (Agent Management System)** es un componente **obligatorio** de toda Plataforma de Agentes.\n\nSus funciones principales son:\n\n- Gestionar la creación y supresión de agentes.\n- Supervisar la migración de agentes.\n- Mantener un directorio de los agentes de la plataforma.\n- Registrar el estado actual de cada agente: activo, suspendido o en espera.\n- Asignar y gestionar los AID de los agentes.\n- Cancelar el registro de un agente cuando finaliza su ciclo de vida.\n\nCada agente debe registrarse en el AMS para obtener su AID. Solo puede existir **un único AMS por Plataforma de Agentes**, aunque la plataforma esté distribuida en varias máquinas.\n\nEl AMS puede solicitar a un agente que realice una función de gestión, por ejemplo terminar su ejecución, y tiene autoridad para hacer cumplir esa orden si el agente la ignora.\n\nEl AMS equivale a las **páginas blancas** de la plataforma, porque permite localizar agentes por su identidad."
+      },
+      {
+        "titulo": "7. DF: Facilitador de Directorio",
+        "contenido": "El **DF (Directory Facilitator)** es un componente **opcional** de una Plataforma de Agentes. Su función es proporcionar un servicio de **páginas amarillas**.\n\nMientras que el AMS localiza agentes por su identidad, el DF permite localizar agentes por los **servicios que ofrecen**. Un agente puede registrar en el DF una descripción de sus servicios, y otros agentes pueden consultar el DF para encontrar agentes capaces de realizar un determinado servicio.\n\nUna plataforma puede tener varios DFs. Además, los DFs pueden registrarse entre sí formando **federaciones**, lo que permite ampliar el alcance de las búsquedas de servicios.\n\nEl registro en un DF no obliga al agente a prestar siempre el servicio en el futuro. Los agentes pueden modificar o anular su descripción en cualquier momento. Además, el DF no garantiza necesariamente que la información obtenida en una búsqueda sea válida o esté actualizada."
+      },
+      {
+        "titulo": "8. MTS: Servicio de Transporte de Mensajes",
+        "contenido": "El **MTS (Message Transport Service)** es el servicio encargado de transportar mensajes FIPA-ACL entre agentes.\n\nPermite la comunicación tanto entre agentes que se encuentran dentro de la misma Plataforma de Agentes como entre agentes ubicados en plataformas diferentes.\n\nLos mensajes transportados incluyen una envoltura de transporte con los parámetros necesarios para la entrega. El MTS es, por tanto, el componente que hace posible que la comunicación definida por FIPA-ACL pueda funcionar realmente entre agentes distribuidos."
+      },
+      {
+        "titulo": "9. Arquitectura abstracta FIPA",
+        "contenido": "La **arquitectura abstracta FIPA**, recogida en la especificación SC00001, define de forma general cómo dos agentes pueden localizarse y comunicarse entre sí mediante registros e intercambio de mensajes.\n\nLos agentes se comunican intercambiando mensajes que representan actos de discurso y que están codificados en un lenguaje de comunicación de agentes.\n\nLa arquitectura abstracta contempla varios servicios de apoyo:\n\n- **Servicio de directorio de agentes**: repositorio compartido donde los agentes publican y consultan información sobre otros agentes.\n- **Servicio de transporte de mensajes**: medio utilizado para enviar y recibir mensajes.\n- **Servicio de directorio de servicios**: repositorio compartido para descubrir servicios ofrecidos por agentes.\n\nFIPA ha producido distintas especificaciones estándar, experimentales y preliminares para cubrir estos aspectos."
+      },
+      {
+        "titulo": "10. Protocolo Request",
+        "contenido": "FIPA define protocolos de interacción que organizan secuencias completas de actos comunicativos. Uno de los protocolos más utilizados es el **protocolo Request**.\n\nEn este protocolo, un agente iniciador solicita a otro agente participante que realice una acción. El participante analiza la solicitud y decide si la acepta o la rechaza.\n\nEl flujo general es:\n\n- El iniciador envía una solicitud mediante REQUEST.\n- El participante puede aceptar con AGREE o rechazar con REFUSE.\n- Si acepta y completa la acción, puede responder con INFORM-DONE o INFORM-RESULT.\n- Si no puede completar la acción, responde con FAILURE.\n\nINFORM-DONE indica que la acción se ha realizado, mientras que INFORM-RESULT puede aportar información más detallada sobre el resultado obtenido."
+      },
+      {
+        "titulo": "11. Protocolo Contract Net",
+        "contenido": "El **protocolo Contract Net** es un protocolo de interacción más complejo que permite asignar tareas a uno o varios agentes. Es útil cuando un agente iniciador necesita que otros participantes realicen una tarea y quiere seleccionar la mejor propuesta según una función determinada, como coste, tiempo de finalización o distribución equitativa de tareas.\n\nEl flujo del protocolo es:\n\n1. El iniciador envía una **CFP (Call for Proposal)** a los participantes candidatos, incluyendo un plazo de respuesta mediante **reply-by**.\n2. Cada participante puede responder con **PROPOSE**, si presenta una propuesta, o con **REFUSE**, si rechaza proponer.\n3. Las propuestas recibidas después del plazo se rechazan automáticamente.\n4. El iniciador evalúa las propuestas recibidas.\n5. Los participantes seleccionados reciben **ACCEPT-PROPOSAL**.\n6. Los participantes rechazados reciben **REJECT-PROPOSAL**.\n7. Las propuestas aceptadas son vinculantes: el participante adquiere el compromiso de realizar la tarea.\n8. Al finalizar, el participante responde con **INFORM-DONE** o **INFORM-RESULT**.\n9. Si no puede completar la tarea, responde con **FAILURE**.\n\nEl plazo reply-by es importante porque evita que el iniciador espere indefinidamente a participantes que no responden."
+      }
+    ]
+  },
+  "resumen": [
+    "FIPA es un estándar para agentes software que regula principalmente la comunicación y la gestión de agentes.",
+    "FIPA-ACL es el lenguaje de comunicación de agentes definido por FIPA.",
+    "FIPA-ACL se basa en la teoría de los actos de habla: cada mensaje es una acción comunicativa.",
+    "La performativa es el único parámetro obligatorio en todos los mensajes FIPA-ACL.",
+    "FIPA-ACL define 22 actos comunicativos, como REQUEST, INFORM, CFP, PROPOSE, AGREE, FAILURE, REFUSE o NOT-UNDERSTOOD.",
+    "FIPA define tres codificaciones para los mensajes: String, XML y Bit-Efficient.",
+    "La pila de comunicación FIPA tiene siete subniveles: transporte, codificación, mensajería, ontología, expresión de contenido, acto comunicativo y protocolo de interacción.",
+    "La Plataforma de Agentes proporciona la infraestructura física donde habitan los agentes.",
+    "El AID identifica de forma única a un agente y contiene su nombre y direcciones de transporte.",
+    "El AMS es obligatorio, único por plataforma y actúa como páginas blancas localizando agentes por identidad.",
+    "El DF es opcional y actúa como páginas amarillas, permitiendo localizar agentes por los servicios que ofrecen.",
+    "El MTS transporta mensajes FIPA-ACL entre agentes de una misma plataforma o de plataformas distintas.",
+    "El protocolo Request permite solicitar a un agente que realice una acción.",
+    "El protocolo Contract Net permite asignar tareas mediante convocatorias, propuestas, aceptación o rechazo y ejecución vinculante.",
+    "El campo reply-by en Contract Net evita esperas indefinidas y permite rechazar propuestas recibidas fuera de plazo."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "FIPA",
+      "definicion": "Foundation for Intelligent Physical Agents. Estándar orientado a definir la comunicación, gestión e interoperabilidad entre agentes software."
+    },
+    {
+      "termino": "FIPA-ACL",
+      "definicion": "Lenguaje de comunicación de agentes definido por FIPA. Permite intercambiar mensajes entre agentes mediante actos comunicativos o performativas."
+    },
+    {
+      "termino": "Performativa",
+      "definicion": "Acto comunicativo que indica el tipo de acción que representa un mensaje ACL. Es el único parámetro obligatorio en todos los mensajes FIPA-ACL."
+    },
+    {
+      "termino": "Acto comunicativo",
+      "definicion": "Acción comunicativa representada por un mensaje. Puede afectar a las creencias, deseos o intenciones de los agentes implicados."
+    },
+    {
+      "termino": "Teoría de los actos de habla",
+      "definicion": "Teoría de Searle en la que se basa FIPA-ACL. Defiende que comunicar es realizar una acción, no solo transmitir información."
+    },
+    {
+      "termino": "FIPA-SL",
+      "definicion": "Lenguaje de contenido promovido al estado de estándar por FIPA. Se utiliza para expresar el contenido semántico de los mensajes ACL."
+    },
+    {
+      "termino": "Pila de comunicación FIPA",
+      "definicion": "Modelo dividido en siete subniveles: transporte, codificación, mensajería, ontología, expresión de contenido, acto comunicativo y protocolo de interacción."
+    },
+    {
+      "termino": "Codificación Bit-Efficient",
+      "definicion": "Codificación definida por FIPA para representar mensajes en conexiones de bajo ancho de banda."
+    },
+    {
+      "termino": "Plataforma de Agentes (AP)",
+      "definicion": "Infraestructura física donde se despliegan y ejecutan los agentes. Puede incluir máquinas, sistemas operativos, agentes y componentes de administración FIPA."
+    },
+    {
+      "termino": "AID (Agent Identifier)",
+      "definicion": "Identificador único de un agente. Incluye el nombre del agente y sus direcciones de transporte."
+    },
+    {
+      "termino": "AMS (Agent Management System)",
+      "definicion": "Componente obligatorio y único por Plataforma de Agentes. Gestiona el ciclo de vida de los agentes y actúa como páginas blancas."
+    },
+    {
+      "termino": "Páginas blancas",
+      "definicion": "Servicio asociado al AMS que permite localizar agentes por su identidad o AID."
+    },
+    {
+      "termino": "DF (Directory Facilitator)",
+      "definicion": "Componente opcional de una Plataforma de Agentes que permite registrar y buscar servicios ofrecidos por agentes. Actúa como páginas amarillas."
+    },
+    {
+      "termino": "Páginas amarillas",
+      "definicion": "Servicio asociado al DF que permite localizar agentes por los servicios que ofrecen, no por su identidad."
+    },
+    {
+      "termino": "Federación de DFs",
+      "definicion": "Agrupación de varios Facilitadores de Directorio registrados entre sí para ampliar el alcance de las búsquedas de servicios."
+    },
+    {
+      "termino": "MTS (Message Transport Service)",
+      "definicion": "Servicio encargado de transportar mensajes FIPA-ACL entre agentes dentro de una misma plataforma o entre plataformas distintas."
+    },
+    {
+      "termino": "Protocolo Request",
+      "definicion": "Protocolo de interacción FIPA en el que un agente iniciador solicita a otro agente participante que realice una acción."
+    },
+    {
+      "termino": "Protocolo Contract Net",
+      "definicion": "Protocolo de interacción FIPA para asignar tareas mediante convocatoria de propuestas, evaluación, aceptación o rechazo y ejecución por los agentes seleccionados."
+    },
+    {
+      "termino": "CFP (Call for Proposal)",
+      "definicion": "Mensaje utilizado en Contract Net para solicitar propuestas a agentes participantes sobre una tarea determinada."
+    },
+    {
+      "termino": "reply-by",
+      "definicion": "Parámetro que indica el plazo máximo para recibir una respuesta. En Contract Net evita esperas indefinidas."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "smpc-tema-2-fc-001",
+      "pregunta": "¿Qué dos aspectos fundamentales aborda FIPA?",
+      "respuesta": "La comunicación entre agentes y la gestión de agentes dentro de una plataforma."
+    },
+    {
+      "id": "smpc-tema-2-fc-002",
+      "pregunta": "¿Qué es FIPA-ACL?",
+      "respuesta": "El lenguaje de comunicación de agentes definido por FIPA para intercambiar mensajes mediante actos comunicativos."
+    },
+    {
+      "id": "smpc-tema-2-fc-003",
+      "pregunta": "¿En qué teoría se basa FIPA-ACL?",
+      "respuesta": "En la teoría de los actos de habla de Searle."
+    },
+    {
+      "id": "smpc-tema-2-fc-004",
+      "pregunta": "¿Qué implica la teoría de los actos de habla aplicada a FIPA-ACL?",
+      "respuesta": "Que comunicar es actuar: cada mensaje representa una acción comunicativa con efectos sobre las actitudes mentales de los agentes."
+    },
+    {
+      "id": "smpc-tema-2-fc-005",
+      "pregunta": "¿Qué es una performativa en FIPA-ACL?",
+      "respuesta": "El acto comunicativo que indica el tipo de acción que representa el mensaje, como REQUEST, INFORM o REFUSE."
+    },
+    {
+      "id": "smpc-tema-2-fc-006",
+      "pregunta": "¿Cuál es el único parámetro obligatorio en todos los mensajes FIPA-ACL?",
+      "respuesta": "La performativa."
+    },
+    {
+      "id": "smpc-tema-2-fc-007",
+      "pregunta": "¿Cuántos actos comunicativos define FIPA-ACL?",
+      "respuesta": "Define 22 actos comunicativos."
+    },
+    {
+      "id": "smpc-tema-2-fc-008",
+      "pregunta": "¿Qué debe hacer como mínimo un agente compatible con FIPA si no entiende un mensaje ACL?",
+      "respuesta": "Responder con un mensaje NOT-UNDERSTOOD."
+    },
+    {
+      "id": "smpc-tema-2-fc-009",
+      "pregunta": "¿Qué lenguaje de contenido fue promovido al estado de estándar por FIPA?",
+      "respuesta": "FIPA-SL."
+    },
+    {
+      "id": "smpc-tema-2-fc-010",
+      "pregunta": "¿Qué tres codificaciones define FIPA para los mensajes ACL?",
+      "respuesta": "String, XML y Bit-Efficient."
+    },
+    {
+      "id": "smpc-tema-2-fc-011",
+      "pregunta": "Enumera los siete subniveles de la pila de comunicación FIPA de abajo arriba.",
+      "respuesta": "Transporte, codificación, mensajería, ontología, expresión de contenido, acto comunicativo y protocolo de interacción."
+    },
+    {
+      "id": "smpc-tema-2-fc-012",
+      "pregunta": "¿En qué subnivel se encuentran los protocolos Request y Contract Net?",
+      "respuesta": "En el subnivel 7, protocolo de interacción."
+    },
+    {
+      "id": "smpc-tema-2-fc-013",
+      "pregunta": "¿Qué es una Plataforma de Agentes?",
+      "respuesta": "La infraestructura física donde se despliegan y ejecutan los agentes."
+    },
+    {
+      "id": "smpc-tema-2-fc-014",
+      "pregunta": "¿Qué es el AID?",
+      "respuesta": "El identificador único de un agente, compuesto por su nombre y sus direcciones de transporte."
+    },
+    {
+      "id": "smpc-tema-2-fc-015",
+      "pregunta": "¿Qué es el AMS?",
+      "respuesta": "El Sistema de Gestión de Agentes, componente obligatorio que gestiona el ciclo de vida de los agentes y actúa como páginas blancas."
+    },
+    {
+      "id": "smpc-tema-2-fc-016",
+      "pregunta": "¿Cuántos AMS puede haber en una Plataforma de Agentes?",
+      "respuesta": "Solo puede existir un único AMS por Plataforma de Agentes."
+    },
+    {
+      "id": "smpc-tema-2-fc-017",
+      "pregunta": "¿Qué son las páginas blancas en FIPA?",
+      "respuesta": "El servicio del AMS que permite localizar agentes por su identidad o AID."
+    },
+    {
+      "id": "smpc-tema-2-fc-018",
+      "pregunta": "¿Qué es el DF?",
+      "respuesta": "El Facilitador de Directorio, componente opcional que permite registrar y buscar servicios ofrecidos por agentes."
+    },
+    {
+      "id": "smpc-tema-2-fc-019",
+      "pregunta": "¿Qué son las páginas amarillas en FIPA?",
+      "respuesta": "El servicio del DF que permite localizar agentes por los servicios que ofrecen."
+    },
+    {
+      "id": "smpc-tema-2-fc-020",
+      "pregunta": "¿Cuál es la diferencia entre AMS y DF?",
+      "respuesta": "El AMS es obligatorio, único y localiza agentes por identidad. El DF es opcional, puede haber varios y localiza agentes por servicios."
+    },
+    {
+      "id": "smpc-tema-2-fc-021",
+      "pregunta": "¿Qué es una federación de DFs?",
+      "respuesta": "Una agrupación de varios Facilitadores de Directorio registrados entre sí para ampliar el alcance de las búsquedas de servicios."
+    },
+    {
+      "id": "smpc-tema-2-fc-022",
+      "pregunta": "¿Qué es el MTS?",
+      "respuesta": "El Servicio de Transporte de Mensajes, encargado de transportar mensajes FIPA-ACL entre agentes."
+    },
+    {
+      "id": "smpc-tema-2-fc-023",
+      "pregunta": "¿En qué consiste el protocolo Request?",
+      "respuesta": "Un agente iniciador solicita a un participante que realice una acción; el participante puede aceptar, rechazar, informar del resultado o fallar."
+    },
+    {
+      "id": "smpc-tema-2-fc-024",
+      "pregunta": "¿Qué respuestas puede dar un participante en el protocolo Request?",
+      "respuesta": "Puede responder con AGREE, REFUSE, INFORM-DONE, INFORM-RESULT o FAILURE."
+    },
+    {
+      "id": "smpc-tema-2-fc-025",
+      "pregunta": "¿En qué consiste el protocolo Contract Net?",
+      "respuesta": "El iniciador envía una CFP, los participantes responden con propuestas o rechazos, el iniciador acepta o rechaza propuestas y los seleccionados ejecutan la tarea."
+    },
+    {
+      "id": "smpc-tema-2-fc-026",
+      "pregunta": "¿Qué significa CFP en Contract Net?",
+      "respuesta": "Call for Proposal, es decir, convocatoria de propuestas."
+    },
+    {
+      "id": "smpc-tema-2-fc-027",
+      "pregunta": "¿Por qué Contract Net incluye un plazo reply-by?",
+      "respuesta": "Para evitar que el iniciador espere indefinidamente y para rechazar propuestas recibidas fuera de plazo."
+    },
+    {
+      "id": "smpc-tema-2-fc-028",
+      "pregunta": "¿Qué ocurre cuando una propuesta es aceptada en Contract Net?",
+      "respuesta": "La propuesta se vuelve vinculante y el participante adquiere el compromiso de realizar la tarea."
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "asignaturaId": "isa",
+  "temaId": "tema-8",
+  "titulo": "Tema 8. Pruebas del software: TDD, ATDD y BDD",
+  "apuntes": {
+    "introduccion": "Este tema estudia el Test-Driven Development (TDD) y sus extensiones ATDD y BDD como técnicas que guían el proceso de desarrollo de software orientándolo desde las pruebas. Para llegar a ellas, el tema repasa primero los conceptos fundamentales de verificación y validación, y los distintos tipos de pruebas de software. TDD tiene especial relevancia en metodologías ágiles, donde cada iteración comienza precisamente por la definición de las pruebas que guiarán la implementación.",
+    "secciones": [
+      {
+        "titulo": "Verificación y validación del software",
+        "contenido": "La verificación y validación (V&V) son el conjunto de procesos de comprobación orientados a estudiar si el software es acorde con la especificación y si cumple con las necesidades del usuario.\n\n**Verificación**: proceso en el que se evalúa un producto de trabajo para determinar si cumple con los requisitos definidos para esa fase. La pregunta central es **¿estamos construyendo CORRECTAMENTE el sistema?** Está orientada al proceso y a comprobar que se construye el producto de acuerdo con los requisitos y especificaciones de diseño. Sus actividades son estáticas (no requieren ejecutar el código): revisiones, walkthroughs e inspecciones.\n\n**Validación**: proceso de evaluación del software para determinar que satisface los requisitos de negocio y del usuario. La pregunta central es **¿estamos construyendo el sistema CORRECTO?** Está orientada al resultado y a las expectativas del usuario final. Sus actividades son dinámicas (se prueba el producto ejecutándolo): pruebas de caja negra (funcionales), caja blanca (estructura interna) y caja gris.\n\n**Relación con el ciclo de desarrollo**: la verificación se aplica durante el diseño, la implementación y las pruebas internas; la validación se aplica antes de la entrega al cliente. En el modelo en V clásico: Requisitos → Diseño → Implementación → Verificación → Validación → Entrega.\n\n**Nota importante**: podemos construir un producto perfectamente desde el punto de vista de la verificación, pero si los requisitos iniciales no eran correctos (no se verificaron y validaron con el usuario), el producto final no satisfará al cliente.\n\n**Nota sobre la divergencia académica**: existe debate sobre qué constituye exactamente validación. Algunos autores consideran que todas las pruebas son verificación, y que la validación ocurre solo cuando se validan los requisitos con el usuario (al comienzo del proyecto) y cuando se evalúa el sistema con pruebas de aceptación (al final)."
+      },
+      {
+        "titulo": "Las pruebas de software: concepto y limitaciones",
+        "contenido": "Las pruebas de software consisten en ejecutar un conjunto de elementos software con el objetivo de **encontrar errores**.\n\nEs importante ser consciente de sus limitaciones:\n- **No garantizan la ausencia completa de errores**: solo intentan detectarlos, no probar que no existen.\n- **No garantizan que el programa sea correcto** (que satisfaga completamente al usuario).\n- Intentan cubrir de manera amplia los posibles errores, pero la cobertura siempre es parcial.\n\nEstas limitaciones son una de las razones por las que TDD y otras técnicas orientadas a pruebas son tan valoradas: al escribir las pruebas antes del código, se aumenta la cobertura y se reduce la probabilidad de errores."
+      },
+      {
+        "titulo": "Pruebas unitarias",
+        "contenido": "Las pruebas unitarias prueban la funcionalidad de cada elemento de software de forma **aislada**, desacoplado de sus dependencias.\n\n**Características clave**:\n- Prueban funciones, métodos o clases individuales de forma independiente.\n- Las dependencias externas (otras clases, bases de datos, servicios) se simulan mediante **mocks** o **stubs**, para que la prueba solo valide el código bajo prueba.\n- El código de pruebas debe estar en **paquetes separados** del código de producción.\n\nEl patrón **AAA** (Arrange-Act-Assert) es la manera estándar de estructurar pruebas unitarias:\n- **Arrange** (Preparar): inicializar los objetos y las variables necesarios para la prueba.\n- **Act** (Actuar): invocar el método o funcionalidad que se está probando.\n- **Assert** (Verificar): comparar el resultado obtenido con el resultado esperado.\n\nEjemplo en pseudocódigo:\n```\n@test\npublic void addTest() {\n  // ARRANGE\n  double num1 = 2;\n  double num2 = 5;\n  double expected = 7;\n  Calculator calculator = new Calculator();\n  // ACT\n  double result = calculator.add(num1, num2);\n  // ASSERT\n  assertEquals(expected, result);\n}\n```"
+      },
+      {
+        "titulo": "Pruebas de integración",
+        "contenido": "Las pruebas de integración comprueban el **funcionamiento conjunto** de dos o más elementos que colaboran entre sí. Detectan fallos que aparecen en las interacciones entre componentes, no en cada uno de forma aislada.\n\nExisten dos modalidades:\n\n**Integración Big Bang**: se integran todos los módulos a la vez y se prueba el sistema completo. Problema: cuando aparece un fallo, es muy difícil identificar qué módulo o qué interacción lo está causando.\n\n**Integración incremental**: se integran los módulos de forma progresiva, añadiendo uno a uno. Permite identificar mejor el origen de los problemas. Tiene dos estrategias:\n- **Bottom-Up** (de abajo hacia arriba): se integran primero los componentes más elementales y se va subiendo. Requiere **drivers** (manejadores o simuladores que llaman a los módulos inferiores ya implementados, simulando las capas superiores que aún no existen).\n- **Top-Down** (de arriba hacia abajo): se integran primero los componentes de nivel superior y se va bajando. Requiere **stubs** (módulos que simulan el comportamiento de los componentes inferiores aún no implementados, devolviendo respuestas predefinidas)."
+      },
+      {
+        "titulo": "Pruebas funcionales o de validación",
+        "contenido": "Las pruebas funcionales (también llamadas de validación) verifican que se cumplen los **requisitos funcionales** del sistema. Se hacen sobre el sistema integrado y se centran en acciones visibles para el usuario y en las salidas del sistema que el usuario reconoce.\n\nEs fundamental la participación del cliente o usuario final. Se comprueba que los criterios de validación definidos en la especificación inicial se cumplen.\n\nDos tipos específicos de pruebas funcionales:\n- **Pruebas alfa**: se realizan en el entorno del desarrollador, con una muestra de usuarios finales. El ambiente es controlado (las máquinas del equipo de desarrollo). Corresponden a las demostraciones al usuario durante una revisión de sprint en Scrum.\n- **Pruebas beta**: se realizan en el entorno del usuario final, en sus máquinas o infraestructura, con usuarios reales. El desarrollador no está presente. Ambiente de uso real.\n\nNota: algunos autores (como Pressman) no diferencian entre pruebas de validación y pruebas de aceptación."
+      },
+      {
+        "titulo": "Pruebas del sistema",
+        "contenido": "Las pruebas del sistema evalúan el **comportamiento del sistema completo en un entorno operativo**, lo más parecido posible al entorno real de producción. Su objetivo es verificar principalmente los **requisitos no funcionales**: que el sistema no falle bajo condiciones adversas, que la velocidad de respuesta sea adecuada, etc.\n\nTipos de pruebas del sistema:\n- **Pruebas de recuperación**: verifican que el sistema se recupera correctamente ante fallos (caídas de red, errores de hardware, etc.).\n- **Pruebas de seguridad**: intentan vulnerar el sistema para comprobar que los mecanismos de protección son efectivos.\n- **Pruebas de esfuerzo (stress)**: someten al sistema a condiciones extremas (carga muy alta) para ver cómo responde.\n- **Pruebas de rendimiento**: miden el tiempo de respuesta y el uso de recursos bajo condiciones representativas de uso real.\n- **Pruebas de despliegue**: verifican que el sistema puede instalarse y configurarse correctamente en los entornos objetivo.\n- **Pruebas de documentación**: comprueban que la documentación es completa y precisa."
+      },
+      {
+        "titulo": "Test-Driven Development (TDD)",
+        "contenido": "El **Desarrollo Dirigido por Pruebas (TDD)** es un estilo de programación que entremezcla codificación, pruebas unitarias y diseño (refactorización). La idea central es que **son las pruebas quienes guían el desarrollo del código**, no al revés.\n\nUna aclaración fundamental del autor del método (Beck, 2001): **TDD es principalmente una técnica de análisis y diseño, no solo de pruebas**. Al escribir el test primero, el desarrollador se obliga a reflexionar sobre qué va a programar (alcance), cómo va a comportarse el código (diseño lógico) y cuáles son los casos que debe cubrir.\n\nTDD tiene mucho sentido en modelos iterativos de desarrollo con pequeños incrementos, como los que propone Scrum o XP.\n\n**El ciclo Red/Green/Refactor** — las tres fases de TDD:\n\n**1. ROJO (Red — Test)**: escribir una prueba que verifique la siguiente funcionalidad que se va a incluir. En este momento la prueba falla (está en rojo) porque la funcionalidad aún no existe y el código puede ni siquiera compilar.\n\n**2. VERDE (Green — Code)**: codificar la funcionalidad de manera progresiva e incremental, con el **mínimo código necesario** para que la prueba pase. Al terminar, todas las pruebas deben estar en verde. No se busca código perfecto, sino código que funcione.\n\n**3. REFACTORIZAR (Refactor)**: mejorar la estructura interna del código nuevo y del antiguo, eliminando redundancias y reorganizando, mientras se mantiene que todas las pruebas siguen en verde. Aquí el desarrollador reflexiona sobre el código construido y mejora su diseño.\n\nEl objetivo final es conseguir **código limpio que funcione** (*clean code that works*). Primero se consigue que funcione; luego se trabaja la limpieza y organización.\n\n**Ventajas de TDD**:\n- Mejora la calidad del código.\n- Aumenta la cobertura de las pruebas.\n- Reduce el tamaño del código (solo se escribe lo necesario para pasar los tests).\n- Mejora el diseño (al obligar a pensar en la interfaz antes de la implementación).\n- Las pruebas quedan asociadas al código: cualquier cambio futuro se verifica automáticamente."
+      },
+      {
+        "titulo": "El patrón AAA en TDD",
+        "contenido": "El patrón **AAA (Arrange-Act-Assert)** es la manera estándar de estructurar las pruebas unitarias en TDD:\n\n**Arrange** (Preparar): se inicializan los objetos y variables que se usarán en la prueba. Se establece el contexto necesario.\n\n**Act** (Actuar): se invoca el método o secuencia de acciones que se está probando, usando las variables preparadas.\n\n**Assert** (Verificar/Afirmar): se comparan los resultados obtenidos con los esperados. Si no coinciden, la prueba falla.\n\nEjemplo completo en Java:\n```\n@Test\npublic void addTest() {\n  // ARRANGE\n  double num1 = 2;\n  double num2 = 5;\n  double expected = 7;\n  Calculator calculator = new Calculator();\n\n  // ACT\n  double result = calculator.add(num1, num2);\n\n  // ASSERT\n  assertEquals(expected, result);\n}\n```\n\nEste mismo patrón se expresa en BDD como **Given-When-Then**: Given equivale a Arrange, When equivale a Act, y Then equivale a Assert."
+      },
+      {
+        "titulo": "Acceptance Test-Driven Development (ATDD)",
+        "contenido": "El **Desarrollo Dirigido por Pruebas de Aceptación (ATDD)** es un modelo similar a TDD pero que acerca la perspectiva de los clientes y usuarios al proceso. En ATDD, las pruebas de aceptación son las que guían el desarrollo, y se definen de forma colaborativa entre el equipo de desarrollo y el cliente.\n\n**Las cuatro fases del ciclo ATDD**:\n\n**1. Discutir / Acordar** (*discuss*): el equipo de desarrollo y el cliente (o Product Owner) acuerdan las historias de usuario de la iteración. Se resuelven dudas y se establece un entendimiento común de lo que debe hacerse.\n\n**2. Destilar / Materializar** (*distill*): a partir de lo acordado, se materializan las pruebas de aceptación. Se emplean frameworks de testing y se automatizan las pruebas para que puedan ejecutarse de forma reproducible.\n\n**3. Desarrollar / Implementar** (*develop*): se implementan las funcionalidades, con el objetivo de conseguir que pasen las pruebas de aceptación. Para los aspectos concretos de implementación, se puede aplicar TDD internamente.\n\n**4. Demostrar / Validar** (*demo*): se demuestra el incremento al cliente, comprobando que todas las pruebas de aceptación pasan. Corresponde a la reunión de revisión del sprint en Scrum.\n\n**Ventajas de ATDD sobre TDD puro**: involucra a un mayor número de stakeholders (cliente, analistas, testers), modela las pruebas desde el punto de vista de los resultados esperados por el cliente, y garantiza que el sistema no se considerará terminado hasta que se verifiquen todas las pruebas de aceptación."
+      },
+      {
+        "titulo": "Behavior-Driven Development (BDD) y notación Given-When-Then",
+        "contenido": "El **Desarrollo Dirigido por Comportamiento (BDD)** es una metodología ágil que facilita la extracción de información de múltiples stakeholders a diferentes escalas. Su enfoque está en describir el **comportamiento esperado** del sistema en términos comprensibles para personas con diferentes perfiles (técnicos y no técnicos).\n\nBDD utiliza la notación **Given-When-Then** para describir el comportamiento esperado, que es equivalente al patrón AAA de TDD:\n\n**GIVEN** (dado que...): define el contexto o punto de partida. Contiene la información de inicialización o condiciones previas necesarias. Equivale a **ARRANGE** en TDD.\n\n**WHEN** (cuando...): describe el comportamiento esperado: la acción o acciones del usuario o los eventos del sistema que se están probando. Equivale a **ACT** en TDD.\n\n**THEN** (entonces...): describe el resultado esperado, las consecuencias observables que deben producirse. Equivale a **ASSERT** en TDD.\n\nEjemplo en Given-When-Then:\n```\nGiven el usuario tiene saldo de 100€ en su cuenta\nWhen solicita una transferencia de 30€\nThen el saldo resultante es 70€\nAnd se envía una notificación de confirmación al usuario\n```\n\n**Ventajas de BDD**: facilita la comprensión del comportamiento esperado por parte de todos los participantes; agiliza y automatiza la implementación de pruebas; aproxima el lenguaje de negocio al lenguaje técnico."
+      },
+      {
+        "titulo": "Framework Cucumber y lenguaje Gherkin",
+        "contenido": "**Cucumber** es un framework de BDD que soporta múltiples lenguajes de programación (Java, PHP, Python, Ruby, etc.). Fue creado originalmente como complemento del framework RSpec para Ruby. Cucumber ejecuta los casos de prueba definidos en lenguaje Gherkin.\n\n**Gherkin** es el lenguaje que usa Cucumber para definir los casos de prueba. Sus características:\n- Texto plano en inglés (y otros idiomas), legible por cualquier persona.\n- Sintaxis próxima al lenguaje natural.\n- Los archivos tienen extensión **.feature**.\n- Permite que personas con diferentes perfiles (clientes, analistas, desarrolladores) acuerden los casos de prueba.\n\n**Conceptos y palabras clave de Gherkin**:\n- **Feature** (característica): agrupa escenarios relacionados que describen una funcionalidad del sistema.\n- **Scenario** o **Example**: caso de uso concreto que agrupa Steps (pasos). Representa un requisito funcional, ayuda a documentar la funcionalidad y define una prueba de validación.\n- **Steps** (pasos): definen las acciones concretas de cada escenario. Cucumber lee los pasos y ejecuta el código asociado.\n- **Given, When, Then**: palabras clave para estructurar los pasos (equivalentes a Arrange, Act, Assert).\n- **And, But**: palabras adicionales para encadenar pasos del mismo tipo sin repetir Given/When/Then.\n\nEjemplo de archivo .feature en Gherkin:\n```\nFeature: Transferencia bancaria\n\n  Scenario: Transferencia con saldo suficiente\n    Given el usuario tiene un saldo de 100 euros\n    When realiza una transferencia de 30 euros\n    Then el saldo resultante es 70 euros\n    And se genera una notificación de confirmación\n```\n\nCucumber usa expresiones regulares para mapear los pasos definidos en el escenario con sus implementaciones concretas en el lenguaje de programación elegido, automatizando así la ejecución de las pruebas."
+      }
+    ]
+  },
+  "resumen": [
+    "Verificación responde a '��construimos CORRECTAMENTE el sistema?' y es estática (revisiones, inspecciones). Validación responde a '¿construimos el sistema CORRECTO?' y es dinámica (ejecuta el código).",
+    "Un sistema perfectamente verificado puede fallar en validación si los requisitos iniciales no eran correctos.",
+    "Las pruebas de software intentan encontrar errores pero no garantizan ausencia completa de errores ni corrección total del sistema.",
+    "Tipos de pruebas: unitarias (elemento aislado), integración (funcionamiento conjunto), funcionales/validación (requisitos con usuario), sistema (entorno operativo, no funcionales) y aceptación (cliente, alfa/beta).",
+    "En integración incremental: Bottom-Up usa drivers (simulan las capas superiores); Top-Down usa stubs (simulan las capas inferiores).",
+    "TDD es principalmente una técnica de análisis y diseño, no solo de testing. Al escribir el test primero, el desarrollador reflexiona sobre el diseño y el alcance del código.",
+    "El ciclo TDD es Red/Green/Refactor: 1) escribir un test que falla, 2) codificar lo mínimo para que pase, 3) refactorizar manteniendo el verde.",
+    "El objetivo de TDD es 'clean code that works': primero se hace que funcione, luego se limpia y organiza.",
+    "El patrón AAA estructura las pruebas unitarias: Arrange (preparar datos), Act (ejecutar el método), Assert (verificar el resultado).",
+    "ATDD añade la perspectiva del cliente: Discutir → Destilar pruebas de aceptación → Desarrollar → Demostrar. Involucra más stakeholders que TDD.",
+    "BDD extiende TDD con la notación Given-When-Then: Given=Arrange, When=Act, Then=Assert. Facilita la comunicación entre perfiles técnicos y de negocio.",
+    "Cucumber es el framework BDD que ejecuta casos de prueba escritos en lenguaje Gherkin (archivos .feature) con sintaxis en lenguaje natural."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Verificación",
+      "definicion": "Proceso que evalúa si el software cumple con los requisitos definidos para cada fase de desarrollo. Pregunta: ¿construimos CORRECTAMENTE el sistema? Es estática: revisiones, walkthroughs, inspecciones."
+    },
+    {
+      "termino": "Validación",
+      "definicion": "Proceso que evalúa si el software satisface los requisitos de negocio y del usuario. Pregunta: ¿construimos el sistema CORRECTO? Es dinámica: ejecuta el producto con pruebas de caja negra, blanca o gris."
+    },
+    {
+      "termino": "Pruebas unitarias",
+      "definicion": "Pruebas que verifican la funcionalidad de un elemento de software de forma aislada, usando mocks/stubs para simular las dependencias externas."
+    },
+    {
+      "termino": "Pruebas de integración",
+      "definicion": "Pruebas que verifican el funcionamiento conjunto de dos o más elementos que colaboran. Modalidades: Big Bang (todo a la vez) e incremental (Bottom-Up con drivers / Top-Down con stubs)."
+    },
+    {
+      "termino": "Stub",
+      "definicion": "Módulo simulado que sustituye a un componente inferior aún no implementado durante las pruebas de integración Top-Down. Devuelve respuestas predefinidas."
+    },
+    {
+      "termino": "Driver",
+      "definicion": "Módulo simulado que sustituye a un componente superior aún no implementado durante las pruebas de integración Bottom-Up. Llama a los módulos inferiores ya implementados."
+    },
+    {
+      "termino": "Pruebas funcionales / de validación",
+      "definicion": "Pruebas que verifican el cumplimiento de requisitos funcionales sobre el sistema integrado, con participación del usuario. Incluyen pruebas alfa (entorno desarrollador) y beta (entorno usuario real)."
+    },
+    {
+      "termino": "Pruebas del sistema",
+      "definicion": "Pruebas del sistema completo en entorno operativo real. Verifican principalmente requisitos no funcionales: recuperación, seguridad, esfuerzo, rendimiento, despliegue, documentación."
+    },
+    {
+      "termino": "TDD (Test-Driven Development)",
+      "definicion": "Estilo de programación que entremezcla codificación, pruebas unitarias y diseño. Las pruebas guían el desarrollo. Ciclo: Red (test que falla) → Green (código mínimo que pasa) → Refactor (mejorar diseño)."
+    },
+    {
+      "termino": "Red/Green/Refactor",
+      "definicion": "El mantra de TDD: 1) Rojo: escribir un test que falla. 2) Verde: codificar lo mínimo para que pase. 3) Refactorizar: mejorar la estructura interna sin romper los tests."
+    },
+    {
+      "termino": "Patrón AAA",
+      "definicion": "Manera estándar de estructurar pruebas unitarias: Arrange (preparar datos y entorno), Act (invocar el método probado), Assert (verificar que el resultado es el esperado)."
+    },
+    {
+      "termino": "ATDD (Acceptance Test-Driven Development)",
+      "definicion": "Variante de TDD que incorpora la perspectiva del cliente. Fases: Discutir (acordar historias), Destilar (materializar pruebas de aceptación), Desarrollar (implementar), Demostrar (validar con el cliente)."
+    },
+    {
+      "termino": "BDD (Behavior-Driven Development)",
+      "definicion": "Metodología ágil que describe el comportamiento esperado del sistema con notación Given-When-Then, legible por técnicos y no técnicos. Facilita la comunicación entre negocio y desarrollo."
+    },
+    {
+      "termino": "Given-When-Then",
+      "definicion": "Notación de BDD equivalente al patrón AAA: Given (=Arrange) contexto inicial, When (=Act) acción del usuario, Then (=Assert) resultado esperado observable."
+    },
+    {
+      "termino": "Cucumber",
+      "definicion": "Framework BDD que ejecuta casos de prueba escritos en lenguaje Gherkin. Soporta múltiples lenguajes (Java, Python, Ruby, PHP). Los archivos de pruebas tienen extensión .feature."
+    },
+    {
+      "termino": "Gherkin",
+      "definicion": "Lenguaje de texto plano en sintaxis natural que usa Cucumber para definir casos de prueba. Palabras clave: Feature, Scenario/Example, Steps, Given, When, Then, And, But."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "isa-tema-8-fc-001",
+      "pregunta": "¿Cuál es la pregunta central de la verificación?",
+      "respuesta": "¿Estamos construyendo CORRECTAMENTE el sistema? (¿cumple el software con la especificación definida?)"
+    },
+    {
+      "id": "isa-tema-8-fc-002",
+      "pregunta": "¿Cuál es la pregunta central de la validación?",
+      "respuesta": "¿Estamos construyendo el sistema CORRECTO? (¿satisface el software las necesidades reales del usuario?)"
+    },
+    {
+      "id": "isa-tema-8-fc-003",
+      "pregunta": "¿Es la verificación un proceso estático o dinámico?",
+      "respuesta": "Estático: no requiere ejecutar el código. Sus actividades son revisiones, walkthroughs e inspecciones."
+    },
+    {
+      "id": "isa-tema-8-fc-004",
+      "pregunta": "¿Es la validación un proceso estático o dinámico?",
+      "respuesta": "Dinámico: se prueba el producto ejecutándolo. Incluye pruebas de caja negra, caja blanca y caja gris."
+    },
+    {
+      "id": "isa-tema-8-fc-005",
+      "pregunta": "¿Cuáles son los cuatro tipos de pruebas de software?",
+      "respuesta": "Unitarias (elemento aislado), integración (funcionamiento conjunto), validación/funcionales (requisitos con usuario) y del sistema (entorno operativo, requisitos no funcionales)."
+    },
+    {
+      "id": "isa-tema-8-fc-006",
+      "pregunta": "¿Qué diferencia hay entre integración Big Bang e incremental?",
+      "respuesta": "Big Bang integra todos los módulos a la vez (difícil localizar fallos). Incremental los añade uno a uno (Bottom-Up con drivers o Top-Down con stubs), facilitando identificar el origen de los problemas."
+    },
+    {
+      "id": "isa-tema-8-fc-007",
+      "pregunta": "¿Qué es un stub y cuándo se usa?",
+      "respuesta": "Un módulo simulado que reemplaza a componentes inferiores aún no implementados. Se usa en la integración incremental Top-Down para que los módulos superiores puedan probarse aunque los inferiores no existan."
+    },
+    {
+      "id": "isa-tema-8-fc-008",
+      "pregunta": "¿Qué es un driver y cuándo se usa?",
+      "respuesta": "Un módulo simulado que reemplaza a los componentes superiores aún no implementados. Se usa en la integración incremental Bottom-Up para llamar a los módulos inferiores ya implementados."
+    },
+    {
+      "id": "isa-tema-8-fc-009",
+      "pregunta": "¿Cuál es la diferencia entre pruebas alfa y beta?",
+      "respuesta": "Alfa: en el entorno del desarrollador, con usuarios finales, ambiente controlado. Beta: en el entorno del usuario final, con usuarios reales, el desarrollador no está presente."
+    },
+    {
+      "id": "isa-tema-8-fc-010",
+      "pregunta": "¿Por qué TDD es principalmente una técnica de diseño y no solo de testing?",
+      "respuesta": "Porque al escribir el test primero, el desarrollador se obliga a reflexionar sobre qué va a programar (alcance) y cómo debe comportarse el código (diseño lógico), antes de implementar nada. Beck (2001): 'Test-first coding isn't testing'."
+    },
+    {
+      "id": "isa-tema-8-fc-011",
+      "pregunta": "¿Cuáles son las tres fases del ciclo TDD?",
+      "respuesta": "1. Rojo (Red): escribir una prueba que falla. 2. Verde (Green): codificar lo mínimo para que la prueba pase. 3. Refactorizar (Refactor): mejorar la estructura del código manteniendo los tests en verde."
+    },
+    {
+      "id": "isa-tema-8-fc-012",
+      "pregunta": "¿Cuál es el mantra/objetivo final de TDD?",
+      "respuesta": "'Clean code that works' (código limpio que funciona). Primero se consigue que funcione; luego se trabaja la limpieza y organización del código."
+    },
+    {
+      "id": "isa-tema-8-fc-013",
+      "pregunta": "¿Cuáles son las ventajas de TDD?",
+      "respuesta": "Mejora la calidad del código, aumenta la cobertura de las pruebas, reduce el tamaño del código, mejora el diseño y asocia las pruebas permanentemente al código para detectar regresiones."
+    },
+    {
+      "id": "isa-tema-8-fc-014",
+      "pregunta": "¿Qué significa el patrón AAA?",
+      "respuesta": "Arrange (preparar datos y objetos), Act (invocar el método probado) y Assert (verificar que el resultado obtenido coincide con el esperado)."
+    },
+    {
+      "id": "isa-tema-8-fc-015",
+      "pregunta": "¿A qué parte de AAA equivale cada parte de Given-When-Then?",
+      "respuesta": "Given = Arrange (contexto inicial). When = Act (acción del usuario o evento). Then = Assert (resultado esperado observable)."
+    },
+    {
+      "id": "isa-tema-8-fc-016",
+      "pregunta": "¿Cuáles son las cuatro fases del ciclo ATDD?",
+      "respuesta": "1. Discutir/Acordar (discuss): acordar historias con el cliente. 2. Destilar/Materializar (distill): crear pruebas de aceptación. 3. Desarrollar/Implementar (develop): codificar para pasar los tests. 4. Demostrar/Validar (demo): validar el incremento con el cliente."
+    },
+    {
+      "id": "isa-tema-8-fc-017",
+      "pregunta": "¿En qué se diferencia ATDD de TDD?",
+      "respuesta": "ATDD incorpora la perspectiva del cliente y los stakeholders. Las pruebas son de aceptación (no solo unitarias), se definen de forma colaborativa y el desarrollo no termina hasta que pasan todas las pruebas de aceptación."
+    },
+    {
+      "id": "isa-tema-8-fc-018",
+      "pregunta": "¿Qué es BDD?",
+      "respuesta": "Behavior-Driven Development: metodología ágil que describe el comportamiento esperado del sistema con notación Given-When-Then, legible por técnicos y no técnicos. Facilita la comunicación entre negocio y desarrollo."
+    },
+    {
+      "id": "isa-tema-8-fc-019",
+      "pregunta": "¿Qué es Cucumber?",
+      "respuesta": "Framework BDD que ejecuta casos de prueba escritos en lenguaje Gherkin. Soporta múltiples lenguajes (Java, Python, Ruby, PHP). Los casos de prueba están en archivos .feature."
+    },
+    {
+      "id": "isa-tema-8-fc-020",
+      "pregunta": "¿Cuáles son las palabras clave de Gherkin para definir pasos?",
+      "respuesta": "Given, When, Then, And, But. Feature define la característica, Scenario/Example define el caso de uso concreto y Steps son los pasos individuales."
+    },
+    {
+      "id": "isa-tema-8-fc-021",
+      "pregunta": "¿Qué extensión tienen los archivos de casos de prueba de Cucumber/Gherkin?",
+      "respuesta": ".feature (archivos de característica)."
+    },
+    {
+      "id": "isa-tema-8-fc-022",
+      "pregunta": "¿Qué tipo de pruebas realiza principalmente TDD?",
+      "respuesta": "Pruebas unitarias. TDD trabaja a nivel de método/función individual, probando comportamientos concretos de forma aislada."
+    },
+    {
+      "id": "isa-tema-8-fc-023",
+      "pregunta": "¿Por qué las pruebas de software no garantizan la ausencia de errores?",
+      "respuesta": "Porque las pruebas intentan encontrar errores pero no pueden cubrir todos los casos posibles. Solo pueden demostrar la presencia de errores, no su ausencia."
+    },
+    {
+      "id": "isa-tema-8-fc-024",
+      "pregunta": "¿Es TDD sinónimo de pruebas automatizadas?",
+      "respuesta": "No. TDD es un enfoque de desarrollo donde las pruebas guían la implementación. Las pruebas automatizadas son una herramienta que se usa habitualmente en TDD, pero no son lo mismo."
+    },
+    {
+      "id": "isa-tema-8-fc-025",
+      "pregunta": "¿Qué ventaja adicional aporta ATDD sobre TDD respecto a los stakeholders?",
+      "respuesta": "Involucra a un mayor número de stakeholders: el cliente, analistas y testers participan en la definición de las pruebas, no solo los desarrolladores."
+    }
+  ]
+}
