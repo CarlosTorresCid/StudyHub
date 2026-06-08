@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
+import { exportQuestionsByBlocksToWord } from '../utils/exportToWord';
 import './SubjectPage.css';
 
 const DEFAULT_EXAM_PARTS = [
@@ -33,8 +34,6 @@ function getExamParts(subject, questions) {
     return configuredParts;
   }
 
-  // Fallback para asignaturas antiguas sin estructuraExamen configurada.
-  // Solo muestra bloques que realmente tengan preguntas.
   return DEFAULT_EXAM_PARTS.filter(part =>
     questions.some(q => part.tipos.includes(q.tipo))
   );
@@ -54,10 +53,32 @@ export default function ExamPage() {
     <div className="subject-page">
       <div className="subject-hero" style={{ '--subject-color': subject.color }}>
         <div className="subject-hero-icon">{subject.icono}</div>
+
         <div>
           <div className="subject-hero-abrev">{subject.abreviatura}</div>
           <h1 className="subject-hero-name">Examen</h1>
-          {subject.nombre && <p className="subject-hero-desc">{subject.nombre}</p>}
+
+          {subject.nombre && (
+            <p className="subject-hero-desc">{subject.nombre}</p>
+          )}
+
+          {totalQuestions > 0 && (
+            <button
+              className="btn btn-ghost btn-sm"
+              style={{ marginTop: 12 }}
+              onClick={() =>
+                exportQuestionsByBlocksToWord({
+                  subject,
+                  questions,
+                  examParts,
+                  title: 'Todas las preguntas de examen',
+                  fileSuffix: 'todas-las-preguntas-examen',
+                })
+              }
+            >
+              ⬇ Descargar todas las preguntas
+            </button>
+          )}
         </div>
       </div>
 
@@ -133,11 +154,44 @@ export default function ExamPage() {
         </div>
       )}
 
-      <div style={{ marginTop: 32 }}>
-        <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">
-          ← Volver
-        </Link>
-      </div>
+      <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+  <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">
+    ← Volver
+  </Link>
+
+  <button
+  type="button"
+  className="btn btn-ghost btn-sm"
+  style={{ marginTop: 12, position: 'relative', zIndex: 10 }}
+  onClick={async () => {
+    alert('Botón descargar pulsado');
+
+    try {
+      console.log('Iniciando exportación Word...', {
+        subject,
+        questions,
+        examParts,
+        totalQuestions,
+      });
+
+      await exportQuestionsByBlocksToWord({
+        subject,
+        questions,
+        examParts,
+        title: 'Todas las preguntas de examen',
+        fileSuffix: 'todas-las-preguntas-examen',
+      });
+
+      console.log('Exportación terminada');
+    } catch (error) {
+      console.error('Error exportando Word:', error);
+      alert(`Error exportando Word: ${error.message}`);
+    }
+  }}
+>
+  ⬇ Descargar todas las preguntas
+</button>
+</div>
     </div>
   );
 }

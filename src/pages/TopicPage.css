@@ -1,12 +1,21 @@
-.topic-page { padding: 40px; max-width: 860px; }
+.topic-page {
+  padding: 40px;
+  max-width: 860px;
+}
 
 .topic-breadcrumb {
   font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 16px;
 }
-.topic-breadcrumb a { font-weight: 600; }
-.topic-breadcrumb a:hover { text-decoration: underline; }
+
+.topic-breadcrumb a {
+  font-weight: 600;
+}
+
+.topic-breadcrumb a:hover {
+  text-decoration: underline;
+}
 
 .topic-header {
   display: flex;
@@ -16,11 +25,75 @@
   margin-bottom: 24px;
   flex-wrap: wrap;
 }
+
 .topic-header h1 {
   font-size: 26px;
   font-weight: 800;
   letter-spacing: -0.02em;
   flex: 1;
+}
+
+/* Botones de descarga */
+.topic-download-actions {
+  margin: 16px 0 24px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.topic-download-actions .btn-download-topic,
+.topic-download-actions .btn-download-questions {
+  min-height: 36px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.topic-download-actions .btn-download-topic {
+  background: #22c55e !important;
+  color: #ffffff !important;
+  border: 1px solid #22c55e !important;
+}
+
+.topic-download-actions .btn-download-topic:hover {
+  background: #059669 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 6px 14px rgba(5, 150, 105, 0.24);
+  transform: translateY(-1px);
+}
+
+.topic-download-actions .btn-download-topic:focus,
+.topic-download-actions .btn-download-topic:focus-visible {
+  background: #10b981 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  outline: 3px solid rgba(16, 185, 129, 0.25);
+  outline-offset: 2px;
+}
+
+.topic-download-actions .btn-download-topic:active {
+  background: #047857 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: #047857 !important;
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(4, 120, 87, 0.2);
+}
+
+.topic-download-actions .btn-download-topic:disabled {
+  background: #d1fae5 !important;
+  color: #6b7280 !important;
+  border-color: #a7f3d0 !important;
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .topic-tabs {
@@ -30,6 +103,7 @@
   margin-bottom: 28px;
   flex-wrap: wrap;
 }
+
 .topic-tab {
   padding: 10px 16px;
   font-size: 13px;
@@ -42,14 +116,23 @@
   transition: all var(--transition);
   cursor: pointer;
 }
-.topic-tab:hover { color: var(--text); }
+
+.topic-tab:hover {
+  color: var(--text);
+}
+
 .topic-tab.active {
   color: var(--subject-color, var(--accent));
   border-bottom-color: var(--subject-color, var(--accent));
 }
 
 /* Apuntes */
-.apuntes { display: flex; flex-direction: column; gap: 28px; }
+.apuntes {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
 .apuntes-intro {
   font-size: 16px;
   color: var(--text-reading);
@@ -59,13 +142,20 @@
   border-left: 3px solid var(--accent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
+
 .apuntes-section h3 {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 12px;
   color: var(--text);
 }
-.apuntes-content { display: flex; flex-direction: column; gap: 6px; }
+
+.apuntes-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .apuntes-content p {
   color: var(--text-reading);
   line-height: 1.85;
@@ -76,6 +166,7 @@
   line-height: 1.85;
   margin-left: 20px;
 }
+
 .apuntes-content strong {
   color: var(--text);
   font-weight: 700;
@@ -88,6 +179,7 @@
   gap: 10px;
   list-style: none;
 }
+
 .resumen-list li {
   padding: 14px 18px;
   padding-left: 36px;
@@ -98,6 +190,7 @@
   line-height: 1.7;
   position: relative;
 }
+
 .resumen-list li::before {
   content: '→';
   position: absolute;
@@ -111,12 +204,14 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 12px;
 }
+
 .concepto-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 16px;
 }
+
 .concepto-term {
   font-family: 'Syne', sans-serif;
   font-weight: 700;
@@ -124,13 +219,17 @@
   color: var(--accent);
   margin-bottom: 6px;
 }
+
 .concepto-def {
   font-size: 14px;
   color: var(--text-reading);
   line-height: 1.7;
 }
 
-.empty-msg { color: var(--text-muted); font-style: italic; }
+.empty-msg {
+  color: var(--text-muted);
+  font-style: italic;
+}
 
 .topic-empty-content {
   padding: 32px 24px;
@@ -141,7 +240,12 @@
   line-height: 2;
   text-align: center;
 }
-.topic-empty-content strong { color: var(--accent); font-family: monospace; font-style: normal; }
+
+.topic-empty-content strong {
+  color: var(--accent);
+  font-family: monospace;
+  font-style: normal;
+}
 
 .topic-tab-count {
   display: inline-flex;
@@ -157,14 +261,26 @@
   font-weight: 700;
   margin-left: 4px;
 }
+
 .topic-tab.active .topic-tab-count {
   background: var(--subject-color, var(--accent));
   color: #fff;
   opacity: 0.8;
 }
 
-.topic-q-header { margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
-.topic-q-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.topic-q-header {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topic-q-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .badge-real {
   font-size: 12px;
   padding: 3px 10px;
@@ -173,6 +289,7 @@
   color: var(--warning);
   font-weight: 500;
 }
+
 .badge-ia {
   font-size: 12px;
   padding: 3px 10px;
@@ -195,6 +312,16 @@
 
   .topic-header h1 {
     font-size: 22px;
+  }
+
+  .topic-download-actions {
+    margin: 14px 0 22px;
+  }
+
+  .topic-download-actions .btn-download-topic,
+  .topic-download-actions .btn-download-questions {
+    width: 100%;
+    justify-content: center;
   }
 
   .topic-tab {
