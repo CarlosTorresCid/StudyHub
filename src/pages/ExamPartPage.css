@@ -264,3 +264,177 @@
   font-size: 13px;
   color: var(--text-muted);
 }
+
+.exam-model-card-resources {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Descarga de CSV del modelo ─────────────────────────── */
+
+.exam-resource-downloads {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.exam-resource-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.exam-resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .exam-resource-actions {
+    flex-direction: column;
+  }
+}
+
+/* ── Tarjeta de modelo activo ───────────────────────────────── */
+
+.exam-model-card--active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  pointer-events: none;
+}
+
+.exam-model-card--active .exam-model-card-title {
+  color: var(--accent);
+}
+
+.exam-model-card--active .exam-model-card-meta {
+  color: var(--text);
+}
+
+/* ── Info card del modelo seleccionado ──────────────────────── */
+
+.exam-model-info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exam-model-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.exam-model-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exam-model-info-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.exam-model-info-value {
+  font-size: 13px;
+  color: var(--text);
+  font-family: 'Geist Mono', 'Consolas', monospace;
+}
+
+.exam-model-info-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.exam-model-info-context {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── Sección tabla de desarrollo ────────────────────────────── */
+
+.exam-development-section {
+  margin-bottom: 24px;
+}
+
+.exam-development-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ── Archivo de predicciones (simulacro) ───────────────────── */
+
+.exam-resource-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+
+.exam-resource-roc-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ── Apartados comunes del desarrollo ───────────────────────── */
+
+.exam-common-questions {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.exam-common-questions-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.exam-common-questions-list {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exam-common-questions-list li {
+  padding-left: 4px;
+}
+
+@media (max-width: 640px) {
+  .exam-model-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

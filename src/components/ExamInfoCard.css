@@ -1,9 +1,21 @@
 .exam-info-card {
   margin: 24px 0;
-  padding: 16px 20px;
+  padding: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.exam-info-block {
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exam-info-block + .exam-info-block {
+  border-top: 1px solid var(--border);
 }
 
 .exam-info-title {
@@ -11,18 +23,21 @@
   align-items: center;
   gap: 6px;
   font-weight: 700;
+  font-size: 14px;
   color: var(--text);
 }
 
 .exam-info-list {
   margin: 0;
-  padding-left: 28px;
-  color: var(--text-reading);
-  font-size: 14px;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .exam-info-text {
   margin: 0;
-  color: var(--text-reading);
-  font-size: 14px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
 }

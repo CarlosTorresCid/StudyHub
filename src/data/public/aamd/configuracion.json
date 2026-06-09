@@ -1,27 +1,301 @@
 {
   "id": "aamd",
-"estructuraExamen": [
-  {
-    "id": "parte-test",
-    "nombre": "Tipo test",
-    "tipos": ["test"],
-    "icono": "🔤",
-    "desc": "14 preguntas tipo test por modelo de examen"
-  },
-  {
-    "id": "parte-desarrollo",
-    "nombre": "Desarrollo",
-    "tipos": ["practica", "desarrollo"],
-    "icono": "🧠",
-    "desc": "6 preguntas de desarrollo por modelo de examen"
-  }
-],
   "infoExamen": {
     "estructura": [
       "14 preguntas tipo test, 0,5 puntos cada una: 7 puntos.",
       "6 preguntas de desarrollo, 0,5 puntos cada una: 3 puntos.",
       "Puntuación total: 10 puntos."
     ],
-    "penalizacionTest": "Cada respuesta incorrecta resta 0,2 puntos. Las preguntas sin contestar no puntúan ni restan."
+    "penalizacionTest": "Cada respuesta incorrecta resta 0,2 puntos. Las preguntas sin contestar no puntúan ni restan.",
+    "funcionamientoGeneral": [
+      "El examen se divide en dos partes: tipo test y desarrollo.",
+      "En la parte tipo test se trabaja con Python sobre el CSV asociado al modelo seleccionado. Las preguntas abarcan outliers, tipos de variables, datos faltantes, separación train/test 70/30 con random_state=1, árboles de decisión, matriz de confusión, accuracy, poda con GridSearchCV (cv=5, niveles 1–20), métricas e importancia de variables.",
+      "En la parte de desarrollo se trabaja con una tabla de predicciones incluida en el enunciado (o con un CSV de predicciones en el caso del simulacro). Contiene los resultados de tres modelos de clasificación sobre el conjunto de prueba y la clase real.",
+      "En desarrollo no se reconstruyen los modelos desde cero: se interpretan las predicciones dadas de Model 1, Model 2 y Model 3.",
+      "Se debe adjuntar el notebook o script Python (.ipynb) con los resultados."
+    ]
+  },
+  "estructuraExamen": [
+    {
+      "id": "parte-test",
+      "nombre": "Tipo test",
+      "tipos": ["test"],
+      "icono": "🔤",
+      "desc": "14 preguntas tipo test por modelo de examen",
+      "explicacion": {
+        "titulo": "Ejercicio tipo test",
+        "resumen": "14 preguntas de opción múltiple trabajando con Python sobre el dataset del modelo seleccionado. Cada acierto suma 0,5 puntos; cada fallo resta 0,2; sin contestar no suma ni resta.",
+        "instrucciones": [
+          "Carga el CSV correspondiente al modelo seleccionado.",
+          "Usa random_state=1 siempre que sea posible.",
+          "Divide el conjunto de datos en entrenamiento y test con separación 70/30.",
+          "Para árboles de decisión: DecisionTreeClassifier(random_state=1).",
+          "Para validación cruzada: GridSearchCV con cv=5, niveles de poda de 1 a 20.",
+          "No modifiques el dataset salvo que se indique explícitamente.",
+          "Adjunta el archivo .ipynb con la resolución."
+        ]
+      }
+    },
+    {
+      "id": "parte-desarrollo",
+      "nombre": "Desarrollo",
+      "tipos": ["practica", "desarrollo"],
+      "icono": "🧠",
+      "desc": "6 preguntas de desarrollo por modelo de examen",
+      "explicacion": {
+        "titulo": "Ejercicio de desarrollo",
+        "resumen": "6 preguntas que analizan las predicciones de tres modelos (Model 1, Model 2, Model 3) sobre un conjunto de prueba. La tabla de datos se incluye en el enunciado de cada modelo.",
+        "instrucciones": [
+          "Utiliza la tabla de predicciones incluida en el enunciado del modelo seleccionado.",
+          "La tabla contiene Model 1, Model 2, Model 3 y la clase real de cada instancia.",
+          "Calcula matrices de confusión, accuracy, error, precision, recall, F1-score y coordenadas ROC.",
+          "Responde razonadamente y copia los resultados en los espacios de respuesta.",
+          "El recurso principal es la tabla de predicciones, no el CSV del test."
+        ],
+        "apartadosComunes": [
+          "Indicar la matriz de confusión para cada modelo de clasificación.",
+          "Indicar si los modelos mejoran o no al clasificador trivial y qué implicaciones tiene.",
+          "Calcular la Exactitud (Accuracy) y el error de cada modelo.",
+          "Calcular Precision, Recall y F1-score para todos los modelos y clases.",
+          "Agrupar las clases indicadas como «Positiva» y calcular las coordenadas ROC (FPR, TPR).",
+          "Comparar los clasificadores e indicar cuál hace mejor trabajo y en qué circunstancias se preferiría cada uno."
+        ]
+      }
+    }
+  ],
+  "modelosExamen": {
+    "2025-modelo-a": {
+      "nombre": "2025 Modelo A",
+      "convocatoria": "Ordinaria",
+      "fecha": "27-02/07/2025",
+      "csv": "injury_liver.csv",
+      "carpeta": "Modelo A",
+      "contrasena": "aprendizaje",
+      "variableObjetivo": "injury",
+      "descripcionCaso": "Datos sobre personas con diferentes niveles de lesión hepática, obtenidos mediante marcadores químicos. Incluye parámetros demográficos, clínicos y de laboratorio para predecir la gravedad de la lesión.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el grado de lesión hepática (injury) a partir de marcadores químicos."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar las predicciones de tres modelos sobre un subconjunto de prueba de injury_liver.csv.",
+        "clasesPositivasROC": ["Mild", "Severe"],
+        "claseNegativaROC": "None",
+        "tabla": {
+          "columnas": ["#", "Model 1", "Model 2", "Model 3", "Clase real"],
+          "filas": [
+            ["1", "Mild", "Severe", "None", "Mild"],
+            ["2", "Severe", "Mild", "None", "None"],
+            ["3", "None", "None", "None", "None"],
+            ["4", "None", "Severe", "None", "Severe"],
+            ["5", "None", "Mild", "Mild", "Mild"],
+            ["6", "None", "None", "None", "None"],
+            ["7", "None", "None", "Mild", "None"],
+            ["8", "None", "None", "Mild", "None"],
+            ["9", "None", "None", "None", "None"],
+            ["10", "None", "Mild", "None", "None"],
+            ["11", "None", "None", "Mild", "None"],
+            ["12", "Mild", "Mild", "Mild", "Mild"],
+            ["13", "None", "None", "None", "None"],
+            ["14", "None", "Mild", "None", "None"],
+            ["15", "None", "None", "None", "None"],
+            ["16", "None", "Mild", "Mild", "Mild"],
+            ["17", "None", "Mild", "Severe", "Mild"],
+            ["18", "Mild", "Severe", "Mild", "Mild"],
+            ["19", "Severe", "Mild", "Severe", "None"]
+          ]
+        }
+      }
+    },
+    "2025-modelo-b-ext": {
+      "nombre": "2025 Modelo B ext",
+      "convocatoria": "Extraordinaria",
+      "fecha": "05-10/09/2025",
+      "csv": "environmental_pollution.csv",
+      "carpeta": "Modelo B2_EXTRAORDINARIA",
+      "contrasena": "entrenamiento",
+      "variableObjetivo": "pollution_level",
+      "descripcionCaso": "Datos sobre niveles de contaminación ambiental obtenidos mediante sensores químicos. Incluye parámetros climáticos, geográficos y químicos para predecir la intensidad de la contaminación en distintas áreas.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el nivel de contaminación ambiental (pollution_level) a partir de parámetros químicos."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar las predicciones de tres modelos sobre un subconjunto de prueba de environmental_pollution.csv.",
+        "clasesPositivasROC": ["Moderate", "High"],
+        "claseNegativaROC": "Low",
+        "tabla": {
+          "columnas": ["#", "Model 1", "Model 2", "Model 3", "Clase real"],
+          "filas": [
+            ["1", "Moderate", "Low", "Moderate", "Moderate"],
+            ["2", "Low", "Low", "Low", "Low"],
+            ["3", "Low", "Low", "Moderate", "Low"],
+            ["4", "High", "Low", "High", "High"],
+            ["5", "Moderate", "Low", "Moderate", "Moderate"],
+            ["6", "Low", "Low", "Low", "Low"],
+            ["7", "Low", "Low", "Moderate", "Low"],
+            ["8", "Low", "Low", "Moderate", "Low"],
+            ["9", "Low", "Low", "High", "Low"],
+            ["10", "Moderate", "Low", "Moderate", "Low"],
+            ["11", "Moderate", "Low", "Moderate", "Low"],
+            ["12", "Moderate", "Low", "Moderate", "Moderate"],
+            ["13", "High", "Low", "High", "Low"],
+            ["14", "Moderate", "Low", "Low", "Low"],
+            ["15", "Moderate", "Low", "Low", "Low"],
+            ["16", "Moderate", "Low", "Moderate", "Moderate"],
+            ["17", "Moderate", "Low", "Moderate", "Moderate"],
+            ["18", "Moderate", "Low", "Moderate", "Moderate"],
+            ["19", "Low", "Low", "Low", "Low"]
+          ]
+        }
+      }
+    },
+    "2025-modelo-c": {
+      "nombre": "2025 Modelo C",
+      "convocatoria": "Ordinaria",
+      "fecha": "27-02/07/2025",
+      "csv": "workplace_stress_updated.csv",
+      "carpeta": "Modelo C",
+      "contrasena": "carpeta",
+      "variableObjetivo": "stress_level",
+      "descripcionCaso": "Datos sobre niveles de estrés en ambientes laborales obtenidos mediante indicadores psicológicos. Incluye parámetros laborales, demográficos y sociales para predecir la intensidad del estrés en distintos entornos.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el nivel de estrés laboral (stress_level) a partir de indicadores psicológicos."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar las predicciones de tres modelos sobre un subconjunto de prueba de workplace_stress_updated.csv.",
+        "clasesPositivasROC": ["Moderate", "Critical"],
+        "claseNegativaROC": "Negligible",
+        "tabla": {
+          "columnas": ["#", "Model 1", "Model 2", "Model 3", "Clase real"],
+          "filas": [
+            ["1", "Moderate", "Moderate", "Critical", "Moderate"],
+            ["2", "Moderate", "Negligible", "Critical", "Negligible"],
+            ["3", "Negligible", "Negligible", "Critical", "Negligible"],
+            ["4", "Critical", "Critical", "Critical", "Critical"],
+            ["5", "Negligible", "Negligible", "Critical", "Moderate"],
+            ["6", "Negligible", "Negligible", "Critical", "Negligible"],
+            ["7", "Negligible", "Critical", "Critical", "Negligible"],
+            ["8", "Moderate", "Negligible", "Critical", "Negligible"],
+            ["9", "Moderate", "Negligible", "Critical", "Negligible"],
+            ["10", "Negligible", "Moderate", "Critical", "Negligible"],
+            ["11", "Negligible", "Negligible", "Critical", "Negligible"],
+            ["12", "Moderate", "Negligible", "Critical", "Moderate"],
+            ["13", "Moderate", "Negligible", "Critical", "Negligible"],
+            ["14", "Moderate", "Negligible", "Critical", "Negligible"],
+            ["15", "Negligible", "Moderate", "Critical", "Negligible"],
+            ["16", "Moderate", "Moderate", "Critical", "Moderate"],
+            ["17", "Negligible", "Moderate", "Critical", "Moderate"],
+            ["18", "Moderate", "Moderate", "Critical", "Moderate"],
+            ["19", "Negligible", "Negligible", "Critical", "Negligible"]
+          ]
+        }
+      }
+    },
+    "2025-modelo-d-ext": {
+      "nombre": "2025 Modelo D ext",
+      "convocatoria": "Extraordinaria",
+      "fecha": "05-10/09/2025",
+      "csv": "workplace_stress_updated.csv",
+      "carpeta": "Modelo D2_EXTRAORDINARIA",
+      "contrasena": "deeplearning",
+      "variableObjetivo": "stress_level",
+      "descripcionCaso": "Datos sobre niveles de estrés en ambientes laborales obtenidos mediante indicadores psicológicos. Incluye parámetros laborales, demográficos y sociales para predecir la intensidad del estrés en distintos entornos.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el nivel de estrés laboral (stress_level) a partir de indicadores psicológicos."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar las predicciones de tres modelos sobre un subconjunto de prueba de workplace_stress_updated.csv.",
+        "clasesPositivasROC": ["Moderate", "Critical"],
+        "claseNegativaROC": "Negligible",
+        "tabla": {
+          "columnas": ["#", "Model 1", "Model 2", "Model 3", "Clase real"],
+          "filas": [
+            ["1", "Moderate", "Critical", "Moderate", "Moderate"],
+            ["2", "Critical", "Negligible", "Moderate", "Negligible"],
+            ["3", "Negligible", "Negligible", "Moderate", "Negligible"],
+            ["4", "Moderate", "Negligible", "Critical", "Critical"],
+            ["5", "Moderate", "Negligible", "Moderate", "Moderate"],
+            ["6", "Moderate", "Negligible", "Negligible", "Negligible"],
+            ["7", "Moderate", "Negligible", "Negligible", "Negligible"],
+            ["8", "Negligible", "Negligible", "Negligible", "Negligible"],
+            ["9", "Negligible", "Negligible", "Negligible", "Negligible"],
+            ["10", "Moderate", "Negligible", "Negligible", "Negligible"],
+            ["11", "Moderate", "Negligible", "Negligible", "Negligible"],
+            ["12", "Moderate", "Critical", "Moderate", "Moderate"],
+            ["13", "Critical", "Negligible", "Moderate", "Negligible"],
+            ["14", "Negligible", "Negligible", "Moderate", "Negligible"],
+            ["15", "Negligible", "Negligible", "Negligible", "Negligible"],
+            ["16", "Moderate", "Moderate", "Moderate", "Moderate"],
+            ["17", "Moderate", "Negligible", "Moderate", "Moderate"],
+            ["18", "Moderate", "Moderate", "Moderate", "Moderate"],
+            ["19", "Negligible", "Negligible", "Moderate", "Negligible"]
+          ]
+        }
+      }
+    },
+    "2025-modelo-d": {
+      "nombre": "2025 Modelo D",
+      "convocatoria": "Ordinaria",
+      "fecha": "27-02/07/2025",
+      "csv": "environmental_pollution.csv",
+      "carpeta": "Modelo D",
+      "contrasena": "decision",
+      "variableObjetivo": "pollution_level",
+      "descripcionCaso": "Datos sobre niveles de contaminación ambiental obtenidos mediante sensores químicos. Incluye parámetros climáticos, geográficos y químicos para predecir la intensidad de la contaminación en distintas áreas.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el nivel de contaminación ambiental (pollution_level) a partir de parámetros químicos."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar las predicciones de tres modelos sobre un subconjunto de prueba de environmental_pollution.csv.",
+        "clasesPositivasROC": ["Moderate", "High"],
+        "claseNegativaROC": "Low",
+        "tabla": {
+          "columnas": ["#", "Model 1", "Model 2", "Model 3", "Clase real"],
+          "filas": [
+            ["1", "Moderate", "Moderate", "High", "Moderate"],
+            ["2", "Moderate", "Low", "High", "Low"],
+            ["3", "Low", "Low", "High", "Low"],
+            ["4", "High", "High", "High", "High"],
+            ["5", "Low", "Low", "High", "Moderate"],
+            ["6", "Low", "Low", "High", "Low"],
+            ["7", "Low", "High", "High", "Low"],
+            ["8", "Moderate", "Low", "High", "Low"],
+            ["9", "Moderate", "Low", "High", "Low"],
+            ["10", "Low", "Moderate", "High", "Low"],
+            ["11", "Low", "Low", "High", "Low"],
+            ["12", "Moderate", "Low", "High", "Moderate"],
+            ["13", "Moderate", "Low", "High", "Low"],
+            ["14", "Moderate", "Low", "High", "Low"],
+            ["15", "Low", "Moderate", "High", "Low"],
+            ["16", "Moderate", "Moderate", "High", "Moderate"],
+            ["17", "Low", "Moderate", "High", "Moderate"],
+            ["18", "Moderate", "Moderate", "High", "Moderate"],
+            ["19", "Low", "Low", "High", "Low"]
+          ]
+        }
+      }
+    },
+    "simulacro": {
+      "nombre": "Simulacro",
+      "convocatoria": null,
+      "fecha": null,
+      "csv": "workplace_stress_updated.csv",
+      "carpeta": null,
+      "contrasena": null,
+      "variableObjetivo": "stress_level",
+      "descripcionCaso": "Dataset de 281 ciclos de producción de una línea automatizada de manufactura avanzada, con 192 indicadores operativos (mecánicos, eléctricos, térmicos, de vibración, consumo energético, precisión robótica y estabilidad del sistema). Objetivo: predecir el nivel de riesgo operativo.",
+      "ejercicioTest": {
+        "descripcion": "Predecir el nivel de riesgo operativo a partir de los indicadores del dataset."
+      },
+      "ejercicioDesarrollo": {
+        "descripcion": "Analizar el fichero workplace_stress_predictions.csv. Model 1 = árbol completo sin poda; Model 2 = árbol con mejor poda (GridSearchCV cv=5); Model 3 = clasificador trivial.",
+        "clasesPositivasROC": ["Moderate", "Critical"],
+        "claseNegativaROC": "Negligible",
+        "tabla": null,
+        "archivoPredicciones": {
+          "nombre": "workplace_stress_predictions.csv",
+          "path": "recursos/aamd/simulacro/workplace_stress_predictions.csv"
+        }
+      }
+    }
   }
 }

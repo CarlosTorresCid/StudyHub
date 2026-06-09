@@ -1,0 +1,79 @@
+.dev-table-wrapper {
+  margin-bottom: 24px;
+}
+
+.dev-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.dev-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 420px;
+}
+
+.dev-table thead tr {
+  background: var(--surface2);
+}
+
+.dev-table th {
+  padding: 10px 14px;
+  font-weight: 700;
+  text-align: left;
+  color: var(--text);
+  white-space: nowrap;
+  border-bottom: 2px solid var(--border);
+}
+
+.dev-table td {
+  padding: 8px 14px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.dev-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.dev-table tbody tr:hover td {
+  background: var(--surface2);
+}
+
+.dev-table-num {
+  font-weight: 700;
+  color: var(--text-dim) !important;
+  width: 36px;
+  text-align: center;
+}
+
+.dev-table-real {
+  font-weight: 600;
+  color: var(--text) !important;
+}
+
+.dev-table-roc-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 6px 2px;
+}
+
+.dev-table-roc-note span:first-child {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+}
+
+.dev-table-roc-note strong {
+  color: var(--text);
+}
