@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import { progressService } from '../services/progressService';
 import { simulationService } from '../services/simulationService';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './DashboardPage.css';
 
 // Los datos de asignaturas proceden del repositorio (publicLibrary).
 // El progreso mostrado procede del localStorage del visitante.
 export default function DashboardPage() {
+  usePageTitle('Mis Asignaturas');
   const subjects = publicLibrary.getSubjects();
 
   return (

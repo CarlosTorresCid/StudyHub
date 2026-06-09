@@ -12,6 +12,7 @@
   --text: #111827;
   --text-muted: #374151;
   --text-dim: #667085;
+  --text-reading: #1f2937;
 
   /* Acentos */
   --accent: #6258e8;
@@ -53,6 +54,14 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -137,3 +146,45 @@ button {
   transform: none;
   box-shadow: none;
 }
+
+/* ── Breadcrumb global ───────────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.breadcrumb a {
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.breadcrumb a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.breadcrumb-sep {
+  color: var(--border);
+  font-size: 14px;
+  user-select: none;
+}
+.breadcrumb [aria-current="page"] {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* ── Estado de error de página ───────────────────────────────── */
+.page-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 40px;
+  gap: 16px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.page-error p { font-size: 15px; line-height: 1.7; }

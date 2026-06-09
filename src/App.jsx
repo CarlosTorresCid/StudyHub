@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import GestionGuard from './components/GestionGuard';
+import ScrollToTop from './components/ScrollToTop';
 import DashboardPage from './pages/DashboardPage';
 import SubjectPage from './pages/SubjectPage';
 import TopicPage from './pages/TopicPage';
@@ -36,6 +37,7 @@ export default function App() {
 
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="app-layout">
         {!sidebarOpen && (
           <button

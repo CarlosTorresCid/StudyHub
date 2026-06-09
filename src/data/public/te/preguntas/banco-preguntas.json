@@ -1,0 +1,2882 @@
+[
+  {
+    "id": "te-tema-1-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La inclusión de diferentes elementos (CPU, tarjeta gráfica, placa base) en un solo chip en los dispositivos móviles se denomina:",
+    "opciones": [
+      "System-in-a-Chip (SiC)",
+      "System-Chip (SC)",
+      "System-on-a-Chip (SoC)",
+      "System-with-a-Chip (SwaC)"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El SoC (System-on-a-Chip) integra en un único silicio la CPU, GPU, controlador de memoria, módem, ISP, etc.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2025_A_09)"
+    ],
+    "observaciones": "Aparece de forma recurrente en varias convocatorias.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-1-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de los siguientes factores es diferencial hoy en día a la hora de seleccionar un dispositivo móvil?",
+    "opciones": [
+      "Peso",
+      "Bluetooth",
+      "Carcasa",
+      "Cámara de vídeo"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El temario destaca el peso como factor diferencial (los 200 g eran la línea roja en gama alta).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, B y D)",
+      "TE_questions.json (recopilación, 2024_D_02)"
+    ],
+    "observaciones": "Contradicción entre fuentes: en el Modelo D la plantilla oficial marcó 'Cámara de vídeo', pero el temario indica 'Peso'. Otra variante del enunciado usa las opciones [Bluetooth, WiFi, Tipo de tarjeta, Peso] con respuesta 'Peso'.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-1-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El elemento que mayor impacto tiene en la velocidad de un dispositivo móvil es:",
+    "opciones": [
+      "la pantalla",
+      "la CPU",
+      "la memoria caché",
+      "Ninguna de las anteriores"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La CPU (junto con la RAM) es el componente con mayor impacto en el rendimiento percibido.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)",
+      "TE_questions.json (recopilación, 2024_C_02)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-1-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "HDR son las siglas de:",
+    "opciones": [
+      "High Data Ratio",
+      "High Definition Range",
+      "High Data Range",
+      "High Dynamic Ratio"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La definición correcta del temario es 'High Dynamic Range' (rango dinámico alto); ninguna opción coincide exactamente, pero en la corrección oficial se marcó 'High Definition Range'.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "Pregunta defectuosa: la respuesta literal del temario (High Dynamic Range) no figura entre las opciones. Se conserva la opción marcada oficialmente, pero requiere revisión.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-1-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Qué nombre recibe el estándar Bluetooth que se usa en aquellos dispositivos móviles que requieren un bajo consumo?",
+    "opciones": [
+      "BLE",
+      "BPE",
+      "BNE",
+      "BCE"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "BLE (Bluetooth Low Energy), incorporado en Bluetooth 5, está orientado al bajo consumo.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-1-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El denominado BLE es una tecnología Bluetooth que permite:",
+    "opciones": [
+      "Llegar a distancias mayores",
+      "Ser compatible con los dispositivos de Apple",
+      "Operar a bajos consumos",
+      "Conectarse con elementos que no tienen Bluetooth"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Bluetooth Low Energy (BLE) optimiza el consumo energético, ideal para wearables, balizas e IoT.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_02)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-1-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El conjunto de chips que controlan el flujo de datos entre los distintos componentes de un dispositivo móvil se denomina:",
+    "opciones": [
+      "System-chip",
+      "Chipset",
+      "Memory",
+      "Mem-chipset"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El chipset gestiona la comunicación entre CPU, RAM, GPU y demás componentes del dispositivo.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_01)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-1-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Las pantallas de los dispositivos móviles tienden, cada vez, a ser:",
+    "opciones": [
+      "más grandes",
+      "más pequeñas",
+      "más iluminadas",
+      "más rectangulares"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La tendencia es maximizar el área de pantalla reduciendo los bordes.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_01)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Las aplicaciones que se desarrollan de una forma concreta para una plataforma o dispositivo móvil se denominan:",
+    "opciones": [
+      "Híbridas",
+      "Nativas",
+      "Web",
+      "Mixtas"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las apps nativas se desarrollan específicamente para un sistema operativo (iOS o Android) y acceden a todos los sensores.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Stock Android, una de las variantes de Android:",
+    "opciones": [
+      "No permite personalizaciones del fabricante",
+      "Admite personalizaciones del fabricante",
+      "Facilita las actualizaciones",
+      "Está diseñada para equipos muy modestos"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Stock Android admite personalizaciones del fabricante, lo que precisamente dificulta las actualizaciones.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2024_A_08)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Uno de los mayores inconvenientes de las aplicaciones móviles híbridas es:",
+    "opciones": [
+      "Que no se suelen ver bien",
+      "Que solo se pueden programar para determinados sistemas operativos",
+      "Que su velocidad dista mucho de ser la de una aplicación nativa",
+      "Que no permiten el acceso a datos"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El principal inconveniente de las apps híbridas es que su velocidad no alcanza la de una app nativa.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En el apartado de orientaciones, dentro del diseño móvil, es conveniente:",
+    "opciones": [
+      "Considerar las orientaciones vertical y horizontal como iguales",
+      "Considerar las orientaciones vertical y horizontal como diferenciadas",
+      "Considerar únicamente la orientación vertical al ser la más importante",
+      "Considerar únicamente la orientación horizontal al ser la más importante"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las orientaciones vertical y horizontal cambian el flujo de interacción, por lo que deben considerarse de forma diferenciada.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)",
+      "TE_questions.json (recopilación, 2024_D_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de las siguientes recomendaciones no es cierta respecto al diseño móvil?",
+    "opciones": [
+      "Se han de ofrecer opciones de asistencia al usuario",
+      "Es recomendable usar un asistente en la primera ejecución de la aplicación",
+      "Se deben ofrecer múltiples canales de consulta",
+      "Se han de poner muchos botones para que el usuario pueda elegir"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Saturar la interfaz con muchos botones NO es una buena práctica de diseño móvil.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_19)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En las aplicaciones nativas se pueden usar:",
+    "opciones": [
+      "Todos los sensores",
+      "El GPS y las cámaras",
+      "El sensor de movimiento, el GPS y el Bluetooth",
+      "Los sensores básicos de movimiento"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Las apps nativas tienen acceso a todos los sensores del dispositivo.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-2-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué dos principales plataformas dominan los dispositivos móviles?",
+    "opciones": [
+      "Android e iOS",
+      "Android y Blackberry",
+      "Windows Phone e iOS",
+      "Android y Windows Phone"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Android (Google) e iOS (Apple) concentran la práctica totalidad del mercado de SO móviles.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_01)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Android Go, una de las variantes de Android:",
+    "opciones": [
+      "Está diseñada para equipos muy modestos",
+      "Permite fluidez en dispositivos de gama media",
+      "Limita la cuota de mercado",
+      "Necesita un gran número de requisitos"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Android Go está optimizada para terminales muy modestos (poca RAM y almacenamiento).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_B_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Android One, una de las variantes de Android:",
+    "opciones": [
+      "Admite personalizaciones fuertes del fabricante",
+      "Dificulta las actualizaciones",
+      "Está diseñada para equipos muy modestos",
+      "Permite fluidez en dispositivos de gama media"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Android One no admite personalizaciones (salvo cámara), facilita actualizaciones y está pensada para gama media.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_B_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-010",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál de las siguientes plataformas móviles no es correcta?",
+    "opciones": [
+      "Android",
+      "Windows Phone",
+      "BerryOS",
+      "iOS"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "'BerryOS' no existe; BlackBerry usó BlackBerry OS y posteriormente Android.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-011",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Entre los factores clave que intervienen en la decisión del desarrollo de una aplicación móvil no se encuentra:",
+    "opciones": [
+      "Número de pantallas de la aplicación",
+      "Presupuesto disponible",
+      "Plazos o limitaciones temporales",
+      "Público al que se destina la aplicación"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El número de pantallas es un detalle técnico, no un factor estratégico de decisión inicial.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_16)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-2-test-012",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "A la hora de instalar la aplicación, se deben solicitar:",
+    "opciones": [
+      "Todos los permisos, tanto los que usamos como los que no",
+      "Los permisos realmente necesarios",
+      "Los permisos relacionados con la posición",
+      "Los permisos relacionados con la conectividad"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Se deben solicitar solo los permisos realmente necesarios (privacidad y buenas prácticas).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_06)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los servicios que integran la ubicación geográfica y otra información de contexto relevante se denominan:",
+    "opciones": [
+      "Servicios basados en localización",
+      "Servicios basados en posicionamiento",
+      "Servicios en red",
+      "Servicios de posicionamiento global"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Definición textual de LBS (Location Based Services).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A y F)",
+      "TE_questions.json (recopilación, 2024_D_06)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-3-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de los siguientes ejemplos es una aplicación basada en servicios de localización orientada a dispositivos?",
+    "opciones": [
+      "Juego Pokemon Go",
+      "Google Maps",
+      "Servicio de carsharing",
+      "Apple Maps"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El carsharing es un LBS orientado a dispositivos (lo importante es localizar el vehículo); Pokémon Go, Google Maps y Apple Maps son orientados a personas.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, C y D)",
+      "TE_questions.json (recopilación, 2024_C_20)"
+    ],
+    "observaciones": "Aparece también con el enunciado inverso ('¿cuál NO es una aplicación orientada a personas?'), con la misma respuesta: el carsharing.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-3-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de los siguientes GNSS no existe?",
+    "opciones": [
+      "GPS",
+      "Galileo",
+      "GLONASS",
+      "ChimDu"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Los GNSS globales son GPS (EE. UU.), Galileo (UE), GLONASS (Rusia) y BeiDou (China). 'ChimDu' no existe.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B, C, D y F)",
+      "TE_questions.json (recopilación, 2024_D_07)"
+    ],
+    "observaciones": "En otros modelos la opción falsa es 'ASP' (en lugar de ChimDu). ATENCIÓN: en el Modelo D la plantilla oficial marcó 'BeiDou' como inexistente, lo cual es un ERROR (BeiDou sí existe); la opción correcta es ASP/ChimDu.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Las balizas usadas por el ecosistema de productos de Apple son:",
+    "opciones": [
+      "EddyStone",
+      "iTunes",
+      "Flinstone",
+      "iBeacons"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "iBeacons es el estándar de balizas de Apple; Eddystone es el de Google.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-3-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué nombre reciben aquellas aplicaciones basadas en servicios de localización cuyo propósito es determinar la ubicación de una persona para ofrecerle un servicio de valor añadido?",
+    "opciones": [
+      "Orientadas a servicios",
+      "Orientadas a aplicación",
+      "Orientadas a personas",
+      "Orientadas a ubicación"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Son las LBS orientadas a personas (la persona controla qué se hace con su ubicación).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué es el GNSS?",
+    "opciones": [
+      "El sistema satelital de posicionamiento de vehículos",
+      "El sistema armamentístico nuclear europeo",
+      "El sistema de navegación global por satélite",
+      "El sistema global de visión por computador"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "GNSS (Global Navigation Satellite System): sistema de navegación global por satélite (GPS, Galileo, GLONASS, BeiDou).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_07)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál de los dos tipos de tecnologías físicas de localización de dispositivos móviles es aquella en la que la infraestructura del propio operador móvil realiza la localización?",
+    "opciones": [
+      "Basada en red",
+      "Basada en terminal",
+      "Basada en localización",
+      "Basada en móviles"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La localización basada en red usa la infraestructura del operador (trilateración entre antenas).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_A_09)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "En las aplicaciones basadas en servicios de localización orientadas a personas, ¿quién debe controlar el servicio de localización?",
+    "opciones": [
+      "El usuario",
+      "La propia aplicación",
+      "Nadie, se controla automáticamente",
+      "Un servicio externo"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "En las LBS orientadas a personas, es el usuario quien controla qué se hace con su ubicación.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_08)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-3-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es el objetivo principal de las aplicaciones basadas en servicios de localización orientadas a dispositivos?",
+    "opciones": [
+      "Conocer el tiempo de un día determinado",
+      "Conocer la ubicación de dispositivos",
+      "Conocer la ubicación del propio usuario",
+      "Conocer si en la ubicación del usuario va a llover"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las LBS orientadas a dispositivos buscan localizar dispositivos/flotas (gestión de flotas, recuperación de vehículos).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_D_08)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-4-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de los siguientes componentes no forma parte de la experiencia de usuario?",
+    "opciones": [
+      "Deseabilidad",
+      "Productividad",
+      "Usabilidad",
+      "Utilidad"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La UX engloba utilidad, usabilidad y deseabilidad; la productividad no forma parte de la UX.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A)",
+      "TE_questions.json (recopilación, 2024_D_19)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál es el número mínimo de personas representativas del segmento que se recomienda en la aplicación de la técnica test de usuarios?",
+    "opciones": [
+      "15",
+      "20",
+      "100",
+      "1000"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Según Nielsen, 15 personas (3 grupos de 5) cubren cerca del 100 % de los problemas de usabilidad.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la técnica de creación de personas y escenarios:",
+    "opciones": [
+      "Se crean escenarios de cuentos",
+      "Se crean identidades reales, con permiso de las personas implicadas",
+      "Se crean escenarios o situaciones que permiten contextualizar el uso del producto",
+      "No es necesario crear ni escenarios ni personajes"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los escenarios contextualizan el uso del producto; las 'personas' son personajes ficticios con características reales.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)"
+    ],
+    "observaciones": "Existe una variante con la respuesta 'se crean personajes con identidades ficticias' (ver te-tema-4-test-004).",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la técnica de creación de personas y escenarios (variante sobre los personajes):",
+    "opciones": [
+      "Se crean escenarios de cuentos",
+      "Se crean personajes con identidades ficticias",
+      "Se crean identidades reales, con permiso de las personas",
+      "No es necesario crear ni escenarios ni personajes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Las 'personas' son personajes ficticios (con datos inventados pero características reales obtenidas de la investigación).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)",
+      "TE_questions.json (recopilación, 2024_B_18)"
+    ],
+    "observaciones": "Variante de te-tema-4-test-003 con distinto conjunto de opciones y respuesta centrada en los personajes ficticios.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la pirámide de Maslow, ¿cuáles son las necesidades más prioritarias?",
+    "opciones": [
+      "Fisiológicas o básicas",
+      "Sociales",
+      "De seguridad",
+      "De autoestima"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Las necesidades fisiológicas o básicas constituyen la base de la pirámide de Maslow.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_07)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El prototipado:",
+    "opciones": [
+      "Debería involucrar a usuarios y trabajadores",
+      "Permite probar la usabilidad de un producto antes de su puesta en marcha",
+      "Se puede aplicar haciendo uso de varias técnicas",
+      "Todas las anteriores son correctas"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El prototipado es iterativo, se aplica con varias técnicas, involucra a usuarios y trabajadores y permite probar la usabilidad antes del lanzamiento.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-4-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "La cara visible del producto o sistema se denomina:",
+    "opciones": [
+      "Experiencia de usuario",
+      "Diseño de experiencia de usuario",
+      "Diseño de funcionalidades del usuario",
+      "Interfaz de usuario"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La UI (Interfaz de Usuario) es la cara visible; la UX es la vivencia completa.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_B_09)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-4-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Los individuos que hacen uso o disfrutan de un producto o servicio son:",
+    "opciones": [
+      "Clientes",
+      "Consumidores",
+      "Usuarios",
+      "Productores"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "En UX, 'usuarios' es el término para quienes interactúan con el producto o servicio.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_D_07)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-4-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Las entrevistas de indagación son herramientas de tipo:",
+    "opciones": [
+      "Cuantitativo",
+      "Metódico",
+      "Cuántico",
+      "Cualitativo"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Las entrevistas de indagación buscan percepciones y motivaciones: son una técnica cualitativa.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_18)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-4-test-010",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "A la hora de desarrollar un producto, ¿qué elemento tiene mayor relevancia hoy en día?",
+    "opciones": [
+      "La tecnología usada",
+      "La experiencia de usuario",
+      "La eficiencia de la aplicación",
+      "Los colores de la marca"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El éxito de un producto depende de la satisfacción percibida por el usuario (experiencia de usuario).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_06)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-4-test-011",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Uno de los consejos que se debe seguir en la creación de prototipos es:",
+    "opciones": [
+      "Trabajar individualmente",
+      "No reutilizar",
+      "Rebajar las expectativas en todo momento",
+      "Tener las expectativas muy altas"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Según la recopilación, la respuesta marcada es 'rebajar las expectativas'. No se ha podido contrastar literalmente con el temario.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_10)"
+    ],
+    "observaciones": "Respuesta tomada de la recopilación de alumnos; conviene verificar con el temario del Tema 4.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-5-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En ella se integran la realidad virtual, la realidad aumentada y la realidad virtualizada:",
+    "opciones": [
+      "Realidad extendida",
+      "Virtualidad aumentada",
+      "Realidad mezclada",
+      "Virtualidad real"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La Realidad Extendida (XR) es el término paraguas que engloba VR, AR y AV.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2025_A_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La visualización del mundo real en la realidad aumentada puede ser:",
+    "opciones": [
+      "Directa o Inversa",
+      "Indirecta únicamente",
+      "Directa únicamente",
+      "Directa o indirecta"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La AR admite visión directa (gafas no inmersivas) o indirecta (a través de cámara y pantalla).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A)",
+      "TE_questions.json (recopilación, 2024_C_10)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la realidad virtual, el escenario en el que nos sumergimos es:",
+    "opciones": [
+      "Real",
+      "Simulado",
+      "En 2 dimensiones",
+      "En 1 dimensión"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La VR es un escenario totalmente simulado generado por ordenador.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)",
+      "TE_questions.json (recopilación, 2024_D_08)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El tipo de realidad en la que se mezcla la realidad aumentada y la virtual se denomina:",
+    "opciones": [
+      "Realidad Focalizada",
+      "Realidad Mixta",
+      "Realidad Forzada",
+      "Realidad Virtualizada"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La Realidad Mixta (MR) integra realidad aumentada y realidad virtual (p. ej. HoloLens).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Las gafas Microsoft HoloLens son un tipo de sistema óptico:",
+    "opciones": [
+      "Fijos",
+      "Móviles",
+      "Externo",
+      "Interno"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "HoloLens es un sistema óptico móvil/interno: la cámara la lleva el usuario.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)",
+      "TE_questions.json (recopilación, 2024_C_EXT_11)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La realidad aumentada visualiza:",
+    "opciones": [
+      "Un escenario simulado",
+      "Un escenario digitalizado",
+      "El mundo real",
+      "Una recreación del mundo real"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La AR visualiza el mundo real con información gráfica superpuesta.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_09)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-5-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "A la realidad simulada y creada por ordenador, totalmente inmersiva y que nos aísla del mundo físico, se le denomina:",
+    "opciones": [
+      "Realidad virtual",
+      "Realidad aumentada",
+      "Virtualidad aumentada",
+      "Ninguna de las anteriores"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La Realidad Virtual (VR) es un escenario simulado totalmente inmersivo que nos aísla del mundo físico.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_15)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-6-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿En qué año surge el concepto Internet de las Cosas o Internet of Things?",
+    "opciones": [
+      "1999",
+      "2005",
+      "1890",
+      "2020"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El concepto IoT se acuña en 1999 en el Auto-ID Center del MIT.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A y F)",
+      "TE_questions.json (recopilación, 2024_A_11)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los sistemas del Internet de las Cosas utilizan diferentes:",
+    "opciones": [
+      "Funciones de cálculo",
+      "Sistemas cerrados",
+      "Objetos físicos",
+      "Usuarios"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El IoT utiliza diferentes objetos físicos con una parte digital.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A y D)",
+      "TE_questions.json (recopilación, 2025_A_18)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los sistemas de Internet de las Cosas se comunican de manera:",
+    "opciones": [
+      "Síncrona",
+      "Autónoma",
+      "Dependiente",
+      "Funcional"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los objetos IoT se comunican entre sí de forma autónoma (sin intervención humana).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)",
+      "TE_questions.json (recopilación, 2024_D_10)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los objetos más simples del Internet de las Cosas permiten únicamente conocer:",
+    "opciones": [
+      "Su identidad",
+      "Sus protocolos",
+      "Datos del entorno físico",
+      "Datos de los sensores"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los objetos IoT más simples solo permiten conocer su identidad o información básica.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)",
+      "TE_questions.json (recopilación, 2024_C_12)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Entre las aplicaciones del Internet de las Cosas encontramos:",
+    "opciones": [
+      "Monitorización de entornos",
+      "Control remoto de sistemas",
+      "Automatización de procesos",
+      "Todas las anteriores son correctas"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El IoT cubre monitorización, control remoto y automatización, entre otras aplicaciones.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)",
+      "TE_questions.json (recopilación, 2024_C_EXT_13)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los objetos del Internet de las Cosas tienen diferentes niveles de:",
+    "opciones": [
+      "energía",
+      "recursión",
+      "capacitación",
+      "inteligencia"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Los objetos IoT tienen distintos niveles de inteligencia: manejo de información, notificación y toma de decisiones.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Una de las ideas clave de los sistemas del Internet de las Cosas es que:",
+    "opciones": [
+      "Los objetos han de configurarse previamente de manera local",
+      "Los objetos se pueden comunicar de forma automática",
+      "Los datos que circulan están sin cifrar siempre",
+      "Los datos están disponibles en una base de datos"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La idea clave del IoT es que los objetos se comunican de forma automática.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_A_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-6-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Los objetos del Internet de las Cosas interactúan mediante:",
+    "opciones": [
+      "Controles",
+      "Funciones",
+      "Servicios",
+      "Accesos directos"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los objetos IoT exponen un catálogo de servicios o acciones a través de los cuales interactúan.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_09)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-6-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El ancho de banda de las tecnologías LPWAN es:",
+    "opciones": [
+      "Alto",
+      "Medio",
+      "Muy reducido",
+      "Muy alto"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "LPWAN (Low Power WAN) prioriza el bajo consumo y el alcance sobre la velocidad; su ancho de banda es muy reducido.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_14)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-6-practica-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-1",
+      "tema-3",
+      "tema-6",
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Caso práctico (entorno acuático): se requiere una solución IoT para monitorizar la actividad física, el esfuerzo y la estrategia de movimiento de unos cazadores submarinos (caza de medusas en Fondo de Bikini). Detalla los dispositivos necesarios, las tecnologías usadas, las funcionalidades, el funcionamiento global y las limitaciones/problemas.",
+    "solucionOrientativa": "Dispositivos: pulsera/brazalete hermético resistente a presión, plantillas inteligentes con sensores de presión/movimiento, beacons BLE en el campo de caza, sensor de localización en accesorios y un hub central que recibe y analiza datos. Tecnologías: BLE wearables-hub, Wi-Fi en el hub hacia el backend en la nube, ultrasonidos para largo alcance bajo el agua (las ondas radio se atenúan en agua salada), sensores biométricos (pulsímetro, acelerómetro, giroscopio, presión), energía con baterías/paneles solares/cinética y GNSS solo cerca de la superficie. Funcionalidades: frecuencia cardíaca, calorías, fatiga, saltos, velocidad, localización por proximidad y mapa de calor, panel en tiempo real con alertas. Funcionamiento: sincronización previa, envío periódico por BLE/ultrasonidos, alertas por umbrales e informe final. Limitaciones: conectividad submarina, energía, RGPD (datos biométricos), falsos positivos, mantenimiento/corrosión y coste del hardware estanco.",
+    "criteriosCorreccion": [
+      "Propone dispositivos wearables y de localización adecuados al entorno (estancos/resistentes a presión).",
+      "Justifica las tecnologías de comunicación (BLE, Wi-Fi y ultrasonidos por la atenuación radio en agua).",
+      "Describe funcionalidades de monitorización y localización por proximidad (beacons).",
+      "Explica el funcionamiento global (sincronización, transmisión, alertas, informe).",
+      "Identifica limitaciones: conectividad, energía, privacidad/RGPD, falsos positivos, mantenimiento y coste."
+    ],
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A — Caso práctico 'Caza de medusas en Fondo de Bikini')"
+    ],
+    "observaciones": "Caso de diseño de solución IoT; la solución orientativa procede del modelo resuelto oficial.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-practica-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-1",
+      "tema-3",
+      "tema-6",
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Caso práctico (entorno acuático): diseña una solución IoT para monitorizar la actividad física, la salud y la localización de la princesa Ariel durante sus exploraciones submarinas y tareas reales. Detalla dispositivos, tecnologías, funcionalidades, funcionamiento y limitaciones.",
+    "solucionOrientativa": "Dispositivos: brazalete biométrico hermético (pulsómetro, oxímetro, acelerómetro, giroscopio), aletas/plantillas con sensores de propulsión, beacons BLE en arrecifes y palacio, sensor de localización en tiara/collar y un hub central ('espejo mágico') en el palacio. Tecnologías: BLE wearables-hub, Wi-Fi/backend en el palacio, ultrasonidos o comunicación óptica (LED) para mayor alcance bajo el agua, sensores biométricos, energía mixta (solar de superficie, cinética, baterías selladas) y GNSS solo en superficie. Funcionalidades: constantes vitales, eficiencia natatoria, localización por proximidad y geofencing, panel en tiempo real con alarmas. Funcionamiento: sincronización automática, streaming por BLE con almacenamiento local si pierde conexión, alertas por umbral o geofencing e informes. Limitaciones: conectividad bajo el agua, presión/corrosión, privacidad/RGPD, falsos positivos, cobertura GNSS solo en superficie y coste del hardware estanco.",
+    "criteriosCorreccion": [
+      "Propone wearables biométricos y localización adecuados a un entorno submarino.",
+      "Justifica BLE + ultrasonidos/óptica por la atenuación de la señal radio en el agua.",
+      "Incluye geofencing y localización por proximidad mediante beacons.",
+      "Describe el funcionamiento (sincronización, streaming, almacenamiento local, alertas).",
+      "Identifica limitaciones de conectividad, energía, privacidad, GNSS y coste."
+    ],
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y F — Caso práctico 'Ariel en el reino submarino')"
+    ],
+    "observaciones": "Mismo enunciado en los Modelos B y F. La solución orientativa procede del modelo resuelto oficial.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-6-practica-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-1",
+      "tema-3",
+      "tema-6",
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "practica",
+    "origen": "examen_real",
+    "enunciado": "Caso práctico (entorno espacial): el gremio mandaloriano quiere una solución IoT integrada en la armadura beskar para mejorar la resistencia, salud y eficiencia en combate de sus guerreros durante misiones largas de cazarrecompensas. Detalla dispositivos, tecnologías, funcionalidades, funcionamiento y limitaciones.",
+    "solucionOrientativa": "Dispositivos: brazalete biométrico en el guantelete, plantillas con sensores en las botas, beacons BLE en la nave y bases, casco con HUD (GPS/IMU, telemetría) y un hub central con dashboard para cada miembro de la cuadrilla. Tecnologías: BLE wearables-casco, Wi-Fi/4G/5G en base, GNSS en planetas con cobertura, comunicaciones satelitales/hiperespaciales en larga distancia, sensores biométricos, energía mixta (fusión, cinética, solar) y cifrado militar punto a punto. Funcionalidades: constantes vitales, detección de caídas/impactos, localización en interiores, HUD táctico y panel con alertas SOS. Funcionamiento: calibración y sincronización previas, transmisión continua BLE-casco-satélite/hub, visualización en tiempo real y volcado post-misión. Limitaciones: jamming/zonas sin cobertura, radiación y temperaturas extremas, seguridad (interceptación), privacidad/identidad, coste y mantenimiento del hardware ruggerizado y falsos positivos por combate.",
+    "criteriosCorreccion": [
+      "Propone wearables, casco con HUD y hub adecuados al entorno espacial/combate.",
+      "Justifica BLE + Wi-Fi/4G/5G + satélite/hiperespacio según el alcance.",
+      "Incluye cifrado y protección de identidad (seguridad).",
+      "Describe el funcionamiento (calibración, transmisión multinivel, SOS, post-misión).",
+      "Identifica limitaciones: cobertura/jamming, radiación, temperaturas, coste y falsos positivos."
+    ],
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y D — Caso práctico 'Mandalorianos, entorno espacial')"
+    ],
+    "observaciones": "Mismo enunciado en los Modelos C y D. La solución orientativa procede del modelo resuelto oficial.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La réplica actualizada y exacta de un objeto físico, obtenida mediante sensores, se denomina:",
+    "opciones": [
+      "Digital copy",
+      "Digital copy and paste",
+      "Digital twin",
+      "Digital clone"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El gemelo digital (Digital Twin) es la réplica digital actualizada de un objeto físico obtenida mediante sensores.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, C y F)",
+      "TE_questions.json (recopilación, 2024_C_14)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿En qué país nace la metodología Kanban?",
+    "opciones": [
+      "Alemania",
+      "Francia",
+      "Italia",
+      "Japón"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Kanban nace en Japón en torno a 1950 (sistema de producción de Toyota).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2024_A_12)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La colaboración ciudadana en las Smart Cities ha dado lugar a un nuevo concepto como es:",
+    "opciones": [
+      "Crowdsourced city",
+      "Crowded city",
+      "Smarty city",
+      "Tecno city"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La colaboración ciudadana ha dado lugar al concepto 'crowdsourced city'.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuánto duran las iteraciones en la metodología Scrum?",
+    "opciones": [
+      "Entre 1 y 2 meses",
+      "Entre 2 y 4 semanas",
+      "Entre 1 y dos años",
+      "Entre 1 y 3 días"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los sprints de Scrum duran entre 2 y 4 semanas.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)",
+      "TE_questions.json (recopilación, 2024_D_11)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El principal objetivo de las técnicas de computación en la nube y computación en el extremo es:",
+    "opciones": [
+      "Aumentar las latencias",
+      "Minimizar las latencias",
+      "Incrementar los costes",
+      "Disminuir la calidad de las conexiones"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Edge y Fog Computing buscan minimizar las latencias acercando el procesamiento a la fuente de datos.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-7-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "La arquitectura recomendada para dispositivos del Internet de las Cosas con conectividad pobre se denomina:",
+    "opciones": [
+      "Fog computing",
+      "Edge computing",
+      "No computing",
+      "Mixed computing"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El Edge Computing procesa los datos localmente, en el propio dispositivo, reduciendo la dependencia de la red.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_13)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-7-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El gran problema de los modelos centralizados de cloud computing es:",
+    "opciones": [
+      "La tardanza en procesar los datos",
+      "Las distancias que han de recorrer los datos",
+      "La velocidad, la cual es demasiado alta",
+      "La falta de flexibilidad"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En el cloud centralizado la latencia se debe a la distancia que recorren los datos hasta el centro de datos.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_D_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-7-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué tecnología se pretende usar en las arquitecturas de computación en el extremo para obtener el máximo partido?",
+    "opciones": [
+      "3G",
+      "4G",
+      "5G",
+      "2.5G"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La 5G, por su baja latencia y alta velocidad, es clave para el Edge Computing y el IoT masivo.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_C_05)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-7-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "La metodología que trata de solucionar el problema del número excesivo de tareas de la metodología Scrum se denomina:",
+    "opciones": [
+      "METRICA 4",
+      "Extreme Programming",
+      "Kanban",
+      "Rational Unified Process"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Kanban limita el trabajo en progreso (WIP) mediante un tablero visual para evitar la sobrecarga de tareas.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_15)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-7-test-010",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Una de las instituciones que más ha aportado a la estandarización de la práctica de dirección de proyectos es:",
+    "opciones": [
+      "Project Management Institute",
+      "Management Organization",
+      "Project Management",
+      "Association of Management"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El PMI (Project Management Institute) publica el PMBOK y la certificación PMP.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_B_20)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-7-test-011",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Las metodologías ágiles tienen como objetivo:",
+    "opciones": [
+      "Aumentar los costes y reducir la productividad",
+      "Reducir los costes y aumentar la productividad",
+      "Mejorar la relación cliente-proveedor",
+      "Aumentar las sinergias entre clientes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El enfoque ágil prioriza la eficiencia (reducir costes y aumentar productividad) mediante iteraciones cortas.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_20)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-8-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Uno de los ejemplos más conocidos de la tecnología Blockchain es:",
+    "opciones": [
+      "Bitcoin",
+      "ChainCoin",
+      "BlockCoin",
+      "CoinB"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Bitcoin es el caso de uso más conocido de blockchain.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A)",
+      "TE_questions.json (recopilación, 2024_D_12)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Hyperledger es un DLT:",
+    "opciones": [
+      "Sin permisos",
+      "Opened",
+      "Closed",
+      "Con permisos"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Hyperledger es un DLT con permisos (a diferencia de Bitcoin y Ethereum, que son sin permisos).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2025_A_07)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la tecnología Blockchain, cada bloque tiene un puntero hash al:",
+    "opciones": [
+      "Dato que almacena",
+      "Código cifrado",
+      "Bloque anterior",
+      "Bloque actual"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Cada bloque contiene un puntero hash enlazado al bloque anterior, lo que garantiza la inmutabilidad.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)",
+      "TE_questions.json (recopilación, 2024_D_17)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Qué permite incorporar a Internet la tecnología Blockchain?",
+    "opciones": [
+      "La confianza",
+      "La velocidad",
+      "La rigidez",
+      "La madurez"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Blockchain incorpora a Internet la confianza (transacciones sin intermediarios verificables).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál es la principal característica del sistema Bitcoin?",
+    "opciones": [
+      "Que hay que pagar un pequeño canon por usarlo",
+      "Que permite realizar operaciones sin intermediarios",
+      "Que se comunica con tu cuenta y tarjetas del banco",
+      "Que las transacciones se registran en un solo nodo"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Bitcoin permite transacciones P2P sin intermediarios.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_15)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de las siguientes es una iniciativa basada en cadenas de bloques?",
+    "opciones": [
+      "CoinBase",
+      "BlockCoin",
+      "Coinum",
+      "Hyperledger"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Hyperledger es una iniciativa blockchain de la Linux Foundation (CoinBase es un exchange).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)",
+      "TE_questions.json (recopilación, 2024_C_EXT_18)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-8-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Los bloques de la tecnología Blockchain se distribuyen en una red:",
+    "opciones": [
+      "5G",
+      "P2P",
+      "Bluetooth",
+      "4G"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Blockchain opera sobre una red peer-to-peer (P2P) distribuida.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_13)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-8-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué nombre recibe la lista que almacena los elementos en la tecnología Blockchain?",
+    "opciones": [
+      "Chain part",
+      "Cadena de bloques",
+      "Block piece",
+      "Bloques"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La estructura es una cadena de bloques, donde cada bloque se enlaza con el anterior.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_C_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-8-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Tanto Bitcoin como Ethereum disponen de:",
+    "opciones": [
+      "Nodos P2P propios",
+      "Contratos inteligentes",
+      "Precios limitados",
+      "Red propia"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Ambos son DLT sin permisos que funcionan sobre redes de nodos P2P. (Los smart contracts son propios de Ethereum, no de Bitcoin.)",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_16)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-9-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El nivel más bajo de asistencia activa se denomina:",
+    "opciones": [
+      "Sistema de información al conductor",
+      "Sistema parcialmente autónomo",
+      "Sistema altamente autónomo",
+      "Sistema ultra autónomo"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los sistemas de información al conductor son el nivel más bajo (solo informan: cámaras, alertas).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A y D)",
+      "TE_questions.json (recopilación, 2024_C_EXT_20)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El nivel más alto de asistencia activa se denomina:",
+    "opciones": [
+      "Sistema de información al conductor",
+      "Sistema altamente autónomo",
+      "Sistema parcialmente autónomo",
+      "Sistema ultra autónomo"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Entre las opciones, el sistema altamente autónomo es el nivel más alto (toma el control completo); el 'ultra autónomo' no existe.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A y F)",
+      "TE_questions.json (recopilación, 2025_A_20)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El tipo de comunicaciones que engloban la detección de ángulos muertos se denominan:",
+    "opciones": [
+      "Vehículo a Infraestructura",
+      "Vehículo a Vehículo",
+      "Vehículo a Peatón",
+      "Infraestructura a Peatón"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "V2V (Vehicle-to-Vehicle) cubre la detección mutua, ángulos muertos e intersecciones.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)",
+      "TE_questions.json (recopilación, 2024_C_08)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "El control de crucero activo de un vehículo es un sistema:",
+    "opciones": [
+      "Altamente autónomo",
+      "De información al conductor",
+      "Parcialmente autónomo",
+      "Totalmente autónomo"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El control de crucero activo es un sistema parcialmente autónomo: el conductor puede anularlo en cualquier momento.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Qué nombre reciben los desarrollos orientados a incrementar la seguridad de vehículos de conducción autónoma?",
+    "opciones": [
+      "ADAS",
+      "ADOS",
+      "ADUS",
+      "ADES"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "ADAS = Advanced Driver Assistance Systems (sistemas avanzados de asistencia al conductor).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_17)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los sistemas de aparcamiento automático son sistemas:",
+    "opciones": [
+      "De Información al conductor",
+      "Parcialmente autónomos",
+      "Totalmente autónomos",
+      "Altamente autónomos"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El aparcamiento automático es un sistema altamente autónomo (toma el control completo del vehículo).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-9-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El tipo de comunicaciones que engloban la indicación del tiempo restante de paso de peatones en un semáforo se denominan:",
+    "opciones": [
+      "Vehículo a Vehículo",
+      "Vehículo a Peatón",
+      "Vehículo a Infraestructura",
+      "Infraestructura a Peatón"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Es un ejemplo de comunicación I2P (Infraestructura a Peatón).",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_14)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-9-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Uno de los estándares que se utilizaban para las comunicaciones V2X era:",
+    "opciones": [
+      "IEEE 802.11Z",
+      "IEEE 802.11p",
+      "IEEE 802.11CV",
+      "IEEE 802.11A"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El estándar 802.11p (DSRC/WAVE) se usa para comunicaciones vehiculares de corto alcance.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_19)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-9-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Entre los sistemas que ayudan en la conducción autónoma no encontramos:",
+    "opciones": [
+      "Ultrasonidos",
+      "Radar",
+      "Láser",
+      "Cámaras frontales"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Según la recopilación, la opción marcada es 'Láser'. El temario sí cita el LIDAR (basado en láser) entre los sensores ADAS, por lo que conviene revisar la validez de esta pregunta.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_A_14)"
+    ],
+    "observaciones": "Respuesta dudosa: el LIDAR (láser) es un sensor ADAS habitual; la pregunta puede ser imprecisa.",
+    "requiereRevision": true,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-9-corta-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "Enumera y describe brevemente los niveles de autonomía del vehículo según el estándar SAE J3016.",
+    "respuestaModelo": "La SAE define 6 niveles (del 0 al 5): Nivel 0 sin automatización (solo el conductor); Nivel 1 asistencia (una función automatizada, p. ej. control de crucero); Nivel 2 semiautonomía (el vehículo gestiona aceleración, frenado y dirección, pero el conductor debe permanecer alerta); Nivel 3 autonomía condicionada (conduce solo en entornos controlados); Nivel 4 alto nivel de autonomía (sin supervisión en áreas con información completa); Nivel 5 autonomía total (se puede prescindir del conductor).",
+    "criteriosCorreccion": [
+      "Indica que son 6 niveles, del 0 al 5, definidos por la SAE (J3016).",
+      "Distingue el nivel 2 (conductor alerta) del nivel 3 (entornos controlados).",
+      "Identifica el nivel 5 como autonomía total sin conductor."
+    ],
+    "fuentes": [
+      "Clase 12 TE.txt (el profesor señala los niveles de autonomía como posible pregunta de examen)",
+      "t9.pdf (temario Tema 9)"
+    ],
+    "observaciones": "La respuesta modelo se ha elaborado a partir del contenido docente disponible; la pregunta procede de una indicación expresa del profesor en clase.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-10-test-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La Ley de Moore indicaba que los procesadores:",
+    "opciones": [
+      "Duplicaban su precio cada año",
+      "Duplicaban su capacidad cada dos años",
+      "Triplicaban su precio cada dos años",
+      "Multiplicaban por diez su lentitud"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Gordon Moore postuló que la densidad de transistores (la capacidad) se duplica cada dos años.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos A, D y F)",
+      "TE_questions.json (recopilación, 2024_A_15)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-002",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La reducción del tamaño de los transistores conlleva beneficios tales como:",
+    "opciones": [
+      "Aumento del calentamiento",
+      "Creación de procesadores más grandes",
+      "Limitación del número de tareas",
+      "Reducción del consumo"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Al reducir el tamaño baja el consumo (y por ello se calienta menos) y se pueden incrementar las frecuencias.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo A)",
+      "TE_questions.json (recopilación, 2024_A_17)"
+    ],
+    "observaciones": "Existe una variante con la respuesta 'Incremento de las frecuencias de trabajo' (ver te-tema-10-test-003).",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-003",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La reducción del tamaño de los transistores conlleva beneficios tales como (variante):",
+    "opciones": [
+      "Incremento de las frecuencias de trabajo",
+      "Aumento del calentamiento",
+      "Creación de procesadores más grandes",
+      "Limitación del número de tareas"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La reducción permite mayores frecuencias de conmutación, además de menor consumo y menos calor.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo B)"
+    ],
+    "observaciones": "Variante de te-tema-10-test-002 con distinto conjunto de opciones.",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-004",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál es el tamaño de transistor (en nm) que incumplió, por primera vez, la Ley de Moore?",
+    "opciones": [
+      "140",
+      "180",
+      "14",
+      "65"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Los 14 nm fueron el primer tamaño en romper la cadencia de los dos años (se tardó 2,5 años en pasar de 22 a 14 nm).",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelo C)",
+      "TE_questions.json (recopilación, 2024_C_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-005",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Uno de los principios de la mecánica cuántica que usan los ordenadores cuánticos es:",
+    "opciones": [
+      "El entrelazamiento",
+      "La traslación",
+      "La rotación",
+      "La rotura"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los dos principios cuánticos usados son la superposición y el entrelazamiento.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos C y F)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-006",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Uno de los métodos para la obtención del conocimiento es:",
+    "opciones": [
+      "La creencia",
+      "La observación",
+      "El pensamiento",
+      "La idea"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La observación (junto con el razonamiento) es uno de los métodos esenciales para obtener conocimiento; la creencia no lo es.",
+    "fuentes": [
+      "Examenes_Resueltos_TE.pdf (Convocatoria 02/07/2025, Modelos B y D)",
+      "TE_questions.json (recopilación, 2024_D_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-007",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Una tecnología que permite salvar las limitaciones de la Ley de Moore es:",
+    "opciones": [
+      "La computación en el extremo",
+      "La computación cuántica",
+      "El paralelismo",
+      "La división de procesamiento"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La computación cuántica es la alternativa de futuro a las limitaciones de la Ley de Moore.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2023_A_09)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-10-test-008",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "La unidad básica de un ordenador cuántico se denomina:",
+    "opciones": [
+      "Qubyte",
+      "Bitte",
+      "Qubit",
+      "Quantum"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El qubit (quantum bit) es la unidad mínima de información en computación cuántica.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_03)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-10-test-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuántos cálculos se pueden hacer con tres qubits entrelazados?",
+    "opciones": [
+      "Dos elevado a cuatro",
+      "Dos elevado a tres",
+      "Dos elevado a cinco",
+      "Dos elevado a seis"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Con n qubits entrelazados se realizan 2^n cálculos simultáneos; con 3 qubits, 2^3 = 8.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_C_EXT_04)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-10-test-010",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué nombre recibe el elemento más básico de un procesador o CPU?",
+    "opciones": [
+      "Transistor",
+      "Difusor",
+      "Resistencia",
+      "Ohmio"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El transistor es el elemento discreto más básico de un procesador o CPU.",
+    "fuentes": [
+      "TE_questions.json (recopilación, 2024_D_03)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "te-tema-10-test-011",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "La ley de Moore:",
+    "opciones": [
+      "Solo sigue vigente en ordenadores de Apple",
+      "Hasta 2015 era bastante fiable",
+      "Nos indica que siempre es preferible esperar como mínimo dos años a comprar un ordenador nuevo",
+      "Ninguna de las anteriores es cierta"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La Ley de Moore se cumplió bastante bien desde 1975 hasta 2015; después el ritmo se ralentizó.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-012",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Al reducir el tamaño de los transistores:",
+    "opciones": [
+      "La densidad de transistores en un procesador es más alta",
+      "Baja el consumo del chip",
+      "Se pueden incrementar las frecuencias de trabajo",
+      "Todas las anteriores son ciertas"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Reducir el tamaño aumenta la densidad, baja el consumo y permite mayores frecuencias: todas son ciertas.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-013",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Un qubit es:",
+    "opciones": [
+      "La unidad de información que maneja un ordenador cuántico",
+      "Un bit cúbico, que permite trabajar con el triple de información que un bit normal",
+      "Cada uno de los bloques de hielo que se usan para refrigerar un ordenador cuántico",
+      "Un dispositivo electrónico que puede tener 17 estados y es la base de un ordenador cuántico"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "El qubit es la unidad de información que maneja un ordenador cuántico (análogo al bit clásico).",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-014",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Los dos principios más importantes usados en un computador cuántico son:",
+    "opciones": [
+      "Superposición y entrelazamiento",
+      "Suposición y adivinación",
+      "Suposición y entrelazamiento",
+      "Superposición y entretenimiento"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los dos principios de la mecánica cuántica usados son la superposición y el entrelazamiento.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-015",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Entre las aplicaciones de la computación cuántica se encuentran:",
+    "opciones": [
+      "Enfriamiento global",
+      "Soporte a loterías, para calcular números no elegidos durante varias semanas y que generen botes sustanciosos",
+      "Predicciones a medio y largo plazo de la distribución del parlamento en España",
+      "Generación automatizada de nuevas recetas de cocina y deconstrucciones varias, para restaurantes"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Entre las aplicaciones previsibles está el enfriamiento global (simulación de interacciones moleculares para reducir emisiones).",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-016",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "A la hora de realizar un trabajo científico, siempre debemos comenzar buscando documentación previa sobre el tema que nos ocupa:",
+    "opciones": [
+      "Falso, porque a veces se tratarán temas absolutamente inéditos",
+      "Falso, porque la búsqueda de documentación es una opción, no una obligación",
+      "Cierto, porque a ello obligan las normas de las revistas científicas",
+      "Cierto, porque por innovador que sea nuestro enfoque siempre hay que tratar de proporcionar información sobre los conocimientos aceptados en el área, materias relacionadas y utilizar los trabajos o ideas previas para aportar conocimiento adicional"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Siempre hay que documentar el estado del arte y apoyarse en el conocimiento previo validado.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-017",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Solemos emplear gestores bibliográficos para:",
+    "opciones": [
+      "Organizar correctamente nuestras referencias bibliográficas",
+      "Buscar publicaciones científicas",
+      "Obtener el formato adecuado de citas bibliográficas",
+      "Todas las anteriores"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Los gestores bibliográficos (RefWorks, Mendeley) organizan referencias, ayudan a buscarlas y aplican el formato de cita.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-018",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "El capítulo inicial de un artículo científico:",
+    "opciones": [
+      "Suele incluir una introducción al tema que estamos tratando",
+      "Suele explicar el enfoque que se pretende seguir en el trabajo",
+      "Suele explicar al final del apartado la estructura que se seguirá en el artículo",
+      "Todas las anteriores"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La introducción presenta el tema, el enfoque y, al final, la estructura del artículo.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-019",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Para un científico, publicar es:",
+    "opciones": [
+      "Algo absolutamente opcional que se suele hacer por ego y visibilidad profesional",
+      "Una forma de compartir el conocimiento con la comunidad científica en particular y con la sociedad en general",
+      "Un paso previo antes de conseguir patentar los resultados y explotarlos comercialmente",
+      "Algo simple y trivial que, dado que no lleva tiempo, se hace por costumbre"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Publicar es una forma de compartir el conocimiento con la comunidad científica y la sociedad.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "te-tema-10-test-020",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Los índices de impacto de una revista:",
+    "opciones": [
+      "Son un elemento informativo sin ningún tipo de control y estandarización desarrollado por la comunidad científica para dar visión a su trabajo",
+      "Se emplean para indicar la popularidad de un científico",
+      "Son creados y utilizados por las universidades para promocionar a sus científicos",
+      "Ninguna de las anteriores"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Ninguna de las anteriores es correcta: el índice de impacto (JCR) mide la frecuencia de citación de un artículo medio de la revista y está estandarizado por entidades como Clarivate.",
+    "fuentes": [
+      "t10.pdf (Tema 10 — Test de autoevaluación)"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true
+  }
+]

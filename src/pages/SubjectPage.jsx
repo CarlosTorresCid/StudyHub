@@ -3,6 +3,7 @@ import { publicLibrary } from '../lib/publicLibrary';
 import { contentService } from '../services/contentService';
 import { questionService } from '../services/questionService';
 import { progressService } from '../services/progressService';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './SubjectPage.css';
 
 // Todo el contenido procede del repositorio (publicLibrary).
@@ -10,6 +11,8 @@ import './SubjectPage.css';
 export default function SubjectPage() {
   const { asignaturaId } = useParams();
   const subject = publicLibrary.getSubject(asignaturaId);
+
+  usePageTitle(subject ? subject.abreviatura : null);
 
   if (!subject) return <div className="page-error">Asignatura no encontrada</div>;
 
@@ -19,6 +22,12 @@ export default function SubjectPage() {
 
   return (
     <div className="subject-page">
+      <nav className="breadcrumb" aria-label="Navegación">
+        <Link to="/">Inicio</Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">{subject.abreviatura}</span>
+      </nav>
+
       <div className="subject-hero" style={{ '--subject-color': subject.color }}>
         <div className="subject-hero-icon">{subject.icono}</div>
         <div>
@@ -70,6 +79,9 @@ export default function SubjectPage() {
             const visto = progressService.getTemaVisto(asignaturaId, tema.id);
             const totalPreguntas = questionService.getByTema(asignaturaId, tema.id).length;
             const flashcardCount = content?.flashcards?.length || 0;
+            const pct = stats
+              ? Math.round((stats.ultimo.aciertos / stats.ultimo.total) * 100)
+              : null;
 
             return (
               <Link
@@ -83,6 +95,11 @@ export default function SubjectPage() {
                 <div className="topic-row-info">
                   <div className="topic-row-title">
                     {tema.titulo}
+                    {tema.importanciaExamen && (
+                      <span className={`badge badge-${tema.importanciaExamen}`}>
+                        {tema.importanciaExamen}
+                      </span>
+                    )}
                     {!content && <span className="topic-no-content">Sin contenido</span>}
                     {visto && <span className="topic-seen">✓ Repasado</span>}
                   </div>
@@ -90,27 +107,44 @@ export default function SubjectPage() {
                   <div className="topic-row-meta">
                     {flashcardCount > 0 && <span>🃏 {flashcardCount} flashcards</span>}
                     {totalPreguntas > 0 && <span>❓ {totalPreguntas} preguntas</span>}
-                    {tema.importanciaExamen && (
-                      <span className={`badge badge-${tema.importanciaExamen}`}>
-                        {tema.importanciaExamen}
-                      </span>
-                    )}
                   </div>
                 </div>
 
-                {stats && (
-                  <div
-                    className="topic-row-score"
-                    style={{
-                      color:
-                        stats.ultimo.aciertos / stats.ultimo.total >= 0.7
-                          ? 'var(--success)'
-                          : 'var(--warning)',
-                    }}
-                  >
-                    {Math.round((stats.ultimo.aciertos / stats.ultimo.total) * 100)}%
-                  </div>
-                )}
+                <div className="topic-row-stats">
+                  {pct !== null ? (
+                    <>
+                      <span
+                        className="topic-row-score"
+                        style={{
+                          color:
+                            pct >= 70
+                              ? 'var(--success)'
+                              : pct >= 50
+                              ? 'var(--warning)'
+                              : 'var(--danger)',
+                        }}
+                      >
+                        {pct}%
+                      </span>
+                      <div className="topic-row-mini-bar">
+                        <div
+                          className="topic-row-mini-fill"
+                          style={{
+                            width: `${pct}%`,
+                            background:
+                              pct >= 70
+                                ? 'var(--success)'
+                                : pct >= 50
+                                ? 'var(--warning)'
+                                : 'var(--danger)',
+                          }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <span className="topic-row-no-stats">Sin practicar</span>
+                  )}
+                </div>
 
                 <div className="topic-row-arrow">→</div>
               </Link>

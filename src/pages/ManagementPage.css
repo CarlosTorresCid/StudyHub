@@ -276,14 +276,7 @@
   font-weight: 700;
 }
 
-.page-error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  color: var(--text-muted);
-  font-style: italic;
-}
+/* .page-error está definido en index.css como estilo global */
 
 /* Form helpers (shared across all management pages) */
 .form-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -334,6 +327,72 @@
   font-family: inherit;
 }
 .btn-danger-ghost:hover { background: var(--danger-soft); }
+
+/* Import pages — errores de validación mejorados */
+.import-error-block {
+  background: var(--danger-soft);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.import-error-block-header {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--danger);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.import-error-item {
+  font-size: 13px;
+  color: var(--danger);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(215, 70, 70, 0.12);
+  line-height: 1.5;
+}
+.import-error-item:last-child { border-bottom: none; }
+.import-error-more {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Ejemplo JSON plegable */
+.mgmt-json-example {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.mgmt-json-example summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  background: var(--surface2);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  transition: background var(--transition);
+}
+.mgmt-json-example summary:hover { background: var(--surface3); }
+.mgmt-json-example summary::before {
+  content: '▶';
+  font-size: 10px;
+  transition: transform 0.15s ease;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.mgmt-json-example[open] summary::before { transform: rotate(90deg); }
+.mgmt-json-example .import-schema { border: none; border-top: 1px solid var(--border); }
 
 /* Import pages shared */
 .import-schema {

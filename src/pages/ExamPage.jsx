@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import { exportQuestionsByBlocksToWord } from '../utils/exportToWord';
+import { usePageTitle } from '../hooks/usePageTitle';
 import ExamInfoCard from '../components/ExamInfoCard';
 import './SubjectPage.css';
 
@@ -45,6 +46,8 @@ export default function ExamPage() {
   const subject = publicLibrary.getSubject(asignaturaId);
   const questions = publicLibrary.getQuestionBank(asignaturaId);
 
+  usePageTitle(subject ? `Examen · ${subject.abreviatura}` : null);
+
   if (!subject) return <div className="page-error">Asignatura no encontrada</div>;
 
   const totalQuestions = questions.length;
@@ -52,6 +55,16 @@ export default function ExamPage() {
 
   return (
     <div className="subject-page">
+      <nav className="breadcrumb" aria-label="Navegación">
+        <Link to="/">Inicio</Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <Link to={`/asignatura/${asignaturaId}`} style={{ color: subject.color }}>
+          {subject.abreviatura}
+        </Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Examen</span>
+      </nav>
+
       <div className="subject-hero" style={{ '--subject-color': subject.color }}>
         <div className="subject-hero-icon">{subject.icono}</div>
 
@@ -110,15 +123,11 @@ export default function ExamPage() {
             const count = questions.filter(q => part.tipos.includes(q.tipo)).length;
 
             return (
-              <div
-                key={part.id}
-                className="topic-row"
-                style={{ alignItems: 'flex-start', flexDirection: 'column', gap: 12 }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%' }}>
-                  <span style={{ fontSize: 32 }}>{part.icono || '📝'}</span>
+              <div key={part.id} className="topic-row exam-part-row">
+                <div className="exam-part-row-inner">
+                  <span className="exam-part-icon">{part.icono || '📝'}</span>
 
-                  <div style={{ flex: 1 }}>
+                  <div className="exam-part-info">
                     <div className="topic-row-title">{part.nombre}</div>
 
                     {part.desc && (

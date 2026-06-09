@@ -33,13 +33,13 @@
   flex: 1;
 }
 
-/* Botones de descarga */
+/* Botones de descarga — ahora dentro del topic-header */
 .topic-download-actions {
-  margin: 16px 0 24px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .topic-tabs {
@@ -65,6 +65,8 @@
 
 .topic-tab:hover {
   color: var(--text);
+  background: var(--surface2);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .topic-tab.active {
@@ -221,6 +223,28 @@
   gap: 12px;
 }
 
+.topic-stats-summary {
+  display: flex;
+  gap: 20px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+.topic-stats-summary strong {
+  color: var(--text);
+}
+
+.topic-stats-empty {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+  padding: 6px 0;
+}
+
 .topic-q-badges {
   display: flex;
   gap: 8px;
@@ -260,13 +284,10 @@
     font-size: 22px;
   }
 
-  .topic-download-actions {
-    margin: 14px 0 22px;
-  }
-
   .topic-download-actions .btn-download {
-    width: 100%;
+    flex: 1;
     justify-content: center;
+    min-width: 120px;
   }
 
   .topic-tab {

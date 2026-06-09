@@ -1,11 +1,32 @@
 {
   "id": "aamd",
-  "estructuraExamen": [],
+  "estructuraExamen": [
+    {
+      "id": "parte-test",
+      "nombre": "Tipo test",
+      "tipos": [
+        "test"
+      ],
+      "icono": "🔤",
+      "desc": "Preguntas de opción múltiple"
+    },
+    {
+      "id": "parte-desarrollo",
+      "nombre": "Preguntas de desarrollo",
+      "tipos": [
+        "desarrollo",
+        "practica"
+      ],
+      "icono": "🧠",
+      "desc": "Ejercicios prácticos y preguntas de desarrollo"
+    }
+  ],
   "infoExamen": {
     "estructura": [
-      "14 preguntas tipo test (0,5 pts. x 14) · 7 puntos",
-      "6 preguntas de desarrollo · 3 puntos"
+      "14 preguntas tipo test, 0,5 puntos cada una: 7 puntos.",
+      "6 preguntas de desarrollo, 0,5 puntos cada una: 3 puntos.",
+      "Puntuación total: 10 puntos."
     ],
-    "penalizacionTest": "No se especifica penalización por respuestas incorrectas en la información disponible"
+    "penalizacionTest": "Cada respuesta incorrecta resta 0,2 puntos. Las preguntas sin contestar no puntúan ni restan."
   }
 }

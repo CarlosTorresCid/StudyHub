@@ -20,7 +20,10 @@
   padding: 4px 10px 20px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 16px;
+  text-decoration: none;
+  transition: opacity var(--transition);
 }
+.sidebar-logo:hover { opacity: 0.8; }
 .sidebar-logo-icon { font-size: 22px; }
 .sidebar-logo-text {
   font-family: 'Syne', sans-serif;

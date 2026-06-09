@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Link, useParams } from 'react-router-dom';
 import asignaturas from '../data/public/asignaturas.json';
 import './Sidebar.css';
 
@@ -11,10 +11,10 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
     <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       <button className="sidebar-close" onClick={onClose} aria-label="Cerrar menú">×</button>
 
-      <div className="sidebar-logo">
+      <Link to="/" className="sidebar-logo" onClick={onClose} aria-label="Ir al inicio">
         <span className="sidebar-logo-icon">📚</span>
         <span className="sidebar-logo-text">StudyHub</span>
-      </div>
+      </Link>
 
       <nav className="sidebar-nav">
         <NavLink
@@ -44,14 +44,18 @@ export default function Sidebar({ isOpen = false, onClose = () => {} }) {
           </NavLink>
         ))}
 
-        <div className="sidebar-section-title sidebar-section-spacer">Admin</div>
-        <NavLink
-          to="/gestion"
-          className={({ isActive }) => `sidebar-home sidebar-mgmt ${isActive ? 'active' : ''}`}
-          onClick={onClose}
-        >
-          <span>🔒</span> Administración
-        </NavLink>
+        {import.meta.env.DEV && (
+          <>
+            <div className="sidebar-section-title sidebar-section-spacer">Admin</div>
+            <NavLink
+              to="/gestion"
+              className={({ isActive }) => `sidebar-home sidebar-mgmt ${isActive ? 'active' : ''}`}
+              onClick={onClose}
+            >
+              <span>🔒</span> Administración
+            </NavLink>
+          </>
+        )}
       </nav>
     </aside>
   );

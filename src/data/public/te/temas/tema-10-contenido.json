@@ -1,0 +1,350 @@
+{
+  "asignaturaId": "te",
+  "temaId": "tema-10",
+  "titulo": "Tema 10. Tecnología innovadora e investigación",
+  "apuntes": {
+    "introduccion": "El Tema 10 cierra la asignatura con dos bloques diferenciados pero complementarios:\n\n- La **computación cuántica**, que se presenta como la gran alternativa de futuro al agotamiento de la computación tradicional. Se parte de las limitaciones físicas que están frenando la **Ley de Moore** y se estudian los **qubits** como nueva unidad de información y los dos principios de la mecánica cuántica que les dan su potencia: la **superposición** y el **entrelazamiento**.\n- La **introducción a la investigación**, donde se aborda la esencia del **método científico** y todas las peculiaridades del trabajo investigador: la búsqueda de información (estado del arte), la gestión y citación de la bibliografía, la estructura de un artículo científico, el proceso de publicación con sus métricas (factor de impacto) y la ética científica (plagio, ORCID, relación entre patente y publicación).\n\nLa idea central del primer bloque es que la potencia de cálculo de los computadores convencionales tiene un techo físico cercano, y la computación cuántica ofrece, a nivel teórico, un crecimiento casi inimaginable. La del segundo bloque es que innovar mediante la investigación exige rigor: una buena pregunta, apoyarse en el conocimiento previo validado, publicar con calidad y respetar la ética.",
+    "secciones": [
+      {
+        "titulo": "El fin de la Ley de Moore y los límites del transistor",
+        "contenido": "El elemento discreto más básico de cualquier procesador o CPU es el **transistor**. De forma muy simplificada, proporciona una señal de salida en función de una señal de entrada; la presencia o ausencia de esa señal conforma los **1 y 0 binarios**.\n\n**Gordon Moore**, cofundador de Intel, postuló la conocida **Ley de Moore**: la densidad de transistores en los circuitos integrados se **duplica cada dos años**. Dicho de otra forma, cada dos años los procesadores o bien duplican su capacidad, o bien reducen su precio a la mitad (o una mezcla de ambas). Esto se cumplió bastante bien **desde 1975 hasta 2015**, pero el ritmo se ha ralentizado mucho: se tardó dos años y medio en pasar de los 22 nm a los **14 nm** (el primer tamaño que rompió la cadencia), y el paso de 14 nm a 10 nm ha llevado más tiempo del esperado. Fabricantes como Intel, Samsung o TSMC sufren esta misma ralentización.\n\nEsto es lógico: los transistores tienen un tamaño físico que no se puede reducir indefinidamente; al llegar a dimensiones de unos pocos átomos, poco más se podrá hacer.\n\nReducir el tamaño de los transistores y aumentar su densidad tiene **dos efectos positivos**:\n- **Baja el consumo** del chip y, por ello, se **calienta menos**.\n- Se pueden **incrementar las frecuencias de trabajo**, lo que permite conmutar entre 0 y 1 más rápidamente.\n\nSin embargo, también las frecuencias han encontrado su freno por limitaciones físicas: el límite actual está en torno a los **5 GHz** en los procesadores más modernos."
+      },
+      {
+        "titulo": "Alternativas y aparición de la computación cuántica",
+        "contenido": "Asumido el fin de la vigencia de la Ley de Moore, hay que buscar alternativas que permitan seguir progresando en potencia de computación. Existen opciones más o menos convencionales, como **incluir más núcleos (cores)** dentro del chip, pero ninguna que por sí sola prometa una evolución comparable a la de la Ley de Moore.\n\nLa tecnología que, a nivel teórico, ofrece las mayores posibilidades de crecimiento es la **computación cuántica**. Su potencial es casi inimaginable con los parámetros actuales. Los **computadores cuánticos** se basan en la **mecánica cuántica** para realizar ciertos tipos de cálculos a velocidades muy superiores a las de cualquier computador clásico imaginable.\n\nDe hecho, se afirma que un único computador cuántico podría llegar a superar la potencia de cálculo combinada de todos los ordenadores existentes en la actualidad (Andy Rubin, creador de Android, llegó a sugerir que un único ordenador cuántico aplicado a la IA podría gestionar todos los dispositivos conectados del mundo)."
+      },
+      {
+        "titulo": "Del bit al qubit: el principio de superposición",
+        "contenido": "Un ordenador convencional maneja como unidad de información el **bit**, que solo puede tener dos valores, **0 y 1**. El ordenador escribe bloques de unos y ceros, los procesa **secuencialmente** y obtiene resultados; en esencia, un núcleo realiza los cálculos de uno en uno (aunque a velocidades enormes).\n\nEn un ordenador cuántico la unidad fundamental es el **qubit** (quantum bit), análogo al bit. Su diferencia clave reside en el **principio de superposición**: aplicable a partículas atómicas y subatómicas muy pequeñas (como los electrones), permite que un qubit no esté solo en estado *encendido* o *apagado*, sino que pueda estar en **ambos a la vez** y en un enorme abanico de **estados intermedios**.\n\nVisualmente se distingue el *estado base* (0), los *estados de superposición* (0 + 1) y el *estado excitado* (1). Esta capacidad de representar simultáneamente múltiples valores es lo que abre la puerta a la simultaneidad de operaciones."
+      },
+      {
+        "titulo": "El principio de entrelazamiento y el paralelismo cuántico",
+        "contenido": "El segundo principio que da potencia a la computación cuántica es el **entrelazamiento**. De forma simplificada, las propiedades cuánticas de dos o más partículas pueden quedar **vinculadas inextricablemente**, incluso si se separan a grandes distancias: si tenemos dos partículas entrelazadas, una aquí y otra muy lejos, al actuar sobre una, la otra reacciona de forma correlacionada.\n\nLa verdadera potencia surge al **entrelazar varios qubits**. El número de cálculos simultáneos crece de forma **exponencial** con el número de qubits, según la relación **2 elevado a n** (2ⁿ):\n- Con **3 qubits** entrelazados: 2³ = **8** cálculos simultáneos.\n- Con **8 qubits**: 2⁸ = **256** cálculos simultáneos.\n\nLa potencia de procesamiento se incrementa exponencialmente conforme se añaden qubits. El **umbral** a partir del cual un ordenador cuántico puede superar a los convencionales en determinadas tareas se cifra en unos **50 qubits**, punto en el que sería capaz de realizar más de **cuatro mil millones de operaciones simultáneas**."
+      },
+      {
+        "titulo": "Construcción de un ordenador cuántico: fragilidad, superconductividad y supremacía",
+        "contenido": "Llegar a esos 50 qubits ha sido muy complicado porque las superposiciones de qubits son **frágiles y efímeras**: cualquier interferencia magnética o de calor puede hacer que el sistema **colapse**. Además, la **coherencia** dura solo unos **100 microsegundos**, que es el tiempo disponible para operar.\n\nPor ello, construir un ordenador cuántico es muy complejo. Una de las formas de abordarlo es la **computación cuántica basada en superconductividad**, método empleado por **IBM, Intel y Google**. La idea es que todo funcione a temperaturas próximas al **cero absoluto** para lograr la superconductividad y que los electrones fluyan **sin resistencia**, consiguiendo un entorno perfecto para los estados cuánticos. Por ejemplo, el ordenador cuántico de IBM se enfría hasta unos **-273 ºC** y se precisan **24 horas** para alcanzar esa temperatura.\n\nSe denomina **supremacía cuántica** al hito (demostrado en un artículo publicado en la revista *Nature*) según el cual, para una **tarea específica**, un ordenador cuántico ya supera a un ordenador tradicional."
+      },
+      {
+        "titulo": "Aplicaciones de la computación cuántica",
+        "contenido": "Pese a los avances, aún estamos lejos de disponer de sistemas cuánticos que sustituyan a los actuales supercomputadores; diversos especialistas sitúan esa meta en **15 o 20 años**.\n\nEntre las aplicaciones previsibles (ordenadas de mayor a menor cercanía en el tiempo) destacan:\n- **Enfriamiento global**: simular interacciones moleculares muy complejas para descubrir cómo eliminar las emisiones de CO₂ y otras.\n- **Síntesis de medicamentos**: realizar simulaciones químicas masivas que aceleren la investigación de fármacos y reduzcan el trabajo de laboratorio.\n- **Inteligencia artificial**: ejecutar las operaciones de las redes neuronales artificiales a mucha mayor velocidad que los computadores actuales.\n- **Entregas más rápidas / optimización logística**: resolver problemas complejos como el cálculo de rutas óptimas de entrega con paradas que aparecen dinámicamente.\n\nEn el ecosistema participan empresas como IBM, Google, Intel o Microsoft (fabricantes de chips de distinto número de qubits) junto a numerosas firmas inversoras y colaboradoras."
+      },
+      {
+        "titulo": "Introducción a la investigación: ciencia y método científico",
+        "contenido": "El segundo bloque se centra en el conocimiento del **Método Científico** y en cómo innovar mediante la investigación.\n\nLa **RAE** define **ciencia** como el «conjunto de conocimientos obtenidos mediante la *observación* y el *razonamiento*, sistemáticamente estructurados y de los que se deducen principios y leyes generales con capacidad predictiva y comprobables experimentalmente». De esta definición se extraen las ideas esenciales:\n- La ciencia tiene que ver con la **obtención de conocimiento**, radicalmente opuesto a la **creencia**: el conocimiento implica constatación de verdad mediante la experimentación de hipótesis; la creencia no implica refutación.\n- Los **métodos esenciales** para obtener conocimiento son la **observación** y el **razonamiento**.\n- La **repetitividad** permite verificar resultados: partiendo de las mismas condiciones iniciales debe obtenerse el mismo resultado. La **revisión por pares** asegura la calidad.\n\nEl **método científico** establece los pasos generales para obtener conocimiento. Impulsado por Aristóteles, Sócrates, Platón, Ibn al-Haytham, Kepler o Galileo, se resume en: **Observación** → **Hipótesis** → **Experimentación** → **Conclusión** (los pasos de hipótesis y experimentación pueden repetirse un número indeterminado de veces). Existen distintas tipologías (lógico-deductivo, empírico-analítico, histórico, etc.).\n\nAlgo absolutamente esencial es **«LA PREGUNTA»**: lo importante no es la tecnología ni la técnica, sino la pregunta que se plantea como marco de trabajo (por ejemplo, *¿puedo crear un sistema IoT que detecte patrones de generación de residuos en días laborables y festivos?*)."
+      },
+      {
+        "titulo": "Búsqueda de información y estado del arte",
+        "contenido": "Para que el conocimiento científico evolucione es imprescindible **aprovechar el trabajo previo validado**. Por ello, antes de iniciar una investigación hay que documentar el **«estado del arte»** de la disciplina mediante la búsqueda y revisión de bibliografía: qué ideas se han aplicado al problema, qué ha funcionado y qué no, buenas prácticas, etc. A veces conviene ampliar el horizonte a problemas distintos cuyas soluciones sean aplicables al propio dominio.\n\nPara guiar la búsqueda se consideran cuestiones como: cuál es el **tema** (cuanto más concreto, mejor), el **período de tiempo o espacio** geográfico, el **propósito** de la investigación, el **tipo de información** (blogs frente a revistas, tesis y libros) y la **disponibilidad y coste** de las fuentes.\n\nFuentes y herramientas destacadas:\n- **Tesis doctorales**: estudios originales ricos en citas. **TESEO** acumula las referencias de tesis leídas en universidades españolas. También **Tesis en Red** (Cataluña y otras CC. AA.) y **OATD** (universidades extranjeras).\n- **Dialnet**: portal de difusión de la producción científica hispana (desde 2001, especializado en ciencias humanas y sociales).\n- **Google Scholar (Google Académico)**: buscador enfocado al ámbito científico; localiza *papers* e incluso patentes.\n- **DOI (Digital Object Identifier)**: identificador universal y unívoco asignado a la mayoría de artículos; se puede comprobar en **Crossref**.\n- **Redes sociales científicas**: **ResearchGate** (gratuita, conecta investigadores) y **Academia.edu** (agrupa por intereses, ofertas, publicaciones)."
+      },
+      {
+        "titulo": "Gestión bibliográfica y normas de citación",
+        "contenido": "Los documentos científicos exigen un **rigor exquisito** al indicar la bibliografía usada y al referenciarla desde el cuerpo del texto. Existen distintos **estilos** de formateo de referencias; la norma **ISO 690:2010** y su equivalente español **UNE-ISO 690:2013** (traducida por AENOR) recogen las directrices generales. Según la norma, el formato del nombre, año, editorial o volumen puede variar significativamente (por ejemplo, el año puede ir tras los nombres o al final).\n\nEstilos muy conocidos en el ámbito científico-técnico:\n- **The Chicago Manual of Style** (Universidad de Chicago, 1903): Historia, Ciencias Sociales y Jurídicas.\n- **Harvard System of Referencing**: Ciencias Naturales y Física.\n- **IEEE Standards Style Manual** (Institute of Electrical and Electronic Engineers): muy extendido en Ingeniería, Informática y Tecnología.\n\nComo un trabajo serio maneja una cantidad ingente de referencias, los investigadores emplean **gestores bibliográficos** que catalogan y clasifican la bibliografía y permiten insertar citas con el formato deseado directamente en el editor de texto. Los dos más conocidos son **RefWorks** (comercial, de ProQuest) y **Mendeley** (aplicación web y de escritorio, propietaria y gratuita)."
+      },
+      {
+        "titulo": "Estructura de un artículo científico",
+        "contenido": "Hoy el **inglés** es la lengua franca de la comunicación científica; las traducciones deben hacerlas personas con competencias nativas y conocedoras de la materia para evitar rechazos por defectos de forma.\n\nLa **estructura habitual** de un artículo (*paper*) es:\n- **Título**: descriptivo y concreto (no necesariamente corto).\n- **Autores**: con datos de contacto y afiliación; pueden ordenarse por grado de contribución, orden alfabético o grado académico.\n- **Resumen (abstract)**: idea general del objetivo e intenciones; suele tener un máximo de palabras.\n- **Palabras clave**: términos con contenido semántico que caracterizan el tema.\n- **Introducción**: presenta la problemática y suele terminar detallando la estructura del artículo.\n- **Estado del arte**: en capítulo propio o desglosado; es imprescindible enumerar la **aportación del enfoque** frente a otras alternativas.\n- **Explicación del problema y propuesta de solución**.\n- **Implicaciones de los resultados** (suele merecer apartado propio).\n- **Conclusiones y trabajo futuro**: resumen del problema y logros, con posibilidades de mejora.\n- **Agradecimientos** (a revisores, colegas o entidades financiadoras) y **bibliografía**.\n\nEjemplo real utilizado en el temario: *«Artificial cognition for social human–robot interaction: An implementation»* (Lemaignan et al., 2017), publicado en la revista *Artificial Intelligence* (Elsevier)."
+      },
+      {
+        "titulo": "Publicación científica: factor de impacto y revisión por pares",
+        "contenido": "Una vez se dispone del artículo, hay que **seleccionar la revista** adecuada, lo que pocas veces es sencillo.\n\nEl primer parámetro de relevancia es el **índice (o factor) de impacto**: a mayor impacto, mayor dificultad para publicar y mayor calidad exigida. El cálculo más conocido es el **Journal Citation Reports (JCR)**, base de datos gestionada históricamente por Thomson Reuters y hoy por **Clarivate Analytics**. El índice JCR mide la **frecuencia con que un «artículo medio» de la revista ha sido citado**: tiene en cuenta las citas recibidas en el año *x* respecto al total de artículos publicados en los años *(x-1)* y *(x-2)*, contextualizado por la posición relativa de la revista en su campo.\n\nExisten dos ediciones del JCR: **JCR Science Edition** (ámbito científico-tecnológico) y **JCR Social Sciences Edition** (ciencias sociales). Otros estándares: **SJR (SCImago Journal & Country Rank)** —de Elsevier, que sitúa las revistas en **cuartiles (Q1–Q4)**—, **LATINDEX** (revistas de América Latina, Caribe, España y Portugal), **IN-RECS** e **IN-RECJ** (revistas españolas de Ciencias Sociales y de Ciencia Jurídica, Universidad de Granada).\n\nOtros criterios al elegir revista: la **gratuidad o no del acceso** y el **tiempo de revisión** (puede alargarse meses). Para publicar con calidad debe superarse un riguroso proceso de **revisión por pares**, que garantiza la calidad y es habitual también en libros de editoriales de prestigio. El proceso de publicación tiene varias etapas: comprobar que la revista encaja, analizar las instrucciones para autores, cuidar título/resumen/conclusiones, enviar el manuscrito, recibir los informes de varios revisores (habitualmente 3 o más, que no suelen cobrar), revisar e iterar (puede durar más de un año) y, finalmente, publicar."
+      },
+      {
+        "titulo": "Identidad del autor, ética y legalidad científica",
+        "contenido": "Al firmar un artículo es muy importante especificar el nombre de forma **correcta y consistente** entre publicaciones. Como el campo está dominado por el estilo anglosajón de un único apellido, muchos autores firman con un solo apellido o concatenando ambos (p. ej. *Juan Nadie-Pérez*). Para una firma homogénea surge el proyecto **ORCID (Open Researcher & Contributor ID)**, que crea un **registro único y definitivo** y resuelve los problemas de identificación, ambigüedad y duplicidad de nombres.\n\nEn el plano ético, el fraude más frecuente es el **plagio**, que puede ser intencionado o no (la inexperiencia no justifica el plagio). Según la RAE, plagiar es «copiar en lo sustancial obras ajenas, dándolas como propias»; es decir, usar ideas o palabras ajenas sin **reconocimiento explícito de las fuentes**. Hay que **citar siempre** la procedencia, incluso si se reescribe con palabras propias; las citas literales deben ir **entrecomilladas** con su referencia. Herramientas como **Turnitin** detectan el porcentaje de coincidencias y sus fuentes. La **manipulación de resultados** (apoyada en procesos difícilmente reproducibles) es otro problema actual de la ciencia, con casos sonados.\n\nRespecto a la relación entre **patente y publicación**: existe confusión y grandes diferencias legales entre países (especialmente Europa y EE. UU.). De forma general, **publicar una innovación técnica en una revista limita las posibilidades de patentarla**, ya que al publicar se difunde libremente el resultado y se comparte el conocimiento adquirido."
+      }
+    ]
+  },
+  "resumen": [
+    "El transistor es el elemento básico del procesador y la Ley de Moore (Gordon Moore) predice que la densidad de transistores se duplica cada dos años; se cumplió de 1975 a 2015.",
+    "Los 14 nm fueron el primer tamaño en romper la cadencia de los dos años; reducir el transistor baja el consumo, calienta menos y permite mayores frecuencias, pero hay un límite físico (≈5 GHz).",
+    "La computación cuántica es la principal alternativa de futuro a la Ley de Moore por su potencial casi inimaginable.",
+    "El qubit es la unidad de información cuántica; gracias a la superposición puede estar a la vez en 0, 1 y estados intermedios.",
+    "El entrelazamiento vincula las propiedades de varios qubits; con n qubits entrelazados se realizan 2ⁿ cálculos simultáneos (3 qubits = 8; 8 qubits = 256).",
+    "El umbral de la supremacía cuántica se cifra en unos 50 qubits; las superposiciones son frágiles (coherencia ≈100 µs) y suele usarse superconductividad cerca del cero absoluto (-273 ºC).",
+    "Aplicaciones previsibles de la computación cuántica: enfriamiento global, síntesis de fármacos, inteligencia artificial y optimización logística.",
+    "La ciencia (RAE) es conocimiento obtenido por observación y razonamiento, sistemático y comprobable experimentalmente; la observación es un método válido, la creencia no.",
+    "El método científico sigue los pasos observación → hipótesis → experimentación → conclusión, y lo esencial es plantear bien LA PREGUNTA.",
+    "Antes de investigar hay que documentar el estado del arte usando tesis (TESEO), Dialnet y Google Scholar; los papers se identifican con un DOI.",
+    "Las referencias se formatean según normas como UNE-ISO 690:2013 o estilos Chicago, Harvard e IEEE, y se organizan con gestores como RefWorks y Mendeley.",
+    "Un artículo científico se estructura en título, autores, resumen, palabras clave, introducción, estado del arte, propuesta, resultados, conclusiones, agradecimientos y bibliografía.",
+    "El factor de impacto (JCR de Clarivate) mide cuánto se cita un artículo medio de una revista; existen además SJR (cuartiles), LATINDEX, IN-RECS e IN-RECJ.",
+    "Publicar con calidad exige revisión por pares; firmar de forma consistente se facilita con ORCID.",
+    "El plagio es usar ideas o palabras ajenas sin citar la fuente; publicar una innovación suele limitar la posibilidad de patentarla."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Transistor",
+      "definicion": "Elemento discreto más básico de un procesador o CPU; da una señal de salida según la de entrada, generando los 1 y 0 binarios."
+    },
+    {
+      "termino": "Ley de Moore",
+      "definicion": "Postulado de Gordon Moore según el cual la densidad de transistores de un circuito integrado se duplica cada dos años (capacidad x2 o precio a la mitad). Se cumplió de 1975 a 2015."
+    },
+    {
+      "termino": "14 nm",
+      "definicion": "Tamaño de transistor que por primera vez incumplió la cadencia de los dos años de la Ley de Moore (se tardó 2,5 años en pasar de 22 a 14 nm)."
+    },
+    {
+      "termino": "Beneficios de reducir el transistor",
+      "definicion": "Menor consumo, menor calentamiento y mayor frecuencia de trabajo (conmutación más rápida entre 0 y 1)."
+    },
+    {
+      "termino": "Computación cuántica",
+      "definicion": "Paradigma de computación basado en la mecánica cuántica que, en teoría, permite cálculos a velocidades muy superiores a las de cualquier computador clásico; alternativa al fin de la Ley de Moore."
+    },
+    {
+      "termino": "Qubit",
+      "definicion": "Quantum bit: unidad fundamental de información de un ordenador cuántico, análoga al bit pero capaz de superposición."
+    },
+    {
+      "termino": "Superposición",
+      "definicion": "Principio de la mecánica cuántica por el que un qubit puede estar en estado 0, 1 y en un abanico de estados intermedios a la vez."
+    },
+    {
+      "termino": "Entrelazamiento",
+      "definicion": "Principio por el que las propiedades cuánticas de varias partículas quedan vinculadas aunque estén separadas; con n qubits entrelazados se hacen 2ⁿ cálculos simultáneos."
+    },
+    {
+      "termino": "Umbral de 50 qubits",
+      "definicion": "Punto a partir del cual un ordenador cuántico puede superar a los convencionales en ciertas tareas (más de 4.000 millones de operaciones simultáneas)."
+    },
+    {
+      "termino": "Supremacía cuántica",
+      "definicion": "Hito en el que, para una tarea específica, un ordenador cuántico supera a un ordenador tradicional."
+    },
+    {
+      "termino": "Superconductividad (qubits)",
+      "definicion": "Método de construcción (IBM, Intel, Google) que enfría el sistema cerca del cero absoluto (-273 ºC) para que los electrones fluyan sin resistencia; la coherencia dura ~100 µs."
+    },
+    {
+      "termino": "Ciencia (RAE)",
+      "definicion": "Conjunto de conocimientos obtenidos por observación y razonamiento, sistemáticos y comprobables experimentalmente, con capacidad predictiva."
+    },
+    {
+      "termino": "Conocimiento vs creencia",
+      "definicion": "El conocimiento implica constatación de verdad mediante experimentación; la creencia no implica refutación ni es un método científico."
+    },
+    {
+      "termino": "Método científico",
+      "definicion": "Pasos generales para obtener conocimiento: observación, hipótesis, experimentación y conclusión (hipótesis-experimentación pueden repetirse)."
+    },
+    {
+      "termino": "LA PREGUNTA",
+      "definicion": "Elemento esencial del método científico: lo importante no es la tecnología sino la pregunta que se plantea como marco de trabajo."
+    },
+    {
+      "termino": "Estado del arte",
+      "definicion": "Documentación del trabajo previo validado de una disciplina, imprescindible antes de iniciar una investigación."
+    },
+    {
+      "termino": "TESEO",
+      "definicion": "Base de datos pública que acumula las referencias bibliográficas de las tesis doctorales leídas en universidades españolas."
+    },
+    {
+      "termino": "Dialnet",
+      "definicion": "Portal de difusión de la producción científica hispana (desde 2001), especializado en ciencias humanas y sociales."
+    },
+    {
+      "termino": "Google Scholar",
+      "definicion": "Buscador de Google enfocado al ámbito científico y académico; localiza papers e incluso patentes."
+    },
+    {
+      "termino": "DOI",
+      "definicion": "Digital Object Identifier: identificador universal, unívoco y directo de un artículo científico; se comprueba en Crossref."
+    },
+    {
+      "termino": "Gestor bibliográfico",
+      "definicion": "Herramienta que cataloga, clasifica y referencia la bibliografía con el formato deseado. Los más conocidos: RefWorks y Mendeley."
+    },
+    {
+      "termino": "UNE-ISO 690:2013",
+      "definicion": "Norma española (equivalente a ISO 690:2010, traducida por AENOR) con las directrices para redactar referencias bibliográficas y citas."
+    },
+    {
+      "termino": "Estilos de citación",
+      "definicion": "Chicago (Historia, CC. Sociales y Jurídicas), Harvard (Ciencias Naturales y Física) e IEEE (Ingeniería, Informática y Tecnología)."
+    },
+    {
+      "termino": "Factor de impacto (JCR)",
+      "definicion": "Métrica del Journal Citation Reports (Clarivate) que mide la frecuencia con que se cita un artículo medio de una revista."
+    },
+    {
+      "termino": "SJR / cuartiles",
+      "definicion": "SCImago Journal & Country Rank (Elsevier): indicador de impacto que sitúa las revistas en cuartiles Q1–Q4 por materia."
+    },
+    {
+      "termino": "Revisión por pares",
+      "definicion": "Proceso por el que especialistas (habitualmente 3 o más) evalúan un trabajo para garantizar su calidad antes de publicarlo."
+    },
+    {
+      "termino": "ORCID",
+      "definicion": "Open Researcher & Contributor ID: registro único y definitivo que da una firma homogénea al investigador y evita ambigüedades de nombre."
+    },
+    {
+      "termino": "Plagio",
+      "definicion": "Copiar en lo sustancial obras ajenas dándolas como propias; usar ideas o palabras ajenas sin reconocer las fuentes. Se detecta con herramientas como Turnitin."
+    },
+    {
+      "termino": "Patente vs publicación",
+      "definicion": "Publicar una innovación técnica en una revista suele limitar la posibilidad de patentarla, al difundir libremente el resultado."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "te-tema-10-fc-001",
+      "pregunta": "¿Cuál es el elemento más básico de un procesador o CPU?",
+      "respuesta": "El transistor, que da una señal de salida según la de entrada y genera los 1 y 0 binarios."
+    },
+    {
+      "id": "te-tema-10-fc-002",
+      "pregunta": "¿Qué afirma la Ley de Moore?",
+      "respuesta": "Que la densidad de transistores de un circuito integrado se duplica cada dos años (los procesadores duplican su capacidad o reducen su precio a la mitad)."
+    },
+    {
+      "id": "te-tema-10-fc-003",
+      "pregunta": "¿Quién postuló la Ley de Moore y hasta cuándo se cumplió bien?",
+      "respuesta": "Gordon Moore (cofundador de Intel); se cumplió razonablemente bien desde 1975 hasta 2015."
+    },
+    {
+      "id": "te-tema-10-fc-004",
+      "pregunta": "¿Qué tamaño de transistor incumplió por primera vez la Ley de Moore?",
+      "respuesta": "Los 14 nm (se tardó dos años y medio en pasar de 22 a 14 nm)."
+    },
+    {
+      "id": "te-tema-10-fc-005",
+      "pregunta": "¿Qué beneficios aporta reducir el tamaño de los transistores?",
+      "respuesta": "Menor consumo, menor calentamiento y mayores frecuencias de trabajo."
+    },
+    {
+      "id": "te-tema-10-fc-006",
+      "pregunta": "¿Qué tecnología se plantea como alternativa de futuro a la Ley de Moore?",
+      "respuesta": "La computación cuántica, por su potencial de crecimiento casi inimaginable."
+    },
+    {
+      "id": "te-tema-10-fc-007",
+      "pregunta": "¿Cuál es la unidad de información de un ordenador cuántico?",
+      "respuesta": "El qubit (quantum bit), análogo al bit clásico."
+    },
+    {
+      "id": "te-tema-10-fc-008",
+      "pregunta": "¿Qué permite el principio de superposición en un qubit?",
+      "respuesta": "Que esté a la vez en estado 0, 1 y en un abanico de estados intermedios, no solo encendido o apagado."
+    },
+    {
+      "id": "te-tema-10-fc-009",
+      "pregunta": "¿Cuáles son los dos principios de la mecánica cuántica que usan los ordenadores cuánticos?",
+      "respuesta": "La superposición y el entrelazamiento."
+    },
+    {
+      "id": "te-tema-10-fc-010",
+      "pregunta": "¿Cuántos cálculos simultáneos permiten n qubits entrelazados?",
+      "respuesta": "2 elevado a n (2ⁿ): 3 qubits = 8 cálculos; 8 qubits = 256."
+    },
+    {
+      "id": "te-tema-10-fc-011",
+      "pregunta": "¿En cuántos qubits se cifra el umbral de la supremacía cuántica?",
+      "respuesta": "En unos 50 qubits, punto en el que se superan los 4.000 millones de operaciones simultáneas."
+    },
+    {
+      "id": "te-tema-10-fc-012",
+      "pregunta": "¿Por qué es difícil construir ordenadores cuánticos?",
+      "respuesta": "Porque las superposiciones son frágiles (la coherencia dura ~100 µs) y cualquier interferencia magnética o de calor las colapsa."
+    },
+    {
+      "id": "te-tema-10-fc-013",
+      "pregunta": "¿Qué método de construcción usan IBM, Intel y Google y a qué temperatura?",
+      "respuesta": "La superconductividad, enfriando cerca del cero absoluto (≈-273 ºC) para que los electrones fluyan sin resistencia."
+    },
+    {
+      "id": "te-tema-10-fc-014",
+      "pregunta": "¿Qué significa supremacía cuántica?",
+      "respuesta": "Que, para una tarea específica, un ordenador cuántico ya supera a un ordenador tradicional."
+    },
+    {
+      "id": "te-tema-10-fc-015",
+      "pregunta": "Cita aplicaciones previsibles de la computación cuántica.",
+      "respuesta": "Enfriamiento global, síntesis de medicamentos, inteligencia artificial y optimización logística (entregas más rápidas)."
+    },
+    {
+      "id": "te-tema-10-fc-016",
+      "pregunta": "Según la RAE, ¿qué es la ciencia?",
+      "respuesta": "El conjunto de conocimientos obtenidos por observación y razonamiento, sistemáticos y comprobables experimentalmente."
+    },
+    {
+      "id": "te-tema-10-fc-017",
+      "pregunta": "¿Cuál es uno de los métodos esenciales para obtener conocimiento?",
+      "respuesta": "La observación (junto con el razonamiento); la creencia NO es un método científico."
+    },
+    {
+      "id": "te-tema-10-fc-018",
+      "pregunta": "¿Cuáles son los pasos generales del método científico?",
+      "respuesta": "Observación, hipótesis, experimentación y conclusión (hipótesis y experimentación pueden repetirse)."
+    },
+    {
+      "id": "te-tema-10-fc-019",
+      "pregunta": "¿Qué es lo más esencial del método científico según el temario?",
+      "respuesta": "«LA PREGUNTA»: lo importante no es la tecnología, sino la pregunta que se plantea como marco de trabajo."
+    },
+    {
+      "id": "te-tema-10-fc-020",
+      "pregunta": "¿Qué es el estado del arte y por qué es necesario?",
+      "respuesta": "La documentación del trabajo previo validado de una disciplina; es imprescindible antes de iniciar cualquier investigación."
+    },
+    {
+      "id": "te-tema-10-fc-021",
+      "pregunta": "¿Qué es TESEO?",
+      "respuesta": "Una base de datos que acumula las referencias bibliográficas de las tesis doctorales leídas en universidades españolas."
+    },
+    {
+      "id": "te-tema-10-fc-022",
+      "pregunta": "¿Qué es el DOI?",
+      "respuesta": "Digital Object Identifier: un identificador universal, unívoco y directo de un artículo científico."
+    },
+    {
+      "id": "te-tema-10-fc-023",
+      "pregunta": "Cita dos gestores bibliográficos conocidos.",
+      "respuesta": "RefWorks (comercial) y Mendeley (web y de escritorio, gratuito)."
+    },
+    {
+      "id": "te-tema-10-fc-024",
+      "pregunta": "¿Qué norma recoge las directrices españolas para redactar referencias bibliográficas?",
+      "respuesta": "La UNE-ISO 690:2013 (equivalente a ISO 690:2010)."
+    },
+    {
+      "id": "te-tema-10-fc-025",
+      "pregunta": "Cita tres estilos de citación habituales en ciencia y técnica.",
+      "respuesta": "Chicago, Harvard e IEEE."
+    },
+    {
+      "id": "te-tema-10-fc-026",
+      "pregunta": "¿Qué partes componen un artículo científico?",
+      "respuesta": "Título, autores, resumen, palabras clave, introducción, estado del arte, propuesta, resultados, conclusiones, agradecimientos y bibliografía."
+    },
+    {
+      "id": "te-tema-10-fc-027",
+      "pregunta": "¿Qué mide el factor de impacto y quién gestiona el JCR?",
+      "respuesta": "La frecuencia con que se cita un artículo medio de una revista; el JCR lo gestiona Clarivate Analytics (antes Thomson Reuters)."
+    },
+    {
+      "id": "te-tema-10-fc-028",
+      "pregunta": "¿Qué es la revisión por pares?",
+      "respuesta": "El proceso en el que varios especialistas (3 o más) evalúan un trabajo para garantizar su calidad antes de publicarlo."
+    },
+    {
+      "id": "te-tema-10-fc-029",
+      "pregunta": "¿Para qué sirve ORCID?",
+      "respuesta": "Para dar al investigador una firma única y homogénea, evitando ambigüedades y duplicidades en su nombre."
+    },
+    {
+      "id": "te-tema-10-fc-030",
+      "pregunta": "¿Qué es el plagio según la RAE?",
+      "respuesta": "Copiar en lo sustancial obras ajenas dándolas como propias; usar ideas o palabras ajenas sin citar la fuente."
+    },
+    {
+      "id": "te-tema-10-fc-031",
+      "pregunta": "¿Qué relación hay entre publicar y patentar una innovación?",
+      "respuesta": "Publicar una innovación técnica en una revista suele limitar la posibilidad de patentarla, al difundir libremente el resultado."
+    }
+  ]
+}

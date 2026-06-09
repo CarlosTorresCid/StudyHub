@@ -1,133 +1,272 @@
 import { useState, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
+import { usePageTitle } from '../hooks/usePageTitle';
 import QuestionPracticeCard from '../components/QuestionPracticeCard';
 import './ExamPartPage.css';
+
+const DEFAULT_EXAM_PARTS = [
+  {
+    id: 'parte-test',
+    nombre: 'Tipo test',
+    tipos: ['test', 'verdadero_falso'],
+    icono: '🔤',
+    desc: 'Preguntas de opción múltiple y verdadero/falso',
+  },
+  {
+    id: 'parte-cortas',
+    nombre: 'Preguntas cortas',
+    tipos: ['corta'],
+    icono: '✍️',
+    desc: 'Preguntas de respuesta breve',
+  },
+  {
+    id: 'parte-desarrollo',
+    nombre: 'Preguntas de desarrollo',
+    tipos: ['desarrollo'],
+    icono: '🧠',
+    desc: 'Preguntas teóricas de desarrollo',
+  },
+];
+
+function getExamParts(subject, questions) {
+  const configuredParts = subject?.estructuraExamen || [];
+
+  if (configuredParts.length > 0) {
+    return configuredParts;
+  }
+
+  return DEFAULT_EXAM_PARTS.filter(part =>
+    questions.some(q => part.tipos.includes(q.tipo))
+  );
+}
+
+function getOptionText(opcion) {
+  if (typeof opcion === 'string') return opcion;
+  if (opcion?.texto) return opcion.texto;
+  if (opcion?.label) return opcion.label;
+
+  try {
+    return JSON.stringify(opcion);
+  } catch {
+    return '';
+  }
+}
 
 export default function ExamPartPage() {
   const { asignaturaId, parteId } = useParams();
   const subject = publicLibrary.getSubject(asignaturaId);
   const questions = publicLibrary.getQuestionBank(asignaturaId);
 
-  // ── Hooks ──────────────────────────────────────────────
+  const examParts = useMemo(
+    () => getExamParts(subject, questions),
+    [subject, questions]
+  );
+
+  const part = examParts.find(p => p.id === parteId);
+
+  usePageTitle(
+    subject && part
+      ? `${part.nombre} · Examen · ${subject.abreviatura}`
+      : 'Examen'
+  );
+
   const [selectedTema, setSelectedTema] = useState('todos');
   const [selectedGroup, setSelectedGroup] = useState('todos');
   const [selectedOrigen, setSelectedOrigen] = useState('todos');
   const [selectedRevision, setSelectedRevision] = useState('todos');
   const [searchText, setSearchText] = useState('');
 
-  const examParts = useMemo(() => subject?.estructuraExamen || [], [subject]);
-  const part = examParts.find(p => p.id === parteId) || { tipos: [] };
+  const temas = subject?.temas || [];
 
-  const baseQuestions = useMemo(
-    () => questions.filter(q => part.tipos.includes(q.tipo)),
-    [questions, part]
-  );
+  const baseQuestions = useMemo(() => {
+    if (!part) return [];
+    return questions.filter(q => part.tipos.includes(q.tipo));
+  }, [questions, part]);
 
-  const temaMap = useMemo(
-    () => Object.fromEntries((subject.temas || []).map(t => [t.id, t])),
-    [subject.temas]
-  );
+  const grupos = useMemo(() => {
+    const values = baseQuestions
+      .map(q => q.grupoTematico || q.patronRelacionado)
+      .filter(Boolean);
 
-  const filteredQuestions = useMemo(
-    () =>
-      baseQuestions.filter(q => {
-        // filtro por tema
-        if (selectedTema !== 'todos') {
-          const temas = q.temaIds?.length ? q.temaIds : [q.temaPrincipalId];
-          if (!temas?.includes(selectedTema)) return false;
-        }
+    return [...new Set(values)].sort((a, b) => a.localeCompare(b));
+  }, [baseQuestions]);
 
-        // filtro por grupo
-        if (selectedGroup !== 'todos') {
-          const grupo = q.grupoTematico || q.patronRelacionado || null;
-          if (grupo !== selectedGroup) return false;
-        }
+  const filteredQuestions = useMemo(() => {
+    return baseQuestions.filter(q => {
+      if (selectedTema !== 'todos') {
+        const temasPregunta = q.temaIds?.length ? q.temaIds : [q.temaPrincipalId];
+        if (!temasPregunta?.includes(selectedTema)) return false;
+      }
 
-        // filtro por origen
-        if (selectedOrigen !== 'todos' && q.origen !== selectedOrigen) return false;
+      if (selectedGroup !== 'todos') {
+        const grupo = q.grupoTematico || q.patronRelacionado || null;
+        if (grupo !== selectedGroup) return false;
+      }
 
-        // filtro por revisión
-        if (selectedRevision === 'verificadas' && !q.verificada) return false;
-        if (selectedRevision === 'pendientes' && q.verificada === true) return false;
-        if (selectedRevision === 'revision' && !q.requiereRevision) return false;
+      if (selectedOrigen !== 'todos' && q.origen !== selectedOrigen) {
+        return false;
+      }
 
-        // filtro por palabra clave
-        if (searchText?.trim()) {
-          const search = searchText.toLowerCase().trim();
-          const opcionesText = Array.isArray(q.opciones) ? q.opciones.join(' ') : '';
-          const searchableText = [
-            q.enunciado,
-            q.respuesta,
-            q.respuestaModelo,
-            q.solucionOrientativa,
-            q.explicacion,
-            opcionesText,
-          ]
-            .filter(Boolean)
-            .join(' ')
-            .toLowerCase();
+      if (selectedRevision === 'verificadas' && !q.verificada) {
+        return false;
+      }
 
-          if (!searchableText.includes(search)) return false;
-        }
+      if (selectedRevision === 'pendientes' && q.verificada === true) {
+        return false;
+      }
 
-        return true;
-      }),
-    [
-      baseQuestions,
-      selectedTema,
-      selectedGroup,
-      selectedOrigen,
-      selectedRevision,
-      searchText,
-      part,
-    ]
-  );
+      if (selectedRevision === 'revision' && !q.requiereRevision) {
+        return false;
+      }
+
+      if (searchText?.trim()) {
+        const search = searchText.toLowerCase().trim();
+
+        const opcionesText = Array.isArray(q.opciones)
+          ? q.opciones.map(getOptionText).join(' ')
+          : '';
+
+        const searchableText = [
+          q.enunciado,
+          q.respuesta,
+          q.respuestaModelo,
+          q.solucionOrientativa,
+          q.explicacion,
+          opcionesText,
+        ]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+
+        if (!searchableText.includes(search)) return false;
+      }
+
+      return true;
+    });
+  }, [
+    baseQuestions,
+    selectedTema,
+    selectedGroup,
+    selectedOrigen,
+    selectedRevision,
+    searchText,
+  ]);
+
+  const clearFilters = () => {
+    setSelectedTema('todos');
+    setSelectedGroup('todos');
+    setSelectedOrigen('todos');
+    setSelectedRevision('todos');
+    setSearchText('');
+  };
+
+  const hasActiveFilters =
+    selectedTema !== 'todos' ||
+    selectedGroup !== 'todos' ||
+    selectedOrigen !== 'todos' ||
+    selectedRevision !== 'todos' ||
+    searchText.trim();
+
+  if (!subject) {
+    return <div className="page-error">Asignatura no encontrada</div>;
+  }
+
+  if (!part) {
+    return (
+      <div className="exam-part-page">
+        <nav className="breadcrumb" aria-label="Navegación">
+          <Link to="/">Inicio</Link>
+          <span className="breadcrumb-sep" aria-hidden="true">›</span>
+          <Link to={`/asignatura/${asignaturaId}`} style={{ color: subject.color }}>
+            {subject.abreviatura}
+          </Link>
+          <span className="breadcrumb-sep" aria-hidden="true">›</span>
+          <Link to={`/asignatura/${asignaturaId}/examen`}>Examen</Link>
+          <span className="breadcrumb-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Parte no encontrada</span>
+        </nav>
+
+        <div className="page-error">
+          <p>No se ha encontrado esta parte del examen.</p>
+          <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
+            ← Volver al examen de {subject.abreviatura}
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="exam-part-page">
+      <nav className="breadcrumb" aria-label="Navegación">
+        <Link to="/">Inicio</Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <Link to={`/asignatura/${asignaturaId}`} style={{ color: subject.color }}>
+          {subject.abreviatura}
+        </Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <Link to={`/asignatura/${asignaturaId}/examen`}>Examen</Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">{part.nombre}</span>
+      </nav>
+
+      <header className="exam-part-header">
+        <div className="exam-part-header-top">
+          <div className="exam-part-title">
+            <span className="exam-part-title-icon">{part.icono || '📝'}</span>
+            <div>
+              <h1>{part.nombre}</h1>
+              <p className="exam-part-subtitle">
+                {part.desc || `Practica preguntas de ${subject.abreviatura}`}
+              </p>
+            </div>
+          </div>
+
+          <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
+            ← Volver al examen de {subject.abreviatura}
+          </Link>
+        </div>
+      </header>
+
       <div className="exam-filters">
         <div className="exam-filters-row">
-          {/* Buscador de palabras */}
           <input
             type="text"
             className="exam-filter-search"
             placeholder="Buscar palabra clave..."
             value={searchText}
             onChange={e => setSearchText(e.target.value)}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                setSearchText(e.target.value); // refresca el filtro
-              }
-            }}
           />
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => {
-              // fuerza actualización del filtro
-              setSearchText(searchText);
-            }}
-          >
-            🔍 Buscar
-          </button>
 
-          {/* Select tema */}
           <select
             className="exam-filter-select"
             value={selectedTema}
             onChange={e => setSelectedTema(e.target.value)}
           >
             <option value="todos">Todos los temas</option>
-            {subject.temas?.map(t => (
+            {temas.map(t => (
               <option key={t.id} value={t.id}>
-                {t.titulo}
+                Tema {t.numero}. {t.titulo}
               </option>
             ))}
           </select>
 
-          {/* Select origen */}
+          {grupos.length > 0 && (
+            <select
+              className="exam-filter-select"
+              value={selectedGroup}
+              onChange={e => setSelectedGroup(e.target.value)}
+            >
+              <option value="todos">Todos los grupos</option>
+              {grupos.map(g => (
+                <option key={g} value={g}>
+                  {g}
+                </option>
+              ))}
+            </select>
+          )}
+
           <select
             className="exam-filter-select"
             value={selectedOrigen}
@@ -135,11 +274,13 @@ export default function ExamPartPage() {
           >
             <option value="todos">Todos los orígenes</option>
             <option value="examen_real">📝 Examen real</option>
+            <option value="modelo_examen">📄 Modelo de examen</option>
+            <option value="autoevaluacion">✅ Autoevaluación</option>
+            <option value="indicada_clase">🎓 Indicada en clase</option>
+            <option value="recopilada">📚 Recopilada</option>
             <option value="generada_ia">🤖 Generada IA</option>
-            <option value="recopiladas">📚 Recopiladas</option>
           </select>
 
-          {/* Select revisión */}
           <select
             className="exam-filter-select"
             value={selectedRevision}
@@ -150,13 +291,44 @@ export default function ExamPartPage() {
             <option value="pendientes">Pendientes</option>
             <option value="revision">Requiere revisión</option>
           </select>
+
+          {hasActiveFilters && (
+            <button
+              type="button"
+              className="btn btn-ghost exam-filter-clear"
+              onClick={clearFilters}
+            >
+              Limpiar filtros
+            </button>
+          )}
         </div>
+      </div>
+
+      <div className="exam-part-count-bar">
+        <span>
+          Mostrando{' '}
+          <span className="exam-part-count-num">{filteredQuestions.length}</span>
+          {' '}de{' '}
+          <span className="exam-part-count-num">{baseQuestions.length}</span>
+          {' '}pregunta{baseQuestions.length !== 1 ? 's' : ''}
+        </span>
       </div>
 
       <div className="exam-part-list">
         {filteredQuestions.length === 0 ? (
           <div className="exam-filter-empty">
-            <p>No hay preguntas con los filtros seleccionados.</p>
+            <p>No hay preguntas con estos filtros.</p>
+            <p>Prueba a limpiar los filtros o cambiar el tipo de búsqueda.</p>
+
+            {hasActiveFilters && (
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={clearFilters}
+              >
+                Limpiar filtros
+              </button>
+            )}
           </div>
         ) : (
           filteredQuestions.map(q => (
@@ -166,9 +338,9 @@ export default function ExamPartPage() {
       </div>
 
       <div className="exam-part-footer">
-        <span className="exam-filter-count">
-          {filteredQuestions.length} pregunta{filteredQuestions.length !== 1 ? 's' : ''}
-        </span>
+        <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
+          ← Volver al examen
+        </Link>
       </div>
     </div>
   );

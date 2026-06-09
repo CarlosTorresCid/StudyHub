@@ -5,6 +5,7 @@ import { questionService } from '../services/questionService';
 import { examService } from '../services/examService';
 import { progressService } from '../services/progressService';
 import { exportTopicToWord, exportQuestionsToWord } from '../utils/exportToWord';
+import { usePageTitle } from '../hooks/usePageTitle';
 import FlashcardsTab from '../components/FlashcardsTab';
 import TestTab from '../components/TestTab';
 import QuestionFilter from '../components/QuestionFilter';
@@ -35,6 +36,11 @@ const [questionFilters, setQuestionFilters] = useState({
   const tema = subject?.temas?.find(t => t.id === temaId);
   const content = publicLibrary.getTemaContent(asignaturaId, temaId);
 
+  const pageTitle = subject && tema
+    ? `Tema ${tema.numero} · ${subject.abreviatura}`
+    : subject?.abreviatura ?? null;
+  usePageTitle(pageTitle);
+
   useEffect(() => {
     if (tema) progressService.marcarTemaVisto(asignaturaId, temaId);
   }, [asignaturaId, temaId, tema]);
@@ -54,6 +60,7 @@ const [questionFilters, setQuestionFilters] = useState({
 
   const bankQuestions = questionService.getByTema(asignaturaId, temaId);
   const bankFormatted = questionService.toTestTabFormat(bankQuestions);
+  const temaStats = progressService.getEstadisticasTema(asignaturaId, temaId);
 
 const applyFilter = (preguntas) => {
   const filterList = (arr) =>
@@ -154,22 +161,47 @@ const applyFilter = (preguntas) => {
 
   return (
     <div className="topic-page">
-      <div className="topic-breadcrumb">
+      <nav className="breadcrumb" aria-label="Navegación">
+        <Link to="/">Inicio</Link>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
         <Link to={`/asignatura/${asignaturaId}`} style={{ color: subject.color }}>
           {subject.abreviatura}
         </Link>
-        <span> / </span>
-        <span>Tema {tema.numero}</span>
-      </div>
+        <span className="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Tema {tema.numero}</span>
+      </nav>
 
       <div className="topic-header">
         <div>
           <h1>Tema {tema.numero}. {tema.titulo}</h1>
 
           {tema.importanciaExamen && (
-            <span className={`badge badge-${tema.importanciaExamen}`}>
+            <span className={`badge badge-${tema.importanciaExamen}`} style={{ marginTop: 6, display: 'inline-flex' }}>
               Importancia: {tema.importanciaExamen}
             </span>
+          )}
+        </div>
+
+        <div className="topic-download-actions">
+          <button
+            type="button"
+            className="btn btn-download"
+            onClick={handleDownloadTema}
+            disabled={!content}
+            title="Descargar apuntes en Word"
+          >
+            ⬇ Temario
+          </button>
+
+          {bankQuestions.length > 0 && (
+            <button
+              type="button"
+              className="btn btn-download"
+              onClick={handleDownloadPreguntas}
+              title="Descargar preguntas en Word"
+            >
+              ⬇ Preguntas
+            </button>
           )}
         </div>
       </div>
@@ -197,27 +229,6 @@ const applyFilter = (preguntas) => {
         })}
       </div>
 
-        <div className="topic-download-actions">
-        <button
-          type="button"
-          className="btn btn-download"
-          onClick={handleDownloadTema}
-          disabled={!content}
-        >
-          ⬇ Descargar temario
-        </button>
-
-        {bankQuestions.length > 0 && (
-          <button
-            type="button"
-            className="btn btn-download"
-            onClick={handleDownloadPreguntas}
-          >
-            ⬇ Descargar preguntas
-          </button>
-        )}
-      </div>
-
       <div className="topic-content">
         {tab === 'apuntes' && (
           content?.apuntes
@@ -243,6 +254,30 @@ const applyFilter = (preguntas) => {
 
         {tab === 'preguntas' && (
           <>
+            {temaStats ? (
+              <div className="topic-stats-summary">
+                <span>
+                  ✅ Último:&nbsp;
+                  <strong>
+                    {Math.round((temaStats.ultimo.aciertos / temaStats.ultimo.total) * 100)}%
+                  </strong>
+                </span>
+                <span>
+                  🏆 Mejor:&nbsp;
+                  <strong>
+                    {Math.round((temaStats.mejor.aciertos / temaStats.mejor.total) * 100)}%
+                  </strong>
+                </span>
+                <span>
+                  📊 {temaStats.total} test{temaStats.total !== 1 ? 's' : ''} realizado{temaStats.total !== 1 ? 's' : ''}
+                </span>
+              </div>
+            ) : totalPreguntas > 0 ? (
+              <p className="topic-stats-empty">
+                Completa un test para ver tu progreso en este tema.
+              </p>
+            ) : null}
+
             {(bankQuestions.length > 0 || partes.length > 0) && (
               <div className="topic-q-header">
                 {bankQuestions.length > 0 && (
