@@ -94,7 +94,65 @@ function getConfig(asignaturaId) {
   return configs[asignaturaId] || {};
 }
 
+
+
 // ── API pública ──────────────────────────────────────────────────────────────
+
+const AAMD_EXAM_MODELS = [
+  { id: '2025-modelo-a', nombre: '2025 Modelo A', orden: 1 },
+  { id: '2025-modelo-b-ext', nombre: '2025 Modelo B ext', orden: 2 },
+  { id: '2025-modelo-c', nombre: '2025 Modelo C', orden: 3 },
+  { id: '2025-modelo-d-ext', nombre: '2025 Modelo D ext', orden: 4 },
+  { id: '2025-modelo-d', nombre: '2025 Modelo D', orden: 5 },
+  { id: 'simulacro', nombre: 'Simulacro', orden: 6 },
+];
+
+function normalizeExamModelId(value = '') {
+  const v = String(value).toLowerCase();
+
+  if (v.includes('simulacro')) return 'simulacro';
+
+  if (v.includes('b') && (v.includes('ext') || v.includes('extra'))) {
+    return '2025-modelo-b-ext';
+  }
+
+  if (v.includes('d') && (v.includes('ext') || v.includes('extra') || v.includes('d2'))) {
+    return '2025-modelo-d-ext';
+  }
+
+  if (v.includes('modelo-a') || v.includes('ordinaria-a') || v.endsWith('-a')) {
+    return '2025-modelo-a';
+  }
+
+  if (v.includes('modelo-c') || v.includes('ordinaria-c') || v.endsWith('-c')) {
+    return '2025-modelo-c';
+  }
+
+  if (v.includes('modelo-d') || v.includes('ordinaria-d') || v.endsWith('-d')) {
+    return '2025-modelo-d';
+  }
+
+  return v || null;
+}
+
+function getQuestionExamModelId(q) {
+  return normalizeExamModelId(
+    q.modeloExamenId ||
+    q.carpetaPrincipalId ||
+    q.seccionExamenId ||
+    q.etiquetaVisible ||
+    ''
+  );
+}
+
+function getQuestionExamModelName(q) {
+  const id = getQuestionExamModelId(q);
+  return AAMD_EXAM_MODELS.find(m => m.id === id)?.nombre || q.modeloExamenNombre || q.carpetaPrincipalNombre || id;
+}
+
+function isRealExamPracticeQuestion(q) {
+  return q.esPreguntaTipo !== true;
+}
 
 export const publicLibrary = {
   // Todas las asignaturas con sus temas (autodescubiertos), estructura de examen e infoExamen
@@ -110,6 +168,46 @@ export const publicLibrary = {
       };
     });
   },
+
+
+  getExamModels(asignaturaId, parteId) {
+  const subjectQuestions = this.getQuestionBank(asignaturaId);
+
+  const modelIds = new Set(
+    subjectQuestions
+      .filter(q => q.parteExamenId === parteId)
+      .filter(isRealExamPracticeQuestion)
+      .map(getQuestionExamModelId)
+      .filter(Boolean)
+  );
+
+  return AAMD_EXAM_MODELS
+    .filter(model => modelIds.has(model.id))
+    .map(model => {
+      const count = subjectQuestions.filter(q =>
+        q.parteExamenId === parteId &&
+        getQuestionExamModelId(q) === model.id &&
+        isRealExamPracticeQuestion(q)
+      ).length;
+
+      return {
+        ...model,
+        count,
+      };
+    });
+},
+
+getQuestionsByParteAndModel(asignaturaId, parteId, modeloId) {
+  return this.getQuestionBank(asignaturaId)
+    .filter(q => q.parteExamenId === parteId)
+    .filter(isRealExamPracticeQuestion)
+    .filter(q => getQuestionExamModelId(q) === modeloId)
+    .sort((a, b) => {
+      const ordenA = a.ordenPregunta ?? a.convocatorias?.[0]?.numeroPregunta ?? 999;
+      const ordenB = b.ordenPregunta ?? b.convocatorias?.[0]?.numeroPregunta ?? 999;
+      return ordenA - ordenB;
+    });
+},
 
   // Una asignatura por ID
   getSubject(id) {

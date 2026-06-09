@@ -54,7 +54,7 @@ function getOptionText(opcion) {
 }
 
 export default function ExamPartPage() {
-  const { asignaturaId, parteId } = useParams();
+  const { asignaturaId, parteId, modeloId } = useParams();
   const subject = publicLibrary.getSubject(asignaturaId);
   const questions = publicLibrary.getQuestionBank(asignaturaId);
 
@@ -78,14 +78,24 @@ export default function ExamPartPage() {
   const [searchText, setSearchText] = useState('');
 
   const temas = subject?.temas || [];
-
-  const baseQuestions = useMemo(() => {
+ 
+  const examModels = useMemo(() => {
     if (!part) return [];
-    return questions.filter(q => part.tipos.includes(q.tipo));
-  }, [questions, part]);
+    return publicLibrary.getExamModels(asignaturaId, parteId);
+  }, [asignaturaId, parteId, part]);
+ 
+const baseQuestions = useMemo(() => {
+  if (!part) return [];
+
+  if (modeloId) {
+    return publicLibrary.getQuestionsByParteAndModel(asignaturaId, parteId, modeloId);
+  }
+
+  return questions.filter(q => q.parteExamenId === parteId && q.esPreguntaTipo !== true);
+}, [questions, part, asignaturaId, parteId, modeloId]);
 
   const grupos = useMemo(() => {
-    const values = baseQuestions
+  const values = baseQuestions
       .map(q => q.grupoTematico || q.patronRelacionado)
       .filter(Boolean);
 
@@ -228,6 +238,39 @@ export default function ExamPartPage() {
           </Link>
         </div>
       </header>
+
+      {!modeloId && (
+  <>
+    <div className="exam-model-grid">
+      {examModels.map(model => (
+        <Link
+          key={model.id}
+          to={`/asignatura/${asignaturaId}/examen/${parteId}/${model.id}`}
+          className="exam-model-card"
+        >
+          <div className="exam-model-card-title">{model.nombre}</div>
+          <div className="exam-model-card-meta">
+            {model.count} {model.count === 1 ? 'pregunta' : 'preguntas'}
+          </div>
+        </Link>
+      ))}
+    </div>
+
+    <div className="exam-part-footer">
+      <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
+        ← Volver al examen
+      </Link>
+    </div>
+  </>
+)}
+
+{modeloId && (
+  <>
+    {/* filtros */}
+    {/* contador */}
+    {/* lista de preguntas */}
+  </>
+)}
 
       <div className="exam-filters">
         <div className="exam-filters-row">

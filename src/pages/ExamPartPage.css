@@ -1,6 +1,8 @@
 .exam-part-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 40px;
-  max-width: 900px;
 }
 
 .exam-part-header {
@@ -227,4 +229,38 @@
 .exam-filter-search:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+.exam-model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.exam-model-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.exam-model-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--surface2);
+}
+
+.exam-model-card-title {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.exam-model-card-meta {
+  font-size: 13px;
+  color: var(--text-muted);
 }

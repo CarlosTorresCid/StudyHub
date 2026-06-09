@@ -1,26 +1,21 @@
 {
   "id": "aamd",
-  "estructuraExamen": [
-    {
-      "id": "parte-test",
-      "nombre": "Tipo test",
-      "tipos": [
-        "test"
-      ],
-      "icono": "🔤",
-      "desc": "Preguntas de opción múltiple"
-    },
-    {
-      "id": "parte-desarrollo",
-      "nombre": "Preguntas de desarrollo",
-      "tipos": [
-        "desarrollo",
-        "practica"
-      ],
-      "icono": "🧠",
-      "desc": "Ejercicios prácticos y preguntas de desarrollo"
-    }
-  ],
+"estructuraExamen": [
+  {
+    "id": "parte-test",
+    "nombre": "Tipo test",
+    "tipos": ["test"],
+    "icono": "🔤",
+    "desc": "14 preguntas tipo test por modelo de examen"
+  },
+  {
+    "id": "parte-desarrollo",
+    "nombre": "Desarrollo",
+    "tipos": ["practica", "desarrollo"],
+    "icono": "🧠",
+    "desc": "6 preguntas de desarrollo por modelo de examen"
+  }
+],
   "infoExamen": {
     "estructura": [
       "14 preguntas tipo test, 0,5 puntos cada una: 7 puntos.",

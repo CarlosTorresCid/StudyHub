@@ -49,8 +49,10 @@
 
 /* Cuerpo principal */
 .edit-body {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 28px 32px 60px;
-  max-width: 860px;
   display: flex;
   flex-direction: column;
   gap: 20px;

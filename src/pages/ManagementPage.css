@@ -24,7 +24,12 @@
 .mgmt-lock-form { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 8px; }
 .mgmt-error { font-size: 13px; color: var(--danger); }
 
-.mgmt-page { padding: 40px; max-width: 1000px; }
+.mgmt-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
 
 .mgmt-breadcrumb {
   font-size: 13px;

@@ -1,4 +1,9 @@
-.sim-setup-page { padding: 40px; max-width: 800px; }
+.sim-setup-page {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+}
 
 .sim-setup-hero {
   display: flex;
