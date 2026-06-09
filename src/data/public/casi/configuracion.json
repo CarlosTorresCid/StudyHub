@@ -15,5 +15,12 @@
       "icono": "✍️",
       "desc": "Preguntas de respuesta abierta"
     }
-  ]
+  ],
+  "infoExamen": {
+    "estructura": [
+      "10 preguntas tipo test (0,4 pts. x 10) · 4 puntos",
+      "4 preguntas de desarrollo (1,5 pts. x 4) · 6 puntos"
+    ],
+    "penalizacionTest": "Las respuestas incorrectas no restan"
+  }
 }

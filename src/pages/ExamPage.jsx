@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import { exportQuestionsByBlocksToWord } from '../utils/exportToWord';
+import ExamInfoCard from '../components/ExamInfoCard';
 import './SubjectPage.css';
 
 const DEFAULT_EXAM_PARTS = [
@@ -82,6 +83,8 @@ export default function ExamPage() {
           )}
         </div>
       </div>
+
+      <ExamInfoCard info={subject.infoExamen} />
 
       {totalQuestions === 0 ? (
         <div className="subject-empty">

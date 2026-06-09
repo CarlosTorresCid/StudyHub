@@ -15,5 +15,11 @@
       "icono": "🧪",
       "desc": "Problemas PROB1-PROB2 del examen"
     }
-  ]
+  ],
+  "infoExamen": {
+    "estructura": [
+      "4 preguntas de respuesta abierta (1,5 pts. x 4) · 6 puntos",
+      "2 problemas prácticos (2 pts. x 2) · 4 puntos"
+    ]
+  }
 }

@@ -14,7 +14,7 @@
 
 import asignaturasData from '../data/public/asignaturas.json';
 
-// Configuraciones de cada asignatura (contiene estructuraExamen)
+// Configuraciones de cada asignatura (contiene estructuraExamen e infoExamen)
 const configModules = import.meta.glob('../data/public/*/configuracion.json', { eager: true });
 
 // Contenidos de temas — FUENTE de la lista de temas públicos
@@ -23,7 +23,7 @@ const contentModules = import.meta.glob('../data/public/*/temas/*.json', { eager
 // Preguntas públicas
 const questionModules = import.meta.glob('../data/public/*/preguntas/*.json', { eager: true });
 
-// ── Índice de configuraciones { smpc: { id, estructuraExamen }, ... } ──────
+// ── Índice de configuraciones { smpc: { id, estructuraExamen, infoExamen }, ... } ──────
 const configs = {};
 Object.entries(configModules).forEach(([path, mod]) => {
   const match = path.match(/\/public\/([^/]+)\/configuracion\.json/);
@@ -36,8 +36,10 @@ const contents = {};
 Object.entries(contentModules).forEach(([path, mod]) => {
   const match = path.match(/\/public\/([^/]+)\/temas\/.+\.json$/);
   if (!match) return;
+
   const asigId = match[1];
   const data = mod.default ?? mod;
+
   if (data?.temaId) {
     if (!contents[asigId]) contents[asigId] = {};
     contents[asigId][data.temaId] = data;
@@ -49,9 +51,13 @@ const questions = {};
 Object.entries(questionModules).forEach(([path, mod]) => {
   const match = path.match(/\/public\/([^/]+)\/preguntas\/.+\.json$/);
   if (!match) return;
+
   const asigId = match[1];
+
   if (!questions[asigId]) questions[asigId] = [];
+
   const data = mod.default ?? mod;
+
   if (Array.isArray(data)) questions[asigId].push(...data);
   else if (data) questions[asigId].push(data);
 });
@@ -67,6 +73,7 @@ function extractNumero(temaId) {
 // Ordena: primero los que tienen número (asc), luego el resto (alfa por título).
 function buildTemasFromContents(asigId) {
   const subjectContents = contents[asigId] || {};
+
   const temas = Object.values(subjectContents).map(c => ({
     id: c.temaId,
     numero: extractNumero(c.temaId),
@@ -78,30 +85,44 @@ function buildTemasFromContents(asigId) {
     if (a.numero !== null && b.numero !== null) return a.numero - b.numero;
     if (a.numero !== null) return -1;
     if (b.numero !== null) return 1;
+
     return (a.titulo || '').localeCompare(b.titulo || '');
   });
+}
+
+function getConfig(asignaturaId) {
+  return configs[asignaturaId] || {};
 }
 
 // ── API pública ──────────────────────────────────────────────────────────────
 
 export const publicLibrary = {
-  // Todas las asignaturas con sus temas (autodescubiertos) y estructura de examen
+  // Todas las asignaturas con sus temas (autodescubiertos), estructura de examen e infoExamen
   getSubjects() {
-    return asignaturasData.map(a => ({
-      ...a,
-      temas: buildTemasFromContents(a.id),
-      estructuraExamen: configs[a.id]?.estructuraExamen || [],
-    }));
+    return asignaturasData.map(a => {
+      const config = getConfig(a.id);
+
+      return {
+        ...a,
+        temas: buildTemasFromContents(a.id),
+        estructuraExamen: config.estructuraExamen || [],
+        infoExamen: config.infoExamen || null,
+      };
+    });
   },
 
   // Una asignatura por ID
   getSubject(id) {
     const base = asignaturasData.find(a => a.id === id);
     if (!base) return null;
+
+    const config = getConfig(id);
+
     return {
       ...base,
       temas: buildTemasFromContents(id),
-      estructuraExamen: configs[id]?.estructuraExamen || [],
+      estructuraExamen: config.estructuraExamen || [],
+      infoExamen: config.infoExamen || null,
     };
   },
 
@@ -123,9 +144,8 @@ export const publicLibrary = {
     return this.getQuestions(asignaturaId).filter(q => q.parteExamenId === parteId);
   },
 
-  // Banco global de preguntas de una asignatura (banco-preguntas.json).
-  // Devuelve [] si no existe. Equivale a getQuestions porque el único
-  // archivo de preguntas por asignatura es banco-preguntas.json.
+  // Banco global de preguntas de una asignatura.
+  // Devuelve [] si no existe.
   getQuestionBank(asignaturaId) {
     return questions[asignaturaId] || [];
   },

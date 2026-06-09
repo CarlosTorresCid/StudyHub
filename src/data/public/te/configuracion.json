@@ -1,1 +1,11 @@
-{ "id": "te", "estructuraExamen": [] }
+{
+  "id": "te",
+  "estructuraExamen": [],
+  "infoExamen": {
+    "estructura": [
+      "Preguntas tipo test sobre los contenidos de los temas · puntuación total variable",
+      "1 caso práctico de aplicación tecnológica (sensores, comunicaciones, IoT) · puntuación total variable"
+    ],
+    "penalizacionTest": "Las respuestas incorrectas no restan"
+  }
+}

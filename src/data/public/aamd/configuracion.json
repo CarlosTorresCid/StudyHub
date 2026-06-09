@@ -1,1 +1,11 @@
-{ "id": "aamd", "estructuraExamen": [] }
+{
+  "id": "aamd",
+  "estructuraExamen": [],
+  "infoExamen": {
+    "estructura": [
+      "14 preguntas tipo test (0,5 pts. x 14) · 7 puntos",
+      "6 preguntas de desarrollo · 3 puntos"
+    ],
+    "penalizacionTest": "No se especifica penalización por respuestas incorrectas en la información disponible"
+  }
+}
