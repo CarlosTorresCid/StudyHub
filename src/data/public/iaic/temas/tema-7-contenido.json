@@ -1,0 +1,198 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-7",
+  "titulo": "Tema 7. Aprendizaje no supervisado",
+  "apuntes": {
+    "introduccion": "El Tema 7 se centra en el aprendizaje no supervisado, la otra gran rama del aprendizaje automático junto con el supervisado visto en el Tema 6. A diferencia del supervisado, aquí los datos no tienen etiquetas ni clase conocida: el objetivo es descubrir patrones, estructuras o agrupaciones ocultas en los datos. Se estudia en detalle el algoritmo de clustering más popular, K-medias (K-means), su funcionamiento, sus propiedades y sus limitaciones.",
+    "secciones": [
+      {
+        "titulo": "Aprendizaje no supervisado: concepto y diferencia con el supervisado",
+        "contenido": "En el **aprendizaje no supervisado** los datos de entrada no están etiquetados: no hay una clase o atributo objetivo conocido. El algoritmo busca información, relaciones y patrones que existen en los datos sin que nadie le haya dicho de antemano cómo agruparlos.\n\nLa tarea es diferente al supervisado:\n- **Supervisado**: los datos tienen clase/etiqueta. El sistema aprende a predecir o clasificar nuevas instancias.\n- **No supervisado**: los datos no tienen etiqueta. El sistema descubre información oculta, agrupa instancias similares o detecta anomalías.\n\n**Clave para identificarlo en el examen**: si el enunciado describe un dataset *sin clase* o *sin etiquetas*, o habla de *analizar*, *estudiar* o *descubrir* grupos sin saber previamente a qué grupo pertenece cada instancia → aprendizaje no supervisado → algoritmo como K-medias.\n\nEjemplos de situaciones de aprendizaje no supervisado:\n- Un conjunto de datos de plantas sin clasificar que se quiere agrupar por parecido.\n- Segmentar clientes de una tienda en grupos según su comportamiento de compra sin conocer previamente los grupos.\n- Detectar comportamientos atípicos en transacciones bancarias (anomalías).\n- Analizar tipos desconocidos de organismos."
+      },
+      {
+        "titulo": "Clustering: concepto y tipos",
+        "contenido": "El **clustering** (o agrupación) es la técnica de aprendizaje no supervisado más común. Un **cluster** es un conjunto de entidades que están a poca distancia unas de otras.\n\nLos ejemplos se representan como puntos en un espacio n-dimensional (un punto por instancia, con tantas coordenadas como atributos tiene). Los clusters son grupos de puntos cercanos entre sí.\n\n**Tipos de clustering**:\n- **Clustering plano**: el algoritmo devuelve una partición directa de los datos en k grupos. K-medias es de este tipo.\n- **Clustering jerárquico**: genera una jerarquía de clusters. El resultado suele visualizarse como un **dendrograma** que muestra cómo los clusters se combinan o dividen a diferentes niveles.\n\n**Medidas de calidad**:\n- **Medida de agrupación interna**: evalúa la calidad de los clusters sin usar información de clases. Da mejor puntuación a clusters con alta similitud interna (puntos cercanos dentro del mismo cluster) y baja similitud entre clusters diferentes.\n- **Medida de agrupación externa**: evalúa los clusters comparándolos con etiquetas de clase reales (si se tienen). Si los datos realmente tienen etiquetas, un algoritmo supervisado suele ser mejor opción.\n\n**Aplicaciones del clustering**:\n- Segmentación de instancias (descubrimiento de grupos naturales).\n- Detección de anomalías (identificación de comportamientos atípicos).\n- Diagnóstico automatizado en medicina.\n- Monitorización de poblaciones."
+      },
+      {
+        "titulo": "Distancias en clustering",
+        "contenido": "Para agrupar instancias es necesario definir una **medida de distancia** que cuantifique la similitud o disimilitud entre dos puntos.\n\n**Distancia euclídea**: la más utilizada. Mide la longitud del segmento recto que une dos puntos en un espacio n-dimensional. En 2D es la distancia geométrica habitual.\n\nLa distancia euclídea funciona bien cuando los clusters tienen forma **esférica** (o hiperesferas en n dimensiones), ya que el centroide se posicionará naturalmente en el centro.\n\n**Limitación**: la distancia euclídea no es apropiada para todos los problemas. Si los clusters tienen formas alargadas o irregulares, los extremos de un cluster pueden estar más lejos entre sí que de puntos de otro cluster, dando resultados erróneos. En esos casos se pueden usar distancias en espacios kernelizados u otros algoritmos menos sensibles a esta situación.\n\nLa elección de la medida de distancia es un aspecto clave para obtener buenos resultados en clustering."
+      },
+      {
+        "titulo": "Algoritmo K-medias (K-means): concepto",
+        "contenido": "El **algoritmo K-medias** (K-means) es uno de los algoritmos de clustering más populares por su sencillez y fácil implementación. Consiste en separar el espacio de representación en **k regiones**, cada una definida por un **centroide** (generalmente la media de los puntos del cluster).\n\nLas regiones resultantes se llaman **regiones de Voronoi**: todos los puntos de una misma región están a menor distancia de su centroide que de cualquier otro centroide. Las fronteras entre regiones son hiperplanos perpendiculares al segmento que une dos centroides adyacentes y equidistantes a ellos.\n\nLa métrica que K-medias optimiza es la **suma de las distancias de cada punto a su centroide más cercano** (suma de distancias intracluster): minimizar ∑∑ d(x, μᵢ), donde k es el número de clusters, Xᵢ el conjunto de puntos del cluster i, μᵢ el centroide del cluster i y d la función de distancia.\n\n**Parámetros**: K-medias tiene dos parámetros esenciales: el **número de clusters k** y la **posición inicial de los centroides**. Ambos son cruciales y deben elegirse con cuidado."
+      },
+      {
+        "titulo": "Algoritmo de Lloyd: pasos de K-medias",
+        "contenido": "La implementación estándar de K-medias es el **algoritmo de Lloyd**, que funciona de forma iterativa:\n\n**Paso 1 — Inicialización**: elegir el valor de k y colocar k centroides en posiciones aleatorias del espacio.\n\n**Paso 2 — Asignación**: para cada instancia (punto), asignarla al cluster cuyo centroide sea el más cercano (según la medida de distancia elegida).\n\n**Paso 3 — Actualización**: una vez que todas las instancias han sido asignadas a un cluster, recalcular el centroide de cada cluster como la media aritmética de todos los puntos que pertenecen a ese cluster. El centroide se mueve a su nueva posición.\n\n**Paso 4 — Repetición**: repetir los pasos 2 y 3 hasta que ninguna instancia cambie de cluster entre dos iteraciones consecutivas (convergencia).\n\nCuando el algoritmo converge, se ha alcanzado un **óptimo local** para ese valor de k y esa inicialización. No hay garantías de alcanzar el **óptimo global**."
+      },
+      {
+        "titulo": "Propiedades y limitaciones de K-medias",
+        "contenido": "**Propiedades**:\n- K-medias **garantiza converger** a un óptimo local (la suma de distancias intracluster no puede crecer entre iteraciones).\n- **No garantiza optimalidad global**: el resultado puede depender de la inicialización aleatoria de los centroides.\n- Es un algoritmo sencillo y eficiente para grandes volúmenes de datos con clusters de forma esférica.\n\n**Limitaciones principales**:\n\n**1. Parametrización**: tanto k como la inicialización son cruciales. Si no se tiene conocimiento previo de los datos, hay que probar sistemáticamente con varios valores de k y, para cada k, ejecutar el algoritmo múltiples veces para mitigar el impacto de una mala inicialización.\n\n**2. Optimalidad solo local**: una mala inicialización puede llevar a clusters subóptimos. Se suele ejecutar varias veces y quedarse con el mejor resultado.\n\n**3. Sensibilidad a la medida de distancia**: la distancia euclídea funciona bien para clusters esféricos pero no para clusters de forma irregular. En esos casos el algoritmo puede producir resultados erróneos.\n\n**4. Requiere especificar k de antemano**: no descubre automáticamente cuántos clusters hay. Existen métodos heurísticos para ayudar a elegir k (como el método del codo), pero no se estudian en profundidad en esta asignatura."
+      }
+    ]
+  },
+  "resumen": [
+    "El aprendizaje no supervisado trabaja con datos sin etiquetas. El objetivo es descubrir patrones, estructuras o grupos ocultos en los datos, no predecir una clase.",
+    "Si el dataset no tiene clase objetivo → aprendizaje no supervisado → algoritmo como K-medias. Si tiene clase → aprendizaje supervisado.",
+    "Clustering es la técnica de aprendizaje no supervisado más común. Un cluster es un conjunto de instancias que están cercanas entre sí en el espacio de representación.",
+    "K-medias separa el espacio en k regiones de Voronoi, cada una definida por un centroide (la media de los puntos del cluster). Cada instancia pertenece al cluster de su centroide más cercano.",
+    "El algoritmo de Lloyd (implementación de K-medias): (1) inicializar k centroides aleatoriamente; (2) asignar cada punto al centroide más cercano; (3) recalcular centroides como la media de los puntos asignados; (4) repetir hasta que ningún punto cambie de cluster.",
+    "K-medias converge a un óptimo local pero no garantiza optimalidad global. El resultado depende de la inicialización.",
+    "Los parámetros de K-medias son: el número de clusters k y la posición inicial de los centroides. Ambos son esenciales.",
+    "La distancia euclídea es la más habitual pero no es adecuada para clusters de forma irregular o alargada.",
+    "La medida de agrupación interna evalúa la calidad sin etiquetas (alta cohesión interna, baja similitud entre clusters). La medida externa contrasta con etiquetas reales si se tienen.",
+    "Aplicaciones del clustering: segmentación de clientes/instancias, detección de anomalías, diagnóstico automatizado.",
+    "El clustering jerárquico genera una jerarquía de clusters y produce un dendrograma. K-medias es clustering plano.",
+    "K-medias no garantiza el óptimo global: se recomienda ejecutar varias veces con diferentes inicializaciones y quedarse con el mejor resultado."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Aprendizaje no supervisado",
+      "definicion": "Tipo de aprendizaje automático donde los datos no tienen etiquetas ni clase conocida. El sistema descubre patrones, agrupaciones o estructuras ocultas en los datos."
+    },
+    {
+      "termino": "Clustering (agrupación)",
+      "definicion": "Técnica de aprendizaje no supervisado que agrupa instancias similares. Un cluster es un conjunto de entidades a poca distancia unas de otras en el espacio de representación."
+    },
+    {
+      "termino": "K-medias (K-means)",
+      "definicion": "Algoritmo de clustering plano que separa el espacio en k regiones (de Voronoi), cada una definida por un centroide. Cada instancia pertenece al cluster de su centroide más cercano."
+    },
+    {
+      "termino": "Centroide",
+      "definicion": "Punto representativo de un cluster, generalmente definido como la media aritmética de todos los puntos del cluster. Define la región de Voronoi del cluster."
+    },
+    {
+      "termino": "Región de Voronoi",
+      "definicion": "Cada una de las k regiones en las que K-medias divide el espacio. Todos los puntos de una región están más cerca de su centroide que de cualquier otro centroide."
+    },
+    {
+      "termino": "Algoritmo de Lloyd",
+      "definicion": "Implementación estándar de K-medias. Itera entre asignar cada punto al centroide más cercano y recalcular los centroides como la media de sus puntos, hasta convergencia."
+    },
+    {
+      "termino": "Convergencia de Lloyd",
+      "definicion": "El algoritmo de Lloyd converge cuando ningún punto cambia de cluster entre dos iteraciones consecutivas. Garantiza alcanzar un óptimo local, no el global."
+    },
+    {
+      "termino": "Parámetros de K-medias",
+      "definicion": "Número de clusters k y posición inicial de los centroides. Ambos son parámetros cruciales que afectan al resultado."
+    },
+    {
+      "termino": "Medida de agrupación interna",
+      "definicion": "Evalúa la calidad de los clusters sin información de clases. Puntúa mejor los clusters con alta similitud interna y baja similitud entre clusters diferentes."
+    },
+    {
+      "termino": "Medida de agrupación externa",
+      "definicion": "Evalúa los clusters comparándolos con etiquetas de clase reales (si se dispone de ellas). Si hay etiquetas, suele ser mejor usar aprendizaje supervisado."
+    },
+    {
+      "termino": "Distancia euclídea",
+      "definicion": "Medida de distancia más habitual en clustering. Representa la longitud del segmento recto entre dos puntos en n dimensiones. Funciona bien para clusters de forma esférica, no para formas irregulares."
+    },
+    {
+      "termino": "Clustering jerárquico",
+      "definicion": "Tipo de clustering que genera una jerarquía de agrupaciones. El resultado se visualiza como un dendrograma. Diferente al clustering plano (como K-medias)."
+    },
+    {
+      "termino": "Dendrograma",
+      "definicion": "Diagrama en árbol que representa la jerarquía de clusters obtenida por un algoritmo de clustering jerárquico."
+    },
+    {
+      "termino": "Óptimo local en K-medias",
+      "definicion": "K-medias garantiza converger a un óptimo local (el proceso de asignación y actualización nunca empeora la métrica) pero no al óptimo global. Depende de la inicialización."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-7-fc-001",
+      "pregunta": "¿Cuál es la diferencia principal entre aprendizaje supervisado y no supervisado?",
+      "respuesta": "En supervisado los datos tienen etiquetas/clase y el sistema aprende a predecir. En no supervisado los datos no tienen etiquetas y el sistema descubre patrones o grupos ocultos."
+    },
+    {
+      "id": "iaic-tema-7-fc-002",
+      "pregunta": "Si el enunciado dice que hay un dataset sin clase objetivo y se quiere agrupar las instancias, ¿qué tipo de aprendizaje y qué algoritmo usarías?",
+      "respuesta": "Aprendizaje no supervisado. Algoritmo K-medias (K-means), ya que no hay clase objetivo y se quiere descubrir grupos."
+    },
+    {
+      "id": "iaic-tema-7-fc-003",
+      "pregunta": "¿Qué es un cluster?",
+      "respuesta": "Un conjunto de entidades que están a poca distancia unas de otras en el espacio de representación. Sus instancias son similares entre sí."
+    },
+    {
+      "id": "iaic-tema-7-fc-004",
+      "pregunta": "¿Qué es K-medias y en qué tipo de regiones divide el espacio?",
+      "respuesta": "K-medias es un algoritmo de clustering que divide el espacio en k regiones de Voronoi, cada una definida por un centroide. Cada instancia pertenece al cluster de su centroide más cercano."
+    },
+    {
+      "id": "iaic-tema-7-fc-005",
+      "pregunta": "¿Cuáles son los parámetros de K-medias?",
+      "respuesta": "El número de clusters k y la posición inicial de los centroides. Ambos son esenciales y afectan directamente al resultado."
+    },
+    {
+      "id": "iaic-tema-7-fc-006",
+      "pregunta": "¿Cuáles son los 4 pasos del algoritmo de Lloyd (K-medias)?",
+      "respuesta": "(1) Elegir k y colocar k centroides aleatoriamente. (2) Asignar cada instancia al cluster cuyo centroide sea el más cercano. (3) Recalcular cada centroide como la media de sus instancias. (4) Repetir 2-3 hasta que ninguna instancia cambie de cluster."
+    },
+    {
+      "id": "iaic-tema-7-fc-007",
+      "pregunta": "¿Cuándo se detiene el algoritmo de Lloyd?",
+      "respuesta": "Cuando ningún punto cambia de cluster entre dos iteraciones consecutivas. Indica que se ha alcanzado un óptimo local."
+    },
+    {
+      "id": "iaic-tema-7-fc-008",
+      "pregunta": "¿Garantiza K-medias el óptimo global?",
+      "respuesta": "No. K-medias garantiza converger a un óptimo local, pero no al óptimo global. El resultado puede depender de la inicialización aleatoria de los centroides."
+    },
+    {
+      "id": "iaic-tema-7-fc-009",
+      "pregunta": "¿Qué métrica minimiza K-medias?",
+      "respuesta": "La suma de las distancias de cada punto a su centroide más cercano (suma de distancias intracluster). Se busca que los puntos de cada cluster estén lo más cerca posible de su centroide."
+    },
+    {
+      "id": "iaic-tema-7-fc-010",
+      "pregunta": "¿Para qué forma de cluster funciona mejor la distancia euclídea?",
+      "respuesta": "Para clusters de forma esférica (hiperesferas), porque el centroide se posiciona naturalmente en el centro. No es adecuada para clusters irregulares o alargados."
+    },
+    {
+      "id": "iaic-tema-7-fc-011",
+      "pregunta": "¿Qué diferencia hay entre medida de agrupación interna y externa?",
+      "respuesta": "La interna evalúa la calidad sin usar etiquetas (cohesión interna y separación entre clusters). La externa contrasta los clusters con etiquetas reales si se dispone de ellas."
+    },
+    {
+      "id": "iaic-tema-7-fc-012",
+      "pregunta": "¿Cuáles son las principales limitaciones de K-medias?",
+      "respuesta": "Requiere especificar k de antemano, solo garantiza óptimo local (depende de la inicialización), y la distancia euclídea no funciona bien para clusters de forma irregular."
+    },
+    {
+      "id": "iaic-tema-7-fc-013",
+      "pregunta": "¿Qué tipo de diagrama produce K-medias y cuál el clustering jerárquico?",
+      "respuesta": "K-medias produce un diagrama de Voronoi (clustering plano). El clustering jerárquico produce un dendrograma."
+    },
+    {
+      "id": "iaic-tema-7-fc-014",
+      "pregunta": "¿Qué es el centroide en K-medias?",
+      "respuesta": "El punto representativo de cada cluster, generalmente definido como la media aritmética de todos los puntos que pertenecen a ese cluster. Define la región de Voronoi del cluster."
+    },
+    {
+      "id": "iaic-tema-7-fc-015",
+      "pregunta": "Menciona dos aplicaciones del clustering.",
+      "respuesta": "Segmentación de instancias (descubrimiento de grupos naturales en los datos) y detección de anomalías (identificación de comportamientos atípicos)."
+    },
+    {
+      "id": "iaic-tema-7-fc-016",
+      "pregunta": "¿Cómo se puede mitigar el impacto de una mala inicialización en K-medias?",
+      "respuesta": "Ejecutando el algoritmo múltiples veces con diferentes inicializaciones aleatorias y quedándose con el resultado que minimice la métrica (suma de distancias intracluster)."
+    },
+    {
+      "id": "iaic-tema-7-fc-017",
+      "pregunta": "¿Qué frontera separa dos regiones de Voronoi en K-medias?",
+      "respuesta": "Un hiperplano perpendicular al segmento que une los dos centroides adyacentes y equidistante a ambos."
+    },
+    {
+      "id": "iaic-tema-7-fc-018",
+      "pregunta": "Si se tienen datos con etiquetas disponibles, ¿es mejor usar K-medias o un algoritmo supervisado?",
+      "respuesta": "Un algoritmo supervisado, ya que si se tienen etiquetas se puede aprovechar esa información para obtener mejores predicciones. K-medias no usa etiquetas aunque estén disponibles."
+    }
+  ]
+}

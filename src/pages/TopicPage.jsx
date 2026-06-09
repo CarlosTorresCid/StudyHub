@@ -10,6 +10,9 @@ import TestTab from '../components/TestTab';
 import QuestionFilter from '../components/QuestionFilter';
 import './TopicPage.css';
 
+
+
+
 const TABS = [
   { id: 'apuntes', label: '📖 Apuntes' },
   { id: 'resumen', label: '⚡ Resumen' },
@@ -21,11 +24,12 @@ const TABS = [
 export default function TopicPage() {
   const { asignaturaId, temaId } = useParams();
   const [tab, setTab] = useState('apuntes');
-  const [questionFilters, setQuestionFilters] = useState({
-    origen: '',
-    parteExamenId: '',
-    tipo: '',
-  });
+const [questionFilters, setQuestionFilters] = useState({
+  origen: '',
+  parteExamenId: '',
+  tipo: '',
+  searchText: '',
+});
 
   const subject = publicLibrary.getSubject(asignaturaId);
   const tema = subject?.temas?.find(t => t.id === temaId);
@@ -51,26 +55,69 @@ export default function TopicPage() {
   const bankQuestions = questionService.getByTema(asignaturaId, temaId);
   const bankFormatted = questionService.toTestTabFormat(bankQuestions);
 
-  const applyFilter = (preguntas) => {
-    if (!questionFilters.origen && !questionFilters.parteExamenId && !questionFilters.tipo) {
-      return preguntas;
-    }
+const applyFilter = (preguntas) => {
+  const filterList = (arr) =>
+    arr.filter(q => {
+      if (questionFilters.origen && q.origen !== questionFilters.origen) {
+        return false;
+      }
 
-    const filterList = (arr) =>
-      arr.filter(q => {
-        if (questionFilters.origen && q.origen !== questionFilters.origen) return false;
-        if (questionFilters.parteExamenId && q.parteExamenId !== questionFilters.parteExamenId) return false;
-        if (questionFilters.tipo && q._tipo !== questionFilters.tipo && q.tipo !== questionFilters.tipo) return false;
-        return true;
-      });
+      if (
+        questionFilters.parteExamenId &&
+        q.parteExamenId !== questionFilters.parteExamenId
+      ) {
+        return false;
+      }
 
-    return {
-      test: filterList(preguntas.test || []),
-      verdaderoFalso: filterList(preguntas.verdaderoFalso || []),
-      desarrollo: filterList(preguntas.desarrollo || []),
-      practicas: filterList(preguntas.practicas || []),
-    };
+      if (
+        questionFilters.tipo &&
+        q._tipo !== questionFilters.tipo &&
+        q.tipo !== questionFilters.tipo
+      ) {
+        return false;
+      }
+
+      if (questionFilters.searchText?.trim()) {
+        const search = questionFilters.searchText.toLowerCase().trim();
+
+        const opcionesText = Array.isArray(q.opciones)
+          ? q.opciones
+              .map(op => {
+                if (typeof op === 'string') return op;
+                if (op?.texto) return op.texto;
+                if (op?.label) return op.label;
+                return JSON.stringify(op);
+              })
+              .join(' ')
+          : '';
+
+        const searchableText = [
+          q.enunciado,
+          q.respuesta,
+          q.respuestaModelo,
+          q.solucionOrientativa,
+          q.explicacion,
+          opcionesText,
+        ]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+
+        if (!searchableText.includes(search)) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+  return {
+    test: filterList(preguntas.test || []),
+    verdaderoFalso: filterList(preguntas.verdaderoFalso || []),
+    desarrollo: filterList(preguntas.desarrollo || []),
+    practicas: filterList(preguntas.practicas || []),
   };
+};
 
   const filteredPreguntas = applyFilter(bankFormatted);
   const totalPreguntas = Object.values(bankFormatted).reduce((s, arr) => s + arr.length, 0);
@@ -153,7 +200,7 @@ export default function TopicPage() {
         <div className="topic-download-actions">
         <button
           type="button"
-          className="btn btn-download-topic"
+          className="btn btn-download"
           onClick={handleDownloadTema}
           disabled={!content}
         >
@@ -163,7 +210,7 @@ export default function TopicPage() {
         {bankQuestions.length > 0 && (
           <button
             type="button"
-            className="btn btn-download-questions"
+            className="btn btn-download"
             onClick={handleDownloadPreguntas}
           >
             ⬇ Descargar preguntas

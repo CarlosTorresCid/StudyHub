@@ -1,136 +1,23 @@
 import { useState, useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import QuestionPracticeCard from '../components/QuestionPracticeCard';
-import { exportQuestionsToWord } from '../utils/exportToWord';
-import './SubjectPage.css';
 import './ExamPartPage.css';
-
-const DEFAULT_EXAM_PARTS = [
-  {
-    id: 'parte-test',
-    nombre: 'Tipo test',
-    tipos: ['test', 'verdadero_falso'],
-    icono: '🔤',
-    desc: 'Preguntas de opción múltiple y verdadero/falso',
-  },
-  {
-    id: 'parte-cortas',
-    nombre: 'Preguntas cortas',
-    tipos: ['corta', 'desarrollo'],
-    icono: '✍️',
-    desc: 'Preguntas P1-P4 de respuesta abierta',
-  },
-  {
-    id: 'parte-problemas',
-    nombre: 'Problemas prácticos',
-    tipos: ['practica'],
-    icono: '🧪',
-    desc: 'Problemas PROB1-PROB2 del examen',
-  },
-];
-
-const ORIGEN_LABELS = {
-  examen_real: 'Examen real',
-  modelo_examen: 'Modelo de examen',
-  autoevaluacion: 'Autoevaluación',
-  indicada_clase: 'Indicada en clase',
-  recopilada: 'Recopilada',
-  generada_ia: 'Generada por IA',
-};
-
-function getExamParts(subject, questions) {
-  const configuredParts = subject?.estructuraExamen || [];
-
-  if (configuredParts.length > 0) {
-    return configuredParts;
-  }
-
-  return DEFAULT_EXAM_PARTS.filter(part =>
-    questions.some(q => part.tipos.includes(q.tipo))
-  );
-}
-
-function extractTemaNumber(temaId) {
-  return parseInt(temaId?.match(/\d+/)?.[0] ?? '999', 10);
-}
-
-function getQuestionGroup(q) {
-  return q.grupoTematico || q.patronRelacionado || q.temaPrincipalId || '';
-}
-
-function getAppearancesCount(q) {
-  return q.numeroApariciones || q.apariciones?.length || q.etiquetasModelo?.length || q.fuentes?.length || 0;
-}
-
-function getFirstAppearanceSortValue(q) {
-  const etiquetas = q.etiquetasModelo || q.fuentes || [];
-  const first = etiquetas[0] || '';
-
-  const year = parseInt(first.match(/20\d{2}/)?.[0] ?? '9999', 10);
-
-  let modelValue = 999;
-  const modelMatch = first.match(/Modelo\s+([A-Z0-9]+)/i);
-
-  if (modelMatch) {
-    const raw = modelMatch[1];
-    modelValue = /^[0-9]+$/.test(raw)
-      ? parseInt(raw, 10)
-      : raw.toUpperCase().charCodeAt(0);
-  }
-
-  const questionValue = first.includes('PROB')
-    ? parseInt(first.match(/PROB\s?(\d+)/i)?.[1] ?? '99', 10) + 100
-    : parseInt(first.match(/P\s?(\d+)/i)?.[1] ?? '99', 10);
-
-  return year * 10000 + modelValue * 100 + questionValue;
-}
-
-function sortQuestionsForStudy(questions) {
-  return [...questions].sort((a, b) => {
-    const temaA = extractTemaNumber(a.temaPrincipalId);
-    const temaB = extractTemaNumber(b.temaPrincipalId);
-
-    if (temaA !== temaB) return temaA - temaB;
-
-    const grupoA = getQuestionGroup(a);
-    const grupoB = getQuestionGroup(b);
-
-    if (grupoA !== grupoB) return grupoA.localeCompare(grupoB, 'es');
-
-    const aparA = getAppearancesCount(a);
-    const aparB = getAppearancesCount(b);
-
-    if (aparA !== aparB) return aparB - aparA;
-
-    const firstA = getFirstAppearanceSortValue(a);
-    const firstB = getFirstAppearanceSortValue(b);
-
-    if (firstA !== firstB) return firstA - firstB;
-
-    return (a.enunciado || '').localeCompare(b.enunciado || '', 'es');
-  });
-}
 
 export default function ExamPartPage() {
   const { asignaturaId, parteId } = useParams();
   const subject = publicLibrary.getSubject(asignaturaId);
   const questions = publicLibrary.getQuestionBank(asignaturaId);
 
-  const examParts = useMemo(
-    () => getExamParts(subject, questions),
-    [subject, questions]
-  );
-
-  const part = examParts.find(p => p.id === parteId);
-
+  // ── Hooks ──────────────────────────────────────────────
   const [selectedTema, setSelectedTema] = useState('todos');
   const [selectedGroup, setSelectedGroup] = useState('todos');
   const [selectedOrigen, setSelectedOrigen] = useState('todos');
-  const [selectedRevision, setSelectedRevision] = useState('todas');
+  const [selectedRevision, setSelectedRevision] = useState('todos');
+  const [searchText, setSearchText] = useState('');
 
-  if (!subject) return <div className="page-error">Asignatura no encontrada</div>;
-  if (!part) return <div className="page-error">Parte de examen no encontrada</div>;
+  const examParts = useMemo(() => subject?.estructuraExamen || [], [subject]);
+  const part = examParts.find(p => p.id === parteId) || { tipos: [] };
 
   const baseQuestions = useMemo(
     () => questions.filter(q => part.tipos.includes(q.tipo)),
@@ -142,251 +29,146 @@ export default function ExamPartPage() {
     [subject.temas]
   );
 
-  const temasDisponibles = useMemo(() => {
-    const ids = [
-      ...new Set(
-        baseQuestions.flatMap(q =>
-          q.temaIds?.length ? q.temaIds : q.temaPrincipalId ? [q.temaPrincipalId] : []
-        )
-      ),
-    ];
-
-    return ids.sort((a, b) => extractTemaNumber(a) - extractTemaNumber(b));
-  }, [baseQuestions]);
-
-  const gruposDisponibles = useMemo(() => {
-    const grupos = [
-      ...new Set(
-        baseQuestions
-          .map(q => getQuestionGroup(q))
-          .filter(Boolean)
-      ),
-    ];
-
-    return grupos.sort((a, b) => a.localeCompare(b, 'es'));
-  }, [baseQuestions]);
-
-  const origenesDisponibles = useMemo(
-    () => [...new Set(baseQuestions.map(q => q.origen).filter(Boolean))].sort(),
-    [baseQuestions]
-  );
-
   const filteredQuestions = useMemo(
     () =>
       baseQuestions.filter(q => {
+        // filtro por tema
         if (selectedTema !== 'todos') {
           const temas = q.temaIds?.length ? q.temaIds : [q.temaPrincipalId];
           if (!temas?.includes(selectedTema)) return false;
         }
 
+        // filtro por grupo
         if (selectedGroup !== 'todos') {
-          const grupo = getQuestionGroup(q);
+          const grupo = q.grupoTematico || q.patronRelacionado || null;
           if (grupo !== selectedGroup) return false;
         }
 
+        // filtro por origen
         if (selectedOrigen !== 'todos' && q.origen !== selectedOrigen) return false;
+
+        // filtro por revisión
         if (selectedRevision === 'verificadas' && !q.verificada) return false;
         if (selectedRevision === 'pendientes' && q.verificada === true) return false;
         if (selectedRevision === 'revision' && !q.requiereRevision) return false;
 
+        // filtro por palabra clave
+        if (searchText?.trim()) {
+          const search = searchText.toLowerCase().trim();
+          const opcionesText = Array.isArray(q.opciones) ? q.opciones.join(' ') : '';
+          const searchableText = [
+            q.enunciado,
+            q.respuesta,
+            q.respuestaModelo,
+            q.solucionOrientativa,
+            q.explicacion,
+            opcionesText,
+          ]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase();
+
+          if (!searchableText.includes(search)) return false;
+        }
+
         return true;
       }),
-    [baseQuestions, selectedTema, selectedGroup, selectedOrigen, selectedRevision]
+    [
+      baseQuestions,
+      selectedTema,
+      selectedGroup,
+      selectedOrigen,
+      selectedRevision,
+      searchText,
+      part,
+    ]
   );
-
-  const sortedQuestions = useMemo(
-    () => sortQuestionsForStudy(filteredQuestions),
-    [filteredQuestions]
-  );
-
-  const hasFilters =
-    selectedTema !== 'todos' ||
-    selectedGroup !== 'todos' ||
-    selectedOrigen !== 'todos' ||
-    selectedRevision !== 'todas';
-
-    const exportSubtitle = hasFilters
-  ? `Preguntas filtradas. Mostrando ${sortedQuestions.length} de ${baseQuestions.length}.`
-  : `Total de preguntas: ${baseQuestions.length}. Ordenadas por tema y patrón.`;
-
-  const clearFilters = () => {
-    setSelectedTema('todos');
-    setSelectedGroup('todos');
-    setSelectedOrigen('todos');
-    setSelectedRevision('todas');
-  };
-
-  function temaLabel(id) {
-    const t = temaMap[id];
-    if (!t) return id;
-    return t.titulo || id;
-  }
 
   return (
-    <div className="subject-page">
-      <div className="subject-hero" style={{ '--subject-color': subject.color }}>
-        <div className="subject-hero-icon">{subject.icono}</div>
-        <div>
-          <div className="subject-hero-abrev">{subject.abreviatura} · Examen</div>
-          <h1 className="subject-hero-name">{part.nombre}</h1>
-          {part.desc && <p className="subject-hero-desc">{part.desc}</p>}
-          <p className="subject-hero-desc">
-            {baseQuestions.length} {baseQuestions.length === 1 ? 'pregunta' : 'preguntas'}
-          </p>
+    <div className="exam-part-page">
+      <div className="exam-filters">
+        <div className="exam-filters-row">
+          {/* Buscador de palabras */}
+          <input
+            type="text"
+            className="exam-filter-search"
+            placeholder="Buscar palabra clave..."
+            value={searchText}
+            onChange={e => setSearchText(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                setSearchText(e.target.value); // refresca el filtro
+              }
+            }}
+          />
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => {
+              // fuerza actualización del filtro
+              setSearchText(searchText);
+            }}
+          >
+            🔍 Buscar
+          </button>
+
+          {/* Select tema */}
+          <select
+            className="exam-filter-select"
+            value={selectedTema}
+            onChange={e => setSelectedTema(e.target.value)}
+          >
+            <option value="todos">Todos los temas</option>
+            {subject.temas?.map(t => (
+              <option key={t.id} value={t.id}>
+                {t.titulo}
+              </option>
+            ))}
+          </select>
+
+          {/* Select origen */}
+          <select
+            className="exam-filter-select"
+            value={selectedOrigen}
+            onChange={e => setSelectedOrigen(e.target.value)}
+          >
+            <option value="todos">Todos los orígenes</option>
+            <option value="examen_real">📝 Examen real</option>
+            <option value="generada_ia">🤖 Generada IA</option>
+            <option value="recopiladas">📚 Recopiladas</option>
+          </select>
+
+          {/* Select revisión */}
+          <select
+            className="exam-filter-select"
+            value={selectedRevision}
+            onChange={e => setSelectedRevision(e.target.value)}
+          >
+            <option value="todos">Todas</option>
+            <option value="verificadas">Verificadas</option>
+            <option value="pendientes">Pendientes</option>
+            <option value="revision">Requiere revisión</option>
+          </select>
         </div>
       </div>
 
-      {baseQuestions.length === 0 ? (
-        <div className="subject-empty">
-          <p>Todavía no hay preguntas publicadas para esta parte.</p>
-        </div>
-      ) : (
-        <>
-          <div className="exam-filters">
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 12 }}>
-<button
-  className="btn btn-ghost btn-sm"
-  onClick={() =>
-    exportQuestionsToWord({
-      subject,
-      questions: sortedQuestions,
-      title: `${part.nombre}`,
-      subtitle: hasFilters
-        ? `Preguntas filtradas. Mostrando ${sortedQuestions.length} de ${baseQuestions.length}.`
-        : `Total de preguntas: ${baseQuestions.length}. Ordenadas por tema y patrón.`,
-      fileSuffix: `${parteId}-preguntas`,
-    })
-  }
-  disabled={sortedQuestions.length === 0}
->
-  ⬇ Descargar preguntas visibles
-</button>
-
-  {hasFilters && (
-    <button
-      className="btn btn-ghost btn-sm"
-      onClick={() =>
-        exportQuestionsToWord({
-          subject,
-          questions: baseQuestions,
-          title: `${part.nombre} - todas las preguntas`,
-          subtitle: `Total de preguntas: ${baseQuestions.length}`,
-          fileSuffix: `${parteId}-todas-las-preguntas`,
-        })
-      }
-    >
-      ⬇ Descargar parte completa
-    </button>
-  )}
-</div>
-            <div className="exam-filters-row">
-              <select
-                className="exam-filter-select"
-                value={selectedTema}
-                onChange={e => setSelectedTema(e.target.value)}
-                aria-label="Filtrar por tema"
-              >
-                <option value="todos">Todos los temas</option>
-                {temasDisponibles.map(id => (
-                  <option key={id} value={id}>
-                    {temaLabel(id)}
-                  </option>
-                ))}
-              </select>
-
-              <select
-                className="exam-filter-select"
-                value={selectedGroup}
-                onChange={e => setSelectedGroup(e.target.value)}
-                aria-label="Filtrar por temática"
-              >
-                <option value="todos">Todas las temáticas</option>
-                {gruposDisponibles.map(grupo => (
-                  <option key={grupo} value={grupo}>
-                    {grupo}
-                  </option>
-                ))}
-              </select>
-
-              <select
-                className="exam-filter-select"
-                value={selectedOrigen}
-                onChange={e => setSelectedOrigen(e.target.value)}
-                aria-label="Filtrar por origen"
-              >
-                <option value="todos">Todos los orígenes</option>
-                {origenesDisponibles.map(o => (
-                  <option key={o} value={o}>
-                    {ORIGEN_LABELS[o] || o}
-                  </option>
-                ))}
-              </select>
-
-              <select
-                className="exam-filter-select"
-                value={selectedRevision}
-                onChange={e => setSelectedRevision(e.target.value)}
-                aria-label="Filtrar por estado de revisión"
-              >
-                <option value="todas">Todas</option>
-                <option value="verificadas">Verificadas</option>
-                <option value="pendientes">Pendientes de revisión</option>
-                <option value="revision">Requieren revisión</option>
-              </select>
-
-              {hasFilters && (
-                <button className="btn btn-ghost exam-filter-clear" onClick={clearFilters}>
-                  Limpiar filtros
-                </button>
-              )}
-            </div>
-
-            <p className="exam-filter-count">
-              {hasFilters
-                ? `Mostrando ${sortedQuestions.length} de ${baseQuestions.length} preguntas`
-                : `${baseQuestions.length} ${
-                    baseQuestions.length === 1 ? 'pregunta disponible' : 'preguntas disponibles'
-                  } · ordenadas por tema y patrón`}
-            </p>
-
-            {selectedGroup !== 'todos' && (
-              <div className="exam-active-filter">
-                <span>
-                  Filtrando por temática: <strong>{selectedGroup}</strong>
-                </span>
-                <button className="btn btn-ghost" onClick={() => setSelectedGroup('todos')}>
-                  Quitar filtro
-                </button>
-              </div>
-            )}
+      <div className="exam-part-list">
+        {filteredQuestions.length === 0 ? (
+          <div className="exam-filter-empty">
+            <p>No hay preguntas con los filtros seleccionados.</p>
           </div>
-
-          {sortedQuestions.length === 0 ? (
-            <div className="exam-filter-empty">
-              <p>No hay preguntas que coincidan con los filtros seleccionados.</p>
-              <button className="btn btn-ghost" onClick={clearFilters}>
-                Limpiar filtros
-              </button>
-            </div>
-          ) : (
-            <div className="exam-part-list">
-              {sortedQuestions.map((q, i) => (
-                <QuestionPracticeCard
-                  key={q.id || i}
-                  question={q}
-                  onGroupClick={setSelectedGroup}
-                />
-              ))}
-            </div>
-          )}
-        </>
-      )}
+        ) : (
+          filteredQuestions.map(q => (
+            <QuestionPracticeCard key={q.id} question={q} />
+          ))
+        )}
+      </div>
 
       <div className="exam-part-footer">
-        <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
-          ← Volver al examen
-        </Link>
+        <span className="exam-filter-count">
+          {filteredQuestions.length} pregunta{filteredQuestions.length !== 1 ? 's' : ''}
+        </span>
       </div>
     </div>
   );

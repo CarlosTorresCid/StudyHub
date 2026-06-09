@@ -1,0 +1,251 @@
+{
+  "asignaturaId": "aamd",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Árboles de Decisión",
+  "apuntes": {
+    "introduccion": "El Tema 4 presenta los árboles de decisión, el algoritmo central del examen. Es un modelo de aprendizaje supervisado especialmente valorado por su interpretabilidad: permite ver exactamente qué decisiones toma el modelo y por qué. En el examen se trabaja siempre con dos versiones del árbol: uno completo sin podar (árbol máximo) y otro podado mediante validación cruzada (árbol óptimo). Entender la estructura del árbol, sus métricas y el problema del sobreajuste es imprescindible para responder correctamente las preguntas P4 a P14 del test.",
+    "secciones": [
+      {
+        "titulo": "Qué es un Árbol de Decisión",
+        "contenido": "Un árbol de decisión es un algoritmo de aprendizaje automático **supervisado** que puede usarse tanto para problemas de **clasificación** (variable objetivo categórica) como de **regresión** (variable objetivo numérica continua). En el examen siempre se usa para clasificación.\n\nSus características más destacadas son:\n- **Simplicidad**: fácil de programar y de entender.\n- **Interpretabilidad**: se puede visualizar como un árbol y explicar a cualquier persona, técnica o no, qué decisiones se toman y por qué.\n- **Versatilidad**: aplicable a una gran variedad de problemas reales.\n- **Base para modelos avanzados**: los árboles son los bloques básicos de Random Forest, Bagging y Gradient Boosting.\n\nEl árbol divide el espacio de los predictores de forma iterativa: en cada nodo se elige la variable y el umbral que mejor separa las instancias según el criterio de impureza utilizado (entropía o Gini). Cada rama representa una decisión, y cada hoja representa una clase predicha."
+      },
+      {
+        "titulo": "Estructura del Árbol: Nodos, Ramas y Hojas",
+        "contenido": "La arquitectura de un árbol de decisión tiene los siguientes elementos:\n\n**Nodo raíz**: el primer nodo del árbol, el punto de partida. Contiene la primera pregunta o condición lógica sobre una variable predictora. Es el nodo de mayor importancia informativa: la variable que aparece en la raíz es la más relevante para la clasificación.\n\n**Nodos rama (nodos internos)**: nodos intermedios que no son ni el inicio ni el final del árbol. Contienen condiciones lógicas adicionales. En algoritmos como CART pueden repetir la misma variable en distintos niveles.\n\n**Nodos hoja (nodos terminales)**: nodos finales donde el árbol asigna una clase. No tienen hijos. Cada hoja representa el resultado de seguir una ruta específica de decisiones desde la raíz.\n\n**Ramas**: las conexiones entre nodos que representan las posibles respuestas a la condición del nodo padre (por ejemplo, ≤ umbral o > umbral para variables numéricas).\n\n**Profundidad**: el número de niveles del árbol desde la raíz hasta la hoja más profunda. Un árbol de profundidad 1 tiene solo el nodo raíz y dos hojas. A mayor profundidad, mayor complejidad y mayor riesgo de sobreajuste.\n\n**Número de nodos terminales (hojas)**: cuántas hojas tiene el árbol. A mayor número de hojas, mayor complejidad. En Python: `modelo.get_depth()` y `modelo.get_n_leaves()`."
+      },
+      {
+        "titulo": "Criterios de División: Entropía y Gini",
+        "contenido": "En cada nodo, el árbol selecciona la variable y el umbral que mejor separa las instancias. Los dos criterios principales son:\n\n**Entropía y Ganancia de Información (algoritmo ID3 y C4.5)**:\nLa entropía mide la heterogeneidad o mezcla de clases en un conjunto de datos. Si todas las instancias de un nodo pertenecen a la misma clase, la entropía es 0 (nodo puro). Si las instancias están distribuidas uniformemente entre todas las clases, la entropía es máxima.\n\nFórmula de la entropía: H = -suma(p_i * log2(p_i)) para cada clase i, donde p_i es la proporción de instancias de la clase i.\n\nLa ganancia de información es la reducción de entropía conseguida al dividir por una variable: cuanto mayor la ganancia, más informativa es esa variable para separar las clases. El algoritmo elige siempre la variable que maximiza la ganancia.\n\n**Índice de Gini (algoritmo CART)**:\nMide la impureza de un nodo. Un nodo con Gini = 0 es completamente puro (todas las instancias de una misma clase). Fórmula: Gini = 1 - suma(p_i²). El algoritmo selecciona la variable que maximiza la reducción del índice Gini.\n\nEn la práctica del examen, sklearn usa por defecto el criterio Gini para `DecisionTreeClassifier`. La elección del criterio (entropía o Gini) afecta al árbol resultante pero ambos suelen dar resultados similares. Lo importante es entender que **el árbol siempre elige en cada nodo la variable más informativa** según el criterio configurado."
+      },
+      {
+        "titulo": "Algoritmos de Generación: ID3, C4.5 y CART",
+        "contenido": "Existen varios algoritmos para construir árboles de decisión, con distintas capacidades:\n\n**ID3 (Induction Decision Trees, Quinlan 1983)**:\n- Criterio: ganancia de información basada en entropía.\n- Solo funciona con variables categóricas en la entrada.\n- No maneja valores faltantes.\n- No realiza poda: puede generar árboles muy complejos y propensos al sobreajuste.\n- Construcción top-down (de arriba a abajo, empezando por la raíz).\n- En cada camino, cada variable aparece como mucho una vez.\n\n**C4.5 (mejora de ID3, Quinlan)**:\n- Criterio: proporción de ganancia (ganancia normalizada) para evitar el sesgo hacia variables con muchos valores.\n- Maneja variables numéricas y categóricas.\n- Puede manejar valores faltantes.\n- Realiza poda post-construcción para mejorar la generalización.\n- Uno de los algoritmos más utilizados en la práctica.\n\n**CART (Classification and Regression Trees)**:\n- Criterio: índice de Gini (clasificación) o error cuadrático mínimo (regresión).\n- Genera siempre árboles **binarios**: cada nodo se divide en exactamente dos ramas.\n- Sirve tanto para clasificación como para regresión.\n- También realiza poda.\n- Es el algoritmo que usa `DecisionTreeClassifier` de sklearn.\n\nEn el examen siempre se usa `DecisionTreeClassifier(random_state=1)` de sklearn, que implementa CART con criterio Gini por defecto."
+      },
+      {
+        "titulo": "Árbol Completo Sin Podar",
+        "contenido": "El **árbol sin podar** (también llamado árbol completo o árbol máximo) es el árbol que crece hasta que se cumplen todos los criterios de parada naturales del algoritmo, sin ninguna restricción artificial de profundidad.\n\nCriterios de parada naturales:\n- Todas las instancias de un nodo pertenecen a la misma clase (nodo puro, entropía = 0).\n- No quedan más atributos por seleccionar.\n- No quedan instancias en un subconjunto.\n\nCaracterísticas del árbol sin podar:\n- **Profundidad máxima posible**: puede tener tantos niveles como variables haya o como instancias permitan.\n- **Accuracy en train muy alta**: puede llegar al 100%, lo que indica que se ha aprendido el ruido del conjunto de entrenamiento.\n- **Accuracy en test generalmente menor**: la diferencia grande entre train y test es la señal de sobreajuste.\n- **Visualmente muy complejo**: muchos niveles y hojas, difícil de interpretar.\n\nEn Python se crea sin especificar `max_depth`:\n`clf = DecisionTreeClassifier(random_state=1)`\n`clf.fit(X_train, y_train)`\n\nSiempre que en el examen se pide el árbol sin podar, se usa este código. El árbol resultante puede tener decenas de niveles y cientos de hojas."
+      },
+      {
+        "titulo": "Sobreajuste en Árboles y la Necesidad de Podar",
+        "contenido": "Los árboles de decisión tienen una **fuerte tendencia al sobreajuste (overfitting)**. Esto ocurre porque si se dejan crecer sin restricciones, el árbol aprende a clasificar perfectamente cada instancia del conjunto de entrenamiento, incluyendo el ruido específico de esos datos.\n\nSeñales de sobreajuste en un árbol:\n- Accuracy en train muy alta (cercana o igual al 100%).\n- Accuracy en test notablemente inferior.\n- El árbol es muy profundo y tiene muchas hojas.\n- Visualmente, el árbol resulta muy complejo e intuitivo.\n\nCon overfitting, el árbol no generaliza bien a nuevas instancias. Ha memorizado los datos en lugar de aprender la tendencia subyacente.\n\nLa solución específica para el sobreajuste en árboles es la **poda** (pruning): limitar la complejidad del árbol para mejorar su capacidad de generalización. La poda puede realizarse:\n- **Pre-poda (durante la construcción)**: limitando parámetros como `max_depth`, `min_samples_leaf`, `min_samples_split`.\n- **Post-poda (tras la construcción)**: eliminando ramas del árbol ya construido y sustituyendo los nodos podados por hojas con la clase mayoritaria.\n\nEn el examen se usa siempre pre-poda mediante el hiperparámetro `max_depth`, cuyo valor óptimo se determina con GridSearchCV y validación cruzada."
+      },
+      {
+        "titulo": "Poda mediante max_depth y GridSearchCV",
+        "contenido": "La forma estándar de podar el árbol en el examen es limitar su profundidad máxima con el parámetro `max_depth`. El valor óptimo de `max_depth` se selecciona mediante **GridSearchCV con validación cruzada de 5 folds**, probando valores de 1 a 20.\n\nEl proceso completo es:\n1. Definir el grid de hiperparámetros: `param_grid = {'max_depth': range(1, 21)}`\n2. Crear el estimador base: `DecisionTreeClassifier(random_state=1)`\n3. Aplicar GridSearchCV con cv=5 y scoring='accuracy'\n4. Ajustar sobre los datos de entrenamiento: `grid.fit(X_train, y_train)`\n5. Obtener el mejor valor: `grid.best_params_['max_depth']`\n6. El mejor estimador ya está reentrenado: `grid.best_estimator_`\n\nCódigo exacto del examen:\n`param_grid = {'max_depth': range(1, 21)}`\n`grid = GridSearchCV(DecisionTreeClassifier(random_state=1), param_grid, cv=5, scoring='accuracy')`\n`grid.fit(X_train, y_train)`\n`mejor_profundidad = grid.best_params_['max_depth']`\n\nEl árbol podado resultante (`grid.best_estimator_`) tiene menor profundidad que el árbol sin podar, menos hojas, mejor capacidad de generalización y, en consecuencia, mejor accuracy en test (aunque no necesariamente en train).\n\nImportante: la poda siempre se realiza **solo sobre los datos de entrenamiento**, nunca usando el conjunto de test. Usar el test para seleccionar el hiperparámetro sería una filtración de datos (data leakage) que invalidaría la evaluación."
+      },
+      {
+        "titulo": "Importancia de Variables (Feature Importance)",
+        "contenido": "Los árboles de decisión calculan automáticamente la **importancia de cada variable predictora** según su contribución a la reducción de la impureza a lo largo de todo el árbol.\n\nDefinición: la importancia de una variable es la reducción total (normalizada) del criterio de división (Gini o entropía) que consigue esa variable en todas las divisiones en las que participa. Si una variable no ha sido seleccionada en ninguna división, su importancia es 0.\n\nPropiedad clave: **la suma de las importancias de todas las variables es siempre 1** (están normalizadas).\n\nInterinterpretación:\n- Una variable con importancia alta contribuye mucho a separar las clases en el árbol.\n- Una variable con importancia 0 no fue usada en ningún nodo: el árbol la consideró irrelevante.\n- La variable del nodo raíz suele tener alta importancia.\n\nEn Python: `modelo.feature_importances_` devuelve un array con la importancia de cada variable en el mismo orden que las columnas de X.\n\nPara obtener la importancia de una variable específica:\n`importancia = modelo.feature_importances_[indice_columna]`\n\nO construyendo un DataFrame ordenado:\n`pd.DataFrame({'variable': X.columns, 'importancia': modelo.feature_importances_}).sort_values('importancia', ascending=False)`\n\nEn el examen, las preguntas P13 y P14 del test piden la importancia de variables específicas del árbol podado (el obtenido con GridSearchCV)."
+      },
+      {
+        "titulo": "Ventajas y Limitaciones de los Árboles de Decisión",
+        "contenido": "**Ventajas**:\n- Alta interpretabilidad: se pueden visualizar y explicar a personas no técnicas.\n- No requieren normalización de variables (son invariantes a la escala).\n- Manejan variables numéricas y categóricas.\n- Sirven de base para modelos de conjunto (Random Forest, Boosting).\n- Permiten conocer las importancias de variables.\n- Se puede analizar el efecto de cambiar el valor de una variable en una instancia concreta.\n\n**Limitaciones**:\n- Alta tendencia al sobreajuste si no se podan.\n- Alta varianza: pequeños cambios en los datos de entrenamiento pueden producir árboles muy diferentes.\n- Difícil encontrar el árbol óptimo: hay demasiadas configuraciones posibles.\n- Funcionan mejor con datasets grandes; con pocos datos tienden a dar peores resultados.\n- Necesitan recalibrarse frecuentemente si los datos cambian con el tiempo.\n- Las reglas de clasificación son muy sensibles a pequeños cambios en los datos.\n\nLa alta varianza y la tendencia al sobreajuste son las razones principales por las que se usan técnicas de conjunto (ensambles) como Random Forest, que combina muchos árboles para reducir la varianza."
+      },
+      {
+        "titulo": "Código Python Completo para el Examen",
+        "contenido": "El flujo completo de trabajo con árboles en el examen sigue siempre este patrón:\n\n**1. Split train/test:**\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)\n\n**2. Árbol sin podar:**\nclf = DecisionTreeClassifier(random_state=1)\nclf.fit(X_train, y_train)\ny_pred_sin_podar = clf.predict(X_test)\nprint(f'Profundidad: {clf.get_depth()}')\nprint(f'Hojas: {clf.get_n_leaves()}')\nprint(classification_report(y_test, y_pred_sin_podar))\n\n**3. Árbol podado con GridSearchCV:**\nparam_grid = {'max_depth': range(1, 21)}\ngrid = GridSearchCV(DecisionTreeClassifier(random_state=1), param_grid, cv=5, scoring='accuracy')\ngrid.fit(X_train, y_train)\nmejor_depth = grid.best_params_['max_depth']\nmodelo_podado = grid.best_estimator_\ny_pred_podado = modelo_podado.predict(X_test)\nprint(f'Mejor max_depth: {mejor_depth}')\nprint(f'Profundidad: {modelo_podado.get_depth()}')\nprint(f'Hojas: {modelo_podado.get_n_leaves()}')\nprint(classification_report(y_test, y_pred_podado))\n\n**4. Importancia de variables:**\nimportancias = pd.DataFrame({'variable': X.columns, 'importancia': modelo_podado.feature_importances_})\nimportancias.sort_values('importancia', ascending=False)\n\nTodas estas operaciones usan `random_state=1` y el split es siempre 70/30."
+      }
+    ]
+  },
+  "resumen": [
+    "Los árboles de decisión son modelos supervisados interpretables que sirven para clasificación y regresión.",
+    "Estructura del árbol: nodo raíz (primera división), nodos rama (condiciones intermedias), nodos hoja (clases predichas) y ramas (decisiones).",
+    "La profundidad es el número de niveles; el número de hojas indica la complejidad del árbol.",
+    "El criterio de división elige en cada nodo la variable que más reduce la impureza (entropía en ID3/C4.5, Gini en CART/sklearn).",
+    "ID3: solo categóricas, sin poda. C4.5: categóricas y numéricas, con poda. CART: binario, Gini, clasificación y regresión.",
+    "sklearn usa CART con Gini por defecto: DecisionTreeClassifier(random_state=1).",
+    "El árbol sin podar se crea sin max_depth: crece hasta que todos los nodos son puros o no hay más atributos.",
+    "El árbol sin podar tiene accuracy muy alta en train y menor en test: señal de sobreajuste.",
+    "La solución al sobreajuste en árboles es la poda: limitar max_depth.",
+    "El valor óptimo de max_depth se selecciona con GridSearchCV cv=5, probando valores de 1 a 20.",
+    "GridSearchCV solo se ajusta sobre los datos de entrenamiento, nunca sobre el test.",
+    "La importancia de una variable es su reducción total normalizada del criterio de impureza. La suma de todas las importancias es 1.",
+    "Una variable con importancia 0 no fue usada en ninguna división del árbol.",
+    "Las preguntas P5-P7 del test piden métricas del árbol sin podar; P10-P12 piden métricas del árbol podado; P13-P14 piden importancias."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Nodo raíz",
+      "definicion": "El primer nodo del árbol, el punto de partida. Contiene la primera condición de división. La variable que aparece en la raíz es la más informativa para la clasificación."
+    },
+    {
+      "termino": "Nodo hoja (terminal)",
+      "definicion": "Nodo final del árbol, sin hijos. Asigna una clase a todas las instancias que llegan a él. El número de hojas mide la complejidad del árbol."
+    },
+    {
+      "termino": "Profundidad del árbol",
+      "definicion": "Número de niveles desde la raíz hasta la hoja más profunda. Mayor profundidad implica mayor complejidad y mayor riesgo de sobreajuste. En Python: modelo.get_depth()."
+    },
+    {
+      "termino": "Entropía",
+      "definicion": "Medida de heterogeneidad o mezcla de clases en un nodo. Valor 0 si el nodo es puro (una sola clase). Máxima si las clases están distribuidas por igual. Usada por ID3 y C4.5."
+    },
+    {
+      "termino": "Ganancia de información",
+      "definicion": "Reducción de entropía al dividir por una variable. El árbol elige la variable que maximiza la ganancia en cada nodo."
+    },
+    {
+      "termino": "Índice de Gini",
+      "definicion": "Medida de impureza usada por CART (y por defecto en sklearn). Gini = 0 es nodo puro. El algoritmo elige la variable que maximiza la reducción de Gini."
+    },
+    {
+      "termino": "Árbol sin podar",
+      "definicion": "Árbol que crece hasta los criterios de parada naturales sin restricciones. Máxima complejidad, alta accuracy en train, tendencia al sobreajuste. Se crea sin especificar max_depth."
+    },
+    {
+      "termino": "Poda (pruning)",
+      "definicion": "Técnica para reducir la complejidad del árbol y combatir el sobreajuste. En el examen se usa pre-poda mediante el parámetro max_depth, cuyo valor óptimo se elige con GridSearchCV."
+    },
+    {
+      "termino": "max_depth",
+      "definicion": "Hiperparámetro que limita la profundidad máxima del árbol. Es la forma de poda utilizada en el examen. Su valor óptimo se busca entre 1 y 20 con GridSearchCV cv=5."
+    },
+    {
+      "termino": "GridSearchCV",
+      "definicion": "Herramienta de sklearn que prueba sistemáticamente distintos valores de hiperparámetros usando validación cruzada y selecciona el que maximiza la métrica elegida (accuracy)."
+    },
+    {
+      "termino": "Importancia de variables (feature importance)",
+      "definicion": "Contribución de cada variable a la reducción total de impureza en el árbol, normalizada para que la suma sea 1. Variables con importancia 0 no participaron en ninguna división."
+    },
+    {
+      "termino": "CART",
+      "definicion": "Algoritmo de árboles de decisión que genera árboles binarios usando el criterio Gini. Es el implementado por DecisionTreeClassifier de sklearn. Sirve para clasificación y regresión."
+    },
+    {
+      "termino": "ID3",
+      "definicion": "Primer algoritmo clásico de árboles (Quinlan, 1983). Usa ganancia de información basada en entropía. Solo funciona con variables categóricas y no realiza poda."
+    },
+    {
+      "termino": "C4.5",
+      "definicion": "Mejora de ID3. Usa proporción de ganancia. Maneja variables numéricas, valores faltantes y realiza poda. Uno de los más usados en la práctica."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "aamd-tema-4-fc-001",
+      "pregunta": "¿Qué tipo de aprendizaje utilizan los árboles de decisión?",
+      "respuesta": "Aprendizaje supervisado. Requieren que la variable objetivo esté etiquetada en los datos de entrenamiento."
+    },
+    {
+      "id": "aamd-tema-4-fc-002",
+      "pregunta": "¿Para qué tipos de problemas sirven los árboles de decisión?",
+      "respuesta": "Para clasificación (variable objetivo categórica) y para regresión (variable objetivo numérica continua). En el examen siempre se usan para clasificación."
+    },
+    {
+      "id": "aamd-tema-4-fc-003",
+      "pregunta": "¿Qué es el nodo raíz de un árbol de decisión?",
+      "respuesta": "El primer nodo del árbol, punto de partida de todas las decisiones. Contiene la condición de la variable más informativa para separar las clases."
+    },
+    {
+      "id": "aamd-tema-4-fc-004",
+      "pregunta": "¿Qué es un nodo hoja en un árbol de decisión?",
+      "respuesta": "El nodo terminal del árbol, sin hijos, donde se asigna una clase a las instancias que llegan a él."
+    },
+    {
+      "id": "aamd-tema-4-fc-005",
+      "pregunta": "¿Qué mide la profundidad de un árbol?",
+      "respuesta": "El número de niveles desde la raíz hasta la hoja más profunda. En Python: modelo.get_depth()."
+    },
+    {
+      "id": "aamd-tema-4-fc-006",
+      "pregunta": "¿Qué criterio usa por defecto DecisionTreeClassifier de sklearn?",
+      "respuesta": "El índice de Gini, implementado por el algoritmo CART. Genera árboles binarios (cada nodo se divide en dos ramas)."
+    },
+    {
+      "id": "aamd-tema-4-fc-007",
+      "pregunta": "¿Qué valor tiene la entropía de un nodo puro (con instancias de una sola clase)?",
+      "respuesta": "Cero. La entropía mínima es 0, indicando que no hay mezcla de clases."
+    },
+    {
+      "id": "aamd-tema-4-fc-008",
+      "pregunta": "¿Qué diferencia principal hay entre ID3 y C4.5?",
+      "respuesta": "C4.5 maneja variables numéricas y valores faltantes, y realiza poda. ID3 solo funciona con variables categóricas y no poda."
+    },
+    {
+      "id": "aamd-tema-4-fc-009",
+      "pregunta": "¿Cómo se crea un árbol sin podar en sklearn?",
+      "respuesta": "Sin especificar max_depth: DecisionTreeClassifier(random_state=1).fit(X_train, y_train). El árbol crece hasta los criterios de parada naturales."
+    },
+    {
+      "id": "aamd-tema-4-fc-010",
+      "pregunta": "¿Por qué el árbol sin podar suele tener accuracy muy alta en train?",
+      "respuesta": "Porque se ajusta perfectamente a los datos de entrenamiento, incluyendo el ruido. Esto es sobreajuste: el árbol memorizó los datos en lugar de aprender la tendencia."
+    },
+    {
+      "id": "aamd-tema-4-fc-011",
+      "pregunta": "¿Cómo se soluciona el sobreajuste en árboles de decisión?",
+      "respuesta": "Con la poda: limitando la complejidad del árbol. En el examen se usa pre-poda mediante el parámetro max_depth, cuyo valor óptimo se selecciona con GridSearchCV cv=5."
+    },
+    {
+      "id": "aamd-tema-4-fc-012",
+      "pregunta": "¿Qué rango de valores de max_depth se prueba en el examen con GridSearchCV?",
+      "respuesta": "De 1 a 20: param_grid = {'max_depth': range(1, 21)}."
+    },
+    {
+      "id": "aamd-tema-4-fc-013",
+      "pregunta": "¿Sobre qué datos se ajusta GridSearchCV en el examen?",
+      "respuesta": "Solo sobre los datos de entrenamiento (X_train, y_train). Nunca sobre el conjunto de test."
+    },
+    {
+      "id": "aamd-tema-4-fc-014",
+      "pregunta": "¿Cómo se obtiene el mejor árbol tras GridSearchCV?",
+      "respuesta": "Con grid.best_estimator_. Este es el árbol podado con el max_depth óptimo, ya reentrenado sobre todos los datos de entrenamiento."
+    },
+    {
+      "id": "aamd-tema-4-fc-015",
+      "pregunta": "¿Qué hace modelo.feature_importances_?",
+      "respuesta": "Devuelve un array con la importancia de cada variable predictora. La suma de todas las importancias es siempre 1."
+    },
+    {
+      "id": "aamd-tema-4-fc-016",
+      "pregunta": "¿Qué significa que una variable tenga importancia 0?",
+      "respuesta": "Que no fue seleccionada en ninguna división del árbol. El modelo la consideró irrelevante para separar las clases."
+    },
+    {
+      "id": "aamd-tema-4-fc-017",
+      "pregunta": "¿Cuál es la suma de todas las importancias de variables de un árbol?",
+      "respuesta": "Siempre es 1 (100%). Las importancias están normalizadas."
+    },
+    {
+      "id": "aamd-tema-4-fc-018",
+      "pregunta": "¿Qué se puede esperar del árbol podado respecto al sin podar en términos de accuracy en test?",
+      "respuesta": "El árbol podado suele tener mayor accuracy en test que el sin podar, porque generaliza mejor al tener menos sobreajuste."
+    },
+    {
+      "id": "aamd-tema-4-fc-019",
+      "pregunta": "¿Cómo se obtiene el número de nodos terminales (hojas) de un árbol en Python?",
+      "respuesta": "Con modelo.get_n_leaves()."
+    },
+    {
+      "id": "aamd-tema-4-fc-020",
+      "pregunta": "¿Cuál es la principal ventaja de los árboles de decisión frente a otros modelos?",
+      "respuesta": "Su interpretabilidad: se puede visualizar el árbol y explicar exactamente qué condiciones llevan a cada predicción, sin necesidad de conocimientos técnicos."
+    },
+    {
+      "id": "aamd-tema-4-fc-021",
+      "pregunta": "¿Necesitan los árboles de decisión que las variables estén normalizadas?",
+      "respuesta": "No. Los árboles son invariantes a la escala de las variables: la normalización no afecta al árbol resultante."
+    },
+    {
+      "id": "aamd-tema-4-fc-022",
+      "pregunta": "¿Qué preguntas del test del examen corresponden al árbol sin podar?",
+      "respuesta": "P5, P6 y P7: precisión, recall y F1-score por clase del árbol sin podar sobre el conjunto de test."
+    },
+    {
+      "id": "aamd-tema-4-fc-023",
+      "pregunta": "¿Qué preguntas del test del examen corresponden al árbol podado?",
+      "respuesta": "P10, P11 y P12: precisión, recall y F1-score por clase del árbol podado; P13 y P14: importancia de variables específicas."
+    },
+    {
+      "id": "aamd-tema-4-fc-024",
+      "pregunta": "Si un árbol sin podar tiene accuracy del 100% en train y 65% en test, ¿qué indica esto?",
+      "respuesta": "Sobreajuste claro. El árbol memorizó los datos de entrenamiento y no generaliza bien. La solución es podar el árbol limitando max_depth."
+    },
+    {
+      "id": "aamd-tema-4-fc-025",
+      "pregunta": "¿Cuál es el código exacto para obtener el mejor max_depth en el examen?",
+      "respuesta": "param_grid = {'max_depth': range(1, 21)} / grid = GridSearchCV(DecisionTreeClassifier(random_state=1), param_grid, cv=5, scoring='accuracy') / grid.fit(X_train, y_train) / mejor_depth = grid.best_params_['max_depth']"
+    }
+  ]
+}

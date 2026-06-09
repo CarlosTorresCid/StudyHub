@@ -1,0 +1,157 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-8",
+  "titulo": "Tema 8. Redes de neuronas artificiales",
+  "apuntes": {
+    "introduccion": "El Tema 8 estudia las redes de neuronas artificiales, una técnica de aprendizaje automático inspirada en el funcionamiento del cerebro humano. Se cubren los fundamentos biológicos, el modelo computacional de neurona, el perceptrón simple (la red más básica) y el perceptrón multicapa con el algoritmo de retropropagación. Las redes neuronales son esencialmente algoritmos de aprendizaje supervisado útiles tanto para clasificación como para regresión, aunque también pueden usarse en aprendizaje no supervisado mediante mapas autoorganizativos.",
+    "secciones": [
+      {
+        "titulo": "Fundamentos biológicos",
+        "contenido": "Las redes de neuronas artificiales emulan el funcionamiento del cerebro humano. La unidad básica del cerebro es la **neurona**: célula que procesa y transmite información mediante señales eléctricas y químicas.\n\nFuncionamiento biológico clave:\n- Las **dendritas** son los receptores: reciben impulsos eléctricos de entrada.\n- El **soma** (cuerpo celular) procesa la información recibida.\n- El **axón** es el transmisor: envía el impulso a otras neuronas.\n- La **sinapsis** es la conexión entre el axón de una neurona y las dendritas de otras.\n- Si el impulso supera un **umbral de excitación**, se envía el impulso hacia el axón (la neurona se dispara).\n\nEl cerebro almacena información reforzando o debilitando las conexiones sinápticas según si las respuestas son correctas o no. Este mecanismo de aprendizaje es el que inspira el ajuste de pesos en las redes artificiales."
+      },
+      {
+        "titulo": "Modelo computacional de la neurona artificial",
+        "contenido": "Una **neurona artificial** tiene varias entradas y una única salida:\n\n- **Entradas (x₁, x₂, ..., xₙ)**: los datos que recibe la neurona. Pueden ser las entradas del problema o las salidas de otras neuronas.\n- **Pesos (w₁, w₂, ..., wₙ)**: parámetros adaptables que ponderan la importancia de cada entrada. El peso wᵢ multiplica la entrada xᵢ. Un peso grande indica que esa entrada es muy relevante. **Los pesos son lo que se ajusta durante el entrenamiento**.\n- **Umbral (U o θ)**: valor que se ha de superar para que la neurona se active. Se resta a la suma ponderada.\n- **Agregación**: la suma ponderada de las entradas menos el umbral: X = ∑(wᵢ · xᵢ) − U.\n- **Función de activación**: transforma el valor agregado X en la salida de la neurona. Ejemplos comunes: función signo (1 si X≥0, -1 si X<0), función escalón (1 si X≥0, 0 si X<0), función sigmoide (salida continua entre 0 y 1).\n\nEl elemento clave: **los pesos sinápticos son el componente que se modifica durante el proceso de aprendizaje**, de forma que la red aprende a producir las salidas correctas."
+      },
+      {
+        "titulo": "Redes neuronales y aprendizaje supervisado",
+        "contenido": "Las **redes de neuronas son esencialmente algoritmos de aprendizaje supervisado**, útiles tanto para clasificación como para regresión.\n\nEl principio fundamental de aprendizaje: **adaptar el valor de los pesos en función del error cometido por la salida de la red**. Para ello es necesaria una referencia real (la etiqueta o valor esperado del ejemplo de entrenamiento) con la que comparar la salida producida y calcular el error.\n\nTambién pueden usarse en aprendizaje no supervisado mediante **mapas autoorganizativos**: la topología de la red se usa en el proceso de agrupación y la posición de cada neurona sustituye al valor de salida."
+      },
+      {
+        "titulo": "Perceptrón simple",
+        "contenido": "El **perceptrón simple** es la red neuronal más básica: una única neurona con múltiples entradas.\n\nFuncionamiento:\n1. Se inicializan los pesos con valores aleatorios.\n2. Se presenta una instancia de entrenamiento.\n3. Se calcula la salida: X = ∑(wᵢ · xᵢ) − U; salida = f(X).\n4. Se compara la salida con el valor esperado y se calcula el error.\n5. Se actualizan los pesos usando la regla de aprendizaje: w_nuevo = w_anterior + tasa_aprendizaje × error × entrada.\n6. Se repite para todas las instancias hasta que el error converge a un valor pequeño.\n\n**Limitación crítica**: el perceptrón simple es un **clasificador lineal**. Solo aprende un hiperplano que separa los ejemplos de dos clases. Por tanto, no puede clasificar correctamente problemas que **no sean linealmente separables** (cuando las dos clases no se pueden separar con una línea recta o hiperplano). El ejemplo clásico es el problema XOR."
+      },
+      {
+        "titulo": "Perceptrón multicapa",
+        "contenido": "El **perceptrón multicapa** resuelve la limitación del perceptrón simple al combinar múltiples neuronas en varias capas, siendo capaz de aprender funciones no lineales.\n\nArquitectura:\n- **Capa de entrada**: las neuronas solo propagan las entradas a la primera capa intermedia.\n- **Capas ocultas** (capas intermedias): 1 o más capas. Son las responsables del aprendizaje de representaciones no lineales.\n- **Capa de salida**: genera las predicciones finales. En clasificación, generalmente se usa **una neurona de salida por clase**. La clase asignada es aquella cuya neurona de salida tiene el valor más alto.\n\nCaracterísticas clave:\n- La salida de cada neurona se conecta con **todas las neuronas de la siguiente capa** (fully connected).\n- La información siempre se propaga **hacia adelante** (red feedforward, grafo acíclico dirigido).\n- Las **funciones de activación deben ser no lineales** (ej. sigmoide) para que el multicapa pueda aproximar funciones no lineales. Si se usan funciones lineales, el multicapa no ofrece ventajas sobre el perceptrón simple.\n- La topología (número de capas y neuronas) se determina por **ensayo y error**: no existe una regla a priori. Redes muy simples no aprenden bien; redes muy complejas pueden sobreajustar.\n\n**Ventaja frente a regresión lineal**: el perceptrón multicapa puede modelar relaciones **no lineales** entre las entradas y la salida, mientras que la regresión lineal solo modela relaciones lineales.\n\n**Desventaja frente a árboles de clasificación**: las redes neuronales son una **caja negra** — no permiten interpretar fácilmente por qué se llega a una determinada clasificación. Los árboles de decisión son transparentes e interpretables."
+      },
+      {
+        "titulo": "Algoritmo de retropropagación (backpropagation)",
+        "contenido": "El aprendizaje en el perceptrón multicapa usa el **algoritmo de retropropagación** (backpropagation), necesario porque las neuronas de las capas ocultas no tienen un valor esperado directo con el que calcular su error.\n\nFuncionamiento:\n1. **Propagación hacia adelante**: se presenta una instancia de entrenamiento y se calcula la salida de la red propagando la información de la capa de entrada a la de salida.\n2. **Cálculo del error**: se compara la salida producida con la salida esperada y se calcula el error.\n3. **Retropropagación**: el error se propaga hacia atrás, de la capa de salida a las capas ocultas. El error que recibe cada neurona oculta es proporcional a su aporte a la salida final.\n4. **Actualización de pesos**: los pesos se ajustan en todas las capas para minimizar el error.\n5. **Repetición**: se repite para todas las instancias de entrenamiento hasta que el error sea suficientemente pequeño o se alcance un criterio de parada.\n\nEl motivo por el que se necesita retropropagación: **no se puede estimar directamente el error de las neuronas de las capas ocultas** porque su salida no se corresponde directamente con la salida esperada del problema."
+      }
+    ]
+  },
+  "resumen": [
+    "Las redes neuronales artificiales emulan el cerebro: neuronas con entradas ponderadas por pesos, umbral de activación y función de activación.",
+    "Los pesos sinápticos son lo que se ajusta durante el entrenamiento de una red neuronal.",
+    "Las redes neuronales son esencialmente algoritmos de aprendizaje supervisado. Aprenden ajustando los pesos para minimizar el error entre la salida producida y la esperada.",
+    "El perceptrón simple es la red más básica: una única neurona. Es un clasificador lineal. Su limitación: solo puede resolver problemas linealmente separables.",
+    "El perceptrón multicapa supera al simple al combinar varias neuronas en capas (capa entrada, capas ocultas, capa salida), siendo capaz de modelar relaciones no lineales.",
+    "Las funciones de activación deben ser no lineales para que el multicapa supere al perceptrón simple.",
+    "En clasificación, generalmente se usa una neurona de salida por clase. La clase predicha es la de la neurona con mayor valor de salida.",
+    "La topología del multicapa (capas, neuronas) se determina por ensayo y error. No existe regla a priori.",
+    "El algoritmo de retropropagación permite entrenar el multicapa: propaga el error de la capa de salida hacia las capas ocultas para actualizar sus pesos.",
+    "Ventaja frente a regresión lineal: las redes neuronales modelan relaciones no lineales.",
+    "Desventaja frente a árboles de clasificación: las redes neuronales son caja negra — no son interpretables.",
+    "También se pueden usar en no supervisado mediante mapas autoorganizativos."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Pesos sinápticos",
+      "definicion": "Parámetros adaptables que ponderan la importancia de cada entrada a una neurona. Son el componente que se ajusta durante el entrenamiento de la red neuronal."
+    },
+    {
+      "termino": "Umbral de activación",
+      "definicion": "Valor que debe superarse para que una neurona se dispare (envíe señal hacia el axón). Se resta a la suma ponderada de las entradas."
+    },
+    {
+      "termino": "Función de activación",
+      "definicion": "Función que transforma el valor agregado de una neurona en su salida. Ejemplos: función signo, función escalón, función sigmoide. Debe ser no lineal en el perceptrón multicapa."
+    },
+    {
+      "termino": "Perceptrón simple",
+      "definicion": "Red neuronal con una única neurona. Es un clasificador lineal: aprende un hiperplano separador de clases. Solo resuelve problemas linealmente separables."
+    },
+    {
+      "termino": "Linealmente separable",
+      "definicion": "Un problema donde las clases pueden separarse correctamente con un hiperplano (una línea en 2D). El perceptrón simple solo resuelve estos problemas."
+    },
+    {
+      "termino": "Perceptrón multicapa",
+      "definicion": "Red neuronal con múltiples capas (entrada, ocultas, salida). Capaz de aprender funciones no lineales. Usa retropropagación para entrenarse."
+    },
+    {
+      "termino": "Capas ocultas",
+      "definicion": "Las capas intermedias del perceptrón multicapa, entre la capa de entrada y la de salida. Son responsables del aprendizaje de representaciones no lineales."
+    },
+    {
+      "termino": "Retropropagación (backpropagation)",
+      "definicion": "Algoritmo de aprendizaje del perceptrón multicapa. Propaga el error de la capa de salida hacia atrás para actualizar los pesos de las capas ocultas, ya que no se puede estimar directamente su error."
+    },
+    {
+      "termino": "Red feedforward",
+      "definicion": "Red en la que la información siempre se propaga hacia adelante (de entrada a salida). El perceptrón multicapa es de este tipo: forma un grafo dirigido acíclico."
+    },
+    {
+      "termino": "Caja negra (redes neuronales)",
+      "definicion": "Las redes neuronales no permiten interpretar fácilmente por qué clasifican una instancia de determinada manera. A diferencia de los árboles de decisión, no son transparentes ni interpretables."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-8-fc-001",
+      "pregunta": "¿Qué componente de una red neuronal se ajusta durante el proceso de entrenamiento?",
+      "respuesta": "Los pesos sinápticos (y el umbral). Los pesos ponderan la importancia de cada entrada a la neurona y se adaptan para minimizar el error entre la salida producida y la esperada."
+    },
+    {
+      "id": "iaic-tema-8-fc-002",
+      "pregunta": "¿Cuál es la red neuronal más simple y cuál es su limitación?",
+      "respuesta": "El perceptrón simple: una única neurona. Su limitación es que solo puede resolver problemas linealmente separables, porque aprende un hiperplano separador de clases (es un clasificador lineal)."
+    },
+    {
+      "id": "iaic-tema-8-fc-003",
+      "pregunta": "¿Qué ventaja tienen las redes neuronales frente a los modelos de regresión lineal?",
+      "respuesta": "Las redes neuronales (perceptrón multicapa) pueden modelar relaciones no lineales entre entradas y salida. La regresión lineal solo modela relaciones lineales."
+    },
+    {
+      "id": "iaic-tema-8-fc-004",
+      "pregunta": "¿Qué desventaja tienen las redes neuronales frente a los modelos de árboles de clasificación?",
+      "respuesta": "Las redes neuronales son una caja negra: no permiten interpretar fácilmente por qué se clasifica una instancia de una manera determinada. Los árboles de decisión son transparentes e interpretables."
+    },
+    {
+      "id": "iaic-tema-8-fc-005",
+      "pregunta": "¿Por qué el perceptrón multicapa puede aprender funciones no lineales?",
+      "respuesta": "Porque combina múltiples neuronas con funciones de activación no lineales en varias capas. Con funciones lineales, el multicapa no ofrecería ventajas sobre el perceptrón simple."
+    },
+    {
+      "id": "iaic-tema-8-fc-006",
+      "pregunta": "¿En qué consiste el algoritmo de retropropagación?",
+      "respuesta": "Una vez propagada la información hacia adelante y calculado el error en la salida, el error se propaga hacia atrás de capa en capa para actualizar los pesos de las neuronas ocultas. El error que recibe cada neurona es proporcional a su aporte."
+    },
+    {
+      "id": "iaic-tema-8-fc-007",
+      "pregunta": "¿Por qué es necesario el algoritmo de retropropagación?",
+      "respuesta": "Porque las neuronas de las capas ocultas no tienen un valor esperado directo con el que calcular su error. No se puede estimar directamente el error de las capas ocultas sin propagarlo desde la salida."
+    },
+    {
+      "id": "iaic-tema-8-fc-008",
+      "pregunta": "¿Cuántas neuronas de salida suele tener un perceptrón multicapa en problemas de clasificación?",
+      "respuesta": "Generalmente una neurona por clase. La instancia se clasifica en la clase cuya neurona de salida tiene el valor de activación más alto."
+    },
+    {
+      "id": "iaic-tema-8-fc-009",
+      "pregunta": "¿Cómo se determina la topología óptima de un perceptrón multicapa?",
+      "respuesta": "Por ensayo y error: se prueban múltiples configuraciones (número de capas ocultas y neuronas por capa) y se selecciona la que mejor funciona en validación. No existe una regla a priori."
+    },
+    {
+      "id": "iaic-tema-8-fc-010",
+      "pregunta": "¿Para qué tipo de aprendizaje se usan principalmente las redes neuronales?",
+      "respuesta": "Son esencialmente algoritmos de aprendizaje supervisado, útiles para clasificación y regresión. También pueden usarse en no supervisado mediante mapas autoorganizativos."
+    },
+    {
+      "id": "iaic-tema-8-fc-011",
+      "pregunta": "¿Qué papel tiene la función de activación en el perceptrón multicapa?",
+      "respuesta": "Transforma el valor agregado de la neurona en su salida. Debe ser no lineal para que el multicapa pueda aprender funciones no lineales. La función sigmoide es una de las más usadas."
+    },
+    {
+      "id": "iaic-tema-8-fc-012",
+      "pregunta": "¿Qué analogía hay entre las sinapsis biológicas y los pesos de la red neuronal?",
+      "respuesta": "Las sinapsis biológicas se fortalecen o debilitan según las respuestas sean correctas o no. Los pesos artificiales hacen lo mismo: se ajustan en función del error para producir mejores salidas."
+    },
+    {
+      "id": "iaic-tema-8-fc-013",
+      "pregunta": "¿Cómo se propaga la información en un perceptrón multicapa?",
+      "respuesta": "Siempre hacia adelante (feedforward): de la capa de entrada a las capas ocultas y de ahí a la capa de salida. No hay conexiones hacia atrás durante la inferencia."
+    }
+  ]
+}

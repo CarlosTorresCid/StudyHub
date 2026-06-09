@@ -1,0 +1,240 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-6",
+  "titulo": "Tema 6. Aprendizaje supervisado",
+  "apuntes": {
+    "introduccion": "El Tema 6 introduce el aprendizaje automático y se centra en el aprendizaje supervisado. El aprendizaje automático es el área de la IA que estudia cómo las máquinas pueden aprender a partir de datos o experiencia. Dentro del aprendizaje supervisado se estudian dos grandes tipos de problemas (clasificación y regresión), el algoritmo ID3 para construir árboles de decisión, y los métodos de validación de modelos (matriz de confusión, validación cruzada). WEKA es la herramienta práctica utilizada en el laboratorio.",
+    "secciones": [
+      {
+        "titulo": "Aprendizaje automático: concepto y tipos",
+        "contenido": "El **aprendizaje automático** es un área de la IA que estudia cómo las máquinas pueden aprender a partir de la experiencia, normalmente en forma de datos. El objetivo es que el sistema infiera conocimiento generalizable a partir de ejemplos.\n\nExisten tres grandes tipos de aprendizaje:\n\n- **Aprendizaje supervisado**: los datos de entrenamiento están etiquetados con una clase. El sistema aprende a clasificar o predecir a partir de esos ejemplos. Requiere un atributo objetivo (clase).\n- **Aprendizaje no supervisado**: los datos no están etiquetados. No hay clase objetivo. El sistema descubre patrones o agrupaciones en los datos (clustering).\n- **Aprendizaje por refuerzo**: el sistema aprende realizando tareas y recibiendo recompensas o penalizaciones según el resultado. No se estudia en profundidad en esta asignatura.\n\n**Clave para distinguirlos**: si el dataset tiene una clase o etiqueta → aprendizaje supervisado. Si no tiene etiquetas y se quiere analizar o agrupar → aprendizaje no supervisado."
+      },
+      {
+        "titulo": "Aprendizaje supervisado: clasificación vs. regresión",
+        "contenido": "En el aprendizaje supervisado, la salida puede ser de dos tipos:\n\n**Clasificación**: la salida es una etiqueta discreta (una clase). Por ejemplo, predecir si un cliente es 'bueno' o 'malo', o si va a llover o no. ID3 es un algoritmo de clasificación.\n\n**Regresión**: la salida es un valor numérico continuo. Por ejemplo, predecir la temperatura máxima del día siguiente. El modelo de regresión lineal es el ejemplo más básico.\n\nConceptos fundamentales del aprendizaje supervisado:\n\n- **Instancia**: un ejemplo de datos (una fila del conjunto de datos), con sus atributos y su clase.\n- **Atributo**: una característica de cada instancia (columna del dataset). Pueden ser discretos o continuos.\n- **Clase**: el atributo objetivo que se quiere predecir.\n- **Datos de entrenamiento**: subconjunto de datos que se usa para construir el modelo.\n- **Datos de prueba (test)**: subconjunto que se usa para evaluar el modelo con datos no vistos durante el entrenamiento.\n- **Sobreajuste (overfitting)**: cuando el modelo aprende demasiado bien los datos de entrenamiento y no generaliza bien a datos nuevos. Se detecta comparando el error de entrenamiento con el de validación."
+      },
+      {
+        "titulo": "Árboles de decisión",
+        "contenido": "Los **árboles de decisión** son modelos de clasificación que representan el conocimiento como un árbol:\n\n- **Nodos internos**: corresponden a un atributo. Cada rama que sale de un nodo corresponde a un valor posible de ese atributo.\n- **Nodos hoja**: etiquetados con una clase. Son la predicción para las instancias que alcanzan ese nodo.\n\nPara clasificar una nueva instancia basta con recorrer el árbol desde la raíz, siguiendo en cada nodo la rama que corresponde al valor del atributo de la instancia, hasta llegar a un nodo hoja. La etiqueta de ese nodo hoja es la clase predicha.\n\n**Ventaja clave**: los árboles de decisión son muy **interpretables**. Se puede comprender fácilmente por qué una instancia es clasificada de una forma u otra siguiendo el recorrido del árbol. Esto los distingue de las redes neuronales, que actúan como caja negra.\n\nEl paso crítico en la construcción es elegir en cada nodo el atributo más representativo. Un árbol más sencillo (menos nodos) que separa bien los ejemplos tiene menor riesgo de sobreajuste."
+      },
+      {
+        "titulo": "Algoritmo ID3",
+        "contenido": "**ID3** (Iterative Dichotomiser 3) es el primer y más conocido algoritmo para construir árboles de decisión de clasificación. Sus pasos:\n\n1. **Seleccionar el atributo** que maximice la separación de los ejemplos del conjunto actual (el que mayor ganancia de información aporte).\n2. **Crear un nodo** para ese atributo con tantas ramas como valores distintos tenga.\n3. **Propagar los ejemplos** de entrenamiento: cada rama recibe los ejemplos cuyo valor para ese atributo es el correspondiente.\n4. **Condición de parada**: si todos los ejemplos de un subconjunto pertenecen a la misma clase → nodo hoja etiquetado con esa clase. Si no, **repetir** el proceso con los ejemplos de cada subconjunto, excluyendo el atributo ya usado.\n\n**Métrica utilizada: Ganancia de Información**\n\nID3 selecciona el atributo que aporta mayor ganancia de información, que se calcula usando la entropía.\n\nLa **entropía** mide la heterogeneidad (impureza) de un conjunto de datos respecto a la clase. Su fórmula es: H = -∑ p(x) · log2(p(x)), donde p(x) es la proporción de ejemplos de cada clase.\n\nPropiedades de la entropía:\n- H = 0 si todos los ejemplos pertenecen a la misma clase (máxima pureza).\n- H es máxima si los ejemplos están distribuidos de forma uniforme entre todas las clases.\n\nLa **ganancia de información** de un atributo a es: IG(a) = H(conjunto_inicial) − ∑ p(t) · H(t), donde t son los subconjuntos resultantes de dividir por el atributo a y p(t) la proporción de ejemplos en cada subconjunto.\n\nEquivalentemente: ID3 elige el atributo cuya entropía ponderada resultante (∑ p(t) · H(t)) sea mínima.\n\n**Características de ID3**:\n- Es un algoritmo **heurístico**: no garantiza árbol de tamaño mínimo.\n- La entropía es una buena heurística: se comporta bien de media, es rápida de calcular y robusta al ruido.\n- Para atributos continuos hay que **discretizarlos** (rangos de valores).\n- Puede sufrir **sobreajuste**: se controla comparando error de entrenamiento vs. validación y podando el árbol.\n\n**Nota del examen**: el cálculo numérico de la entropía NO entra en el examen. Sí entran los conceptos: qué métrica usa ID3, qué significa la entropía, qué ocurre con la entropía si todos los ejemplos son de la misma clase, y la descripción del algoritmo."
+      },
+      {
+        "titulo": "Validación de modelos",
+        "contenido": "La validación es esencial para saber si un modelo generalizará bien a datos nuevos. Un modelo puede funcionar perfectamente con los datos de entrenamiento pero fallar con datos no vistos (sobreajuste).\n\n**Conjuntos de entrenamiento y prueba**: el dataset se divide en datos de entrenamiento (para construir el modelo) y datos de prueba (para evaluarlo). El conjunto de prueba nunca debe usarse durante el entrenamiento.\n\n**Validación cruzada de k iteraciones (k-fold cross validation)**:\n1. Dividir los datos en **k particiones disjuntas** de igual tamaño.\n2. Realizar **k iteraciones**. En cada iteración:\n   - Usar k-1 particiones para entrenamiento.\n   - Usar la partición restante (diferente en cada iteración) para validación.\n3. **Promediar** los resultados de evaluación de las k iteraciones.\n\nEl valor estándar en WEKA es **k = 10** (validación cruzada de 10 iteraciones). Permite aprovechar todos los datos tanto para entrenar como para validar.\n\n**Leave-one-out**: caso extremo de validación cruzada donde k = número de instancias (cada iteración usa una única instancia para test)."
+      },
+      {
+        "titulo": "Matriz de confusión: lectura e interpretación",
+        "contenido": "La **matriz de confusión** es la herramienta principal para evaluar un modelo de clasificación. En el formato de WEKA:\n- **Filas**: clase real (la etiqueta verdadera de cada instancia).\n- **Columnas**: clase predicha (la etiqueta que el modelo asignó).\n- La **diagonal** contiene los aciertos (instancias correctamente clasificadas).\n- Los valores **fuera de la diagonal** son los errores.\n\nEjemplo con 2 clases (yes/no):\n```\n  a  b  <-- classified as\n  8  2 | a = yes\n  1  6 | b = no\n```\nPara la clase 'yes' (clase positiva):\n- **TP** (True Positive) = 8 (reales yes, predichos yes — diagonal fila yes).\n- **FN** (False Negative) = 2 (reales yes, predichos no — fila yes, fuera de diagonal).\n- **FP** (False Positive) = 1 (reales no, predichos yes — fila no, columna yes).\n- **TN** (True Negative) = 6 (reales no, predichos no — diagonal fila no).\n\n**Tasa de éxito global**: (suma de la diagonal) / (total de instancias)."
+      },
+      {
+        "titulo": "Métricas de evaluación: TP Rate, FP Rate y Precisión",
+        "contenido": "A partir de la matriz de confusión se calculan las métricas de evaluación para cada clase:\n\n**TP Rate (tasa de verdaderos positivos / sensibilidad / recall)**:\nTP Rate = TP / (TP + FN)\nProporción de instancias realmente positivas que el modelo clasificó correctamente. Se calcula con los valores de la fila de la clase objetivo. Ejemplo: si TP=8 y FN=2, TP Rate = 8/10 = 0.8.\n\n**FP Rate (tasa de falsos positivos)**:\nFP Rate = FP / (FP + TN)\nProporción de instancias negativas que el modelo clasificó incorrectamente como positivas. Se calcula con los valores de la fila de la clase contraria. Ejemplo: si FP=1 y TN=6, FP Rate = 1/7 ≈ 0.143.\n\n**Precisión**:\nPrecisión = TP / (TP + FP)\nProporción de las predicciones positivas que realmente son positivas. Se calcula con los valores de la columna de la clase objetivo. Ejemplo: si TP=8 y FP=1, Precisión = 8/9 ≈ 0.889.\n\n**En matrices de 3 clases**: la lógica es la misma. Para una clase dada:\n- TP = valor en la diagonal de esa clase.\n- FN = suma de la fila de esa clase menos TP.\n- FP = suma de la columna de esa clase menos TP.\n- TN = total de instancias menos TP, FN y FP.\n\n**Error frecuente**: confundir filas y columnas. En la matriz WEKA, las **filas son las clases reales** y las **columnas las clases predichas**. FP viene de la columna (predicciones positivas que son negativas); FN viene de la fila (reales positivas no detectadas)."
+      },
+      {
+        "titulo": "Regresión lineal",
+        "contenido": "Cuando la salida es un valor numérico continuo, se habla de problema de **regresión**, no de clasificación.\n\nLa **regresión lineal** es el modelo de regresión más básico: ajusta una recta (o hiperplano en múltiples dimensiones) que minimiza el error cuadrático medio entre las predicciones y los valores reales.\n\nEl ajuste de los parámetros del modelo consiste en encontrar los coeficientes (pendiente e intercepto) que minimicen el error cuadrático medio sobre los datos de entrenamiento.\n\nEjemplo de aplicación: predecir el precio de una casa a partir de su tamaño, número de habitaciones, etc. La salida es un número, no una etiqueta."
+      },
+      {
+        "titulo": "WEKA y el laboratorio",
+        "contenido": "**WEKA** (Waikato Environment for Knowledge Analysis) es una herramienta de software libre para aprendizaje automático y minería de datos. Se utiliza en el laboratorio de la asignatura para aplicar y visualizar los algoritmos de aprendizaje supervisado y no supervisado.\n\nEn WEKA, el algoritmo ID3 se puede ejecutar desde la pestaña Classify. La versión mejorada de ID3 en WEKA es **J48** (implementación del algoritmo C4.5, que añade manejo de atributos continuos y poda).\n\nSalida de WEKA a saber interpretar:\n- **Árbol de decisión**: nodos con atributos y ramas con valores.\n- **Matriz de confusión**: formato estándar con filas=clase real, columnas=clase predicha.\n- **Detailed Accuracy By Class**: incluye TP Rate, FP Rate y Precision por clase.\n- **Tasa de éxito global** (Correctly Classified Instances).\n\nLa configuración estándar del laboratorio usa **validación cruzada de 10 iteraciones** (10-fold cross validation)."
+      }
+    ]
+  },
+  "resumen": [
+    "El aprendizaje automático permite a las máquinas aprender a partir de datos. Se divide en supervisado (datos con etiquetas), no supervisado (datos sin etiquetas) y por refuerzo.",
+    "La clave para distinguir supervisado de no supervisado: si el dataset tiene una clase o etiqueta objetivo → supervisado; si no → no supervisado.",
+    "En aprendizaje supervisado: clasificación (salida discreta, etiqueta de clase) vs. regresión (salida numérica continua).",
+    "El sobreajuste (overfitting) ocurre cuando el modelo aprende demasiado los datos de entrenamiento y no generaliza. Se detecta con datos de validación distintos de los de entrenamiento.",
+    "Los árboles de decisión son modelos interpretables: nodos internos = atributos, ramas = valores, hojas = clases. Para clasificar se recorre el árbol siguiendo los valores de la instancia.",
+    "ID3 construye árboles de decisión eligiendo en cada nodo el atributo con mayor ganancia de información (que minimiza la entropía resultante).",
+    "La entropía mide la heterogeneidad de un conjunto respecto a la clase. H=0 si todos los ejemplos son de la misma clase; H máxima si la distribución es uniforme.",
+    "ID3 es heurístico: no garantiza árbol mínimo. La entropía es una buena heurística. Atributos continuos deben discretizarse.",
+    "La validación cruzada k-fold divide los datos en k particiones, usa k-1 para entrenar y 1 para validar, rotando k veces. El estándar en WEKA es k=10.",
+    "La matriz de confusión (formato WEKA): filas = clase real, columnas = clase predicha. Diagonal = aciertos.",
+    "TP Rate = TP/(TP+FN) — se calcula desde la fila. FP Rate = FP/(FP+TN) — se calcula desde la fila contraria. Precisión = TP/(TP+FP) — se calcula desde la columna.",
+    "En matrices de 3 clases la lógica es idéntica: para cada clase, TP=diagonal, FN=fila-TP, FP=columna-TP, TN=total-TP-FN-FP."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Aprendizaje supervisado",
+      "definicion": "Tipo de aprendizaje automático donde los datos de entrenamiento están etiquetados con una clase. El sistema aprende a predecir o clasificar a partir de esos ejemplos etiquetados."
+    },
+    {
+      "termino": "Aprendizaje no supervisado",
+      "definicion": "Tipo de aprendizaje automático donde los datos no tienen etiquetas. El sistema descubre patrones o agrupaciones en los datos (clustering). No hay clase objetivo."
+    },
+    {
+      "termino": "Clasificación",
+      "definicion": "Problema de aprendizaje supervisado donde la salida es una etiqueta discreta (clase). Ejemplo: predecir si un cliente es 'bueno' o 'malo'."
+    },
+    {
+      "termino": "Regresión",
+      "definicion": "Problema de aprendizaje supervisado donde la salida es un valor numérico continuo. Ejemplo: predecir la temperatura del día siguiente."
+    },
+    {
+      "termino": "Instancia",
+      "definicion": "Un ejemplo de datos en el dataset (una fila), con sus atributos y su clase."
+    },
+    {
+      "termino": "Sobreajuste (overfitting)",
+      "definicion": "Cuando el modelo aprende demasiado bien los datos de entrenamiento y no generaliza correctamente a datos nuevos. Se detecta comparando el error de entrenamiento con el de validación."
+    },
+    {
+      "termino": "ID3 (Iterative Dichotomiser 3)",
+      "definicion": "Algoritmo de aprendizaje supervisado para construir árboles de decisión de clasificación. Selecciona en cada nodo el atributo con mayor ganancia de información (menor entropía ponderada resultante)."
+    },
+    {
+      "termino": "Entropía (en ID3)",
+      "definicion": "Medida de heterogeneidad o impureza de un conjunto de datos respecto a la clase. H = -∑ p(x)·log2(p(x)). H=0 si todos son de la misma clase; H máxima si distribución uniforme."
+    },
+    {
+      "termino": "Ganancia de información",
+      "definicion": "Métrica que usa ID3. Es la diferencia entre la entropía del conjunto antes y después de dividir por un atributo. ID3 selecciona el atributo con mayor ganancia de información."
+    },
+    {
+      "termino": "Validación cruzada k-fold",
+      "definicion": "Técnica de validación que divide los datos en k particiones iguales, realiza k iteraciones (cada vez usa una partición diferente como test y k-1 como entrenamiento) y promedia los resultados. Estándar en WEKA: k=10."
+    },
+    {
+      "termino": "Matriz de confusión",
+      "definicion": "Herramienta de evaluación de modelos de clasificación. Filas = clase real; columnas = clase predicha. La diagonal contiene los aciertos; los valores fuera de diagonal son los errores."
+    },
+    {
+      "termino": "TP (True Positive)",
+      "definicion": "Instancias que realmente son de la clase positiva y el modelo clasificó correctamente como positivas. En la matriz: celda (positiva, positiva) = diagonal."
+    },
+    {
+      "termino": "FN (False Negative)",
+      "definicion": "Instancias realmente positivas que el modelo clasificó incorrectamente como negativas. En la matriz: fila de la clase positiva, columnas distintas a la positiva."
+    },
+    {
+      "termino": "FP (False Positive)",
+      "definicion": "Instancias realmente negativas que el modelo clasificó incorrectamente como positivas. En la matriz: columna de la clase positiva, filas distintas a la positiva."
+    },
+    {
+      "termino": "TP Rate (tasa de verdaderos positivos)",
+      "definicion": "TP / (TP + FN). Proporción de instancias positivas reales correctamente clasificadas. Se calcula con los valores de la fila de la clase objetivo."
+    },
+    {
+      "termino": "FP Rate (tasa de falsos positivos)",
+      "definicion": "FP / (FP + TN). Proporción de instancias negativas incorrectamente clasificadas como positivas. Se calcula con los valores de las filas de las clases contrarias."
+    },
+    {
+      "termino": "Precisión",
+      "definicion": "TP / (TP + FP). Proporción de predicciones positivas que realmente son positivas. Se calcula con los valores de la columna de la clase objetivo."
+    },
+    {
+      "termino": "WEKA",
+      "definicion": "Herramienta de software libre para aprendizaje automático y minería de datos. Implementa ID3 y J48 (C4.5). La matriz de confusión en WEKA tiene filas=clase real y columnas=clase predicha."
+    },
+    {
+      "termino": "Regresión lineal",
+      "definicion": "Modelo de regresión básico que ajusta una recta (o hiperplano) minimizando el error cuadrático medio entre predicciones y valores reales."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-6-fc-001",
+      "pregunta": "¿Cuál es la diferencia clave entre aprendizaje supervisado y no supervisado?",
+      "respuesta": "En supervisado los datos tienen etiquetas/clases y el sistema aprende a predecir. En no supervisado los datos no están etiquetados y el sistema descubre patrones o agrupaciones."
+    },
+    {
+      "id": "iaic-tema-6-fc-002",
+      "pregunta": "¿Cuándo se usa clasificación y cuándo regresión en aprendizaje supervisado?",
+      "respuesta": "Clasificación cuando la salida es una etiqueta discreta (clase). Regresión cuando la salida es un valor numérico continuo."
+    },
+    {
+      "id": "iaic-tema-6-fc-003",
+      "pregunta": "¿Qué es el sobreajuste y cómo se detecta?",
+      "respuesta": "El sobreajuste (overfitting) ocurre cuando el modelo aprende demasiado los datos de entrenamiento y no generaliza bien. Se detecta comparando el error de entrenamiento con el de validación: si el de entrenamiento es muy bajo pero el de validación es alto, hay sobreajuste."
+    },
+    {
+      "id": "iaic-tema-6-fc-004",
+      "pregunta": "¿Cuál es la ventaja principal de los árboles de decisión respecto a otros modelos como las redes neuronales?",
+      "respuesta": "Son muy interpretables: se puede entender fácilmente por qué una instancia es clasificada de una forma siguiendo el camino del árbol. Las redes neuronales actúan como caja negra."
+    },
+    {
+      "id": "iaic-tema-6-fc-005",
+      "pregunta": "¿Cuáles son los 4 pasos del algoritmo ID3?",
+      "respuesta": "(1) Seleccionar el atributo con mayor ganancia de información. (2) Crear un nodo con tantas ramas como valores distintos tenga ese atributo. (3) Propagar los ejemplos según su valor para ese atributo. (4) Si todos los ejemplos de un subconjunto son de la misma clase → nodo hoja; si no, repetir sin ese atributo."
+    },
+    {
+      "id": "iaic-tema-6-fc-006",
+      "pregunta": "¿Qué métrica utiliza ID3 para seleccionar el atributo en cada nodo?",
+      "respuesta": "La ganancia de información, que usa la entropía. ID3 selecciona el atributo que aporta mayor ganancia de información (equivalente a menor entropía ponderada de los subconjuntos resultantes)."
+    },
+    {
+      "id": "iaic-tema-6-fc-007",
+      "pregunta": "¿Qué mide la entropía y qué valores extremos tiene?",
+      "respuesta": "Mide la heterogeneidad de un conjunto respecto a la clase. H = 0 cuando todos los ejemplos son de la misma clase (máxima pureza). H es máxima cuando los ejemplos se distribuyen uniformemente entre todas las clases."
+    },
+    {
+      "id": "iaic-tema-6-fc-008",
+      "pregunta": "¿Cómo se define la ganancia de información de un atributo?",
+      "respuesta": "Es la diferencia entre la entropía del conjunto inicial y la entropía ponderada de los subconjuntos resultantes al dividir por ese atributo. IG(a) = H(inicial) - ∑ p(t)·H(t)."
+    },
+    {
+      "id": "iaic-tema-6-fc-009",
+      "pregunta": "¿Es ID3 un algoritmo óptimo?",
+      "respuesta": "No, es heurístico: no garantiza generar el árbol de tamaño mínimo. La entropía es una buena heurística de media, pero no asegura optimalidad."
+    },
+    {
+      "id": "iaic-tema-6-fc-010",
+      "pregunta": "¿Para qué tipos de salidas puede usarse ID3?",
+      "respuesta": "Solo para clasificación (salidas discretas/categorías). Para regresión se necesitan otros modelos. ID3 no maneja atributos continuos directamente: hay que discretizarlos."
+    },
+    {
+      "id": "iaic-tema-6-fc-011",
+      "pregunta": "¿En qué consiste la validación cruzada k-fold?",
+      "respuesta": "Se dividen los datos en k particiones iguales. Se realizan k iteraciones: en cada una, k-1 particiones son de entrenamiento y 1 (diferente en cada iteración) es de test. Se promedian los resultados de las k iteraciones. El estándar en WEKA es k=10."
+    },
+    {
+      "id": "iaic-tema-6-fc-012",
+      "pregunta": "En la matriz de confusión de WEKA, ¿qué representan las filas y qué las columnas?",
+      "respuesta": "Las filas representan la clase real (la etiqueta verdadera). Las columnas representan la clase predicha (lo que el modelo asignó). Los valores de la diagonal son los aciertos."
+    },
+    {
+      "id": "iaic-tema-6-fc-013",
+      "pregunta": "¿Cómo se identifican TP, FN, FP y TN en la matriz de confusión para una clase objetivo?",
+      "respuesta": "TP = celda diagonal de la clase objetivo. FN = suma de la fila de la clase objetivo menos TP. FP = suma de la columna de la clase objetivo menos TP. TN = total de instancias menos TP, FN y FP."
+    },
+    {
+      "id": "iaic-tema-6-fc-014",
+      "pregunta": "¿Cuál es la fórmula de la tasa de verdaderos positivos (TP Rate)?",
+      "respuesta": "TP Rate = TP / (TP + FN). Es la proporción de instancias realmente positivas que el modelo clasificó correctamente. Se calcula con los valores de la fila de la clase objetivo."
+    },
+    {
+      "id": "iaic-tema-6-fc-015",
+      "pregunta": "¿Cuál es la fórmula de la tasa de falsos positivos (FP Rate)?",
+      "respuesta": "FP Rate = FP / (FP + TN). Es la proporción de instancias negativas que el modelo clasificó incorrectamente como positivas. Se calcula con los valores de las filas de las demás clases."
+    },
+    {
+      "id": "iaic-tema-6-fc-016",
+      "pregunta": "¿Cuál es la fórmula de la Precisión?",
+      "respuesta": "Precisión = TP / (TP + FP). Es la proporción de predicciones positivas que realmente son positivas. Se calcula con los valores de la columna de la clase objetivo."
+    },
+    {
+      "id": "iaic-tema-6-fc-017",
+      "pregunta": "Dada la matriz WEKA: 'a b <-- classified as / 8 2 | a = yes / 1 6 | b = no', calcula TP Rate y Precisión para 'yes'.",
+      "respuesta": "Para 'yes': TP=8, FN=2, FP=1, TN=6. TP Rate = 8/(8+2) = 0.8. Precisión = 8/(8+1) ≈ 0.889."
+    },
+    {
+      "id": "iaic-tema-6-fc-018",
+      "pregunta": "¿Cuál es la diferencia entre ID3 y J48 (C4.5) en WEKA?",
+      "respuesta": "J48 es la implementación de C4.5, que es una versión mejorada de ID3. C4.5 maneja atributos continuos directamente, incorpora mecanismos de poda para evitar sobreajuste y es más robusto. ID3 solo maneja atributos discretos."
+    },
+    {
+      "id": "iaic-tema-6-fc-019",
+      "pregunta": "¿Cómo se clasifica una nueva instancia con un árbol de decisión ya construido?",
+      "respuesta": "Se recorre el árbol desde la raíz: en cada nodo interno se sigue la rama que corresponde al valor del atributo de la instancia. Al llegar a un nodo hoja, la etiqueta de ese nodo es la clase predicha."
+    },
+    {
+      "id": "iaic-tema-6-fc-020",
+      "pregunta": "¿A qué área pertenece ID3, qué tipo de problemas resuelve y qué tipo de salidas produce?",
+      "respuesta": "Área: aprendizaje automático supervisado. Tipo de problema: clasificación. Salidas: categorías discretas (etiquetas de clase). Modelo generado: árbol de decisión. Métrica: ganancia de información basada en entropía."
+    }
+  ]
+}

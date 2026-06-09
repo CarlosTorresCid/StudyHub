@@ -1,0 +1,238 @@
+{
+  "asignaturaId": "aamd",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Introducción a la Minería de Datos y el Aprendizaje Automático",
+  "apuntes": {
+    "introduccion": "El Tema 1 establece los fundamentos conceptuales de la asignatura. Presenta qué es la minería de datos, cómo se relaciona con el aprendizaje automático y la inteligencia artificial, y cómo se organiza el proceso completo de extracción de conocimiento a partir de datos mediante el denominado proceso KDD. Aunque este tema tiene un carácter más conceptual que los siguientes, su comprensión es esencial para entender el flujo práctico del resto de la asignatura: datos → preprocesamiento → modelo → evaluación → interpretación.",
+    "secciones": [
+      {
+        "titulo": "Inteligencia Artificial, Aprendizaje Automático y Minería de Datos",
+        "contenido": "Estos tres términos se usan a veces como sinónimos, pero no son lo mismo.\n\n**Inteligencia Artificial (IA)** es la disciplina más amplia. Engloba todo el conjunto de técnicas y enfoques orientados a que las máquinas realicen tareas que requieren inteligencia: sistemas expertos, robótica, procesamiento del lenguaje natural, aprendizaje automático, etc.\n\n**Aprendizaje Automático (AA o Machine Learning)** es una rama de la IA. Se centra específicamente en construir modelos que aprenden a realizar una tarea de forma progresivamente mejor, a partir de datos y dadas ciertas medidas de rendimiento. El modelo recibe datos de entrada, los representa internamente de forma eficiente y produce salidas (predicciones, clasificaciones, detecciones, etc.).\n\n**Minería de Datos** es una parte del proceso más amplio llamado KDD. Se refiere concretamente a la aplicación de técnicas estadísticas y de aprendizaje automático sobre grandes volúmenes de datos, con el objetivo de identificar patrones y obtener conocimiento útil.\n\nLa relación jerárquica es: IA engloba AA, y dentro del AA se utilizan técnicas que son el núcleo de la minería de datos. A su vez, la minería de datos ocurre dentro del proceso KDD."
+      },
+      {
+        "titulo": "Qué es la Minería de Datos",
+        "contenido": "La **minería de datos** es un proceso que utiliza técnicas estadísticas y de inteligencia artificial sobre volúmenes de datos elevados, con el objetivo de identificar y describir patrones a partir de los cuales se pueda obtener un beneficio.\n\nEl resultado de aplicar minería de datos es la generación de **modelos** que aportan conocimiento útil y que pueden implementarse para tomar decisiones. Estos modelos son representaciones que resumen o condensan la información original de manera que sea útil.\n\nEn muchos casos interesa que los modelos sean **interpretables por humanos**, es decir, que no sean solo una caja negra que produce una predicción, sino que permitan entender por qué se llega a esa predicción. Los árboles de decisión, por ejemplo, son especialmente adecuados para esto.\n\nLa minería de datos utiliza principalmente:\n- Técnicas estadísticas: permiten conocer mejor los datos en la fase de exploración, detectar outliers, modelar el ruido, y verificar si los resultados son estadísticamente significativos.\n- Técnicas de aprendizaje automático: permiten generar modelos descriptivos, predictivos, asociativos o de agrupamiento."
+      },
+      {
+        "titulo": "Tipos de Modelos: Predictivos, Descriptivos y Asociativos",
+        "contenido": "Los modelos generados en la etapa de minería de datos pueden clasificarse en tres grandes tipos:\n\n**Modelos predictivos**: estiman valores futuros o desconocidos de una variable de interés (llamada variable objetivo, dependiente o clase) a partir de otras variables (independientes o predictoras). Dentro de los predictivos se distingue entre:\n- *Clasificación*: cuando la variable objetivo es categórica (por ejemplo, predecir si un cliente va a pagar o no el crédito).\n- *Regresión*: cuando la variable objetivo es continua (por ejemplo, predecir cuánto va a invertir alguien).\n\n**Modelos descriptivos (de agrupamiento o clustering)**: identifican tendencias o comportamientos que explican o resumen los datos, sin predecir nuevos casos. Sirven para explorar propiedades de los datos. Por ejemplo: describir el perfil de clientes que gastan más de X al mes, o identificar a qué tipos de números de teléfono llaman los clientes.\n\n**Modelos asociativos**: identifican relaciones entre variables o elementos. Por ejemplo: detectar qué productos se compran conjuntamente, o qué libros se recomiendan después de haber leído otro. Responden a preguntas del tipo \"si ocurre A, también suele ocurrir B\".\n\nEjemplos concretos resueltos en clase:\n- \"¿Cuál es el perfil de los clientes que gastan más de X?\" → Descriptivo.\n- \"¿Qué producto compran cuando compran pañales?\" → Asociativo.\n- \"¿Debo invertir en la empresa X? ¿Cuánto?\" → Predictivo (regresión).\n- \"¿Qué libro recomendar?\" → Asociativo.\n- \"¿A qué tipos de número llaman los clientes?\" → Descriptivo.\n- \"¿Cuándo conceder un crédito hipotecario?\" → Predictivo (clasificación)."
+      },
+      {
+        "titulo": "El Proceso KDD: Concepto y Naturaleza",
+        "contenido": "**KDD** son las siglas de *Knowledge Discovery in Databases* (Descubrimiento de Conocimiento en Bases de Datos). Es el proceso completo para extraer conocimiento útil, aprovechable y previamente desconocido a partir de los datos en una base de datos.\n\nKDD es más amplio que la minería de datos: incluye la minería de datos como una de sus fases, pero también abarca todas las etapas previas de preparación de los datos y las etapas posteriores de evaluación e interpretación.\n\nCaracterísticas clave del KDD:\n- Es un proceso **complejo e iterativo**: puede ser necesario repetir etapas anteriores cuando los resultados no son satisfactorios.\n- Existe una gran variedad de modelos KDD, pero todos comparten una estructura similar: desde la identificación del objetivo hasta la presentación del conocimiento obtenido.\n- El punto de partida siempre es **identificar el objetivo** del proceso: qué se quiere descubrir, qué se considera un buen modelo, cuáles son los criterios de éxito. Esta fase es fundamental y requiere que participen todos los implicados."
+      },
+      {
+        "titulo": "Etapas del Proceso KDD",
+        "contenido": "Aunque el número y detalle de etapas varía entre modelos KDD, las etapas genéricas son las siguientes:\n\n**1. Identificación del objetivo**: Se define el problema y se establecen hipótesis sobre los resultados deseados. Es el punto de partida de todo proceso KDD.\n\n**2. Integración de los datos**: Se recopilan datos desde múltiples fuentes (bases de datos, hojas de cálculo, sistemas externos) y se unifican para que sean accesibles y coherentes.\n\n**3. Selección**: Se decide qué datos son relevantes para el análisis. No toda la información disponible es útil. Se seleccionan las variables y registros con mayor relevancia para el objetivo. Esta selección debe ser realizada o supervisada por expertos en el dominio.\n\n**4. Preprocesamiento / limpieza (Data Cleaning)**: Se analiza la calidad de los datos. Se corrigen errores, se tratan datos faltantes (missing values), datos nulos, datos ruidosos, duplicados e inconsistencias. El objetivo es preparar una base de datos sólida y confiable.\n\n**5. Transformación / reducción**: Se modifican los datos para que sean interpretables de forma eficiente. Puede incluir normalización, discretización, extracción de nuevas variables, reducción de dimensionalidad (por ejemplo, mediante PCA), escalado, etc.\n\n**6. Minería de datos (Modelado)**: Se aplican los algoritmos de minería de datos para generar los modelos que identifiquen patrones, relaciones o tendencias en los datos.\n\n**7. Evaluación e interpretación**: Se determina si el modelo obtenido es adecuado para el propósito deseado, aplicando métricas de evaluación. Si el resultado no es satisfactorio, puede ser necesario repetir etapas anteriores.\n\n**8. Presentación del conocimiento**: Se visualiza e integra el conocimiento descubierto para que pueda ser utilizado.\n\nLa naturaleza iterativa del proceso significa que en la fase de evaluación se puede decidir volver a etapas previas para ajustar la selección de variables, el preprocesamiento o los parámetros del modelo."
+      },
+      {
+        "titulo": "La Importancia de los Datos y su Calidad",
+        "contenido": "Un principio fundamental en cualquier proyecto de minería de datos es que **la calidad del modelo depende directamente de la calidad de los datos**.\n\nSi los datos de partida tienen limitaciones (pocas observaciones de una clase, muchos valores faltantes, ruido elevado), el modelo resultante también tendrá limitaciones. Conocer la calidad de los datos de entrada es esencial para interpretar correctamente el rendimiento de un modelo.\n\nPor eso, el preprocesamiento no es un paso menor del proceso KDD: en aplicaciones reales, raramente los datos llegan preparados para aplicar directamente los algoritmos de aprendizaje. El proceso de preparación puede ser complejo incluso en proyectos básicos.\n\nEsto contrasta con datasets de competición (como los de UCI o Kaggle), que suelen estar ya preparados. En proyectos reales, la fase de limpieza y transformación consume buena parte del esfuerzo total."
+      },
+      {
+        "titulo": "Aplicaciones Prácticas de la Minería de Datos",
+        "contenido": "La minería de datos tiene aplicaciones en múltiples dominios. Algunos ejemplos representativos:\n\n- **Detección de fraude**: Caracterizar transacciones bancarias fraudulentas y distinguirlas de las legales → modelo predictivo de clasificación.\n- **Análisis de cestas de la compra**: Detectar productos con tendencia a comprarse conjuntamente → modelo asociativo.\n- **Sistemas de recomendación**: Plataformas de música, libros o compras que sugieren contenido personalizado → modelo asociativo.\n- **Segmentación de clientes**: Agrupar clientes con características similares → modelo descriptivo (clustering).\n- **Concesión de crédito**: Predecir si un solicitante devolverá o no un préstamo → modelo predictivo de clasificación.\n- **Predicción de abandono escolar**: Predecir si un estudiante abandonará según variables socioeconómicas y académicas → modelo predictivo de clasificación.\n\nEn todos estos casos, el flujo es el mismo: obtener los datos → preprocesarlos → construir el modelo → evaluarlo → interpretar el conocimiento extraído."
+      },
+      {
+        "titulo": "Relación entre los Conceptos del Tema y el Flujo Práctico del Examen",
+        "contenido": "La estructura conceptual del Tema 1 es la base de todo lo que se hace en el examen práctico. Aunque no habrá preguntas teóricas puras, entender el flujo KDD permite:\n\n- Saber en qué orden se realizan las operaciones sobre el dataset: exploración → preprocesamiento → separación train/test → entrenamiento del modelo → evaluación → interpretación.\n- Identificar a qué tipo de problema pertenece un dataset con variable objetivo categórica: clasificación (predictivo).\n- Justificar por qué se realizan ciertas operaciones: por ejemplo, el split train/test corresponde a la etapa de selección y preparación de datos; el GridSearchCV corresponde a la búsqueda del mejor modelo; la matriz de confusión y las métricas corresponden a la evaluación.\n- Argumentar correctamente en las preguntas de desarrollo usando el vocabulario correcto del proceso KDD."
+      }
+    ]
+  },
+  "resumen": [
+    "La Inteligencia Artificial engloba al Aprendizaje Automático, que a su vez engloba las técnicas de Minería de Datos.",
+    "La Minería de Datos aplica técnicas estadísticas y de AA para identificar patrones en grandes volúmenes de datos y generar modelos útiles.",
+    "KDD (Knowledge Discovery in Databases) es el proceso completo e iterativo de extracción de conocimiento, del que la minería de datos es solo una fase.",
+    "El KDD siempre comienza con la identificación del objetivo: definir qué se quiere descubrir y cuáles son los criterios de éxito.",
+    "Las etapas genéricas del KDD son: integración, selección, preprocesamiento/limpieza, transformación/reducción, modelado, evaluación/interpretación y presentación del conocimiento.",
+    "El proceso KDD es iterativo: si los resultados no son satisfactorios, se puede volver a etapas anteriores.",
+    "Los modelos pueden ser predictivos (clasificación o regresión), descriptivos (agrupamiento) o asociativos.",
+    "Los modelos predictivos estiman valores futuros de una variable objetivo a partir de variables independientes.",
+    "Los modelos descriptivos exploran propiedades de los datos sin predecir nuevos casos.",
+    "Los modelos asociativos detectan relaciones del tipo 'si ocurre A, también suele ocurrir B'.",
+    "En muchos casos interesa que los modelos sean interpretables por humanos, no solo predictivos.",
+    "La calidad del modelo depende directamente de la calidad de los datos de partida.",
+    "En aplicaciones reales, los datos raramente llegan preparados: el preprocesamiento es una etapa crítica y costosa.",
+    "Entender el flujo KDD permite aplicarlo correctamente en Python: exploración → preprocesamiento → split → entrenamiento → evaluación → interpretación."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Inteligencia Artificial (IA)",
+      "definicion": "Disciplina que engloba todas las técnicas orientadas a que las máquinas realicen tareas que requieren inteligencia. Incluye AA, sistemas expertos, robótica, procesamiento de lenguaje natural, entre otros."
+    },
+    {
+      "termino": "Aprendizaje Automático (AA)",
+      "definicion": "Rama de la IA que se centra en construir modelos que aprenden a realizar una tarea cada vez mejor a partir de datos. El modelo recibe inputs, los representa internamente y produce outputs."
+    },
+    {
+      "termino": "Minería de Datos",
+      "definicion": "Proceso que aplica técnicas estadísticas y de IA sobre grandes volúmenes de datos para identificar patrones y generar modelos útiles. Es una fase dentro del proceso KDD, no un sinónimo de él."
+    },
+    {
+      "termino": "KDD (Knowledge Discovery in Databases)",
+      "definicion": "Proceso complejo e iterativo para extraer conocimiento útil y previamente desconocido de bases de datos. Incluye etapas previas y posteriores a la minería de datos propiamente dicha."
+    },
+    {
+      "termino": "Modelo",
+      "definicion": "Representación matemática que resume o condensa la información original de forma que sea útil. Puede ser predictivo, descriptivo o asociativo."
+    },
+    {
+      "termino": "Modelo predictivo",
+      "definicion": "Modelo que estima valores futuros de una variable objetivo a partir de variables independientes. Se divide en clasificación (variable objetivo categórica) y regresión (variable objetivo continua)."
+    },
+    {
+      "termino": "Modelo descriptivo",
+      "definicion": "Modelo que identifica tendencias o grupos en los datos sin predecir nuevos casos. También llamado de agrupamiento o clustering."
+    },
+    {
+      "termino": "Modelo asociativo",
+      "definicion": "Modelo que detecta relaciones entre variables o elementos: si se da A, tiende a darse B. Usado en sistemas de recomendación y análisis de cestas de la compra."
+    },
+    {
+      "termino": "Variable objetivo",
+      "definicion": "Variable que el modelo intenta predecir o explicar. También llamada variable dependiente o clase. En clasificación, toma valores categóricos."
+    },
+    {
+      "termino": "Variable independiente",
+      "definicion": "Variable usada para predecir o explicar la variable objetivo. También llamada variable predictora o atributo."
+    },
+    {
+      "termino": "Preprocesamiento / Limpieza",
+      "definicion": "Etapa del KDD en la que se analiza la calidad de los datos y se tratan errores, datos faltantes, ruido, duplicados e inconsistencias antes de aplicar los algoritmos."
+    },
+    {
+      "termino": "Transformación / Reducción",
+      "definicion": "Etapa del KDD en la que se modifican los datos para hacerlos más adecuados para el modelado: normalización, discretización, extracción de características, reducción de dimensionalidad."
+    },
+    {
+      "termino": "Proceso iterativo",
+      "definicion": "Característica del KDD por la que, si los resultados de la evaluación no son satisfactorios, se puede volver a etapas anteriores para corregir o mejorar el proceso."
+    },
+    {
+      "termino": "Interpretabilidad",
+      "definicion": "Propiedad de un modelo que permite a un humano entender por qué el modelo produce una determinada salida. Los árboles de decisión son especialmente interpretables."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "aamd-tema-1-fc-001",
+      "pregunta": "¿Qué relación jerárquica hay entre IA, Aprendizaje Automático y Minería de Datos?",
+      "respuesta": "La IA es el concepto más amplio y engloba al AA. El AA, a su vez, utiliza técnicas que son el núcleo de la minería de datos. La minería de datos ocurre dentro del proceso KDD."
+    },
+    {
+      "id": "aamd-tema-1-fc-002",
+      "pregunta": "¿Es KDD sinónimo de Minería de Datos?",
+      "respuesta": "No. KDD es el proceso completo de extracción de conocimiento, del que la minería de datos es solo una fase interna."
+    },
+    {
+      "id": "aamd-tema-1-fc-003",
+      "pregunta": "¿Qué es un modelo en el contexto de la minería de datos?",
+      "respuesta": "Una representación matemática que resume o condensa la información original de forma que sea útil. Puede ser predictivo, descriptivo o asociativo."
+    },
+    {
+      "id": "aamd-tema-1-fc-004",
+      "pregunta": "¿Cuál es la diferencia entre un modelo predictivo de clasificación y uno de regresión?",
+      "respuesta": "Ambos predicen valores de una variable objetivo, pero la clasificación se usa cuando la variable objetivo es categórica, y la regresión cuando es continua."
+    },
+    {
+      "id": "aamd-tema-1-fc-005",
+      "pregunta": "¿Qué tipo de modelo se usaría para detectar qué productos se compran juntos?",
+      "respuesta": "Un modelo asociativo, ya que detecta relaciones del tipo 'si se compra A, también se compra B'."
+    },
+    {
+      "id": "aamd-tema-1-fc-006",
+      "pregunta": "¿Qué tipo de modelo se usaría para predecir si conceder o no un crédito hipotecario?",
+      "respuesta": "Un modelo predictivo de clasificación, ya que se quiere predecir una categoría (conceder / no conceder) a partir de variables del solicitante."
+    },
+    {
+      "id": "aamd-tema-1-fc-007",
+      "pregunta": "¿Qué tipo de modelo describe el perfil de clientes que gastan más de X al mes?",
+      "respuesta": "Un modelo descriptivo (de agrupamiento), ya que no se busca predecir sino caracterizar un grupo existente."
+    },
+    {
+      "id": "aamd-tema-1-fc-008",
+      "pregunta": "¿Qué tipo de modelo usan los sistemas de recomendación de libros o música?",
+      "respuesta": "Un modelo asociativo, ya que recomiendan nuevos ítems basándose en la asociación con los que el usuario ya ha consumido."
+    },
+    {
+      "id": "aamd-tema-1-fc-009",
+      "pregunta": "¿Cuál es siempre la primera etapa de cualquier proceso KDD?",
+      "respuesta": "La identificación del objetivo: definir el problema, establecer hipótesis sobre los resultados deseados y determinar los criterios de éxito."
+    },
+    {
+      "id": "aamd-tema-1-fc-010",
+      "pregunta": "¿Por qué se dice que el KDD es un proceso iterativo?",
+      "respuesta": "Porque si en la fase de evaluación los resultados no son satisfactorios, se puede volver a etapas anteriores (selección, preprocesamiento, transformación) para corregir o ajustar el proceso."
+    },
+    {
+      "id": "aamd-tema-1-fc-011",
+      "pregunta": "¿En qué etapa del KDD se tratan los datos faltantes y los valores ruidosos?",
+      "respuesta": "En la etapa de preprocesamiento o limpieza (Data Cleaning)."
+    },
+    {
+      "id": "aamd-tema-1-fc-012",
+      "pregunta": "¿En qué etapa del KDD se realiza la normalización o la discretización de variables?",
+      "respuesta": "En la etapa de transformación y reducción de datos."
+    },
+    {
+      "id": "aamd-tema-1-fc-013",
+      "pregunta": "¿Qué etapa del KDD corresponde al entrenamiento del modelo con los algoritmos de aprendizaje?",
+      "respuesta": "La etapa de modelado o minería de datos propiamente dicha."
+    },
+    {
+      "id": "aamd-tema-1-fc-014",
+      "pregunta": "¿Por qué interesa que muchos modelos sean interpretables?",
+      "respuesta": "Porque permite a las personas entender por qué el modelo produce una determinada predicción, facilitando la toma de decisiones informadas y la confianza en el sistema."
+    },
+    {
+      "id": "aamd-tema-1-fc-015",
+      "pregunta": "¿Qué técnicas principales utiliza la minería de datos?",
+      "respuesta": "Técnicas estadísticas (para exploración, detección de outliers, verificación de significancia) y técnicas de aprendizaje automático (para generar modelos predictivos, descriptivos y asociativos)."
+    },
+    {
+      "id": "aamd-tema-1-fc-016",
+      "pregunta": "¿Por qué el preprocesamiento es una etapa crítica en proyectos reales?",
+      "respuesta": "Porque en aplicaciones reales los datos raramente llegan preparados. Suelen contener errores, inconsistencias, valores faltantes y ruido que deben tratarse antes de aplicar los algoritmos."
+    },
+    {
+      "id": "aamd-tema-1-fc-017",
+      "pregunta": "¿Qué implica que la calidad del modelo depende de la calidad de los datos?",
+      "respuesta": "Que si los datos de partida tienen limitaciones (pocas observaciones, mucho ruido, muchos valores faltantes), el modelo resultante también tendrá limitaciones, aunque se apliquen los mejores algoritmos."
+    },
+    {
+      "id": "aamd-tema-1-fc-018",
+      "pregunta": "¿En qué fase del KDD se puede decidir repetir pasos anteriores?",
+      "respuesta": "En la fase de evaluación e interpretación del modelo, si los resultados no son satisfactorios según los criterios definidos al inicio."
+    },
+    {
+      "id": "aamd-tema-1-fc-019",
+      "pregunta": "¿Cuántos modelos KDD distintos existen?",
+      "respuesta": "Hay muchos modelos KDD definidos en la literatura, con distinto número de pasos y nivel de detalle. Todos comparten una estructura similar, pero no hay un único modelo universal."
+    },
+    {
+      "id": "aamd-tema-1-fc-020",
+      "pregunta": "¿Qué es la etapa de selección en el proceso KDD?",
+      "respuesta": "La etapa en la que se decide qué datos (variables, registros) son relevantes para el análisis, creando un conjunto de datos objetivo sobre el que se aplicará el proceso de descubrimiento."
+    },
+    {
+      "id": "aamd-tema-1-fc-021",
+      "pregunta": "¿En qué se diferencia un modelo descriptivo de un modelo predictivo?",
+      "respuesta": "El modelo descriptivo explora y resume propiedades de los datos existentes (sin predecir nuevos casos), mientras que el modelo predictivo estima valores futuros o desconocidos de una variable objetivo."
+    },
+    {
+      "id": "aamd-tema-1-fc-022",
+      "pregunta": "¿Qué tipo de modelo generarías para detectar transacciones bancarias fraudulentas?",
+      "respuesta": "Un modelo predictivo de clasificación, ya que se quiere predecir una categoría (fraudulenta / no fraudulenta) a partir de los atributos de la transacción."
+    },
+    {
+      "id": "aamd-tema-1-fc-023",
+      "pregunta": "¿Qué etapa del proceso KDD en la práctica corresponde al uso de train_test_split en Python?",
+      "respuesta": "Forma parte de la preparación de los datos para el modelado: se separa el conjunto en entrenamiento (para construir el modelo) y test (para evaluarlo con datos no vistos)."
+    },
+    {
+      "id": "aamd-tema-1-fc-024",
+      "pregunta": "¿Qué etapa del KDD corresponde al cálculo de la matriz de confusión y las métricas de evaluación?",
+      "respuesta": "La etapa de evaluación e interpretación del modelo."
+    }
+  ]
+}

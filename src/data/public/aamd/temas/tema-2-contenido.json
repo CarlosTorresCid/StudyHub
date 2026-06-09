@@ -1,0 +1,263 @@
+{
+  "asignaturaId": "aamd",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. Conceptos Fundamentales del Aprendizaje Automático",
+  "apuntes": {
+    "introduccion": "El Tema 2 establece el vocabulario y los conceptos fundamentales del aprendizaje automático que se usarán en todos los temas siguientes. Explica qué significa aprender a partir de datos, qué tipos de aprendizaje existen, qué es una instancia, un atributo, una clase, y qué problemas aparecen cuando un modelo aprende demasiado bien o demasiado mal. Comprender estos conceptos es imprescindible para interpretar correctamente un dataset, elegir el tipo de modelo adecuado y justificar las decisiones tomadas en el examen.",
+    "secciones": [
+      {
+        "titulo": "Aprendizaje Supervisado vs. No Supervisado",
+        "contenido": "La primera gran división del aprendizaje automático es entre aprendizaje **supervisado** y **no supervisado**.\n\n**Aprendizaje supervisado**: se dispone de datos etiquetados, es decir, cada instancia del conjunto de entrenamiento tiene asociado un valor conocido de la variable objetivo (también llamada clase, etiqueta o variable respuesta Y). El algoritmo aprende la relación entre las variables de entrada X y la variable objetivo Y, de forma que pueda predecir el valor de Y para nuevas instancias no vistas. Los dos subtipos principales son clasificación y regresión.\n\n**Aprendizaje no supervisado**: no se dispone de etiquetas o clases conocidas. El algoritmo trabaja solo con las variables de entrada e intenta descubrir estructura en los datos. Los dos subtipos principales son agrupamiento (clustering) y detección de anomalías.\n\nLa distinción es práctica y directa: si en el dataset hay una columna que es la variable a predecir (y está etiquetada en los datos de entrenamiento), es supervisado. Si quitamos esa columna y solo quedan las variables de entrada, el problema pasaría a ser no supervisado.\n\nEn el examen, todos los datasets tienen una variable objetivo explícita (stress_level, pollution_level, injury_level...), lo que los convierte siempre en problemas de aprendizaje supervisado de clasificación."
+      },
+      {
+        "titulo": "Clasificación y Regresión: los dos tipos de aprendizaje supervisado",
+        "contenido": "Dentro del aprendizaje supervisado, la distinción entre clasificación y regresión depende exclusivamente de la naturaleza de la variable objetivo Y:\n\n**Clasificación**: la variable objetivo toma valores categóricos (palabras, etiquetas, clases discretas). El modelo predice a qué categoría pertenece una nueva instancia. Las salidas posibles son finitas y se conocen de antemano. Por ejemplo: diagnóstico médico (Infección / Alergia / Resfriado), nivel de estrés (Alto / Medio / Bajo), conceder o no un crédito (Sí / No).\n\n**Regresión**: la variable objetivo toma valores numéricos continuos (números reales). El modelo estima una cantidad. Por ejemplo: predecir cuánto va a invertir alguien, predecir la temperatura, predecir la nota de un examen.\n\nLa regla práctica es: si Y es un número real → regresión. Si Y es cualquier otra cosa (texto, categoría, etiqueta) → clasificación.\n\nUn modelo de clasificación tiene siempre un número **finito** de posibles salidas, que se conocen de antemano. Si el modelo tiene solo dos posibles salidas, se llama clasificación binaria. Si tiene tres o más, clasificación multiclase. El modelo nunca puede producir una salida inesperada que no sea una de las clases conocidas."
+      },
+      {
+        "titulo": "Instancias, Atributos y Clase",
+        "contenido": "El vocabulario básico para describir un dataset en aprendizaje supervisado es:\n\n**Instancia** (también llamada ejemplo, muestra, observación o fila): cada uno de los registros del dataset. En un dataset de pacientes, cada paciente es una instancia.\n\n**Atributo** (también llamado variable, característica o predictor): cada una de las columnas del dataset. Hay dos tipos:\n- *Atributos de entrada* (variables independientes, X): las columnas que se usan para hacer la predicción. Por ejemplo: síntomas, indicadores, sensores.\n- *Atributo de salida* o *clase* (variable dependiente, objetivo, Y): la columna que el modelo intenta predecir. Por ejemplo: diagnóstico, nivel de estrés.\n\n**Clase**: el valor que toma el atributo de salida en cada instancia. Las clases son las categorías posibles en un problema de clasificación.\n\nImportante: no todos los atributos de entrada son útiles para entrenar el modelo. Los **identificadores** (columnas que simplemente enumeran las filas, como 'ID_paciente' o 'número') nunca deben usarse como predictores porque no aportan información sobre la variable objetivo, sino que son simplemente etiquetas de fila."
+      },
+      {
+        "titulo": "Tipos de Variables (Atributos)",
+        "contenido": "Los atributos de un dataset pueden ser de varios tipos, y conocer el tipo es fundamental para el preprocesamiento y para elegir cómo tratar cada variable:\n\n**Variables categóricas (o nominales)**: toman valores que son etiquetas o nombres sin relación cuantitativa entre sí. Por ejemplo: color (rojo, azul, verde), marca de coche, diagnóstico médico. No tiene sentido operar matemáticamente con ellas.\n\n**Variables binarias**: son un caso especial de variables categóricas con solo dos posibles valores (Sí/No, 0/1, True/False, garaje: tiene/no tiene).\n\n**Variables numéricas**: toman valores numéricos que representan cantidades medibles y comparables. Se dividen en:\n- *Enteras (discretas)*: sin decimales, como el número de habitaciones, el número de pacientes.\n- *Continuas (reales)*: con decimales, como la temperatura, el peso, la altura.\n\n**Variables ordinales**: tienen un cierto orden pero pueden ser numéricas o no. Por ejemplo, la clasificación de severidad (leve, moderado, grave) tiene un orden implícito.\n\nEn la práctica del examen, al explorar un dataset se pide identificar cuántas variables son de cada tipo. Las variables continuas se identifican por tener decimales en sus valores; las enteras por ser números sin decimales; las categóricas porque sus valores son etiquetas de texto."
+      },
+      {
+        "titulo": "Características de un Buen Modelo",
+        "contenido": "Un buen modelo de aprendizaje automático debe cumplir las siguientes características:\n\n- **Representa la realidad de forma simplificada**: no hace una fotografía exacta de los datos, sino que capta la tendencia subyacente. Si el modelo se aprende los datos de memoria en lugar de captar la tendencia, es un problema (sobreajuste).\n- **Utiliza información conocida para predecir lo desconocido**: funciona por inducción, a partir de experiencia pasada, y aplica ese aprendizaje a nuevas observaciones.\n- **Es validado con datos no vistos**: un buen modelo se evalúa siempre con instancias que no formaron parte del entrenamiento. Esto es lo que garantiza que la evaluación sea fiable.\n- **Puede ser recalibrado**: cuando llega nueva información, el modelo puede actualizarse para adaptarse a nuevas realidades.\n- **Generaliza correctamente**: funciona con rendimiento razonable ante datos nuevos, no solo ante los datos con los que fue entrenado.\n\nEn el examen esto se aplica directamente: el split train/test existe precisamente para validar el modelo con datos no vistos, y las métricas de evaluación (accuracy, F1, etc.) se calculan sobre el conjunto test, no sobre el de entrenamiento."
+      },
+      {
+        "titulo": "Sobreajuste (Overfitting) y Subajuste (Underfitting)",
+        "contenido": "El **sobreajuste** (overfitting) es uno de los problemas más importantes del aprendizaje automático. Se produce cuando un modelo se ajusta demasiado bien a los datos de entrenamiento: ha aprendido los datos de memoria, incluyendo el ruido y las particularidades de ese conjunto específico, y como consecuencia falla al generalizar a nuevos datos.\n\nSeñales de sobreajuste:\n- El error en entrenamiento es muy bajo (cercano a 0, o accuracy cercana al 100%).\n- El error en test es significativamente más alto que en entrenamiento.\n- La diferencia grande entre rendimiento en train y en test es la medida práctica del sobreajuste.\n\nEjemplo visual: en regresión, un modelo sobreajustado pasa exactamente por todos los puntos de entrenamiento en lugar de captar la tendencia general. En clasificación, dibuja fronteras de decisión muy complejas que rodean cada punto individualmente.\n\nSi en el examen se obtiene un árbol sin podar con accuracy del 100% en train, es una señal clara de sobreajuste. La poda (limitando `max_depth`) es la solución.\n\nEl **subajuste** (underfitting) es el problema opuesto: el modelo es demasiado simple y no capta ni siquiera la tendencia de los datos. Tiene mal rendimiento tanto en train como en test.\n\nEl objetivo es el **ajuste óptimo**: el modelo capta la tendencia general de los datos sin memorizar los casos particulares, y mantiene un buen rendimiento en datos no vistos."
+      },
+      {
+        "titulo": "Sesgo (Bias) y Varianza",
+        "contenido": "El sesgo y la varianza son dos fuentes de error en los modelos de aprendizaje automático que están en equilibrio:\n\n**Sesgo (bias)**: son las suposiciones que el modelo hace sobre la función objetivo. Un modelo con mucho sesgo es demasiado rígido (por ejemplo, siempre asume que la relación es lineal). Tiende a producir subajuste.\n\n**Varianza**: es la sensibilidad del modelo a los cambios en el conjunto de entrenamiento. Un modelo con mucha varianza cambia mucho si cambian los datos de entrenamiento, lo que indica que ha aprendido el ruido específico de ese conjunto. Tiende a producir sobreajuste.\n\nEsta relación se conoce como el **equilibrio sesgo-varianza**: reducir el sesgo tiende a aumentar la varianza, y reducir la varianza tiende a aumentar el sesgo. El objetivo es encontrar el punto de equilibrio óptimo.\n\nEn términos prácticos: un árbol muy profundo (sin podar) tiene bajo sesgo pero alta varianza (sobreajusta). Un árbol muy poco profundo tiene alto sesgo pero baja varianza (subajusta). Elegir `max_depth` óptimo mediante GridSearchCV es precisamente buscar ese equilibrio."
+      },
+      {
+        "titulo": "Tipos de Aprendizaje según el Modo de Entrenamiento",
+        "contenido": "Además de la distinción supervisado/no supervisado, los modelos pueden clasificarse según cómo aprenden:\n\n**Aprendizaje por lotes (batch)**: la fase de entrenamiento se realiza completamente antes de desplegar el modelo. Una vez entrenado, el modelo no cambia; simplemente se aplica a nuevos datos. Es el tipo de aprendizaje habitual en la asignatura y el que se asume siempre en el examen.\n\n**Aprendizaje en línea (online)**: la fase de entrenamiento continúa mientras el modelo está en operación. El modelo se actualiza continuamente con nuevos datos. Ejemplo: chatbots que aprenden de nuevas conversaciones, sistemas de recomendación que se actualizan en tiempo real.\n\nEn el contexto del examen siempre se asume aprendizaje por lotes: se entrena el modelo con el conjunto de entrenamiento, se fija, y se evalúa sobre el conjunto de test."
+      },
+      {
+        "titulo": "Aprendizaje No Supervisado: Clustering y Detección de Anomalías",
+        "contenido": "Aunque no es el foco principal del examen, conviene conocer los dos subtipos de aprendizaje no supervisado:\n\n**Clustering (agrupamiento)**: dado un conjunto de instancias sin etiquetas, el algoritmo asigna cada instancia a un grupo según su similitud con las demás. No se sabe de antemano cuántos grupos hay ni cómo se llaman. El algoritmo K-means es el ejemplo más conocido: agrupa las instancias en K clústeres según la distancia entre ellas.\n\n**Detección de anomalías**: el algoritmo identifica instancias que son significativamente diferentes del resto de los datos. Útil para detectar fraudes, fallos en maquinaria, datos erróneos, etc.\n\nLa diferencia fundamental con el aprendizaje supervisado es que no hay variable objetivo etiquetada: el algoritmo no sabe qué buscar, solo busca estructura o rareza en los datos."
+      },
+      {
+        "titulo": "El Ciclo Completo: de los Datos al Modelo Evaluado",
+        "contenido": "El flujo de trabajo en aprendizaje supervisado sigue siempre el mismo ciclo, que en el examen se debe seguir paso a paso:\n\n1. **Carga y exploración del dataset**: entender cuántas instancias y atributos hay, de qué tipo es cada variable, si hay valores faltantes o atípicos.\n\n2. **Selección y preprocesamiento**: identificar y eliminar columnas no útiles (identificadores), tratar valores faltantes, transformar variables si es necesario.\n\n3. **Separación train/test**: dividir aleatoriamente el dataset en un conjunto de entrenamiento (70%) y un conjunto de test (30%), usando `random_state=1` para garantizar reproducibilidad.\n\n4. **Creación del modelo**: seleccionar el algoritmo adecuado según la naturaleza del problema (clasificación → árbol de decisión, regresión → regresión lineal, etc.) y entrenarlo con los datos de train.\n\n5. **Evaluación**: aplicar el modelo sobre el conjunto de test y calcular las métricas de rendimiento (accuracy, precision, recall, F1, matriz de confusión).\n\n6. **Puesta en producción / interpretación**: integrar el modelo o interpretar los resultados para la toma de decisiones.\n\nEste ciclo es el que se ejecuta en el examen y es la aplicación práctica de las etapas del proceso KDD."
+      }
+    ]
+  },
+  "resumen": [
+    "El aprendizaje supervisado dispone de etiquetas en los datos de entrenamiento; el no supervisado no.",
+    "La diferencia entre clasificación y regresión depende de la variable objetivo: categórica → clasificación; numérica continua → regresión.",
+    "Un modelo de clasificación tiene siempre un número finito de posibles salidas (clases) conocidas de antemano.",
+    "Una instancia es cada fila del dataset; un atributo es cada columna; la clase es el atributo de salida.",
+    "Los identificadores (columnas que enumeran filas) nunca deben usarse como predictores.",
+    "Los tipos de variables son: categórico/nominal, binario, numérico entero y numérico continuo.",
+    "Un buen modelo capta la tendencia de los datos sin memorizar el ruido: representa la realidad de forma simplificada.",
+    "El sobreajuste ocurre cuando el error en entrenamiento es mucho menor que en test: el modelo aprendió los datos de memoria.",
+    "El subajuste ocurre cuando el modelo es demasiado simple y tiene mal rendimiento tanto en train como en test.",
+    "Sesgo y varianza están en equilibrio: reducir uno tiende a aumentar el otro.",
+    "El aprendizaje por lotes (batch) es el tipo que se asume siempre en el examen: modelo fijo tras el entrenamiento.",
+    "El split train/test existe para evaluar el modelo con datos que no participaron en el entrenamiento.",
+    "En el examen, todos los datasets tienen variable objetivo categórica: siempre son problemas de clasificación supervisada.",
+    "Detectar si un problema es supervisado o no supervisado, y de clasificación o regresión, es la base para elegir el modelo correcto."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Aprendizaje supervisado",
+      "definicion": "Tipo de aprendizaje donde cada instancia de entrenamiento tiene asociado el valor conocido de la variable objetivo. El modelo aprende la relación X → Y para predecir Y en nuevas instancias."
+    },
+    {
+      "termino": "Aprendizaje no supervisado",
+      "definicion": "Tipo de aprendizaje donde no hay variable objetivo etiquetada. El algoritmo descubre estructura en los datos por sí mismo. Ejemplos: clustering, detección de anomalías."
+    },
+    {
+      "termino": "Clasificación",
+      "definicion": "Problema de aprendizaje supervisado donde la variable objetivo toma valores categóricos (clases discretas). El modelo predice a qué clase pertenece cada instancia nueva."
+    },
+    {
+      "termino": "Regresión",
+      "definicion": "Problema de aprendizaje supervisado donde la variable objetivo toma valores numéricos continuos. El modelo estima una cantidad."
+    },
+    {
+      "termino": "Instancia",
+      "definicion": "Cada fila del dataset. También llamada ejemplo, muestra u observación. Representa un caso individual con valores para todos sus atributos."
+    },
+    {
+      "termino": "Atributo",
+      "definicion": "Cada columna del dataset. También llamado variable, característica o predictor. Puede ser de entrada (X) o de salida/clase (Y)."
+    },
+    {
+      "termino": "Clase (variable objetivo)",
+      "definicion": "El atributo de salida que el modelo intenta predecir. En clasificación, toma valores categóricos. También llamada variable dependiente, etiqueta o Y."
+    },
+    {
+      "termino": "Variable independiente",
+      "definicion": "Cada uno de los atributos de entrada usados para predecir la variable objetivo. También llamada predictor, característica o X."
+    },
+    {
+      "termino": "Identificador",
+      "definicion": "Columna que simplemente enumera o etiqueta las filas (ID, número de paciente, etc.). No aporta información predictiva y nunca debe usarse como variable de entrada al modelo."
+    },
+    {
+      "termino": "Sobreajuste (overfitting)",
+      "definicion": "Problema en el que el modelo se ajusta demasiado bien a los datos de entrenamiento (memoriza el ruido) y falla al generalizar a nuevos datos. Se detecta por la gran diferencia entre el rendimiento en train y en test."
+    },
+    {
+      "termino": "Subajuste (underfitting)",
+      "definicion": "Problema en el que el modelo es demasiado simple y no capta ni la tendencia de los datos. Tiene mal rendimiento tanto en train como en test."
+    },
+    {
+      "termino": "Generalización",
+      "definicion": "Capacidad del modelo de funcionar correctamente con datos nuevos no vistos durante el entrenamiento. Es el objetivo principal del aprendizaje automático."
+    },
+    {
+      "termino": "Sesgo (bias)",
+      "definicion": "Suposiciones que el modelo hace sobre la función objetivo. Alto sesgo → modelo demasiado rígido/simple → subajuste."
+    },
+    {
+      "termino": "Varianza",
+      "definicion": "Sensibilidad del modelo a los cambios en el conjunto de entrenamiento. Alta varianza → modelo demasiado flexible → sobreajuste."
+    },
+    {
+      "termino": "Aprendizaje por lotes (batch)",
+      "definicion": "El modelo se entrena completamente antes de su despliegue y no cambia durante la aplicación. Es el tipo asumido en la asignatura."
+    },
+    {
+      "termino": "Clasificación binaria",
+      "definicion": "Problema de clasificación con solo dos posibles clases (Sí/No, 0/1). Caso particular de la clasificación multiclase."
+    },
+    {
+      "termino": "Clasificación multiclase",
+      "definicion": "Problema de clasificación con tres o más posibles clases. El examen siempre usa datasets con tres clases."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "aamd-tema-2-fc-001",
+      "pregunta": "¿Cuál es la diferencia entre aprendizaje supervisado y no supervisado?",
+      "respuesta": "En el supervisado, cada instancia de entrenamiento tiene una etiqueta conocida de la variable objetivo. En el no supervisado, no hay variable objetivo etiquetada."
+    },
+    {
+      "id": "aamd-tema-2-fc-002",
+      "pregunta": "¿Cómo se distingue un problema de clasificación de uno de regresión?",
+      "respuesta": "Por la naturaleza de la variable objetivo Y: si es categórica (palabras, etiquetas) → clasificación. Si es numérica continua (número real) → regresión."
+    },
+    {
+      "id": "aamd-tema-2-fc-003",
+      "pregunta": "Un dataset tiene una columna 'nivel_estrés' con valores 'Alto', 'Medio' y 'Bajo'. ¿Qué tipo de problema es?",
+      "respuesta": "Aprendizaje supervisado de clasificación multiclase, porque la variable objetivo es categórica con tres clases conocidas."
+    },
+    {
+      "id": "aamd-tema-2-fc-004",
+      "pregunta": "¿Qué es una instancia en el contexto del aprendizaje automático?",
+      "respuesta": "Cada fila del dataset, es decir, cada caso u observación individual con valores para todos sus atributos."
+    },
+    {
+      "id": "aamd-tema-2-fc-005",
+      "pregunta": "¿Qué es un atributo?",
+      "respuesta": "Cada columna del dataset. Puede ser de entrada (predictor, variable independiente X) o de salida (clase, variable objetivo Y)."
+    },
+    {
+      "id": "aamd-tema-2-fc-006",
+      "pregunta": "¿Qué columna de un dataset nunca deberías usar como predictor y por qué?",
+      "respuesta": "Los identificadores (columnas que simplemente numeran las filas), porque no aportan información sobre la variable objetivo."
+    },
+    {
+      "id": "aamd-tema-2-fc-007",
+      "pregunta": "¿Qué indica que un modelo tiene sobreajuste?",
+      "respuesta": "Que su rendimiento en el conjunto de entrenamiento es muy superior al que obtiene en el conjunto de test. El modelo memorizó los datos en lugar de generalizar."
+    },
+    {
+      "id": "aamd-tema-2-fc-008",
+      "pregunta": "Un árbol de decisión sin podar obtiene accuracy del 100% en train y 65% en test. ¿Qué problema tiene?",
+      "respuesta": "Sobreajuste (overfitting). Se ajustó perfectamente a los datos de entrenamiento pero no generaliza bien a nuevos datos."
+    },
+    {
+      "id": "aamd-tema-2-fc-009",
+      "pregunta": "¿Qué es el subajuste (underfitting)?",
+      "respuesta": "El modelo es demasiado simple y no capta ni la tendencia de los datos. Tiene mal rendimiento tanto en train como en test."
+    },
+    {
+      "id": "aamd-tema-2-fc-010",
+      "pregunta": "¿Qué relación existe entre sesgo y varianza?",
+      "respuesta": "Están en equilibrio: reducir el sesgo tiende a aumentar la varianza y viceversa. Un árbol profundo tiene poca varianza de sesgo pero mucha varianza. Un árbol poco profundo tiene mucho sesgo pero poca varianza."
+    },
+    {
+      "id": "aamd-tema-2-fc-011",
+      "pregunta": "¿Cuántas salidas posibles puede tener un modelo de clasificación?",
+      "respuesta": "Un número finito de salidas, conocidas de antemano. El modelo nunca puede producir una clase que no estuviera en el conjunto de entrenamiento."
+    },
+    {
+      "id": "aamd-tema-2-fc-012",
+      "pregunta": "¿Por qué se evalúa el modelo con datos no vistos durante el entrenamiento?",
+      "respuesta": "Porque evaluar con los mismos datos de entrenamiento siempre daría un resultado optimista (el modelo ya los conoce). Solo evaluando con datos nuevos se puede medir la capacidad de generalización real."
+    },
+    {
+      "id": "aamd-tema-2-fc-013",
+      "pregunta": "¿Qué tipo de aprendizaje asume siempre el examen?",
+      "respuesta": "Aprendizaje por lotes (batch): el modelo se entrena completamente con el conjunto de entrenamiento y luego se aplica fijo al conjunto de test."
+    },
+    {
+      "id": "aamd-tema-2-fc-014",
+      "pregunta": "¿Cuál es la diferencia entre una variable numérica entera y una numérica continua?",
+      "respuesta": "La entera toma valores de números naturales sin decimales (número de habitaciones, número de pacientes). La continua puede tomar cualquier valor real con decimales (temperatura, peso)."
+    },
+    {
+      "id": "aamd-tema-2-fc-015",
+      "pregunta": "¿Qué es una variable binaria?",
+      "respuesta": "Un caso particular de variable categórica que solo puede tomar dos valores posibles: Sí/No, 0/1, True/False."
+    },
+    {
+      "id": "aamd-tema-2-fc-016",
+      "pregunta": "Si quitamos la columna de variable objetivo de un dataset supervisado, ¿qué tipo de problema quedaría?",
+      "respuesta": "Un problema de aprendizaje no supervisado, ya que ya no habría etiquetas conocidas."
+    },
+    {
+      "id": "aamd-tema-2-fc-017",
+      "pregunta": "¿Qué es el clustering?",
+      "respuesta": "Un tipo de aprendizaje no supervisado que agrupa instancias en grupos (clústeres) según su similitud, sin conocer las etiquetas de antemano."
+    },
+    {
+      "id": "aamd-tema-2-fc-018",
+      "pregunta": "¿Qué característica distingue a una variable categórica de una numérica?",
+      "respuesta": "La variable categórica toma valores que son etiquetas o nombres sin relación cuantitativa entre sí. La numérica representa una cantidad medible y comparable."
+    },
+    {
+      "id": "aamd-tema-2-fc-019",
+      "pregunta": "¿Qué significa que un buen modelo 'representa la realidad de forma simplificada'?",
+      "respuesta": "Que capta la tendencia subyacente de los datos sin memorizar cada caso individual. No hace una fotografía exacta sino un esquema útil y generalizable."
+    },
+    {
+      "id": "aamd-tema-2-fc-020",
+      "pregunta": "¿Cuál es el objetivo principal del aprendizaje automático?",
+      "respuesta": "Construir modelos que generalicen correctamente a nuevos datos no vistos durante el entrenamiento."
+    },
+    {
+      "id": "aamd-tema-2-fc-021",
+      "pregunta": "¿Cómo se llaman los sinónimos de 'variable objetivo' que pueden aparecer en el examen?",
+      "respuesta": "Variable dependiente, clase, etiqueta, variable respuesta, Y, atributo de salida."
+    },
+    {
+      "id": "aamd-tema-2-fc-022",
+      "pregunta": "¿Cómo se llaman los sinónimos de 'variable de entrada' o 'predictor'?",
+      "respuesta": "Variable independiente, atributo, característica, X, variable predictora."
+    },
+    {
+      "id": "aamd-tema-2-fc-023",
+      "pregunta": "Un dataset de enfermedades tiene columnas: ID_paciente, Fiebre, Dolor_cabeza, Congestión, Diagnóstico. ¿Cuáles son variables de entrada y cuál es la de salida?",
+      "respuesta": "Variables de entrada: Fiebre, Dolor_cabeza, Congestión. Variable de salida (clase): Diagnóstico. El ID_paciente es un identificador que no se usa."
+    },
+    {
+      "id": "aamd-tema-2-fc-024",
+      "pregunta": "¿Qué tipo de aprendizaje es el clustering?",
+      "respuesta": "No supervisado, porque no se dispone de etiquetas o clases conocidas para las instancias."
+    },
+    {
+      "id": "aamd-tema-2-fc-025",
+      "pregunta": "¿Cuándo sospechar de sobreajuste en un árbol de decisión?",
+      "respuesta": "Cuando el accuracy sobre el conjunto de entrenamiento es muy alto (cercano al 100%) y el accuracy sobre el conjunto de test es significativamente menor."
+    }
+  ]
+}

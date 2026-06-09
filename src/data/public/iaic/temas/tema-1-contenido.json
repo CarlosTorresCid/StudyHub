@@ -1,0 +1,265 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-1",
+  "titulo": "Tema 1. Introducción a la Inteligencia Artificial y a la Ingeniería del Conocimiento",
+  "apuntes": {
+    "introduccion": "El Tema 1 ofrece una visión general de la Inteligencia Artificial (IA) y la Ingeniería del Conocimiento (IC), que constituyen la base conceptual de toda la asignatura. La IA, según la Real Academia Española, es la disciplina científica que se ocupa de crear programas informáticos que ejecutan operaciones comparables a las que realiza la mente humana, como el aprendizaje o el razonamiento lógico. Según John McCarthy —quien acuñó el término—, la IA es 'la ciencia y la ingeniería de crear agentes inteligentes'. Este tema cubre la historia de la IA, sus principales áreas y técnicas actuales, y los fundamentos de la Ingeniería del Conocimiento.",
+    "secciones": [
+      {
+        "titulo": "Breve historia de la Inteligencia Artificial",
+        "contenido": "La IA es un área de investigación que engloba cualquier expresión de inteligencia por parte de una máquina. El término fue acuñado por **John McCarthy** durante la primera conferencia del área en la Universidad de Dartmouth, aunque el concepto de máquina pensante se remonta a culturas antiguas.\n\nDesde la perspectiva computacional, la IA parte de la definición de la **máquina universal de Alan Turing** (1936). Turing demostró que un dispositivo que solo lee y escribe unos y ceros en una cinta infinita puede recrear cualquier proceso deductivo definido formalmente.\n\nLos hitos más representativos de la historia de la IA son:\n\n- **1936**: Turing propone la máquina universal y demuestra que el problema de la parada es indecidible.\n- **1943**: Warren McCulloch y Walter Pitts proponen el primer modelo matemático formal de una neurona artificial. Demostraron que estructuras simples de neuronas conectadas podían aprender, aunque la capacidad computacional de la época era muy limitada para explotarlas.\n- **1950**: Turing publica *Computing Machinery and Intelligence* y define el comportamiento inteligente como la habilidad de conseguir un rendimiento similar al humano en tareas cognitivas. Propone el **Test de Turing** (Juego de Imitación): un juez humano debe interrogar a una máquina y a un humano e intentar diferenciarlos; si no puede, la IA supera el test.\n- **1956**: Primera conferencia de IA en Dartmouth; nace el término 'inteligencia artificial'.\n- **1963**: Aparecen las redes semánticas como modelos de representación del conocimiento.\n- **1968**: Aparece el algoritmo de búsqueda A*, que sigue utilizándose hoy.\n- **1969**: El robot **Shakey** integra por primera vez procesado del lenguaje, visión computacional y percepción del entorno.\n- **1986**: Algoritmo de **retropropagación** para redes de neuronas artificiales, que también sigue utilizándose.\n- **1988**: Aparecen las redes de creencia para modelar incertidumbre sobre la veracidad de los hechos.\n- **1997**: **Deep Blue** (IBM) derrota al campeón mundial de ajedrez Garry Kasparov.\n- **2005**: Reto DARPA: varios vehículos autónomos recorren millas en entorno real.\n- **2011**: **Watson** (IBM) gana el concurso Jeopardy! respondiendo a preguntas en lenguaje natural.\n- **2014**: Primer sistema que supera el Test de Turing.\n- **2017**: **AlphaZero** aprende a jugar al ajedrez, shogi y go a nivel superhumano, aprendiendo únicamente jugando contra sí mismo.\n\nCuriosamente, los investigadores de los años 50 y 60 subestimaron enormemente la complejidad de crear agentes autónomos racionales. Hasta los años 90 la IA no empezó a aplicarse en un número significativo de tareas."
+      },
+      {
+        "titulo": "Definición y metas de la IA moderna",
+        "contenido": "La concepción original de la IA buscaba crear agentes con características intelectuales similares o superiores al ser humano. En la IA moderna, esta concepción clásica se denomina **IA general o IA fuerte**: un sistema con conciencia, comprensión de contextos, pensamiento abstracto, intencionalidad y juicios complejos. Actualmente no existe ninguna IA que sea equivalente a la inteligencia humana en este sentido.\n\nLo que se construye y utiliza hoy es la **IA débil o IA estrecha**: sistemas creados para resolver un problema específico y concreto. Ejemplos:\n\n- Un asistente virtual que responde preguntas o controla dispositivos inteligentes.\n- Un sistema recomendador de películas basado en el historial del usuario.\n- Un algoritmo de reconocimiento de imágenes que distingue perros de gatos.\n\nEstos sistemas emulan procesos cognitivos para una tarea específica, pero no actúan con conciencia. Son algoritmos que siguen reglas (preprogramadas o aprendidas de datos) sin comprensión real.\n\nLa distinción clave: la IA fuerte implica conciencia y generalidad; la IA débil implica especialización y rendimiento en tareas concretas."
+      },
+      {
+        "titulo": "Principales áreas de la IA actual",
+        "contenido": "La IA moderna se organiza en subáreas definidas por los objetivos que persiguen:\n\n**Deducción lógica y resolución de problemas**: engloba problemas basados en inferencia lógica, razonamiento e incertidumbre. Incluye la prueba automática de teoremas, la verificación de modelos y la lógica difusa (que permite inferir conocimiento cuando existe incertidumbre).\n\n**Representación del conocimiento**: muchos problemas de IA requieren capturar y representar conocimiento extenso sobre el mundo (objetos, categorías, propiedades, estados, eventos, causalidad…) para que una máquina lo pueda explotar. El conocimiento formalizado se llama *conocimiento experto* y su representación formal es una *ontología*.\n\n**Planificación automática**: para que un agente sea autónomo debe deliberar sobre sus metas y conseguirlas tomando decisiones que maximicen su utilidad. Puede implicar razonar con incertidumbre, bajo restricciones temporales y ante eventos externos.\n\n**Aprendizaje automático**: engloba algoritmos que, a partir de datos empíricos, infieren conocimiento útil. Puede implicar aprender patrones de datos, reconocer categorías o predecir salidas.\n\n**Procesado de lenguaje natural (PLN)**: comprensión de información expresada en lengua humana (texto escrito o fonemas). Incluye interfaces hombre-máquina con lenguaje natural y minería de textos.\n\n**Percepción**: obtención de información sensando el mundo. Incluye visión computacional (interpretar imágenes) y reconocimiento del habla (capturar y transcribir audio). *Importante: percibir no es lo mismo que comprender.* Un algoritmo que convierte escritura manuscrita a texto digital está en el área de percepción, no en PLN, porque captura información pero no la comprende.\n\n**Traslación y actuación**: capacidad de un agente para navegar en su entorno y manipular objetos. Equivale a la robótica desde el punto de vista computacional.\n\n**Entornos multi-agente**: múltiples agentes inteligentes que actúan conjuntamente de forma cooperativa o competitiva. Incluye negociación, coordinación e inteligencia emergente (comportamiento complejo surgido de la interacción de agentes simples).\n\n**Creatividad computacional**: actividad creativa por parte de máquinas. Incluye IA generativa (generación de imágenes, texto), composición automática y narrativa computacional."
+      },
+      {
+        "titulo": "Técnicas y enfoques comunes en IA",
+        "contenido": "Además de las áreas por objetivos, la IA se puede clasificar por las técnicas que utiliza:\n\n**Búsqueda y optimización**: una forma muy común de resolver problemas es buscar de forma inteligente entre todas las posibles soluciones. Representar un problema como un grafo donde hay que encontrar un camino es un método muy extendido por su eficiencia e intuitividad. Los algoritmos genéticos son un ejemplo de técnica de optimización inspirada en procesos biológicos (aunque no se estudian en profundidad en esta asignatura).\n\n**Métodos probabilísticos y estadísticos**: permiten razonar bajo incertidumbre. Incluyen las redes bayesianas y los modelos de Markov. Son especialmente útiles cuando los datos son ruidosos o incompletos.\n\n**Redes de neuronas artificiales y aprendizaje profundo**: inspiradas en el funcionamiento del cerebro, estas técnicas aprenden representaciones directamente de los datos. Han resurgido con fuerza desde los años 80 gracias al aumento de la capacidad computacional.\n\n**Métodos lógicos y simbólicos**: representan el conocimiento mediante símbolos y reglas formales. Incluyen los sistemas expertos y la lógica de predicados.\n\nAlgunas de estas técnicas son comunes con otras disciplinas como las matemáticas, la estadística o la investigación operativa."
+      },
+      {
+        "titulo": "Aplicaciones exitosas de la IA",
+        "contenido": "La IA es útil especialmente cuando la tarea no es crítica (como filtrar spam) o cuando es cuantitativamente excesiva para ser resuelta por humanos (como digitalizar miles de libros). El ámbito de aplicación es muy amplio, aunque a menudo pase desapercibido para el usuario común. Algunas aplicaciones destacadas:\n\n- **Minería de datos**: detección de patrones de compra conjunta, recomendaciones de vídeos o productos.\n- **Visión artificial y reconocimiento de textos**: lectura automática de matrículas, digitalización de documentos.\n- **Diagnóstico médico asistido**: sistemas expertos de apoyo a médicos.\n- **Planificación de rutas logísticas**: optimización de entregas.\n- **Jugadores automáticos**: ajedrez, go, videojuegos.\n- **Reconocedores de voz**: asistentes como Siri o Alexa.\n- **Predicción de desastres naturales**.\n- **Vehículos de conducción autónoma**."
+      },
+      {
+        "titulo": "Ingeniería del Conocimiento: concepto y necesidad",
+        "contenido": "El desarrollo de algoritmos de IA es esencial, pero igualmente importante es modelar los problemas adecuadamente y capturar el conocimiento de un experto humano de forma que la máquina pueda aprovecharlo.\n\nAquí surge un conflicto habitual: el experto en IA que puede modelar el problema no es experto en la materia; y el experto en la materia puede no ser capaz de expresar su conocimiento de forma formalizable. De esta necesidad nace la **Ingeniería del Conocimiento (IC)**: el conjunto de metodologías que definen cómo construir un sistema experto conjugando los conocimientos del experto en IA y del experto en la materia.\n\nPara la profesora, la Ingeniería del Conocimiento forma parte de la Inteligencia Artificial: ambas disciplinas están íntimamente relacionadas."
+      },
+      {
+        "titulo": "Sistemas expertos",
+        "contenido": "Los **sistemas expertos** son sistemas cuyo objetivo es emular la capacidad de decisión de un experto humano. Sus componentes principales son:\n\n- **Base de conocimiento**: contiene hechos o declaraciones sobre el dominio. Puede representarse mediante ontologías o mediante reglas condicionales que describen el comportamiento del dominio.\n- **Motor de inferencia**: evalúa el estado actual de la base de conocimiento y aplica las reglas para deducir nueva información. A diferencia de las redes neuronales (que actúan como caja negra), un motor de inferencia puede explicar *por qué* ha llegado a una conclusión, lo cual es una ventaja importante.\n\nEjemplo: un sistema de diagnóstico de fallos de una máquina puede ser un sistema experto con reglas del tipo \"si la presión es X y la temperatura es Y y falla Z, entonces el problema es W\".\n\nUna característica deseable de los sistemas expertos es la **comprensibilidad**: junto con la salida, debe existir una justificación del razonamiento seguido."
+      },
+      {
+        "titulo": "Adquisición del conocimiento y ontologías",
+        "contenido": "Un eje central de la IC es la **adquisición del conocimiento**: el proceso de recopilar información de los expertos y formalizarla mediante reglas y ontologías. Este proceso es, en muchos casos, el más crítico en el diseño de un sistema experto, y su correcta realización determina el éxito del producto final.\n\nLas **ontologías** son modelos que describen el mundo mediante conjuntos de objetos, tipos, propiedades y relaciones entre ellos. Son el resultado de formalizar el conocimiento experto. Permiten que tanto personas como máquinas puedan utilizar y compartir ese conocimiento.\n\nLas relaciones que una ontología debe capturar incluyen: objetos, categorías, propiedades, estados, eventos, tiempo, causalidad, etc. Las ontologías son también la base de la **Web Semántica**.\n\nEn esta asignatura, la herramienta que se usa para construir ontologías es **Protégé**."
+      },
+      {
+        "titulo": "Estructura general de la asignatura",
+        "contenido": "El temario se organiza en cuatro bloques:\n\n- **Bloque 1 (Introducción)**: Tema 1 — historia, áreas e IC.\n- **Bloque 2 (Resolución de problemas)**: Temas 2–5 — búsqueda, satisfacibilidad, planificación automática e IA en juegos.\n- **Bloque 3 (Aprendizaje automático)**: Temas 6–8 — aprendizaje supervisado, no supervisado y redes de neuronas.\n- **Bloque 4 (Ingeniería del conocimiento)**: Temas 9–10 — representación del conocimiento y web semántica, sistemas expertos y DSS.\n\nLa asignatura proporciona una visión amplia para que, ante un problema dado, el estudiante sea capaz de identificar qué tipo de técnica es la más adecuada para resolverlo."
+      }
+    ]
+  },
+  "resumen": [
+    "La IA es la ciencia y la ingeniería de crear agentes inteligentes, según John McCarthy, quien acuñó el término en la conferencia de Dartmouth.",
+    "Desde la perspectiva computacional, la IA parte de la máquina universal de Turing (1936), que demostró que cualquier proceso deductivo formal puede ser recreado leyendo y escribiendo unos y ceros.",
+    "La neurona artificial fue definida por McCulloch y Pitts en 1943; el Test de Turing se propuso en 1950 como criterio de inteligencia para una máquina.",
+    "La IA fuerte o general busca igualar la inteligencia humana completa (conciencia, abstracción, intencionalidad); actualmente no existe ningún sistema que la alcance.",
+    "La IA débil o estrecha resuelve tareas específicas y concretas; es lo que se construye y utiliza en la práctica.",
+    "Las principales áreas de la IA son: deducción lógica, representación del conocimiento, planificación automática, aprendizaje, PLN, percepción, traslación/actuación, entornos multi-agente y creatividad computacional.",
+    "La percepción se refiere a sensar el mundo (visión, audio); el PLN se refiere a comprender el lenguaje; son áreas distintas aunque puedan confundirse.",
+    "La Ingeniería del Conocimiento es el conjunto de metodologías para construir sistemas que capturan y formalizan el conocimiento de expertos humanos.",
+    "Los sistemas expertos emulan la capacidad de decisión de un experto; se componen de una base de conocimiento y un motor de inferencia que puede explicar su razonamiento.",
+    "Las ontologías son representaciones formales del conocimiento de un dominio (objetos, tipos, propiedades, relaciones) utilizables tanto por personas como por máquinas.",
+    "La adquisición del conocimiento es el proceso más crítico en el diseño de un sistema experto.",
+    "Hitos clave: neurona artificial (1943), Test de Turing (1950), A* (1968), Shakey (1969), retropropagación (1986), Deep Blue vence a Kasparov (1997), Watson en Jeopardy (2011), AlphaZero (2017)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Inteligencia Artificial (IA)",
+      "definicion": "Disciplina científica que crea programas capaces de ejecutar operaciones comparables a las de la mente humana. Según McCarthy: la ciencia y la ingeniería de crear agentes inteligentes."
+    },
+    {
+      "termino": "Agente inteligente",
+      "definicion": "Sistema autónomo capaz de percibir su entorno y actuar para conseguir sus metas de forma racional."
+    },
+    {
+      "termino": "Máquina de Turing",
+      "definicion": "Modelo teórico propuesto por Alan Turing en 1936 que demuestra que cualquier proceso deductivo definido formalmente puede ser recreado por un dispositivo que solo lee y escribe unos y ceros en una cinta infinita."
+    },
+    {
+      "termino": "Test de Turing (Juego de Imitación)",
+      "definicion": "Prueba propuesta por Turing en 1950: una IA supera el test si un juez humano no es capaz de diferenciar si está conversando con una máquina o con una persona."
+    },
+    {
+      "termino": "Neurona artificial",
+      "definicion": "Modelo matemático de una neurona biológica, propuesto por McCulloch y Pitts en 1943. Base de las redes de neuronas artificiales."
+    },
+    {
+      "termino": "IA fuerte (IA general)",
+      "definicion": "Concepción original de la IA: un sistema con capacidades intelectuales equivalentes o superiores al ser humano en todos los aspectos (conciencia, abstracción, intencionalidad). Actualmente no existe."
+    },
+    {
+      "termino": "IA débil (IA estrecha)",
+      "definicion": "Sistema de IA diseñado para resolver una tarea específica y concreta. Es la IA que se construye y utiliza en la práctica."
+    },
+    {
+      "termino": "Percepción (área IA)",
+      "definicion": "Área de la IA cuyo objetivo es obtener información sensando el mundo. Incluye visión computacional y reconocimiento del habla. Se distingue del PLN en que percibir no implica comprender."
+    },
+    {
+      "termino": "Procesado de lenguaje natural (PLN)",
+      "definicion": "Área de la IA que procesa y comprende información expresada en una lengua humana. Va más allá de la percepción: implica entender lo que se dice."
+    },
+    {
+      "termino": "Aprendizaje automático",
+      "definicion": "Área de la IA que engloba algoritmos capaces de inferir conocimiento útil a partir de datos empíricos, mejorando su rendimiento con la experiencia."
+    },
+    {
+      "termino": "Planificación automática",
+      "definicion": "Área de la IA cuyo objetivo es que un agente determine qué serie de acciones debe ejecutar para pasar de un estado inicial a un estado objetivo."
+    },
+    {
+      "termino": "Inteligencia emergente",
+      "definicion": "Comportamiento inteligente complejo que surge como producto de la interacción de múltiples agentes individuales de inteligencia limitada."
+    },
+    {
+      "termino": "Ingeniería del Conocimiento (IC)",
+      "definicion": "Conjunto de metodologías para capturar el conocimiento de expertos humanos y formalizarlo de manera que pueda ser aprovechado por un sistema informático."
+    },
+    {
+      "termino": "Sistema experto",
+      "definicion": "Sistema cuyo objetivo es emular la capacidad de decisión de un experto humano mediante una base de conocimiento y un motor de inferencia que puede explicar su razonamiento."
+    },
+    {
+      "termino": "Base de conocimiento",
+      "definicion": "Componente de un sistema experto que contiene hechos y reglas sobre el dominio del problema, representados en forma de ontologías o reglas condicionales."
+    },
+    {
+      "termino": "Motor de inferencia",
+      "definicion": "Componente de un sistema experto que evalúa la base de conocimiento y aplica las reglas para deducir nueva información y justificar las conclusiones."
+    },
+    {
+      "termino": "Adquisición del conocimiento",
+      "definicion": "Proceso de recopilar información de expertos humanos y formalizarla mediante reglas y ontologías. Es el proceso más crítico en el diseño de un sistema experto."
+    },
+    {
+      "termino": "Ontología",
+      "definicion": "Representación formal del conocimiento de un dominio como un conjunto de conceptos, tipos, propiedades y relaciones entre ellos, utilizable tanto por personas como por máquinas."
+    },
+    {
+      "termino": "Creatividad computacional",
+      "definicion": "Área de la IA que involucra cualquier actividad creativa por parte de una máquina: generación de imágenes, composición musical, narrativa computacional (IA generativa)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-1-fc-001",
+      "pregunta": "¿Quién acuñó el término 'Inteligencia Artificial' y en qué contexto?",
+      "respuesta": "John McCarthy, durante la primera conferencia del área en la Universidad de Dartmouth. Definió la IA como 'la ciencia y la ingeniería de crear agentes inteligentes'."
+    },
+    {
+      "id": "iaic-tema-1-fc-002",
+      "pregunta": "¿En qué consiste la máquina de Turing y qué demostró?",
+      "respuesta": "Un dispositivo teórico que solo lee y escribe unos y ceros en una cinta infinita. Demostró que puede recrear cualquier proceso deductivo definido formalmente, y también que el problema de la parada es indecidible."
+    },
+    {
+      "id": "iaic-tema-1-fc-003",
+      "pregunta": "¿En qué consiste el Test de Turing?",
+      "respuesta": "Un juez humano interroga a una máquina y a un humano por separado. Si no es capaz de diferenciar cuál es la máquina, se considera que la IA ha superado el test."
+    },
+    {
+      "id": "iaic-tema-1-fc-004",
+      "pregunta": "¿Qué propusieron McCulloch y Pitts en 1943?",
+      "respuesta": "El primer modelo matemático formal de una neurona artificial, y mostraron que estructuras simples de neuronas conectadas podían aprender."
+    },
+    {
+      "id": "iaic-tema-1-fc-005",
+      "pregunta": "¿Qué diferencia hay entre IA fuerte e IA débil?",
+      "respuesta": "La IA fuerte (general) busca igualar la inteligencia humana en todos los aspectos, incluyendo conciencia e intencionalidad. La IA débil (estrecha) resuelve tareas específicas sin conciencia real; es lo que se construye hoy."
+    },
+    {
+      "id": "iaic-tema-1-fc-006",
+      "pregunta": "¿Existe actualmente algún sistema de IA fuerte?",
+      "respuesta": "No. Actualmente no existe ninguna IA que sea equivalente a la inteligencia humana en su totalidad (conciencia, abstracción, intencionalidad, juicios complejos)."
+    },
+    {
+      "id": "iaic-tema-1-fc-007",
+      "pregunta": "¿Cuál es la diferencia entre percepción y procesado de lenguaje natural en IA?",
+      "respuesta": "Percepción se refiere a sensar el mundo (capturar imágenes, audio, texto). PLN se refiere a comprender el lenguaje. Un sistema que digitaliza escritura manuscrita sin entenderla es percepción, no PLN."
+    },
+    {
+      "id": "iaic-tema-1-fc-008",
+      "pregunta": "¿A qué área de la IA pertenece un algoritmo que convierte escritura manuscrita a texto digital?",
+      "respuesta": "Al área de percepción (visión computacional), porque captura y transforma información visual sin necesidad de comprender su significado."
+    },
+    {
+      "id": "iaic-tema-1-fc-009",
+      "pregunta": "¿Qué es la inteligencia emergente?",
+      "respuesta": "Un comportamiento inteligente complejo que surge de la interacción de múltiples agentes de inteligencia limitada, sin que ninguno de ellos sea inteligente por sí solo."
+    },
+    {
+      "id": "iaic-tema-1-fc-010",
+      "pregunta": "¿Qué es la Ingeniería del Conocimiento?",
+      "respuesta": "El conjunto de metodologías para construir sistemas que capturan y formalizan el conocimiento de expertos humanos, de forma que pueda ser aprovechado por un sistema informático."
+    },
+    {
+      "id": "iaic-tema-1-fc-011",
+      "pregunta": "¿Por qué surge la necesidad de la Ingeniería del Conocimiento?",
+      "respuesta": "Porque el experto en IA no suele ser experto en la materia del problema, y el experto en la materia puede no saber expresar su conocimiento de forma formalizable. La IC proporciona metodologías para resolver este conflicto."
+    },
+    {
+      "id": "iaic-tema-1-fc-012",
+      "pregunta": "¿Qué es un sistema experto?",
+      "respuesta": "Un sistema cuyo objetivo es emular la capacidad de decisión de un experto humano. Se compone de una base de conocimiento y un motor de inferencia que, además, puede explicar el porqué de su razonamiento."
+    },
+    {
+      "id": "iaic-tema-1-fc-013",
+      "pregunta": "¿Cuáles son los dos componentes principales de un sistema experto?",
+      "respuesta": "La base de conocimiento (hechos y reglas del dominio) y el motor de inferencia (aplica las reglas para deducir nueva información y justificar conclusiones)."
+    },
+    {
+      "id": "iaic-tema-1-fc-014",
+      "pregunta": "¿Qué ventaja tienen los sistemas expertos frente a las redes neuronales en cuanto a explicabilidad?",
+      "respuesta": "Los sistemas expertos pueden explicar por qué han llegado a una conclusión. Las redes neuronales actúan como caja negra y no proporcionan una justificación razonada."
+    },
+    {
+      "id": "iaic-tema-1-fc-015",
+      "pregunta": "¿Qué es una ontología?",
+      "respuesta": "Una representación formal del conocimiento de un dominio: un conjunto de conceptos, tipos, propiedades y relaciones entre ellos, utilizable tanto por personas como por máquinas."
+    },
+    {
+      "id": "iaic-tema-1-fc-016",
+      "pregunta": "¿Qué es la adquisición del conocimiento y por qué es crítica?",
+      "respuesta": "El proceso de recopilar información de expertos y formalizarla en reglas y ontologías. Es el proceso más crítico porque su correcta realización determina el éxito del sistema experto."
+    },
+    {
+      "id": "iaic-tema-1-fc-017",
+      "pregunta": "¿En qué año apareció el algoritmo de búsqueda A* y qué relevancia tiene?",
+      "respuesta": "En 1968. Sigue utilizándose hoy en día y se estudia en el Tema 2 de la asignatura."
+    },
+    {
+      "id": "iaic-tema-1-fc-018",
+      "pregunta": "¿Qué hizo AlphaZero de especial con respecto a otros programas de juegos anteriores?",
+      "respuesta": "Aprendió a jugar al ajedrez, shogi y go a nivel superhumano jugando partidas contra sí mismo, aprendiendo de los resultados. Los programas anteriores tenían reglas codificadas manualmente."
+    },
+    {
+      "id": "iaic-tema-1-fc-019",
+      "pregunta": "¿Qué fue Watson de IBM y qué logró en 2011?",
+      "respuesta": "Un sistema de IA que ganó el concurso Jeopardy! respondiendo a preguntas planteadas en lenguaje natural, compitiendo contra campeones humanos del programa."
+    },
+    {
+      "id": "iaic-tema-1-fc-020",
+      "pregunta": "¿Cuál fue el primer robot que integró procesado del lenguaje, visión computacional y percepción del entorno?",
+      "respuesta": "Shakey, en 1969."
+    },
+    {
+      "id": "iaic-tema-1-fc-021",
+      "pregunta": "¿A qué área de la IA pertenece un sistema recomendador de películas?",
+      "respuesta": "Al aprendizaje automático, ya que infiere preferencias a partir de datos de comportamiento de usuarios."
+    },
+    {
+      "id": "iaic-tema-1-fc-022",
+      "pregunta": "¿Qué área de la IA cubre la navegación de robots en un entorno físico?",
+      "respuesta": "Traslación y actuación, que desde el punto de vista computacional es equivalente a la robótica."
+    },
+    {
+      "id": "iaic-tema-1-fc-023",
+      "pregunta": "¿Por qué las redes de neuronas artificiales no se explotaron plenamente hasta los años 80?",
+      "respuesta": "Porque, aunque el modelo matemático se definió en 1943, la capacidad computacional no era suficiente para entrenarlas. A partir de los 80, con ordenadores más potentes y el algoritmo de retropropagación (1986), comenzaron a desarrollarse."
+    },
+    {
+      "id": "iaic-tema-1-fc-024",
+      "pregunta": "¿Qué relación existe entre la Ingeniería del Conocimiento y la Inteligencia Artificial?",
+      "respuesta": "La IC forma parte de la IA: se ocupa de capturar y representar el conocimiento necesario para que los sistemas de IA puedan explotarlo."
+    },
+    {
+      "id": "iaic-tema-1-fc-025",
+      "pregunta": "¿Para qué sirven las ontologías además de en los sistemas expertos?",
+      "respuesta": "Son la base sobre la que se construye la Web Semántica, facilitando el intercambio de conocimiento entre sistemas heterogéneos."
+    }
+  ]
+}

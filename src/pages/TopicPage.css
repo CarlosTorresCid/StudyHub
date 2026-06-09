@@ -42,60 +42,6 @@
   align-items: center;
 }
 
-.topic-download-actions .btn-download-topic,
-.topic-download-actions .btn-download-questions {
-  min-height: 36px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 650;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
-}
-
-.topic-download-actions .btn-download-topic {
-  background: #22c55e !important;
-  color: #ffffff !important;
-  border: 1px solid #22c55e !important;
-}
-
-.topic-download-actions .btn-download-topic:hover {
-  background: #059669 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-  border-color: #059669 !important;
-  box-shadow: 0 6px 14px rgba(5, 150, 105, 0.24);
-  transform: translateY(-1px);
-}
-
-.topic-download-actions .btn-download-topic:focus,
-.topic-download-actions .btn-download-topic:focus-visible {
-  background: #10b981 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-  border-color: #10b981 !important;
-  outline: 3px solid rgba(16, 185, 129, 0.25);
-  outline-offset: 2px;
-}
-
-.topic-download-actions .btn-download-topic:active {
-  background: #047857 !important;
-  background-image: none !important;
-  color: #ffffff !important;
-  border-color: #047857 !important;
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(4, 120, 87, 0.2);
-}
-
-.topic-download-actions .btn-download-topic:disabled {
-  background: #d1fae5 !important;
-  color: #6b7280 !important;
-  border-color: #a7f3d0 !important;
-  opacity: 0.75;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
 .topic-tabs {
   display: flex;
   gap: 4px;
@@ -318,8 +264,7 @@
     margin: 14px 0 22px;
   }
 
-  .topic-download-actions .btn-download-topic,
-  .topic-download-actions .btn-download-questions {
+  .topic-download-actions .btn-download {
     width: 100%;
     justify-content: center;
   }

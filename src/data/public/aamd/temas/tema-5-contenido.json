@@ -1,0 +1,290 @@
+{
+  "asignaturaId": "aamd",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. Evaluación de Clasificadores",
+  "apuntes": {
+    "introduccion": "El Tema 5 es el más importante del examen. Cubre todo el proceso de evaluación de modelos de clasificación: cómo separar los datos en train y test, qué es la validación cruzada, cómo interpretar la matriz de confusión, cómo calcular accuracy, precisión, recall y F1-score por clase, qué es el clasificador trivial, cómo calcular las coordenadas ROC (TPR y FPR) agrupando clases, y cómo comparar múltiples clasificadores. El ejercicio de desarrollo del examen se basa íntegramente en este tema.",
+    "secciones": [
+      {
+        "titulo": "Separación Train/Test y el Papel de random_state",
+        "contenido": "Antes de entrenar cualquier modelo, el dataset se divide aleatoriamente en dos conjuntos:\n\n**Conjunto de entrenamiento (train)**: se usa para construir el modelo. En el examen siempre es el 70% del total.\n\n**Conjunto de test**: se reserva y no se toca hasta la evaluación final. Se usa para medir el rendimiento real del modelo con datos que no vio durante el entrenamiento. En el examen siempre es el 30% del total.\n\nLa **aleatorización** es esencial: si los datos no se mezclan antes de dividir, el modelo puede aprender solo de ciertos patrones. `train_test_split` de sklearn realiza esta mezcla automáticamente.\n\n**random_state=1**: parámetro que fija la semilla del generador de números aleatorios. Garantiza que todos los alumnos obtengan exactamente la misma división, haciendo el examen reproducible. Sin esta semilla, cada ejecución daría resultados diferentes.\n\nCódigo del examen:\n`X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)`\n\nCon 281 instancias y split 70/30:\n- Train: 281 × 0.7 = 196 observaciones (redondeado por sklearn)\n- Test: 281 × 0.3 = 85 observaciones\n\nEl conjunto de test **nunca se usa para entrenar ni para seleccionar hiperparámetros**. Usarlo para eso invalida la evaluación."
+      },
+      {
+        "titulo": "Validación Cruzada K-Fold",
+        "contenido": "La **validación cruzada k-fold** es una técnica más robusta que la simple separación train/test para evaluar y seleccionar modelos.\n\nFuncionamiento:\n1. Los datos de entrenamiento se dividen en K partes iguales y disjuntas (folds).\n2. Se realizan K iteraciones. En cada una, K-1 partes se usan para entrenar y la parte restante para validar.\n3. Cada parte actúa exactamente una vez como conjunto de validación.\n4. La métrica final es el **promedio** de las K métricas obtenidas.\n\nVentajas frente al simple train/test:\n- Usa todos los datos de entrenamiento tanto para entrenar como para validar.\n- La métrica promediada es menos sensible a la aleatoriedad de una partición concreta.\n- Produce una estimación más fiable del rendimiento real del modelo.\n\nEn el examen siempre se usa **cv=5** (5-fold cross-validation) dentro de GridSearchCV. No se aplica validación cruzada sobre el conjunto de test, solo sobre los datos de entrenamiento.\n\n**GridSearchCV** combina búsqueda de hiperparámetros con validación cruzada: para cada valor de max_depth (1 a 20), entrena y evalúa con cv=5 folds, y se queda con el valor que maximiza el accuracy promedio en validación."
+      },
+      {
+        "titulo": "La Matriz de Confusión",
+        "contenido": "La **matriz de confusión** es la herramienta fundamental para evaluar un clasificador. Muestra, para cada clase real, cuántas instancias fueron clasificadas en cada clase predicha.\n\nPara un clasificador **binario** (clases P y N), la matriz tiene esta estructura:\n\n- Filas: clase predicha por el modelo.\n- Columnas: clase real.\n\nLas cuatro celdas son:\n- **TP (Verdaderos Positivos)**: predicho P, real P. Aciertos en la clase positiva.\n- **TN (Verdaderos Negativos)**: predicho N, real N. Aciertos en la clase negativa.\n- **FP (Falsos Positivos)**: predicho P, real N. Error tipo I: el modelo dice positivo pero era negativo.\n- **FN (Falsos Negativos)**: predicho N, real P. Error tipo II: el modelo dice negativo pero era positivo.\n\nPara clasificadores **multiclase** (3 clases, como en el examen), la matriz es de 3×3. Cada celda (i,j) contiene el número de instancias de la clase real j que fueron predichas como clase i. Los aciertos están en la diagonal principal.\n\nEn Python: `confusion_matrix(y_test, y_pred)` — atención al orden: primero y_test (real), luego y_pred (predicho).\n\nLeer la matriz de confusión es el primer paso del ejercicio de desarrollo del examen."
+      },
+      {
+        "titulo": "Accuracy y Tasa de Error",
+        "contenido": "**Accuracy** (exactitud o porcentaje de acierto): proporción de instancias correctamente clasificadas sobre el total.\n\nFórmula: Accuracy = (TP + TN) / Total = número de predicciones correctas / total de instancias\n\nPara multiclase: Accuracy = suma de la diagonal / total de instancias\n\n**Tasa de error**: proporción de instancias incorrectamente clasificadas.\n\nFórmula: Error = 1 - Accuracy = predicciones incorrectas / total\n\nEjemplo: matriz 3×3 con diagonal (15, 30, 20) y total = 85 instancias:\nAccuracy = (15 + 30 + 20) / 85 = 65/85 ≈ 0.765 (76.5%)\nError = 1 - 0.765 = 0.235 (23.5%)\n\n**Limitación crítica del accuracy**: puede ser engañosa cuando las clases están desbalanceadas. Si el 90% de los datos son de clase A, un modelo que siempre predice A tiene accuracy del 90% sin aprender nada útil. Por eso se usan precision, recall y F1 por clase."
+      },
+      {
+        "titulo": "El Clasificador Trivial",
+        "contenido": "El **clasificador trivial** (o baseline) es el modelo más simple posible: predice siempre la clase más frecuente del conjunto de entrenamiento, independientemente de los valores de las variables.\n\nPropósito: sirve como referencia mínima. Un clasificador real debe superar siempre al trivial. Si no lo supera, el modelo no aporta ningún valor.\n\nCómo determinarlo:\n1. Identificar la clase más frecuente en el conjunto de **entrenamiento** (no en el test).\n2. La accuracy del clasificador trivial es la proporción de esa clase en el conjunto de **test**.\n\nEjemplo: si en train la clase más frecuente es 'Moderate' con 52% de instancias, y en test hay 44/85 instancias de 'Moderate', entonces:\n- El clasificador trivial predice siempre 'Moderate'.\n- Su accuracy en test = 44/85 ≈ 0.518 (51.8%).\n\nCuando un modelo tiene accuracy similar o inferior al clasificador trivial, se dice que el modelo no supera la línea de base (no aporta valor real).\n\nEn Python: `y_train.value_counts()` para ver la distribución de clases en train. La más frecuente es la clase del clasificador trivial."
+      },
+      {
+        "titulo": "Precisión (Precision)",
+        "contenido": "La **precisión** de una clase mide qué proporción de las predicciones de esa clase eran correctas. Responde a: de todos los que el modelo dijo que eran de clase X, ¿cuántos realmente lo eran?\n\nFórmula (para la clase X como positiva):\nPrecisión = TP / (TP + FP)\n\nDonde:\n- TP: instancias de clase X correctamente predichas como X.\n- FP: instancias de otra clase predichas incorrectamente como X.\n\nInterpretación: una precisión alta significa que cuando el modelo predice clase X, casi siempre acierta. Una precisión baja significa muchas falsas alarmas (el modelo predice X pero a menudo se equivoca).\n\nEn un clasificador multiclase de 3 clases, se calcula la precisión para cada clase por separado, tratando cada clase como 'positiva' y el resto como 'negativa'.\n\nEjemplo: para la clase 'Critical' en una tabla de predicciones:\n- El modelo predijo 'Critical' en 10 ocasiones.\n- 7 de esas predicciones eran realmente 'Critical' (TP = 7).\n- 3 eran de otra clase (FP = 3).\n- Precisión = 7 / (7+3) = 0.70"
+      },
+      {
+        "titulo": "Recall (Sensibilidad o Tasa de Verdaderos Positivos)",
+        "contenido": "El **recall** de una clase mide qué proporción de las instancias reales de esa clase fueron detectadas correctamente. Responde a: de todos los que realmente eran de clase X, ¿cuántos identificó el modelo?\n\nFórmula (para la clase X como positiva):\nRecall = TP / (TP + FN) = TP / total de instancias reales de clase X\n\nDonde:\n- TP: instancias de clase X correctamente predichas como X.\n- FN: instancias de clase X predichas incorrectamente como otra clase.\n\nInterpretación: un recall alto significa que el modelo detecta casi todas las instancias de la clase X. Un recall bajo significa que el modelo falla en identificar muchos casos reales de X (muchos falsos negativos).\n\nEjemplo: hay 20 instancias reales de 'Critical' en el test. El modelo identificó correctamente 13 (TP = 13) y se le escaparon 7 (FN = 7).\nRecall = 13 / (13+7) = 13/20 = 0.65\n\nEl recall es especialmente importante en aplicaciones médicas o de seguridad donde no detectar un caso positivo real (falso negativo) tiene consecuencias graves. En esos contextos se minimiza la tasa de falsos negativos."
+      },
+      {
+        "titulo": "F1-Score: la Media Armónica de Precisión y Recall",
+        "contenido": "El **F1-score** es la media armónica de precisión y recall. Combina ambas métricas en un único valor que penaliza los desequilibrios entre ellas.\n\nFórmula: F1 = 2 × (Precisión × Recall) / (Precisión + Recall)\n\nEquivalente: F1 = 2 × TP / (2×TP + FP + FN)\n\nInterpretación:\n- F1 = 1: modelo perfecto para esa clase.\n- F1 = 0: el modelo no detecta nada de esa clase.\n- Si precisión y recall son iguales, F1 = precisión = recall.\n- Si uno es muy alto y el otro muy bajo, F1 es bajo (penaliza el desequilibrio).\n\nCuándo usar F1: cuando se quiere un equilibrio entre precisión y recall, especialmente útil con clases desbalanceadas donde el accuracy puede ser engañoso.\n\nEjemplo: Precisión = 0.80, Recall = 0.60\nF1 = 2 × (0.80 × 0.60) / (0.80 + 0.60) = 2 × 0.48 / 1.40 = 0.96/1.40 ≈ 0.686\n\nNota: la media armónica siempre es menor o igual que la media aritmética. Es más severa con los desequilibrios."
+      },
+      {
+        "titulo": "Métricas por Clase en Clasificación Multiclase",
+        "contenido": "En problemas multiclase (como el examen, con 3 clases), todas las métricas se calculan por clase adoptando un enfoque **one-vs-rest**: para cada clase se trata esa clase como 'positiva' y todas las demás como 'negativa'.\n\nPara calcular precisión, recall y F1 de la clase X en una matriz 3×3:\n1. TP = celda de la diagonal de la clase X (predicho X, real X).\n2. FP = suma de la fila de X menos TP (predicho X pero era otra clase).\n3. FN = suma de la columna de X menos TP (era X pero predijo otra clase).\n4. TN = todo lo demás (no involucra directamente la clase X).\n\nEjemplo con matriz 3×3 para la clase 'Moderate':\nSi la diagonal de Moderate = 30, suma de fila Moderate = 38, suma de columna Moderate = 45:\n- TP = 30\n- FP = 38 - 30 = 8 (predijo Moderate pero eran otras clases)\n- FN = 45 - 30 = 15 (eran Moderate pero predijo otras clases)\n- Precisión = 30 / (30+8) = 30/38 ≈ 0.789\n- Recall = 30 / (30+15) = 30/45 ≈ 0.667\n- F1 = 2×30 / (2×30+8+15) = 60/83 ≈ 0.723\n\nEn Python, `classification_report(y_test, y_pred)` calcula automáticamente precisión, recall y F1 para cada clase."
+      },
+      {
+        "titulo": "Coordenadas ROC: TPR y FPR",
+        "contenido": "El **espacio ROC** (Receiver Operating Characteristic) representa cada clasificador como un punto con coordenadas (FPR, TPR):\n\n**TPR (True Positive Rate)** = Recall = TP / (TP + FN)\nEs la proporción de positivos reales que el modelo detecta correctamente.\n\n**FPR (False Positive Rate)** = FP / (FP + TN)\nEs la proporción de negativos reales que el modelo clasifica incorrectamente como positivos.\n\nPuntos relevantes en el espacio ROC:\n- (0, 1): clasificador perfecto — no falla ningún positivo y no comete ningún falso positivo.\n- (0.5, 0.5): clasificador aleatorio o trivial — equivale a adivinar al azar.\n- (1, 0): peor clasificador posible — falla todos los positivos y clasifica todo como positivo.\n- Cuanto más cerca del punto (0,1), mejor el clasificador.\n\nEn problemas multiclase se necesita agrupar las clases para calcular ROC. En el examen siempre se pide:\n- Agrupar dos clases como 'Positiva' (p.ej., Moderate + Critical).\n- La clase restante como 'Negativa' (p.ej., Negligible).\n- Calcular TP, FP, TN, FN para cada modelo con ese agrupamiento.\n- Obtener TPR = TP/(TP+FN) y FPR = FP/(FP+TN).\n\nEsto permite comparar los modelos en el espacio ROC y determinar cuál tiene mejor equilibrio entre sensibilidad y especificidad."
+      },
+      {
+        "titulo": "Comparación de Modelos y Conclusión Final",
+        "contenido": "El ejercicio de desarrollo del examen siempre concluye con una **comparación global de los tres modelos** y una justificación de cuál es mejor.\n\nCriterios de comparación:\n- **Accuracy**: es el primer indicador, pero puede ser engañoso con clases desbalanceadas.\n- **Precisión, Recall y F1 por clase**: más informativo que el accuracy cuando las clases no están balanceadas.\n- **Comparación con el clasificador trivial**: un modelo que no supera al trivial no aporta valor.\n- **Posición en el espacio ROC**: el modelo más cercano al punto (0,1) es el mejor en términos de sensibilidad vs. especificidad.\n\nEstructura esperada de una conclusión de desarrollo:\n1. Indicar el accuracy y error de cada modelo.\n2. Indicar si superan al clasificador trivial y en cuánto.\n3. Identificar qué modelo tiene mejor F1 global o para la clase más importante.\n4. Dar la conclusión: 'El Modelo X es el mejor porque...'\n\nEjemplo de argumento bien construido: 'El Modelo 2 tiene un accuracy del 72%, superior al clasificador trivial (52%), lo que demuestra que aporta valor. Aunque el Modelo 3 tiene mayor accuracy, el Modelo 2 muestra mejor recall para la clase Critical (0.67 vs 0.33), lo que es más relevante en un contexto donde los falsos negativos tienen mayor coste.'"
+      }
+    ]
+  },
+  "resumen": [
+    "El split 70/30 con random_state=1 es fijo en todos los exámenes: 196 instancias en train, 85 en test.",
+    "El conjunto de test nunca se usa para entrenar ni para seleccionar hiperparámetros.",
+    "GridSearchCV con cv=5 busca el mejor max_depth (1-20) mediante validación cruzada sobre los datos de entrenamiento.",
+    "La matriz de confusión muestra para cada clase real cuántas instancias se clasificaron en cada clase predicha.",
+    "Accuracy = predicciones correctas / total. Error = 1 - Accuracy.",
+    "El clasificador trivial predice siempre la clase más frecuente del entrenamiento. Su accuracy en test es la frecuencia de esa clase en test.",
+    "Un modelo debe superar al clasificador trivial para tener valor real.",
+    "Precisión = TP / (TP + FP): de los que el modelo predijo como clase X, cuántos lo eran realmente.",
+    "Recall = TP / (TP + FN): de los que realmente eran clase X, cuántos detectó el modelo.",
+    "F1 = 2 × TP / (2×TP + FP + FN): media armónica de precisión y recall. Penaliza el desequilibrio entre ambas.",
+    "En multiclase, cada métrica se calcula por clase con enfoque one-vs-rest.",
+    "TPR (recall) = TP / (TP + FN). FPR = FP / (FP + TN). Ambas se calculan agrupando clases para el espacio ROC.",
+    "El punto (0,1) en el espacio ROC es el clasificador perfecto. El (0.5, 0.5) equivale al trivial.",
+    "Accuracy engañosa con clases desbalanceadas: usar F1 y comparar con el trivial es más informativo."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "random_state",
+      "definicion": "Semilla del generador aleatorio que garantiza reproducibilidad. Con random_state=1 todos los alumnos obtienen la misma división train/test y los mismos resultados."
+    },
+    {
+      "termino": "Conjunto de entrenamiento (train)",
+      "definicion": "70% del dataset, usado para construir el modelo. Es el único dato que puede usarse durante el entrenamiento y la búsqueda de hiperparámetros."
+    },
+    {
+      "termino": "Conjunto de test",
+      "definicion": "30% del dataset, reservado exclusivamente para la evaluación final. Nunca se usa para entrenar ni para seleccionar hiperparámetros."
+    },
+    {
+      "termino": "Validación cruzada K-fold",
+      "definicion": "Técnica que divide el entrenamiento en K partes, entrena K veces usando K-1 partes y valida en la restante. La métrica final es el promedio de las K evaluaciones. En el examen K=5."
+    },
+    {
+      "termino": "Matriz de confusión",
+      "definicion": "Tabla que muestra las predicciones del modelo frente a las clases reales. Las celdas de la diagonal son aciertos; las fuera de la diagonal son errores."
+    },
+    {
+      "termino": "TP (Verdadero Positivo)",
+      "definicion": "Instancia de clase X predicha correctamente como clase X."
+    },
+    {
+      "termino": "FP (Falso Positivo)",
+      "definicion": "Instancia de otra clase predicha incorrectamente como clase X. Error tipo I."
+    },
+    {
+      "termino": "FN (Falso Negativo)",
+      "definicion": "Instancia de clase X predicha incorrectamente como otra clase. Error tipo II."
+    },
+    {
+      "termino": "TN (Verdadero Negativo)",
+      "definicion": "Instancia de otra clase predicha correctamente como otra clase (no como X)."
+    },
+    {
+      "termino": "Accuracy (exactitud)",
+      "definicion": "Proporción de predicciones correctas sobre el total. Fórmula: (TP+TN)/Total. Puede ser engañosa con clases desbalanceadas."
+    },
+    {
+      "termino": "Tasa de error",
+      "definicion": "Proporción de predicciones incorrectas. Fórmula: 1 - Accuracy = predicciones incorrectas / total."
+    },
+    {
+      "termino": "Clasificador trivial",
+      "definicion": "Modelo que predice siempre la clase más frecuente del entrenamiento. Sirve como referencia mínima: cualquier modelo real debe superarlo."
+    },
+    {
+      "termino": "Precisión (Precision)",
+      "definicion": "De todas las predicciones de clase X, qué proporción eran realmente de clase X. Fórmula: TP / (TP + FP)."
+    },
+    {
+      "termino": "Recall (Sensibilidad, TPR)",
+      "definicion": "De todas las instancias reales de clase X, qué proporción detectó el modelo. Fórmula: TP / (TP + FN)."
+    },
+    {
+      "termino": "F1-score",
+      "definicion": "Media armónica de precisión y recall. Fórmula: 2×TP / (2×TP + FP + FN). Penaliza los desequilibrios entre precisión y recall."
+    },
+    {
+      "termino": "TPR (True Positive Rate)",
+      "definicion": "Sinónimo de recall. Proporción de positivos reales detectados: TP / (TP + FN). Eje Y del espacio ROC."
+    },
+    {
+      "termino": "FPR (False Positive Rate)",
+      "definicion": "Proporción de negativos reales clasificados incorrectamente como positivos: FP / (FP + TN). Eje X del espacio ROC."
+    },
+    {
+      "termino": "Espacio ROC",
+      "definicion": "Representación gráfica con FPR en el eje X y TPR en el eje Y. Cada clasificador es un punto. El punto (0,1) es el clasificador perfecto."
+    },
+    {
+      "termino": "AUC (Área bajo la curva ROC)",
+      "definicion": "Superficie bajo la curva ROC. AUC=1 es clasificador perfecto; AUC=0.5 es equivalente al clasificador trivial."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "aamd-tema-5-fc-001",
+      "pregunta": "¿Cuántas observaciones hay en train y test con 281 instancias y split 70/30?",
+      "respuesta": "Train: 196 observaciones (281 × 0.7). Test: 85 observaciones (281 × 0.3)."
+    },
+    {
+      "id": "aamd-tema-5-fc-002",
+      "pregunta": "¿Para qué sirve random_state=1 en train_test_split?",
+      "respuesta": "Fija la semilla aleatoria para garantizar que todos los alumnos obtengan exactamente la misma división train/test y los mismos resultados."
+    },
+    {
+      "id": "aamd-tema-5-fc-003",
+      "pregunta": "¿Cuándo se puede usar el conjunto de test?",
+      "respuesta": "Solo para la evaluación final del modelo. Nunca durante el entrenamiento ni para seleccionar hiperparámetros (como max_depth)."
+    },
+    {
+      "id": "aamd-tema-5-fc-004",
+      "pregunta": "¿Qué hace GridSearchCV con cv=5 en el examen?",
+      "respuesta": "Prueba los 20 valores de max_depth (1 a 20) usando validación cruzada de 5 folds sobre los datos de entrenamiento, y selecciona el que maximiza el accuracy promedio."
+    },
+    {
+      "id": "aamd-tema-5-fc-005",
+      "pregunta": "¿Qué son los Verdaderos Positivos (TP)?",
+      "respuesta": "Instancias de clase X que el modelo predijo correctamente como clase X. Están en la diagonal de la matriz de confusión."
+    },
+    {
+      "id": "aamd-tema-5-fc-006",
+      "pregunta": "¿Qué son los Falsos Positivos (FP)?",
+      "respuesta": "Instancias de otra clase que el modelo predijo incorrectamente como clase X. En la matriz: suma de la fila de X menos la diagonal."
+    },
+    {
+      "id": "aamd-tema-5-fc-007",
+      "pregunta": "¿Qué son los Falsos Negativos (FN)?",
+      "respuesta": "Instancias de clase X que el modelo predijo incorrectamente como otra clase. En la matriz: suma de la columna de X menos la diagonal."
+    },
+    {
+      "id": "aamd-tema-5-fc-008",
+      "pregunta": "¿Cómo se calcula el Accuracy para un clasificador multiclase?",
+      "respuesta": "Accuracy = suma de la diagonal de la matriz de confusión / total de instancias en test."
+    },
+    {
+      "id": "aamd-tema-5-fc-009",
+      "pregunta": "¿Qué es la tasa de error y cómo se calcula?",
+      "respuesta": "Tasa de error = 1 - Accuracy = predicciones incorrectas / total de instancias."
+    },
+    {
+      "id": "aamd-tema-5-fc-010",
+      "pregunta": "¿Qué es el clasificador trivial?",
+      "respuesta": "El modelo que predice siempre la clase más frecuente del conjunto de entrenamiento, sin usar ninguna variable predictora."
+    },
+    {
+      "id": "aamd-tema-5-fc-011",
+      "pregunta": "¿Cómo se calcula el accuracy del clasificador trivial?",
+      "respuesta": "Es la proporción de instancias de la clase más frecuente (del train) en el conjunto de test."
+    },
+    {
+      "id": "aamd-tema-5-fc-012",
+      "pregunta": "¿Por qué es importante comparar un modelo con el clasificador trivial?",
+      "respuesta": "Un modelo que no supera al trivial no aporta valor real. Si clasifica todo como la clase más frecuente, puede tener accuracy alta sin aprender nada."
+    },
+    {
+      "id": "aamd-tema-5-fc-013",
+      "pregunta": "¿Qué mide la Precisión de una clase?",
+      "respuesta": "De todas las predicciones del modelo de esa clase, qué proporción eran correctas. Fórmula: TP / (TP + FP)."
+    },
+    {
+      "id": "aamd-tema-5-fc-014",
+      "pregunta": "¿Qué mide el Recall de una clase?",
+      "respuesta": "De todas las instancias reales de esa clase, qué proporción detectó el modelo. Fórmula: TP / (TP + FN)."
+    },
+    {
+      "id": "aamd-tema-5-fc-015",
+      "pregunta": "¿Cuál es la fórmula del F1-score?",
+      "respuesta": "F1 = 2 × TP / (2×TP + FP + FN) = 2 × (Precisión × Recall) / (Precisión + Recall)."
+    },
+    {
+      "id": "aamd-tema-5-fc-016",
+      "pregunta": "Un modelo tiene Precisión = 0.75 y Recall = 0.50 para la clase X. ¿Cuál es su F1?",
+      "respuesta": "F1 = 2 × (0.75 × 0.50) / (0.75 + 0.50) = 2 × 0.375 / 1.25 = 0.75 / 1.25 = 0.60."
+    },
+    {
+      "id": "aamd-tema-5-fc-017",
+      "pregunta": "¿Por qué el F1-score penaliza los desequilibrios entre precisión y recall?",
+      "respuesta": "Porque usa la media armónica, que es más baja que la media aritmética cuando hay diferencia entre los valores. Si uno es muy alto y el otro muy bajo, el F1 baja significativamente."
+    },
+    {
+      "id": "aamd-tema-5-fc-018",
+      "pregunta": "¿Por qué el accuracy puede ser engañoso con clases desbalanceadas?",
+      "respuesta": "Si el 90% son de clase A, un modelo que siempre predice A tiene accuracy del 90% sin aprender nada. El F1 y el recall de las clases minoritarias revelan el fallo real."
+    },
+    {
+      "id": "aamd-tema-5-fc-019",
+      "pregunta": "¿Cuáles son las fórmulas de TPR y FPR para el espacio ROC?",
+      "respuesta": "TPR = TP / (TP + FN) — también llamado recall o sensibilidad. FPR = FP / (FP + TN)."
+    },
+    {
+      "id": "aamd-tema-5-fc-020",
+      "pregunta": "¿Qué significa el punto (0,1) en el espacio ROC?",
+      "respuesta": "Es el clasificador perfecto: FPR=0 (no comete falsos positivos) y TPR=1 (detecta todos los positivos reales)."
+    },
+    {
+      "id": "aamd-tema-5-fc-021",
+      "pregunta": "¿Qué significa el punto (0.5, 0.5) en el espacio ROC?",
+      "respuesta": "Es el clasificador aleatorio o trivial, equivalente a adivinar sin usar información."
+    },
+    {
+      "id": "aamd-tema-5-fc-022",
+      "pregunta": "En el examen, ¿cómo se agrupan las clases para calcular ROC con 3 clases?",
+      "respuesta": "Se agrupan dos clases como 'Positiva' (p.ej. Moderate + Critical) y la tercera como 'Negativa' (p.ej. Negligible), según la instrucción del enunciado."
+    },
+    {
+      "id": "aamd-tema-5-fc-023",
+      "pregunta": "¿Qué función de Python genera precisión, recall y F1 por clase automáticamente?",
+      "respuesta": "classification_report(y_test, y_pred) de sklearn.metrics."
+    },
+    {
+      "id": "aamd-tema-5-fc-024",
+      "pregunta": "¿Cómo se identifican los TP, FP y FN de la clase X en una matriz de confusión 3×3?",
+      "respuesta": "TP = celda diagonal de X. FP = suma de la fila de X menos TP. FN = suma de la columna de X menos TP."
+    },
+    {
+      "id": "aamd-tema-5-fc-025",
+      "pregunta": "¿Qué valor de AUC indica que el clasificador es equivalente al trivial?",
+      "respuesta": "AUC = 0.5. Un clasificador perfecto tiene AUC = 1."
+    },
+    {
+      "id": "aamd-tema-5-fc-026",
+      "pregunta": "¿Cuál es el orden correcto de argumentos en confusion_matrix de sklearn?",
+      "respuesta": "confusion_matrix(y_true, y_pred): primero los valores reales, luego los predichos."
+    },
+    {
+      "id": "aamd-tema-5-fc-027",
+      "pregunta": "¿Qué celdas de la matriz de confusión representan los aciertos del modelo?",
+      "respuesta": "La diagonal principal: las celdas donde la clase real y la clase predicha coinciden."
+    },
+    {
+      "id": "aamd-tema-5-fc-028",
+      "pregunta": "En diagnóstico médico, ¿qué error es más grave: un falso positivo o un falso negativo?",
+      "respuesta": "Generalmente el falso negativo (FN): decir que una persona sana está enferma es molesto, pero decir que un enfermo está sano puede tener consecuencias graves. Por eso en medicina se maximiza el recall."
+    }
+  ]
+}

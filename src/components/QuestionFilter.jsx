@@ -15,22 +15,60 @@ const TIPOS = [
   { value: 'sql', label: 'SQL' },
 ];
 
+const EMPTY_FILTERS = {
+  origen: '',
+  parteExamenId: '',
+  tipo: '',
+  searchText: '',
+};
+
 export default function QuestionFilter({ filters, onChange, partes = [] }) {
-  const set = (key, value) => onChange({ ...filters, [key]: value });
+  const currentFilters = {
+    ...EMPTY_FILTERS,
+    ...filters,
+  };
+
+  const set = (key, value) => {
+    onChange({
+      ...currentFilters,
+      [key]: value,
+    });
+  };
+
   const toggle = (key, value) => {
-    const current = filters[key];
+    const current = currentFilters[key];
     set(key, current === value ? '' : value);
   };
+
+  const hasActiveFilters =
+    currentFilters.origen ||
+    currentFilters.parteExamenId ||
+    currentFilters.tipo ||
+    currentFilters.searchText;
 
   return (
     <div className="q-filter">
       <div className="q-filter-group">
+        <span className="q-filter-label">Buscar</span>
+
+        <input
+          type="text"
+          className="q-filter-input"
+          placeholder="Buscar por palabra clave..."
+          value={currentFilters.searchText}
+          onChange={e => set('searchText', e.target.value)}
+        />
+      </div>
+
+      <div className="q-filter-group">
         <span className="q-filter-label">Origen</span>
+
         <div className="q-filter-pills">
           {ORIGENES.map(o => (
             <button
               key={o.value}
-              className={`q-filter-pill ${filters.origen === o.value ? 'active' : ''}`}
+              type="button"
+              className={`q-filter-pill ${currentFilters.origen === o.value ? 'active' : ''}`}
               onClick={() => toggle('origen', o.value)}
             >
               {o.label}
@@ -42,11 +80,13 @@ export default function QuestionFilter({ filters, onChange, partes = [] }) {
       {partes.length > 0 && (
         <div className="q-filter-group">
           <span className="q-filter-label">Parte del examen</span>
+
           <div className="q-filter-pills">
             {partes.map(p => (
               <button
                 key={p.id}
-                className={`q-filter-pill ${filters.parteExamenId === p.id ? 'active' : ''}`}
+                type="button"
+                className={`q-filter-pill ${currentFilters.parteExamenId === p.id ? 'active' : ''}`}
                 onClick={() => toggle('parteExamenId', p.id)}
               >
                 {p.nombre}
@@ -58,11 +98,15 @@ export default function QuestionFilter({ filters, onChange, partes = [] }) {
 
       <div className="q-filter-group">
         <span className="q-filter-label">Tipo</span>
+
         <div className="q-filter-pills">
           {[...new Map(TIPOS.map(t => [t.label, t])).values()].map(t => (
             <button
               key={t.value}
-              className={`q-filter-pill ${filters.tipo === t.value || filters.tipo === t.label ? 'active' : ''}`}
+              type="button"
+              className={`q-filter-pill ${
+                currentFilters.tipo === t.value || currentFilters.tipo === t.label ? 'active' : ''
+              }`}
               onClick={() => toggle('tipo', t.value)}
             >
               {t.label}
@@ -71,10 +115,11 @@ export default function QuestionFilter({ filters, onChange, partes = [] }) {
         </div>
       </div>
 
-      {(filters.origen || filters.parteExamenId || filters.tipo) && (
+      {hasActiveFilters && (
         <button
+          type="button"
           className="q-filter-clear"
-          onClick={() => onChange({ origen: '', parteExamenId: '', tipo: '' })}
+          onClick={() => onChange(EMPTY_FILTERS)}
         >
           Limpiar filtros ×
         </button>

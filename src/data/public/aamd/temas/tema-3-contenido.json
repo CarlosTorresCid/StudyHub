@@ -1,0 +1,264 @@
+{
+  "asignaturaId": "aamd",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. Exploración y Preprocesamiento de Datos",
+  "apuntes": {
+    "introduccion": "El Tema 3 es uno de los más importantes para el examen. Cubre el análisis exploratorio de datos (EDA) y el preprocesamiento necesario antes de entrenar cualquier modelo. Abarca la calidad de los datos, los tipos de variables, las medidas estadísticas descriptivas, la detección de outliers mediante el criterio IQR, el tratamiento de datos faltantes y las transformaciones más habituales. En el examen, las primeras preguntas del test siempre piden aplicar estos conceptos directamente sobre el dataset: contar outliers, detectar valores faltantes, identificar tipos de variables.",
+    "secciones": [
+      {
+        "titulo": "Calidad de los Datos: Incompletos, Ruidosos e Inconsistentes",
+        "contenido": "Antes de entrenar cualquier modelo es imprescindible evaluar la calidad de los datos. Los tres factores que determinan la falta de calidad son:\n\n**Datos incompletos (missing values)**: instancias que tienen atributos sin valor, con un valor nulo o ausente. Es muy habitual que ciertos campos no hayan sido recopilados porque en su momento no se consideraban relevantes. En Python se detectan con `df.isnull().sum()` o `df['columna'].isnull().sum()`.\n\n**Datos ruidosos**: valores que aparecen en el dataset pero que, tras analizarlos, parecen erróneos o atípicos. Incluyen tanto outliers (valores extremos pero posiblemente válidos) como errores claros. El ruido puede deberse a errores humanos al introducir datos, errores de transmisión o valores por defecto no modificados.\n\n**Datos inconsistentes**: datos con discrepancias internas, por ejemplo fechas en formatos distintos, valores que contradicen restricciones conocidas del dominio (una persona con altura negativa), o unidades mezcladas.\n\nLa distinción clave entre outlier y dato erróneo: un **outlier** es un valor extremo que se aleja de la norma pero puede ser correcto (una persona con 2,15 m de altura es inusual pero posible). Un **dato erróneo** es claramente imposible (una persona con -5 m de altura). Los datos inconsistentes se tratan eliminándolos o corrigiéndolos; los outliers requieren un análisis contextual antes de decidir qué hacer con ellos."
+      },
+      {
+        "titulo": "Tipos de Variables: Categóricas, Numéricas y Binarias",
+        "contenido": "Identificar el tipo de cada variable es el primer paso del análisis exploratorio. Los tipos principales son:\n\n**Variables categóricas (o nominales)**: toman valores que son etiquetas o nombres sin relación cuantitativa entre sí. Por ejemplo: color (rojo, azul, verde), marca de coche, diagnóstico médico, tipo de zona (urbana/rural). No tiene sentido calcular media o mediana sobre ellas.\n\n**Variables binarias**: caso especial de las categóricas con exactamente dos valores posibles: Sí/No, 0/1, True/False, garaje: tiene/no tiene. Son categóricas con cardinalidad 2.\n\n**Variables numéricas enteras (discretas)**: toman valores de números naturales sin decimales. Por ejemplo: número de habitaciones, número de cilindros, conteo de incidencias. Se pueden calcular media, mediana, IQR.\n\n**Variables numéricas continuas (reales)**: pueden tomar cualquier valor real con decimales. Por ejemplo: temperatura, peso, concentración de un contaminante. Son las más útiles para la mayoría de algoritmos de machine learning.\n\n**Variables ordinales**: tienen un orden implícito, pero pueden ser numéricas o no. Por ejemplo: nivel de satisfacción (bajo/medio/alto), resultado de un examen como categoría (suspenso/aprobado/notable/sobresaliente). Se pueden aplicar medidas de cuartiles y mediana.\n\nEn el examen se pide identificar de qué tipo son las variables del dataset. Las variables continuas se reconocen por tener decimales (`float`); las enteras son `int` sin decimales; las categóricas son `object` o texto. La variable objetivo es siempre categórica en los datasets del examen."
+      },
+      {
+        "titulo": "Variables Identificadoras: qué NO usar como predictor",
+        "contenido": "En cualquier dataset puede haber columnas que simplemente enumeran o identifican las filas: número de paciente, ID de ciclo, número de registro, etc. Estas variables **nunca deben usarse como predictores** porque:\n\n- No aportan información sobre la variable objetivo.\n- Son únicamente etiquetas de fila asignadas arbitrariamente.\n- Si se usaran como predictores, el modelo aprendería correlaciones espurias sin valor real.\n\nEn el examen, al responder cuántas variables predictoras tiene el dataset, hay que restar del total tanto la variable objetivo como cualquier identificador. Por ejemplo, en un dataset con 193 columnas donde una es la variable objetivo y ninguna es identificador puro, quedan 192 variables predictoras.\n\nCómo reconocer un identificador: suele llamarse 'ID', 'número', 'código', 'índice', o simplemente ser una columna de números correlativos del 1 al N. También puede ser una fecha si no aporta información útil al problema concreto."
+      },
+      {
+        "titulo": "Medidas de Tendencia Central: Media, Mediana y Moda",
+        "contenido": "Las medidas de tendencia central describen el valor típico o central de una variable. Las tres principales son:\n\n**Media aritmética**: suma de todos los valores dividida entre el número de instancias. Es sensible a los outliers: un valor extremo puede desplazar la media significativamente. Se usa preferiblemente cuando la distribución es simétrica.\n\n**Mediana**: valor que ocupa la posición central cuando los datos están ordenados de menor a mayor. Si hay un número par de datos, es la media de los dos valores centrales. Es robusta frente a outliers: no se ve afectada por valores extremos. Se usa cuando la distribución es asimétrica o hay outliers.\n\n**Moda**: valor que aparece con mayor frecuencia. Es la única medida aplicable a variables categóricas. En variables numéricas puede haber varias modas (distribución multimodal).\n\nRegla práctica para el examen: cuando la distribución es asimétrica (media y mediana difieren notablemente), es preferible usar la mediana como medida de tendencia central. La media se desplaza hacia los outliers; la mediana no. En Python: `df['col'].mean()`, `df['col'].median()`, `df['col'].mode()`."
+      },
+      {
+        "titulo": "Medidas de Dispersión: Varianza, Desviación Estándar e IQR",
+        "contenido": "Las medidas de dispersión describen cómo de dispersos están los valores alrededor del valor central.\n\n**Varianza (σ²)**: promedio de los cuadrados de las desviaciones respecto a la media. Es sensible a outliers (los cuadra). Se usa cuando la distribución es simétrica.\n\n**Desviación estándar o típica (σ)**: raíz cuadrada de la varianza. Está en las mismas unidades que los datos originales. Es útil para distribuciones simétricas (normales). Un criterio habitual de outlier con distribución normal es considerar atípicos los valores que se desvían más de 3 desviaciones estándar de la media.\n\n**Rango intercuartílico (IQR)**: diferencia entre el tercer cuartil (Q3, percentil 75) y el primer cuartil (Q1, percentil 25). Contiene el 50% central de los datos. Es robusto frente a outliers porque no depende de los valores extremos. Es la medida de dispersión recomendada cuando la distribución es asimétrica.\n\nFórmula: IQR = Q3 - Q1\n\nEn Python: `Q1 = df['col'].quantile(0.25)`, `Q3 = df['col'].quantile(0.75)`, `IQR = Q3 - Q1`."
+      },
+      {
+        "titulo": "Detección de Outliers: el Criterio IQR",
+        "contenido": "El criterio estándar utilizado en la asignatura para detectar outliers en variables numéricas es el **criterio IQR basado en la mediana**:\n\nUn valor es outlier si:\n- Es **mayor** que: Mediana + 1,5 × IQR\n- O es **menor** que: Mediana - 1,5 × IQR\n\nEste criterio funciona bien tanto para distribuciones simétricas como asimétricas porque usa la mediana (robusta) en lugar de la media (sensible a outliers).\n\nAlternativamente existe el criterio de desviación estándar: se consideran outliers los valores que se alejan más de 3 desviaciones estándar de la media. Este criterio solo es adecuado cuando los datos siguen una distribución normal.\n\nEl profesor especifica en clase que el criterio que se utiliza en la asignatura es siempre el de mediana ± 1,5 × IQR, no el de desviaciones estándar.\n\nVisualmente, en un **boxplot** (diagrama de caja y bigotes): el IQR es la altura de la caja, los bigotes se extienden hasta mediana ± 1,5 × IQR, y los puntos que quedan fuera de los bigotes son outliers.\n\nCódigo Python para contar outliers de una variable:\n\nlower = mediana - 1.5 * IQR\nupper = mediana + 1.5 * IQR\noutliers = df[(df['col'] < lower) | (df['col'] > upper)]\nn_outliers = len(outliers)\n\nImportante: el criterio IQR se calcula variable a variable. Para detectar outliers en 'Superficie', se calculan mediana e IQR solo de la columna 'Superficie'. Los demás valores del resto de columnas no intervienen."
+      },
+      {
+        "titulo": "Cuartiles y el Boxplot",
+        "contenido": "Los cuartiles dividen los datos ordenados en cuatro partes iguales:\n\n- **Q1 (primer cuartil, percentil 25)**: el 25% de los datos están por debajo de este valor.\n- **Q2 (segundo cuartil, mediana, percentil 50)**: el 50% de los datos están por debajo. Es la mediana.\n- **Q3 (tercer cuartil, percentil 75)**: el 75% de los datos están por debajo.\n\nEl **boxplot** (diagrama de caja y bigotes) es la representación gráfica estándar que muestra:\n- La caja: desde Q1 hasta Q3 (contiene el 50% central de los datos).\n- La línea dentro de la caja: la mediana (Q2).\n- Los bigotes: se extienden hasta los valores extremos dentro del rango [mediana - 1,5×IQR, mediana + 1,5×IQR].\n- Los puntos fuera de los bigotes: outliers.\n\nEn el examen, aunque el criterio exacto se calcula numéricamente con Python, entender el boxplot permite interpretar visualmente si una variable tiene outliers y cuántos."
+      },
+      {
+        "titulo": "Tratamiento de Datos Faltantes (Missing Values)",
+        "contenido": "Los datos faltantes son muy habituales en datasets reales. Las estrategias principales para tratarlos son:\n\n**Eliminación**: si una instancia tiene valores faltantes en atributos relevantes, se puede eliminar esa instancia del dataset. Solo recomendable si el porcentaje de datos faltantes es pequeño y la eliminación no sesga la muestra.\n\n**Imputación con medidas estadísticas**: sustituir el valor faltante por:\n- La **media** del atributo: cuando la distribución es simétrica.\n- La **mediana** del atributo: cuando hay outliers o la distribución es asimétrica.\n- La **moda** del atributo: para variables categóricas, o el valor más frecuente.\n\n**Imputación avanzada**: usar modelos de predicción para estimar el valor faltante a partir de los demás atributos. Técnicamente más sofisticado pero no se trabaja en detalle en la asignatura.\n\nEn el examen, la instrucción habitual es 'No realices ninguna acción sobre el dataset que no se te pida explícitamente', lo que implica que los datos faltantes se detectan (contándolos con `df['col'].isnull().sum()`) pero no necesariamente se tratan salvo que se indique.\n\nEn Python: `df.isnull().sum()` cuenta los nulos por columna. `df.isnull().sum().sum()` cuenta el total de nulos en todo el dataset."
+      },
+      {
+        "titulo": "Transformaciones de Datos: Normalización y Discretización",
+        "contenido": "Las transformaciones se aplican variable a variable y sirven para preparar los datos para ciertos algoritmos o para mejorar la interpretabilidad.\n\n**Normalización z-score (estandarización)**: transforma los datos numéricos para que su distribución tenga media 0 y desviación estándar 1. Fórmula: v' = (v - media) / desviación_estándar. Útil para algoritmos sensibles a la escala (redes neuronales, SVM, KNN). Los árboles de decisión no la requieren.\n\n**Escalado min-max**: escala los valores para que queden en un intervalo fijo, normalmente [0, 1]. Fórmula: v' = (v - min) / (max - min). Útil cuando se necesita que todos los valores estén en el mismo rango.\n\n**Discretización**: convierte una variable numérica continua en una variable categórica o ordinal dividiendo su rango en intervalos y asignando una etiqueta a cada intervalo. Ejemplo: una variable 'altura' con valores continuos se convierte en categorías 'baja', 'media', 'alta'. Útil cuando el algoritmo requiere variables discretas o cuando se quiere simplificar la representación.\n\n**Agrupamiento de valores nominales**: combinar categorías de una variable categórica. Ejemplo: agrupar colores en 'cálidos' y 'fríos'. Útil cuando hay muchas categorías con pocas instancias.\n\nEn el examen de esta asignatura, los árboles de decisión de sklearn no requieren normalización. El preprocesamiento relevante es la detección de valores faltantes y outliers, no necesariamente la aplicación de transformaciones."
+      },
+      {
+        "titulo": "Selección de Variables y Reducción de Dimensionalidad",
+        "contenido": "Con datasets de muchas columnas (como los del examen, con 192 indicadores), puede ser útil reducir el número de variables antes de entrenar el modelo. Hay varias estrategias:\n\n**Selección de variables**: elegir un subconjunto de atributos relevantes y descartar los que no aportan información o son redundantes. Los árboles de decisión realizan implícitamente una forma de selección al elegir las variables más informativas en cada nodo.\n\n**Importancia de variables**: los modelos basados en árboles calculan la importancia de cada variable según su contribución a la reducción de la impureza en el árbol. Esto permite identificar las variables más relevantes y, en principio, descartar las menos importantes.\n\n**Reducción de dimensionalidad (PCA)**: técnica que combina variables originales en nuevas variables (componentes principales) que capturan la mayor varianza posible. No se aplica en el examen pero aparece en el temario.\n\n**Muestreo**: reducción del número de instancias para trabajar con un subconjunto representativo. No se aplica en el examen (siempre se trabaja con el dataset completo).\n\nEn el examen, la instrucción es no modificar el dataset salvo que se indique. La selección de variables no se aplica manualmente; el árbol de decisión selecciona implícitamente las variables más relevantes durante el entrenamiento."
+      }
+    ]
+  },
+  "resumen": [
+    "Los tres problemas de calidad de datos son: incompletos (missing values), ruidosos (outliers o errores) e inconsistentes (discrepancias).",
+    "Un outlier es un valor extremo pero posiblemente válido; un dato erróneo es imposible según el dominio.",
+    "Los tipos de variables son: categórica/nominal, binaria, numérica entera, numérica continua y ordinal.",
+    "Los identificadores no deben usarse como predictores: no aportan información sobre la variable objetivo.",
+    "La media es sensible a outliers; la mediana es robusta. Con distribuciones asimétricas se prefiere la mediana.",
+    "La moda es la única medida de tendencia central aplicable a variables categóricas.",
+    "El IQR es la diferencia entre el tercer cuartil (Q3) y el primer cuartil (Q1): IQR = Q3 - Q1.",
+    "Criterio IQR para outliers: valor es outlier si es mayor que Mediana + 1,5*IQR o menor que Mediana - 1,5*IQR.",
+    "El criterio IQR se calcula variable a variable, usando solo los valores de esa columna.",
+    "En el boxplot, los puntos fuera de los bigotes son outliers según el criterio IQR.",
+    "Los datos faltantes se imputan con media (si distribución simétrica), mediana (si asimétrica/outliers) o moda (si categórica).",
+    "La normalización z-score transforma los datos a media 0 y varianza 1; el escalado min-max los lleva al intervalo [0,1].",
+    "La discretización convierte una variable numérica en categorías asignando etiquetas a intervalos de valores.",
+    "En el examen, no se modifica el dataset salvo que se indique: la exploración es observacional, no transformadora."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Missing value (dato faltante)",
+      "definicion": "Atributo de una instancia que no tiene valor en el dataset: aparece como nulo, NaN o vacío. Se detecta con df.isnull().sum()."
+    },
+    {
+      "termino": "Outlier",
+      "definicion": "Valor que se aleja significativamente del resto de los datos de su variable. Puede ser correcto (caso extremo real) o indicar un error. Se detecta con el criterio IQR o visualmente con un boxplot."
+    },
+    {
+      "termino": "Dato erróneo",
+      "definicion": "Valor imposible según el dominio (altura negativa, edad de 300 años). Se distingue del outlier en que no puede ser un caso real válido."
+    },
+    {
+      "termino": "Dato inconsistente",
+      "definicion": "Valor que presenta discrepancias internas o con otras variables del mismo registro. Por ejemplo, fechas en formatos distintos o valores que contradicen restricciones conocidas."
+    },
+    {
+      "termino": "Media aritmética",
+      "definicion": "Suma de todos los valores dividida entre el número de instancias. Sensible a outliers. Adecuada para distribuciones simétricas."
+    },
+    {
+      "termino": "Mediana",
+      "definicion": "Valor central cuando los datos están ordenados. Robusta frente a outliers. Adecuada para distribuciones asimétricas."
+    },
+    {
+      "termino": "Moda",
+      "definicion": "Valor que aparece con mayor frecuencia. Única medida de tendencia central aplicable a variables categóricas."
+    },
+    {
+      "termino": "Cuartil",
+      "definicion": "Valores que dividen los datos ordenados en cuatro partes iguales. Q1 = percentil 25, Q2 = mediana = percentil 50, Q3 = percentil 75."
+    },
+    {
+      "termino": "IQR (Rango Intercuartílico)",
+      "definicion": "Diferencia entre el tercer cuartil y el primero: IQR = Q3 - Q1. Contiene el 50% central de los datos. Robusto frente a outliers."
+    },
+    {
+      "termino": "Criterio IQR para outliers",
+      "definicion": "Un valor es outlier si es mayor que Mediana + 1,5*IQR o menor que Mediana - 1,5*IQR. Es el criterio estándar de la asignatura."
+    },
+    {
+      "termino": "Boxplot (diagrama de caja y bigotes)",
+      "definicion": "Representación gráfica que muestra Q1, mediana, Q3 (la caja), los bigotes (hasta mediana ± 1,5*IQR) y los puntos fuera de los bigotes (outliers)."
+    },
+    {
+      "termino": "Imputación",
+      "definicion": "Técnica de sustitución de valores faltantes por un valor calculado (media, mediana o moda según el tipo de variable y su distribución)."
+    },
+    {
+      "termino": "Normalización z-score",
+      "definicion": "Transformación que lleva los datos numéricos a media 0 y desviación estándar 1. Fórmula: v' = (v - media) / desviación_estándar."
+    },
+    {
+      "termino": "Escalado min-max",
+      "definicion": "Transformación que lleva los datos al intervalo [0,1]. Fórmula: v' = (v - min) / (max - min)."
+    },
+    {
+      "termino": "Discretización",
+      "definicion": "Transformación que convierte una variable numérica continua en categorías asignando etiquetas a rangos de valores."
+    },
+    {
+      "termino": "Desviación estándar (σ)",
+      "definicion": "Raíz cuadrada de la varianza. Mide la dispersión de los datos respecto a la media. Útil para distribuciones simétricas (normales)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "aamd-tema-3-fc-001",
+      "pregunta": "¿Cuáles son los tres factores principales de falta de calidad en un dataset?",
+      "respuesta": "Datos incompletos (missing values), datos ruidosos (outliers o errores) y datos inconsistentes (discrepancias internas)."
+    },
+    {
+      "id": "aamd-tema-3-fc-002",
+      "pregunta": "¿Cuál es la diferencia entre un outlier y un dato erróneo?",
+      "respuesta": "Un outlier es un valor extremo pero posiblemente correcto en el dominio (altura de 2,15 m). Un dato erróneo es imposible (altura de -5 m)."
+    },
+    {
+      "id": "aamd-tema-3-fc-003",
+      "pregunta": "¿Qué medida de tendencia central es robusta frente a outliers?",
+      "respuesta": "La mediana, porque no se ve afectada por valores extremos. La media sí se desplaza hacia los outliers."
+    },
+    {
+      "id": "aamd-tema-3-fc-004",
+      "pregunta": "¿En qué situación se prefiere la mediana sobre la media?",
+      "respuesta": "Cuando la distribución es asimétrica o cuando hay outliers que podrían distorsionar la media."
+    },
+    {
+      "id": "aamd-tema-3-fc-005",
+      "pregunta": "¿Cuál es la única medida de tendencia central aplicable a variables categóricas?",
+      "respuesta": "La moda: el valor que aparece con mayor frecuencia."
+    },
+    {
+      "id": "aamd-tema-3-fc-006",
+      "pregunta": "¿Cómo se calcula el IQR?",
+      "respuesta": "IQR = Q3 - Q1, es decir, la diferencia entre el tercer cuartil (percentil 75) y el primer cuartil (percentil 25)."
+    },
+    {
+      "id": "aamd-tema-3-fc-007",
+      "pregunta": "¿Cuál es el criterio IQR para detectar outliers?",
+      "respuesta": "Un valor es outlier si es mayor que Mediana + 1,5 * IQR, o menor que Mediana - 1,5 * IQR."
+    },
+    {
+      "id": "aamd-tema-3-fc-008",
+      "pregunta": "Una variable tiene mediana = 111 e IQR = 74,75. ¿Es el valor 435 un outlier?",
+      "respuesta": "Sí. El límite superior es 111 + 1,5 * 74,75 = 111 + 112,13 = 223,13. El valor 435 supera ese límite, por tanto es outlier."
+    },
+    {
+      "id": "aamd-tema-3-fc-009",
+      "pregunta": "¿El criterio IQR se calcula sobre todo el dataset o variable a variable?",
+      "respuesta": "Variable a variable. Para detectar outliers en 'Indicator_5' se calculan mediana e IQR solo de esa columna."
+    },
+    {
+      "id": "aamd-tema-3-fc-010",
+      "pregunta": "¿Qué representa visualmente cada elemento del boxplot?",
+      "respuesta": "La caja va de Q1 a Q3. La línea interior es la mediana. Los bigotes llegan hasta mediana ± 1,5*IQR. Los puntos fuera de los bigotes son outliers."
+    },
+    {
+      "id": "aamd-tema-3-fc-011",
+      "pregunta": "¿Cómo se cuentan los valores faltantes de una columna en Python?",
+      "respuesta": "Con df['columna'].isnull().sum(). Para el total del dataset: df.isnull().sum().sum()."
+    },
+    {
+      "id": "aamd-tema-3-fc-012",
+      "pregunta": "¿Con qué valor se imputa un dato faltante en una variable categórica?",
+      "respuesta": "Con la moda (el valor más frecuente de esa variable)."
+    },
+    {
+      "id": "aamd-tema-3-fc-013",
+      "pregunta": "¿Con qué valor se imputa un dato faltante en una variable numérica con distribución asimétrica o con outliers?",
+      "respuesta": "Con la mediana, ya que es robusta frente a outliers y no se ve distorsionada por la asimetría."
+    },
+    {
+      "id": "aamd-tema-3-fc-014",
+      "pregunta": "¿Qué hace la normalización z-score?",
+      "respuesta": "Transforma los datos numéricos para que tengan media 0 y desviación estándar 1. Fórmula: v' = (v - media) / desviación_estándar."
+    },
+    {
+      "id": "aamd-tema-3-fc-015",
+      "pregunta": "¿Qué hace el escalado min-max?",
+      "respuesta": "Escala los datos al intervalo [0,1]. Fórmula: v' = (v - min) / (max - min)."
+    },
+    {
+      "id": "aamd-tema-3-fc-016",
+      "pregunta": "¿Qué es la discretización?",
+      "respuesta": "Transformación que convierte una variable numérica continua en categorías (etiquetas) asignando intervalos de valores a cada categoría."
+    },
+    {
+      "id": "aamd-tema-3-fc-017",
+      "pregunta": "¿Necesitan los árboles de decisión de sklearn que las variables estén normalizadas?",
+      "respuesta": "No. Los árboles de decisión son invariantes a la escala de las variables, por lo que la normalización no es necesaria para ellos."
+    },
+    {
+      "id": "aamd-tema-3-fc-018",
+      "pregunta": "¿Qué tipo de variable es 'nivel de estrés' con valores Alto, Medio y Bajo?",
+      "respuesta": "Variable categórica (nominal u ordinal según el contexto). En los datasets del examen es la variable objetivo de clasificación."
+    },
+    {
+      "id": "aamd-tema-3-fc-019",
+      "pregunta": "¿Cómo se identifica en Python si una columna es numérica continua o categórica?",
+      "respuesta": "Con df.dtypes: las continuas aparecen como float64, las enteras como int64 y las categóricas como object."
+    },
+    {
+      "id": "aamd-tema-3-fc-020",
+      "pregunta": "¿Qué hace df.describe() en Python?",
+      "respuesta": "Muestra estadísticas descriptivas de las variables numéricas: count, mean, std, min, Q1 (25%), mediana (50%), Q3 (75%) y max."
+    },
+    {
+      "id": "aamd-tema-3-fc-021",
+      "pregunta": "¿Cuántos outliers tiene una variable si su mediana es 50, su IQR es 20 y sus valores son: 2, 10, 45, 50, 55, 88, 100?",
+      "respuesta": "Límite superior = 50 + 1,5*20 = 80. Límite inferior = 50 - 1,5*20 = 20. Outliers: 2 (< 20), 88 (> 80) y 100 (> 80). Total: 3 outliers."
+    },
+    {
+      "id": "aamd-tema-3-fc-022",
+      "pregunta": "¿Qué instrucción del simulacro indica que no hay que aplicar preprocesamiento activo sobre el dataset?",
+      "respuesta": "'No realices ninguna acción sobre el dataset que no se te pida explícitamente.' Esto significa explorar y contar, pero no transformar ni imputar salvo indicación."
+    },
+    {
+      "id": "aamd-tema-3-fc-023",
+      "pregunta": "¿Cuándo es apropiado usar la desviación estándar para detectar outliers?",
+      "respuesta": "Cuando los datos siguen una distribución normal (simétrica). En general se considera outlier un valor que se aleja más de 3 desviaciones estándar de la media."
+    },
+    {
+      "id": "aamd-tema-3-fc-024",
+      "pregunta": "¿Qué es el rango de una variable?",
+      "respuesta": "La diferencia entre el valor máximo y el valor mínimo de esa variable. No confundir con IQR (diferencia entre Q3 y Q1)."
+    },
+    {
+      "id": "aamd-tema-3-fc-025",
+      "pregunta": "Una variable tiene Q1=30, Q3=70 y mediana=50. ¿Cuáles son los límites para considerar un valor outlier?",
+      "respuesta": "IQR = 70-30 = 40. Límite superior = 50 + 1,5*40 = 110. Límite inferior = 50 - 1,5*40 = -10. Son outliers los valores > 110 o < -10."
+    },
+    {
+      "id": "aamd-tema-3-fc-026",
+      "pregunta": "¿Qué información proporciona df.info() en Python?",
+      "respuesta": "El número de filas, el nombre de cada columna, cuántos valores no nulos tiene y el tipo de dato de cada columna."
+    }
+  ]
+}

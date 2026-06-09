@@ -1,0 +1,237 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-4",
+  "titulo": "Tema 4. Planificación automática",
+  "apuntes": {
+    "introduccion": "El Tema 4 estudia la planificación automática: el área de la IA cuyo objetivo es encontrar una secuencia de acciones (un *plan*) que lleve a un agente desde un estado inicial hasta un estado objetivo. Es un área amplia y de alta aplicabilidad: logística, robótica, gestión de recursos, resolución de puzzles. El tema cubre la formalización de problemas de planificación clásica, el lenguaje PDDL, la resolución mediante búsqueda, y el grafo de planificación (Graphplan) con sus relaciones mutex.",
+    "secciones": [
+      {
+        "titulo": "Qué es la planificación automática",
+        "contenido": "La **planificación automática** es el área de la IA en la que el objetivo es resolver problemas cuya solución sea una **secuencia de acciones**, conocida como **plan**. El plan corresponde a la estrategia que un agente autónomo ejecuta para alcanzar sus metas, y se equipara al componente deliberativo de alto nivel de los agentes autónomos.\n\nEjemplos de problemas de planificación: transportar paquetes con una red de vehículos, cargar y descargar contenedores en un puerto, reorganizar bloques en mesas, resolver un puzzle.\n\n**Distinción clave con scheduling**: no hay que confundir la planificación automática (*planning*) con la planificación de horarios (*scheduling*). En scheduling se modela como un CSP para decidir *cuándo* y *dónde* usar los recursos. En planning también hay que determinar *qué* hacer. Computacionalmente: scheduling es NP-completo, planning es PSPACE-completo.\n\nCaracterísticas que definen el tipo de problema de planificación:\n- **Determinismo**: si el resultado de cada acción es siempre el mismo.\n- **Conocimiento completo o incompleto** del mundo.\n- **Variables continuas o discretas**.\n- **Temporalidad**: duración unitaria o variable de las acciones.\n- **Paralelismo**: si se pueden ejecutar varias acciones simultáneamente.\n- **Función objetivo**: si se busca optimizar alguna métrica o solo encontrar cualquier plan.\n\nLa **planificación clásica** asume conocimiento completo, mundo descrito en lógica proposicional, acciones deterministas, sin duración diferenciada."
+      },
+      {
+        "titulo": "Formalización: planificación clásica P=<S,A,I,G>",
+        "contenido": "Un problema de **planificación clásica** se define como una tupla **P = <S, A, I, G>** donde:\n\n- **S**: conjunto de todas las proposiciones del problema. Cada estado es un subconjunto de S (las proposiciones que son ciertas en ese momento).\n- **A**: conjunto de acciones disponibles. Cada acción tiene precondiciones y efectos.\n- **I**: proposiciones del estado inicial (subconjunto de S).\n- **G**: proposiciones meta. Un estado s es estado meta si G ⊆ s ⊆ S (contiene todas las proposiciones meta).\n\nCada **acción** se define por:\n- **Precondiciones**: proposiciones que deben ser ciertas en el estado actual para que la acción sea *aplicable*.\n- **Efectos positivos**: proposiciones que se añaden al estado tras ejecutar la acción.\n- **Efectos negativos**: proposiciones que se eliminan del estado (se vuelven falsas).\n\nEl estado resultante de aplicar una acción es: (estado_actual − efectos_negativos) ∪ efectos_positivos.\n\nEjemplo del problema del recambio:\n- Estado inicial: ¬Tener(recambio) ∧ ¬Puesto(recambio)\n- Meta: Puesto(recambio)\n- Acción Comprar(recambio): Pre: ¬Tener(recambio) → Efecto: Tener(recambio)\n- Acción Poner(recambio): Pre: Tener(recambio) ∧ ¬Puesto(recambio) → Efecto: ¬Tener(recambio) ∧ Puesto(recambio)\n- Desde el estado inicial, solo Comprar es aplicable (Poner no puede aplicarse porque Tener(recambio) no es cierto).\n- Tras Comprar: Tener(recambio) ∧ ¬Puesto(recambio). Ahora Poner es aplicable."
+      },
+      {
+        "titulo": "Independencia de dominio y PDDL",
+        "contenido": "Una característica clave de la planificación automática es que los **planificadores son independientes del dominio**: los mismos algoritmos pueden resolver problemas de logística, robótica, puzzles, etc., sin necesidad de reprogramar el planificador. El usuario solo tiene que modelar su problema en un lenguaje estándar.\n\nEsto tiene dos beneficios principales:\n- Permite comparar la capacidad de los planificadores con la de los humanos en tareas deliberativas (filosofía de la IA general).\n- Permite resolver problemas de diferente índole simplemente modelándolos, sin construir un resolutor propio.\n\nEl **PDDL** (Planning Domain Definition Language) es el lenguaje estándar para modelar problemas de planificación. Evolucionó a partir de STRIPS (el lenguaje del robot Shakey). Un modelo PDDL se divide en **dos ficheros**:\n\n**Fichero de dominio** (domain.pddl): contiene lo que es general del problema, reutilizable para diferentes instancias.\n- Tipos de objetos.\n- Atributos/predicados de los objetos.\n- Acciones posibles con sus precondiciones y efectos.\n\n**Fichero de problema** (problem.pddl): contiene lo específico de la instancia concreta.\n- Objetos concretos del problema.\n- Estado inicial (proposiciones verdaderas al inicio).\n- Metas a alcanzar.\n- Métricas de optimización (si las hay).\n\nUn mismo fichero de dominio puede usarse con múltiples ficheros de problema distintos. El planificador lee ambos ficheros y genera el plan."
+      },
+      {
+        "titulo": "Resolución como búsqueda heurística",
+        "contenido": "Los problemas de planificación pueden resolverse como problemas de búsqueda. En este enfoque:\n\n- Cada estado del árbol de búsqueda es un conjunto de proposiciones.\n- El estado inicial es la raíz del árbol.\n- Las acciones son los operadores que generan estados sucesores.\n- Se busca hasta alcanzar un estado que contenga todas las proposiciones meta.\n\nSe puede aplicar cualquier algoritmo de búsqueda del Tema 2: A*, búsqueda avariciosa, etc.\n\n**Diseño de la heurística**: en planificación, una heurística habitual es el enfoque de **relajación del problema**: ignorar los efectos que eliminan proposiciones del estado. Esto produce un problema más fácil de resolver, cuya solución sirve como estimación del número de pasos necesarios. La heurística así calculada es admisible porque al ignorar efectos negativos el problema relajado es estrictamente más fácil que el original.\n\nEsta heurística sí puede depender del dominio concreto; los planificadores genéricos suelen calcularlas de forma automática a partir de la definición del problema."
+      },
+      {
+        "titulo": "Grafo de planificación (Graphplan): construcción",
+        "contenido": "El **grafo de planificación** (Graphplan) es un grafo acíclico dirigido que representa los pasos de tiempo con niveles alternos de proposiciones y acciones. Es la base para la resolución mediante SAT o búsqueda hacia atrás.\n\n**Estructura del grafo:**\n- **Nivel S0 (proposiciones)**: contiene las proposiciones del estado inicial.\n- **Nivel A0 (acciones)**: contiene las acciones aplicables dadas las proposiciones de S0, *más las acciones de persistencia (no-ops)*.\n- **Nivel S1 (proposiciones)**: contiene todas las proposiciones de S0 (efectos de las no-ops) más las proposiciones añadidas por los efectos de las acciones de A0.\n- **Nivel A1**: contiene las acciones aplicables según S1, más no-ops.\n- Y así sucesivamente.\n\n**Acciones de persistencia (no-ops)**: para cada proposición p, existe una acción de persistencia cuya precondición es p y cuyo efecto es p. Representan que una proposición se mantiene sin cambio de un nivel al siguiente.\n\nRegla de construcción general:\n- Nivel Ai: acciones aplicables según las proposiciones de Si-1 + no-ops.\n- Nivel Si: proposiciones de Si-1 (efectos de no-ops) + efectos de las acciones de Ai.\n\nEl grafo se construye nivel a nivel hasta que todas las proposiciones meta aparecen en algún nivel Si (condición necesaria para que exista solución)."
+      },
+      {
+        "titulo": "Relaciones mutex (exclusividad mutua)",
+        "contenido": "Las **relaciones mutex** (de exclusividad mutua) indican que dos acciones o dos proposiciones del mismo nivel no pueden coexistir en un plan válido. Son el mecanismo clave para reducir el espacio de búsqueda y detectar imposibilidades.\n\n**Mutex entre acciones** (nivel Ai): dos acciones son mutuamente exclusivas si se da alguna de estas condiciones:\n\n- **Efectos inconsistentes**: una acción produce un efecto que niega el efecto de la otra. Ejemplo: si la acción X produce p y la acción Y produce ¬p, son mutex.\n- **Interferencia**: una acción produce un efecto que niega una precondición de la otra. Ejemplo: si la acción X produce ¬q y la acción Y tiene q como precondición, son mutex.\n- **Necesidades competitivas**: una precondición de una acción es mutuamente exclusiva (en el nivel anterior) con una precondición de la otra.\n\n**Mutex entre proposiciones** (nivel Si) — soporte inconsistente: dos proposiciones son mutuamente exclusivas si:\n\n- **Tipo 1**: una es la negación de la otra (p y ¬p).\n- **Tipo 2**: todas las parejas de acciones que producen respectivamente cada proposición son mutuamente exclusivas entre sí. Es decir, no existe ninguna pareja de acciones no-mutex que produzcan ambas proposiciones simultáneamente.\n\nEjemplo: En el problema de la rueda de repuesto, «repuesto en el eje» y «repuesto en el suelo» son mutex de tipo 2 porque toda acción que produce una de ellas es mutex con toda acción que produce la otra.\n\n**Criterio de solución**: para que exista una solución en un nivel dado, todas las proposiciones meta deben aparecer en ese nivel de proposiciones *y* no ser mutex entre sí."
+      },
+      {
+        "titulo": "Resolución con SAT y búsqueda hacia atrás",
+        "contenido": "Una vez construido el grafo de planificación, existen dos formas principales de extraer el plan:\n\n**Planificación con SAT**: el problema de planificación se transforma en un problema SAT asumiendo que la solución tiene *n* pasos (horizonte n). El grafo de planificación de horizonte n codifica todos los posibles planes paralelos de n pasos. Se llama al resolutor SAT para comprobar si existe solución. Si no hay solución para horizonte n, se incrementa n y se repite.\n\n**Búsqueda hacia atrás** sobre el grafo de planificación:\n1. Se construye el grafo hasta que las proposiciones meta aparecen no-mutex en algún nivel Si.\n2. Desde ese nivel Si, se busca hacia atrás: se seleccionan acciones en Ai-1 cuyos efectos cubran las metas del nivel Si y que no sean mutex entre ellas.\n3. Las precondiciones de esas acciones se convierten en las nuevas metas del nivel Si-1.\n4. Se repite retrocediendo hasta alcanzar S0 (estado inicial).\n\nEl objetivo es que el último nivel del recorrido hacia atrás sea S0 con proposiciones que coincidan con el estado inicial."
+      },
+      {
+        "titulo": "Procedimiento para resolver ejercicios de Graphplan",
+        "contenido": "Este es el procedimiento estándar que se pide en los exámenes:\n\n**Paso 1 — Construir nivel S0**: listar todas las proposiciones del estado inicial. Incluir tanto las afirmativas como las negativas que sean relevantes para el dominio.\n\n**Paso 2 — Construir nivel A0**: identificar las acciones cuyas precondiciones están en S0 y añadirlas. Añadir además una no-op para cada proposición de S0.\n\n**Paso 3 — Identificar mutex entre acciones de A0**: aplicar los tres criterios (efectos inconsistentes, interferencia, necesidades competitivas).\n\n**Paso 4 — Construir nivel S1**: copiar todas las proposiciones de S0 (efectos de no-ops) y añadir los efectos de las acciones de A0. Si una acción añade ¬p, eliminar p (o marcar ambas como coexistentes si tienen orígenes distintos).\n\n**Paso 5 — Identificar mutex entre proposiciones de S1**: aplicar los dos criterios (negación directa tipo 1; soporte inconsistente tipo 2 basado en las mutex de acciones ya encontradas).\n\n**Paso 6 — Verificar si las metas aparecen en S1** y si no son mutex. Si todas las metas están en S1 y no son mutex entre sí, es posible que exista un plan de 1 acción. Si no, continuar generando A1, S2, etc.\n\n**Errores frecuentes**: olvidar las no-ops; no eliminar proposiciones negadas por efectos; confundir los tres tipos de mutex entre acciones; olvidar verificar que las metas no sean mutex entre sí aunque aparezcan en el nivel."
+      }
+    ]
+  },
+  "resumen": [
+    "La planificación automática busca una secuencia de acciones (plan) que lleve de un estado inicial a un estado objetivo. Es PSPACE-completo, más complejo que el scheduling (NP-completo) porque también determina qué hacer.",
+    "Un problema de planificación clásica se define como P=<S,A,I,G>: proposiciones, acciones, estado inicial y metas. Un estado es meta si contiene todas las proposiciones de G.",
+    "Cada acción tiene precondiciones (deben ser ciertas para aplicarla) y efectos (proposiciones que se añaden o eliminan). El estado resultante es: (actual − efectos_negativos) ∪ efectos_positivos.",
+    "Para verificar si una acción es aplicable: comprobar que todas sus precondiciones están en el estado actual.",
+    "Los planificadores son independientes del dominio: el usuario modela el problema en PDDL y el planificador lo resuelve sin que el usuario construya un resolutor específico.",
+    "PDDL usa dos ficheros: domain.pddl (tipos, predicados, acciones — reutilizable) y problem.pddl (objetos, estado inicial, metas — específico de cada instancia).",
+    "Los problemas de planificación pueden resolverse como búsqueda heurística: estados = proposiciones verdaderas, acciones = operadores, heurística habitual = relajación del problema (ignorar efectos negativos).",
+    "El grafo de planificación (Graphplan) alterna niveles de proposiciones (Si) y acciones (Ai). S0 = estado inicial; Ai contiene acciones aplicables según Si-1 más no-ops; Si+1 = Si ∪ efectos de Ai.",
+    "Las acciones de persistencia (no-ops) copian cada proposición de un nivel al siguiente, representando que la proposición se mantiene sin cambio.",
+    "Mutex entre acciones: efectos inconsistentes (una niega efecto de la otra), interferencia (una niega precondición de la otra), necesidades competitivas (sus precondiciones son mutex).",
+    "Mutex entre proposiciones: tipo 1 (una es negación de la otra); tipo 2 (todas las acciones que producen una son mutex con todas las que producen la otra — soporte inconsistente).",
+    "Condición para que exista solución en un nivel: todas las proposiciones meta deben aparecer en ese nivel Si y no ser mutex entre sí.",
+    "El grafo de planificación puede usarse para planificar con SAT (codificar el horizonte n como problema SAT) o con búsqueda hacia atrás (seleccionar acciones que cubran las metas y retroceder hasta S0)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Planificación automática (planning)",
+      "definicion": "Área de la IA cuyo objetivo es encontrar una secuencia de acciones (plan) que lleve a un agente desde un estado inicial a un estado objetivo. PSPACE-completo."
+    },
+    {
+      "termino": "Plan",
+      "definicion": "Secuencia de acciones que lleva desde el estado inicial hasta un estado que satisface todas las metas."
+    },
+    {
+      "termino": "Planificación clásica P=<S,A,I,G>",
+      "definicion": "Formalización estándar: S=proposiciones del problema, A=acciones, I=proposiciones del estado inicial, G=proposiciones meta. Un estado es meta si G ⊆ s."
+    },
+    {
+      "termino": "Precondiciones de una acción",
+      "definicion": "Proposiciones que deben ser ciertas en el estado actual para que la acción pueda aplicarse. Si alguna precondición no está en el estado, la acción no es aplicable."
+    },
+    {
+      "termino": "Efectos de una acción",
+      "definicion": "Cambios que produce la acción sobre el estado: efectos positivos (proposiciones que se añaden) y efectos negativos (proposiciones que se eliminan)."
+    },
+    {
+      "termino": "Independencia de dominio",
+      "definicion": "Característica de los planificadores que permite usar los mismos algoritmos en cualquier dominio sin reprogramar. El usuario solo modela el problema en PDDL y el planificador lo resuelve."
+    },
+    {
+      "termino": "PDDL (Planning Domain Definition Language)",
+      "definicion": "Lenguaje estándar para modelar problemas de planificación, basado en STRIPS. Se divide en fichero de dominio (domain.pddl) y fichero de problema (problem.pddl)."
+    },
+    {
+      "termino": "Fichero de dominio (domain.pddl)",
+      "definicion": "Parte de PDDL que define lo general y reutilizable: tipos de objetos, predicados y acciones con sus precondiciones y efectos."
+    },
+    {
+      "termino": "Fichero de problema (problem.pddl)",
+      "definicion": "Parte de PDDL que define lo específico de cada instancia: objetos concretos, estado inicial y metas."
+    },
+    {
+      "termino": "Grafo de planificación (Graphplan)",
+      "definicion": "Grafo acíclico dirigido con niveles alternos de proposiciones (Si) y acciones (Ai). S0 = estado inicial; Ai = acciones aplicables desde Si-1 + no-ops; Si = Si-1 ∪ efectos de Ai."
+    },
+    {
+      "termino": "Acción de persistencia (no-op)",
+      "definicion": "Acción especial cuya precondición y efecto son la misma proposición p. Representa que p se mantiene sin cambio de un nivel al siguiente. Debe incluirse en todos los niveles de acción."
+    },
+    {
+      "termino": "Relación mutex (exclusividad mutua)",
+      "definicion": "Relación entre dos acciones o dos proposiciones del mismo nivel que indica que no pueden coexistir en un plan válido."
+    },
+    {
+      "termino": "Mutex entre acciones: efectos inconsistentes",
+      "definicion": "Una acción produce un efecto que niega el efecto de la otra. Por ejemplo, A produce p y B produce ¬p."
+    },
+    {
+      "termino": "Mutex entre acciones: interferencia",
+      "definicion": "Una acción produce un efecto que niega una precondición de la otra. Por ejemplo, A produce ¬q y B necesita q como precondición."
+    },
+    {
+      "termino": "Mutex entre acciones: necesidades competitivas",
+      "definicion": "Una precondición de una acción es mutuamente exclusiva (en el nivel anterior) con una precondición de la otra acción."
+    },
+    {
+      "termino": "Mutex entre proposiciones: tipo 1",
+      "definicion": "Una proposición es la negación directa de la otra: p y ¬p son siempre mutex."
+    },
+    {
+      "termino": "Mutex entre proposiciones: tipo 2 (soporte inconsistente)",
+      "definicion": "Todas las parejas de acciones que producen respectivamente cada proposición son mutuamente exclusivas. No existe ninguna pareja de acciones no-mutex que genere ambas proposiciones."
+    },
+    {
+      "termino": "Horizonte n (en planificación con SAT)",
+      "definicion": "Asunción de que la solución requiere exactamente n pasos de acción. El grafo de planificación de horizonte n se compila a SAT para comprobar si existe solución con n acciones."
+    },
+    {
+      "termino": "STRIPS",
+      "definicion": "Primer lenguaje de planificación de alto nivel, usado por el robot Shakey. Predecesor de PDDL. Formaliza acciones con precondiciones, lista de adición y lista de borrado."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-4-fc-001",
+      "pregunta": "¿Qué es la planificación automática?",
+      "respuesta": "El área de la IA cuyo objetivo es encontrar una secuencia de acciones (plan) que lleve a un agente desde un estado inicial hasta un estado que satisface las metas."
+    },
+    {
+      "id": "iaic-tema-4-fc-002",
+      "pregunta": "¿Cuál es la diferencia entre planning y scheduling?",
+      "respuesta": "Scheduling (planificación de horarios) decide cuándo y dónde usar recursos para completar tareas (es NP-completo). Planning también determina qué hacer, no solo cuándo (es PSPACE-completo)."
+    },
+    {
+      "id": "iaic-tema-4-fc-003",
+      "pregunta": "¿Cómo se formaliza un problema de planificación clásica?",
+      "respuesta": "Como P=<S,A,I,G>: S=conjunto de proposiciones del problema, A=acciones, I=proposiciones del estado inicial, G=proposiciones meta. Un estado es meta si G ⊆ s."
+    },
+    {
+      "id": "iaic-tema-4-fc-004",
+      "pregunta": "¿Cuándo es aplicable una acción?",
+      "respuesta": "Cuando todas sus precondiciones están presentes (son ciertas) en el estado actual."
+    },
+    {
+      "id": "iaic-tema-4-fc-005",
+      "pregunta": "¿Cómo se calcula el estado resultante de aplicar una acción?",
+      "respuesta": "(Estado_actual − efectos_negativos) ∪ efectos_positivos. Se eliminan las proposiciones negadas y se añaden las nuevas."
+    },
+    {
+      "id": "iaic-tema-4-fc-006",
+      "pregunta": "¿Qué significa que un planificador sea independiente del dominio?",
+      "respuesta": "Que los mismos algoritmos pueden resolver problemas de logística, robótica, puzzles, etc., sin que el usuario programe un resolutor específico: basta con modelar el problema en PDDL."
+    },
+    {
+      "id": "iaic-tema-4-fc-007",
+      "pregunta": "¿Cuál fue el primer lenguaje de planificación con éxito y en qué sistema se usó?",
+      "respuesta": "STRIPS, el lenguaje usado por el robot Shakey. PDDL es su sucesor y el estándar actual."
+    },
+    {
+      "id": "iaic-tema-4-fc-008",
+      "pregunta": "¿Qué contiene el fichero de dominio en PDDL y qué contiene el fichero de problema?",
+      "respuesta": "Dominio: tipos de objetos, predicados y acciones con precondiciones/efectos (reutilizable). Problema: objetos concretos, estado inicial y metas (específico de cada instancia)."
+    },
+    {
+      "id": "iaic-tema-4-fc-009",
+      "pregunta": "¿Qué es una acción de persistencia (no-op) en el grafo de planificación?",
+      "respuesta": "Una acción especial cuya precondición y efecto son la misma proposición p. Representa que p permanece sin cambio de un nivel al siguiente. Debe incluirse en todos los niveles de acción."
+    },
+    {
+      "id": "iaic-tema-4-fc-010",
+      "pregunta": "¿Cómo se construye el grafo de planificación nivel a nivel?",
+      "respuesta": "S0 = proposiciones del estado inicial. A0 = acciones aplicables desde S0 + no-ops. S1 = S0 ∪ efectos de A0. A1 = acciones aplicables desde S1 + no-ops. Y así sucesivamente."
+    },
+    {
+      "id": "iaic-tema-4-fc-011",
+      "pregunta": "¿Cuáles son los tres tipos de mutex entre acciones?",
+      "respuesta": "Efectos inconsistentes (una niega efecto de la otra), interferencia (una niega precondición de la otra), necesidades competitivas (sus precondiciones son mutex entre sí en el nivel anterior)."
+    },
+    {
+      "id": "iaic-tema-4-fc-012",
+      "pregunta": "¿Cuáles son los dos tipos de mutex entre proposiciones?",
+      "respuesta": "Tipo 1: una es la negación directa de la otra (p y ¬p). Tipo 2: soporte inconsistente — todas las acciones que producen una son mutex con todas las que producen la otra."
+    },
+    {
+      "id": "iaic-tema-4-fc-013",
+      "pregunta": "¿Cuándo puede concluirse que existe una solución al observar el grafo de planificación?",
+      "respuesta": "Cuando todas las proposiciones meta aparecen en algún nivel Si y no son mutex entre sí en ese nivel. Es condición necesaria (y guía para la búsqueda), no suficiente en general."
+    },
+    {
+      "id": "iaic-tema-4-fc-014",
+      "pregunta": "¿Para qué sirven las relaciones mutex en el grafo de planificación?",
+      "respuesta": "Para detectar incompatibilidades entre acciones y proposiciones, reduciendo el espacio de búsqueda al eliminar combinaciones de acciones o proposiciones que no pueden coexistir en ningún plan válido."
+    },
+    {
+      "id": "iaic-tema-4-fc-015",
+      "pregunta": "¿Cómo se usa el grafo de planificación con SAT?",
+      "respuesta": "Se asume que la solución tiene n pasos (horizonte n), se compila el grafo a un problema SAT y se invoca el resolutor. Si no hay solución con horizonte n, se incrementa n."
+    },
+    {
+      "id": "iaic-tema-4-fc-016",
+      "pregunta": "¿Cómo funciona la búsqueda hacia atrás sobre el grafo de planificación?",
+      "respuesta": "Se parte del nivel Si donde aparecen las metas no-mutex. Se seleccionan acciones en Ai-1 que cubran esas metas sin ser mutex. Sus precondiciones se convierten en nuevas metas del nivel Si-1. Se repite hasta llegar a S0."
+    },
+    {
+      "id": "iaic-tema-4-fc-017",
+      "pregunta": "¿Cuál es la heurística habitual para planificación como búsqueda?",
+      "respuesta": "La relajación del problema: resolver una versión del problema ignorando los efectos negativos de las acciones. El número de pasos necesarios en el problema relajado es una estimación admisible del coste real."
+    },
+    {
+      "id": "iaic-tema-4-fc-018",
+      "pregunta": "En el problema del recambio con estado inicial ¬Tener(recambio) ∧ ¬Puesto(recambio), ¿qué acción es aplicable?",
+      "respuesta": "Solo Comprar(recambio), cuya precondición es ¬Tener(recambio) — que sí está en el estado inicial. Poner(recambio) no es aplicable porque requiere Tener(recambio), que no está."
+    },
+    {
+      "id": "iaic-tema-4-fc-019",
+      "pregunta": "¿Qué distingue a la planificación clásica de otros tipos de planificación?",
+      "respuesta": "Conocimiento completo del mundo, descripción en lógica proposicional, acciones deterministas y sin duración diferenciada. Es el modelo más simple y el que se estudia en esta asignatura."
+    },
+    {
+      "id": "iaic-tema-4-fc-020",
+      "pregunta": "¿Por qué la eficiencia en planificación no depende solo del algoritmo?",
+      "respuesta": "Porque la forma en que se modela el dominio (cómo se definen las proposiciones y las acciones) también impacta directamente en la eficiencia del planificador. Una buena modelización es clave."
+    }
+  ]
+}

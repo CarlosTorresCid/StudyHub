@@ -143,3 +143,20 @@
     justify-content: center;
   }
 }
+
+
+.exam-filter-search {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+  min-width: 180px;
+  flex-grow: 1;
+  transition: border-color var(--transition);
+}
+
+.exam-filter-search:focus {
+  outline: none;
+  border-color: var(--accent);
+}

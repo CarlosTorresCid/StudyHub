@@ -1,0 +1,232 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-9",
+  "titulo": "Tema 9. Representación del conocimiento. Web Semántica",
+  "apuntes": {
+    "introduccion": "El Tema 9 introduce la Ingeniería del Conocimiento desde la perspectiva de la Web Semántica. El objetivo es aprender a representar el conocimiento de un dominio de forma que pueda ser procesado tanto por personas como por máquinas. Para ello se estudian las tres especificaciones fundamentales de la Web Semántica — RDF, RDFS y OWL — y el concepto de ontología. La herramienta práctica del tema es Protégé, con la que se construyen ontologías en OWL.",
+    "secciones": [
+      {
+        "titulo": "Web Semántica: concepto y motivación",
+        "contenido": "La **Web Semántica** es un movimiento colaborativo liderado por el W3C para promover el uso de formatos estándares para la representación de datos en internet, de manera que puedan ser procesados directa e indirectamente por máquinas. El término fue acuñado en 2001 por **Tim Berners-Lee**.\n\nLa web convencional se basa en hiperenlaces que enlazan documentos con otros. El contenido está pensado para ser *mostrado* a humanos, no para ser *comprendido* por máquinas. Describen el contenido mediante keywords.\n\nLa web semántica, en cambio:\n- Usa **metadatos** para describir los recursos de forma que puedan ser interpretados automáticamente por las máquinas.\n- Permite **enlazar datos**, no solo documentos.\n- Busca una descripción unívoca y compatible del contenido.\n\nLas **tres especificaciones fundamentales** de la Web Semántica (de menor a mayor expresividad): **RDF → RDFS → OWL**. Sobre ellas se construye la pila de la Web Semántica. El concepto base que las une es el **URI**."
+      },
+      {
+        "titulo": "URI: identificador universal de recursos",
+        "contenido": "**URI** (Uniform Resource Identifier) es una cadena que identifica a un recurso de una red de forma **unívoca**. Es el identificador básico sobre el que se sustenta RDF y toda la Web Semántica.\n\nDistinción con URL: una URL (Uniform Resource Locator) puede hacer referencia a recursos que varían en el tiempo y especifica cómo obtener el recurso. Una URI hace referencia a un recurso fijo conceptualmente. En la práctica su representación es similar.\n\nEjemplo: `http://ejemplo.org/personas/Juan` es una URI que identifica al recurso 'Juan'."
+      },
+      {
+        "titulo": "RDF: Resource Description Framework",
+        "contenido": "**RDF** (Resource Description Framework) es una familia de especificaciones del W3C diseñada para representar información sobre recursos en la web. Es el método más general para la descripción o modelado de información.\n\nRDF representa el conocimiento como un conjunto de oraciones simples llamadas **tripletas**: `<sujeto> <predicado> <objeto>`.\n\n- **Sujeto**: el recurso sobre el que se hace la declaración.\n- **Predicado**: la característica o relación que conecta sujeto y objeto.\n- **Objeto**: la información que atañe al recurso a través del predicado.\n\nEjemplo: `Alberto tiene perro` → sujeto: Alberto, predicado: tiene, objeto: perro.\n\nUn conjunto de tripletas forma un **grafo etiquetado y dirigido**: cada recurso es un nodo, y cada tripleta es una arista dirigida del sujeto al objeto etiquetada con el predicado.\n\nPredicados estándar clave en RDF:\n- **rdf:type**: indica que un sujeto es instancia (miembro) de una clase. Ejemplo: `Roberto rdf:type Entrenador`.\n\nPara evitar escribir URIs completas en todas las tripletas se usan **prefijos**: `@prefix dc: <http://purl.org/dc/...>`. Así se escribe `dc:creator` en lugar de la URI completa."
+      },
+      {
+        "titulo": "RDFS: RDF Schema",
+        "contenido": "**RDFS** (RDF Schema) se construye sobre RDF y añade la capacidad de definir clases y relaciones entre ellas, permitiendo escribir sentencias sobre *tipos* de cosas, no solo instancias.\n\nElementos principales de RDFS:\n- **rdfs:Class**: define un recurso como una clase (abstracción de conceptos). Las instancias de una clase se declaran con `rdf:type`.\n- **rdfs:subClassOf**: define jerarquías de clases (herencia). Ejemplo: `Gato rdfs:subClassOf Mascota` indica que todo Gato es también una Mascota.\n- **rdfs:domain**: define el dominio de una propiedad — la clase a la que pertenece el sujeto que puede usar esa propiedad.\n- **rdfs:range**: define el rango de una propiedad — la clase a la que pertenece el objeto de la tripleta.\n\nEjemplo completo:\n- `tieneMascota rdfs:domain Persona` → el sujeto de tieneMascota debe ser Persona.\n- `tieneMascota rdfs:range Mascota` → el objeto de tieneMascota debe ser Mascota.\n\nRDFS es el esquema más básico para representar ontologías (es la capa justo por encima de RDF en la pila semántica)."
+      },
+      {
+        "titulo": "OWL: Ontology Web Language",
+        "contenido": "**OWL** (Ontology Web Language) es una familia de lenguajes para ontologías o bases de conocimiento, respaldados por el W3C. Está basado en RDF y añade una nueva capa de funcionalidad y expresividad sobre RDFS.\n\nCaracterísticas adicionales de OWL respecto a RDFS:\n- Permite definir **propiedades simétricas**: si A estáCasadoCon B, entonces B estáCasadoCon A.\n- Permite definir **propiedades transitivas**: si X esAntepasadoDe Y e Y esAntepasadoDe Z, entonces X esAntepasadoDe Z.\n- Mayor capacidad de **razonamiento e inferencia**.\n\nVersiones de OWL (de menor a mayor expresividad): OWL Lite → OWL DL → OWL Full.\n- **OWL DL** (Description Logics): el más usado para ontologías con capacidad de razonamiento. Ofrece la mayor expresividad manteniendo decidibilidad computacional.\n\n**Elementos básicos de OWL**:\n\n- **owl:Class**: define una clase (un grupo de individuos que comparten propiedades). Ejemplo: `Persona rdf:type owl:Class`.\n- **owl:Thing**: superclase de todas las clases OWL (toda clase es subclase de owl:Thing).\n- **owl:Nothing**: clase vacía, subclase de todas las clases.\n- **rdfs:subClassOf**: herencia entre clases. Ejemplo: `Alumno rdfs:subClassOf Persona`.\n- **rdf:type**: una instancia pertenece a una clase. Ejemplo: `Juan rdf:type Alumno`.\n- **owl:ObjectProperty**: propiedad que relaciona instancias de dos clases entre sí. El objeto es otra instancia (recurso). Ejemplo: `imparte rdf:type owl:ObjectProperty` con dominio Profesor y rango Asignatura.\n- **owl:DatatypeProperty** (también escrita DataProperty): propiedad que relaciona una instancia con un valor literal (número, cadena, fecha). Ejemplo: `Edad rdf:type owl:DatatypeProperty` con dominio Persona y rango xsd:positiveInteger.\n\nDiferencia clave ObjectProperty vs. DataProperty: ObjectProperty relaciona dos instancias (objeto→objeto). DataProperty relaciona una instancia con un valor literal (objeto→valor)."
+      },
+      {
+        "titulo": "Ontologías: concepto y construcción",
+        "contenido": "Una **ontología** es una especificación formal y explícita de una conceptualización compartida (definición de Gruber, 1992). Formalmente describe los conceptos de un dominio y las relaciones entre ellos de forma que tanto personas como máquinas puedan utilizarla.\n\nLas ontologías son la **piedra angular de la Web Semántica**: todo gira en torno a ellas.\n\nLa mayoría de las ontologías con capacidad de razonamiento se modelan en **OWL DL**.\n\n**Proceso de construcción de una ontología** (pasos generales en Protégé):\n\n1. **Identificar las clases** del dominio y organizarlas jerárquicamente mediante subclases. Ejemplo para un dominio universitario: Persona, Alumno (subclase de Persona), Profesor (subclase de Persona), Grado, Asignatura.\n2. **Definir propiedades** entre clases:\n   - ObjectProperty si relaciona dos instancias. Ejemplo: `imparte` (Profesor → Asignatura), `cursa` (Alumno → Asignatura).\n   - DataProperty si relaciona una instancia con un valor literal. Ejemplo: `Nombre` (Persona → string), `Edad` (Persona → entero).\n   - Para cada propiedad especificar dominio (rdfs:domain) y rango (rdfs:range).\n3. **Crear instancias** (individuos): instancias concretas de las clases con `rdf:type`. Ejemplo: `Juan rdf:type Alumno`.\n4. **Añadir relaciones** entre instancias. Ejemplo: `Juan cursa InteligenciaArtificial`, `Laura imparte InteligenciaArtificial`.\n\n**Errores frecuentes**:\n- Confundir clase con instancia: Alumno es una clase; Juan es una instancia de Alumno.\n- Olvidar especificar dominio y rango de las propiedades.\n- Usar ObjectProperty cuando la propiedad conecta con un valor literal (debería ser DataProperty)."
+      },
+      {
+        "titulo": "Inferencia y razonamiento en ontologías",
+        "contenido": "Una de las ventajas clave de usar OWL respecto a RDFS es la capacidad de **inferencia automática**: dado el conocimiento declarado en la ontología, el motor de inferencia puede deducir nuevo conocimiento.\n\nEjemplo: si la ontología declara que `Gato rdfs:subClassOf Mascota` y se añade `Félix rdf:type Gato`, un motor de inferencia puede deducir automáticamente que `Félix rdf:type Mascota`.\n\nLa Web Semántica usa la **asunción de mundo abierto (OWA, Open World Assumption)**: lo que no está declarado explícitamente puede ser verdadero o falso — simplemente se desconoce. Esto es diferente de las bases de datos tradicionales, que usan asunción de mundo cerrado (CWA): lo que no se sabe es falso.\n\nLos motores de razonamiento (como HermiT o Pellet, usados en Protégé) aplican las reglas de la lógica de descripciones para inferir nuevas tripletas a partir de las ya declaradas."
+      },
+      {
+        "titulo": "Linked Data",
+        "contenido": "**Linked Data** (Datos enlazados) es una forma de publicar datos estructurados en la web de manera que puedan interconectarse entre sí, permitiendo a agentes automáticos navegar e inferir nuevo conocimiento. El término fue acuñado por **Tim Berners-Lee**.\n\nLinked Data se basa en RDF, URI y HTTP. En lugar de servir páginas web (para humanos), Linked Data sirve datos que pueden ser interpretados automáticamente por máquinas.\n\nBerners-Lee propuso la publicación de datos en **5 estrellas**: cada estrella indica un nivel mayor de apertura e interoperabilidad de los datos publicados.\n\nEl conjunto de datasets de Linked Data públicos interconectados se conoce como **Linked Open Data Cloud**."
+      }
+    ]
+  },
+  "resumen": [
+    "La Web Semántica es un movimiento del W3C para representar datos en internet de forma que puedan ser procesados automáticamente por máquinas. Término acuñado por Tim Berners-Lee en 2001.",
+    "Las tres especificaciones fundamentales de menor a mayor expresividad son: RDF → RDFS → OWL. El concepto base es el URI.",
+    "URI es un identificador único de un recurso en la red. Es la base sobre la que se construye RDF.",
+    "RDF representa el conocimiento en tripletas sujeto-predicado-objeto. Un conjunto de tripletas forma un grafo. rdf:type indica que una instancia pertenece a una clase.",
+    "RDFS añade clases (rdfs:Class) y jerarquías (rdfs:subClassOf), dominio (rdfs:domain) y rango (rdfs:range) de propiedades. Es el esquema más básico para representar ontologías.",
+    "OWL añade mayor expresividad sobre RDFS: propiedades simétricas, transitivas y mayor capacidad de razonamiento. OWL DL es el más usado para ontologías con razonamiento.",
+    "owl:ObjectProperty relaciona dos instancias entre sí. owl:DatatypeProperty relaciona una instancia con un valor literal (número, cadena, etc.).",
+    "Una ontología es una especificación formal y explícita de una conceptualización compartida. Se construye identificando clases, propiedades (con dominio/rango) e instancias.",
+    "Error crítico: confundir clase con instancia. Alumno es una clase; Juan rdf:type Alumno hace que Juan sea una instancia.",
+    "La Web Semántica usa asunción de mundo abierto (OWA): lo que no está declarado no es necesariamente falso, simplemente se desconoce.",
+    "Linked Data es un método de publicar datos enlazados en la web para que máquinas los procesen. Se basa en RDF, URI y HTTP. Acuñado por Tim Berners-Lee.",
+    "Protégé es la herramienta estándar para construir ontologías en OWL/RDF."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Web Semántica",
+      "definicion": "Movimiento del W3C para representar datos en internet con formatos estándares que puedan ser procesados por máquinas. Acuñado por Tim Berners-Lee en 2001."
+    },
+    {
+      "termino": "URI (Uniform Resource Identifier)",
+      "definicion": "Cadena que identifica un recurso de red de forma unívoca. Concepto base de RDF y la Web Semántica."
+    },
+    {
+      "termino": "RDF (Resource Description Framework)",
+      "definicion": "Especificación del W3C que representa conocimiento como tripletas sujeto-predicado-objeto. Forma un grafo dirigido etiquetado."
+    },
+    {
+      "termino": "Tripleta RDF",
+      "definicion": "Unidad básica de RDF: <sujeto> <predicado> <objeto>. Sujeto = recurso sobre el que se declara; predicado = relación; objeto = información relacionada."
+    },
+    {
+      "termino": "rdf:type",
+      "definicion": "Predicado estándar de RDF que indica que un sujeto es instancia (miembro) de una clase. Ejemplo: Juan rdf:type Alumno."
+    },
+    {
+      "termino": "RDFS (RDF Schema)",
+      "definicion": "Extensión de RDF que permite definir clases (rdfs:Class), jerarquías (rdfs:subClassOf) y dominio/rango de propiedades. Es el esquema más básico para ontologías."
+    },
+    {
+      "termino": "rdfs:subClassOf",
+      "definicion": "Predicado RDFS que establece herencia entre clases. Si A rdfs:subClassOf B, toda instancia de A es también instancia de B."
+    },
+    {
+      "termino": "rdfs:domain",
+      "definicion": "Define el dominio de una propiedad: la clase a la que pertenece el sujeto que puede usar esa propiedad."
+    },
+    {
+      "termino": "rdfs:range",
+      "definicion": "Define el rango de una propiedad: la clase o tipo al que pertenece el objeto de la tripleta."
+    },
+    {
+      "termino": "OWL (Ontology Web Language)",
+      "definicion": "Familia de lenguajes para ontologías del W3C. Más expresivo que RDFS. Permite propiedades simétricas, transitivas y razonamiento. OWL DL es el más usado."
+    },
+    {
+      "termino": "owl:ObjectProperty",
+      "definicion": "Tipo de propiedad OWL que relaciona instancias de dos clases entre sí (recurso → recurso). Ejemplo: imparte relaciona Profesor con Asignatura."
+    },
+    {
+      "termino": "owl:DatatypeProperty",
+      "definicion": "Tipo de propiedad OWL que relaciona una instancia con un valor literal (número, cadena, fecha). Ejemplo: Edad relaciona Persona con un entero positivo."
+    },
+    {
+      "termino": "Ontología",
+      "definicion": "Especificación formal y explícita de una conceptualización compartida (Gruber, 1992). Describe conceptos de un dominio y sus relaciones para que personas y máquinas la puedan usar."
+    },
+    {
+      "termino": "Clase (OWL)",
+      "definicion": "Grupo de individuos que comparten propiedades. Se declara con owl:Class o rdfs:Class. Las instancias se declaran con rdf:type."
+    },
+    {
+      "termino": "Instancia (individuo)",
+      "definicion": "Un miembro concreto de una clase. Se declara con rdf:type. Error frecuente: confundir la clase (concepto abstracto) con su instancia (individuo concreto)."
+    },
+    {
+      "termino": "OWA (Open World Assumption)",
+      "definicion": "Asunción de mundo abierto usada en la Web Semántica: lo que no está declarado explícitamente no es necesariamente falso, simplemente se desconoce."
+    },
+    {
+      "termino": "Protégé",
+      "definicion": "Herramienta software estándar para construir y editar ontologías en OWL/RDF. Se usa en la actividad individual del Tema 9."
+    },
+    {
+      "termino": "Linked Data",
+      "definicion": "Método de publicar datos estructurados interconectados en la web para que puedan ser procesados automáticamente. Basado en RDF, URI y HTTP. Acuñado por Tim Berners-Lee."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-9-fc-001",
+      "pregunta": "¿Quién acuñó el término Web Semántica y en qué año?",
+      "respuesta": "Tim Berners-Lee, en 2001. La definió como 'una web de datos que puede ser procesada directa e indirectamente por máquinas'."
+    },
+    {
+      "id": "iaic-tema-9-fc-002",
+      "pregunta": "¿Cuáles son las tres especificaciones fundamentales de la Web Semántica de menor a mayor expresividad?",
+      "respuesta": "RDF → RDFS → OWL. Cada capa se construye sobre la anterior y añade mayor capacidad de expresión y razonamiento."
+    },
+    {
+      "id": "iaic-tema-9-fc-003",
+      "pregunta": "¿Qué es una tripleta RDF y cuál es su estructura?",
+      "respuesta": "Una tripleta es la unidad básica de RDF: <sujeto> <predicado> <objeto>. El sujeto es el recurso sobre el que se declara; el predicado es la relación; el objeto es la información relacionada."
+    },
+    {
+      "id": "iaic-tema-9-fc-004",
+      "pregunta": "¿Para qué sirve rdf:type?",
+      "respuesta": "Indica que un sujeto es instancia (miembro) de una clase. Ejemplo: Juan rdf:type Alumno significa que Juan es un Alumno."
+    },
+    {
+      "id": "iaic-tema-9-fc-005",
+      "pregunta": "¿Cómo se expresaría en RDF 'Roberto es entrenador del equipo Laguna'?",
+      "respuesta": "Roberto entrena Laguna\nRoberto rdf:type Entrenador\n(O equivalentemente: Laguna entrenada_por Roberto)"
+    },
+    {
+      "id": "iaic-tema-9-fc-006",
+      "pregunta": "¿Qué añade RDFS sobre RDF?",
+      "respuesta": "RDFS permite definir clases (rdfs:Class), jerarquías de herencia (rdfs:subClassOf) y el dominio y rango de las propiedades (rdfs:domain y rdfs:range)."
+    },
+    {
+      "id": "iaic-tema-9-fc-007",
+      "pregunta": "¿Qué significa rdfs:subClassOf?",
+      "respuesta": "Establece una relación de herencia: si A rdfs:subClassOf B, entonces toda instancia de A es también instancia de B. Ejemplo: Gato rdfs:subClassOf Mascota."
+    },
+    {
+      "id": "iaic-tema-9-fc-008",
+      "pregunta": "¿Qué es rdfs:domain y qué es rdfs:range?",
+      "respuesta": "rdfs:domain define la clase a la que pertenece el sujeto que usa esa propiedad. rdfs:range define la clase o tipo al que pertenece el objeto. Ejemplo: para imparte, domain=Profesor y range=Asignatura."
+    },
+    {
+      "id": "iaic-tema-9-fc-009",
+      "pregunta": "¿Cuál es el esquema más básico para representar ontologías?",
+      "respuesta": "RDFS (RDF Schema). Se construye sobre RDF y es la primera capa que permite definir clases y jerarquías."
+    },
+    {
+      "id": "iaic-tema-9-fc-010",
+      "pregunta": "¿Qué diferencia hay entre owl:ObjectProperty y owl:DatatypeProperty?",
+      "respuesta": "ObjectProperty relaciona instancias de dos clases entre sí (recurso → recurso). Ejemplo: Juan imparte InteligenciaArtificial. DatatypeProperty relaciona una instancia con un valor literal. Ejemplo: Juan tieneEdad 25."
+    },
+    {
+      "id": "iaic-tema-9-fc-011",
+      "pregunta": "¿Qué añade OWL sobre RDFS?",
+      "respuesta": "Mayor expresividad: propiedades simétricas (A casadoCon B → B casadoCon A), propiedades transitivas (X antepasado Y y Y antepasado Z → X antepasado Z) y mayor capacidad de razonamiento automático."
+    },
+    {
+      "id": "iaic-tema-9-fc-012",
+      "pregunta": "¿Qué versión de OWL se usa habitualmente para ontologías con capacidad de razonamiento?",
+      "respuesta": "OWL DL (Description Logics): ofrece la mayor expresividad manteniendo decidibilidad computacional."
+    },
+    {
+      "id": "iaic-tema-9-fc-013",
+      "pregunta": "¿Cuáles son los pasos para construir una ontología?",
+      "respuesta": "(1) Identificar clases y jerarquías. (2) Definir propiedades (ObjectProperty o DataProperty) con dominio y rango. (3) Crear instancias con rdf:type. (4) Añadir relaciones entre instancias."
+    },
+    {
+      "id": "iaic-tema-9-fc-014",
+      "pregunta": "¿Cuál es el error más frecuente al diseñar ontologías?",
+      "respuesta": "Confundir clase con instancia. Una clase es un concepto abstracto (Alumno). Una instancia es un individuo concreto (Juan rdf:type Alumno). También: olvidar dominio/rango de propiedades, y confundir ObjectProperty con DataProperty."
+    },
+    {
+      "id": "iaic-tema-9-fc-015",
+      "pregunta": "¿Qué es una ontología según Gruber?",
+      "respuesta": "'Una especificación formal y explícita de una conceptualización compartida.' Describe los conceptos de un dominio y sus relaciones de forma que personas y máquinas puedan utilizarla."
+    },
+    {
+      "id": "iaic-tema-9-fc-016",
+      "pregunta": "¿Qué es la asunción de mundo abierto (OWA) y cómo se diferencia de la cerrada (CWA)?",
+      "respuesta": "OWA: lo que no está declarado no es necesariamente falso, simplemente se desconoce. La Web Semántica usa OWA. CWA (bases de datos tradicionales): lo que no se sabe es falso."
+    },
+    {
+      "id": "iaic-tema-9-fc-017",
+      "pregunta": "¿Qué es Linked Data y quién lo acuñó?",
+      "respuesta": "Método de publicar datos estructurados interconectados en la web para que máquinas los procesen. Basado en RDF, URI y HTTP. Acuñado por Tim Berners-Lee."
+    },
+    {
+      "id": "iaic-tema-9-fc-018",
+      "pregunta": "¿Cómo se expresa en tripletas que Alumno es subclase de Persona?",
+      "respuesta": "Alumno rdfs:subClassOf Persona"
+    },
+    {
+      "id": "iaic-tema-9-fc-019",
+      "pregunta": "¿Cómo se definiría en tripletas la propiedad 'imparte' con dominio Profesor y rango Asignatura?",
+      "respuesta": "imparte rdf:type owl:ObjectProperty\nimparte rdfs:domain Profesor\nimparte rdfs:range Asignatura"
+    },
+    {
+      "id": "iaic-tema-9-fc-020",
+      "pregunta": "¿Qué es URI y en qué se diferencia de URL?",
+      "respuesta": "URI identifica un recurso de forma unívoca. URL especifica además cómo acceder a él y puede referenciar recursos que varían en el tiempo. Una URL es un tipo de URI."
+    }
+  ]
+}

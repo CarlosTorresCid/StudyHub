@@ -1,0 +1,208 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-5",
+  "titulo": "Tema 5. La Inteligencia Artificial en juegos",
+  "apuntes": {
+    "introduccion": "El Tema 5 estudia cómo la IA aborda los juegos de adversario. Primero se presentan los fundamentos de la teoría de juegos y cómo clasificar los juegos según sus propiedades. Después se estudian los dos algoritmos principales para programar jugadores automáticos: Minimax con poda Alfa-Beta, y el método de simulación Monte Carlo Tree Search (MCTS). Minimax es el núcleo práctico del tema y el que aparece con más frecuencia en los exámenes.",
+    "secciones": [
+      {
+        "titulo": "Teoría de Juegos: conceptos fundamentales",
+        "contenido": "La **teoría de juegos** es el estudio de los métodos matemáticos de conflicto y cooperación entre agentes racionales deliberativos. Surgió del estudio de equilibrios de Nash en juegos de suma cero y se ha generalizado a economía, política, biología, computación, etc.\n\nUn juego se define matemáticamente por: número de jugadores, información disponible, acciones posibles y recompensa obtenida. Si existe una estrategia óptima que ningún jugador querrá abandonar (so pena de perder), se dice que existe un **equilibrio de Nash**.\n\nDesde el punto de vista computacional, los juegos se clasifican según:\n\n- **Secuencial / simultáneo**: los jugadores juegan en turnos alternos (secuencial, asíncrono) o todos a la vez (simultáneo, síncrono). Un juego de mesa es secuencial; un videojuego de disparos es simultáneo.\n- **Suma constante / suma no constante**: en un juego de suma constante, lo que gana un jugador lo pierden los demás (el total no varía). Cuando la constante es cero se llama **juego de suma cero o nula**. El póker y el ajedrez son de suma cero. En juegos no de suma constante, la recompensa total puede aumentar con la cooperación.\n- **Cooperativo / no cooperativo**: en juegos cooperativos, un grupo de jugadores comparte objetivo y toma decisiones consensuadas (coalición). En los no cooperativos cada jugador actúa por sí mismo.\n- **Simétrico / asimétrico**: en juegos simétricos todos los jugadores tienen las mismas acciones y recompensas disponibles (ajedrez). En asimétricos los roles son diferentes.\n- **Duración finita / infinita**: algunos juegos como maximizar el retorno de la bolsa no tienen fin definido.\n- **Discreto / continuo**: discreto si el número de estrategias y estados es finito (ajedrez); continuo si puede haber valores reales.\n- **Determinista / estocástico**: en juegos deterministas el resultado de cada acción es siempre el mismo (ajedrez). En juegos estocásticos hay aleatoriedad (dados en el Risk).\n- **Con información completa / incompleta**: con información completa todos los jugadores conocen el estado del juego en todo momento (ajedrez). Con información incompleta hay información oculta (póker).\n\nEn este tema el foco son los juegos **dos jugadores, secuenciales, deterministas, información completa, suma cero, simétricos y discretos**. Ejemplos: tres en raya, ajedrez, damas, go, conecta-4."
+      },
+      {
+        "titulo": "Formas de representar un juego: normal y extensiva",
+        "contenido": "Los juegos no cooperativos se pueden describir de dos formas:\n\n**Forma normal** (o estratégica): representa con una matriz n-dimensional el producto de las estrategias y las recompensas de cada jugador. Es útil para identificar estrategias dominantes y equilibrios de Nash, pero no permite representar estrategias complejas con múltiples acciones.\n\nEjemplo clásico: el **dilema del prisionero**. Cada jugador puede delatar o negar. Delatar es la estrategia dominante (avariciosa), pero conduce a un equilibrio de Nash inferior al que se obtendría si ambos negasen.\n\n**Forma extensiva**: representa explícitamente las decisiones de cada jugador en cada punto de decisión, mostrando las recompensas al final de la secuencia. El conjunto de secuencias forma un árbol donde los nodos de niveles alternos corresponden a jugadores alternos. Es la representación que usa Minimax."
+      },
+      {
+        "titulo": "Algoritmo Minimax: fundamentos",
+        "contenido": "**Minimax** es un algoritmo de búsqueda en profundidad acotada diseñado para juegos **secuenciales, deterministas, con información completa, discretos, de suma cero y de dos jugadores** adversariales.\n\nDos asunciones fundamentales:\n- El árbol de búsqueda **no se puede explorar al completo** (se limita la profundidad).\n- Se asume que **el rival siempre jugará la jugada óptima**. Con esta asunción y explorando el árbol completo, la estrategia óptima corresponde a un equilibrio de Nash.\n\nLos dos jugadores son **MAX** y **MIN**:\n- **MAX** quiere maximizar su recompensa (busca el máximo entre los hijos).\n- **MIN** quiere minimizar la recompensa de MAX (busca el mínimo entre los hijos).\n\nConvenciones de valores:\n- +∞ representa victoria de MAX.\n- -∞ representa victoria de MIN.\n- **Nodo hoja terminal**: toma +∞ o -∞ según quien gane.\n- **Nodo hoja no terminal** (límite de profundidad alcanzado): se aplica una **función de evaluación** que estima lo buena que es la situación para MAX (positivo = ventaja MAX; negativo = ventaja MIN)."
+      },
+      {
+        "titulo": "Algoritmo Minimax: procedimiento de propagación",
+        "contenido": "El árbol Minimax se explora en profundidad de izquierda a derecha. El valor de la recompensa se propaga desde las hojas hacia la raíz:\n\n**Paso 1**: Asignar valores a los nodos hoja (recompensas dadas por la función de evaluación o +∞/-∞ en nodos terminales).\n\n**Paso 2**: Propagar hacia arriba:\n- **Nodo MAX**: toma el **máximo** de los valores de sus hijos.\n- **Nodo MIN**: toma el **mínimo** de los valores de sus hijos.\n\n**Paso 3**: La **estrategia óptima de MAX** es la secuencia de ramas elegidas por los nodos MAX a lo largo del árbol (siempre eligiendo el hijo con mayor valor).\n\n**Paso 4**: Verificar si MAX puede ganar: comparar el valor de la raíz con el umbral de victoria establecido.\n\nEjemplo: árbol de 3 niveles con MAX en la raíz y umbral de victoria ≥ 5:\n- Nivel hoja: valores dados (p.ej. 5, 7, 3, 2, 8, 4, 11, 3, 17, 2, 6).\n- Nivel MIN (nodo 2): min(5,7,3) = 3 si son sus 3 hijos directos; o min por pares.\n- Nivel MIN (nodo 3): min de sus hijos.\n- Raíz MAX (nodo 1): max(valor_nodo2, valor_nodo3).\n- Si el valor de la raíz ≥ 5, MAX puede ganar siguiendo la estrategia.\n\nError frecuente: confundir en qué nivel juega MAX y en qué nivel MIN. El nodo raíz siempre juega el primer jugador (MAX si así se indica), y los niveles alternan."
+      },
+      {
+        "titulo": "Poda Alfa-Beta: concepto",
+        "contenido": "La **poda alfa-beta** es una optimización de Minimax que permite dejar de explorar ramas que no van a afectar al resultado final, manteniendo los mismos resultados que Minimax pero reduciendo el espacio de búsqueda explorado.\n\nEl principio: podar partes del árbol menos prometedoras que las ya exploradas.\n\nSe introducen dos cotas:\n- **α (alfa)**: cota asociada a nodos MAX. **Nunca decrece** (solo puede aumentar o mantenerse). Se inicializa en -∞. Representa la mejor recompensa que MAX puede garantizarse desde la raíz.\n- **β (beta)**: cota asociada a nodos MIN. **Nunca se incrementa** (solo puede disminuir o mantenerse). Se inicializa en +∞. Representa la mejor recompensa (más baja) que MIN puede forzar.\n\n**Condición de poda**: se poda por debajo de un nodo cuando **α ≥ β**.\n\nPor qué nunca decrece alfa: MAX siempre elige el máximo, así que su cota solo puede crecer o mantenerse.\nPor qué nunca se incrementa beta: MIN siempre elige el mínimo, así que su cota solo puede decrecer o mantenerse."
+      },
+      {
+        "titulo": "Poda Alfa-Beta: procedimiento paso a paso",
+        "contenido": "El recorrido es en profundidad de **izquierda a derecha**. α y β se pasan como parámetros a los nodos hijos desde sus padres.\n\n**Inicio**: α = -∞, β = +∞ en la raíz.\n\n**En un nodo MAX**:\n1. Para cada hijo (izquierda a derecha): llamar recursivamente.\n2. El hijo devuelve su valor. Si ese valor > α actual, actualizar α = valor.\n3. Si α ≥ β: **podar** (no explorar más hijos de este nodo). Break.\n4. El nodo MAX devuelve α.\n\n**En un nodo MIN**:\n1. Para cada hijo (izquierda a derecha): llamar recursivamente.\n2. El hijo devuelve su valor. Si ese valor < β actual, actualizar β = valor.\n3. Si α ≥ β: **podar** (no explorar más hijos de este nodo). Break.\n4. El nodo MIN devuelve β.\n\nα y β se propagan hacia abajo (de padres a hijos). Los valores actualizados en un nodo se usan para decidir podas en ese mismo nodo.\n\n**Ejemplo de poda**: si en un nodo MIN el primer hijo devuelve valor 4, entonces β = 4. Si el nodo padre MAX tiene α = 5, entonces α ≥ β (5 ≥ 4), y se poda el resto de hijos del nodo MIN, porque MIN nunca elegiría un valor que beneficie más a MAX que el 4 ya encontrado, y MAX ya tiene garantizado 5.\n\nError frecuente: no saber justificar por qué alfa nunca decrece y beta nunca se incrementa. Respuesta de examen: alfa está asociada a MAX que maximiza → solo puede crecer; beta está asociada a MIN que minimiza → solo puede decrecer."
+      },
+      {
+        "titulo": "Monte Carlo Tree Search (MCTS)",
+        "contenido": "**MCTS** es una alternativa a Minimax para juegos donde explorar el árbol exhaustivamente es inviable. En vez de expandir sistemáticamente hasta cierta profundidad, **explora el árbol de forma probabilística** dando prioridad a las ramas más prometedoras.\n\nEl método Monte Carlo básico: recrear múltiples simulaciones de partidas de forma total o parcial desde el punto de decisión, eligiendo las jugadas al azar. La rama que haya dado mejores resultados en las simulaciones se considera la más prometedora.\n\nMCTS mejora esto construyendo un árbol de búsqueda iterativamente. El sesgo que introduce se basa en la proporción de simulaciones favorables y el número de veces que se ha simulado desde cada subárbol.\n\n**Las 4 fases de MCTS**:\n1. **Selección**: seleccionar un nodo del árbol ya construido usando una métrica (como UCB) que equilibra la explotación de ramas prometedoras y la exploración de ramas poco visitadas.\n2. **Expansión**: generar los nodos hijos del nodo seleccionado.\n3. **Simulación** (rollout): simular jugadas desde el nuevo nodo de forma aleatoria hasta alcanzar un resultado (victoria/derrota/empate).\n4. **Actualización** (backpropagation): propagar el resultado de la simulación hacia arriba, actualizando los valores de los nodos en el camino desde el nuevo nodo hasta la raíz.\n\n**Cuándo usar Minimax vs. MCTS**:\n- **Minimax** es mejor cuando la táctica a corto plazo es crucial (un error irreversible puede perderse la partida, como en ajedrez).\n- **MCTS** es mejor cuando prima una estrategia a largo plazo y un error puntual se puede recuperar (como el go). También es más flexible: funciona con juegos estocásticos y no necesita función de evaluación diseñada por expertos.\n\nNota: Monte Carlo no solo se aplica a juegos. También se usa en optimización numérica, simulación de procesos físicos y análisis estadístico de mercados financieros."
+      }
+    ]
+  },
+  "resumen": [
+    "La teoría de juegos estudia el conflicto y la cooperación entre agentes racionales. Los juegos se clasifican como secuenciales/simultáneos, de suma cero/no cero, cooperativos/no cooperativos, deterministas/estocásticos, con información completa/incompleta, etc.",
+    "Minimax está diseñado para juegos de dos jugadores, secuenciales, deterministas, información completa, suma cero y discretos (ajedrez, damas, go, tres en raya).",
+    "Minimax asume: (1) no se puede explorar el árbol completo (se limita la profundidad); (2) el rival siempre jugará la jugada óptima.",
+    "En Minimax, MAX maximiza la recompensa eligiendo el máximo de sus hijos; MIN minimiza eligiendo el mínimo. Los valores se propagan desde las hojas hacia la raíz.",
+    "Nodo hoja terminal: valor +∞ (victoria MAX) o -∞ (victoria MIN). Nodo hoja no terminal: función de evaluación que estima la ventaja de MAX.",
+    "La estrategia óptima de MAX se lee siguiendo las ramas elegidas por los nodos MAX (siempre el hijo de mayor valor).",
+    "La poda alfa-beta es una optimización de Minimax que poda ramas que no afectan al resultado. Produce los mismos valores pero explora menos nodos.",
+    "α (alfa) es la cota de MAX, inicializada en -∞, y nunca decrece porque MAX maximiza. β (beta) es la cota de MIN, inicializada en +∞, y nunca se incrementa porque MIN minimiza.",
+    "Condición de poda alfa-beta: se poda cuando α ≥ β. La poda se realiza recorriendo el árbol de izquierda a derecha.",
+    "MCTS explora el árbol probabilísticamente mediante simulaciones, dando prioridad a ramas prometedoras. Sus 4 fases son: selección, expansión, simulación y actualización.",
+    "Minimax es mejor para táctica a corto plazo (ajedrez); MCTS es mejor para estrategia a largo plazo (go) y juegos estocásticos o sin función de evaluación.",
+    "Monte Carlo no requiere función de evaluación diseñada por expertos, lo que lo hace más flexible y aplicable a más tipos de juegos."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Teoría de juegos",
+      "definicion": "Estudio de los métodos matemáticos de conflicto y cooperación entre agentes racionales deliberativos. Define un juego por número de jugadores, información disponible, acciones y recompensas."
+    },
+    {
+      "termino": "Equilibrio de Nash",
+      "definicion": "Situación en la que ningún jugador se desviaría de su estrategia óptima so pena de sufrir una pérdida. Minimax con árbol completo converge a un equilibrio de Nash."
+    },
+    {
+      "termino": "Juego de suma cero",
+      "definicion": "Juego donde la recompensa de un jugador se resta de la del otro: lo que gana uno lo pierde el otro. El ajedrez y el go son de suma cero."
+    },
+    {
+      "termino": "Juego determinista",
+      "definicion": "Juego donde el resultado de cada acción es siempre el mismo. El ajedrez es determinista. Un juego con dados (Risk) es estocástico."
+    },
+    {
+      "termino": "Información completa",
+      "definicion": "Todos los jugadores conocen el estado del juego en todo momento (ajedrez). En juegos con información incompleta hay información oculta (póker)."
+    },
+    {
+      "termino": "Forma extensiva",
+      "definicion": "Representación de un juego como un árbol donde los nodos de niveles alternos corresponden a jugadores alternos y las hojas muestran las recompensas. Es la base de Minimax."
+    },
+    {
+      "termino": "Minimax",
+      "definicion": "Algoritmo de búsqueda en profundidad acotada para juegos adversariales de dos jugadores. MAX maximiza la recompensa (elige el máximo de sus hijos); MIN minimiza (elige el mínimo). Los valores se propagan desde las hojas hacia la raíz."
+    },
+    {
+      "termino": "Función de evaluación",
+      "definicion": "Función que estima lo favorable de un estado para MAX cuando se alcanza el límite de profundidad del árbol Minimax sin llegar a un estado terminal. Valores positivos = ventaja MAX; negativos = ventaja MIN."
+    },
+    {
+      "termino": "Poda alfa-beta",
+      "definicion": "Optimización de Minimax que elimina ramas que no pueden influir en el resultado final. Produce los mismos valores que Minimax pero explora menos nodos. Condición de poda: α ≥ β."
+    },
+    {
+      "termino": "α (alfa)",
+      "definicion": "Cota asociada a nodos MAX en la poda alfa-beta. Se inicializa en -∞ y nunca decrece (solo puede aumentar). Representa la mejor recompensa garantizable para MAX hasta ese momento."
+    },
+    {
+      "termino": "β (beta)",
+      "definicion": "Cota asociada a nodos MIN en la poda alfa-beta. Se inicializa en +∞ y nunca se incrementa (solo puede disminuir). Representa la mejor respuesta (más baja) que MIN puede forzar."
+    },
+    {
+      "termino": "MCTS (Monte Carlo Tree Search)",
+      "definicion": "Método que explora el árbol de búsqueda de forma probabilística mediante simulaciones, priorizando ramas prometedoras. Sus fases son: selección, expansión, simulación (rollout) y actualización (backpropagation)."
+    },
+    {
+      "termino": "Dilema del prisionero",
+      "definicion": "Juego de suma no constante representado en forma normal donde la estrategia dominante (delatar) lleva a un equilibrio de Nash subóptimo respecto a la estrategia cooperativa (negar)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-5-fc-001",
+      "pregunta": "¿Para qué tipo de juegos está diseñado Minimax?",
+      "respuesta": "Juegos de dos jugadores, secuenciales, deterministas, con información completa, discretos y de suma cero. Ejemplos: ajedrez, damas, go, tres en raya, conecta-4."
+    },
+    {
+      "id": "iaic-tema-5-fc-002",
+      "pregunta": "¿Cuáles son las dos asunciones fundamentales de Minimax?",
+      "respuesta": "(1) No se puede explorar el árbol completo: se limita la profundidad. (2) El rival siempre jugará la jugada óptima."
+    },
+    {
+      "id": "iaic-tema-5-fc-003",
+      "pregunta": "¿Qué hace MAX y qué hace MIN en Minimax?",
+      "respuesta": "MAX elige el máximo de los valores de sus hijos (maximiza su recompensa). MIN elige el mínimo (minimiza la recompensa de MAX, es el adversario)."
+    },
+    {
+      "id": "iaic-tema-5-fc-004",
+      "pregunta": "¿Qué valor toma un nodo hoja terminal en Minimax? ¿Y uno no terminal?",
+      "respuesta": "Terminal: +∞ si gana MAX, -∞ si gana MIN. No terminal (límite de profundidad): se aplica la función de evaluación, que estima la ventaja de MAX (positivo = favorable a MAX, negativo = favorable a MIN)."
+    },
+    {
+      "id": "iaic-tema-5-fc-005",
+      "pregunta": "¿Cómo se propagan los valores en Minimax?",
+      "respuesta": "Desde las hojas hacia la raíz. En cada nodo MAX se toma el máximo de los valores de sus hijos; en cada nodo MIN se toma el mínimo. El árbol se explora en profundidad de izquierda a derecha."
+    },
+    {
+      "id": "iaic-tema-5-fc-006",
+      "pregunta": "¿Cómo se determina la estrategia óptima de MAX en Minimax?",
+      "respuesta": "Siguiendo desde la raíz las ramas elegidas por cada nodo MAX (la rama con mayor valor propagado). La estrategia es la secuencia de esas ramas hasta las hojas."
+    },
+    {
+      "id": "iaic-tema-5-fc-007",
+      "pregunta": "¿Qué es la poda alfa-beta y qué garantiza?",
+      "respuesta": "Una optimización de Minimax que elimina ramas que no pueden afectar al resultado. Garantiza los mismos valores que Minimax puro pero explorando menos nodos, siendo más eficiente."
+    },
+    {
+      "id": "iaic-tema-5-fc-008",
+      "pregunta": "¿Con qué valor se inicializan α y β en la poda alfa-beta?",
+      "respuesta": "α se inicializa en -∞ (peor caso para MAX). β se inicializa en +∞ (peor caso para MIN)."
+    },
+    {
+      "id": "iaic-tema-5-fc-009",
+      "pregunta": "¿Cuándo se poda en alfa-beta y cuál es la condición exacta?",
+      "respuesta": "Se poda por debajo de un nodo cuando α ≥ β. En ese momento se deja de explorar el resto de hijos de ese nodo."
+    },
+    {
+      "id": "iaic-tema-5-fc-010",
+      "pregunta": "¿Por qué alfa nunca decrece en la poda alfa-beta?",
+      "respuesta": "Porque alfa está asociada a nodos MAX, y MAX siempre elige el máximo. Cada vez que encuentra un valor mayor, actualiza alfa; nunca encontrará un valor que lo haga decrecer."
+    },
+    {
+      "id": "iaic-tema-5-fc-011",
+      "pregunta": "¿Por qué beta nunca se incrementa en la poda alfa-beta?",
+      "respuesta": "Porque beta está asociada a nodos MIN, y MIN siempre elige el mínimo. Beta se actualiza al encontrar valores menores; nunca se actualizará hacia arriba."
+    },
+    {
+      "id": "iaic-tema-5-fc-012",
+      "pregunta": "En la poda alfa-beta, ¿qué actualiza un nodo MAX y qué devuelve? ¿Y un nodo MIN?",
+      "respuesta": "Nodo MAX: actualiza alfa con el máximo de los valores de sus hijos; devuelve alfa. Nodo MIN: actualiza beta con el mínimo de los valores de sus hijos; devuelve beta."
+    },
+    {
+      "id": "iaic-tema-5-fc-013",
+      "pregunta": "¿Qué es MCTS y cuáles son sus 4 fases?",
+      "respuesta": "Monte Carlo Tree Search: explora el árbol probabilísticamente mediante simulaciones. Fases: (1) Selección — elegir nodo prometedor del árbol construido; (2) Expansión — generar sus hijos; (3) Simulación — simular jugadas aleatorias hasta resultado; (4) Actualización — propagar el resultado hacia la raíz."
+    },
+    {
+      "id": "iaic-tema-5-fc-014",
+      "pregunta": "¿Cuándo es mejor usar Minimax y cuándo MCTS?",
+      "respuesta": "Minimax es mejor cuando la táctica a corto plazo es crucial y un error puede ser irreversible (ajedrez). MCTS es mejor cuando prima la estrategia a largo plazo y los errores se pueden recuperar (go), o cuando el juego es estocástico o no tiene función de evaluación disponible."
+    },
+    {
+      "id": "iaic-tema-5-fc-015",
+      "pregunta": "¿Qué ventaja tiene MCTS sobre Minimax respecto a la función de evaluación?",
+      "respuesta": "MCTS no necesita una función de evaluación diseñada por expertos, lo que lo hace más flexible y aplicable a juegos donde diseñar esa función es difícil."
+    },
+    {
+      "id": "iaic-tema-5-fc-016",
+      "pregunta": "¿Qué es un juego de suma cero?",
+      "respuesta": "Un juego donde la recompensa que gana un jugador se resta de la del otro (el total permanece constante en cero). Lo que gana uno lo pierde el otro. El ajedrez y el go son ejemplos."
+    },
+    {
+      "id": "iaic-tema-5-fc-017",
+      "pregunta": "¿Qué diferencia hay entre un juego determinista y uno estocástico?",
+      "respuesta": "En un juego determinista el resultado de cada acción es siempre el mismo (ajedrez). En uno estocástico hay un elemento de aleatoriedad, como un dado (Risk)."
+    },
+    {
+      "id": "iaic-tema-5-fc-018",
+      "pregunta": "¿A qué corresponde el equilibrio de Nash cuando Minimax puede explorar el árbol completo?",
+      "respuesta": "Si Minimax puede explorar el árbol completo y el rival asume que siempre jugará óptimo, la estrategia óptima resultante corresponde a un equilibrio de Nash: ningún jugador querría desviarse de ella."
+    },
+    {
+      "id": "iaic-tema-5-fc-019",
+      "pregunta": "¿Cuál es la diferencia entre la forma normal y la forma extensiva de representar un juego?",
+      "respuesta": "La forma normal usa una matriz con las estrategias y recompensas de cada jugador (útil para equilibrios de Nash, no para estrategias complejas). La forma extensiva usa un árbol que muestra explícitamente las decisiones de cada jugador en cada punto."
+    },
+    {
+      "id": "iaic-tema-5-fc-020",
+      "pregunta": "¿Por qué Minimax no usa un algoritmo de búsqueda convencional hacia adelante?",
+      "respuesta": "Porque hay que tener en cuenta las posibles respuestas del adversario. Un algoritmo convencional solo consideraría las jugadas del primer jugador ignorando que el adversario intentará minimizar la recompensa."
+    }
+  ]
+}

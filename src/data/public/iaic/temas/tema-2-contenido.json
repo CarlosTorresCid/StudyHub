@@ -1,0 +1,284 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-2",
+  "titulo": "Tema 2. Búsqueda",
+  "apuntes": {
+    "introduccion": "El Tema 2 estudia las técnicas de búsqueda como paradigma fundamental de resolución de problemas en IA. Muchos problemas de IA pueden modelarse como la búsqueda de un camino en un espacio de estados: dada una situación inicial, un conjunto de acciones posibles y un estado objetivo, el algoritmo de búsqueda debe encontrar la secuencia de acciones que lleva del inicio al objetivo.\n\nEl tema se divide en tres bloques: (1) conceptos comunes a todos los algoritmos de búsqueda, (2) búsqueda no informada (sin conocimiento del dominio) y (3) búsqueda informada (que usa una función heurística para guiar la exploración).",
+    "secciones": [
+      {
+        "titulo": "Formalización de un problema de búsqueda",
+        "contenido": "Para poder aplicar un algoritmo de búsqueda, primero hay que formalizar el problema. Los elementos necesarios son:\n\n- **Estado**: representación de una situación concreta del problema. El conjunto de todos los estados posibles es el *espacio de estados*.\n- **Estado inicial**: el estado de partida.\n- **Test de meta**: la condición que determina si un estado es el objetivo (o uno de los objetivos).\n- **Función de generación de sucesores**: dada un estado, genera los estados a los que se puede llegar aplicando una acción. Cada par (acción, estado resultante) tiene un *coste* asociado.\n- **Árbol de búsqueda**: la estructura que se construye durante la exploración, donde la raíz es el estado inicial y las ramas son acciones. Distintos caminos en el árbol pueden llevar al mismo estado, lo que obliga a realizar **detección de duplicados**.\n\nLas dos estructuras de datos clave son:\n- **Lista abierta (LA)**: contiene los nodos generados pero aún no expandidos.\n- **Lista cerrada (LC)**: contiene los nodos ya expandidos.\n\nCuando se genera un nodo duplicado (ya visto), se puede descartar si tiene igual o peor coste, o actualizar si tiene mejor coste."
+      },
+      {
+        "titulo": "Características de los algoritmos de búsqueda",
+        "contenido": "Los algoritmos de búsqueda se comparan según cuatro propiedades:\n\n**Completitud**: un algoritmo es completo si garantiza que, dado tiempo y memoria ilimitados, encontrará la solución si existe.\n\n**Optimalidad**: un algoritmo es óptimo si la solución que encuentra es la de coste mínimo entre todas las posibles.\n\n**Complejidad temporal**: cuánto tiempo tarda en encontrar la solución, medido en notación O grande. Depende del tamaño del árbol de búsqueda.\n\n**Complejidad espacial**: cuánta memoria ocupa durante la búsqueda.\n\nLa complejidad se expresa en función de dos parámetros:\n- **b (factor de ramificación)**: número máximo de sucesores de cualquier nodo. Cuanto mayor sea, más grande crece el árbol.\n- **d (profundidad de la solución)**: número mínimo de transiciones desde el estado inicial hasta el objetivo."
+      },
+      {
+        "titulo": "Búsqueda no informada: concepto general",
+        "contenido": "Los algoritmos de búsqueda no informada (también llamados de **búsqueda a ciegas**) no aprovechan ninguna información específica del estado del problema para guiar la exploración. Su estrategia de expansión no discrimina entre estados más o menos prometedores: todos los estados candidatos se tratan por igual.\n\nEsto los hace simples de implementar pero potencialmente muy costosos para problemas grandes, ya que pueden explorar grandes regiones del espacio de estados antes de encontrar la solución.\n\nLos tres algoritmos de búsqueda no informada del temario son: búsqueda en anchura, búsqueda en profundidad y búsqueda en profundidad iterativa."
+      },
+      {
+        "titulo": "Búsqueda en anchura (BFS)",
+        "contenido": "La **búsqueda en anchura** (también llamada en amplitud) expande los nodos por niveles: primero el nodo raíz, luego todos sus sucesores, luego los sucesores de los sucesores, etc. La distancia g desde el estado inicial hasta todos los nodos de un mismo nivel es la misma.\n\nDesde el punto de vista algorítmico, se implementa con una **cola FIFO**: los nuevos nodos se añaden al final de la lista abierta (primero en entrar, primero en salir). Nunca es necesario reexpandir estados porque siempre se expanden con su g mínima. El algoritmo termina cuando genera un estado meta.\n\n**Propiedades:**\n- **Completitud**: sí — si existe solución, la encontrará.\n- **Optimalidad**: sí — encuentra la solución en el nivel más cercano a la raíz (coste mínimo si los costes son uniformes).\n- **Complejidad temporal**: O(b^d) — exponencial.\n- **Complejidad espacial**: O(b^d) — exponencial. Esta es su gran desventaja: almacena en memoria todos los nodos del nivel actual y del anterior."
+      },
+      {
+        "titulo": "Búsqueda en profundidad (DFS)",
+        "contenido": "La **búsqueda en profundidad** desciende por una rama del árbol de búsqueda hasta que encuentra un estado meta o llega a un punto sin sucesores. Entonces retrocede (*backtracking*) y continúa por las ramas hermanas no exploradas.\n\nEstratégia: **LIFO** (last in, first out). Los sucesores se añaden al *comienzo* de la lista abierta, de modo que siempre se expande el nodo más recientemente generado.\n\nDiferencias clave respecto a la búsqueda en anchura:\n- Solo almacena el *camino actual* (no hay lista cerrada global); la lista abierta contiene los nodos hermanos del camino actual no expandidos.\n- Complejidad espacial O(b·d) — lineal respecto a la profundidad. Esta es su gran ventaja.\n\n**Propiedades:**\n- **Completitud**: no en espacios de búsqueda infinitos (puede quedar atrapada en una rama sin fin). Sí en espacios finitos si se evitan ciclos.\n- **Optimalidad**: no — puede encontrar una solución de mala calidad sin explorar el resto del árbol.\n- **Complejidad temporal**: O(b^d) — exponencial en el peor caso.\n- **Complejidad espacial**: O(b·d) — su gran ventaja frente a BFS.\n\nPara asegurar optimalidad en DFS se puede usar **ramificación y acotación** (*branch and bound*): cuando se encuentra una solución se almacena su coste y se sigue buscando; si otro camino supera ese coste, se poda."
+      },
+      {
+        "titulo": "Búsqueda en profundidad iterativa (IDS)",
+        "contenido": "La **búsqueda en profundidad iterativa** combina las ventajas de BFS (completitud y optimalidad) con las de DFS (baja memoria). Consiste en realizar múltiples búsquedas en profundidad con un límite de profundidad que se va incrementando gradualmente.\n\nFuncionamiento: se empieza con cota 0, luego cota 1, luego cota 2, etc. En cada iteración se explora en profundidad hasta el límite. El proceso se repite hasta que se encuentra la solución en la iteración de profundidad d.\n\nAunque expande los nodos de los niveles superiores varias veces (lo que puede parecer ineficiente), el coste adicional es pequeño porque la mayoría de los nodos del árbol están en el último nivel.\n\n**Propiedades:**\n- **Completitud**: sí.\n- **Optimalidad**: sí (con costes uniformes, la solución encontrada en la primera iteración exitosa es la de menor profundidad).\n- **Complejidad temporal**: O(b^d) — igual que BFS.\n- **Complejidad espacial**: O(b·d) — igual que DFS. Esta combinación de propiedades la convierte en el algoritmo no informado preferido en general."
+      },
+      {
+        "titulo": "Búsqueda informada: concepto y heurística",
+        "contenido": "La **búsqueda informada** (también llamada búsqueda heurística) utiliza información específica del dominio del problema para guiar la exploración hacia los nodos más prometedores. Esta información se formaliza mediante una **función heurística h(n)**, que estima el coste de alcanzar el estado objetivo desde el nodo n.\n\nEl objetivo es priorizar la exploración de los nodos con menor valor estimado de coste restante, reduciendo así el número de nodos expandidos respecto a los algoritmos a ciegas. La efectividad del algoritmo depende directamente de la calidad de la heurística elegida.\n\nUna heurística se suele diseñar como la solución a una *versión relajada del problema* (ignorando alguna restricción del problema original). Por ejemplo, en el problema de buscar la ruta más corta entre ciudades por carretera, la distancia euclídea (en línea recta) es una heurística habitual, ya que ignora la restricción de seguir las carreteras.\n\n**Propiedades deseables de una heurística:**\n\n**Admisibilidad**: h(n) es admisible si *nunca sobreestima* el coste real h*(n) de alcanzar el objetivo desde n. Formalmente: h(n) ≤ h*(n) para todo nodo n.\n\n**Consistencia** (o monotonicidad): h(s) es consistente si para cada nodo s y cada sucesor s', se cumple: h(s) ≤ c(s, s') + h(s'), donde c(s, s') es el coste de la transición de s a s'. Esto equivale a que el valor f(n) = g(n) + h(n) sea no decreciente a lo largo de cualquier camino.\n\nRelación: toda heurística consistente es admisible. Sin embargo, una heurística admisible no tiene por qué ser consistente (aunque en la práctica casi siempre lo es)."
+      },
+      {
+        "titulo": "Algoritmos de búsqueda informada: mejor primero, avariciosa y A*",
+        "contenido": "Los **algoritmos de mejor primero** (*best-first search*) ordenan la lista abierta según el valor de una función de evaluación f(n) y en cada paso expanden el nodo con menor f(n). Mantienen lista abierta y lista cerrada como la búsqueda en anchura, pero la lista abierta se implementa como una cola con prioridad. El algoritmo termina cuando el nodo meta es el primero en la lista abierta y se va a expandir (no basta con generarlo).\n\nLos principales casos según cómo se defina f(n):\n\n**Búsqueda avariciosa** (greedy best-first): f(n) = h(n). Solo usa la heurística, ignorando el coste acumulado. Tiende a converger rápidamente pero no garantiza optimalidad, ni siquiera con heurística admisible.\n\n**Algoritmo A***: f(n) = g(n) + h(n), donde g(n) es el coste real acumulado desde el inicio hasta n, y h(n) es la estimación heurística del coste restante. Es el algoritmo de búsqueda informada más importante:\n- Completo.\n- Óptimo si la heurística es admisible.\n- Si la heurística es consistente, A* nunca reexpandirá un nodo ya en lista cerrada.\n- Complejidad temporal y espacial: O(b^d).\n\n**Algoritmo IDA*** (A* con profundidad iterativa): aplica la idea de la profundidad iterativa al algoritmo A*. En lugar de una lista abierta, realiza múltiples búsquedas en profundidad acotadas por el valor f(n): en cada iteración expande todos los nodos con f(n) menor o igual a un umbral η que se va incrementando. Ventaja: complejidad espacial lineal O(b·d) frente a la exponencial de A*. Conserva la admisibilidad si la heurística es admisible."
+      },
+      {
+        "titulo": "Procedimiento para verificar admisibilidad y consistencia",
+        "contenido": "Este procedimiento es clave para resolver los ejercicios del examen.\n\n**Para verificar admisibilidad:**\n1. Para cada nodo n del árbol, calcular h*(n): el coste real del camino más corto desde n hasta el nodo meta (sumando los costes reales de los arcos).\n2. Comparar h(n) con h*(n). Si h(n) ≤ h*(n) para todos los nodos, la heurística es admisible. Si hay un nodo donde h(n) > h*(n), no es admisible.\n\n**Para verificar consistencia:**\nPara cada arco (s → s') del árbol, comprobar que: h(s) ≤ c(s, s') + h(s').\nSi algún arco no cumple esta desigualdad, la heurística no es consistente.\n\n**Conclusiones sobre optimalidad:**\n- A*: garantiza solución óptima solo si la heurística es admisible (o consistente). Si no es admisible, no hay garantía.\n- Búsqueda avariciosa: nunca garantiza solución óptima, sea admisible o no la heurística, porque ignora g(n).\n\nEjemplo de verificación para un arco D → G con c(D,G) = 3, h(D) = 4, h(G) = 0:\n- Admisibilidad de D: h*(D) = 3, h(D) = 4 → 4 > 3 → NO admisible en D.\n- Consistencia D→G: h(D) ≤ c(D,G) + h(G) → 4 ≤ 3 + 0 = 3 → NO consistente."
+      },
+      {
+        "titulo": "Tabla comparativa de algoritmos",
+        "contenido": "Resumen de las propiedades de todos los algoritmos:\n\n- **Búsqueda en anchura (BFS)**: completa. Óptima. Temporal O(b^d). Espacial O(b^d).\n- **Búsqueda en profundidad (DFS)**: incompleta en espacios infinitos. No óptima. Temporal O(b^d). Espacial O(b·d).\n- **Profundidad iterativa (IDS)**: completa. Óptima. Temporal O(b^d). Espacial O(b·d).\n- **A***: completa. Óptima si h admisible. Temporal O(b^d). Espacial O(b^d).\n- **IDA***: completa. Óptima si h admisible. Temporal O(b^d). Espacial O(b·d).\n- **Avariciosa**: completa. No óptima. Temporal O(b^d). Espacial O(b^d).\n\nLa diferencia fundamental entre búsqueda informada y no informada: la no informada no usa h(n) y trata todos los nodos por igual; la informada usa h(n) para priorizar nodos prometedores y reducir la exploración."
+      }
+    ]
+  },
+  "resumen": [
+    "Un problema de búsqueda se define por: estado inicial, función de sucesores (con costes), y test de meta. El árbol de búsqueda se construye expandiendo estados y se gestionan listas abierta (pendientes) y cerrada (expandidos).",
+    "Las cuatro propiedades que caracterizan un algoritmo de búsqueda son: completitud, optimalidad, complejidad temporal y complejidad espacial. Las complejidades se expresan en función de b (factor de ramificación) y d (profundidad de la solución).",
+    "Los algoritmos de búsqueda no informada no usan información del dominio y tratan todos los estados candidatos por igual.",
+    "La búsqueda en anchura (BFS) expande por niveles (FIFO). Es completa y óptima. Su desventaja es la complejidad espacial exponencial O(b^d).",
+    "La búsqueda en profundidad (DFS) desciende por ramas (LIFO). No es óptima ni completa en espacios infinitos. Su gran ventaja es la complejidad espacial O(b·d).",
+    "La búsqueda en profundidad iterativa (IDS) combina DFS con cotas crecientes. Es completa, óptima y tiene complejidad espacial O(b·d): lo mejor de ambos mundos.",
+    "La búsqueda informada usa una función heurística h(n) que estima el coste restante hasta el objetivo para guiar la exploración hacia los nodos más prometedores.",
+    "Una heurística es admisible si h(n) ≤ h*(n) para todo nodo n (nunca sobreestima el coste real).",
+    "Una heurística es consistente si h(s) ≤ c(s, s') + h(s') para todo arco (s → s'). Toda heurística consistente es admisible, pero no al revés.",
+    "El algoritmo A* usa f(n) = g(n) + h(n). Es óptimo si la heurística es admisible. Si la heurística es consistente, nunca reexpande nodos ya cerrados.",
+    "La búsqueda avariciosa usa solo f(n) = h(n). Tiende a ser rápida pero nunca garantiza optimalidad.",
+    "El algoritmo IDA* aplica la idea de IDS a A*: expansión en profundidad con umbral sobre f(n). Complejidad espacial lineal, admisible si la heurística es admisible.",
+    "Para verificar admisibilidad: calcular h*(n) = coste real del camino más corto a meta para cada nodo y comparar con h(n). Para verificar consistencia: comprobar h(s) ≤ c(s,s') + h(s') en cada arco."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Estado",
+      "definicion": "Representación de una situación concreta del problema. El conjunto de todos los estados posibles es el espacio de estados."
+    },
+    {
+      "termino": "Árbol de búsqueda",
+      "definicion": "Estructura construida durante la exploración, donde la raíz es el estado inicial y las ramas son acciones. Distintos caminos pueden llevar al mismo estado (duplicados)."
+    },
+    {
+      "termino": "Lista abierta (LA)",
+      "definicion": "Conjunto de nodos generados pero aún no expandidos. Su orden de gestión distingue los algoritmos entre sí."
+    },
+    {
+      "termino": "Lista cerrada (LC)",
+      "definicion": "Conjunto de nodos ya expandidos. Sirve para detectar duplicados y evitar reexpandir estados."
+    },
+    {
+      "termino": "Factor de ramificación (b)",
+      "definicion": "Número máximo de sucesores de cualquier nodo. Determina con qué rapidez crece el árbol de búsqueda."
+    },
+    {
+      "termino": "Profundidad de la solución (d)",
+      "definicion": "Número mínimo de transiciones desde el estado inicial hasta el objetivo. Junto con b define la complejidad de los algoritmos."
+    },
+    {
+      "termino": "Completitud",
+      "definicion": "Propiedad de un algoritmo que garantiza encontrar la solución si existe, dado tiempo y memoria ilimitados."
+    },
+    {
+      "termino": "Optimalidad",
+      "definicion": "Propiedad de un algoritmo que garantiza encontrar la solución de coste mínimo."
+    },
+    {
+      "termino": "Búsqueda en anchura (BFS)",
+      "definicion": "Algoritmo no informado que expande nodos por niveles (FIFO). Completo y óptimo. Complejidad temporal y espacial O(b^d)."
+    },
+    {
+      "termino": "Búsqueda en profundidad (DFS)",
+      "definicion": "Algoritmo no informado que desciende por ramas (LIFO). No óptimo. No completo en espacios infinitos. Ventaja: complejidad espacial O(b·d)."
+    },
+    {
+      "termino": "Búsqueda en profundidad iterativa (IDS)",
+      "definicion": "Múltiples búsquedas DFS con límite de profundidad creciente. Completo, óptimo y con complejidad espacial O(b·d). Combina las ventajas de BFS y DFS."
+    },
+    {
+      "termino": "Función heurística h(n)",
+      "definicion": "Estimación del coste de alcanzar el estado objetivo desde el nodo n. Permite guiar la búsqueda informada hacia los nodos más prometedores."
+    },
+    {
+      "termino": "Heurística admisible",
+      "definicion": "h(n) es admisible si nunca sobreestima el coste real h*(n) de alcanzar la meta. Condición: h(n) ≤ h*(n) para todo nodo."
+    },
+    {
+      "termino": "Heurística consistente (monótona)",
+      "definicion": "h(s) es consistente si para cada arco (s → s') se cumple h(s) ≤ c(s,s') + h(s'). Implica que f(n) = g(n) + h(n) es no decreciente. Toda consistente es admisible."
+    },
+    {
+      "termino": "Algoritmo A*",
+      "definicion": "Algoritmo de mejor primero que usa f(n) = g(n) + h(n). Completo y óptimo si h es admisible. Con h consistente, nunca reexpande nodos ya en lista cerrada."
+    },
+    {
+      "termino": "g(n)",
+      "definicion": "Coste real acumulado desde el nodo inicial hasta el nodo n. Parte conocida de f(n) = g(n) + h(n)."
+    },
+    {
+      "termino": "h*(n)",
+      "definicion": "Coste real óptimo (camino más corto) desde el nodo n hasta el estado meta. Es el valor contra el que se compara h(n) para verificar admisibilidad."
+    },
+    {
+      "termino": "Búsqueda avariciosa (greedy)",
+      "definicion": "Algoritmo de mejor primero que usa f(n) = h(n), ignorando g(n). Tiende a ser rápido pero nunca garantiza optimalidad."
+    },
+    {
+      "termino": "IDA* (A* con profundidad iterativa)",
+      "definicion": "Versión de A* con expansión en profundidad acotada por umbral sobre f(n), incrementando el umbral iterativamente. Admisible si h es admisible. Complejidad espacial O(b·d)."
+    },
+    {
+      "termino": "Ramificación y acotación (branch and bound)",
+      "definicion": "Técnica que combina búsqueda en profundidad con optimalidad: al encontrar una solución se almacena su coste y se sigue buscando, podando ramas que superen ese coste."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-2-fc-001",
+      "pregunta": "¿Cuáles son los cuatro elementos que definen un problema de búsqueda?",
+      "respuesta": "Estado inicial, función de generación de sucesores (con costes), test de meta y espacio de estados. La solución es la secuencia de acciones que lleva del estado inicial al objetivo."
+    },
+    {
+      "id": "iaic-tema-2-fc-002",
+      "pregunta": "¿Qué son la lista abierta y la lista cerrada en búsqueda?",
+      "respuesta": "La lista abierta (LA) contiene los nodos generados pero aún no expandidos. La lista cerrada (LC) contiene los nodos ya expandidos. Juntas permiten gestionar la exploración y detectar duplicados."
+    },
+    {
+      "id": "iaic-tema-2-fc-003",
+      "pregunta": "¿Qué significa que un algoritmo de búsqueda sea completo?",
+      "respuesta": "Que si existe solución, el algoritmo la encontrará dado tiempo y memoria ilimitados."
+    },
+    {
+      "id": "iaic-tema-2-fc-004",
+      "pregunta": "¿Qué significa que un algoritmo de búsqueda sea óptimo?",
+      "respuesta": "Que la solución que encuentra es la de coste mínimo entre todas las posibles soluciones."
+    },
+    {
+      "id": "iaic-tema-2-fc-005",
+      "pregunta": "¿Cuál es la diferencia principal entre búsqueda en anchura y búsqueda en profundidad?",
+      "respuesta": "BFS expande por niveles (FIFO, añade al final de LA), es completa y óptima pero con memoria exponencial. DFS desciende por ramas (LIFO, añade al inicio de LA), no es óptima ni completa en espacios infinitos, pero usa memoria lineal O(b·d)."
+    },
+    {
+      "id": "iaic-tema-2-fc-006",
+      "pregunta": "¿Por qué la búsqueda en anchura es óptima y la búsqueda en profundidad no?",
+      "respuesta": "BFS expande nivel a nivel, garantizando que el primer nodo meta encontrado está en el nivel más cercano a la raíz. DFS puede encontrar un nodo meta en una rama profunda sin haber explorado otras ramas con soluciones de menor coste."
+    },
+    {
+      "id": "iaic-tema-2-fc-007",
+      "pregunta": "¿Cuál es la gran ventaja de la búsqueda en profundidad frente a la búsqueda en anchura?",
+      "respuesta": "La complejidad espacial: DFS solo almacena el camino actual, usando O(b·d) en memoria frente al O(b^d) de BFS."
+    },
+    {
+      "id": "iaic-tema-2-fc-008",
+      "pregunta": "¿En qué consiste la búsqueda en profundidad iterativa y qué propiedades tiene?",
+      "respuesta": "Realiza múltiples búsquedas DFS con cota de profundidad creciente (0, 1, 2, ..., d). Combina lo mejor de BFS y DFS: es completa, óptima (con costes uniformes) y tiene complejidad espacial O(b·d)."
+    },
+    {
+      "id": "iaic-tema-2-fc-009",
+      "pregunta": "¿Qué diferencia hay entre búsqueda informada y no informada?",
+      "respuesta": "La búsqueda no informada no usa información del dominio (trata todos los estados igual). La búsqueda informada usa una función heurística h(n) para estimar cuán prometedor es cada nodo y priorizar los más cercanos al objetivo."
+    },
+    {
+      "id": "iaic-tema-2-fc-010",
+      "pregunta": "¿Qué es una función heurística h(n)?",
+      "respuesta": "Una estimación del coste de alcanzar el estado objetivo desde el nodo n. Permite guiar la exploración hacia los nodos más prometedores. La efectividad del algoritmo depende de la calidad de h(n)."
+    },
+    {
+      "id": "iaic-tema-2-fc-011",
+      "pregunta": "¿Cuándo es admisible una heurística?",
+      "respuesta": "Cuando nunca sobreestima el coste real de alcanzar la meta: h(n) ≤ h*(n) para todos los nodos. h*(n) es el coste real óptimo desde n hasta el objetivo."
+    },
+    {
+      "id": "iaic-tema-2-fc-012",
+      "pregunta": "¿Cuándo es consistente una heurística?",
+      "respuesta": "Cuando para cada arco (s → s') se cumple: h(s) ≤ c(s,s') + h(s'). Equivale a que f(n) = g(n) + h(n) sea no decreciente a lo largo de cualquier camino."
+    },
+    {
+      "id": "iaic-tema-2-fc-013",
+      "pregunta": "¿Qué relación existe entre heurística admisible y heurística consistente?",
+      "respuesta": "Toda heurística consistente es admisible, pero no al revés. En la práctica, casi todas las heurísticas admisibles también son consistentes."
+    },
+    {
+      "id": "iaic-tema-2-fc-014",
+      "pregunta": "¿Qué es el algoritmo A* y qué función de evaluación usa?",
+      "respuesta": "A* es el algoritmo de búsqueda informada más importante. Usa f(n) = g(n) + h(n), donde g(n) es el coste real acumulado desde el inicio y h(n) la estimación heurística del coste restante. Expande siempre el nodo con menor f."
+    },
+    {
+      "id": "iaic-tema-2-fc-015",
+      "pregunta": "¿Cuándo garantiza A* encontrar la solución óptima?",
+      "respuesta": "Cuando la heurística es admisible. Si la heurística es consistente, además nunca reexpande nodos ya cerrados."
+    },
+    {
+      "id": "iaic-tema-2-fc-016",
+      "pregunta": "¿Qué función de evaluación usa la búsqueda avariciosa y qué garantías tiene?",
+      "respuesta": "f(n) = h(n), ignorando el coste acumulado g(n). Tiende a converger rápidamente pero nunca garantiza optimalidad, sea admisible o no la heurística."
+    },
+    {
+      "id": "iaic-tema-2-fc-017",
+      "pregunta": "¿Por qué la búsqueda avariciosa no garantiza optimalidad aunque la heurística sea admisible?",
+      "respuesta": "Porque ignora g(n). Puede elegir un nodo con h pequeña pero g grande, perdiendo caminos más cortos que tienen h algo mayor pero g mucho menor."
+    },
+    {
+      "id": "iaic-tema-2-fc-018",
+      "pregunta": "¿Cómo se verifica si una heurística es admisible dado un árbol con valores h y costes?",
+      "respuesta": "Para cada nodo n: calcular h*(n) = coste real del camino más corto a la meta (sumando costes de arcos). Si h(n) ≤ h*(n) para todos los nodos, es admisible. Si algún nodo tiene h(n) > h*(n), no lo es."
+    },
+    {
+      "id": "iaic-tema-2-fc-019",
+      "pregunta": "¿Cómo se verifica la consistencia de una heurística dado un árbol?",
+      "respuesta": "Para cada arco (s → s'): comprobar si h(s) ≤ c(s,s') + h(s'). Si algún arco no cumple esta desigualdad, la heurística no es consistente."
+    },
+    {
+      "id": "iaic-tema-2-fc-020",
+      "pregunta": "¿Qué es IDA* y qué ventaja tiene frente a A*?",
+      "respuesta": "IDA* aplica la idea de la profundidad iterativa a A*: realiza búsquedas DFS con un umbral sobre f(n) que se va incrementando. Es admisible (si h es admisible) pero usa complejidad espacial O(b·d) frente al O(b^d) de A*."
+    },
+    {
+      "id": "iaic-tema-2-fc-021",
+      "pregunta": "¿Cuál es la condición de parada en los algoritmos de mejor primero (A*, avariciosa)?",
+      "respuesta": "El algoritmo termina cuando el nodo meta es el primero en la lista abierta y se va a expandir, no cuando simplemente se genera. Esto garantiza optimalidad."
+    },
+    {
+      "id": "iaic-tema-2-fc-022",
+      "pregunta": "¿Qué algoritmo no informado tiene la mejor combinación de propiedades?",
+      "respuesta": "La búsqueda en profundidad iterativa (IDS): es completa, óptima y tiene complejidad espacial O(b·d) (igual que DFS) frente al O(b^d) de BFS."
+    },
+    {
+      "id": "iaic-tema-2-fc-023",
+      "pregunta": "¿Cómo se diseña una buena heurística admisible?",
+      "respuesta": "Se suele diseñar como la solución a una versión relajada del problema: ignorando alguna restricción del problema original. Por ejemplo, la distancia en línea recta (euclídea) para problemas de ruta en carretera."
+    },
+    {
+      "id": "iaic-tema-2-fc-024",
+      "pregunta": "¿Qué es la detección de duplicados y por qué es necesaria?",
+      "respuesta": "Es el proceso de identificar nodos ya visitados para no expandirlos de nuevo. Es necesaria porque distintos caminos en el árbol pueden llegar al mismo estado, y sin detección se generarían bucles o expansiones redundantes."
+    },
+    {
+      "id": "iaic-tema-2-fc-025",
+      "pregunta": "Rellena la tabla: ¿BFS, DFS e IDS son completos? ¿Óptimos?",
+      "respuesta": "BFS: completo y óptimo. DFS: completo solo en espacios finitos con detección de ciclos, no óptimo. IDS: completo y óptimo."
+    },
+    {
+      "id": "iaic-tema-2-fc-026",
+      "pregunta": "¿Qué significa que f(n) sea creciente a lo largo de un camino y qué implica para A*?",
+      "respuesta": "Si la heurística es consistente, f(n) = g(n) + h(n) es no decreciente a lo largo de cualquier camino. Esto implica que A* no necesita reexpandir nodos ya cerrados, aumentando su eficiencia."
+    },
+    {
+      "id": "iaic-tema-2-fc-027",
+      "pregunta": "¿En qué se diferencia la búsqueda en anchura con costes del A*?",
+      "respuesta": "La búsqueda en anchura con costes equivale a A* con h(n) = 0 (heurística nula, que es admisible). Usa solo g(n) para ordenar la lista abierta; es equivalente al algoritmo de Dijkstra."
+    }
+  ]
+}

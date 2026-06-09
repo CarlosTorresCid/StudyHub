@@ -1,0 +1,253 @@
+{
+  "asignaturaId": "iaic",
+  "temaId": "tema-3",
+  "titulo": "Tema 3. Satisfacibilidad booleana y de restricciones",
+  "apuntes": {
+    "introduccion": "El Tema 3 presenta dos tipos de problemas relacionados: la satisfacibilidad booleana (SAT) y los problemas de satisfacción de restricciones (CSP). Ambos comparten la filosofía de encontrar una asignación de valores a variables que satisfaga un conjunto de restricciones, sin preocuparse por la optimalidad de la solución: solo importa encontrar una asignación válida. El tema también introduce los principales algoritmos para resolverlos y el concepto de consistencia como mecanismo de poda.",
+    "secciones": [
+      {
+        "titulo": "Satisfacibilidad booleana (SAT): concepto y relevancia",
+        "contenido": "El **problema de satisfacibilidad booleana (SAT)** consiste en hallar una asignación a una serie de variables booleanas (que toman valores verdadero/falso, 0/1) de tal forma que se satisfaga una fórmula lógica. Una asignación es solución si, al sustituir cada variable por su valor, la fórmula evalúa a verdadero.\n\nSAT tiene dos razones fundamentales de interés en IA:\n\n- Es el **primer problema demostrado NP-completo** (clase de complejidad NP-completo). Esto no solo es relevante teóricamente, sino que permite demostrar que otros problemas son NP-completos: si un problema puede transformarse en tiempo polinomial en un problema SAT, ese problema también es NP.\n- Es un **problema muy estructurado al que pueden reducirse muchos otros problemas**. Esto significa que con un único resolutor SAT se pueden resolver problemas de muy distinta naturaleza. Por ello, mejorar el estado del arte en SAT tiene un impacto amplísimo.\n\nOriginalmente SAT surgió como el problema de encontrar una entrada a un circuito electrónico con puertas lógicas cuya salida fuera 1."
+      },
+      {
+        "titulo": "Formalización de SAT: lógica proposicional y FNC",
+        "contenido": "Los problemas SAT se formalizan en **lógica proposicional**. Los únicos operadores lógicos permitidos son:\n- **Conjunción** (AND lógico, ∧)\n- **Disyunción** (OR lógico, ∨)\n- **Negación** (¬)\n- **Paréntesis**\n\nConceptos clave de la terminología:\n\n- **Literal**: una variable afirmada (literal positivo, x) o negada (literal negativo, ¬x). Un literal es *puro* si solo aparece afirmado o solo negado en toda la fórmula.\n- **Cláusula**: una disyunción de literales (variables unidas por OR). Ejemplo: (a ∨ b ∨ ¬c).\n- **Cláusula unitaria**: cláusula con un solo literal.\n- **Forma Normal Conjuntiva (FNC / CNF)**: una fórmula expresada como una **conjunción de cláusulas** (cláusulas unidas por AND). Es la representación estándar exigida en SAT.\n\nEjemplo de FNC: (a ∨ b ∨ c) ∧ (a ∨ d) ∧ (e ∨ f)\n\nRegla clave: **toda fórmula expresada en lógica proposicional puede transformarse a FNC** usando transformaciones de álgebra booleana, aunque el resultado puede ser exponencialmente más grande.\n\nLa FNC tiene la ventaja de que es un formato muy estructurado que simplifica la aplicación de algoritmos de resolución.\n\n**Para identificar si una fórmula está en FNC:** comprobar que la estructura es una conjunción (AND) de grupos, y que cada grupo es una disyunción (OR) de literales. Una AND dentro de una cláusula la convierte en no-FNC. Una cláusula de un solo literal (unitaria) sí está en FNC."
+      },
+      {
+        "titulo": "Algoritmo DPLL para SAT",
+        "contenido": "**DPLL** (Davis-Putnam-Logemann-Loveland, 1962) es el algoritmo más utilizado para resolver problemas SAT. Consiste en una **búsqueda en profundidad** sobre el espacio de asignaciones posibles.\n\nLas características del problema SAT que justifican este enfoque son:\n\n- La **optimalidad es irrelevante**: solo importa encontrar una asignación válida.\n- Construir la solución **asignando valores incrementalmente es beneficioso**: cada asignación simplifica la fórmula — si una cláusula contiene el literal elegido, esa cláusula queda satisfecha y se elimina; si contiene la negación del literal, ese literal se elimina de la cláusula.\n- La **profundidad máxima está acotada** por el número de variables (cada nivel del árbol asigna una variable).\n\nEn cada nodo del árbol se toman dos decisiones: *qué variable asignar* y *qué valor darle*. Estas decisiones impactan significativamente en la eficiencia del algoritmo.\n\n**Resolución unitaria**: si en un nodo hay una o más cláusulas unitarias (con un solo literal), se elige directamente ese literal. No tiene sentido considerar la otra opción porque la cláusula no podría ser satisfecha.\n\nEl árbol se poda cuando alguna cláusula queda vacía (sin literales que puedan satisfacerla). La búsqueda termina al encontrar una asignación que satisface todas las cláusulas.\n\n**Heurísticas para DPLL**: se usan para elegir qué variable asignar y con qué valor, con el objetivo de maximizar la simplificación o atacar las cláusulas difíciles:\n- **DLIS** (Dynamic Largest Individual Sum): elegir el literal que más cláusulas satisfaga.\n- **Jeroslow-Wang**: dar preferencia a literales que aparecen en cláusulas pequeñas (son más difíciles de satisfacer)."
+      },
+      {
+        "titulo": "Búsqueda local estocástica para SAT",
+        "contenido": "Además de DPLL (algoritmo de búsqueda global), existen algoritmos de **búsqueda local estocástica (SLS)** para SAT. Su funcionamiento es fundamentalmente diferente:\n\n- Parten de una **asignación inicial aleatoria** (posiblemente no válida).\n- En cada paso, cambian el valor de una variable para moverse a una **asignación vecina** (el vecindario de una asignación es el conjunto de asignaciones a las que se puede llegar con un único cambio de variable).\n- Incorporan **aleatoriedad** para escapar de regiones poco prometedoras donde la búsqueda puramente greedy quedaría atrapada.\n\nDiferencia clave con los algoritmos globales: la búsqueda local **no mantiene un árbol de búsqueda ni una referencia de los caminos explorados**. Busca directamente en el espacio de soluciones.\n\nVentaja: pueden escapar de regiones malas gracias a la aleatoriedad. Desventaja: no garantizan encontrar la solución si existe (no son completos)."
+      },
+      {
+        "titulo": "Problemas de Satisfacción de Restricciones (CSP)",
+        "contenido": "Los **Problemas de Satisfacción de Restricciones (CSP, Constraint Satisfaction Problems)** son una generalización de SAT donde:\n\n- Las variables pueden tomar valores de **dominios finitos variados** (no solo 0/1): números, colores, etiquetas, etc.\n- Las **restricciones no se limitan a disyunciones lógicas**: pueden ser igualdades, desigualdades, restricciones lineales, globales, etc.\n\nUn CSP se representa formalmente como una tupla **<X, D, C>**:\n- **X**: conjunto de variables del problema.\n- **D**: dominio de cada variable (valores posibles).\n- **C**: conjunto de restricciones que deben satisfacerse.\n\nUna asignación es **solución** si y solo si es:\n- **Consistente**: no viola ninguna restricción de C.\n- **Completa**: todas las variables tienen un valor asignado.\n\nEjemplos de CSP: colorear un mapa (variables = regiones, dominio = colores, restricciones = regiones adyacentes con distinto color), resolver un Sudoku, problemas de horarios."
+      },
+      {
+        "titulo": "Consistencia en CSP: arco consistencia y camino consistencia",
+        "contenido": "Las técnicas de **consistencia** permiten reducir el dominio de las variables antes de (o durante) la búsqueda, eliminando valores que no pueden formar parte de ninguna solución válida.\n\n**Arco consistencia**: dos variables x e y son arco consistentes respecto a una restricción r si para todo valor del dominio de x existe al menos un valor válido en el dominio de y, y viceversa.\n\nEjemplo: si x ∈ {1,2,3}, y ∈ {2,3} y la restricción es x < y:\n- Para x=1: existe y=2 o y=3 que cumple. Bien.\n- Para x=2: existe y=3. Bien.\n- Para x=3: no hay ningún y en {2,3} con y > 3. Se elimina x=3 del dominio de x.\n\nSi el dominio de alguna variable queda vacío, esa rama puede podarse: no existe solución.\n\nLa arco consistencia se aplica de forma iterativa: reducir el dominio de una variable puede afectar a otras variables conectadas con ella. Este proceso se llama **propagación de restricciones**.\n\n**Camino consistencia**: más potente pero más costosa. Reduce el dominio de dos variables respetando las restricciones de ambas con una tercera. Es *camino consistente* si para cada par de valores (vx, vy) existe un valor vk en la tercera variable que satisface las restricciones entre (vx,vk) y (vk,vy).\n\nLa camino consistencia tiene mayor capacidad de poda que la arco consistencia, pero también mayor coste computacional. Trabaja con tripletas de variables.\n\n**Relación con SAT**: la resolución unitaria en SAT puede verse como un caso particular de arco consistencia en cláusulas de dos variables."
+      },
+      {
+        "titulo": "Algoritmos y heurísticas para CSP",
+        "contenido": "Los CSP mantienen las mismas características que SAT: la optimalidad es irrelevante, la profundidad está acotada por el número de variables, y el algoritmo de búsqueda global más adecuado es la **búsqueda en profundidad**. También puede usarse búsqueda local.\n\nLas heurísticas para CSP siguen los mismos principios que en SAT: simplificar el problema y atacar las restricciones más difíciles. Las tres más populares son:\n\n**Variable más restrictiva** (heurística de grado): elegir la variable implicada en el mayor número de restricciones. Al asignarla primero, simplificamos el dominio del resto de variables con más fuerza, lo que permite podar antes las ramas sin solución.\n\n**Valores restantes mínimos (MRV)**: elegir la variable cuyo dominio en el nodo actual sea más pequeño. Si una variable tiene muy pocas opciones, conviene asignarla pronto porque cualquier fallo se detectará en niveles someros del árbol.\n\n**Valor menos restrictivo**: una vez elegida la variable, elegir el valor que menos impacto tiene en el dominio de otras variables. Si el valor elegido restringe mucho el dominio de otras variables, la probabilidad de encontrar una solución por esa rama es menor.\n\nEl resolutor CSP determina qué expresividad es posible para definir las restricciones: el usuario modela el problema y el resolutor encuentra la solución."
+      },
+      {
+        "titulo": "Comparación entre SAT y CSP",
+        "contenido": "SAT y CSP son problemas relacionados pero con diferencias importantes:\n\n- **SAT**: variables booleanas (0/1), restricciones expresadas como disyunciones en FNC, resolutor especializado (DPLL o SLS).\n- **CSP**: variables con dominios variados (números, colores, etiquetas), restricciones más expresivas (igualdades, desigualdades, restricciones globales), resolutor genérico.\n\nAmbos comparten:\n- La optimalidad no es un criterio: basta con encontrar una asignación válida.\n- La profundidad del árbol de búsqueda está acotada por el número de variables.\n- Se pueden usar tanto búsqueda global (DFS) como local.\n- El uso de heurísticas es clave para la eficiencia.\n- Técnicas de consistencia (SAT: resolución unitaria; CSP: arco consistencia, camino consistencia) permiten podar el espacio de búsqueda.\n\nLos problemas con variables naturalmente binarias y restricciones lógicas claras se modelan eficientemente como SAT. Cuando los dominios son más ricos, se usa CSP."
+      }
+    ]
+  },
+  "resumen": [
+    "SAT consiste en encontrar una asignación de valores booleanos a variables que satisfaga una fórmula lógica. No importa la optimalidad, solo encontrar una asignación válida.",
+    "SAT fue el primer problema demostrado NP-completo y es un problema muy estructurado al que pueden reducirse muchos otros: un único resolutor SAT puede resolver diferentes problemas.",
+    "La Forma Normal Conjuntiva (FNC / CNF) es la representación estándar en SAT: conjunción (AND) de cláusulas, donde cada cláusula es una disyunción (OR) de literales. Toda fórmula proposicional puede convertirse a FNC.",
+    "Un literal es una variable afirmada o negada. Una cláusula es una disyunción de literales. Una cláusula unitaria tiene un solo literal.",
+    "DPLL es el algoritmo más utilizado para SAT: búsqueda en profundidad que asigna valores incrementalmente, usando resolución unitaria (si hay cláusulas unitarias, se asigna su literal directamente) para podar el árbol.",
+    "La búsqueda local estocástica (SLS) es una alternativa a DPLL: parte de una asignación inicial aleatoria y navega el espacio de soluciones mediante cambios de variable, usando aleatoriedad para escapar de regiones poco prometedoras.",
+    "Los CSP (Constraint Satisfaction Problems) generalizan SAT: variables con dominios variados y restricciones más expresivas. Se representan como <X, D, C> (variables, dominios, restricciones).",
+    "Una solución CSP es una asignación consistente (no viola restricciones) y completa (todas las variables tienen valor).",
+    "La arco consistencia elimina del dominio de una variable los valores que no tienen correspondencia válida en la otra variable. Si un dominio queda vacío, la rama se poda.",
+    "La camino consistencia trabaja con tripletas de variables y tiene mayor capacidad de poda que la arco consistencia, aunque es más costosa computacionalmente.",
+    "Las tres heurísticas principales para CSP son: variable más restrictiva (mayor número de restricciones), valores restantes mínimos (dominio más pequeño) y valor menos restrictivo (menor impacto en otras variables).",
+    "SAT y CSP comparten la filosofía: no importa la optimalidad, se usa búsqueda en profundidad acotada por el número de variables, y las heurísticas son clave para la eficiencia."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "SAT (Satisfacibilidad booleana)",
+      "definicion": "Problema de encontrar una asignación de valores verdadero/falso a variables booleanas que satisfaga una fórmula lógica. Es NP-completo."
+    },
+    {
+      "termino": "NP-completo",
+      "definicion": "Clase de complejidad computacional. SAT fue el primer problema demostrado NP-completo. Un problema es NP si puede transformarse en tiempo polinomial en un problema SAT."
+    },
+    {
+      "termino": "Literal",
+      "definicion": "Una variable afirmada (literal positivo, x) o negada (literal negativo, ¬x). Un literal puro aparece solo afirmado o solo negado en toda la fórmula."
+    },
+    {
+      "termino": "Cláusula",
+      "definicion": "Una disyunción (OR) de literales. Por ejemplo: (a ∨ b ∨ ¬c). Una cláusula unitaria tiene un solo literal."
+    },
+    {
+      "termino": "Forma Normal Conjuntiva (FNC / CNF)",
+      "definicion": "Fórmula lógica expresada como conjunción (AND) de cláusulas. Es el formato estándar requerido en SAT. Toda fórmula proposicional puede convertirse a FNC."
+    },
+    {
+      "termino": "DPLL",
+      "definicion": "Algoritmo principal para SAT: búsqueda en profundidad que asigna valores incrementalmente a las variables, simplificando la fórmula en cada paso. Usa resolución unitaria para podar el árbol."
+    },
+    {
+      "termino": "Resolución unitaria",
+      "definicion": "Técnica de simplificación en DPLL: si hay una cláusula unitaria, se asigna directamente su literal (no hay alternativa posible). Reduce el árbol de búsqueda."
+    },
+    {
+      "termino": "Búsqueda local estocástica (SLS)",
+      "definicion": "Alternativa a DPLL para SAT: parte de una asignación aleatoria y navega el espacio cambiando el valor de una variable en cada paso, usando aleatoriedad para escapar de regiones malas. No garantiza encontrar la solución."
+    },
+    {
+      "termino": "CSP (Constraint Satisfaction Problem)",
+      "definicion": "Generalización de SAT con variables de dominios variados (no solo booleanos) y restricciones más expresivas. Se representa como <X, D, C>: variables, dominios, restricciones."
+    },
+    {
+      "termino": "Dominio (D en CSP)",
+      "definicion": "Conjunto de valores posibles que puede tomar cada variable del CSP. Puede ser {colores}, {números}, {etiquetas}, etc."
+    },
+    {
+      "termino": "Asignación consistente (CSP)",
+      "definicion": "Asignación de valores a variables que no viola ninguna restricción. Para ser solución también debe ser completa (todas las variables tienen valor)."
+    },
+    {
+      "termino": "Arco consistencia",
+      "definicion": "Dos variables x e y son arco consistentes respecto a una restricción si para todo valor de x existe un valor válido en y, y viceversa. Permite eliminar valores inviables del dominio."
+    },
+    {
+      "termino": "Propagación de restricciones",
+      "definicion": "Proceso de aplicar arco consistencia iterativamente: al reducir el dominio de una variable, se propaga el efecto a las variables conectadas con ella."
+    },
+    {
+      "termino": "Camino consistencia",
+      "definicion": "Técnica de consistencia que trabaja con tripletas de variables. Verifica que para cada par (vx, vy) existe un valor vk en una tercera variable que satisface las restricciones de ambos pares. Mayor capacidad de poda que la arco consistencia pero más costosa."
+    },
+    {
+      "termino": "Variable más restrictiva (heurística de grado)",
+      "definicion": "Heurística CSP: elegir primero la variable implicada en mayor número de restricciones, para simplificar el dominio de otras variables lo antes posible."
+    },
+    {
+      "termino": "Valores restantes mínimos (MRV)",
+      "definicion": "Heurística CSP: elegir primero la variable con el dominio más pequeño en el nodo actual. Si hay pocas opciones, el fallo se detecta antes y el árbol explorado es menor."
+    },
+    {
+      "termino": "Valor menos restrictivo",
+      "definicion": "Heurística CSP: una vez elegida la variable, asignar el valor que menos reduce el dominio de otras variables, maximizando las opciones para el resto del árbol."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "iaic-tema-3-fc-001",
+      "pregunta": "¿En qué consiste el problema SAT?",
+      "respuesta": "En encontrar una asignación de valores booleanos (verdadero/falso) a un conjunto de variables tal que la fórmula lógica asociada evalúe a verdadero."
+    },
+    {
+      "id": "iaic-tema-3-fc-002",
+      "pregunta": "¿Por qué es importante SAT en informática teórica?",
+      "respuesta": "Porque es el primer problema demostrado NP-completo. Demostrar que otro problema puede transformarse a SAT en tiempo polinomial prueba que también es NP."
+    },
+    {
+      "id": "iaic-tema-3-fc-003",
+      "pregunta": "¿Cuál es la segunda razón de interés de SAT en IA?",
+      "respuesta": "Es un problema muy estructurado al que pueden reducirse muchos otros problemas, de modo que un único resolutor SAT puede resolver problemas de naturaleza muy variada."
+    },
+    {
+      "id": "iaic-tema-3-fc-004",
+      "pregunta": "¿Qué es un literal en SAT?",
+      "respuesta": "Una variable afirmada (literal positivo, x) o negada (literal negativo, ¬x). Un literal es puro si solo aparece de una forma en toda la fórmula."
+    },
+    {
+      "id": "iaic-tema-3-fc-005",
+      "pregunta": "¿Qué es una cláusula en SAT?",
+      "respuesta": "Una disyunción (OR) de literales. Por ejemplo: (a ∨ b ∨ ¬c). Una cláusula unitaria tiene un solo literal."
+    },
+    {
+      "id": "iaic-tema-3-fc-006",
+      "pregunta": "¿Qué es la Forma Normal Conjuntiva (FNC/CNF)?",
+      "respuesta": "Una fórmula lógica expresada como una conjunción (AND) de cláusulas, donde cada cláusula es una disyunción (OR) de literales. Es el formato estándar requerido en SAT."
+    },
+    {
+      "id": "iaic-tema-3-fc-007",
+      "pregunta": "¿Está en FNC la fórmula: (a ∨ b ∨ c) ∧ (s) ∧ (e ∨ f ∨ d)?",
+      "respuesta": "Sí. Cada parte unida por AND es una disyunción (OR) de literales. La cláusula (s) es una cláusula unitaria, que también es válida en FNC."
+    },
+    {
+      "id": "iaic-tema-3-fc-008",
+      "pregunta": "¿Está en FNC la fórmula que contiene (e ∧ f) dentro de una cláusula?",
+      "respuesta": "No. Una cláusula debe ser una disyunción (OR) de literales. Si hay un AND (∧) dentro de una cláusula, no es FNC."
+    },
+    {
+      "id": "iaic-tema-3-fc-009",
+      "pregunta": "¿Qué tipo de algoritmo de búsqueda es DPLL?",
+      "respuesta": "Una búsqueda en profundidad que asigna valores a las variables incrementalmente, simplificando la fórmula en cada paso y podando ramas cuando una cláusula queda insatisfacible."
+    },
+    {
+      "id": "iaic-tema-3-fc-010",
+      "pregunta": "¿Qué es la resolución unitaria en DPLL?",
+      "respuesta": "Cuando en un nodo hay una cláusula unitaria (un solo literal), ese literal se asigna directamente sin explorar la alternativa, ya que es la única forma de satisfacer esa cláusula."
+    },
+    {
+      "id": "iaic-tema-3-fc-011",
+      "pregunta": "¿Cuáles son los dos objetivos de las heurísticas en DPLL?",
+      "respuesta": "Elegir la variable y el valor que más simplifiquen la fórmula, o elegir la variable y el valor que satisfagan las cláusulas más difíciles de resolver."
+    },
+    {
+      "id": "iaic-tema-3-fc-012",
+      "pregunta": "¿Qué diferencia hay entre DPLL y la búsqueda local estocástica (SLS) para SAT?",
+      "respuesta": "DPLL es una búsqueda global que construye un árbol sistemáticamente y garantiza encontrar la solución si existe. SLS parte de una asignación aleatoria y navega el espacio de soluciones mediante cambios, usando aleatoriedad para escapar de trampas; no es completa."
+    },
+    {
+      "id": "iaic-tema-3-fc-013",
+      "pregunta": "¿Cómo se representa formalmente un CSP?",
+      "respuesta": "Como una tupla <X, D, C> donde X es el conjunto de variables, D el dominio de cada variable (valores posibles) y C el conjunto de restricciones que deben satisfacerse."
+    },
+    {
+      "id": "iaic-tema-3-fc-014",
+      "pregunta": "¿Cuándo es una asignación solución de un CSP?",
+      "respuesta": "Cuando es a la vez consistente (no viola ninguna restricción) y completa (todas las variables tienen un valor asignado)."
+    },
+    {
+      "id": "iaic-tema-3-fc-015",
+      "pregunta": "¿En qué se diferencia CSP de SAT?",
+      "respuesta": "En SAT las variables son booleanas y las restricciones son disyunciones lógicas en FNC. En CSP las variables tienen dominios variados (colores, números, etiquetas) y las restricciones son más expresivas (igualdades, desigualdades, etc.)."
+    },
+    {
+      "id": "iaic-tema-3-fc-016",
+      "pregunta": "¿Qué es la arco consistencia en CSP?",
+      "respuesta": "Dos variables x e y son arco consistentes respecto a una restricción si para todo valor del dominio de x existe un valor válido en y que satisface la restricción, y viceversa. Permite eliminar valores inviables del dominio."
+    },
+    {
+      "id": "iaic-tema-3-fc-017",
+      "pregunta": "¿Qué ocurre si tras aplicar arco consistencia el dominio de una variable queda vacío?",
+      "respuesta": "Esa rama puede podarse: no existe ninguna asignación completa y consistente que parta de los valores actuales. No hay solución en esa parte del árbol."
+    },
+    {
+      "id": "iaic-tema-3-fc-018",
+      "pregunta": "¿Qué es la propagación de restricciones?",
+      "respuesta": "El proceso de aplicar arco consistencia iterativamente: al reducir el dominio de una variable, ese cambio puede afectar a otras variables conectadas, que también se verifican y reducen hasta que ningún dominio cambia."
+    },
+    {
+      "id": "iaic-tema-3-fc-019",
+      "pregunta": "¿En qué se diferencia la camino consistencia de la arco consistencia?",
+      "respuesta": "La arco consistencia trabaja con pares de variables. La camino consistencia trabaja con tripletas: verifica que para cada par de valores (vx, vy) existe un valor vk en una tercera variable que satisface las restricciones de ambos pares. Tiene mayor capacidad de poda pero es más costosa."
+    },
+    {
+      "id": "iaic-tema-3-fc-020",
+      "pregunta": "¿Por qué la heurística MRV (valores restantes mínimos) es útil en CSP?",
+      "respuesta": "Porque eligiendo primero la variable con menos opciones en su dominio, si esa variable no tiene solución válida, se detecta el fallo en un nivel somero del árbol, explorando menos nodos."
+    },
+    {
+      "id": "iaic-tema-3-fc-021",
+      "pregunta": "¿Por qué la heurística de variable más restrictiva (grado) es útil en CSP?",
+      "respuesta": "Porque asignar primero la variable con más restricciones propaga los efectos sobre más variables rápidamente, permitiendo podar antes las ramas sin solución."
+    },
+    {
+      "id": "iaic-tema-3-fc-022",
+      "pregunta": "¿Qué hace la heurística de valor menos restrictivo en CSP?",
+      "respuesta": "Una vez elegida la variable, asigna el valor que menos reduce el dominio de otras variables, dejando más opciones disponibles para continuar la búsqueda con éxito."
+    },
+    {
+      "id": "iaic-tema-3-fc-023",
+      "pregunta": "¿Se usan heurísticas para resolver problemas CSP? ¿Por qué?",
+      "respuesta": "Sí. Para reducir el espacio de búsqueda eligiendo qué variable asignar y con qué valor. Las heurísticas más populares son: variable más restrictiva, valores restantes mínimos (MRV) y valor menos restrictivo."
+    },
+    {
+      "id": "iaic-tema-3-fc-024",
+      "pregunta": "¿Por qué modelar un problema con variables binarias como SAT y no como CSP?",
+      "respuesta": "Porque SAT está especialmente optimizado para variables booleanas con restricciones lógicas, y existen resolutores SAT muy eficientes capaces de resolver problemas con millones de cláusulas."
+    },
+    {
+      "id": "iaic-tema-3-fc-025",
+      "pregunta": "¿Cuál es la relación entre resolución unitaria (SAT) y arco consistencia (CSP)?",
+      "respuesta": "La resolución unitaria en SAT puede verse como un caso particular de arco consistencia: en una cláusula de dos variables, si a una se le asigna el valor contrario al de su literal, la otra queda determinada para satisfacer la cláusula."
+    }
+  ]
+}

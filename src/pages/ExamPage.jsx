@@ -64,7 +64,8 @@ export default function ExamPage() {
 
           {totalQuestions > 0 && (
             <button
-              className="btn btn-ghost btn-sm"
+              type="button"
+              className="btn btn-download"
               style={{ marginTop: 12 }}
               onClick={() =>
                 exportQuestionsByBlocksToWord({
@@ -155,43 +156,10 @@ export default function ExamPage() {
       )}
 
       <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-  <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">
-    ← Volver
-  </Link>
-
-  <button
-  type="button"
-  className="btn btn-ghost btn-sm"
-  style={{ marginTop: 12, position: 'relative', zIndex: 10 }}
-  onClick={async () => {
-    alert('Botón descargar pulsado');
-
-    try {
-      console.log('Iniciando exportación Word...', {
-        subject,
-        questions,
-        examParts,
-        totalQuestions,
-      });
-
-      await exportQuestionsByBlocksToWord({
-        subject,
-        questions,
-        examParts,
-        title: 'Todas las preguntas de examen',
-        fileSuffix: 'todas-las-preguntas-examen',
-      });
-
-      console.log('Exportación terminada');
-    } catch (error) {
-      console.error('Error exportando Word:', error);
-      alert(`Error exportando Word: ${error.message}`);
-    }
-  }}
->
-  ⬇ Descargar todas las preguntas
-</button>
-</div>
+        <Link to={`/asignatura/${asignaturaId}`} className="btn btn-ghost">
+          ← Volver
+        </Link>
+      </div>
     </div>
   );
 }
