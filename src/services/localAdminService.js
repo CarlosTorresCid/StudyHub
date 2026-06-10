@@ -43,4 +43,22 @@ export const localAdminService = {
     if (!res.ok) throw new Error(json.error || `Error HTTP ${res.status}`)
     return json
   },
+
+  /**
+   * Actualiza una pregunta existente dentro de src/data/public/[asigId]/preguntas/banco-preguntas.json.
+   * @returns {{ ok: true, updated: true, asignaturaId: string, questionId: string }}
+   */
+  async actualizarPregunta({ asignaturaId, questionId, question }) {
+    if (!this.isAvailable()) {
+      throw new Error('La escritura de archivos solo está disponible en desarrollo local.')
+    }
+    const res = await fetch('/api/admin/actualizar-pregunta', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ asignaturaId, questionId, question }),
+    })
+    const json = await res.json().catch(() => ({ error: `HTTP ${res.status}` }))
+    if (!res.ok) throw new Error(json.error || `Error HTTP ${res.status}`)
+    return json
+  },
 }

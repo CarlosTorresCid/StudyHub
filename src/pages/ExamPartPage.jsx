@@ -2,7 +2,9 @@ import { useState, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { publicLibrary } from '../lib/publicLibrary';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { localAdminService } from '../services/localAdminService';
 import QuestionPracticeCard from '../components/QuestionPracticeCard';
+import QuestionEditModal from '../components/QuestionEditModal';
 import ExamPartIntro from '../components/ExamPartIntro';
 import DevelopmentTable from '../components/DevelopmentTable';
 import ModelNotebookRunner from '../components/ModelNotebookRunner';
@@ -144,6 +146,12 @@ export default function ExamPartPage() {
   const [selectedRevision, setSelectedRevision] = useState('todos');
   const [searchText, setSearchText] = useState('');
 
+  // Edición local de preguntas (solo disponible en npm run dev)
+  const [questionOverrides, setQuestionOverrides] = useState({});
+  const [editingQuestion, setEditingQuestion] = useState(null);
+  const [savingQuestion, setSavingQuestion] = useState(false);
+  const [editError, setEditError] = useState('');
+
   const temas = subject?.temas || [];
 
   const examParts = useMemo(
@@ -179,12 +187,16 @@ const hasModelSelector = hasConfiguredExamModels && examModels.length > 0;
   const baseQuestions = useMemo(() => {
     if (!part) return [];
 
+    let result;
     if (modeloId) {
-      return publicLibrary.getQuestionsByParteAndModel(asignaturaId, parteId, modeloId);
+      result = publicLibrary.getQuestionsByParteAndModel(asignaturaId, parteId, modeloId);
+    } else {
+      result = questions.filter(q => questionMatchesPart(q, part) && q.esPreguntaTipo !== true);
     }
 
-    return questions.filter(q => questionMatchesPart(q, part) && q.esPreguntaTipo !== true);
-  }, [questions, part, asignaturaId, parteId, modeloId]);
+    // Aplica las ediciones guardadas en esta sesión sin necesidad de recargar
+    return result.map(q => questionOverrides[q.id] || q);
+  }, [questions, part, asignaturaId, parteId, modeloId, questionOverrides]);
 
   const grupos = useMemo(() => {
     const values = baseQuestions
@@ -279,6 +291,39 @@ const handleGroupClick = (grupo) => {
   setSelectedOrigen('todos');
   setSelectedRevision('todos');
   setSearchText('');
+};
+
+const handleEditQuestion = (question) => {
+  setEditError('');
+  setEditingQuestion(question);
+};
+
+const handleCloseEditModal = () => {
+  if (savingQuestion) return;
+  setEditingQuestion(null);
+  setEditError('');
+};
+
+const handleSaveQuestion = async (updatedQuestion) => {
+  if (!editingQuestion) return;
+
+  setSavingQuestion(true);
+  setEditError('');
+
+  try {
+    await localAdminService.actualizarPregunta({
+      asignaturaId,
+      questionId: editingQuestion.id,
+      question: updatedQuestion,
+    });
+
+    setQuestionOverrides(prev => ({ ...prev, [editingQuestion.id]: updatedQuestion }));
+    setEditingQuestion(null);
+  } catch (err) {
+    setEditError(err.message || 'No se pudo guardar la pregunta.');
+  } finally {
+    setSavingQuestion(false);
+  }
 };
 
 
@@ -672,6 +717,7 @@ const handleGroupClick = (grupo) => {
                 totalQuestions={filteredQuestions.length}
                 showCompactMeta
                 onGroupClick={handleGroupClick}
+                onEditQuestion={import.meta.env.DEV ? handleEditQuestion : undefined}
               />
               ))
             )}
@@ -704,6 +750,17 @@ const handleGroupClick = (grupo) => {
             )}
           </div>
         </>
+      )}
+
+      {import.meta.env.DEV && (
+        <QuestionEditModal
+          question={editingQuestion}
+          isOpen={Boolean(editingQuestion)}
+          onClose={handleCloseEditModal}
+          onSave={handleSaveQuestion}
+          saving={savingQuestion}
+          error={editError}
+        />
       )}
     </div>
   );

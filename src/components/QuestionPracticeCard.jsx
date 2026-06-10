@@ -42,6 +42,22 @@ function StatusBadges({ q }) {
   );
 }
 
+// Botón "Editar" — solo visible en desarrollo local (no aparece en producción/GitHub Pages).
+function EditButton({ q, onEditQuestion }) {
+  if (!import.meta.env.DEV || !onEditQuestion) return null;
+
+  return (
+    <button
+      type="button"
+      className="qpc-edit-btn"
+      onClick={() => onEditQuestion(q)}
+      title="Editar pregunta (solo en local)"
+    >
+      ✏️ Editar
+    </button>
+  );
+}
+
 function QuestionModelTags({ q, onGroupClick }) {
   const etiquetas = getModelLabels(q);
   const numeroApariciones = q.numeroApariciones || q.apariciones?.length || etiquetas.length;
@@ -83,14 +99,17 @@ function QuestionModelTags({ q, onGroupClick }) {
   );
 }
 
-function QuestionHeader({ q }) {
+function QuestionHeader({ q, onEditQuestion }) {
   return (
     <div className="qpc-header">
       <div className="qpc-meta">
         <span className="qpc-tipo-label">{TIPO_LABELS[q.tipo] || q.tipo}</span>
         {q.temaPrincipalId && <span className="qpc-tema">{q.temaPrincipalId}</span>}
       </div>
-      <StatusBadges q={q} />
+      <div className="qpc-status-mini">
+        <StatusBadges q={q} />
+        <EditButton q={q} onEditQuestion={onEditQuestion} />
+      </div>
     </div>
   );
 }
@@ -103,6 +122,7 @@ function QuestionProgressHeader({
   totalQuestions,
   showCompactMeta,
   onGroupClick,
+  onEditQuestion,
 }) {
   const grupo = q.grupoTematico || q.patronRelacionado || null;
 
@@ -140,9 +160,10 @@ function QuestionProgressHeader({
         )}
       </div>
 
-      {showCompactMeta && (
+      {(showCompactMeta || (import.meta.env.DEV && onEditQuestion)) && (
         <div className="qpc-status-mini">
-          <StatusBadges q={q} />
+          {showCompactMeta && <StatusBadges q={q} />}
+          <EditButton q={q} onEditQuestion={onEditQuestion} />
         </div>
       )}
     </div>
@@ -414,6 +435,7 @@ export default function QuestionPracticeCard({
   questionNumber,
   totalQuestions,
   showCompactMeta = false,
+  onEditQuestion,
 }) {
   const hasProgress = questionNumber != null && totalQuestions != null;
 
@@ -441,10 +463,11 @@ export default function QuestionPracticeCard({
         totalQuestions={totalQuestions}
         showCompactMeta={showCompactMeta}
         onGroupClick={onGroupClick}
+        onEditQuestion={onEditQuestion}
       />
       ) : (
         <>
-          <QuestionHeader q={q} />
+          <QuestionHeader q={q} onEditQuestion={onEditQuestion} />
           <QuestionModelTags q={q} onGroupClick={onGroupClick} />
         </>
       )}

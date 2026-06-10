@@ -13,6 +13,7 @@ const VALID_TEMA = /^tema-\d+$/
  * Expone:
  *   POST /api/admin/publicar-tema           → escribe un tema en src/data/public/
  *   POST /api/admin/publicar-banco-preguntas → escribe banco-preguntas.json en src/data/public/
+ *   POST /api/admin/actualizar-pregunta      → actualiza una pregunta existente del banco
  * Este middleware no se incluye en el build de producción.
  */
 function localAdminPlugin() {
@@ -140,6 +141,88 @@ function localAdminPlugin() {
 
             const publicPath = `src/data/public/${asignaturaId}/preguntas/banco-preguntas.json`
             res.writeHead(200).end(JSON.stringify({ ok: true, existed, path: publicPath, total: preguntas.length }))
+          } catch (e) {
+            res.writeHead(500).end(JSON.stringify({ error: e.message }))
+          }
+        })
+      })
+
+      server.middlewares.use('/api/admin/actualizar-pregunta', (req, res) => {
+        res.setHeader('Content-Type', 'application/json; charset=utf-8')
+
+        if (req.method !== 'POST') {
+          res.writeHead(405).end(JSON.stringify({ error: 'Method Not Allowed' }))
+          return
+        }
+
+        let body = ''
+        req.on('data', chunk => { body += chunk })
+        req.on('end', () => {
+          try {
+            const { asignaturaId, questionId, question } = JSON.parse(body)
+
+            // Validar asignaturaId contra whitelist
+            if (!asignaturaId || !VALID_ASIG.has(asignaturaId)) {
+              res.writeHead(400).end(JSON.stringify({
+                error: `asignaturaId "${asignaturaId}" no válido. Opciones: ${[...VALID_ASIG].join(', ')}`
+              }))
+              return
+            }
+
+            // Validar questionId
+            if (!questionId || typeof questionId !== 'string') {
+              res.writeHead(400).end(JSON.stringify({ error: '"questionId" es obligatorio' }))
+              return
+            }
+
+            // Validar question
+            if (!question || typeof question !== 'object' || Array.isArray(question)) {
+              res.writeHead(400).end(JSON.stringify({ error: '"question" debe ser un objeto' }))
+              return
+            }
+
+            // Construir ruta INTERNA usando solo valores validados — sin path del cliente
+            const targetDir = path.resolve(process.cwd(), 'src', 'data', 'public', asignaturaId, 'preguntas')
+            const filePath = path.resolve(targetDir, 'banco-preguntas.json')
+
+            // Verificación de contención
+            if (!filePath.startsWith(targetDir + path.sep)) {
+              res.writeHead(403).end(JSON.stringify({ error: 'Ruta no permitida' }))
+              return
+            }
+
+            if (!fs.existsSync(filePath)) {
+              res.writeHead(404).end(JSON.stringify({
+                error: `No existe banco de preguntas para "${asignaturaId}"`
+              }))
+              return
+            }
+
+            const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+
+            if (!Array.isArray(data)) {
+              res.writeHead(500).end(JSON.stringify({ error: 'El banco de preguntas no es un array' }))
+              return
+            }
+
+            const index = data.findIndex(q => q.id === questionId)
+            if (index === -1) {
+              res.writeHead(404).end(JSON.stringify({
+                error: `No se encontró la pregunta "${questionId}" en el banco de "${asignaturaId}"`
+              }))
+              return
+            }
+
+            // id y asignaturaId no se pueden cambiar desde el editor
+            data[index] = {
+              ...question,
+              id: data[index].id,
+              asignaturaId: data[index].asignaturaId,
+            }
+
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8')
+
+            res.writeHead(200).end(JSON.stringify({ ok: true, updated: true, asignaturaId, questionId }))
           } catch (e) {
             res.writeHead(500).end(JSON.stringify({ error: e.message }))
           }

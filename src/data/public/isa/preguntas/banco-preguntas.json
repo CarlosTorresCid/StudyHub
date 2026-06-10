@@ -52,122 +52,6 @@
     "verificada": false
   },
   {
-    "id": "isa-2025-modelo-a-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-a",
-    "modeloExamenNombre": "2025 Modelo A",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo A - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para encontrar aparcamiento en las ciudades de toda Europa.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo A). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-a-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-a",
-    "modeloExamenNombre": "2025 Modelo A",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo A - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para encontrar aparcamiento en las ciudades de toda Europa.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo A). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-a-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-a",
-    "modeloExamenNombre": "2025 Modelo A",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo A - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para encontrar aparcamiento en las ciudades de toda Europa.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo A). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-a-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-a",
-    "modeloExamenNombre": "2025 Modelo A",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo A - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para encontrar aparcamiento en las ciudades de toda Europa.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo A). Desarrollo breve de un proyecto. Apartado 4.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
     "id": "isa-2025-modelo-b-corta-001",
     "asignaturaId": "isa",
     "temaPrincipalId": "tema-4",
@@ -216,122 +100,6 @@
       "Indica roles participantes y representa el orden cronológico del proceso Scrum."
     ],
     "observaciones": "Pregunta teórica del Ejercicio 1 (Tema B) del 2025 Modelo B. Desarrollar en 1 página.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-b-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-b",
-    "modeloExamenNombre": "2025 Modelo B",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo B - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo B). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-b-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-b",
-    "modeloExamenNombre": "2025 Modelo B",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo B - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo B). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-b-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-b",
-    "modeloExamenNombre": "2025 Modelo B",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo B - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo B). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-b-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-b",
-    "modeloExamenNombre": "2025 Modelo B",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo B - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo B). Desarrollo breve de un proyecto. Apartado 4.",
     "requiereRevision": false,
     "verificada": false
   },
@@ -388,122 +156,6 @@
     "verificada": false
   },
   {
-    "id": "isa-2025-modelo-c-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-c",
-    "modeloExamenNombre": "2025 Modelo C",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo C - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para consultar los resultados de competiciones deportivas.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo C). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-c-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-c",
-    "modeloExamenNombre": "2025 Modelo C",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo C - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para consultar los resultados de competiciones deportivas.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo C). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-c-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-c",
-    "modeloExamenNombre": "2025 Modelo C",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo C - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para consultar los resultados de competiciones deportivas.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo C). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2025-modelo-c-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2025-modelo-c",
-    "modeloExamenNombre": "2025 Modelo C",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2025 Modelo C - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para consultar los resultados de competiciones deportivas.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2025 Modelo C). Desarrollo breve de un proyecto. Apartado 4.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
     "id": "isa-2024-modelo-b-corta-001",
     "asignaturaId": "isa",
     "temaPrincipalId": "tema-3",
@@ -552,122 +204,6 @@
       "Relaciona cada representación con su forma de evaluar la mejora del proceso."
     ],
     "observaciones": "Pregunta teórica del Ejercicio 1 (Tema B) del 2024 Modelo B. Desarrollar en 1 página.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2024-modelo-b-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2024-modelo-b",
-    "modeloExamenNombre": "2024 Modelo B",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2024 Modelo B - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación móvil para gestionar todos los productos bancarios del usuario desde un único punto.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2024 Modelo B). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2024-modelo-b-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2024-modelo-b",
-    "modeloExamenNombre": "2024 Modelo B",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2024 Modelo B - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación móvil para gestionar todos los productos bancarios del usuario desde un único punto.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2024 Modelo B). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2024-modelo-b-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2024-modelo-b",
-    "modeloExamenNombre": "2024 Modelo B",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2024 Modelo B - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación móvil para gestionar todos los productos bancarios del usuario desde un único punto.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2024 Modelo B). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2024-modelo-b-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2024-modelo-b",
-    "modeloExamenNombre": "2024 Modelo B",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2024 Modelo B - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación móvil para gestionar todos los productos bancarios del usuario desde un único punto.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2024 Modelo B). Desarrollo breve de un proyecto. Apartado 4.",
     "requiereRevision": false,
     "verificada": false
   },
@@ -724,122 +260,6 @@
     "verificada": false
   },
   {
-    "id": "isa-2023-modelo-a-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-a",
-    "modeloExamenNombre": "2023 Modelo A",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo A - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación móvil para encontrar bares y restaurantes próximos a la ubicación del usuario, ver las valoraciones de otros clientes, precios y poder reservar.\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo A). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-a-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-a",
-    "modeloExamenNombre": "2023 Modelo A",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo A - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación móvil para encontrar bares y restaurantes próximos a la ubicación del usuario, ver las valoraciones de otros clientes, precios y poder reservar.\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo A). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-a-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-a",
-    "modeloExamenNombre": "2023 Modelo A",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo A - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación móvil para encontrar bares y restaurantes próximos a la ubicación del usuario, ver las valoraciones de otros clientes, precios y poder reservar.\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo A). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-a-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-a",
-    "modeloExamenNombre": "2023 Modelo A",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo A - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación móvil para encontrar bares y restaurantes próximos a la ubicación del usuario, ver las valoraciones de otros clientes, precios y poder reservar.\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo A). Desarrollo breve de un proyecto. Apartado 4.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
     "id": "isa-2023-modelo-b-corta-001",
     "asignaturaId": "isa",
     "temaPrincipalId": "tema-3",
@@ -888,122 +308,6 @@
       "Aporta ejemplos o consecuencias prácticas de cada factor."
     ],
     "observaciones": "Pregunta teórica del Ejercicio 1 (Tema B) del 2023 Modelo B. Desarrollar en 1 página.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-b-desarrollo-001",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-b",
-    "modeloExamenNombre": "2023 Modelo B",
-    "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo B - Ejercicio 2 - Apartado 1"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación web para encontrar pareja, con la posibilidad de acordar citas a ciegas, y crear perfiles enriquecidos con fotos y vídeos de los usuarios.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Identifica usuarios concretos del producto.",
-      "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo B). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-b-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-b",
-    "modeloExamenNombre": "2023 Modelo B",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo B - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación web para encontrar pareja, con la posibilidad de acordar citas a ciegas, y crear perfiles enriquecidos con fotos y vídeos de los usuarios.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Define un equipo de trabajo coherente con Scrum.",
-      "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo B). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-b-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-b",
-    "modeloExamenNombre": "2023 Modelo B",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo B - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación web para encontrar pareja, con la posibilidad de acordar citas a ciegas, y crear perfiles enriquecidos con fotos y vídeos de los usuarios.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Propone un diseño arquitectónico general coherente con el producto.",
-      "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo B). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-b-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-b",
-    "modeloExamenNombre": "2023 Modelo B",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo B - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación web para encontrar pareja, con la posibilidad de acordar citas a ciegas, y crear perfiles enriquecidos con fotos y vídeos de los usuarios.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
-      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
-      "Muestra el diagrama adecuado para cada patrón.",
-      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo B). Desarrollo breve de un proyecto. Apartado 4.",
     "requiereRevision": false,
     "verificada": false
   },
@@ -1060,11 +364,264 @@
     "verificada": false
   },
   {
-    "id": "isa-2023-modelo-c-desarrollo-001",
+    "id": "isa-2025-modelo-a-desarrollo",
     "asignaturaId": "isa",
     "temaPrincipalId": "tema-2",
     "temaIds": [
-      "tema-2"
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2025-modelo-a",
+    "modeloExamenNombre": "2025 Modelo A",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2025 Modelo A - Ejercicio 2 - Apartado 1",
+      "2025 Modelo A - Ejercicio 2 - Apartado 2",
+      "2025 Modelo A - Ejercicio 2 - Apartado 3",
+      "2025 Modelo A - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para encontrar aparcamiento en las ciudades de toda Europa.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2025 Modelo A). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2025-modelo-b-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2025-modelo-b",
+    "modeloExamenNombre": "2025 Modelo B",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2025 Modelo B - Ejercicio 2 - Apartado 1",
+      "2025 Modelo B - Ejercicio 2 - Apartado 2",
+      "2025 Modelo B - Ejercicio 2 - Apartado 3",
+      "2025 Modelo B - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2025 Modelo B). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2025-modelo-c-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2025-modelo-c",
+    "modeloExamenNombre": "2025 Modelo C",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2025 Modelo C - Ejercicio 2 - Apartado 1",
+      "2025 Modelo C - Ejercicio 2 - Apartado 2",
+      "2025 Modelo C - Ejercicio 2 - Apartado 3",
+      "2025 Modelo C - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Dado el siguiente proyecto:\n· Una aplicación móvil para consultar los resultados de competiciones deportivas.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2025 Modelo C). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2024-modelo-b-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2024-modelo-b",
+    "modeloExamenNombre": "2024 Modelo B",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2024 Modelo B - Ejercicio 2 - Apartado 1",
+      "2024 Modelo B - Ejercicio 2 - Apartado 2",
+      "2024 Modelo B - Ejercicio 2 - Apartado 3",
+      "2024 Modelo B - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación móvil para gestionar todos los productos bancarios del usuario desde un único punto.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2024 Modelo B). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2023-modelo-a-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2023-modelo-a",
+    "modeloExamenNombre": "2023 Modelo A",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2023 Modelo A - Ejercicio 2 - Apartado 1",
+      "2023 Modelo A - Ejercicio 2 - Apartado 2",
+      "2023 Modelo A - Ejercicio 2 - Apartado 3",
+      "2023 Modelo A - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación móvil para encontrar bares y restaurantes próximos a la ubicación del usuario, ver las valoraciones de otros clientes, precios y poder reservar.\n· Una aplicación de mensajería instantánea con servicio de traducción automática de texto y audio en tiempo real.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2023 Modelo A). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2023-modelo-b-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-desarrollo",
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "modeloExamenId": "isa-2023-modelo-b",
+    "modeloExamenNombre": "2023 Modelo B",
+    "ordenPregunta": 1,
+    "grupoTematico": "Desarrollo breve de un proyecto",
+    "prioridadExamen": "muy_alta",
+    "fuentes": [
+      "2023 Modelo B - Ejercicio 2 - Apartado 1",
+      "2023 Modelo B - Ejercicio 2 - Apartado 2",
+      "2023 Modelo B - Ejercicio 2 - Apartado 3",
+      "2023 Modelo B - Ejercicio 2 - Apartado 4"
+    ],
+    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación de escritorio para conectarse a los servicios de información de una cadena de ópticas, y poder realizar y seguir pedidos, gestionar datos de los usuarios, y otras operaciones habituales necesarias en una óptica.\n· Una aplicación web para encontrar pareja, con la posibilidad de acordar citas a ciegas, y crear perfiles enriquecidos con fotos y vídeos de los usuarios.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
+    "respuestaModelo": "",
+    "criteriosCorreccion": [
+      "Identifica usuarios concretos del producto.",
+      "Redacta 5 historias de usuario específicas del dominio.",
+      "Evita historias triviales comunes a cualquier aplicación.",
+      "Define un equipo de trabajo coherente con Scrum.",
+      "Selecciona 3 historias de usuario para el sprint.",
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
+      "Propone un diseño arquitectónico general coherente con el producto.",
+      "Aplica 3 patrones de arquitectura estudiados.",
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
+      "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
+      "Muestra el diagrama adecuado para cada patrón.",
+      "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
+    ],
+    "observaciones": "Ejercicio 2 completo de ISA (2023 Modelo B). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
+    "requiereRevision": false,
+    "verificada": false
+  },
+  {
+    "id": "isa-2023-modelo-c-desarrollo",
+    "asignaturaId": "isa",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2",
+      "tema-4"
     ],
     "parteExamenId": "parte-desarrollo",
     "tipo": "desarrollo",
@@ -1072,106 +629,31 @@
     "modeloExamenId": "isa-2023-modelo-c",
     "modeloExamenNombre": "2023 Modelo C",
     "ordenPregunta": 1,
-    "grupoTematico": "Historias de usuario y pila de producto",
+    "grupoTematico": "Desarrollo breve de un proyecto",
     "prioridadExamen": "muy_alta",
     "fuentes": [
-      "2023 Modelo C - Ejercicio 2 - Apartado 1"
+      "2023 Modelo C - Ejercicio 2 - Apartado 1",
+      "2023 Modelo C - Ejercicio 2 - Apartado 2",
+      "2023 Modelo C - Ejercicio 2 - Apartado 3",
+      "2023 Modelo C - Ejercicio 2 - Apartado 4"
     ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación web para publicar anuncios de objetos de segunda mano, comprarlos y venderlos.\n· Una aplicación web para ofrecer contenidos de jóvenes creadores: diseñadores de moda, cineastas, y escritores.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.",
+    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación web para publicar anuncios de objetos de segunda mano, comprarlos y venderlos.\n· Una aplicación web para ofrecer contenidos de jóvenes creadores: diseñadores de moda, cineastas, y escritores.\n\nPara la aplicación elegida, resuelve los siguientes apartados:\n1) Identifica los usuarios del producto y enuméralos. Elabora una pila de producto con 5 historias de usuario (recuerda redactarlas e identificarlas adecuadamente). No elijas historias triviales comunes a cualquier aplicación (log in, log out, crear usuario, eliminar usuario…); deben ser específicas del dominio de aplicación. 1 punto.\n\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.\n\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.\n\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
     "respuestaModelo": "",
     "criteriosCorreccion": [
       "Identifica usuarios concretos del producto.",
       "Redacta 5 historias de usuario específicas del dominio.",
-      "Evita historias triviales comunes a cualquier aplicación."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo C). Desarrollo breve de un proyecto. Apartado 1.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-c-desarrollo-002",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-c",
-    "modeloExamenNombre": "2023 Modelo C",
-    "ordenPregunta": 2,
-    "grupoTematico": "Equipo Scrum y planificación del sprint",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo C - Ejercicio 2 - Apartado 2"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación web para publicar anuncios de objetos de segunda mano, comprarlos y venderlos.\n· Una aplicación web para ofrecer contenidos de jóvenes creadores: diseñadores de moda, cineastas, y escritores.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n2) Define un equipo de trabajo y planifica el primer sprint a desarrollar según la metodología Scrum. La planificación consiste en elegir 3 historias de usuario de las 5 definidas en el apartado anterior y descomponerlas en tareas, de manera que la carga de trabajo sea asumible por el equipo. Se debe indicar el esfuerzo de implementación en horas de cada tarea y el esfuerzo total debe poder ser asumido por el equipo en un sprint de duración una semana. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
+      "Evita historias triviales comunes a cualquier aplicación.",
       "Define un equipo de trabajo coherente con Scrum.",
       "Selecciona 3 historias de usuario para el sprint.",
-      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo C). Desarrollo breve de un proyecto. Apartado 2.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-c-desarrollo-003",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-c",
-    "modeloExamenNombre": "2023 Modelo C",
-    "ordenPregunta": 3,
-    "grupoTematico": "Diseño arquitectónico y patrones de arquitectura",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo C - Ejercicio 2 - Apartado 3"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación web para publicar anuncios de objetos de segunda mano, comprarlos y venderlos.\n· Una aplicación web para ofrecer contenidos de jóvenes creadores: diseñadores de moda, cineastas, y escritores.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n3) Realiza un diseño arquitectónico general del producto aplicando 3 patrones de arquitectura estudiados en la asignatura. Debes dibujar el diagrama de arquitectura. Rellena también una tabla con la información de cada uno de los patrones que has elegido: nombre del patrón y problema que resuelve en el producto. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
+      "Descompone las historias en tareas y estima esfuerzos asumibles para una semana.",
       "Propone un diseño arquitectónico general coherente con el producto.",
       "Aplica 3 patrones de arquitectura estudiados.",
-      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón."
-    ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo C). Desarrollo breve de un proyecto. Apartado 3.",
-    "requiereRevision": false,
-    "verificada": false
-  },
-  {
-    "id": "isa-2023-modelo-c-desarrollo-004",
-    "asignaturaId": "isa",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-desarrollo",
-    "tipo": "desarrollo",
-    "origen": "examen_real",
-    "modeloExamenId": "isa-2023-modelo-c",
-    "modeloExamenNombre": "2023 Modelo C",
-    "ordenPregunta": 4,
-    "grupoTematico": "Diseño detallado y patrones GoF",
-    "prioridadExamen": "muy_alta",
-    "fuentes": [
-      "2023 Modelo C - Ejercicio 2 - Apartado 4"
-    ],
-    "enunciado": "Elige uno de los siguientes proyectos:\n· Una aplicación web para publicar anuncios de objetos de segunda mano, comprarlos y venderlos.\n· Una aplicación web para ofrecer contenidos de jóvenes creadores: diseñadores de moda, cineastas, y escritores.\n\nPara la aplicación elegida, resuelve el siguiente apartado:\n4) Elabora un diseño detallado del software, aplicando 2 patrones de diseño que resuelvan problemas concretos. Debes mostrar el diagrama adecuado para el diseño de cada patrón. Rellena una tabla con la información de los patrones que has elegido: nombre del patrón y problema que resuelve en la aplicación. 2 puntos.",
-    "respuestaModelo": "",
-    "criteriosCorreccion": [
+      "Dibuja o describe el diagrama de arquitectura y justifica qué problema resuelve cada patrón.",
       "Aplica 2 patrones de diseño a problemas concretos de la aplicación.",
       "Muestra el diagrama adecuado para cada patrón.",
       "Justifica qué problema resuelve cada patrón en el dominio del proyecto."
     ],
-    "observaciones": "Ejercicio 2 de ISA (2023 Modelo C). Desarrollo breve de un proyecto. Apartado 4.",
+    "observaciones": "Ejercicio 2 completo de ISA (2023 Modelo C). Desarrollo breve de un proyecto dividido internamente en 4 apartados.",
     "requiereRevision": false,
     "verificada": false
   }
