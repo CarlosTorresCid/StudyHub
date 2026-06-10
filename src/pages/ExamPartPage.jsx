@@ -5,6 +5,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import QuestionPracticeCard from '../components/QuestionPracticeCard';
 import ExamPartIntro from '../components/ExamPartIntro';
 import DevelopmentTable from '../components/DevelopmentTable';
+import ModelNotebookRunner from '../components/ModelNotebookRunner';
 import './ExamPartPage.css';
 
 const DEFAULT_EXAM_PARTS = [
@@ -29,6 +30,13 @@ const DEFAULT_EXAM_PARTS = [
     icono: '🧠',
     desc: 'Preguntas teóricas de desarrollo',
   },
+  {
+    id: 'parte-problemas',
+    nombre: 'Problemas prácticos',
+    tipos: ['practica', 'problema'],
+    icono: '🧪',
+    desc: 'Problemas y ejercicios prácticos',
+  },
 ];
 
 function getExamParts(subject, questions) {
@@ -41,6 +49,76 @@ function getExamParts(subject, questions) {
   return DEFAULT_EXAM_PARTS.filter(part =>
     questions.some(q => part.tipos.includes(q.tipo))
   );
+}
+
+// Una pregunta pertenece a esta parte si su parteExamenId coincide,
+// o si no tiene parteExamenId pero su tipo encaja con los tipos de la parte
+// (fallback para bancos importados sin parteExamenId asignado).
+function normalizeParteExamenId(value) {
+  const v = String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '_');
+
+  if (!v) return null;
+
+  const aliases = {
+    // Tipo test
+    test: 'parte-test',
+    tipo_test: 'parte-test',
+    parte_test: 'parte-test',
+    parte_test_tipo: 'parte-test',
+    preguntas_test: 'parte-test',
+    verdadero_falso: 'parte-test',
+    vf: 'parte-test',
+
+    // Preguntas cortas
+    corta: 'parte-cortas',
+    cortas: 'parte-cortas',
+    pregunta_corta: 'parte-cortas',
+    preguntas_cortas: 'parte-cortas',
+    parte_cortas: 'parte-cortas',
+    respuesta_corta: 'parte-cortas',
+
+    // Desarrollo
+    desarrollo: 'parte-desarrollo',
+    desarrollos: 'parte-desarrollo',
+    pregunta_desarrollo: 'parte-desarrollo',
+    preguntas_desarrollo: 'parte-desarrollo',
+    parte_desarrollo: 'parte-desarrollo',
+    teoria_desarrollo: 'parte-desarrollo',
+
+    // Problemas prácticos
+    practica: 'parte-problemas',
+    practicas: 'parte-problemas',
+    práctico: 'parte-problemas',
+    prácticos: 'parte-problemas',
+    problema: 'parte-problemas',
+    problemas: 'parte-problemas',
+    problema_practico: 'parte-problemas',
+    problemas_practicos: 'parte-problemas',
+    parte_problemas: 'parte-problemas',
+  };
+
+  return aliases[v] || value;
+}
+
+// Una pregunta pertenece a esta parte si su parteExamenId coincide,
+// si su parteExamenId usa un alias conocido,
+// o si no tiene parteExamenId pero su tipo encaja con los tipos de la parte.
+function questionMatchesPart(q, part) {
+  if (!part) return false;
+
+  const normalizedParteId = normalizeParteExamenId(q.parteExamenId);
+
+  if (normalizedParteId === part.id) return true;
+
+  const sinParte =
+    q.parteExamenId === null ||
+    q.parteExamenId === undefined ||
+    q.parteExamenId === '';
+
+  return sinParte && Boolean(part.tipos?.includes(q.tipo));
 }
 
 function getOptionText(opcion) {
@@ -60,7 +138,6 @@ export default function ExamPartPage() {
   const subject = publicLibrary.getSubject(asignaturaId);
   const questions = publicLibrary.getQuestionBank(asignaturaId);
 
-  // State hooks first, always in the same order
   const [selectedTema, setSelectedTema] = useState('todos');
   const [selectedGroup, setSelectedGroup] = useState('todos');
   const [selectedOrigen, setSelectedOrigen] = useState('todos');
@@ -76,34 +153,44 @@ export default function ExamPartPage() {
 
   const part = examParts.find(p => p.id === parteId);
 
-  const examModels = useMemo(() => {
-    if (!part) return [];
-    return publicLibrary.getExamModels(asignaturaId, parteId);
-  }, [asignaturaId, parteId, part]);
+  const hasConfiguredExamModels =
+  subject?.modelosExamen &&
+  Object.keys(subject.modelosExamen).length > 0;
 
-  const selectedModel = useMemo(() => {
-    if (!modeloId) return null;
-    return examModels.find(m => m.id === modeloId) || null;
-  }, [examModels, modeloId]);
+const examModels = useMemo(() => {
+  if (!part || !hasConfiguredExamModels) return [];
+  return publicLibrary.getExamModels(asignaturaId, parteId);
+}, [asignaturaId, parteId, part, hasConfiguredExamModels]);
 
-  // Detailed model info from configuracion.json
-  const modelDetails = useMemo(() => {
-    if (!modeloId || !subject?.modelosExamen) return null;
-    return subject.modelosExamen[modeloId] || null;
-  }, [modeloId, subject?.modelosExamen]);
+const selectedModel = useMemo(() => {
+  if (!modeloId || !hasConfiguredExamModels) return null;
+  return publicLibrary.getExamModel(asignaturaId, parteId, modeloId);
+}, [asignaturaId, parteId, modeloId, hasConfiguredExamModels]);
+
+const modelDetails = useMemo(() => {
+  if (!modeloId || !hasConfiguredExamModels) return null;
+  return subject.modelosExamen[modeloId] || null;
+}, [modeloId, subject?.modelosExamen, hasConfiguredExamModels]);
+
+const hasModelSelector = hasConfiguredExamModels && examModels.length > 0;
+  const shouldShowModelSelector = hasModelSelector && !modeloId;
+  const shouldShowQuestions = !hasModelSelector || Boolean(modeloId);
 
   const baseQuestions = useMemo(() => {
     if (!part) return [];
+
     if (modeloId) {
       return publicLibrary.getQuestionsByParteAndModel(asignaturaId, parteId, modeloId);
     }
-    return questions.filter(q => q.parteExamenId === parteId && q.esPreguntaTipo !== true);
+
+    return questions.filter(q => questionMatchesPart(q, part) && q.esPreguntaTipo !== true);
   }, [questions, part, asignaturaId, parteId, modeloId]);
 
   const grupos = useMemo(() => {
     const values = baseQuestions
       .map(q => q.grupoTematico || q.patronRelacionado)
       .filter(Boolean);
+
     return [...new Set(values)].sort((a, b) => a.localeCompare(b));
   }, [baseQuestions]);
 
@@ -168,7 +255,6 @@ export default function ExamPartPage() {
     searchText,
   ]);
 
-  // Custom hooks after all memo/state
   usePageTitle(
     subject && part
       ? modeloId && selectedModel
@@ -178,12 +264,23 @@ export default function ExamPartPage() {
   );
 
   const clearFilters = () => {
-    setSelectedTema('todos');
-    setSelectedGroup('todos');
-    setSelectedOrigen('todos');
-    setSelectedRevision('todos');
-    setSearchText('');
-  };
+  setSelectedTema('todos');
+  setSelectedGroup('todos');
+  setSelectedOrigen('todos');
+  setSelectedRevision('todos');
+  setSearchText('');
+};
+
+const handleGroupClick = (grupo) => {
+  setSelectedGroup(grupo);
+
+  // Limpieza opcional para que el clic siempre muestre resultados claros.
+  setSelectedTema('todos');
+  setSelectedOrigen('todos');
+  setSelectedRevision('todos');
+  setSearchText('');
+};
+
 
   const hasActiveFilters =
     selectedTema !== 'todos' ||
@@ -229,8 +326,6 @@ export default function ExamPartPage() {
 
   return (
     <div className="exam-part-page">
-
-      {/* Breadcrumb */}
       <nav className="breadcrumb" aria-label="Navegación">
         <Link to="/">Inicio</Link>
         <span className="breadcrumb-sep" aria-hidden="true">›</span>
@@ -240,6 +335,7 @@ export default function ExamPartPage() {
         <span className="breadcrumb-sep" aria-hidden="true">›</span>
         <Link to={`/asignatura/${asignaturaId}/examen`}>Examen</Link>
         <span className="breadcrumb-sep" aria-hidden="true">›</span>
+
         {modeloId ? (
           <>
             <Link to={`/asignatura/${asignaturaId}/examen/${parteId}`}>{part.nombre}</Link>
@@ -251,7 +347,6 @@ export default function ExamPartPage() {
         )}
       </nav>
 
-      {/* Cabecera */}
       <header className="exam-part-header">
         <div className="exam-part-header-top">
           <div className="exam-part-title">
@@ -288,11 +383,9 @@ export default function ExamPartPage() {
         </div>
       </header>
 
-      {/* Tarjeta de explicación de parte (siempre visible si existe) */}
       <ExamPartIntro explicacion={part.explicacion} />
 
-      {/* ── Vista: cuadrícula de modelos (sin modelo seleccionado) ── */}
-      {!modeloId && (
+      {shouldShowModelSelector && (
         <>
           <div className="exam-model-grid">
             {examModels.map(model => (
@@ -305,7 +398,8 @@ export default function ExamPartPage() {
                 <div className="exam-model-card-meta">
                   {model.count} {model.count === 1 ? 'pregunta' : 'preguntas'}
                 </div>
-                {isTest && model.recursos?.length > 0 && (
+
+                {model.recursos?.length > 0 && (
                   <div className="exam-model-card-resources">
                     {model.recursos.length === 1
                       ? model.recursos[0].nombre
@@ -324,35 +418,35 @@ export default function ExamPartPage() {
         </>
       )}
 
-      {/* ── Vista: modelo seleccionado ───────────────────────────── */}
-      {modeloId && (
+      {shouldShowQuestions && (
         <>
-          {/* Selector de modelos con el activo resaltado */}
-          <div className="exam-model-grid">
-            {examModels.map(model => (
-              <Link
-                key={model.id}
-                to={`/asignatura/${asignaturaId}/examen/${parteId}/${model.id}`}
-                className={`exam-model-card${model.id === modeloId ? ' exam-model-card--active' : ''}`}
-                aria-current={model.id === modeloId ? 'page' : undefined}
-              >
-                <div className="exam-model-card-title">{model.nombre}</div>
-                <div className="exam-model-card-meta">
-                  {model.count} {model.count === 1 ? 'pregunta' : 'preguntas'}
-                </div>
-                {isTest && model.recursos?.length > 0 && (
-                  <div className="exam-model-card-resources">
-                    {model.recursos.length === 1
-                      ? model.recursos[0].nombre
-                      : `${model.recursos.length} CSV disponibles`}
+          {hasModelSelector && (
+            <div className="exam-model-grid">
+              {examModels.map(model => (
+                <Link
+                  key={model.id}
+                  to={`/asignatura/${asignaturaId}/examen/${parteId}/${model.id}`}
+                  className={`exam-model-card${model.id === modeloId ? ' exam-model-card--active' : ''}`}
+                  aria-current={model.id === modeloId ? 'page' : undefined}
+                >
+                  <div className="exam-model-card-title">{model.nombre}</div>
+                  <div className="exam-model-card-meta">
+                    {model.count} {model.count === 1 ? 'pregunta' : 'preguntas'}
                   </div>
-                )}
-              </Link>
-            ))}
-          </div>
 
-          {/* CSV del modelo (solo en parte-test) */}
-          {isTest && selectedModel?.recursos?.length > 0 && (
+                  {model.recursos?.length > 0 && (
+                    <div className="exam-model-card-resources">
+                      {model.recursos.length === 1
+                        ? model.recursos[0].nombre
+                        : `${model.recursos.length} CSV disponibles`}
+                    </div>
+                  )}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {selectedModel?.recursos?.length > 0 && (
             <div className="exam-resource-downloads">
               <div className="exam-resource-title">CSV del modelo</div>
               <div className="exam-resource-actions">
@@ -370,7 +464,6 @@ export default function ExamPartPage() {
             </div>
           )}
 
-          {/* Descripción del caso del modelo */}
           {modelDetails && (
             <div className="exam-model-info-card">
               <div className="exam-model-info-grid">
@@ -380,18 +473,21 @@ export default function ExamPartPage() {
                     <code className="exam-model-info-value">{modelDetails.csv}</code>
                   </div>
                 )}
+
                 {modelDetails.carpeta && (
                   <div className="exam-model-info-row">
                     <span className="exam-model-info-label">Carpeta</span>
                     <span className="exam-model-info-value">{modelDetails.carpeta}</span>
                   </div>
                 )}
+
                 {modelDetails.contrasena && (
                   <div className="exam-model-info-row">
                     <span className="exam-model-info-label">Contraseña</span>
                     <code className="exam-model-info-value">{modelDetails.contrasena}</code>
                   </div>
                 )}
+
                 {modelDetails.variableObjetivo && (
                   <div className="exam-model-info-row">
                     <span className="exam-model-info-label">Variable objetivo</span>
@@ -399,16 +495,17 @@ export default function ExamPartPage() {
                   </div>
                 )}
               </div>
+
               {modelDetails.descripcionCaso && (
                 <p className="exam-model-info-desc">{modelDetails.descripcionCaso}</p>
               )}
+
               {isTest && modelDetails.ejercicioTest?.descripcion && (
                 <p className="exam-model-info-context">{modelDetails.ejercicioTest.descripcion}</p>
               )}
             </div>
           )}
 
-          {/* Tabla de desarrollo (solo en parte-desarrollo, si existe) */}
           {isDesarrollo && hasEmbeddedTable && (
             <div className="exam-development-section">
               <div className="exam-development-section-title">Tabla de predicciones</div>
@@ -420,7 +517,6 @@ export default function ExamPartPage() {
             </div>
           )}
 
-          {/* Archivo de predicciones externo (simulacro) */}
           {isDesarrollo && hasArchivoPredicciones && (
             <div className="exam-resource-downloads">
               <div className="exam-resource-title">Archivo de predicciones</div>
@@ -434,6 +530,7 @@ export default function ExamPartPage() {
                   ⬇ Descargar {desarrollo.archivoPredicciones.nombre}
                 </a>
               </div>
+
               {(desarrollo.clasesPositivasROC?.length > 0 || desarrollo.claseNegativaROC) && (
                 <div className="exam-resource-roc-note">
                   ROC: Positiva = <strong>{desarrollo.clasesPositivasROC?.join(' + ')}</strong>
@@ -445,7 +542,6 @@ export default function ExamPartPage() {
             </div>
           )}
 
-          {/* Apartados comunes del desarrollo */}
           {isDesarrollo && part.explicacion?.apartadosComunes?.length > 0 && (
             <div className="exam-common-questions">
               <div className="exam-common-questions-title">Apartados a responder</div>
@@ -457,7 +553,6 @@ export default function ExamPartPage() {
             </div>
           )}
 
-          {/* Filtros */}
           <div className="exam-filters">
             <div className="exam-filters-row">
               <input
@@ -533,7 +628,6 @@ export default function ExamPartPage() {
             </div>
           </div>
 
-          {/* Contador */}
           <div className="exam-part-count-bar">
             <span>
               Mostrando{' '}
@@ -544,12 +638,21 @@ export default function ExamPartPage() {
             </span>
           </div>
 
-          {/* Lista de preguntas */}
           <div className="exam-part-list">
             {filteredQuestions.length === 0 ? (
               <div className="exam-filter-empty">
-                <p>No hay preguntas con estos filtros.</p>
-                <p>Prueba a limpiar los filtros o cambiar el tipo de búsqueda.</p>
+                {baseQuestions.length === 0 ? (
+                  <>
+                    <p>No hay preguntas para esta parte del examen.</p>
+                    <p>Puede que el banco de preguntas todavía no tenga preguntas de este tipo para {subject.abreviatura}.</p>
+                  </>
+                ) : (
+                  <>
+                    <p>No hay preguntas con estos filtros.</p>
+                    <p>Prueba a limpiar los filtros o cambiar el tipo de búsqueda.</p>
+                  </>
+                )}
+
                 {hasActiveFilters && (
                   <button
                     type="button"
@@ -561,23 +664,47 @@ export default function ExamPartPage() {
                 )}
               </div>
             ) : (
-              filteredQuestions.map(q => (
-                <QuestionPracticeCard key={q.id} question={q} />
+              filteredQuestions.map((q, index) => (
+              <QuestionPracticeCard
+                key={q.id}
+                question={q}
+                questionNumber={index + 1}
+                totalQuestions={filteredQuestions.length}
+                showCompactMeta
+                onGroupClick={handleGroupClick}
+              />
               ))
             )}
           </div>
 
+          {isTest && modeloId && selectedModel?.recursos?.length > 0 && (
+            <ModelNotebookRunner
+              asignaturaId={asignaturaId}
+              modeloId={modeloId}
+              resources={selectedModel.recursos}
+              target={selectedModel.target || modelDetails?.variableObjetivo || ''}
+            />
+          )}
+
           <div className="exam-part-footer">
-            <Link
-              to={`/asignatura/${asignaturaId}/examen/${parteId}`}
-              className="btn btn-ghost"
-            >
-              ← Volver a {part.nombre}
-            </Link>
+            {modeloId ? (
+              <Link
+                to={`/asignatura/${asignaturaId}/examen/${parteId}`}
+                className="btn btn-ghost"
+              >
+                ← Volver a {part.nombre}
+              </Link>
+            ) : (
+              <Link
+                to={`/asignatura/${asignaturaId}/examen`}
+                className="btn btn-ghost"
+              >
+                ← Volver al examen
+              </Link>
+            )}
           </div>
         </>
       )}
-
     </div>
   );
 }

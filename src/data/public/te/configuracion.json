@@ -1,11 +1,27 @@
 {
   "id": "te",
-  "estructuraExamen": [],
+  "estructuraExamen": [
+    {
+      "id": "parte-test",
+      "nombre": "Tipo test",
+      "tipos": ["test", "verdadero_falso"],
+      "icono": "🔤",
+      "desc": "Preguntas de opción múltiple"
+    },
+    {
+      "id": "parte-problemas",
+      "nombre": "Problemas prácticos",
+      "tipos": ["practica", "problema"],
+      "icono": "🧪",
+      "desc": "Casos prácticos de aplicación tecnológica"
+    }
+  ],
+  "modelosExamen": {},
   "infoExamen": {
     "estructura": [
-      "Preguntas tipo test sobre los contenidos de los temas · puntuación total variable",
-      "1 caso práctico de aplicación tecnológica (sensores, comunicaciones, IoT) · puntuación total variable"
+      "20 preguntas tipo test · 4 puntos en total · 0,2 puntos por acierto",
+      "1 caso práctico de aplicación tecnológica · 6 puntos en total"
     ],
-    "penalizacionTest": "Las respuestas incorrectas no restan"
+    "penalizacionTest": "Cada respuesta incorrecta resta 0,1 puntos; las no contestadas no penalizan."
   }
 }

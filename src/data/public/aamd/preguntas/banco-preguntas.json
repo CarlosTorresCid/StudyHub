@@ -93,8 +93,8 @@
     "fuentes": [
       "2025 Modelo A.docx — Test 2"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Análisis exploratorio y preparación de datos",
@@ -146,16 +146,16 @@
       "Todas las variables son numéricas.",
       "Todas las variables son categóricas ."
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 0,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset indicado en el enunciado del modelo.",
+    "explicacion": "En el dataset injury_liver.csv, la variable objetivo 'injury' es categórica (Mild/Severe/None) y el resto de variables (X1-X192) son numéricas (X1 y X2 float, el resto int).",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "print(df.dtypes)\nprint(df.dtypes.value_counts())",
-    "observaciones": "Pregunta extraída del modelo de examen. No se inventa respuesta si no aparece resuelta en la fuente."
+    "codigoReferencia": "print(df.dtypes.value_counts())\nprint(df['injury'].unique())",
+    "observaciones": "Pregunta extraída del modelo de examen. No se inventa respuesta si no aparece resuelta en la fuente. Respuesta recuperada del banco anterior (aamd-tt-2025-ord-a-test-002)."
   },
   {
     "asignaturaId": "aamd",
@@ -251,8 +251,8 @@
     "fuentes": [
       "2025 Modelo A.docx — Test 4"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Evaluación de modelos",
@@ -304,16 +304,16 @@
       "85",
       "100"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 2,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset indicado en el enunciado del modelo.",
+    "explicacion": "Con 281 instancias y test_size=0.3 random_state=1, el conjunto test tiene siempre 85 instancias. Nota: este modelo pregunta por el test (85), no por el train (196).",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "from sklearn.model_selection import train_test_split\ntarget = 'VARIABLE_OBJETIVO'\nX = df.drop(columns=[target])\ny = df[target]\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)\nprint(X_train.shape, X_test.shape)",
-    "observaciones": "Pregunta extraída del modelo de examen. No se inventa respuesta si no aparece resuelta en la fuente."
+    "codigoReferencia": "X=df.drop(columns=['injury'])\ny=df['injury']\nX_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=1)\nprint(f'Train: {len(X_train)}, Test: {len(X_test)}')",
+    "observaciones": "Pregunta extraída del modelo de examen. No se inventa respuesta si no aparece resuelta en la fuente. Respuesta recuperada del banco anterior (aamd-tt-2025-ord-a-test-004)."
   },
   {
     "asignaturaId": "aamd",
@@ -7844,8 +7844,8 @@
     "fuentes": [
       "Simulacro_Examen_ML (3).pdf — Test 1"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Análisis exploratorio y preparación de datos",
@@ -7897,16 +7897,16 @@
       "100, 50 y 40",
       "90, 50 y 20"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 0,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset del simulacro.",
+    "explicacion": "Criterio IQR: outlier si > Mediana+1.5*IQR o < Mediana-1.5*IQR. Los valores 100, 90 y 85 superan el límite superior de Indicator_5. Confirmado en clase_14_AAMD.txt.",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "# Sustituye col por la variable del enunciado\ncol = 'VARIABLE_DEL_ENUNCIADO'\nq1 = df[col].quantile(0.25)\nq3 = df[col].quantile(0.75)\niqr = q3 - q1\nmediana = df[col].median()\nlim_inf = mediana - 1.5 * iqr\nlim_sup = mediana + 1.5 * iqr\noutliers = df[(df[col] < lim_inf) | (df[col] > lim_sup)][col]\nprint(lim_inf, lim_sup)\nprint(outliers)\nprint(len(outliers))",
-    "observaciones": "Pregunta extraída del simulacro."
+    "codigoReferencia": "col='Indicator_5'\nQ1=df[col].quantile(0.25)\nQ3=df[col].quantile(0.75)\nIQR=Q3-Q1\nmed=df[col].median()\nupper=med+1.5*IQR\nlower=med-1.5*IQR\nprint(f'Límite sup={upper:.4f}, inf={lower:.4f}')\nprint(df[(df[col]>upper)|(df[col]<lower)][col].values)",
+    "observaciones": "Pregunta extraída del simulacro. Respuesta recuperada del banco anterior (aamd-tt-sim-a-test-001)."
   },
   {
     "asignaturaId": "aamd",
@@ -7923,8 +7923,8 @@
     "fuentes": [
       "Simulacro_Examen_ML (3).pdf — Test 2"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Análisis exploratorio y preparación de datos",
@@ -7976,16 +7976,16 @@
       "30",
       "106"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 1,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset del simulacro.",
+    "explicacion": "Aplicando mediana ± 1.5*IQR a Indicator_5 se obtienen 12 valores fuera de los límites. Confirmado en clase_14_AAMD.txt.",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "# Sustituye col por la variable del enunciado\ncol = 'VARIABLE_DEL_ENUNCIADO'\nq1 = df[col].quantile(0.25)\nq3 = df[col].quantile(0.75)\niqr = q3 - q1\nmediana = df[col].median()\nlim_inf = mediana - 1.5 * iqr\nlim_sup = mediana + 1.5 * iqr\noutliers = df[(df[col] < lim_inf) | (df[col] > lim_sup)][col]\nprint(lim_inf, lim_sup)\nprint(outliers)\nprint(len(outliers))",
-    "observaciones": "Pregunta extraída del simulacro."
+    "codigoReferencia": "col='Indicator_5'\nQ1=df[col].quantile(0.25)\nQ3=df[col].quantile(0.75)\nIQR=Q3-Q1\nmed=df[col].median()\nlower=med-1.5*IQR\nupper=med+1.5*IQR\nn=len(df[(df[col]<lower)|(df[col]>upper)])\nprint(f'Outliers: {n}')",
+    "observaciones": "Pregunta extraída del simulacro. Respuesta recuperada del banco anterior (aamd-tt-sim-a-test-002)."
   },
   {
     "asignaturaId": "aamd",
@@ -8081,8 +8081,8 @@
     "fuentes": [
       "Simulacro_Examen_ML (3).pdf — Test 4"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Evaluación de modelos",
@@ -8134,16 +8134,16 @@
       "200",
       "145"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 0,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset del simulacro.",
+    "explicacion": "Con 281 instancias y test_size=0.3, sklearn asigna 196 a train y 85 a test.",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "from sklearn.model_selection import train_test_split\ntarget = 'VARIABLE_OBJETIVO'\nX = df.drop(columns=[target])\ny = df[target]\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)\nprint(X_train.shape, X_test.shape)",
-    "observaciones": "Pregunta extraída del simulacro."
+    "codigoReferencia": "X=df.drop(columns=['stress_level'])\ny=df['stress_level']\nX_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=1)\nprint(f'Train: {len(X_train)}, Test: {len(X_test)}')",
+    "observaciones": "Pregunta extraída del simulacro. Respuesta recuperada del banco anterior (aamd-tt-sim-a-test-004)."
   },
   {
     "asignaturaId": "aamd",
@@ -8401,8 +8401,8 @@
     "fuentes": [
       "Simulacro_Examen_ML (3).pdf — Test 8"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Árboles de decisión y evaluación",
@@ -8454,16 +8454,16 @@
       "Moderate",
       "Ninguna"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 2,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset del simulacro.",
+    "explicacion": "El clasificador trivial predice siempre la clase más frecuente en train. Para este dataset es Moderate (≈52%).",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "clase_trivial = y_train.value_counts().idxmax()\nacc_trivial = (y_test == clase_trivial).mean()\nprint('Clase trivial:', clase_trivial)\nprint('Accuracy trivial:', acc_trivial)",
-    "observaciones": "Pregunta extraída del simulacro."
+    "codigoReferencia": "clase_trivial=y_train.value_counts().idxmax()\nprint(f'Clase trivial: {clase_trivial}')\nprint(y_train.value_counts(normalize=True))",
+    "observaciones": "Pregunta extraída del simulacro. Respuesta recuperada del banco anterior (aamd-tt-sim-a-test-008)."
   },
   {
     "asignaturaId": "aamd",
@@ -8481,8 +8481,8 @@
     "fuentes": [
       "Simulacro_Examen_ML (3).pdf — Test 9"
     ],
-    "requiereRevision": true,
-    "verificada": false,
+    "requiereRevision": false,
+    "verificada": true,
     "bloqueExamenId": "parte-test",
     "bloqueExamenNombre": "Tipo test",
     "grupoTematico": "Árboles de decisión y evaluación",
@@ -8534,16 +8534,16 @@
       "52%",
       "75%"
     ],
-    "respuestaCorrecta": null,
+    "respuestaCorrecta": 2,
     "respuestaModelo": "",
     "solucionOrientativa": "",
-    "explicacion": "La respuesta debe obtenerse ejecutando el código en el notebook con el dataset del simulacro.",
+    "explicacion": "Accuracy trivial = proporción de Moderate en test ≈ 52%.",
     "criteriosCorreccion": [
       "Ejecutar Python con random_state=1.",
       "Seleccionar la opción correspondiente al resultado obtenido."
     ],
-    "codigoReferencia": "clase_trivial = y_train.value_counts().idxmax()\nacc_trivial = (y_test == clase_trivial).mean()\nprint('Clase trivial:', clase_trivial)\nprint('Accuracy trivial:', acc_trivial)",
-    "observaciones": "Pregunta extraída del simulacro."
+    "codigoReferencia": "clase_trivial=y_train.value_counts().idxmax()\nacc=(y_test==clase_trivial).mean()\nprint(f'Accuracy trivial: {acc:.4f} ({acc*100:.1f}%)')",
+    "observaciones": "Pregunta extraída del simulacro. Respuesta recuperada del banco anterior (aamd-tt-sim-a-test-009)."
   },
   {
     "asignaturaId": "aamd",

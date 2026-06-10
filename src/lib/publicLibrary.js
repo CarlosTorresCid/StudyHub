@@ -62,6 +62,87 @@ Object.entries(questionModules).forEach(([path, mod]) => {
   else if (data) questions[asigId].push(data);
 });
 
+// ── Modelos de examen AAMD ──────────────────────────────────────────────────
+
+const AAMD_EXAM_MODELS = [
+  {
+    id: '2025-modelo-a',
+    nombre: '2025 Modelo A',
+    orden: 1,
+    target: 'injury',
+    recursos: [
+      {
+        nombre: 'injury_liver.csv',
+        path: 'recursos/aamd/modelo-a/injury_liver.csv',
+      },
+    ],
+  },
+  {
+    id: '2025-modelo-b-ext',
+    nombre: '2025 Modelo B ext',
+    orden: 2,
+    target: 'pollution_level',
+    recursos: [
+      {
+        nombre: 'environmental_pollution.csv',
+        path: 'recursos/aamd/modelo-b-ext/environmental_pollution.csv',
+      },
+    ],
+  },
+  {
+    id: '2025-modelo-c',
+    nombre: '2025 Modelo C',
+    orden: 3,
+    target: 'stress_level',
+    recursos: [
+      {
+        nombre: 'workplace_stress_updated.csv',
+        path: 'recursos/aamd/modelo-c/workplace_stress_updated.csv',
+      },
+    ],
+  },
+  {
+    id: '2025-modelo-d-ext',
+    nombre: '2025 Modelo D ext',
+    orden: 4,
+    target: 'stress_level',
+    recursos: [
+      {
+        nombre: 'workplace_stress_updated.csv',
+        path: 'recursos/aamd/modelo-d-ext/workplace_stress_updated.csv',
+      },
+    ],
+  },
+  {
+    id: '2025-modelo-d',
+    nombre: '2025 Modelo D',
+    orden: 5,
+    target: 'pollution_level',
+    recursos: [
+      {
+        nombre: 'environmental_pollution.csv',
+        path: 'recursos/aamd/modelo-d/environmental_pollution.csv',
+      },
+    ],
+  },
+  {
+    id: 'simulacro',
+    nombre: 'Simulacro',
+    orden: 6,
+    target: 'stress_level',
+    recursos: [
+      {
+        nombre: 'workplace_stress_predictions.csv',
+        path: 'recursos/aamd/simulacro/workplace_stress_predictions.csv',
+      },
+      {
+        nombre: 'workplace_stress_updated.csv',
+        path: 'recursos/aamd/simulacro/workplace_stress_updated.csv',
+      },
+    ],
+  },
+];
+
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
 function extractNumero(temaId) {
@@ -96,64 +177,58 @@ function getConfig(asignaturaId) {
 
 
 
-// ── API pública ──────────────────────────────────────────────────────────────
-
-const AAMD_EXAM_MODELS = [
-  {
-    id: '2025-modelo-a',
-    nombre: '2025 Modelo A',
-    orden: 1,
-    recursos: [
-      { nombre: 'injury_liver.csv', path: 'recursos/aamd/modelo-a/injury_liver.csv' },
-    ],
-  },
-  {
-    id: '2025-modelo-b-ext',
-    nombre: '2025 Modelo B ext',
-    orden: 2,
-    recursos: [
-      { nombre: 'environmental_pollution.csv', path: 'recursos/aamd/modelo-b-ext/environmental_pollution.csv' },
-    ],
-  },
-  {
-    id: '2025-modelo-c',
-    nombre: '2025 Modelo C',
-    orden: 3,
-    recursos: [
-      { nombre: 'workplace_stress_updated.csv', path: 'recursos/aamd/modelo-c/workplace_stress_updated.csv' },
-    ],
-  },
-  {
-    id: '2025-modelo-d-ext',
-    nombre: '2025 Modelo D ext',
-    orden: 4,
-    recursos: [
-      { nombre: 'workplace_stress_updated.csv', path: 'recursos/aamd/modelo-d-ext/workplace_stress_updated.csv' },
-    ],
-  },
-  {
-    id: '2025-modelo-d',
-    nombre: '2025 Modelo D',
-    orden: 5,
-    recursos: [
-      { nombre: 'environmental_pollution.csv', path: 'recursos/aamd/modelo-d/environmental_pollution.csv' },
-    ],
-  },
-  {
-    id: 'simulacro',
-    nombre: 'Simulacro',
-    orden: 6,
-    recursos: [
-      { nombre: 'workplace_stress_predictions.csv', path: 'recursos/aamd/simulacro/workplace_stress_predictions.csv' },
-      { nombre: 'workplace_stress_updated.csv', path: 'recursos/aamd/simulacro/workplace_stress_updated.csv' },
-    ],
-  },
-];
-
 function buildPublicResourceUrl(path) {
   const base = import.meta.env.BASE_URL || '/';
   const cleanBase = base.endsWith('/') ? base : `${base}/`;
   return `${cleanBase}${path}`;
+}
+
+function normalizeParteExamenId(value) {
+  const v = String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '_');
+
+  if (!v) return null;
+
+  const aliases = {
+    test: 'parte-test',
+    tipo_test: 'parte-test',
+    parte_test: 'parte-test',
+    preguntas_test: 'parte-test',
+    verdadero_falso: 'parte-test',
+    vf: 'parte-test',
+
+    corta: 'parte-cortas',
+    cortas: 'parte-cortas',
+    pregunta_corta: 'parte-cortas',
+    preguntas_cortas: 'parte-cortas',
+    parte_cortas: 'parte-cortas',
+    respuesta_corta: 'parte-cortas',
+
+    desarrollo: 'parte-desarrollo',
+    desarrollos: 'parte-desarrollo',
+    pregunta_desarrollo: 'parte-desarrollo',
+    preguntas_desarrollo: 'parte-desarrollo',
+    parte_desarrollo: 'parte-desarrollo',
+    teoria_desarrollo: 'parte-desarrollo',
+
+    practica: 'parte-problemas',
+    practicas: 'parte-problemas',
+    práctico: 'parte-problemas',
+    prácticos: 'parte-problemas',
+    problema: 'parte-problemas',
+    problemas: 'parte-problemas',
+    problema_practico: 'parte-problemas',
+    problemas_practicos: 'parte-problemas',
+    parte_problemas: 'parte-problemas',
+  };
+
+  return aliases[v] || value;
+}
+
+function questionParteMatches(q, parteId) {
+  return normalizeParteExamenId(q.parteExamenId) === parteId;
 }
 
 function normalizeExamModelId(value = '') {
@@ -194,14 +269,11 @@ function getQuestionExamModelId(q) {
   );
 }
 
-function getQuestionExamModelName(q) {
-  const id = getQuestionExamModelId(q);
-  return AAMD_EXAM_MODELS.find(m => m.id === id)?.nombre || q.modeloExamenNombre || q.carpetaPrincipalNombre || id;
-}
-
 function isRealExamPracticeQuestion(q) {
   return q.esPreguntaTipo !== true;
 }
+
+// ── API pública ──────────────────────────────────────────────────────────────
 
 export const publicLibrary = {
   // Todas las asignaturas con sus temas (autodescubiertos), estructura de examen e infoExamen
@@ -217,59 +289,6 @@ export const publicLibrary = {
         modelosExamen: config.modelosExamen || {},
       };
     });
-  },
-
-  resolveResourceUrl(path) {
-    return buildPublicResourceUrl(path);
-  },
-
-
-  getExamModels(asignaturaId, parteId) {
-    const subjectQuestions = this.getQuestionBank(asignaturaId);
-
-    const modelIds = new Set(
-      subjectQuestions
-        .filter(q => q.parteExamenId === parteId)
-        .filter(isRealExamPracticeQuestion)
-        .map(getQuestionExamModelId)
-        .filter(Boolean)
-    );
-
-    return AAMD_EXAM_MODELS
-      .filter(model => modelIds.has(model.id))
-      .sort((a, b) => a.orden - b.orden)
-      .map(model => {
-        const count = subjectQuestions.filter(q =>
-          q.parteExamenId === parteId &&
-          getQuestionExamModelId(q) === model.id &&
-          isRealExamPracticeQuestion(q)
-        ).length;
-
-        return {
-          ...model,
-          recursos: (model.recursos || []).map(r => ({
-            ...r,
-            url: buildPublicResourceUrl(r.path),
-          })),
-          count,
-        };
-      });
-  },
-
-  getExamModel(asignaturaId, parteId, modeloId) {
-    return this.getExamModels(asignaturaId, parteId).find(m => m.id === modeloId) || null;
-  },
-
-  getQuestionsByParteAndModel(asignaturaId, parteId, modeloId) {
-    return this.getQuestionBank(asignaturaId)
-      .filter(q => q.parteExamenId === parteId)
-      .filter(isRealExamPracticeQuestion)
-      .filter(q => getQuestionExamModelId(q) === modeloId)
-      .sort((a, b) => {
-        const ordenA = a.ordenPregunta ?? a.convocatorias?.[0]?.numeroPregunta ?? 999;
-        const ordenB = b.ordenPregunta ?? b.convocatorias?.[0]?.numeroPregunta ?? 999;
-        return ordenA - ordenB;
-      });
   },
 
   // Una asignatura por ID
@@ -288,6 +307,58 @@ export const publicLibrary = {
     };
   },
 
+  resolveResourceUrl(path) {
+    return buildPublicResourceUrl(path);
+  },
+
+getExamModels(asignaturaId, parteId) {
+  const subjectQuestions = this.getQuestionBank(asignaturaId);
+
+  const modelIds = new Set(
+    subjectQuestions
+      .filter(q => questionParteMatches(q, parteId))
+      .filter(isRealExamPracticeQuestion)
+      .map(getQuestionExamModelId)
+      .filter(Boolean)
+  );
+
+  return AAMD_EXAM_MODELS
+    .filter(model => modelIds.has(model.id))
+    .sort((a, b) => a.orden - b.orden)
+    .map(model => {
+      const count = subjectQuestions.filter(q =>
+        questionParteMatches(q, parteId) &&
+        getQuestionExamModelId(q) === model.id &&
+        isRealExamPracticeQuestion(q)
+      ).length;
+
+      return {
+        ...model,
+        recursos: (model.recursos || []).map(r => ({
+          ...r,
+          url: buildPublicResourceUrl(r.path),
+        })),
+        count,
+      };
+    });
+},
+
+  getExamModel(asignaturaId, parteId, modeloId) {
+    return this.getExamModels(asignaturaId, parteId)
+      .find(m => m.id === modeloId) || null;
+  },
+
+getQuestionsByParteAndModel(asignaturaId, parteId, modeloId) {
+  return this.getQuestionBank(asignaturaId)
+    .filter(q => questionParteMatches(q, parteId))
+    .filter(isRealExamPracticeQuestion)
+    .filter(q => getQuestionExamModelId(q) === modeloId)
+    .sort((a, b) => {
+      const ordenA = a.ordenPregunta ?? a.convocatorias?.[0]?.numeroPregunta ?? 999;
+      const ordenB = b.ordenPregunta ?? b.convocatorias?.[0]?.numeroPregunta ?? 999;
+      return ordenA - ordenB;
+    });
+},
   // Contenido público de un tema (null si no está publicado)
   getTemaContent(asignaturaId, temaId) {
     return contents[asignaturaId]?.[temaId] || null;
@@ -302,10 +373,9 @@ export const publicLibrary = {
     return this.getQuestions(asignaturaId).filter(q => q.temaId === temaId);
   },
 
-  getQuestionsByParte(asignaturaId, parteId) {
-    return this.getQuestions(asignaturaId).filter(q => q.parteExamenId === parteId);
-  },
-
+getQuestionsByParte(asignaturaId, parteId) {
+  return this.getQuestions(asignaturaId).filter(q => questionParteMatches(q, parteId));
+},
   // Banco global de preguntas de una asignatura.
   // Devuelve [] si no existe.
   getQuestionBank(asignaturaId) {

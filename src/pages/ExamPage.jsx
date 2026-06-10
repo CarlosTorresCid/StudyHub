@@ -27,6 +27,13 @@ const DEFAULT_EXAM_PARTS = [
     icono: '🧠',
     desc: 'Preguntas teóricas de desarrollo',
   },
+  {
+    id: 'parte-problemas',
+    nombre: 'Problemas prácticos',
+    tipos: ['practica', 'problema'],
+    icono: '🧪',
+    desc: 'Problemas y ejercicios prácticos',
+  },
 ];
 
 function getExamParts(subject, questions) {

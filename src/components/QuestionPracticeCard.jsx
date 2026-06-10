@@ -9,6 +9,12 @@ const TIPO_LABELS = {
   practica: 'Práctica',
 };
 
+const OPCION_LETRAS = ['A', 'B', 'C', 'D'];
+
+function letraOpcion(indice) {
+  return OPCION_LETRAS[indice] ?? '?';
+}
+
 function getModelLabels(q) {
   if (Array.isArray(q.etiquetasModelo) && q.etiquetasModelo.length > 0) {
     return q.etiquetasModelo;
@@ -26,6 +32,8 @@ function getModelLabels(q) {
 }
 
 function StatusBadges({ q }) {
+  if (!q.requiereRevision && !q.verificada) return null;
+
   return (
     <div className="qpc-badges">
       {q.requiereRevision && <span className="qpc-badge qpc-badge-revision">Revisar</span>}
@@ -87,6 +95,95 @@ function QuestionHeader({ q }) {
   );
 }
 
+// ─── Cabecera de progreso (Pregunta X de N) ──────────────────────────────────
+
+function QuestionProgressHeader({
+  q,
+  questionNumber,
+  totalQuestions,
+  showCompactMeta,
+  onGroupClick,
+}) {
+  const grupo = q.grupoTematico || q.patronRelacionado || null;
+
+  return (
+    <div className="qpc-progress-header">
+      <div className="qpc-progress-main">
+        <div className="qpc-question-number">
+          Pregunta {questionNumber} de {totalQuestions}
+        </div>
+
+        <div className="qpc-question-context">
+          {q.origenVisible || q.modeloExamenNombre || q.carpetaPrincipalNombre}
+          {q.bloqueExamenNombre ? ` · ${q.bloqueExamenNombre}` : ''}
+        </div>
+
+        {(q.temaPrincipalId || grupo) && (
+          <div className="qpc-question-topic">
+            {grupo && (
+              <button
+                type="button"
+                className="qpc-topic-chip qpc-topic-chip-clickable"
+                onClick={() => onGroupClick?.(grupo)}
+                title={`Filtrar por ${grupo}`}
+              >
+                {grupo}
+              </button>
+            )}
+
+            {q.temaPrincipalId && (
+              <span className="qpc-tema-chip">
+                {q.temaPrincipalId}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+
+      {showCompactMeta && (
+        <div className="qpc-status-mini">
+          <StatusBadges q={q} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Detalles secundarios (colapsables) ──────────────────────────────────────
+
+function QuestionDetails({ q }) {
+  const etiquetas = getModelLabels(q);
+  const numeroApariciones = q.numeroApariciones || q.apariciones?.length || etiquetas.length;
+  const ruta = Array.isArray(q.rutaJerarquica) ? q.rutaJerarquica : [];
+
+  if (etiquetas.length === 0 && ruta.length === 0 && !numeroApariciones) return null;
+
+  return (
+    <details className="qpc-details">
+      <summary className="qpc-details-summary">Detalles de la pregunta</summary>
+      <div className="qpc-details-content">
+        {ruta.length > 0 && <p className="qpc-details-ruta">{ruta.join(' / ')}</p>}
+
+        {numeroApariciones > 0 && (
+          <p className="qpc-details-apariciones">
+            {numeroApariciones} {numeroApariciones === 1 ? 'aparición' : 'apariciones'}
+          </p>
+        )}
+
+        {etiquetas.length > 0 && (
+          <div className="qpc-model-tags" aria-label="Modelos de examen donde aparece esta pregunta">
+            {etiquetas.map((etiqueta, index) => (
+              <span key={`${etiqueta}-${index}`} className="qpc-model-tag">
+                {etiqueta}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </details>
+  );
+}
+
 // ─── Tipo test ────────────────────────────────────────────────────────────────
 
 function TestCard({ q }) {
@@ -103,10 +200,11 @@ function TestCard({ q }) {
     setChecked(false);
   };
 
-  const isCorrect = checked && selected === q.respuestaCorrecta;
+  const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
 
   function opcionClass(i) {
     if (!checked) return selected === i ? 'selected' : '';
+    if (!hasAnswer) return selected === i ? 'selected' : '';
     if (i === q.respuestaCorrecta) return 'correct';
     if (i === selected && i !== q.respuestaCorrecta) return 'wrong';
     return '';
@@ -123,9 +221,9 @@ function TestCard({ q }) {
               key={i}
               className={`qpc-opcion ${opcionClass(i)}`}
               onClick={() => handleSelect(i)}
-              disabled={checked && i === selected && !isCorrect}
+              disabled={checked && hasAnswer && i === selected && !isCorrect}
             >
-              <span className="qpc-opcion-letra">{String.fromCharCode(65 + i)}</span>
+              <span className="qpc-opcion-letra">{letraOpcion(i)}</span>
               <span className="qpc-opcion-texto">{op}</span>
             </button>
           ))}
@@ -134,13 +232,17 @@ function TestCard({ q }) {
 
       {opciones && (
         <div className="qpc-actions">
-          {!hasAnswer && checked && (
-            <p className="qpc-missing">No hay respuesta correcta configurada todavía.</p>
+          {checked && !hasAnswer && (
+            <p className="qpc-pending-answer">
+              Respuesta todavía no configurada. Puedes resolverla con el notebook completo del modelo.
+            </p>
           )}
 
           {checked && hasAnswer && (
             <div className={`qpc-result ${isCorrect ? 'correct' : 'wrong'}`}>
-              {isCorrect ? '✓ Correcto' : '✗ Incorrecto'}
+              {isCorrect
+                ? '✓ Correcto'
+                : `✗ Incorrecto. Respuesta correcta: ${letraOpcion(q.respuestaCorrecta)}`}
             </div>
           )}
 
@@ -183,10 +285,11 @@ function VFCard({ q }) {
   const [checked, setChecked] = useState(false);
 
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
-  const isCorrect = checked && selected === q.respuestaCorrecta;
+  const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
 
   function btnClass(val) {
     if (!checked) return selected === val ? 'selected' : '';
+    if (!hasAnswer) return selected === val ? 'selected' : '';
     if (val === q.respuestaCorrecta) return 'correct';
     if (val === selected && val !== q.respuestaCorrecta) return 'wrong';
     return '';
@@ -209,13 +312,17 @@ function VFCard({ q }) {
       </div>
 
       <div className="qpc-actions">
-        {!hasAnswer && checked && (
-          <p className="qpc-missing">No hay respuesta correcta configurada todavía.</p>
+        {checked && !hasAnswer && (
+          <p className="qpc-pending-answer">
+            Respuesta todavía no configurada. Puedes resolverla con el notebook completo del modelo.
+          </p>
         )}
 
         {checked && hasAnswer && (
           <div className={`qpc-result ${isCorrect ? 'correct' : 'wrong'}`}>
-            {isCorrect ? '✓ Correcto' : '✗ Incorrecto'}
+            {isCorrect
+              ? '✓ Correcto'
+              : `✗ Incorrecto. Respuesta correcta: ${q.respuestaCorrecta ? 'Verdadero' : 'Falso'}`}
           </div>
         )}
 
@@ -301,7 +408,15 @@ function RevealCard({ q }) {
 
 // ─── Componente principal ────────────────────────────────────────────────────
 
-export default function QuestionPracticeCard({ question: q, onGroupClick }) {
+export default function QuestionPracticeCard({
+  question: q,
+  onGroupClick,
+  questionNumber,
+  totalQuestions,
+  showCompactMeta = false,
+}) {
+  const hasProgress = questionNumber != null && totalQuestions != null;
+
   function renderBody() {
     switch (q.tipo) {
       case 'test':
@@ -319,10 +434,25 @@ export default function QuestionPracticeCard({ question: q, onGroupClick }) {
 
   return (
     <div className="qpc">
-      <QuestionHeader q={q} />
-      <QuestionModelTags q={q} onGroupClick={onGroupClick} />
+      {hasProgress ? (
+       <QuestionProgressHeader
+        q={q}
+        questionNumber={questionNumber}
+        totalQuestions={totalQuestions}
+        showCompactMeta={showCompactMeta}
+        onGroupClick={onGroupClick}
+      />
+      ) : (
+        <>
+          <QuestionHeader q={q} />
+          <QuestionModelTags q={q} onGroupClick={onGroupClick} />
+        </>
+      )}
+
       <p className="qpc-enunciado">{q.enunciado}</p>
       {renderBody()}
+
+      {hasProgress && <QuestionDetails q={q} />}
     </div>
   );
 }

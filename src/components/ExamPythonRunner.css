@@ -1,0 +1,342 @@
+/* ══════════════════════════════════════════════════════════════
+   EXAM PYTHON RUNNER — Notebook cell style
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Celda base ──────────────────────────────────────────────── */
+
+.exam-python-runner {
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: border-left-color var(--transition);
+}
+
+.nb-cell:focus-within {
+  border-left-color: var(--accent);
+}
+
+/* ── Modo compacto cerrado ───────────────────────────────────── */
+
+.exam-python-runner--compact {
+  padding: 0;
+  margin: -4px 0 20px;
+  background: transparent;
+  border: none;
+}
+
+/* ── Modo compacto abierto ───────────────────────────────────── */
+
+.exam-python-runner--compact-open {
+  margin: 0 0 24px;
+}
+
+/* ── Botón "Resolver con Python" ─────────────────────────────── */
+
+.exam-python-toggle {
+  width: fit-content;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 9px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition),
+    transform var(--transition);
+}
+
+.exam-python-toggle:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: translateY(-1px);
+}
+
+/* ── Barra superior de la celda ──────────────────────────────── */
+
+.nb-cell-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.nb-cell-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.nb-cell-lang {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nb-cell-env {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nb-cell-env strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Acciones de la barra (status + close) ───────────────────── */
+
+.exam-python-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Badge de estado ─────────────────────────────────────────── */
+
+.nb-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.nb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nb-dot--idle    { background: var(--text-dim, #888); }
+.nb-dot--loading { background: #f59e0b; }
+.nb-dot--running { background: #3b82f6; }
+.nb-dot--done    { background: #22c55e; }
+.nb-dot--error   { background: #ef4444; }
+
+/* ── Botón de cierre ─────────────────────────────────────────── */
+
+.exam-python-close {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.exam-python-close:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ── Área de entrada ─────────────────────────────────────────── */
+
+.nb-input-area {
+  display: flex;
+  align-items: stretch;
+}
+
+.nb-gutter {
+  flex-shrink: 0;
+  width: 38px;
+  padding: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.nb-gutter--in  { color: #6366f1; padding-top: 14px; }
+.nb-gutter--out { color: #f59e0b; padding-top: 14px; }
+
+.nb-editor {
+  flex: 1;
+  min-height: 120px;
+  resize: vertical;
+  border: none;
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--surface2);
+  color: var(--text);
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  box-sizing: border-box;
+  outline: none;
+  transition: background var(--transition);
+}
+
+.nb-editor:focus {
+  background: var(--surface);
+}
+
+/* ── Fila de botones ─────────────────────────────────────────── */
+
+.nb-run-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.nb-run-btn {
+  padding: 7px 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.nb-run-btn:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.nb-run-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nb-reset-btn {
+  padding: 7px 12px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.nb-reset-btn:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.nb-hint {
+  font-size: 11px;
+  color: var(--text-dim, #888);
+  font-style: italic;
+}
+
+/* ── Área de salida ──────────────────────────────────────────── */
+
+.nb-output-area {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--border);
+}
+
+.nb-output {
+  flex: 1;
+  margin: 0;
+  padding: 12px 14px;
+  background: #0f172a;
+  color: #e5e7eb;
+  border-left: 1px solid var(--border);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* ── Variante grande (notebook de resolución completa) ───────── */
+
+.exam-python-runner--large .nb-editor {
+  min-height: 480px;
+  max-height: 70vh;
+}
+
+.exam-python-runner--large .nb-output {
+  min-height: 320px;
+  max-height: 55vh;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .nb-cell-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nb-cell-env {
+    font-size: 11px;
+  }
+
+  .nb-gutter {
+    width: 28px;
+    font-size: 9px;
+  }
+
+  .nb-editor {
+    min-height: 100px;
+    font-size: 12px;
+    padding: 10px 10px;
+  }
+
+  .nb-run-row {
+    gap: 8px;
+  }
+
+  .exam-python-runner--large .nb-editor {
+    min-height: 360px;
+    max-height: 60vh;
+  }
+
+  .exam-python-runner--large .nb-output {
+    min-height: 240px;
+    max-height: 45vh;
+  }
+}
