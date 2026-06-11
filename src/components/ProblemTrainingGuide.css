@@ -11,12 +11,27 @@
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.ptg-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  border-left-color: var(--accent);
 }
 
 .ptg-card-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
   flex-shrink: 0;
-  font-size: 26px;
+  font-size: 23px;
   line-height: 1;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  border: 1px solid rgba(98, 88, 232, 0.16);
 }
 
 .ptg-card-body {
@@ -84,13 +99,22 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
-  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  box-shadow: var(--shadow-xs);
+  transition: color var(--transition), border-color var(--transition),
+    transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .ptg-chip:hover {
   color: var(--accent);
-  border-color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--accent) 4%, var(--surface));
   transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.ptg-chip:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* Lista de acordeones */
@@ -107,11 +131,26 @@
   border-radius: var(--radius);
   overflow: hidden;
   scroll-margin-top: 16px;
-  transition: border-color 0.15s ease;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.ptg-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
 }
 
 .ptg-item[open] {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.ptg-item[open] > .ptg-body {
+  animation: ptg-open 0.24s ease;
+}
+
+@keyframes ptg-open {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .ptg-summary {
@@ -240,14 +279,17 @@
 
 .ptg-section-plantilla {
   border-left-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 2.5%, var(--surface));
 }
 
 .ptg-section-ejemplo {
   border-left-color: #8b5cf6;
+  background: color-mix(in srgb, #8b5cf6 2.5%, var(--surface));
 }
 
 .ptg-section-errores {
   border-left-color: #ef4444;
+  background: color-mix(in srgb, #ef4444 2%, var(--surface));
 }
 
 .ptg-section-title {
@@ -316,9 +358,10 @@
   font-size: 12px;
   line-height: 1.6;
   color: var(--text);
-  background: color-mix(in srgb, var(--text) 5%, transparent);
+  background: linear-gradient(180deg, #faf7f0, #f6f2e8);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) * 0.6);
+  box-shadow: inset 0 1px 3px rgba(58, 48, 28, 0.05);
   overflow-x: auto;
 }
 

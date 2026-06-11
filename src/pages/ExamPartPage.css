@@ -91,6 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--shadow-xs);
 }
 
 .exam-filters-row {
@@ -245,13 +246,16 @@
   padding: 18px 20px;
   text-decoration: none;
   color: var(--text);
-  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition), border-color var(--transition),
+    background var(--transition), box-shadow var(--transition);
 }
 
 .exam-model-card:hover {
   transform: translateY(-2px);
-  border-color: var(--accent);
-  background: var(--surface2);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .exam-model-card-title {

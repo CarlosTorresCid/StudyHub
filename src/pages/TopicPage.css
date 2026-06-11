@@ -60,6 +60,7 @@
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   margin-bottom: -1px;
   transition: all var(--transition);
   cursor: pointer;
@@ -68,12 +69,13 @@
 .topic-tab:hover {
   color: var(--text);
   background: var(--surface2);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .topic-tab.active {
   color: var(--subject-color, var(--accent));
   border-bottom-color: var(--subject-color, var(--accent));
+  background: color-mix(in srgb, var(--subject-color, var(--accent)) 6%, transparent);
+  font-weight: 600;
 }
 
 /* Apuntes */
@@ -88,9 +90,11 @@
   color: var(--text-reading);
   line-height: 1.85;
   padding: 20px 24px;
-  background: var(--surface);
+  background: linear-gradient(135deg, rgba(98, 88, 232, 0.04), var(--surface) 45%);
+  border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow-xs);
 }
 
 .apuntes-section h3 {
@@ -158,8 +162,15 @@
 .concepto-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 16px;
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.concepto-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  box-shadow: var(--shadow-sm);
 }
 
 .concepto-term {

@@ -6,7 +6,9 @@
 }
 
 .dashboard-header {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
 .dashboard-header h1 {
   font-size: 32px;
@@ -16,7 +18,10 @@
 .dashboard-subtitle {
   color: var(--text-muted);
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .dashboard-grid {
@@ -28,7 +33,7 @@
 .subject-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -36,19 +41,26 @@
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-xs);
 }
 .subject-card:hover {
-  border-color: var(--subject-color);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: color-mix(in srgb, var(--subject-color) 50%, var(--border));
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
+.subject-card:hover .subject-card-bar { opacity: 1; }
 
 .subject-card-bar {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--subject-color);
-  opacity: 0.7;
+  background: linear-gradient(
+    90deg,
+    var(--subject-color),
+    color-mix(in srgb, var(--subject-color) 30%, transparent)
+  );
+  opacity: 0.75;
+  transition: opacity var(--transition);
 }
 
 .subject-card-top {
@@ -56,7 +68,16 @@
   align-items: center;
   justify-content: space-between;
 }
-.subject-card-icon { font-size: 24px; }
+.subject-card-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-size: 21px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--subject-color) 10%, var(--surface2));
+  border: 1px solid color-mix(in srgb, var(--subject-color) 18%, transparent);
+}
 .subject-card-abrev {
   font-family: 'Syne', sans-serif;
   font-weight: 800;

@@ -3,11 +3,17 @@
 .qpc {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.qpc:hover {
+  box-shadow: var(--shadow-sm);
 }
 
 /* Header: tipo + tema + badges */
@@ -103,13 +109,20 @@
   line-height: 1.5;
   color: var(--text);
   cursor: pointer;
-  transition: border-color var(--transition), background var(--transition);
+  transition: border-color var(--transition), background var(--transition),
+    transform var(--transition), box-shadow var(--transition);
   min-height: 44px;
 }
 
 .qpc-opcion:hover:not(:disabled) {
   border-color: var(--accent);
   background: var(--accent-soft);
+  transform: translateX(2px);
+  box-shadow: var(--shadow-xs);
+}
+
+.qpc-opcion:active:not(:disabled) {
+  transform: translateX(2px) scale(0.995);
 }
 
 .qpc-opcion.selected {
@@ -225,6 +238,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  animation: qpc-reveal 0.22s ease;
 }
 
 .qpc-explicacion-label {
@@ -245,13 +259,19 @@
 /* ── Respuesta modelo / solución (corta, desarrollo, practica) ── */
 
 .qpc-respuesta {
-  background: var(--surface2);
+  background: linear-gradient(180deg, var(--surface2), color-mix(in srgb, var(--surface2) 60%, var(--surface)));
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  animation: qpc-reveal 0.22s ease;
+}
+
+@keyframes qpc-reveal {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .qpc-respuesta-label {

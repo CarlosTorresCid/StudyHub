@@ -5,10 +5,11 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-xs);
 }
 
 .exam-info-block {
-  padding: 14px 20px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -21,10 +22,21 @@
 .exam-info-title {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-weight: 700;
   font-size: 14px;
   color: var(--text);
+}
+
+.exam-info-title span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  border-radius: 7px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
 }
 
 .exam-info-list {
@@ -33,6 +45,10 @@
   color: var(--text-muted);
   font-size: 13px;
   line-height: 1.7;
+}
+
+.exam-info-list li::marker {
+  color: var(--accent);
 }
 
 .exam-info-text {
