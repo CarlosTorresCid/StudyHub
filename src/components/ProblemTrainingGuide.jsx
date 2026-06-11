@@ -502,15 +502,6 @@ export function ProblemTrainingCard({ to }) {
 export default function ProblemTrainingGuide() {
   return (
     <div className="problem-training-guide">
-      <nav className="ptg-chips" aria-label="Tipos de problema">
-        {GUIDE_BLOCKS.map(block => (
-          <a key={block.id} href={`#ptg-${block.id}`} className="ptg-chip">
-            <span aria-hidden="true">{block.icono}</span>
-            {block.titulo}
-          </a>
-        ))}
-      </nav>
-
       <div className="ptg-list">
         {GUIDE_BLOCKS.map(block => (
           <details key={block.id} id={`ptg-${block.id}`} className="ptg-item">
