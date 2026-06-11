@@ -585,11 +585,11 @@
     "temaIds": [
       "tema-2"
     ],
-    "parteExamenId": null,
-    "tipo": "practica",
+    "parteExamenId": "parte-cortas",
+    "tipo": "corta",
     "origen": "indicada_clase",
     "enunciado": "Un activo tiene un valor de 500.000 €. El factor de exposición es del 60% y la tasa anual de ocurrencia (ARO) es de 0,4. Calcula el SLE (Single Loss Expectancy) y el ALE (Annual Loss Expectancy). ¿Sería rentable una contramedida que cuesta 18.000 €/año y reduce el ALE a 12.000 €/año?",
-    "solucionOrientativa": "SLE = Valor del activo × Factor de exposición = 500.000 € × 0,60 = 300.000 €.\nALE = SLE × ARO = 300.000 € × 0,4 = 120.000 €/año.\nBeneficio neto de la contramedida = ALE original - ALE residual - Coste contramedida = 120.000 - 12.000 - 18.000 = 90.000 €/año.\nConclusión: La contramedida ES rentable porque genera un ahorro neto de 90.000 €/año.",
+    "respuestaModelo": "SLE = Valor del activo × Factor de exposición = 500.000 € × 0,60 = 300.000 €.\nALE = SLE × ARO = 300.000 € × 0,4 = 120.000 €/año.\nBeneficio neto de la contramedida = ALE original - ALE residual - Coste contramedida = 120.000 - 12.000 - 18.000 = 90.000 €/año.\nConclusión: La contramedida ES rentable porque genera un ahorro neto de 90.000 €/año.",
     "criteriosCorreccion": [
       "Aplica correctamente la fórmula SLE = AV × EF.",
       "Obtiene SLE = 300.000 €.",

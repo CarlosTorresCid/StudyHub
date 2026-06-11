@@ -1,10 +1,25 @@
 {
   "id": "isa",
-  "estructuraExamen": [],
+  "estructuraExamen": [
+    {
+      "id": "parte-cortas",
+      "nombre": "Ejercicio 1 · Pregunta teórica",
+      "tipos": ["corta"],
+      "icono": "✍️",
+      "desc": "Pregunta teórica a elegir entre dos temas · 3 puntos"
+    },
+    {
+      "id": "parte-desarrollo",
+      "nombre": "Ejercicio 2 · Desarrollo de proyecto",
+      "tipos": ["desarrollo"],
+      "icono": "🧠",
+      "desc": "Desarrollo breve de un proyecto · 7 puntos"
+    }
+  ],
   "infoExamen": {
     "estructura": [
-      "Ejercicio 1: pregunta teórica · 3 puntos · se elige entre 2 temas y solo se corrige la primera respondida",
-      "Ejercicio 2: desarrollo breve de un proyecto · 7 puntos · mezcla de actividades 1 y 2 de la asignatura"
+      "Ejercicio 1: pregunta teórica a elegir entre dos temas · 3 puntos · 1 página",
+      "Ejercicio 2: desarrollo breve de un proyecto · 7 puntos · máximo 8 páginas"
     ]
   }
 }

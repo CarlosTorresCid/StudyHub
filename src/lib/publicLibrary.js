@@ -13,6 +13,7 @@
 // NUNCA leer borradores de /gestion desde aquí.
 
 import asignaturasData from '../data/public/asignaturas.json';
+import { normalizeParteExamenId } from './examPartUtils';
 
 // Configuraciones de cada asignatura (contiene estructuraExamen e infoExamen)
 const configModules = import.meta.glob('../data/public/*/configuracion.json', { eager: true });
@@ -181,50 +182,6 @@ function buildPublicResourceUrl(path) {
   const base = import.meta.env.BASE_URL || '/';
   const cleanBase = base.endsWith('/') ? base : `${base}/`;
   return `${cleanBase}${path}`;
-}
-
-function normalizeParteExamenId(value) {
-  const v = String(value || '')
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '_');
-
-  if (!v) return null;
-
-  const aliases = {
-    test: 'parte-test',
-    tipo_test: 'parte-test',
-    parte_test: 'parte-test',
-    preguntas_test: 'parte-test',
-    verdadero_falso: 'parte-test',
-    vf: 'parte-test',
-
-    corta: 'parte-cortas',
-    cortas: 'parte-cortas',
-    pregunta_corta: 'parte-cortas',
-    preguntas_cortas: 'parte-cortas',
-    parte_cortas: 'parte-cortas',
-    respuesta_corta: 'parte-cortas',
-
-    desarrollo: 'parte-desarrollo',
-    desarrollos: 'parte-desarrollo',
-    pregunta_desarrollo: 'parte-desarrollo',
-    preguntas_desarrollo: 'parte-desarrollo',
-    parte_desarrollo: 'parte-desarrollo',
-    teoria_desarrollo: 'parte-desarrollo',
-
-    practica: 'parte-problemas',
-    practicas: 'parte-problemas',
-    práctico: 'parte-problemas',
-    prácticos: 'parte-problemas',
-    problema: 'parte-problemas',
-    problemas: 'parte-problemas',
-    problema_practico: 'parte-problemas',
-    problemas_practicos: 'parte-problemas',
-    parte_problemas: 'parte-problemas',
-  };
-
-  return aliases[v] || value;
 }
 
 function questionParteMatches(q, parteId) {

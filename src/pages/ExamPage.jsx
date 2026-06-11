@@ -3,50 +3,9 @@ import { publicLibrary } from '../lib/publicLibrary';
 import { exportQuestionsByBlocksToWord } from '../utils/exportToWord';
 import { usePageTitle } from '../hooks/usePageTitle';
 import ExamInfoCard from '../components/ExamInfoCard';
+import { ProblemTrainingCard } from '../components/ProblemTrainingGuide';
+import { getExamParts } from '../lib/examPartUtils';
 import './SubjectPage.css';
-
-const DEFAULT_EXAM_PARTS = [
-  {
-    id: 'parte-test',
-    nombre: 'Tipo test',
-    tipos: ['test', 'verdadero_falso'],
-    icono: '🔤',
-    desc: 'Preguntas de opción múltiple y verdadero/falso',
-  },
-  {
-    id: 'parte-cortas',
-    nombre: 'Preguntas cortas',
-    tipos: ['corta'],
-    icono: '✍️',
-    desc: 'Preguntas de respuesta breve',
-  },
-  {
-    id: 'parte-desarrollo',
-    nombre: 'Preguntas de desarrollo',
-    tipos: ['desarrollo'],
-    icono: '🧠',
-    desc: 'Preguntas teóricas de desarrollo',
-  },
-  {
-    id: 'parte-problemas',
-    nombre: 'Problemas prácticos',
-    tipos: ['practica', 'problema'],
-    icono: '🧪',
-    desc: 'Problemas y ejercicios prácticos',
-  },
-];
-
-function getExamParts(subject, questions) {
-  const configuredParts = subject?.estructuraExamen || [];
-
-  if (configuredParts.length > 0) {
-    return configuredParts;
-  }
-
-  return DEFAULT_EXAM_PARTS.filter(part =>
-    questions.some(q => part.tipos.includes(q.tipo))
-  );
-}
 
 export default function ExamPage() {
   const { asignaturaId } = useParams();
@@ -105,6 +64,10 @@ export default function ExamPage() {
       </div>
 
       <ExamInfoCard info={subject.infoExamen} />
+
+      {subject.id === 'iaic' && (
+        <ProblemTrainingCard to={`/asignatura/${asignaturaId}/examen/entrenamiento`} />
+      )}
 
       {totalQuestions === 0 ? (
         <div className="subject-empty">

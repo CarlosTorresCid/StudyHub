@@ -88,10 +88,10 @@
       "tema-2"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "La figura muestra un árbol de búsqueda parcial de un problema dado. Justifica si la heurística que se visualiza en la figura es admisible o no. ¿Hay garantía de que la solución sea óptima si se aplica A* para encontrar el camino desde un estado inicial hasta la meta? ¿Y si se aplica búsqueda avariciosa?",
-    "solucionOrientativa": "Comprobar nodo a nodo si h(n) ≤ coste real mínimo hasta la meta (admisibilidad). Si algún nodo sobreestima, la heurística NO es admisible y A* no garantiza optimalidad. La búsqueda avariciosa NUNCA garantiza optimalidad independientemente de la heurística.",
+    "respuestaModelo": "Comprobar nodo a nodo si h(n) ≤ coste real mínimo hasta la meta (admisibilidad). Si algún nodo sobreestima, la heurística NO es admisible y A* no garantiza optimalidad. La búsqueda avariciosa NUNCA garantiza optimalidad independientemente de la heurística.",
     "criteriosCorreccion": [
       "Verifica admisibilidad comparando h(n) con coste real para cada nodo.",
       "Concluye correctamente sobre admisibilidad.",
@@ -206,10 +206,10 @@
       "tema-3"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Está la siguiente fórmula lógica expresada en forma normal conjuntiva? ¿Qué ventaja tiene expresar las fórmulas en forma normal conjuntiva? Razona tus respuestas.\n\nFórmula: p AND (s OR t) AND (p OR q OR t) AND (s OR p)",
-    "solucionOrientativa": "Sí está en FNC: es una conjunción de cláusulas donde cada cláusula es disyunción de literales. Ventaja: estandarizar la representación facilita aplicar algoritmos de resolución automática (resolución, DPLL) de forma sistemática.",
+    "respuestaModelo": "Sí está en FNC: es una conjunción de cláusulas donde cada cláusula es disyunción de literales. Ventaja: estandarizar la representación facilita aplicar algoritmos de resolución automática (resolución, DPLL) de forma sistemática.",
     "criteriosCorreccion": [
       "Confirma correctamente que está en FNC.",
       "Justifica por qué (conjunción de disyunciones de literales).",
@@ -293,10 +293,10 @@
       "tema-4"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "Si tenemos un problema definido como se indica a continuación:\n\nEstado inicial: ¬Tener(tarta) AND Comida(tarta)\nMeta: Tener(tarta) AND Comida(tarta)\nAcciones:\nComer(tarta): Precondiciones: Tener(tarta) | Efectos: ¬Tener(tarta) AND Comida(tarta)\nHornear(tarta): Precondiciones: ¬Tener(tarta) | Efectos: Tener(tarta)\n\n¿Qué acciones se pueden aplicar a partir del estado inicial? ¿Qué proposiciones definirían el estado resultante? Razona tu respuesta.",
-    "solucionOrientativa": "Desde el estado inicial {¬Tener(tarta), Comida(tarta)}: Comer(tarta) requiere Tener(tarta) → NO aplicable. Hornear(tarta) requiere ¬Tener(tarta) → SÍ aplicable. Estado resultante tras Hornear: {Tener(tarta), Comida(tarta)}. La meta ya está alcanzada.",
+    "respuestaModelo": "Desde el estado inicial {¬Tener(tarta), Comida(tarta)}: Comer(tarta) requiere Tener(tarta) → NO aplicable. Hornear(tarta) requiere ¬Tener(tarta) → SÍ aplicable. Estado resultante tras Hornear: {Tener(tarta), Comida(tarta)}. La meta ya está alcanzada.",
     "criteriosCorreccion": [
       "Verifica precondiciones de cada acción respecto al estado inicial.",
       "Identifica que solo Hornear es aplicable.",
@@ -320,10 +320,10 @@
       "tema-4"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "Si tenemos un problema definido como se indica a continuación:\n\nEstado inicial: ¬Tener(recambio) AND ¬Puesto(recambio)\nMeta: Puesto(recambio)\nAcciones:\nPoner(recambio): Precondiciones: Tener(recambio) AND ¬Puesto(recambio) | Efectos: ¬Tener(recambio) AND Puesto(recambio)\nComprar(recambio): Precondiciones: ¬Tener(recambio) | Efectos: Tener(recambio)\n\n¿Qué acciones se pueden aplicar a partir del estado inicial? ¿Qué proposiciones definirían el estado resultante?",
-    "solucionOrientativa": "Desde {¬Tener(recambio), ¬Puesto(recambio)}: Poner requiere Tener(recambio) → NO aplicable. Comprar requiere ¬Tener(recambio) → SÍ aplicable. Estado resultante tras Comprar: {Tener(recambio), ¬Puesto(recambio)}.",
+    "respuestaModelo": "Desde {¬Tener(recambio), ¬Puesto(recambio)}: Poner requiere Tener(recambio) → NO aplicable. Comprar requiere ¬Tener(recambio) → SÍ aplicable. Estado resultante tras Comprar: {Tener(recambio), ¬Puesto(recambio)}.",
     "criteriosCorreccion": [
       "Solo Comprar es aplicable desde el estado inicial.",
       "Estado resultante correcto: Tener(recambio).",
@@ -755,10 +755,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"La hermana de Juan es Beatriz quien también es hermana de Roberto.\"",
-    "solucionOrientativa": "Juan rdf:type Persona\nBeatriz rdf:type Persona\nRoberto rdf:type Persona\ntienHermana rdf:type owl:ObjectProperty\nJuan tieneHermana Beatriz\nRoberto tieneHermana Beatriz",
+    "respuestaModelo": "Juan rdf:type Persona\nBeatriz rdf:type Persona\nRoberto rdf:type Persona\ntienHermana rdf:type owl:ObjectProperty\nJuan tieneHermana Beatriz\nRoberto tieneHermana Beatriz",
     "criteriosCorreccion": [
       "Define los sujetos como instancias de una clase.",
       "Define tieneHermana como propiedad de objeto.",
@@ -781,10 +781,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"El profesor de Inteligencia Artificial es Juan, quien también imparte Programación.\"",
-    "solucionOrientativa": "Juan rdf:type Persona\nInteligenciaArtificial rdf:type Asignatura\nProgramacion rdf:type Asignatura\nimpartida_por rdfs:domain Asignatura; rdfs:range Persona\nInteligenciaArtificial impartida_por Juan\nProgramacion impartida_por Juan",
+    "respuestaModelo": "Juan rdf:type Persona\nInteligenciaArtificial rdf:type Asignatura\nProgramacion rdf:type Asignatura\nimpartida_por rdfs:domain Asignatura; rdfs:range Persona\nInteligenciaArtificial impartida_por Juan\nProgramacion impartida_por Juan",
     "criteriosCorreccion": [
       "Identifica sujetos, predicados y objetos.",
       "Define clases y propiedad.",
@@ -807,10 +807,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"Roberto vive en Granada y María, que es la hermana de Roberto, también vive en Granada.\"",
-    "solucionOrientativa": "Roberto rdf:type Persona\nMaria rdf:type Persona\nGranada rdf:type Ciudad\nviveEn rdfs:domain Persona; rdfs:range Ciudad\nesHermanaDe rdfs:domain Persona; rdfs:range Persona\nRoberto viveEn Granada\nMaria viveEn Granada\nMaria esHermanaDe Roberto",
+    "respuestaModelo": "Roberto rdf:type Persona\nMaria rdf:type Persona\nGranada rdf:type Ciudad\nviveEn rdfs:domain Persona; rdfs:range Ciudad\nesHermanaDe rdfs:domain Persona; rdfs:range Persona\nRoberto viveEn Granada\nMaria viveEn Granada\nMaria esHermanaDe Roberto",
     "criteriosCorreccion": [
       "Define clases Persona y Ciudad.",
       "Define propiedades viveEn y esHermanaDe.",
@@ -835,10 +835,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"Alfonso, quien es el hijo de Luis, vive en Alemania, mientras que Luis vive en España.\"",
-    "solucionOrientativa": "Alfonso rdf:type Persona\nLuis rdf:type Persona\nAlemania rdf:type Pais\nEspana rdf:type Pais\nesHijoDe rdfs:domain Persona; rdfs:range Persona\nviveEn rdfs:domain Persona; rdfs:range Pais\nAlfonso esHijoDe Luis\nAlfonso viveEn Alemania\nLuis viveEn Espana",
+    "respuestaModelo": "Alfonso rdf:type Persona\nLuis rdf:type Persona\nAlemania rdf:type Pais\nEspana rdf:type Pais\nesHijoDe rdfs:domain Persona; rdfs:range Persona\nviveEn rdfs:domain Persona; rdfs:range Pais\nAlfonso esHijoDe Luis\nAlfonso viveEn Alemania\nLuis viveEn Espana",
     "criteriosCorreccion": [
       "Define clases Persona y País.",
       "Define propiedades esHijoDe y viveEn.",
@@ -861,10 +861,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"La prima de Juan es María quien también es prima de Luis.\"",
-    "solucionOrientativa": "Juan rdf:type Persona\nMaria rdf:type Persona\nLuis rdf:type Persona\ntienePrima rdfs:domain Persona; rdfs:range Persona\nJuan tienePrima Maria\nLuis tienePrima Maria",
+    "respuestaModelo": "Juan rdf:type Persona\nMaria rdf:type Persona\nLuis rdf:type Persona\ntienePrima rdfs:domain Persona; rdfs:range Persona\nJuan tienePrima Maria\nLuis tienePrima Maria",
     "criteriosCorreccion": [
       "Define clase Persona para los tres individuos.",
       "Define propiedad tienePrima.",
@@ -889,10 +889,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"María usa Facebook y Twitter, que son redes sociales. Luis sólo usa Facebook.\"",
-    "solucionOrientativa": "Maria rdf:type Persona\nLuis rdf:type Persona\nFacebook rdf:type RedSocial\nTwitter rdf:type RedSocial\nusa rdfs:domain Persona; rdfs:range RedSocial\nMaria usa Facebook\nMaria usa Twitter\nLuis usa Facebook",
+    "respuestaModelo": "Maria rdf:type Persona\nLuis rdf:type Persona\nFacebook rdf:type RedSocial\nTwitter rdf:type RedSocial\nusa rdfs:domain Persona; rdfs:range RedSocial\nMaria usa Facebook\nMaria usa Twitter\nLuis usa Facebook",
     "criteriosCorreccion": [
       "Define clases Persona y RedSocial.",
       "Define propiedad usa.",
@@ -969,10 +969,10 @@
       "tema-9"
     ],
     "parteExamenId": "parte-cortas",
-    "tipo": "practica",
+    "tipo": "corta",
     "origen": "examen_real",
     "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"Luisa y Luis nacieron en España.\"",
-    "solucionOrientativa": "Luisa rdf:type Persona\nLuis rdf:type Persona\nEspana rdf:type Pais\nnacioEn rdfs:domain Persona; rdfs:range Pais\nLuisa nacioEn Espana\nLuis nacioEn Espana",
+    "respuestaModelo": "Luisa rdf:type Persona\nLuis rdf:type Persona\nEspana rdf:type Pais\nnacioEn rdfs:domain Persona; rdfs:range Pais\nLuisa nacioEn Espana\nLuis nacioEn Espana",
     "criteriosCorreccion": [
       "Define clases.",
       "Define propiedad nacioEn.",

@@ -19,6 +19,7 @@ import './index.css';
 import './App.css';
 import ExamPage from './pages/ExamPage'
 import ExamPartPage from './pages/ExamPartPage'
+import IaicProblemTrainingPage from './pages/IaicProblemTrainingPage'
 
 // ─── Limpieza única de versión anterior ──────────────────────────────────────
 (function performOneTimeReset() {
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="/gestion/previsualizar/:asignaturaId/:temaId" element={<G><PreviewPage /></G>} />
             <Route path="/gestion/editar/:asignaturaId/:temaId" element={<G><EditPage /></G>} />
             <Route path="/asignatura/:asignaturaId/examen" element={<ExamPage />} />
+            <Route path="/asignatura/:asignaturaId/examen/entrenamiento" element={<IaicProblemTrainingPage />} />
             <Route path="/asignatura/:asignaturaId/examen/:parteId" element={<ExamPartPage />} />
             <Route path="/asignatura/:asignaturaId/examen/:parteId/:modeloId" element={<ExamPartPage />} />
           </Routes>
