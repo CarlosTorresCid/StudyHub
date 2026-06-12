@@ -10,14 +10,12 @@
   margin-bottom: 34px;
   padding: 30px 32px;
   border: 1px solid rgba(214, 196, 164, 0.72);
-  border-radius: 24px;
+  border-radius: 22px;
   background:
-    radial-gradient(circle at 8% 0%, rgba(98, 88, 232, 0.10), transparent 34%),
-    radial-gradient(circle at 95% 15%, rgba(200, 121, 16, 0.08), transparent 32%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 242, 0.96));
   box-shadow:
     0 1px 2px rgba(58, 48, 28, 0.04),
-    0 18px 46px rgba(58, 48, 28, 0.08);
+    0 12px 30px rgba(58, 48, 28, 0.065);
   overflow: hidden;
 }
 
@@ -26,7 +24,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), rgba(98, 88, 232, 0.25), transparent);
+  background: linear-gradient(90deg, var(--accent), rgba(98, 88, 232, 0.28), transparent);
 }
 
 .dashboard-header h1 {
@@ -34,7 +32,7 @@
   z-index: 1;
   font-size: 36px;
   font-weight: 800;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   color: var(--text);
 }
 
@@ -60,21 +58,15 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 190px;
+  min-height: 188px;
   padding: 24px;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--subject-color) 10%, transparent),
-      transparent 36%
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 252, 247, 0.98));
+  background: rgba(255, 254, 250, 0.88);
   border: 1px solid rgba(214, 196, 164, 0.72);
-  border-radius: 22px;
+  border-radius: 18px;
   box-shadow:
     0 1px 2px rgba(58, 48, 28, 0.035),
-    0 10px 28px rgba(58, 48, 28, 0.055);
+    0 6px 18px rgba(58, 48, 28, 0.045);
   transition:
     transform var(--transition),
     border-color var(--transition),
@@ -82,78 +74,202 @@
     background var(--transition);
 }
 
-.subject-card::after {
-  content: "";
-  position: absolute;
-  right: -54px;
-  top: -54px;
-  width: 132px;
-  height: 132px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--subject-color) 8%, transparent);
-  pointer-events: none;
-  transition: transform var(--transition), opacity var(--transition);
-}
-
 .subject-card:hover {
-  border-color: color-mix(in srgb, var(--subject-color) 45%, var(--border));
-  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--subject-color) 38%, var(--border));
+  transform: translateY(-1px);
+  background: #fffefa;
   box-shadow:
-    0 2px 5px rgba(58, 48, 28, 0.055),
-    0 20px 48px rgba(58, 48, 28, 0.11);
-}
-
-.subject-card:hover::after {
-  transform: scale(1.18);
-  opacity: 0.95;
+    0 2px 4px rgba(58, 48, 28, 0.045),
+    0 10px 24px rgba(58, 48, 28, 0.07);
 }
 
 .subject-card:hover .subject-card-bar {
   opacity: 1;
-  height: 4px;
 }
 
+.subject-card:hover .subject-card-pattern {
+  opacity: 0.82;
+  transform: scale(1.015);
+}
+
+/* Capa abstracta de patrón técnico */
+.subject-card-pattern {
+  position: absolute;
+  inset: 4px;
+  z-index: 0;
+  border-radius: 15px;
+  pointer-events: none;
+  opacity: 0.62;
+  transform-origin: center;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+/* Línea superior de asignatura */
 .subject-card-bar {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--subject-color),
-    color-mix(in srgb, var(--subject-color) 38%, #ffffff),
-    transparent
-  );
-  opacity: 0.75;
-  transition: opacity var(--transition), height var(--transition);
+  background: var(--subject-color);
+  opacity: 0.72;
+  transition: opacity var(--transition);
 }
+
+/* ── Patrones por asignatura ─────────────────────────────────── */
+
+/* SMPC — red multiagente / nodos */
+.subject-card--smpc .subject-card-pattern {
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0 58%,
+      color-mix(in srgb, var(--subject-color) 8%, transparent) 58% 59%,
+      transparent 59% 100%
+    ),
+    linear-gradient(
+      32deg,
+      transparent 0 50%,
+      color-mix(in srgb, var(--subject-color) 7%, transparent) 50% 51%,
+      transparent 51% 100%
+    ),
+    radial-gradient(circle at 22% 24%, color-mix(in srgb, var(--subject-color) 26%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 70% 18%, color-mix(in srgb, var(--subject-color) 18%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 82% 64%, color-mix(in srgb, var(--subject-color) 16%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 38% 78%, color-mix(in srgb, var(--subject-color) 14%, transparent) 0 2px, transparent 2.8px);
+}
+
+/* CASI — checklist / auditoría */
+.subject-card--casi .subject-card-pattern {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--subject-color) 12%, transparent) 0 1px,
+      transparent 1px 100%
+    ) 0 0 / 34px 34px,
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--subject-color) 9%, transparent) 0 1px,
+      transparent 1px 100%
+    ) 0 0 / 34px 34px,
+    linear-gradient(
+      135deg,
+      transparent 0 14%,
+      color-mix(in srgb, var(--subject-color) 12%, transparent) 14% 15%,
+      transparent 15% 100%
+    );
+}
+
+/* TE — circuitos / pistas técnicas */
+.subject-card--te .subject-card-pattern {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 18%,
+      color-mix(in srgb, var(--subject-color) 14%, transparent) 18% 18.8%,
+      transparent 18.8% 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0 30%,
+      color-mix(in srgb, var(--subject-color) 11%, transparent) 30% 31%,
+      transparent 31% 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 70%,
+      color-mix(in srgb, var(--subject-color) 12%, transparent) 70% 71%,
+      transparent 71% 100%
+    ),
+    radial-gradient(circle at 18% 30%, color-mix(in srgb, var(--subject-color) 22%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--subject-color) 18%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 70% 74%, color-mix(in srgb, var(--subject-color) 16%, transparent) 0 2px, transparent 2.8px);
+}
+
+/* IAIC — grafo de conocimiento */
+.subject-card--iaic .subject-card-pattern {
+  background:
+    linear-gradient(
+      24deg,
+      transparent 0 42%,
+      color-mix(in srgb, var(--subject-color) 9%, transparent) 42% 43%,
+      transparent 43% 100%
+    ),
+    linear-gradient(
+      152deg,
+      transparent 0 48%,
+      color-mix(in srgb, var(--subject-color) 8%, transparent) 48% 49%,
+      transparent 49% 100%
+    ),
+    radial-gradient(circle at 18% 62%, color-mix(in srgb, var(--subject-color) 20%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 42% 28%, color-mix(in srgb, var(--subject-color) 18%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 76% 38%, color-mix(in srgb, var(--subject-color) 16%, transparent) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 68% 78%, color-mix(in srgb, var(--subject-color) 14%, transparent) 0 2px, transparent 2.8px);
+}
+
+/* AAMD — datos / barras / minería */
+.subject-card--aamd .subject-card-pattern {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0 62%,
+      color-mix(in srgb, var(--subject-color) 10%, transparent) 62% 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 12%,
+      color-mix(in srgb, var(--subject-color) 18%, transparent) 12% 18%,
+      transparent 18% 28%,
+      color-mix(in srgb, var(--subject-color) 12%, transparent) 28% 34%,
+      transparent 34% 44%,
+      color-mix(in srgb, var(--subject-color) 16%, transparent) 44% 50%,
+      transparent 50% 60%,
+      color-mix(in srgb, var(--subject-color) 9%, transparent) 60% 66%,
+      transparent 66% 100%
+    );
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 100%);
+}
+
+/* ISA — capas / arquitectura */
+.subject-card--isa .subject-card-pattern {
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 32%,
+      color-mix(in srgb, var(--subject-color) 10%, transparent) 32% 33%,
+      transparent 33% 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0 48%,
+      color-mix(in srgb, var(--subject-color) 8%, transparent) 48% 49%,
+      transparent 49% 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0 64%,
+      color-mix(in srgb, var(--subject-color) 7%, transparent) 64% 65%,
+      transparent 65% 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--subject-color) 7%, transparent) 0 1px,
+      transparent 1px 100%
+    ) 0 0 / 100% 26px;
+}
+
+/* ── Contenido ───────────────────────────────────────────────── */
 
 .subject-card-top {
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.subject-card-icon {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  font-size: 22px;
-  border-radius: 16px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.9),
-      color-mix(in srgb, var(--subject-color) 11%, #ffffff)
-    );
-  border: 1px solid color-mix(in srgb, var(--subject-color) 20%, var(--border));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.75),
-    0 10px 22px color-mix(in srgb, var(--subject-color) 12%, transparent);
+  justify-content: flex-end;
+  min-height: 32px;
 }
 
 .subject-card-abrev {
@@ -162,27 +278,24 @@
   font-size: 11px;
   letter-spacing: 0.09em;
   color: var(--subject-color);
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--subject-color) 13%, #ffffff),
-      color-mix(in srgb, var(--subject-color) 8%, #ffffff)
-    );
-  border: 1px solid color-mix(in srgb, var(--subject-color) 18%, transparent);
+  background: color-mix(in srgb, var(--subject-color) 8%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--subject-color) 16%, transparent);
   padding: 4px 10px;
   border-radius: 999px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  box-shadow: none;
 }
 
 .subject-card-name {
   position: relative;
   z-index: 1;
-  font-size: 15.5px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
   font-weight: 800;
-  line-height: 1.35;
+  line-height: 1.32;
   color: var(--text);
   flex: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  max-width: 88%;
 }
 
 .subject-card-bottom {
@@ -194,7 +307,7 @@
   gap: 12px;
   margin-top: auto;
   padding-top: 12px;
-  border-top: 1px solid rgba(214, 196, 164, 0.5);
+  border-top: 1px solid rgba(214, 196, 164, 0.52);
 }
 
 .subject-card-stat {
@@ -211,9 +324,9 @@
 }
 
 .subject-card-stat-val {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
-  font-family: 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   color: var(--text);
 }
 
@@ -230,8 +343,8 @@
   color: var(--text-dim);
   font-size: 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(214, 196, 164, 0.55);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(214, 196, 164, 0.58);
   transition:
     transform var(--transition),
     color var(--transition),
@@ -240,10 +353,10 @@
 }
 
 .subject-card:hover .subject-card-arrow {
-  transform: translateX(4px);
+  transform: translateX(3px);
   color: var(--subject-color);
-  background: color-mix(in srgb, var(--subject-color) 8%, #ffffff);
-  border-color: color-mix(in srgb, var(--subject-color) 22%, var(--border));
+  background: color-mix(in srgb, var(--subject-color) 6%, #ffffff);
+  border-color: color-mix(in srgb, var(--subject-color) 18%, var(--border));
 }
 
 @media (max-width: 768px) {
@@ -253,7 +366,7 @@
 
   .dashboard-header {
     padding: 24px 22px;
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .dashboard-header h1 {
@@ -270,6 +383,10 @@
 
   .subject-card {
     min-height: unset;
-    border-radius: 18px;
+    border-radius: 16px;
+  }
+
+  .subject-card-name {
+    max-width: 100%;
   }
 }

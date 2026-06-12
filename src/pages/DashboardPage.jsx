@@ -26,7 +26,9 @@ export default function DashboardPage() {
           const ultimoSim = simulationService.getLastCompleted(a.id);
           const temasCount = a.temas?.length || 0;
 
-          let scorePct = null, scoreLabel = null;
+          let scorePct = null;
+          let scoreLabel = null;
+
           if (ultimoSim?.resultado?.globalAuto !== null && ultimoSim?.resultado?.globalAuto !== undefined) {
             scorePct = ultimoSim.resultado.globalAuto;
             scoreLabel = 'Último simulacro';
@@ -36,27 +38,49 @@ export default function DashboardPage() {
           }
 
           return (
-            <Link key={a.id} to={`/asignatura/${a.id}`} className="subject-card" style={{ '--subject-color': a.color }}>
+            <Link
+              key={a.id}
+              to={`/asignatura/${a.id}`}
+              className={`subject-card subject-card--${a.id}`}
+              style={{ '--subject-color': a.color }}
+            >
+              <div className="subject-card-pattern" aria-hidden="true" />
+
               <div className="subject-card-top">
-                <span className="subject-card-icon">{a.icono}</span>
                 <span className="subject-card-abrev">{a.abreviatura}</span>
               </div>
+
               <h2 className="subject-card-name">{a.nombre}</h2>
+
               <div className="subject-card-bottom">
                 {scorePct !== null ? (
                   <div className="subject-card-stat">
                     <span className="subject-card-stat-label">{scoreLabel}</span>
-                    <span className="subject-card-stat-val" style={{
-                      color: scorePct >= 70 ? 'var(--success)' : scorePct >= 50 ? 'var(--warning)' : 'var(--danger)'
-                    }}>{scorePct}%</span>
+                    <span
+                      className="subject-card-stat-val"
+                      style={{
+                        color:
+                          scorePct >= 70
+                            ? 'var(--success)'
+                            : scorePct >= 50
+                              ? 'var(--warning)'
+                              : 'var(--danger)',
+                      }}
+                    >
+                      {scorePct}%
+                    </span>
                   </div>
                 ) : (
                   <span className="subject-card-pending">
-                    {temasCount > 0 ? `${temasCount} tema${temasCount > 1 ? 's' : ''}` : 'Sin temas publicados'}
+                    {temasCount > 0
+                      ? `${temasCount} tema${temasCount > 1 ? 's' : ''}`
+                      : 'Sin temas publicados'}
                   </span>
                 )}
+
                 <span className="subject-card-arrow">→</span>
               </div>
+
               <div className="subject-card-bar" />
             </Link>
           );

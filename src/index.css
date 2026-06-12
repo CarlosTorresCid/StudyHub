@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  --bg: #fbf7ef;
+  --bg: #fbf8f2;
   --surface: #fffefa;
   --surface2: #f7f2e9;
   --surface3: #ede5d7;
@@ -13,25 +13,25 @@
   --text-reading: #1f2937;
 
   --accent: #6258e8;
-  --accent-soft: rgba(98, 88, 232, 0.11);
+  --accent-soft: rgba(98, 88, 232, 0.10);
 
   --success: #15945e;
-  --success-soft: rgba(21, 148, 94, 0.11);
+  --success-soft: rgba(21, 148, 94, 0.10);
   --danger: #d74646;
-  --danger-soft: rgba(215, 70, 70, 0.11);
+  --danger-soft: rgba(215, 70, 70, 0.10);
   --warning: #c87910;
-  --warning-soft: rgba(200, 121, 16, 0.13);
+  --warning-soft: rgba(200, 121, 16, 0.12);
 
-  --radius: 13px;
+  --radius: 12px;
   --radius-sm: 9px;
-  --radius-lg: 20px;
+  --radius-lg: 18px;
   --sidebar-width: 260px;
   --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 
   --shadow-xs: 0 1px 2px rgba(58, 48, 28, 0.04);
-  --shadow-sm: 0 1px 2px rgba(58, 48, 28, 0.05), 0 5px 14px rgba(58, 48, 28, 0.055);
-  --shadow-md: 0 2px 5px rgba(58, 48, 28, 0.06), 0 14px 34px rgba(58, 48, 28, 0.08);
-  --shadow-lg: 0 4px 12px rgba(58, 48, 28, 0.07), 0 24px 60px rgba(58, 48, 28, 0.12);
+  --shadow-sm: 0 1px 2px rgba(58, 48, 28, 0.05), 0 4px 12px rgba(58, 48, 28, 0.045);
+  --shadow-md: 0 2px 5px rgba(58, 48, 28, 0.055), 0 10px 24px rgba(58, 48, 28, 0.065);
+  --shadow-lg: 0 4px 12px rgba(58, 48, 28, 0.07), 0 20px 48px rgba(58, 48, 28, 0.10);
 }
 
 * {
@@ -58,13 +58,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fondo cálido, pero menos “template IA”: menos halos y retícula muy sutil */
 body {
   background:
-    radial-gradient(900px 460px at 82% -6%, rgba(98, 88, 232, 0.075), transparent 62%),
-    radial-gradient(780px 420px at -10% 5%, rgba(200, 121, 16, 0.06), transparent 60%),
-    radial-gradient(760px 440px at 55% 105%, rgba(21, 148, 94, 0.035), transparent 62%),
-    radial-gradient(rgba(58, 48, 28, 0.045) 1px, transparent 1px) 0 0 / 26px 26px,
-    linear-gradient(180deg, #fffaf2 0%, #fbf7ef 44%, #f7f1e7 100%);
+    radial-gradient(rgba(58, 48, 28, 0.022) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(180deg, #fffaf3 0%, #fbf8f2 48%, #f8f2e8 100%);
 }
 
 #root {
@@ -72,14 +70,15 @@ body {
 }
 
 ::selection {
-  background: rgba(98, 88, 232, 0.2);
+  background: rgba(98, 88, 232, 0.18);
 }
 
+/* Syne deja de dominar toda la UI. Se reserva para logo, abreviaturas y números puntuales. */
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   line-height: 1.2;
 }
 
@@ -138,32 +137,33 @@ a:focus-visible,
   }
 }
 
+/* Badges más planos y menos “chicle” */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: 100px;
   font-size: 10.5px;
-  font-weight: 750;
-  letter-spacing: 0.045em;
+  font-weight: 700;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
-  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  box-shadow: none;
 }
 
 .badge-alta {
-  background: var(--danger-soft);
+  background: rgba(215, 70, 70, 0.08);
   color: var(--danger);
 }
 
 .badge-media {
-  background: var(--warning-soft);
+  background: rgba(200, 121, 16, 0.09);
   color: var(--warning);
 }
 
 .badge-baja {
-  background: var(--success-soft);
+  background: rgba(21, 148, 94, 0.08);
   color: var(--success);
 }
 
@@ -179,7 +179,7 @@ a:focus-visible,
   gap: 8px;
   min-height: 38px;
   padding: 9px 18px;
-  border-radius: 11px;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 700;
   transition:
@@ -194,42 +194,39 @@ a:focus-visible,
   transform: translateY(0) scale(0.985);
 }
 
+/* Primario con personalidad, pero menos landing-page */
 .btn-primary {
-  background: linear-gradient(180deg, #756df5, var(--accent));
+  background: #6258e8;
   color: #fff;
-  border: 1px solid rgba(98, 88, 232, 0.82);
+  border: 1px solid rgba(98, 88, 232, 0.86);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 1px 2px rgba(98, 88, 232, 0.25),
-    0 8px 18px rgba(98, 88, 232, 0.18);
+    0 1px 2px rgba(98, 88, 232, 0.20),
+    0 6px 14px rgba(98, 88, 232, 0.16);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(180deg, #827af8, #6c63ee);
+  background: #554bd8;
   transform: translateY(-1px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 6px 18px rgba(98, 88, 232, 0.32);
+    0 2px 4px rgba(98, 88, 232, 0.22),
+    0 8px 18px rgba(98, 88, 232, 0.22);
 }
 
 .btn-primary:active {
-  background: var(--accent);
+  background: #4f46d0;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
+/* Secundarios más profesionales, sin exceso de degradado */
 .btn-ghost {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 252, 247, 0.96));
+  background: rgba(255, 255, 255, 0.72);
   color: var(--text-muted);
   border: 1px solid rgba(214, 196, 164, 0.78);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.65),
-    var(--shadow-xs);
+  box-shadow: var(--shadow-xs);
 }
 
 .btn-ghost:hover {
-  background:
-    linear-gradient(180deg, #ffffff, var(--surface2));
+  background: #fffefa;
   color: var(--text);
   border-color: #cfc5b2;
   transform: translateY(-1px);
@@ -247,42 +244,41 @@ a:focus-visible,
 }
 
 .btn-download {
-  background: linear-gradient(180deg, #2ed06b, #1cb45a);
+  background: #16a34a;
   color: #ffffff;
-  border: 1px solid #1cb45a;
+  border: 1px solid #159947;
   min-height: 36px;
   padding: 8px 14px;
   font-size: 13px;
   font-weight: 750;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    0 1px 2px rgba(28, 180, 90, 0.3),
-    0 8px 18px rgba(28, 180, 90, 0.14);
+    0 1px 2px rgba(22, 163, 74, 0.22),
+    0 6px 14px rgba(22, 163, 74, 0.14);
 }
 
 .btn-download:hover {
-  background: linear-gradient(180deg, #10b981, #059669);
+  background: #15803d;
   color: #ffffff;
-  border-color: #059669;
-  box-shadow: 0 6px 14px rgba(5, 150, 105, 0.24);
+  border-color: #15803d;
+  box-shadow: 0 6px 14px rgba(21, 128, 61, 0.22);
   transform: translateY(-1px);
 }
 
 .btn-download:focus,
 .btn-download:focus-visible {
-  background: #10b981;
+  background: #16a34a;
   color: #ffffff;
-  border-color: #10b981;
-  outline: 3px solid rgba(16, 185, 129, 0.25);
+  border-color: #16a34a;
+  outline: 3px solid rgba(22, 163, 74, 0.22);
   outline-offset: 2px;
 }
 
 .btn-download:active {
-  background: #047857;
+  background: #166534;
   color: #ffffff;
-  border-color: #047857;
+  border-color: #166534;
   transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(4, 120, 87, 0.2);
+  box-shadow: 0 3px 8px rgba(22, 101, 52, 0.18);
 }
 
 .btn-download:disabled {

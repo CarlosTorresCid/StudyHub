@@ -281,6 +281,7 @@ const handleSaveQuestion = async (updatedQuestion) => {
       </nav>
 
       <header className="exam-part-header">
+
         <div className="exam-part-header-top">
           <div className="exam-part-title">
             <span className="exam-part-title-icon">{part.icono || '📝'}</span>
