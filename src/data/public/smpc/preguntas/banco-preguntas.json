@@ -5224,7 +5224,7 @@
     "grupoTematico": "Programación con JADE",
     "patronRelacionado": "Comportamientos JADE y performativa REQUEST",
     "origen": "recopilada",
-    "enunciado": "El agente que decide cuándo lanzar la orden de limpieza debe: (a) escuchar continuamente los resultados del análisis de imagen y (b) enviar la orden al robot. Indica qué tipo de comportamiento JADE usarías para cada tarea, justificándolo, y qué performativa ACL sería la más adecuada para solicitar la limpieza al robot y por qué. (Parque solar)",
+    "enunciado": "El agente que decide cuándo lanzar la orden de limpieza debe: \n(a) escuchar continuamente los resultados del análisis de imagen\n(b) enviar la orden al robot mediante un mensaje. Describe qué tipo de comportamiento JADE usaría para cada una de estas dos tareas, justificando tu elección. \nExplica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
     "respuestaModelo": "Para escuchar continuamente los resultados del análisis de imagen se usaría un CyclicBehaviour, porque se ejecuta indefinidamente y es adecuado para una monitorización constante.\n\nPara enviar la orden de limpieza se usaría un OneShotBehaviour, porque la orden es una acción puntual que debe ejecutarse una sola vez cuando se detecta la condición de suciedad.\n\nLa performativa ACL más adecuada es REQUEST, ya que expresa que el agente emisor solicita al receptor que realice una acción concreta, en este caso ejecutar la limpieza.",
     "explicacion": "Para escuchar continuamente los resultados del análisis de imagen se usaría un CyclicBehaviour, porque se ejecuta indefinidamente y es adecuado para una monitorización constante.\n\nPara enviar la orden de limpieza se usaría un OneShotBehaviour, porque la orden es una acción puntual que debe ejecutarse una sola vez cuando se detecta la condición de suciedad.\n\nLa performativa ACL más adecuada es REQUEST, ya que expresa que el agente emisor solicita al receptor que realice una acción concreta, en este caso ejecutar la limpieza.",
     "fuentes": [
@@ -5349,7 +5349,7 @@
     "grupoTematico": "Transformación de imágenes digitales",
     "patronRelacionado": "Fourier e interferencia periódica",
     "origen": "recopilada",
-    "enunciado": "Las imágenes presentan un patrón periódico de interferencia por el reflejo del sol. ¿Qué ventaja ofrece el dominio de la frecuencia frente a trabajar sobre los píxeles? ¿Qué ocurre con los datos al aplicar la Transformada de Fourier? (Parque solar)",
+    "enunciado": "Las imágenes capturadas presentan un patrón periódico de interferencia causado por el reflejo del sol sobre el panel (una trama regular y repetitiva que enmascara la suciedad). ¿Qué ventaja fundamental ofrece trabajar en el dominio de la frecuencia para eliminar ese patrón de interferencia, frente a trabajar directamente sobre los píxeles de la imagen? ¿Qué ocurre con los datos de la imagen cuando se aplica la Transformada de Fourier?",
     "respuestaModelo": "La ventaja fundamental de trabajar en el dominio de la frecuencia es que los patrones periódicos aparecen concentrados en componentes frecuenciales concretas. Esto permite localizarlos y eliminarlos de forma selectiva, sin modificar de manera indiscriminada todos los píxeles de la imagen.\n\nAl aplicar la Transformada de Fourier, la imagen deja de representarse directamente por intensidades espaciales de píxeles y pasa a representarse como componentes de frecuencia. Cada valor de salida en el dominio frecuencial depende de todos los píxeles de entrada, por lo que es una transformación global. La señal se descompone en una componente media o DC y en componentes sinusoidales o armónicos.",
     "explicacion": "La ventaja fundamental de trabajar en el dominio de la frecuencia es que los patrones periódicos aparecen concentrados en componentes frecuenciales concretas. Esto permite localizarlos y eliminarlos de forma selectiva, sin modificar de manera indiscriminada todos los píxeles de la imagen.\n\nAl aplicar la Transformada de Fourier, la imagen deja de representarse directamente por intensidades espaciales de píxeles y pasa a representarse como componentes de frecuencia. Cada valor de salida en el dominio frecuencial depende de todos los píxeles de entrada, por lo que es una transformación global. La señal se descompone en una componente media o DC y en componentes sinusoidales o armónicos.",
     "fuentes": [
@@ -5538,7 +5538,7 @@
     "grupoTematico": "Segmentación de imágenes",
     "patronRelacionado": "Criterios y técnicas de segmentación",
     "origen": "recopilada",
-    "enunciado": "Tras eliminar la interferencia, el sistema aplica segmentación para aislar las zonas sucias. Explica qué criterios siguen los algoritmos de segmentación para encontrar regiones, y nombra y describe brevemente las tres categorías principales de técnicas. (Parque solar)",
+    "enunciado": "Una vez eliminada la interferencia, el sistema necesita aislar las zonas sucias de la placa. Para ello aplica segmentación. Explica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.",
     "respuestaModelo": "Los algoritmos de segmentación buscan regiones significativas basándose principalmente en dos criterios: homogeneidad interna y contraste con las regiones vecinas. La homogeneidad implica que los píxeles de una región comparten propiedades similares, como color, textura o nivel de gris. El contraste implica que esas regiones se diferencian claramente de su entorno o frontera.\n\nLas tres categorías principales son: crecimiento y contracción de regiones, que agrupa o reduce regiones conectadas en el dominio espacial; métodos de agrupamiento o clustering, que agrupan píxeles según características en espacios n-dimensionales; y detección de bordes o contornos, que localiza discontinuidades para delimitar objetos.",
     "explicacion": "Los algoritmos de segmentación buscan regiones significativas basándose principalmente en dos criterios: homogeneidad interna y contraste con las regiones vecinas. La homogeneidad implica que los píxeles de una región comparten propiedades similares, como color, textura o nivel de gris. El contraste implica que esas regiones se diferencian claramente de su entorno o frontera.\n\nLas tres categorías principales son: crecimiento y contracción de regiones, que agrupa o reduce regiones conectadas en el dominio espacial; métodos de agrupamiento o clustering, que agrupan píxeles según características en espacios n-dimensionales; y detección de bordes o contornos, que localiza discontinuidades para delimitar objetos.",
     "fuentes": [
@@ -5761,6 +5761,139 @@
       "Pregunta 9"
     ],
     "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 9",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "id": "smpc-desarrollo-010",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-1",
+      "tema-2",
+      "tema-3"
+    ],
+    "grupoTematico": "Agentes JADE, AID y arquitectura BDI",
+    "patronRelacionado": "Comunicación remota entre agentes y elección de arquitectura BDI",
+    "origen": "recopilada",
+    "enunciado": "Dos agentes JADE se están comunicando, pero uno está en una plataforma remota diferente. Explica para qué se usan las direcciones incluidas en el AID del agente.\n\nAdemás, un hospital quiere automatizar la detección de tumores en imágenes de resonancia magnética. El sistema debe analizar cientos de imágenes al día de forma autónoma y alertar al médico solo cuando detecte una anomalía. Una vez detectada una anomalía, el sistema lanza una alerta. El arquitecto propone usar un agente software para gestionar esta monitorización continua.\n\n¿Qué tipo de agente —reactivo, proactivo o BDI— sería más adecuado para un sistema que no solo responde a anomalías, sino que también planifica revisiones periódicas y se adapta al historial del paciente? Justifica tu elección describiendo las características de ese tipo de agente.",
+    "respuestaModelo": "Las direcciones incluidas en el AID sirven para localizar al agente cuando se encuentra en una plataforma remota. El AID identifica de forma única al agente y sus direcciones indican los puntos de acceso o transporte mediante los que otros agentes pueden enviarle mensajes, incluso si está fuera de la plataforma local.\n\nPara el sistema hospitalario sería más adecuado un agente BDI. Un agente puramente reactivo solo respondería a estímulos inmediatos, como la detección de una anomalía. Un agente proactivo podría tomar iniciativa y programar acciones, pero el modelo BDI encaja mejor cuando el agente debe gestionar conocimiento del entorno y del paciente, objetivos y planes.\n\nEn BDI, las creencias representan la información disponible, como resultados de análisis, historial clínico y estado del paciente. Los deseos representan objetivos, como detectar anomalías, reducir falsos negativos o programar revisiones. Las intenciones son los planes concretos que el agente decide ejecutar, como lanzar una alerta, planificar una revisión o priorizar un caso. Por eso BDI es adecuado para monitorización continua, adaptación al historial y planificación de acciones.",
+    "explicacion": "Las direcciones incluidas en el AID sirven para localizar al agente cuando se encuentra en una plataforma remota. El AID identifica de forma única al agente y sus direcciones indican los puntos de acceso o transporte mediante los que otros agentes pueden enviarle mensajes, incluso si está fuera de la plataforma local.\n\nPara el sistema hospitalario sería más adecuado un agente BDI. Un agente puramente reactivo solo respondería a estímulos inmediatos, como la detección de una anomalía. Un agente proactivo podría tomar iniciativa y programar acciones, pero el modelo BDI encaja mejor cuando el agente debe gestionar conocimiento del entorno y del paciente, objetivos y planes.\n\nEn BDI, las creencias representan la información disponible, como resultados de análisis, historial clínico y estado del paciente. Los deseos representan objetivos, como detectar anomalías, reducir falsos negativos o programar revisiones. Las intenciones son los planes concretos que el agente decide ejecutar, como lanzar una alerta, planificar una revisión o priorizar un caso. Por eso BDI es adecuado para monitorización continua, adaptación al historial y planificación de acciones.",
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Desarrollo añadido"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 10"
+    ],
+    "observaciones": "Añadida como variante de desarrollo sobre AID remoto y elección de arquitectura BDI en un sistema de visión médica.",
+    "criteriosCorreccion": [
+      "Explica que el AID identifica de forma única al agente.",
+      "Indica que las direcciones del AID permiten localizar o contactar con agentes en plataformas remotas.",
+      "Diferencia agente reactivo, proactivo y BDI de forma razonada.",
+      "Selecciona BDI como opción más adecuada para el caso hospitalario.",
+      "Relaciona creencias con información del paciente, imágenes o resultados del análisis.",
+      "Relaciona deseos con objetivos del sistema.",
+      "Relaciona intenciones con planes o acciones concretas como alertas o revisiones."
+    ],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 10,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 10"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 10",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "id": "smpc-desarrollo-011",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-7",
+      "tema-8",
+      "tema-10"
+    ],
+    "grupoTematico": "Visión artificial médica y segmentación por umbralización",
+    "patronRelacionado": "Pipeline de visión por computador y umbralización en escala de grises",
+    "origen": "recopilada",
+    "enunciado": "Un hospital quiere automatizar la detección de tumores en imágenes de resonancia magnética. El sistema debe analizar cientos de imágenes al día de forma autónoma y alertar al médico solo cuando detecte una anomalía. Para ello se plantea combinar un sistema de visión artificial con una arquitectura de agentes software.\n\nUna vez el sistema detecta una anomalía, lanza una alerta. El arquitecto del sistema propone usar un agente software para gestionar este proceso de monitorización continua. ¿Qué tipo de agente —reactivo, proactivo o BDI— sería más adecuado para un sistema que no solo responde a anomalías sino que también planifica revisiones periódicas y se adapta al historial del paciente? Justifica tu elección describiendo las características de ese tipo de agente.\nPregunta 2 (2 pts): Una vez eliminada la interferencia, el sistema necesita aislar las zonas sucias de la placa. Para ello aplica segmentación. Explica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.\nPregunta 3 (2 pts): El agente software que decide cuándo lanzar la orden de limpieza debe: (a) escuchar continuamente los resultados del análisis de imagen, y (b) enviar la orden al robot mediante un mensaje. Describe qué tipo de comportamiento JADE usaría para cada una de estas dos tareas, justificando tu elección. Explica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
+    "respuestaModelo": "El sistema corresponde a una aplicación de visión por computador, porque la imagen no se procesa principalmente para que la interprete una persona, sino para que una máquina analice automáticamente las imágenes y tome una decisión o genere una alerta. La finalidad es automatizar la detección de anomalías.\n\nLas dos primeras etapas del pipeline serían la adquisición/captura de la imagen y el preprocesamiento. La adquisición consiste en obtener la imagen digital a partir del dispositivo de captura. El preprocesamiento prepara la imagen para el análisis posterior, por ejemplo eliminando ruido, mejorando el contraste, normalizando intensidades o reduciendo información irrelevante.\n\nLa segmentación por umbralización consiste en comparar la intensidad de cada píxel de una imagen en escala de grises con un valor umbral. Los píxeles cuyo valor supera el umbral se asignan a una clase, normalmente objeto o primer plano, y los que no lo superan se asignan al fondo. El resultado habitual es una imagen binaria.\n\nPara que la umbralización sea efectiva, la región de interés debe tener intensidades claramente diferenciadas respecto al fondo y la iluminación o distribución de intensidades debe ser suficientemente uniforme. Si no se cumple esta condición, una alternativa es usar umbralización adaptativa/local, segmentación por regiones, clustering o métodos basados en bordes, dependiendo del tipo de imagen y del problema.",
+    "explicacion": "El sistema corresponde a una aplicación de visión por computador, porque la imagen no se procesa principalmente para que la interprete una persona, sino para que una máquina analice automáticamente las imágenes y tome una decisión o genere una alerta. La finalidad es automatizar la detección de anomalías.\n\nLas dos primeras etapas del pipeline serían la adquisición/captura de la imagen y el preprocesamiento. La adquisición consiste en obtener la imagen digital a partir del dispositivo de captura. El preprocesamiento prepara la imagen para el análisis posterior, por ejemplo eliminando ruido, mejorando el contraste, normalizando intensidades o reduciendo información irrelevante.\n\nLa segmentación por umbralización consiste en comparar la intensidad de cada píxel de una imagen en escala de grises con un valor umbral. Los píxeles cuyo valor supera el umbral se asignan a una clase, normalmente objeto o primer plano, y los que no lo superan se asignan al fondo. El resultado habitual es una imagen binaria.\n\nPara que la umbralización sea efectiva, la región de interés debe tener intensidades claramente diferenciadas respecto al fondo y la iluminación o distribución de intensidades debe ser suficientemente uniforme. Si no se cumple esta condición, una alternativa es usar umbralización adaptativa/local, segmentación por regiones, clustering o métodos basados en bordes, dependiendo del tipo de imagen y del problema.",
+    "fuentes": [
+      "Recopilatorio_Preguntas_SMPC.pdf — Desarrollo añadido"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 11"
+    ],
+    "observaciones": "Añadida como variante de desarrollo sobre visión por computador, pipeline de imagen médica y umbralización.",
+    "criteriosCorreccion": [
+      "Identifica correctamente el caso como visión por computador.",
+      "Justifica que la máquina analiza automáticamente las imágenes y toma decisiones o genera alertas.",
+      "Describe la adquisición/captura como primera etapa del pipeline.",
+      "Describe el preprocesamiento como etapa para reducir ruido, mejorar contraste o preparar la imagen.",
+      "Explica la umbralización como comparación de intensidades con un valor umbral.",
+      "Indica que la salida habitual de la umbralización es una imagen binaria.",
+      "Explica que debe existir diferencia clara de intensidad entre región de interés y fondo.",
+      "Propone alternativas como umbralización adaptativa, segmentación por regiones, clustering o bordes si la condición no se cumple."
+    ],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 11,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 11"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 11",
     "esPreguntaTipo": false,
     "convocatorias": [],
     "extensionIndicada": "Respuesta de desarrollo",

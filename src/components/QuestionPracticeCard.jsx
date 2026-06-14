@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './QuestionPracticeCard.css';
+import { testStatsService, TRACKED_SUBJECTS, STATS_UPDATED_EVENT } from '../services/testStatsService';
 
 const TIPO_LABELS = {
   test: 'Test',
@@ -207,21 +208,33 @@ function QuestionDetails({ q }) {
 
 // ─── Tipo test ────────────────────────────────────────────────────────────────
 
-function TestCard({ q }) {
+function TestCard({ q, asignaturaId }) {
   const [selected, setSelected] = useState(null);
   const [checked, setChecked] = useState(false);
+  const [recorded, setRecorded] = useState(false);
 
   const opciones = Array.isArray(q.opciones) && q.opciones.length > 0 ? q.opciones : null;
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
+  const trackStats = TRACKED_SUBJECTS.includes(asignaturaId);
 
-  const handleCheck = () => setChecked(true);
+  const handleCheck = () => {
+    setChecked(true);
+
+    if (trackStats && hasAnswer && !recorded) {
+      testStatsService.recordQuestionResult(asignaturaId, q.id, selected === q.respuestaCorrecta);
+      setRecorded(true);
+      window.dispatchEvent(new Event(STATS_UPDATED_EVENT));
+    }
+  };
 
   const handleSelect = (i) => {
     setSelected(i);
     setChecked(false);
+    setRecorded(false);
   };
 
   const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
+  const questionStats = trackStats ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
 
   function opcionClass(i) {
     if (!checked) return selected === i ? 'selected' : '';
@@ -281,10 +294,17 @@ function TestCard({ q }) {
               onClick={() => {
                 setSelected(null);
                 setChecked(false);
+                setRecorded(false);
               }}
             >
               Reintentar
             </button>
+          )}
+
+          {questionStats && questionStats.attempts > 0 && (
+            <span className="qpc-stats-mini">
+              Fallos: {questionStats.wrong}/{questionStats.attempts} · {questionStats.failRate}%
+            </span>
           )}
         </div>
       )}
@@ -301,12 +321,15 @@ function TestCard({ q }) {
 
 // ─── Verdadero / Falso ───────────────────────────────────────────────────────
 
-function VFCard({ q }) {
+function VFCard({ q, asignaturaId }) {
   const [selected, setSelected] = useState(null);
   const [checked, setChecked] = useState(false);
+  const [recorded, setRecorded] = useState(false);
 
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
+  const trackStats = TRACKED_SUBJECTS.includes(asignaturaId);
   const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
+  const questionStats = trackStats ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
 
   function btnClass(val) {
     if (!checked) return selected === val ? 'selected' : '';
@@ -319,6 +342,17 @@ function VFCard({ q }) {
   const handleSelect = (val) => {
     setSelected(val);
     setChecked(false);
+    setRecorded(false);
+  };
+
+  const handleCheck = () => {
+    setChecked(true);
+
+    if (trackStats && hasAnswer && !recorded) {
+      testStatsService.recordQuestionResult(asignaturaId, q.id, selected === q.respuestaCorrecta);
+      setRecorded(true);
+      window.dispatchEvent(new Event(STATS_UPDATED_EVENT));
+    }
   };
 
   return (
@@ -349,7 +383,7 @@ function VFCard({ q }) {
 
         <button
           className="btn btn-primary"
-          onClick={() => setChecked(true)}
+          onClick={handleCheck}
           disabled={selected === null}
         >
           Comprobar
@@ -361,10 +395,17 @@ function VFCard({ q }) {
             onClick={() => {
               setSelected(null);
               setChecked(false);
+              setRecorded(false);
             }}
           >
             Reintentar
           </button>
+        )}
+
+        {questionStats && questionStats.attempts > 0 && (
+          <span className="qpc-stats-mini">
+            Fallos: {questionStats.wrong}/{questionStats.attempts} · {questionStats.failRate}%
+          </span>
         )}
       </div>
 
@@ -431,6 +472,7 @@ function RevealCard({ q }) {
 
 export default function QuestionPracticeCard({
   question: q,
+  asignaturaId,
   onGroupClick,
   questionNumber,
   totalQuestions,
@@ -442,9 +484,9 @@ export default function QuestionPracticeCard({
   function renderBody() {
     switch (q.tipo) {
       case 'test':
-        return <TestCard q={q} />;
+        return <TestCard q={q} asignaturaId={asignaturaId ?? q.asignaturaId} />;
       case 'verdadero_falso':
-        return <VFCard q={q} />;
+        return <VFCard q={q} asignaturaId={asignaturaId ?? q.asignaturaId} />;
       case 'corta':
       case 'desarrollo':
       case 'practica':

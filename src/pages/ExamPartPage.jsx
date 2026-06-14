@@ -8,7 +8,9 @@ import QuestionEditModal from '../components/QuestionEditModal';
 import ExamPartIntro from '../components/ExamPartIntro';
 import DevelopmentTable from '../components/DevelopmentTable';
 import ModelNotebookRunner from '../components/ModelNotebookRunner';
+import TestStatsSummary from '../components/TestStatsSummary';
 import { getExamParts, questionMatchesPart } from '../lib/examPartUtils';
+import { TRACKED_SUBJECTS } from '../services/testStatsService';
 import './ExamPartPage.css';
 
 function getOptionText(opcion) {
@@ -319,6 +321,10 @@ const handleSaveQuestion = async (updatedQuestion) => {
 
       <ExamPartIntro explicacion={part.explicacion} />
 
+      {isTest && TRACKED_SUBJECTS.includes(subject.id) && (
+        <TestStatsSummary subjectId={subject.id} questions={baseQuestions} />
+      )}
+
       {shouldShowModelSelector && (
         <>
           <div className="exam-model-grid">
@@ -602,6 +608,7 @@ const handleSaveQuestion = async (updatedQuestion) => {
               <QuestionPracticeCard
                 key={q.id}
                 question={q}
+                asignaturaId={asignaturaId}
                 questionNumber={index + 1}
                 totalQuestions={filteredQuestions.length}
                 showCompactMeta
