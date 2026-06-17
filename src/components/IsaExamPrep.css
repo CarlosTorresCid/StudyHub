@@ -1,0 +1,372 @@
+/* ── Wrapper de la sección ─────────────────────────────────────────────── */
+
+.isa-prep {
+  margin: 28px 0 0;
+}
+
+.isa-prep-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0 2px;
+}
+
+.isa-prep-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  font-size: 20px;
+  border-radius: 13px;
+  background: linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--accent) 8%, #ffffff));
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  box-shadow: 0 4px 12px rgba(58, 48, 28, 0.07);
+}
+
+.isa-prep-title {
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.isa-prep-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Tabla ─────────────────────────────────────────────────────────────── */
+
+.isa-table-wrap {
+  overflow-x: auto;
+  margin: 10px 0;
+  border-radius: 13px;
+  border: 1px solid rgba(214, 196, 164, 0.65);
+  box-shadow: 0 1px 4px rgba(58, 48, 28, 0.04);
+}
+
+.isa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.isa-table th {
+  background: linear-gradient(180deg, #f9f5ef, #f3ece0);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 10px 13px;
+  text-align: left;
+  border-bottom: 1px solid rgba(214, 196, 164, 0.75);
+  white-space: nowrap;
+}
+
+.isa-table td {
+  padding: 9px 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(214, 196, 164, 0.3);
+  vertical-align: top;
+}
+
+.isa-table tr:last-child td {
+  border-bottom: none;
+}
+
+.isa-table tr:hover td {
+  background: rgba(255, 250, 240, 0.55);
+}
+
+.isa-td-code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 11.5px;
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.isa-td-right {
+  text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.isa-td-subtotal td {
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(255, 248, 235, 0.5);
+  font-style: italic;
+}
+
+.isa-td-total td {
+  font-weight: 800;
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(255, 245, 220, 0.7), rgba(255, 238, 200, 0.5));
+  border-top: 2px solid rgba(214, 196, 164, 0.65) !important;
+  border-bottom: none;
+}
+
+/* ── Fórmula sprint ─────────────────────────────────────────────────────── */
+
+.isa-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  padding: 14px 20px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent) 7%, #ffffff),
+    rgba(255, 255, 255, 0.9));
+  border: 2px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  border-radius: 16px;
+  box-shadow: 0 2px 14px color-mix(in srgb, var(--accent) 8%, transparent);
+  text-align: center;
+}
+
+.isa-formula-eq {
+  font-size: 14.5px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.isa-formula-eq strong {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+/* ── Checklist ──────────────────────────────────────────────────────────── */
+
+.isa-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.isa-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.isa-check {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  margin-top: 2px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f0fdf4, #dcfce7);
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ── Tarjeta de patrón ──────────────────────────────────────────────────── */
+
+.isa-pattern-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(250, 248, 243, 0.85));
+  border: 1px solid rgba(214, 196, 164, 0.6);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  box-shadow: 0 1px 4px rgba(58, 48, 28, 0.03);
+}
+
+.isa-pattern-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.isa-pattern-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  font-size: 17px;
+  border-radius: 11px;
+  background: linear-gradient(180deg, #ffffff, color-mix(in srgb, var(--accent) 7%, #ffffff));
+  border: 1px solid color-mix(in srgb, var(--accent) 14%, var(--border));
+}
+
+.isa-pattern-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+
+.isa-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.isa-when-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.isa-justify {
+  margin: 0;
+  padding: 11px 14px;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(250, 248, 243, 0.65));
+  border-left: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 0 11px 11px 0;
+}
+
+.isa-comp-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── Frase tipo ─────────────────────────────────────────────────────────── */
+
+.isa-frase {
+  margin: 0;
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.7;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.07), rgba(139, 92, 246, 0.04));
+  border: 1px solid rgba(139, 92, 246, 0.14);
+  border-left: 4px solid #8b5cf6;
+  border-radius: 0 13px 13px 0;
+}
+
+/* ── Cuadro de formato HU ───────────────────────────────────────────────── */
+
+.isa-hu-format {
+  padding: 14px 18px;
+  background: linear-gradient(135deg,
+    rgba(59, 130, 246, 0.07),
+    rgba(59, 130, 246, 0.035));
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 14px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.isa-hu-format strong {
+  color: #1d4ed8;
+  font-style: normal;
+}
+
+/* ── Bloque de advertencia ──────────────────────────────────────────────── */
+
+.isa-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.65;
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.07), rgba(239, 68, 68, 0.04));
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-left: 4px solid #ef4444;
+  border-radius: 0 13px 13px 0;
+}
+
+.isa-warning-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+/* ── Bloque de info ─────────────────────────────────────────────────────── */
+
+.isa-info {
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(214, 196, 164, 0.5);
+  border-radius: 13px;
+}
+
+.isa-info strong {
+  color: var(--text);
+}
+
+/* ── Subsección dentro de un bloque ─────────────────────────────────────── */
+
+.isa-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.isa-subsection + .isa-subsection {
+  margin-top: 4px;
+}
+
+/* ── Separador de patrón ────────────────────────────────────────────────── */
+
+.isa-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(214, 196, 164, 0.55), transparent);
+  margin: 4px 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .isa-formula {
+    padding: 11px 14px;
+  }
+  .isa-formula-eq {
+    font-size: 12.5px;
+  }
+  .isa-formula-eq strong {
+    font-size: 14px;
+  }
+  .isa-table {
+    font-size: 12px;
+  }
+  .isa-table th,
+  .isa-table td {
+    padding: 8px 10px;
+  }
+  .isa-pattern-card {
+    padding: 13px;
+  }
+}

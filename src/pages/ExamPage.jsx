@@ -4,6 +4,7 @@ import { exportQuestionsByBlocksToWord } from '../utils/exportToWord';
 import { usePageTitle } from '../hooks/usePageTitle';
 import ExamInfoCard from '../components/ExamInfoCard';
 import { ProblemTrainingCard } from '../components/ProblemTrainingGuide';
+import ExamPrepCard from '../components/ExamPrepCard';
 import { getExamParts } from '../lib/examPartUtils';
 import './SubjectPage.css';
 
@@ -67,6 +68,10 @@ export default function ExamPage() {
 
       {subject.id === 'iaic' && (
         <ProblemTrainingCard to={`/asignatura/${asignaturaId}/examen/entrenamiento`} />
+      )}
+
+      {(subject.id === 'isa' || subject.id === 'te') && (
+        <ExamPrepCard subjectId={subject.id} asignaturaId={asignaturaId} />
       )}
 
       {totalQuestions === 0 ? (
