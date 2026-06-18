@@ -752,7 +752,7 @@
     "grupoTematico": "JADE y FIPA ACL",
     "patronRelacionado": "Arquitectura JADE — Main Container",
     "origen": "recopilada",
-    "enunciado": "En la arquitectura de JADE, los agentes residen en contenedores. ¿Qué es el Main Container?",
+    "enunciado": "En la arquitectura de JADE, los agentes no se ejecutan directamente sobre la plataforma sino que residen en contenedores. ¿Qué es el Main Container?",
     "opciones": [
       "Un contenedor secundario dedicado exclusivamente a almacenar ontologías",
       "El contenedor que se lanza primero, alberga el AMS y el DF, y mantiene la tabla global de todos los agentes de la plataforma",
@@ -940,12 +940,12 @@
     "grupoTematico": "JADE y FIPA ACL",
     "patronRelacionado": "Herramientas JADE — Introspector",
     "origen": "recopilada",
-    "enunciado": "Estás depurando un agente con múltiples comportamientos activos y quieres saber qué comportamiento se ejecuta en cada momento sin tocar el código. ¿Qué herramienta usas?",
+    "enunciado": "Estás depurando un agente en producción que tiene múltiples comportamientos activos y quieres saber exactamente qué comportamiento se ejecuta en cada momento sin tocar el código. ¿Qué herramienta usas?",
     "opciones": [
-      "El Sniffer",
-      "El Log Manager",
-      "El Agente Introspector (Introspector Agent)",
-      "El RMA"
+      "El Sniffer, porque registra todos los eventos de la plataforma incluyendo la ejecución de comportamientos",
+      "El Log Manager, porque permite activar el nivel FINEST para el paquete jade.core.behaviours",
+      "El Agente Introspector, porque monitoriza el ciclo de vida del agente y su cola de comportamientos, permitiendo ejecutarlos paso a paso",
+      "El RMA, porque su árbol de topología muestra los comportamientos activos de cada agente"
     ],
     "respuestaCorrecta": 2,
     "explicacion": "El Introspector permite monitorizar el estado interno de un agente concreto: su cola de mensajes y la ejecución de sus comportamientos. El Sniffer, en cambio, espía mensajes entre agentes.",
@@ -5224,7 +5224,7 @@
     "grupoTematico": "Programación con JADE",
     "patronRelacionado": "Comportamientos JADE y performativa REQUEST",
     "origen": "recopilada",
-    "enunciado": "El agente que decide cuándo lanzar la orden de limpieza debe: \n(a) escuchar continuamente los resultados del análisis de imagen\n(b) enviar la orden al robot mediante un mensaje. Describe qué tipo de comportamiento JADE usaría para cada una de estas dos tareas, justificando tu elección. \nExplica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
+    "enunciado": "El agente que decide cuándo lanzar la orden de limpieza debe: (a) escuchar continuamente los resultados del análisis de imagen y (b) enviar la orden al robot. Indica qué tipo de comportamiento JADE usarías para cada tarea, justificándolo, y qué performativa ACL sería la más adecuada para solicitar la limpieza al robot y por qué. (Parque solar)",
     "respuestaModelo": "Para escuchar continuamente los resultados del análisis de imagen se usaría un CyclicBehaviour, porque se ejecuta indefinidamente y es adecuado para una monitorización constante.\n\nPara enviar la orden de limpieza se usaría un OneShotBehaviour, porque la orden es una acción puntual que debe ejecutarse una sola vez cuando se detecta la condición de suciedad.\n\nLa performativa ACL más adecuada es REQUEST, ya que expresa que el agente emisor solicita al receptor que realice una acción concreta, en este caso ejecutar la limpieza.",
     "explicacion": "Para escuchar continuamente los resultados del análisis de imagen se usaría un CyclicBehaviour, porque se ejecuta indefinidamente y es adecuado para una monitorización constante.\n\nPara enviar la orden de limpieza se usaría un OneShotBehaviour, porque la orden es una acción puntual que debe ejecutarse una sola vez cuando se detecta la condición de suciedad.\n\nLa performativa ACL más adecuada es REQUEST, ya que expresa que el agente emisor solicita al receptor que realice una acción concreta, en este caso ejecutar la limpieza.",
     "fuentes": [
@@ -5349,7 +5349,7 @@
     "grupoTematico": "Transformación de imágenes digitales",
     "patronRelacionado": "Fourier e interferencia periódica",
     "origen": "recopilada",
-    "enunciado": "Las imágenes capturadas presentan un patrón periódico de interferencia causado por el reflejo del sol sobre el panel (una trama regular y repetitiva que enmascara la suciedad). ¿Qué ventaja fundamental ofrece trabajar en el dominio de la frecuencia para eliminar ese patrón de interferencia, frente a trabajar directamente sobre los píxeles de la imagen? ¿Qué ocurre con los datos de la imagen cuando se aplica la Transformada de Fourier?",
+    "enunciado": "Las imágenes presentan un patrón periódico de interferencia por el reflejo del sol. ¿Qué ventaja ofrece el dominio de la frecuencia frente a trabajar sobre los píxeles? ¿Qué ocurre con los datos al aplicar la Transformada de Fourier? (Parque solar)",
     "respuestaModelo": "La ventaja fundamental de trabajar en el dominio de la frecuencia es que los patrones periódicos aparecen concentrados en componentes frecuenciales concretas. Esto permite localizarlos y eliminarlos de forma selectiva, sin modificar de manera indiscriminada todos los píxeles de la imagen.\n\nAl aplicar la Transformada de Fourier, la imagen deja de representarse directamente por intensidades espaciales de píxeles y pasa a representarse como componentes de frecuencia. Cada valor de salida en el dominio frecuencial depende de todos los píxeles de entrada, por lo que es una transformación global. La señal se descompone en una componente media o DC y en componentes sinusoidales o armónicos.",
     "explicacion": "La ventaja fundamental de trabajar en el dominio de la frecuencia es que los patrones periódicos aparecen concentrados en componentes frecuenciales concretas. Esto permite localizarlos y eliminarlos de forma selectiva, sin modificar de manera indiscriminada todos los píxeles de la imagen.\n\nAl aplicar la Transformada de Fourier, la imagen deja de representarse directamente por intensidades espaciales de píxeles y pasa a representarse como componentes de frecuencia. Cada valor de salida en el dominio frecuencial depende de todos los píxeles de entrada, por lo que es una transformación global. La señal se descompone en una componente media o DC y en componentes sinusoidales o armónicos.",
     "fuentes": [
@@ -5538,7 +5538,7 @@
     "grupoTematico": "Segmentación de imágenes",
     "patronRelacionado": "Criterios y técnicas de segmentación",
     "origen": "recopilada",
-    "enunciado": "Una vez eliminada la interferencia, el sistema necesita aislar las zonas sucias de la placa. Para ello aplica segmentación. Explica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.",
+    "enunciado": "Tras eliminar la interferencia, el sistema aplica segmentación para aislar las zonas sucias. Explica qué criterios siguen los algoritmos de segmentación para encontrar regiones, y nombra y describe brevemente las tres categorías principales de técnicas. (Parque solar)",
     "respuestaModelo": "Los algoritmos de segmentación buscan regiones significativas basándose principalmente en dos criterios: homogeneidad interna y contraste con las regiones vecinas. La homogeneidad implica que los píxeles de una región comparten propiedades similares, como color, textura o nivel de gris. El contraste implica que esas regiones se diferencian claramente de su entorno o frontera.\n\nLas tres categorías principales son: crecimiento y contracción de regiones, que agrupa o reduce regiones conectadas en el dominio espacial; métodos de agrupamiento o clustering, que agrupan píxeles según características en espacios n-dimensionales; y detección de bordes o contornos, que localiza discontinuidades para delimitar objetos.",
     "explicacion": "Los algoritmos de segmentación buscan regiones significativas basándose principalmente en dos criterios: homogeneidad interna y contraste con las regiones vecinas. La homogeneidad implica que los píxeles de una región comparten propiedades similares, como color, textura o nivel de gris. El contraste implica que esas regiones se diferencian claramente de su entorno o frontera.\n\nLas tres categorías principales son: crecimiento y contracción de regiones, que agrupa o reduce regiones conectadas en el dominio espacial; métodos de agrupamiento o clustering, que agrupan píxeles según características en espacios n-dimensionales; y detección de bordes o contornos, que localiza discontinuidades para delimitar objetos.",
     "fuentes": [
@@ -5768,6 +5768,7 @@
     "codigoReferencia": "",
     "origenVisible": "Recopilatorio / profesor"
   },
+
   {
     "asignaturaId": "smpc",
     "parteExamenId": "parte-desarrollo",
@@ -5865,7 +5866,7 @@
     "grupoTematico": "Visión artificial médica y segmentación por umbralización",
     "patronRelacionado": "Pipeline de visión por computador y umbralización en escala de grises",
     "origen": "recopilada",
-    "enunciado": "Un hospital quiere automatizar la detección de tumores en imágenes de resonancia magnética. El sistema debe analizar cientos de imágenes al día de forma autónoma y alertar al médico solo cuando detecte una anomalía. Para ello se plantea combinar un sistema de visión artificial con una arquitectura de agentes software.\n\nUna vez el sistema detecta una anomalía, lanza una alerta. El arquitecto del sistema propone usar un agente software para gestionar este proceso de monitorización continua. ¿Qué tipo de agente —reactivo, proactivo o BDI— sería más adecuado para un sistema que no solo responde a anomalías sino que también planifica revisiones periódicas y se adapta al historial del paciente? Justifica tu elección describiendo las características de ese tipo de agente.\nPregunta 2 (2 pts): Una vez eliminada la interferencia, el sistema necesita aislar las zonas sucias de la placa. Para ello aplica segmentación. Explica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.\nPregunta 3 (2 pts): El agente software que decide cuándo lanzar la orden de limpieza debe: (a) escuchar continuamente los resultados del análisis de imagen, y (b) enviar la orden al robot mediante un mensaje. Describe qué tipo de comportamiento JADE usaría para cada una de estas dos tareas, justificando tu elección. Explica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
+    "enunciado": "Las imágenes de resonancia magnética capturadas presentan ruido y el sistema debe identificar automáticamente si hay o no anomalía.\n\n¿A qué tipo de aplicación de procesamiento de imágenes corresponde este sistema —visión por computador o visión humana— y por qué? Describe también las dos primeras etapas del pipeline que aplicarías a cada imagen antes de analizarla.\n\nPara aislar la región potencialmente anómala dentro de la imagen, el equipo decide usar una técnica de segmentación por umbralización. Explica cómo funciona este proceso sobre una imagen en escala de grises, qué produce como resultado y qué condición debe cumplir la imagen para que sea efectivo. ¿Qué alternativa existe si esa condición no se cumple?",
     "respuestaModelo": "El sistema corresponde a una aplicación de visión por computador, porque la imagen no se procesa principalmente para que la interprete una persona, sino para que una máquina analice automáticamente las imágenes y tome una decisión o genere una alerta. La finalidad es automatizar la detección de anomalías.\n\nLas dos primeras etapas del pipeline serían la adquisición/captura de la imagen y el preprocesamiento. La adquisición consiste en obtener la imagen digital a partir del dispositivo de captura. El preprocesamiento prepara la imagen para el análisis posterior, por ejemplo eliminando ruido, mejorando el contraste, normalizando intensidades o reduciendo información irrelevante.\n\nLa segmentación por umbralización consiste en comparar la intensidad de cada píxel de una imagen en escala de grises con un valor umbral. Los píxeles cuyo valor supera el umbral se asignan a una clase, normalmente objeto o primer plano, y los que no lo superan se asignan al fondo. El resultado habitual es una imagen binaria.\n\nPara que la umbralización sea efectiva, la región de interés debe tener intensidades claramente diferenciadas respecto al fondo y la iluminación o distribución de intensidades debe ser suficientemente uniforme. Si no se cumple esta condición, una alternativa es usar umbralización adaptativa/local, segmentación por regiones, clustering o métodos basados en bordes, dependiendo del tipo de imagen y del problema.",
     "explicacion": "El sistema corresponde a una aplicación de visión por computador, porque la imagen no se procesa principalmente para que la interprete una persona, sino para que una máquina analice automáticamente las imágenes y tome una decisión o genere una alerta. La finalidad es automatizar la detección de anomalías.\n\nLas dos primeras etapas del pipeline serían la adquisición/captura de la imagen y el preprocesamiento. La adquisición consiste en obtener la imagen digital a partir del dispositivo de captura. El preprocesamiento prepara la imagen para el análisis posterior, por ejemplo eliminando ruido, mejorando el contraste, normalizando intensidades o reduciendo información irrelevante.\n\nLa segmentación por umbralización consiste en comparar la intensidad de cada píxel de una imagen en escala de grises con un valor umbral. Los píxeles cuyo valor supera el umbral se asignan a una clase, normalmente objeto o primer plano, y los que no lo superan se asignan al fondo. El resultado habitual es una imagen binaria.\n\nPara que la umbralización sea efectiva, la región de interés debe tener intensidades claramente diferenciadas respecto al fondo y la iluminación o distribución de intensidades debe ser suficientemente uniforme. Si no se cumple esta condición, una alternativa es usar umbralización adaptativa/local, segmentación por regiones, clustering o métodos basados en bordes, dependiendo del tipo de imagen y del problema.",
     "fuentes": [
@@ -5900,5 +5901,127 @@
     "solucionOrientativa": "",
     "codigoReferencia": "",
     "origenVisible": "Recopilatorio / profesor"
+  },
+  
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "id": "smpc-desarrollo-012",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9",
+      "tema-10",
+      "tema-4"
+    ],
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Fourier, segmentación y comportamientos JADE — parque solar",
+    "origen": "recopilada",
+    "enunciado": "Una empresa gestora de parques solares quiere desarrollar un sistema inteligente que monitorice en tiempo real las placas fotovoltaicas mediante cámaras.\n\nLas cámaras capturan imágenes de cada placa para detectar suciedad o defectos. El sistema también emplea agentes software que se coordinan para decidir cuándo enviar una orden de limpieza a un robot.\n\nResponde a las siguientes tres cuestiones:\n\nPregunta 1 (2 pts):\nLas imágenes capturadas presentan un patrón periódico de interferencia causado por el reflejo del sol sobre el panel (una trama regular y repetitiva que enmascara la suciedad).\n\n¿Qué ventaja fundamental ofrece trabajar en el dominio de la frecuencia para eliminar ese patrón de interferencia, frente a trabajar directamente sobre los píxeles de la imagen?\n¿Qué ocurre con los datos de la imagen cuando se aplica la Transformada de Fourier?\n\nPregunta 2 (2 pts):\nUna vez eliminada la interferencia, el sistema necesita aislar las zonas sucias de la placa. Para ello aplica segmentación.\n\nExplica qué criterios fundamentales siguen los algoritmos de segmentación para encontrar regiones en una imagen, y nombra y describe brevemente las tres categorías principales de técnicas de segmentación.\n\nPregunta 3 (2 pts):\nEl agente software que decide cuándo lanzar la orden de limpieza debe:\n(a) escuchar continuamente los resultados del análisis de imagen, y\n(b) enviar la orden al robot mediante un mensaje.\n\nDescribe qué tipo de comportamiento JADE usaría para cada una de estas dos tareas, justificando tu elección. Explica también qué performativa del lenguaje ACL sería la más adecuada para que el agente le pida al robot que ejecute la limpieza, y por qué.",
+    "respuestaModelo": "",
+    "explicacion": "",
+    "fuentes": [
+      "Pregunta_1.docx — Enunciado 1 Parque Solar"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 12"
+    ],
+    "observaciones": "",
+    "criteriosCorreccion": [],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 12,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 12"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 12",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "id": "smpc-desarrollo-013",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1",
+      "tema-7",
+      "tema-8",
+      "tema-10"
+    ],
+    "grupoTematico": "Visión artificial médica y sistemas multiagente",
+    "patronRelacionado": "BDI, pipeline y umbralización — hospital",
+    "origen": "recopilada",
+    "enunciado": "Un hospital quiere automatizar la detección de tumores en imágenes de resonancia magnética.\n\nEl sistema debe analizar cientos de imágenes al día de forma autónoma y alertar al médico solo cuando detecte una anomalía. Para ello se plantea combinar un sistema de visión artificial con una arquitectura de agentes software.\n\nPregunta 1 (2 pts):\nUna vez el sistema detecta una anomalía, lanza una alerta. El arquitecto del sistema propone usar un agente software para gestionar este proceso de monitorización continua.\n\n¿Qué tipo de agente (reactivo, proactivo o BDI) sería más adecuado para un sistema que no solo responde a anomalías sino que también planifica revisiones periódicas y se adapta al historial del paciente?\nJustifica tu elección describiendo las características de ese tipo de agente.\n\nPregunta 2 (2 pts):\nLas imágenes de resonancia magnética capturadas presentan ruido y el sistema debe identificar automáticamente si hay o no anomalía.\n\n¿A qué tipo de aplicación de procesamiento de imágenes corresponde este sistema (visión por computador o visión humana) y por qué?\nDescribe también las dos primeras etapas del pipeline que aplicarías a cada imagen antes de analizarla.\n\nPregunta 3 (2 pts):\nPara aislar la región potencialmente anómala dentro de la imagen, el equipo decide usar una técnica de segmentación por umbralización.\n\nExplica cómo funciona este proceso sobre una imagen en escala de grises, qué produce como resultado y qué condición debe cumplir la imagen para que sea efectivo.\n¿Qué alternativa existe si esa condición no se cumple?",
+    "respuestaModelo": "",
+    "explicacion": "",
+    "fuentes": [
+      "Pregunta_1.docx — Enunciado 2 Hospital"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 13"
+    ],
+    "observaciones": "",
+    "criteriosCorreccion": [],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 13,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 13"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 13",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
   }
+
+
+
 ]
+

@@ -5984,5 +5984,600 @@
     "modelosExamen": [],
     "requiereRevision": false,
     "verificada": true
+  },
+
+  
+  {
+    "id": "casi-tema-1-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los tres principios de la Tríada CID y qué garantiza cada uno?",
+    "respuestaModelo": "Confidencialidad: la información solo es accesible para quienes están autorizados. Integridad: la información no ha sido modificada por partes no autorizadas. Disponibilidad: la información está accesible cuando se necesita.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Presentación_y_tema_1.txt"
+    ],
+    "observaciones": "El profesor confirmó textualmente: 'Que cae, fijo.' Los tres principios y su relación con los tipos de ataque son contenido seguro de examen.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-1-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son las Reglas de Oro de los SGSI y qué garantiza cada una?",
+    "respuestaModelo": "Autenticación: verificar la identidad de quien accede (quién eres). Autorización: verificar qué puede hacer ese usuario (qué puedes hacer). Auditabilidad: registrar todas las acciones realizadas para poder revisarlas después (qué has hecho). Los ficheros de log son el mecanismo que hace posible la auditabilidad.",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt",
+      "Presentación_y_tema_1.txt"
+    ],
+    "observaciones": "El profesor: 'Seguro que cae.' Trampa frecuente: la opción que solo incluye autenticación y autorización es incorrecta porque falta la auditabilidad.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-1-corta-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué dimensión de la Tríada CID compromete cada tipo de ataque? Relaciona: interceptación, interrupción, modificación y generación/inyección.",
+    "respuestaModelo": "Interceptación → Confidencialidad (acceso no autorizado a la información). Interrupción → Disponibilidad (el servicio o la información deja de estar accesible). Modificación → Integridad (la información es alterada sin autorización). Generación/inyección → Integridad y Autenticidad (se introduce información falsa en el sistema).",
+    "fuentes": [
+      "casi-tema-1-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Aparece en el test de autoevaluación del Tema 1 y en preguntas de exámenes reales.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-2-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tres elementos deben concurrir simultáneamente para que exista riesgo en un sistema de información?",
+    "respuestaModelo": "Activo (algo con valor para la organización), amenaza (agente externo que puede causar daño, no controlable) y vulnerabilidad (debilidad interna explotable, sí controlable). Si falta cualquiera de los tres, no existe riesgo materializable.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Conceptos que pueden caer en el examen: activo, amenaza, vulnerabilidad, impacto. Márquenlo bien.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-2-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste el principio de mínimo privilegio?",
+    "respuestaModelo": "Cada usuario o componente de un sistema debe tener acceso únicamente a los recursos estrictamente necesarios para realizar su función, y nada más. Limita el daño potencial si ese usuario o componente es comprometido.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Puede ser una pregunta de examen: explica el principio de mínimo privilegio.' También aparece en el Esquema Nacional de Seguridad.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-2-corta-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué puede hacer un sistema MDM (Mobile Device Management)?",
+    "respuestaModelo": "Un MDM permite gestionar centralizadamente los dispositivos móviles corporativos: instalar o desinstalar aplicaciones de forma remota, configurar políticas de seguridad, bloquear el dispositivo, localizarlo geográficamente y realizar borrado remoto en caso de pérdida o robo.",
+    "fuentes": [
+      "casi-tema-2-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor lo señaló textualmente como 'pregunta de examen': 'Atento, porque es pregunta de examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-3-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia principal entre criptografía simétrica y asimétrica?",
+    "respuestaModelo": "La criptografía simétrica usa la misma clave para cifrar y descifrar. Es más rápida pero tiene el problema de la distribución segura de la clave. La criptografía asimétrica usa un par de claves (pública y privada): lo que cifra una solo lo puede descifrar la otra. Es más lenta y se usa principalmente para distribución de claves y firma digital, no para cifrar grandes volúmenes de datos.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada por el profesor al final de la sesión del Tema 3.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-3-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué es el arranque en frío, el arranque templado y el arranque en caliente en alta disponibilidad de servidores?",
+    "respuestaModelo": "Arranque en frío (cold standby): el servidor secundario está apagado y arranca manualmente cuando falla el principal. Arranque templado (warm standby): el servidor secundario está instalado pero no tiene los datos actualizados; necesita tiempo para estar operativo. Arranque en caliente (hot standby): el servidor secundario está activo en paralelo con los datos replicados en tiempo real; asume la carga automáticamente de forma casi inmediata. Es el más caro.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Alta disponibilidad de servidores: ojo, también de esto hay preguntas de examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-3-corta-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los modelos de control de acceso DAC, MAC y RBAC y en qué se diferencian?",
+    "respuestaModelo": "DAC (Discretionary Access Control): el propietario del recurso gestiona los permisos y puede concederlos a otros usuarios a su discreción. MAC (Mandatory Access Control): el sistema asigna permisos según etiquetas de seguridad; el usuario no puede modificarlos. RBAC (Role-Based Access Control): los permisos se asignan a roles (cargos o funciones), no a usuarios individuales; el usuario hereda los permisos de su rol.",
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Modelos de control de acceso: ojo con esto, ya digo que puede ser pregunta de examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-4-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuántas capas tiene el modelo OSI y cuáles son? ¿Y el modelo TCP/IP?",
+    "respuestaModelo": "El modelo OSI tiene 7 capas: Física (1), Enlace de datos (2), Red (3), Transporte (4), Sesión (5), Presentación (6) y Aplicación (7). La capa 6 (Presentación) se encarga del cifrado y compresión. El modelo TCP/IP tiene 4 capas: Acceso a la red, Internet, Transporte y Aplicación.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'El número de capas y cuáles son en los dos modelos hay que saberse. Esto es básico.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-4-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los cuatro modelos de cortafuegos del temario y en qué capa OSI opera cada uno?",
+    "respuestaModelo": "1. Filtrado de paquetes: capa 3 (Red). Inspecciona cabeceras IP. El más sencillo y económico. 2. Inspección de estado (stateful): capas 3-4. Mantiene tabla dinámica de conexiones activas. 3. Proxy de aplicación: capa 7 (Aplicación). Actúa como intermediario completo; mayor seguridad pero más latencia. Incluye el WAF. 4. Screened host / Screened subnet (DMZ): arquitectura que combina router de filtrado con host bastión.",
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Importantes saberse estos tipos de firewall tal y como están. Puede ser pregunta de examen.' Aviso: el temario clasifica en 4 modelos aunque otros libros usen 3.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-5-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": [
+      "tema-5"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son las dos clasificaciones de controles de seguridad? Explica brevemente cada categoría de ambas.",
+    "respuestaModelo": "Por nivel operativo: administrativo (políticas, procedimientos, formación), técnico/lógico (hardware y software de seguridad como cortafuegos, IDS, cifrado) y físico (protege equipos e instalaciones: cámaras, barreras, control de acceso físico). Por cómo abordan la amenaza: preventivo (reduce la probabilidad del incidente), detectivo (identifica incidentes en curso o pasados), correctivo (reduce el impacto una vez ocurrido) y disuasorio (hace desistir al atacante antes de actuar).",
+    "fuentes": [
+      "casi-tema-5-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Importante, muy, muy importante: la clasificación de los controles.' Lo señaló varias veces. Trampa: el hardware de seguridad es control técnico, no físico.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-6-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia fundamental entre el control interno y la auditoría informática?",
+    "respuestaModelo": "El control interno (equivalente a la auditoría interna) es un mecanismo continuo y permanente que supervisa la actividad de la organización de forma habitual. La auditoría informática es puntual: analiza el estado de un sistema en un momento concreto. El profesor la señaló como la diferencia más importante del tema.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Lo más importante y la mayor diferencia: la auditoría informática estudia un momento concreto de la actividad.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-6-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los tipos de auditoría por objetivo que hay que conocer para el examen? Indica cuál es obligatoria y cuál voluntaria.",
+    "respuestaModelo": "Auditoría del sistema (espectro más global), auditoría de proceso (evalúa rendimiento), auditoría de producto (valida software), auditoría forense (evidencias en fraudes o conflictos legales), auditoría normativa/de verificación (obligatoria por ley, la impone el ENS cada 2 años para niveles medio y alto) y auditoría de certificación (voluntaria). Las auditorías financiera, operacional e integral no entran en el examen.",
+    "fuentes": [
+      "casi-tema-6-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor descartó expresamente auditoría financiera, operacional e integral: 'No pegan en el examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-7-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre fingerprinting y footprinting?",
+    "respuestaModelo": "El fingerprinting se centra en un dispositivo concreto para extraer su sistema operativo, versión de servicios y puertos abiertos. El footprinting obtiene un mapa completo de toda la red de la organización. El fingerprinting puede ser activo (genera tráfico, detectable, ejemplo: Nmap) o pasivo (intercepta tráfico existente, indetectable, ejemplo: p0f).",
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Lo más importante que tiene este tema es la definición y relevancia de fingerprinting y footprinting.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-7-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre análisis de vulnerabilidades y pen testing?",
+    "respuestaModelo": "El análisis de vulnerabilidades identifica y documenta debilidades del sistema pero no las explota. El pen testing (test de penetración) va un paso más allá: intenta explotar activamente las vulnerabilidades para demostrar que son reales y evaluar el impacto. El pen testing requiere autorización explícita; realizarlo sin ella es ilegal.",
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Distinción clave señalada en clase y que aparece en preguntas de examen reales.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-8-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre XSS reflejado y XSS persistente?",
+    "respuestaModelo": "XSS reflejado: el script malicioso viaja en la URL y no se almacena en el servidor. Afecta solo a la víctima que hace clic en el enlace malicioso. XSS persistente (almacenado): el código se guarda en la base de datos del servidor y se ejecuta en el navegador de todos los usuarios que visiten la página afectada. Es el que modifica el código fuente del servidor y tiene un impacto mucho mayor.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor lo señaló como ejemplo de pregunta de examen al cierre de la sesión del Tema 8.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-8-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué es el fuzzing y por qué es importante en el análisis de vulnerabilidades?",
+    "respuestaModelo": "El fuzzing es una técnica de análisis de vulnerabilidades que consiste en enviar entradas inesperadas, inválidas o aleatorias a una aplicación para observar cómo reacciona y detectar errores o vulnerabilidades. Es importante porque permite encontrar fallos que no están documentados ni en bases de datos de vulnerabilidades públicas.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor confirmó textualmente: 'Va a caer. Sí, sí va a caer.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-8-corta-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son las tres etapas del análisis de vulnerabilidades según el estándar PTES?",
+    "respuestaModelo": "1. Pruebas: identificar debilidades potenciales en el sistema. 2. Validación: confirmar que las debilidades encontradas existen realmente y son explotables. 3. Investigación: evaluar el impacto que tendría la explotación de cada vulnerabilidad.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Fácil. Ejemplo de pregunta que puede caer en el examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-8-corta-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre SAST y DAST?",
+    "respuestaModelo": "SAST (análisis estático): analiza el código fuente sin ejecutar la aplicación. Se aplica durante el desarrollo. DAST (análisis dinámico): analiza la aplicación mientras se ejecuta en tiempo real. Principal ventaja del DAST: detecta vulnerabilidades que solo aparecen en tiempo de ejecución y que el SAST no puede ver.",
+    "fuentes": [
+      "casi-tema-8-comentarios-adicionales.txt",
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor en Tema 9: 'Por favor, estos dos conceptos, si caen en el examen, por eso lo estoy repitiendo.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-9-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los dos tipos de evidencias en el ámbito legal y en qué se diferencian?",
+    "respuestaModelo": "Evidencias directas: prueban el hecho por sí solas, sin necesidad de inferencia. Son imprescindibles para que la auditoría informática tenga valor probatorio. Evidencias indirectas (circunstanciales): no prueban el hecho directamente; requieren inferencia o razonamiento para llegar a una conclusión sobre lo ocurrido.",
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Aparece en preguntas de examen reales en múltiples modelos.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-9-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son las cuatro fases del ciclo de vida de las evidencias digitales según ISO 27037?",
+    "respuestaModelo": "1. Identificación: localizar e identificar las posibles evidencias digitales. 2. Adquisición: recoger las evidencias preservando su integridad (dos copias: trabajo y custodia, con hash). 3. Preservación: mantener las evidencias sin alteraciones garantizando la cadena de custodia. 4. Análisis: examinar las evidencias para extraer hechos relevantes.",
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'De eso también hay que saber las fases, estas cuatro.' El diseño de sistemas TIC no es una fase del ciclo forense.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-10-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué son el RTO, el RPO y el MTPD en el contexto de la continuidad de negocio?",
+    "respuestaModelo": "RTO (Recovery Time Objective): tiempo máximo tolerable que un servicio puede estar no disponible antes de que el impacto sea grave. RPO (Recovery Point Objective): máxima pérdida de datos aceptable medida en tiempo; determina la frecuencia de los backups. MTPD (Maximum Tolerable Period of Disruption): tiempo máximo total de interrupción antes de que el impacto sea irreversible para la organización.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor: 'Importante estos conceptos, ¿vale?' Los señaló explícitamente como importantes.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-10-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué diferencia hay entre arranque en frío, templado y caliente en los centros de respaldo?",
+    "respuestaModelo": "Arranque en frío (cold site): solo ofrece espacio físico, suministro eléctrico y climatización. Sin equipamiento instalado. El más barato, recuperación más lenta. Arranque templado (warm site): local con equipamiento instalado pero sin datos actualizados; necesita horas o días para estar operativo. Arranque en caliente (hot site): réplica en tiempo real del sistema principal, lista para operar en minutos. El más caro.",
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "El profesor: 'Esto sí hay que sabérselo.' Aparece en preguntas de examen reales (en algunos modelos sale el arranque en frío).",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son las dos grandes categorías de delitos informáticos y en qué se diferencian?",
+    "respuestaModelo": "Delito como instrumento: el sistema informático se utiliza como herramienta para cometer el delito (phishing, amenazas online, fraude, calumnias en redes sociales). Delito como fin u objetivo: el ataque va dirigido contra el propio sistema informático (sabotaje, destrucción de datos, acceso no autorizado). El acceso no autorizado a un sistema ajeno ya es delito aunque no haya intención de robar ni dañar.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Ya lo digo directamente, esto es materia de preguntas de examen.'",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste el principio de Locard y cómo se aplica al análisis forense digital?",
+    "respuestaModelo": "El principio de Locard establece que cada contacto deja un rastro. En el entorno digital, cualquier actividad no autorizada deja trazas en: logs del sistema operativo, metadatos de ficheros, registros de tráfico de red (routers, firewalls) y datos en la memoria RAM. La ausencia de un log también es una traza. Implicación en la cadena de custodia: el investigador también deja rastros al examinar la evidencia, por lo que se trabaja sobre una copia y la original queda en custodia con su hash registrado.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Esto es materia de examen, hasta que queréis saberlo, este y el otro.' Confirmado para test y probable en desarrollo.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-corta-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia entre gobernanza TIC y gestión TIC según ISO/IEC 38.500?",
+    "respuestaModelo": "Gobernanza TIC: sistema por el que se dirigen y controlan los usos actuales y futuros de las TIC. Atiende a influencias externas (mercado, competidores, regulación), se orienta al futuro y establece políticas verificando que se cumplen. Corresponde a la alta dirección. Gestión TIC: centrada en activos internos y el presente operacional (que los sistemas funcionen). Ejecuta los procesos definidos por la gobernanza. Corresponde al departamento TIC.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Esto podría caer en el examen.' Es el concepto más probable del Tema 12.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-corta-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuáles son los seis principios del gobierno TIC según ISO/IEC 38.500? Nombra brevemente qué establece cada uno.",
+    "respuestaModelo": "1. Responsabilidad: todos comprenden y aceptan sus responsabilidades TIC. 2. Estrategia (el más importante): debe existir un plan estratégico TIC con necesidades actuales y futuras. 3. Adquisición: toda compra tecnológica requiere análisis previo de inventario, alternativas y costes. 4. Rendimiento: las TIC contribuyen eficientemente al negocio sin incrementar costes innecesariamente. 5. Conformidad: las TIC cumplen todas las leyes y normativas aplicables. 6. Factor humano: las políticas TIC respetan y contemplan al factor humano.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'Estos seis principios hay que sabérselos, identificarlos y entenderlos.' Solo pueden aparecer en test, no en preguntas de desarrollo.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-corta-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "corta",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué son CISA y CISSP, quién emite cada una y en qué se diferencian?",
+    "respuestaModelo": "CISA (Certified Information Systems Auditor): certificación de referencia en auditoría de sistemas de información. La emite ISACA. CISSP (Certified Information Systems Security Professional): certificación de referencia en seguridad de la información (no en auditoría). La emite (ISC)². La diferencia clave: CISA es para auditoría, CISSP es para seguridad.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor: 'La parte de certificaciones es importante.' Trampa: CGEIT también la emite ISACA, pero la de auditoría es únicamente CISA.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
   }
+
+
+
 ]
