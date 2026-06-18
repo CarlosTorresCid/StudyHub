@@ -19,6 +19,12 @@ const CONFIG = {
     text: 'Guía de estudio orientada al examen final.',
     cta: 'Estudiar',
   },
+  smpc: {
+    icon: '🤖',
+    title: 'Preparación examen',
+    text: 'Guía de estudio orientada al examen final.',
+    cta: 'Estudiar',
+  },
 };
 
 export default function ExamPrepCard({ subjectId, asignaturaId }) {

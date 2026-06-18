@@ -4,10 +4,11 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import IsaExamPrep from '../components/IsaExamPrep';
 import TeExamPrep from '../components/TeExamPrep';
 import CasiExamPrep from '../components/CasiExamPrep';
+import SmpcExamPrep from '../components/SmpcExamPrep';
 import './SubjectPage.css';
 import './IaicProblemTrainingPage.css';
 
-const SUPPORTED = ['isa', 'te', 'casi'];
+const SUPPORTED = ['isa', 'te', 'casi', 'smpc'];
 
 const CONFIG = {
   isa: {
@@ -24,6 +25,11 @@ const CONFIG = {
     icon: '✅',
     heading: 'Preparación examen CASI',
     desc: 'Guía de estudio orientada al examen final: 12 temas, test + desarrollo.',
+  },
+  smpc: {
+    icon: '🤖',
+    heading: 'Preparación examen SMPC',
+    desc: '7 patrones de desarrollo · 15 preguntas analizadas · Respuestas modelo incluidas.',
   },
 };
 
@@ -72,6 +78,7 @@ export default function ExamPrepPage() {
       {subject.id === 'isa' && <IsaExamPrep />}
       {subject.id === 'te' && <TeExamPrep />}
       {subject.id === 'casi' && <CasiExamPrep />}
+      {subject.id === 'smpc' && <SmpcExamPrep />}
 
       <div style={{ marginTop: 32 }}>
         <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">
