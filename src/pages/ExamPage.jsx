@@ -70,7 +70,7 @@ export default function ExamPage() {
         <ProblemTrainingCard to={`/asignatura/${asignaturaId}/examen/entrenamiento`} />
       )}
 
-      {(subject.id === 'isa' || subject.id === 'te') && (
+      {(subject.id === 'isa' || subject.id === 'te' || subject.id === 'casi') && (
         <ExamPrepCard subjectId={subject.id} asignaturaId={asignaturaId} />
       )}
 

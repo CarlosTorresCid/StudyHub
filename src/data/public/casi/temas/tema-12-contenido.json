@@ -1,0 +1,232 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-12",
+  "titulo": "Tema 12. Principales organismos y certificaciones en el ámbito de la auditoría",
+  "apuntes": {
+    "introduccion": "Este tema aborda los organismos, certificaciones y estándares que conforman el marco institucional de la auditoría informática y la gobernanza TIC. Apoyarse en un estándar reconocido a la hora de realizar una auditoría le otorga credibilidad al informe: ya no es la opinión personal del auditor, sino una evaluación respaldada por una norma internacional. El tema cubre también los conceptos de gobernanza TIC, gestión TIC, gobernanza corporativa y gobernanza de negocio, con especial énfasis en la norma ISO/IEC 38.500 y sus seis principios.",
+    "secciones": [
+      {
+        "titulo": "Gobernanza TIC: concepto y distinción con gestión TIC",
+        "contenido": "La **gobernanza** es una palabra que puede traducirse por *responsabilidad*: establece quién va a participar, quién va a ser responsable y quién va a asumir la responsabilidad de las decisiones.\n\nSegún la definición de la **ISO/IEC 38.500**, la gobernanza TIC es el sistema por el que se dirigen y controlan los **usos actuales y futuros** de las tecnologías de la información. Este matiz de 'actuales y futuros' es muy importante: la gobernanza no solo atiende al presente, sino que prevé las necesidades futuras de la organización.\n\nLa distinción fundamental entre gobernanza TIC y gestión TIC:\n\n**Gobernanza TIC:**\n- Atiende a causas y efectos externos (competidores, mercado, clientes)\n- Se orienta al futuro de la organización\n- Defiende la política y comprueba que se cumple\n- Está a cargo de los más altos niveles directivos\n- Establece las reglas de responsabilidad y verifica que se cumplen\n\n**Gestión TIC:**\n- Se centra en activos internos (centro de proceso de datos, sistemas, equipos de usuario)\n- Se orienta al presente operacional: que nada se rompa y todo siga funcionando\n- Ejecuta procesos y controles para alcanzar los objetivos estratégicos\n- Corresponde al departamento de TIC dentro de la empresa\n\nEl auditor, según la norma ISO 38.500, debe comprobar que la integración de las TIC en la organización sea plena y coherente con la estrategia: ni más equipos de los necesarios (que suponen un coste y se deprecian rápidamente), ni menos de los que hacen falta para conseguir los objetivos."
+      },
+      {
+        "titulo": "ISO/IEC 38.500: los seis principios del gobierno TIC",
+        "contenido": "La norma ISO/IEC 38.500 establece **seis principios** del gobierno de las TIC. Hay que conocerlos, identificarlos y entenderlos suficientemente como para responder preguntas sobre ellos en un test:\n\n**1. Responsabilidad:** Todos los individuos y grupos de la organización comprenden y aceptan sus responsabilidades con respecto a la oferta y demanda de TIC. No es solo el departamento TIC; cada área debe saber qué necesita de las TIC y responsabilizarse de ello.\n\n**2. Estrategia:** Debe existir un plan estratégico de TIC que tenga en cuenta las necesidades actuales y futuras de la organización. Es el principio más importante de la norma.\n\n**3. Adquisición:** La compra de nuevas tecnologías responde siempre a un análisis previo, basado en la transparencia y el equilibrio entre costes y riesgos a corto y largo plazo. Requiere conocer el inventario actual, prever necesidades y evaluar varias alternativas evitando compras impulsivas o no justificadas.\n\n**4. Rendimiento:** Las distintas tecnologías contribuyen al desarrollo de la organización de modo eficiente. Los servicios TIC deben prestarse sin incrementar innecesariamente los costes.\n\n**5. Conformidad:** Las TIC deben cumplir todas las leyes y normativas aplicables (protección de datos, normativa ambiental de residuos electrónicos, etc.).\n\n**6. Factor humano:** Las políticas TIC deben demostrar respeto al factor humano en la coordinación y gestión de los recursos humanos (ergonomía del puesto, necesidades específicas de los usuarios, etc.)."
+      },
+      {
+        "titulo": "Gobernanza corporativa, gobernanza TIC y gobernanza de negocio",
+        "contenido": "Según el autor Carrillo, existe un **gobierno empresarial** que se divide en dos componentes:\n\n**Gobernanza corporativa:** El nivel superior. El Consejo de Administración de la entidad asegura el logro sostenido de sus objetivos, la protección de su patrimonio y los intereses de sus grupos de interés, a quienes debe ofrecer transparencia. Marca las reglas, define la responsabilidad y comprueba que se cumplen. Una herramienta clave del gobierno corporativo es el **Comité de Auditoría**.\n\n**Gobernanza de negocio:** Se ocupa del día a día: trata de resolver problemas y conseguir los objetivos operativos. Ejecuta los procesos para que la organización alcance sus metas.\n\n**Gobernanza TIC:** Tal como está definida en el tema, se ocupa de la dirección y control de las tecnologías de la información y la comunicación. Aunque en la práctica está cada vez más integrada en los consejos de administración (especialmente en empresas con modelo de negocio basado en TIC), el temario la trata como un ámbito específico dentro del gobierno empresarial.\n\nLa gobernanza corporativa se apoya en tres procesos fundamentales:\n- **Evaluación:** comprobar que los procesos TIC funcionan y seguirán funcionando, identificando brechas y oportunidades\n- **Dirección:** aplicar los planes para conseguir los objetivos de la organización\n- **Monitorización:** verificar el cumplimiento de políticas y que los sistemas rinden como deben"
+      },
+      {
+        "titulo": "Actores de la gobernanza TIC empresarial",
+        "contenido": "Los actores que participan en la gobernanza TIC de una empresa son:\n\n**Consejeros y directores:** Establecen la estrategia y las políticas de gobierno TIC al más alto nivel. Son los responsables últimos de la gobernanza. Entre ellos puede o no estar el director de TIC (CIO).\n\n**Unidades de negocio:** Cada una puede requerir servicios TIC: tanto servicios comunes (ordenador, internet, aplicación corporativa) como servicios verticales propios de su actividad.\n\n**Director financiero (CFO):** Supervisa el presupuesto de TIC y decide sobre las adquisiciones. Normalmente actúa a partir de los informes del CIO.\n\n**Jefe de TIC (CIO — Chief Information Officer):** Responsable de alinear la estrategia TIC con el negocio y de dirigir la gestión operativa de los sistemas.\n\n**Auditores:** Confirman las premisas de seguridad y las expectativas de rendimiento y eficacia. Requieren acreditaciones de organismos de estandarización reconocidos."
+      },
+      {
+        "titulo": "ISACA y las certificaciones CISA y CGEIT",
+        "contenido": "**ISACA** (Information Systems Audit and Control Association) es una organización internacional sin ánimo de lucro fundada en 1969. Es la principal referencia mundial para el gobierno, la gestión del riesgo y la auditoría de sistemas de información. Tiene capítulos en todo el mundo.\n\n**CISA (Certified Information Systems Auditor)** es la certificación más importante que emite ISACA. Acredita competencias en auditoría, control y seguridad de sistemas de información. Es la principal referencia en auditoría de sistemas de información a nivel mundial y quien la posee es reconocido como auditor en cualquier organización.\n\n**CGEIT (Certified in the Governance of Enterprise IT)** también la emite ISACA. Distingue a los profesionales con conocimiento y capacidad de aplicar los principios y prácticas de gobernanza TIC. Es mucho menos conocida que la CISA.\n\n**COBIT (Control Objectives for Information and Related Technologies)** fue desarrollado por ISACA en 1996. Es un marco para la gestión y gobierno de TIC que establece niveles de madurez de los procesos. Todavía se usa ampliamente."
+      },
+      {
+        "titulo": "Certificación CISSP y (ISC)²",
+        "contenido": "**CISSP (Certified Information Systems Security Professional)** es una certificación de gran importancia en el ámbito de la **seguridad** de la información (no de la auditoría). La emite **(ISC)²** (International Information Systems Security Certification Consortium).\n\nEstablece ocho dominios que debe controlar una persona certificada. A diferencia de la CISA, que se centra en auditoría, el CISSP se centra en seguridad de la información.\n\nResumen de las dos certificaciones principales:\n- **CISA** → auditoría de sistemas de información → emitida por **ISACA**\n- **CISSP** → seguridad de la información → emitida por **(ISC)²**"
+      },
+      {
+        "titulo": "Principales estándares para el gobierno de las TIC",
+        "contenido": "Los estándares más importantes que hay que conocer, según el énfasis del temario:\n\n**ISO/IEC 38.500** — Gobierno de las TIC. Marco de referencia para el gobierno TIC. Versión actual: 2024 (el temario puede indicar 2008, que es una versión anterior, pero las definiciones fundamentales son equivalentes).\n\n**ISO/IEC 27.001** — Sistema de gestión de la seguridad de la información (SGSI). El estándar que se ha trabajado a lo largo de toda la asignatura.\n\n**ISO/IEC 27.002** — Guía de controles de seguridad. Complementa a la 27.001 proporcionando los controles para comprobar el cumplimiento.\n\n**ISO/IEC 22.301** — Sistema de gestión de continuidad de negocio en contexto TIC. Sustituye a la UNE EN 31.599. Relacionada con los planes BCP y DRP vistos en el Tema 10.\n\n**ISO/IEC 20.000** — Gestión de servicios de tecnología de la información.\n\n**ISO/IEC 33.000** — Modelo de evaluación, mejora y madurez del software. Sustituye a la ISO 15.504.\n\n**ITIL (IT Infrastructure Library)** — Conjunto de buenas prácticas del Reino Unido para la gestión de servicios TIC. Actualmente en versión 4 (con versión 5 muy reciente). No es una norma ISO, sino un marco de buenas prácticas certificable. Saber que existe y en qué consiste es suficiente.\n\n**COBIT** — Marco de ISACA para gobierno y gestión de TIC con niveles de madurez.\n\nNota sobre UNE y AENOR: en España, **UNE** es la Asociación Nacional de Normalización (redacta las normas), mientras que **AENOR** certifica que se cumplen. Desde 2017 son entidades separadas."
+      }
+    ]
+  },
+  "resumen": [
+    "La gobernanza TIC, según ISO/IEC 38.500, es el sistema por el que se dirigen y controlan los usos actuales y futuros de las TIC en una organización.",
+    "La diferencia clave entre gobernanza TIC y gestión TIC: la gobernanza atiende al futuro y a causas externas; la gestión atiende al presente operacional y a los activos internos.",
+    "La norma ISO/IEC 38.500 establece seis principios del gobierno TIC: responsabilidad, estrategia, adquisición, rendimiento, conformidad y factor humano.",
+    "El principio de estrategia es el más importante de ISO 38.500: debe existir un plan estratégico TIC que contemple necesidades actuales y futuras.",
+    "El principio de adquisición exige un análisis previo basado en transparencia y equilibrio entre costes y riesgos antes de cualquier compra tecnológica.",
+    "El gobierno corporativo asegura el logro sostenido de objetivos, la protección del patrimonio y la transparencia ante los grupos de interés; su herramienta clave es el Comité de Auditoría.",
+    "La gobernanza corporativa marca las reglas y comprueba su cumplimiento; la gobernanza de negocio ejecuta el día a día para alcanzar los objetivos.",
+    "ISACA es la principal referencia mundial en auditoría de sistemas de información, fundada en 1969 y desarrolladora del marco COBIT.",
+    "CISA (Certified Information Systems Auditor) es la certificación más importante de ISACA y la principal referencia en auditoría de sistemas de información.",
+    "CISSP es la certificación de referencia en seguridad de la información, emitida por (ISC)², distinta de CISA que se centra en auditoría.",
+    "Los estándares más relevantes son: ISO/IEC 38.500 (gobierno TIC), ISO/IEC 27.001 (SGSI) e ISO/IEC 22.301 (continuidad de negocio).",
+    "ITIL es un marco de buenas prácticas para gestión de servicios TIC; saber que existe y en qué consiste es suficiente para esta asignatura."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Gobernanza TIC",
+      "definicion": "Sistema por el que se dirigen y controlan los usos actuales y futuros de las tecnologías de la información en una organización, según ISO/IEC 38.500."
+    },
+    {
+      "termino": "Gestión TIC",
+      "definicion": "Sistema de procesos y controles orientado al presente operacional: garantizar que los sistemas funcionen y alcancen los objetivos estratégicos definidos."
+    },
+    {
+      "termino": "Gobernanza corporativa",
+      "definicion": "Sistema por el cual el Consejo de Administración asegura el logro sostenido de objetivos, la protección del patrimonio y la transparencia ante los grupos de interés."
+    },
+    {
+      "termino": "Gobernanza de negocio",
+      "definicion": "Nivel operativo que ejecuta los procesos del día a día para que la organización alcance sus objetivos."
+    },
+    {
+      "termino": "ISO/IEC 38.500",
+      "definicion": "Norma internacional de gobierno de las TIC que define el sistema de dirección y control de los usos actuales y futuros de las TIC y establece seis principios."
+    },
+    {
+      "termino": "Principio de responsabilidad (ISO 38.500)",
+      "definicion": "Todos los individuos y grupos de la organización comprenden y aceptan sus responsabilidades con respecto a la oferta y demanda de TIC."
+    },
+    {
+      "termino": "Principio de estrategia (ISO 38.500)",
+      "definicion": "Debe existir un plan estratégico TIC que tenga en cuenta las necesidades actuales y futuras de la organización."
+    },
+    {
+      "termino": "Principio de adquisición (ISO 38.500)",
+      "definicion": "La compra de tecnología responde siempre a un análisis previo, con transparencia y equilibrio entre costes y riesgos a corto y largo plazo."
+    },
+    {
+      "termino": "Principio de rendimiento (ISO 38.500)",
+      "definicion": "Las TIC contribuyen al desarrollo de la organización de modo eficiente, sin incrementar innecesariamente los costes."
+    },
+    {
+      "termino": "Principio de conformidad (ISO 38.500)",
+      "definicion": "Las TIC deben cumplir todas las leyes y normativas aplicables."
+    },
+    {
+      "termino": "Principio de factor humano (ISO 38.500)",
+      "definicion": "Las políticas TIC deben demostrar respeto al factor humano en la coordinación y gestión de los recursos humanos."
+    },
+    {
+      "termino": "Comité de auditoría",
+      "definicion": "Herramienta clave del gobierno corporativo encargada de verificar estrategias, controlar riesgos, comprobar eficiencia de recursos y garantizar la integridad del negocio."
+    },
+    {
+      "termino": "CIO (Chief Information Officer)",
+      "definicion": "Director de TIC responsable de alinear la estrategia TIC con el negocio y dirigir la gestión operativa de los sistemas."
+    },
+    {
+      "termino": "ISACA",
+      "definicion": "Information Systems Audit and Control Association; organización internacional sin ánimo de lucro fundada en 1969, principal referencia mundial en gobierno, riesgo y auditoría de sistemas de información."
+    },
+    {
+      "termino": "CISA",
+      "definicion": "Certified Information Systems Auditor; certificación emitida por ISACA y principal referencia mundial en auditoría de sistemas de información."
+    },
+    {
+      "termino": "CGEIT",
+      "definicion": "Certified in the Governance of Enterprise IT; certificación de ISACA para profesionales especializados en gobernanza TIC."
+    },
+    {
+      "termino": "CISSP",
+      "definicion": "Certified Information Systems Security Professional; certificación de referencia en seguridad de la información emitida por (ISC)², distinta de CISA en que se centra en seguridad y no en auditoría."
+    },
+    {
+      "termino": "COBIT",
+      "definicion": "Marco para la gestión y gobierno de TIC desarrollado por ISACA en 1996 que establece niveles de madurez de los procesos tecnológicos."
+    },
+    {
+      "termino": "ITIL",
+      "definicion": "IT Infrastructure Library; marco de buenas prácticas del Reino Unido para la gestión de servicios TIC, actualmente en versión 4."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-12-fc-001",
+      "pregunta": "¿Qué es la gobernanza TIC según ISO/IEC 38.500?",
+      "respuesta": "El sistema por el que se dirigen y controlan los usos actuales y futuros de las tecnologías de la información en una organización."
+    },
+    {
+      "id": "casi-tema-12-fc-002",
+      "pregunta": "¿Cuál es la diferencia fundamental entre gobernanza TIC y gestión TIC?",
+      "respuesta": "La gobernanza TIC atiende a causas externas y se orienta al futuro (usos actuales y futuros); la gestión TIC se centra en activos internos y el presente operacional (que nada se rompa)."
+    },
+    {
+      "id": "casi-tema-12-fc-003",
+      "pregunta": "¿Cuáles son los seis principios de gobierno TIC de la ISO/IEC 38.500?",
+      "respuesta": "Responsabilidad, estrategia, adquisición, rendimiento, conformidad y factor humano."
+    },
+    {
+      "id": "casi-tema-12-fc-004",
+      "pregunta": "¿Qué establece el principio de responsabilidad de ISO 38.500?",
+      "respuesta": "Que todos los individuos y grupos de la organización comprenden y aceptan sus responsabilidades con respecto a la oferta y demanda de TIC, no solo el departamento TIC."
+    },
+    {
+      "id": "casi-tema-12-fc-005",
+      "pregunta": "¿Qué establece el principio de estrategia de ISO 38.500?",
+      "respuesta": "Que debe existir un plan estratégico TIC que tenga en cuenta las necesidades actuales y futuras de la organización."
+    },
+    {
+      "id": "casi-tema-12-fc-006",
+      "pregunta": "¿Qué establece el principio de adquisición de ISO 38.500?",
+      "respuesta": "Que la compra de tecnología responde siempre a un análisis previo, con transparencia y equilibrio entre costes y riesgos a corto y largo plazo, evitando compras impulsivas."
+    },
+    {
+      "id": "casi-tema-12-fc-007",
+      "pregunta": "¿Qué establece el principio de conformidad de ISO 38.500?",
+      "respuesta": "Que las TIC deben cumplir todas las leyes y normativas aplicables (protección de datos, normativa ambiental, etc.)."
+    },
+    {
+      "id": "casi-tema-12-fc-008",
+      "pregunta": "¿Qué es la gobernanza corporativa?",
+      "respuesta": "El sistema por el cual el Consejo de Administración asegura el logro sostenido de los objetivos de la organización, la protección de su patrimonio y ofrece transparencia a los grupos de interés."
+    },
+    {
+      "id": "casi-tema-12-fc-009",
+      "pregunta": "¿Cuál es la diferencia entre gobernanza corporativa y gobernanza de negocio?",
+      "respuesta": "La gobernanza corporativa marca las reglas y comprueba que se cumplen. La gobernanza de negocio ejecuta el día a día para alcanzar los objetivos operativos."
+    },
+    {
+      "id": "casi-tema-12-fc-010",
+      "pregunta": "¿Cuál es la herramienta clave del gobierno corporativo?",
+      "respuesta": "El Comité de Auditoría, encargado de verificar estrategias, controlar riesgos y comprobar la eficiencia en el uso de recursos."
+    },
+    {
+      "id": "casi-tema-12-fc-011",
+      "pregunta": "¿Qué tres procesos fundamentales apoya el gobierno corporativo de TIC?",
+      "respuesta": "Evaluación (comprobar que los procesos TIC funcionan y funcionarán), dirección (aplicar planes para conseguir objetivos) y monitorización (verificar cumplimiento de políticas)."
+    },
+    {
+      "id": "casi-tema-12-fc-012",
+      "pregunta": "¿Qué es ISACA?",
+      "respuesta": "Information Systems Audit and Control Association; organización internacional sin ánimo de lucro fundada en 1969, principal referencia mundial en gobierno, riesgo y auditoría de sistemas de información."
+    },
+    {
+      "id": "casi-tema-12-fc-013",
+      "pregunta": "¿Qué es la certificación CISA?",
+      "respuesta": "Certified Information Systems Auditor; certificación emitida por ISACA y principal referencia mundial en auditoría de sistemas de información."
+    },
+    {
+      "id": "casi-tema-12-fc-014",
+      "pregunta": "¿Qué diferencia existe entre CISA y CISSP?",
+      "respuesta": "CISA se centra en auditoría de sistemas de información y la emite ISACA. CISSP se centra en seguridad de la información y la emite (ISC)²."
+    },
+    {
+      "id": "casi-tema-12-fc-015",
+      "pregunta": "¿Quién emite la certificación CISSP?",
+      "respuesta": "(ISC)², International Information Systems Security Certification Consortium."
+    },
+    {
+      "id": "casi-tema-12-fc-016",
+      "pregunta": "¿Qué es COBIT y quién lo desarrolló?",
+      "respuesta": "Marco para la gestión y gobierno de TIC que establece niveles de madurez de los procesos. Fue desarrollado por ISACA en 1996."
+    },
+    {
+      "id": "casi-tema-12-fc-017",
+      "pregunta": "¿Cuáles son los tres estándares más importantes de este tema?",
+      "respuesta": "ISO/IEC 38.500 (gobierno TIC), ISO/IEC 27.001 (seguridad de la información) e ISO/IEC 22.301 (continuidad de negocio)."
+    },
+    {
+      "id": "casi-tema-12-fc-018",
+      "pregunta": "¿Qué es ITIL?",
+      "respuesta": "IT Infrastructure Library; conjunto de buenas prácticas del Reino Unido para la gestión de servicios TIC, actualmente en versión 4."
+    },
+    {
+      "id": "casi-tema-12-fc-019",
+      "pregunta": "¿Cuál es la diferencia entre UNE y AENOR en España?",
+      "respuesta": "UNE (Asociación Nacional de Normalización) redacta las normas. AENOR certifica que se cumplen. Son entidades separadas desde 2017."
+    },
+    {
+      "id": "casi-tema-12-fc-020",
+      "pregunta": "¿Qué debe comprobar el auditor según la ISO 38.500 sobre la integración de las TIC?",
+      "respuesta": "Que la integración de las TIC sea plena y coherente con la estrategia: ni más equipos de los necesarios ni menos de los que hacen falta para conseguir los objetivos."
+    }
+  ]
+}

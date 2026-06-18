@@ -24,7 +24,8 @@
     "observaciones": "Pregunta del test de autoevaluación oficial del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-002",
@@ -51,7 +52,8 @@
     "observaciones": "Pregunta 2 del test de autoevaluación del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-003",
@@ -78,7 +80,8 @@
     "observaciones": "Pregunta 3 del test de autoevaluación del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-004",
@@ -105,7 +108,8 @@
     "observaciones": "Pregunta 4 del test de autoevaluación. El profesor: 'Que cae en el examen, desde luego que sí'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-005",
@@ -132,7 +136,8 @@
     "observaciones": "Pregunta 5 del test de autoevaluación del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-006",
@@ -159,7 +164,8 @@
     "observaciones": "Pregunta 6 del test de autoevaluación del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-1-test-007",
@@ -186,7 +192,8 @@
     "observaciones": "Pregunta 7 del test de autoevaluación del Tema 1.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-001",
@@ -213,7 +220,8 @@
     "observaciones": "Pregunta 1 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-002",
@@ -240,7 +248,8 @@
     "observaciones": "Pregunta 2 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-003",
@@ -267,7 +276,8 @@
     "observaciones": "Pregunta 3 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-004",
@@ -294,7 +304,8 @@
     "observaciones": "Pregunta 4 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-005",
@@ -321,7 +332,8 @@
     "observaciones": "Pregunta 5 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-006",
@@ -348,7 +360,8 @@
     "observaciones": "Pregunta 6 del test de autoevaluación del Tema 2.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-007",
@@ -374,7 +387,8 @@
     "observaciones": "Presentada por el profesor como 'ejemplo de test que os puede caer en el examen'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-008",
@@ -400,7 +414,8 @@
     "observaciones": "Presentada por el profesor como 'ejemplo de test que os puede caer en el examen'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-009",
@@ -426,7 +441,8 @@
     "observaciones": "Presentada por el profesor como 'ejemplo de test que os puede caer en el examen'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-010",
@@ -452,7 +468,8 @@
     "observaciones": "Presentada por el profesor. El término correcto es 'operatividad', no 'usabilidad'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-2-test-011",
@@ -478,7 +495,8 @@
     "observaciones": "El profesor señaló expresamente: 'Atento, porque es pregunta de examen.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-001",
@@ -505,7 +523,8 @@
     "observaciones": "Pregunta 1 del test de autoevaluación del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-002",
@@ -532,7 +551,8 @@
     "observaciones": "Pregunta 2 del test de autoevaluación del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-003",
@@ -559,7 +579,8 @@
     "observaciones": "Pregunta 3 del test de autoevaluación del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-004",
@@ -586,7 +607,8 @@
     "observaciones": "Pregunta 4 del test de autoevaluación del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-005",
@@ -613,7 +635,8 @@
     "observaciones": "El profesor señaló: 'Ojo, también de esto hay preguntas de examen'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-006",
@@ -639,7 +662,8 @@
     "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-007",
@@ -665,7 +689,8 @@
     "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-008",
@@ -691,7 +716,8 @@
     "observaciones": "Pregunta presentada por el profesor al final de la sesión del Tema 3.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-009",
@@ -717,7 +743,8 @@
     "observaciones": "El profesor lo señaló: 'Por si acaso lo preguntáis.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-3-test-010",
@@ -743,7 +770,8 @@
     "observaciones": "Pregunta del profesor: 'Indica el modelo de control de acceso donde los usuarios puedan dar permisos a sus recursos → DAC.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-001",
@@ -770,7 +798,8 @@
     "observaciones": "Pregunta 1 del test de autoevaluación del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-002",
@@ -797,7 +826,8 @@
     "observaciones": "Pregunta 2 del test de autoevaluación del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-003",
@@ -824,7 +854,8 @@
     "observaciones": "Pregunta 3 del test de autoevaluación del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-004",
@@ -851,7 +882,8 @@
     "observaciones": "Pregunta 4 del test de autoevaluación del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-005",
@@ -878,7 +910,8 @@
     "observaciones": "Pregunta 5 del test de autoevaluación del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-006",
@@ -904,7 +937,8 @@
     "observaciones": "El profesor señaló que las capas de OSI y TCP/IP 'hay que saberse'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-007",
@@ -930,7 +964,8 @@
     "observaciones": "Pregunta mencionada expresamente por el profesor al final de la sesión del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-4-test-008",
@@ -956,7 +991,8 @@
     "observaciones": "Pregunta mencionada por el profesor al final de la sesión del Tema 4.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-5-test-001",
@@ -983,7 +1019,8 @@
     "observaciones": "Pregunta 1 del test de autoevaluación del Tema 5.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-5-test-002",
@@ -1010,7 +1047,8 @@
     "observaciones": "Pregunta 2 del test de autoevaluación del Tema 5.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-5-test-003",
@@ -1037,7 +1075,8 @@
     "observaciones": "Pregunta 3 del test de autoevaluación del Tema 5.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-5-test-004",
@@ -1064,7 +1103,8 @@
     "observaciones": "Pregunta 4 del test de autoevaluación del Tema 5.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-5-test-005",
@@ -1091,7 +1131,8 @@
     "observaciones": "El profesor la señaló como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-001",
@@ -1117,7 +1158,8 @@
     "observaciones": "Presentada por el profesor al final de la sesión del Tema 6 como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-002",
@@ -1143,7 +1185,8 @@
     "observaciones": "Presentada por el profesor como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-003",
@@ -1169,7 +1212,8 @@
     "observaciones": "Presentada por el profesor como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-004",
@@ -1196,7 +1240,8 @@
     "observaciones": "El profesor: 'Lo más importante y la mayor diferencia del tema.' Presentada como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-005",
@@ -1222,7 +1267,8 @@
     "observaciones": "El profesor confirmó: 'Son dos años, son dos años, correcto.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-6-test-006",
@@ -1248,7 +1294,8 @@
     "observaciones": "El profesor confirmó el dato en clase.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-7-test-001",
@@ -1274,7 +1321,8 @@
     "observaciones": "Pregunta del test de autoevaluación del Tema 7.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-7-test-002",
@@ -1300,7 +1348,8 @@
     "observaciones": "Pregunta del test de autoevaluación del Tema 7.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-7-test-003",
@@ -1326,7 +1375,8 @@
     "observaciones": "Concepto señalado por el profesor como 'lo más importante del tema'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-8-test-001",
@@ -1352,7 +1402,8 @@
     "observaciones": "Presentada como ejemplo de pregunta de examen al final de la sesión del Tema 8.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-8-test-002",
@@ -1378,7 +1429,8 @@
     "observaciones": "El profesor: 'Ejemplo de pregunta que puede caer en el examen.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-8-test-003",
@@ -1405,7 +1457,8 @@
     "observaciones": "El profesor: 'Ejemplo de pregunta que puede caer en el examen.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-8-test-004",
@@ -1431,7 +1484,8 @@
     "observaciones": "El profesor confirmó: 'Va a caer. Sí, sí va a caer.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-9-test-001",
@@ -1457,7 +1511,8 @@
     "observaciones": "El profesor la presentó como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-9-test-002",
@@ -1483,7 +1538,8 @@
     "observaciones": "El profesor la presentó como pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-9-test-003",
@@ -1509,7 +1565,8 @@
     "observaciones": "El profesor señaló los tipos de CAT como contenido que 'hay que saberse'.",
     "modelosExamen": [],
     "requiereRevision": true,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-10-test-001",
@@ -1536,7 +1593,8 @@
     "observaciones": "El profesor: 'Puede garantizar que en algunos modelos del examen sale el arranque en frío.'",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-10-test-002",
@@ -1563,7 +1621,8 @@
     "observaciones": "Pregunta de repaso presentada como ejemplo de pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-10-test-003",
@@ -1590,7 +1649,8 @@
     "observaciones": "Pregunta de repaso presentada al final de la sesión del Tema 10.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-10-test-004",
@@ -1617,7 +1677,8 @@
     "observaciones": "El profesor señaló los conceptos RTO, RPO y MTPD como 'importante estos conceptos'.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-10-test-005",
@@ -1644,7 +1705,8 @@
     "observaciones": "Concepto explicado con detalle en la sesión del Tema 10.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-tema-8-test-005",
@@ -1671,7 +1733,8 @@
     "observaciones": "Presentada en la sesión de repaso del Tema 10 como ejemplo de pregunta de examen.",
     "modelosExamen": [],
     "requiereRevision": false,
-    "verificada": false
+    "verificada": false,
+    "parteExamenId": null
   },
   {
     "id": "casi-examen-real-t1-001",
@@ -1692,7 +1755,10 @@
     "respuestaCorrecta": 0,
     "explicacion": "El usuario final es consumidor de los sistemas TIC, no un actor de gobierno. La gobernanza TIC la forman quienes dirigen y controlan las TIC: el CIO, el auditor, el comité ejecutivo y los propietarios de procesos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-C",
+      "2025-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-C, 2025-B, 2025-C.",
     "requiereRevision": false,
@@ -1723,7 +1789,7 @@
     "respuestaCorrecta": 0,
     "explicacion": "CISA (Certified Information Systems Auditor) es la certificación de referencia para auditores de sistemas de información emitida por ISACA (Information Systems Audit and Control Association).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A"
     ],
     "observaciones": "Aparece en modelo: 2023-A.",
     "requiereRevision": false,
@@ -1751,7 +1817,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Según la ISO/IEC 38500, el gobierno TIC es responsable de la ejecución: implementa operativamente las políticas y estrategias TIC definidas por el gobierno corporativo.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2025-A",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2025-A, 2025-D.",
     "requiereRevision": false,
@@ -1781,7 +1849,8 @@
     "respuestaCorrecta": 2,
     "explicacion": "La conformidad (cumplimiento legislativo) compete al gobierno corporativo, que es la capa de mayor nivel y tiene responsabilidad legal y regulatoria ante el exterior.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2025-G.",
     "requiereRevision": false,
@@ -1810,7 +1879,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "Según la ISO/IEC 38500, el gobierno TIC se apoya en seis principios: Responsabilidad, Estrategia, Adquisición, Rendimiento, Conformidad y Factor humano.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2024-A",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2024-A, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -1842,7 +1915,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "El principio de Conformidad de la ISO 38500 establece que las TIC deben cumplir todas las leyes y normativas vigentes. La Estrategia alinea TIC con negocio; la Responsabilidad define quién responde de cada área.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2024-B, 2025-B.",
     "requiereRevision": false,
@@ -1874,7 +1951,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "La gobernanza corporativa dirige y controla el negocio en su conjunto. La dirección y control TIC corresponde al gobierno TIC, que es un subconjunto del gobierno corporativo.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-B",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-B, 2025-B.",
     "requiereRevision": false,
@@ -1904,7 +1983,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "La ISO/IEC 38500 es el estándar internacional para el gobierno corporativo de las TIC. La ISO 27001 regula los SGSI (seguridad de la información), no el gobierno TIC.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-B",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-B, 2025-B.",
     "requiereRevision": false,
@@ -1934,7 +2015,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "La gobernanza TIC busca alinear los objetivos estratégicos del negocio con los principios tecnológicos de eficacia y eficiencia. No se reduce a la gestión operativa ni al marco legal.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-D.",
     "requiereRevision": false,
@@ -1963,7 +2045,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "El gobierno TIC opera principalmente ex ante (antes de que ocurran los eventos), anticipando y previniendo. Afirmar que opera ex post es falso. La adquisición es uno de sus seis principios.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -1993,7 +2077,10 @@
     "respuestaCorrecta": 2,
     "explicacion": "La LOPD establece un nivel ALTO de protección para datos especialmente sensibles: ideología, religión, creencias, origen racial, salud, vida sexual y datos con fines policiales. No pueden tratarse salvo consentimiento expreso.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-C",
+      "2025-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-C, 2025-B, 2025-C.",
     "requiereRevision": false,
@@ -2024,7 +2111,7 @@
     "respuestaCorrecta": 0,
     "explicacion": "La LSSICE regula los servicios prestados por vía electrónica. Se aplica a cualquier negocio que use internet para su actividad o promoción, independientemente del tamaño.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A"
     ],
     "observaciones": "Aparece en modelo: 2023-A.",
     "requiereRevision": false,
@@ -2052,7 +2139,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los ataques DDoS pueden paralizar infraestructuras críticas y son un ejemplo de ciberterrorismo. El spam telefónico es molestia comercial; la escalada de privilegios de un empleado es sabotaje interno.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2025-A",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2025-A, 2025-D.",
     "requiereRevision": false,
@@ -2082,7 +2171,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "El consentimiento de los menores de edad no es un principio fundamental de protección de datos sino una limitación específica (los menores no pueden dar consentimiento válido por sí solos). La transparencia y el tratamiento de datos penales sí son principios regulados.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2025-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2025-B, 2025-C.",
     "requiereRevision": false,
@@ -2112,7 +2203,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "El uso de una red Wi-Fi ajena no es por sí mismo delito. Solo lo es si se utiliza como medio para cometer una acción tipificada como delito en el Código Penal (art. 256 CP).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2142,7 +2235,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Un delito informático es aquel recogido en el Código Penal en el que la informática actúa como medio o como objetivo. No requiere que el autor sea informático, ni está tipificado en la LOPD.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-B, 2025-D.",
     "requiereRevision": false,
@@ -2172,7 +2267,8 @@
     "respuestaCorrecta": 2,
     "explicacion": "El principio de Locard ('todo contacto deja un rastro') es un pilar del análisis forense: cualquier acción sobre un sistema deja trazas que el analista forense busca e interpreta. No tiene relación con la LSSICE ni la Constitución.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-B.",
     "requiereRevision": false,
@@ -2202,7 +2298,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "La Capa 6 (Presentación) del modelo OSI se encarga del cifrado, compresión y traducción de datos entre formatos. No confundir con Transporte (conexiones fiables) ni Aplicación (interfaz de usuario).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2235,7 +2335,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "Un HIDS (Host-based IDS) monitoriza un sistema concreto: analiza logs, procesos y archivos del sistema. A diferencia del NIDS (Network IDS) que monitoriza el tráfico de red.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2268,7 +2372,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "La INTEGRIDAD garantiza que la información no ha sido modificada sin autorización. La Confidencialidad garantiza que solo acceden los autorizados. La Disponibilidad garantiza que la información es accesible cuando se necesita.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2301,7 +2409,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "El RBAC (Role-Based Access Control) asigna permisos a roles (grupos de usuarios), no a usuarios individuales. El control discrecional lo gestiona el propietario del recurso; el obligatorio (MAC) usa etiquetas de seguridad del sistema.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2334,7 +2446,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "La monitorización de entradas por teclado (keylogging) es una técnica de vigilancia/espionaje, NO un mecanismo de control de acceso. Los controles de acceso legítimos incluyen verificación de identidad (autenticación) y gestión de roles (autorización).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2367,7 +2483,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "De las tres opciones, WPA proporciona mayor seguridad en WiFi. WEP está completamente obsoleto y roto. PGP no es un protocolo WiFi (es para cifrado de correo). En exámenes con WPA3 disponible, esa sería la mejor opción.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2400,7 +2520,13 @@
     "respuestaCorrecta": 1,
     "explicacion": "Las VPNs con cifrado crean un túnel seguro sobre la red pública, garantizando confidencialidad e integridad. Los certificados digitales sirven para autenticación, no para proteger el canal completo.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2435,7 +2561,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Ethernet es la tecnología dominante en redes LAN desde los años 90. ATM fue popular en redes WAN pero está obsoleta. Token ring (IBM) también está en desuso.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2466,7 +2594,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "La arquitectura Screened Host combina un router de filtrado (que solo deja pasar tráfico hacia el host bastión) con un host bastión que actúa como proxy entre internet y la red interna.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2497,7 +2627,13 @@
     "respuestaCorrecta": 0,
     "explicacion": "El diseño correcto de protocolos se basa en una arquitectura de capas (como OSI o TCP/IP), lo que permite identificar y aislar las funciones de cada componente de la comunicación, facilitando el desarrollo modular y la interoperabilidad.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2532,7 +2668,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los IDS protegen la integridad al detectar actividades no autorizadas que pudieran alterar el sistema. No corrigen errores (eso es el IPS o el control correctivo).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2024-A, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2565,7 +2705,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "Cifrar el hash con clave simétrica produce un HMAC (Hash-based Message Authentication Code): permite verificar la integridad del mensaje y la autenticidad del remitente. La firma digital usa clave ASIMÉTRICA (clave privada).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-B",
+      "2025-B",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-B, 2025-B, 2025-G.",
     "requiereRevision": false,
@@ -2597,7 +2741,14 @@
     "respuestaCorrecta": 2,
     "explicacion": "El backup incremental guarda solo los cambios desde el último backup. Para restaurar se necesita la cinta del backup total más TODAS las cintas incrementales hasta hoy, lo que requiere más medios que el diferencial.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2024-B, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2632,7 +2783,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "El backup total (completo) es el más adecuado para almacenamiento externo (offsite) porque contiene todos los datos en un solo soporte. En caso de desastre, solo necesitas ese único soporte para restaurar.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-B.",
     "requiereRevision": false,
@@ -2662,7 +2815,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "P3P (Platform for Privacy Preferences) es un estándar del W3C que permite a los sitios web comunicar sus prácticas de privacidad de forma estandarizada, facilitando que los navegadores comparen esas políticas con las preferencias del usuario.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2692,7 +2847,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los controles de seguridad se implementan en tres niveles: Administrativo (políticas, procedimientos), Técnico/Lógico (software, cifrado, IDS) y Físico (barreras, cámaras, control de acceso a instalaciones).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2025-A",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2025-A, 2025-D.",
     "requiereRevision": false,
@@ -2722,7 +2879,12 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los controles DISUASORIOS tienen como objetivo disuadir a atacantes potenciales haciéndoles desistir antes de actuar. Los preventivos evitan que el ataque ocurra. Los detectivos identifican ataques en curso o pasados.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2755,7 +2917,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los controles administrativos persiguen: mínimo privilegio (cada usuario accede solo a lo necesario), separación de responsabilidades (evitar que una persona controle todo el proceso) y rotación de puestos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-A",
+      "2025-A",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-A, 2025-A, 2025-D.",
     "requiereRevision": false,
@@ -2787,7 +2953,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Los controles físicos protegen equipos e instalaciones (hardware, centros de datos, cableado). Los activos intangibles (información, software) se protegen con controles lógicos/técnicos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2817,7 +2985,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "Las cuatro normas clásicas de seguridad física son: Evitar (impedir el acceso), Retrasar (dificultar el acceso), Detectar (identificar el intento) y Defender (responder al incidente).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -2847,7 +3017,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Un cortafuegos (firewall) es un control LÓGICO/TÉCNICO: es software o hardware que filtra el tráfico de red mediante reglas. No es un control físico (que protegería instalaciones).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A.",
     "requiereRevision": false,
@@ -2877,7 +3049,12 @@
     "respuestaCorrecta": 0,
     "explicacion": "El IDS es un control DETECTIVO: su función es detectar y alertar sobre actividades anómalas. No previene el ataque (eso es el IPS). La clasificación funcional más específica es 'detectivo'.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -2910,7 +3087,12 @@
     "respuestaCorrecta": 2,
     "explicacion": "La auditoría de SISTEMA evalúa de forma integral toda la gestión del sistema (personas, procesos, tecnología). La de proceso analiza un proceso concreto; la de producto verifica un software específico.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-A",
+      "2024-B",
+      "2025-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-A, 2024-B, 2025-B, 2025-C.",
     "requiereRevision": false,
@@ -2943,7 +3125,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "La auditoría de proceso evalúa el rendimiento y eficiencia de los procesos de la organización. La verificación normativa es la auditoría de certificación/normativa. La validación de software es la auditoría de producto.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-A"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-A.",
     "requiereRevision": false,
@@ -2973,7 +3157,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "La auditoría FORENSE combina informática y derecho para investigar incidentes (fraudes, delitos informáticos) y recopilar evidencias válidas en juicio. La auditoría operacional evalúa eficiencia; la integral abarca toda la organización.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3005,7 +3193,13 @@
     "respuestaCorrecta": 1,
     "explicacion": "La auditoría de VERIFICACIÓN/NORMATIVA es obligatoria porque la impone la ley (el ENS exige auditoría bienal para niveles Medio y Alto). La auditoría de certificación es voluntaria. La externa puede ser obligatoria en algunos contextos concretos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3039,7 +3233,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "El sistema de control interno y la auditoría interna son conceptualmente equivalentes: ambos son realizados por la propia organización como mecanismo interno de supervisión.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-B.",
     "requiereRevision": false,
@@ -3069,7 +3265,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "El auditor interno debe reportar a los órganos de alta dirección (consejo de administración, comité de auditoría) para garantizar su independencia respecto a las áreas auditadas.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-B.",
     "requiereRevision": false,
@@ -3099,7 +3297,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "El auditor verifica que en cada fase del SDLC se cumplen los objetivos organizacionales y que las decisiones tienen el aval de la dirección. El auditor NO implementa controles ni gestiona contratos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-B.",
     "requiereRevision": false,
@@ -3129,7 +3329,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "La independencia de un SGSI se evalúa mediante auditorías externas realizadas por entidades independientes. Solo una entidad ajena puede verificar objetivamente la ausencia de conflictos de interés.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -3159,7 +3361,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "La auditoría de protección de datos es obligatoria para las organizaciones que tratan datos personales, según el RGPD y la LOPD. Deben realizarse evaluaciones periódicas para verificar el cumplimiento normativo en materia de privacidad.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3189,7 +3393,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "El fingerprinting se centra en un dispositivo concreto para extraer información sobre su SO, versión de servicios y puertos abiertos. Puede ser activo (nmap) o pasivo (p0f). El footprinting mapea la red completa.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-A",
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-A, 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -3221,7 +3429,7 @@
     "respuestaCorrecta": 0,
     "explicacion": "Los test de penetración (pentesting) son activos: el evaluador intenta explotar vulnerabilidades reales del sistema con autorización. Son una herramienta fundamental para mejorar la seguridad.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A"
     ],
     "observaciones": "Aparece en modelo: 2023-A.",
     "requiereRevision": false,
@@ -3249,7 +3457,7 @@
     "respuestaCorrecta": 2,
     "explicacion": "El análisis forense es el más costoso: se realiza tras un incidente y requiere especialistas, herramientas forenses certificadas, preservación de evidencias y proceso legal. El pentesting y la auditoría de seguridad son medidas preventivas con costes menores.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A"
     ],
     "observaciones": "Aparece en modelo: 2023-A.",
     "requiereRevision": false,
@@ -3277,7 +3485,8 @@
     "respuestaCorrecta": 0,
     "explicacion": "Las rainbow tables son tablas precalculadas de pares hash→contraseña que permiten invertir hashes muy rápidamente. Son el método más eficiente para crackear contraseñas hasheadas cuando no se usa salt.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B.",
     "requiereRevision": false,
@@ -3306,7 +3515,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "La ingeniería inversa analiza un ejecutable o malware para inferir/reconstruir su código fuente y entender su funcionamiento. Es una técnica legítima de análisis forense y análisis de malware.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-C.",
     "requiereRevision": false,
@@ -3335,7 +3545,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "Cain&Abel es una herramienta de cracking de contraseñas y ataques ARP/Spoofing, NO de escaneo de puertos. Nmap es el escáner de puertos por excelencia. Netstat muestra conexiones activas y puertos en escucha.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-A",
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-A, 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -3367,7 +3581,8 @@
     "respuestaCorrecta": 0,
     "explicacion": "El footprinting busca obtener un mapa completo de la red corporativa (topología, infraestructura, sistemas activos) como fase previa al pentesting. Es de ámbito amplio (toda la red), a diferencia del fingerprinting que se centra en dispositivos concretos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-A",
+      "2024-B"
     ],
     "observaciones": "Aparece en modelos: 2024-A, 2024-B.",
     "requiereRevision": false,
@@ -3396,7 +3611,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "Nmap (Network Mapper) es la herramienta de fingerprinting ACTIVO más usada: envía paquetes al objetivo para detectar puertos abiertos, SO y servicios. El fingerprinting pasivo (p0f) solo escucha el tráfico existente.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-A",
+      "2024-B"
     ],
     "observaciones": "Aparece en modelos: 2024-A, 2024-B.",
     "requiereRevision": false,
@@ -3425,7 +3641,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "Una auditoría informática siempre requiere evidencias directas (las que prueban un hecho por sí mismas: logs, registros, configuraciones). Las evidencias indirectas son útiles pero no imprescindibles. SAST no es un requisito universal.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B.",
     "requiereRevision": false,
@@ -3454,7 +3671,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "La transferencia de zona (Zone Transfer / AXFR) replica todos los registros DNS de una zona. Si está mal configurado, un atacante puede obtener un mapa completo de la infraestructura (nombres de host y direcciones IP).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3484,7 +3703,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "Citrix es una plataforma conocida principalmente por sus servicios de virtualización de aplicaciones y escritorios remotos. No es una herramienta de análisis de vulnerabilidades ni un protocolo DNS.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -3514,7 +3735,13 @@
     "respuestaCorrecta": 0,
     "explicacion": "El XSS PERSISTENTE (o almacenado) inyecta código malicioso directamente en la base de datos del servidor web; se ejecuta en todos los navegadores que cargan la página. El XSS reflejado manipula parámetros en la URL sin modificar el servidor.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3548,7 +3775,13 @@
     "respuestaCorrecta": 2,
     "explicacion": "El CSRF aprovecha una sesión ya autenticada del usuario para ejecutar peticiones no autorizadas en su nombre, por una gestión incorrecta de sesiones (ausencia de tokens CSRF, cookies sin protección SameSite).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3582,7 +3815,13 @@
     "respuestaCorrecta": 1,
     "explicacion": "La enumeración de puertos abiertos (con herramientas como nmap) y la identificación de servicios que corren en ellos es una fase fundamental del análisis de vulnerabilidades: sin saber qué hay activo, no se puede determinar qué es vulnerable.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3616,7 +3855,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "La inyección SQL se produce cuando una aplicación no valida ni sanea las entradas del usuario, permitiendo inyectar comandos SQL. El XSS también implica falta de validación, pero el vector es la inyección de scripts.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B, 2025-D.",
     "requiereRevision": false,
@@ -3648,7 +3891,9 @@
     "respuestaCorrecta": 1,
     "explicacion": "Las pruebas informáticas sí tienen valor probatorio en juicio, pero con dos requisitos: deben ser evidencias directas y debe respetarse la cadena de custodia (garantía de que no han sido manipuladas).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A.",
     "requiereRevision": false,
@@ -3678,7 +3923,14 @@
     "respuestaCorrecta": 2,
     "explicacion": "Legalmente, las evidencias se clasifican en Directas (prueban el hecho por sí mismas) e Indirectas o circunstanciales (requieren inferencia). Los ficheros log son un tipo de evidencia, no una categoría propia.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2024-B, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -3713,7 +3965,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "El análisis forense es un control reactivo/correctivo: se activa después de un incidente para investigar qué ocurrió, cómo y quién fue responsable. No es preventivo ni se aplica durante el incidente en tiempo real.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-B",
+      "2025-A",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-B, 2025-A, 2025-G.",
     "requiereRevision": false,
@@ -3745,7 +4001,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "El análisis forense se apoya en los controles detectivos (logs, IDS, SIEM) que han registrado trazas del incidente. Son la materia prima del análisis forense: registros de acceso, alertas del IDS, ficheros de log.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-B",
+      "2025-A",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-B, 2025-A, 2025-G.",
     "requiereRevision": false,
@@ -3777,7 +4037,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "El análisis cuantitativo (Riesgo = Probabilidad × Impacto en euros) es más preciso pero más costoso que el cualitativo (que usa matrices alto/medio/bajo). Requiere datos numéricos fiables, no intuición, y puede automatizarse.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A.",
     "requiereRevision": false,
@@ -3807,7 +4069,10 @@
     "respuestaCorrecta": 0,
     "explicacion": "El CEO (o dirección general) debe aprobar y aceptar la responsabilidad del proceso de auditoría. Sin este aval ejecutivo, la auditoría carece de autoridad. El auditor NO implementa cambios (viola el principio de independencia).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3838,7 +4103,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "Los objetivos de seguridad requieren la integración de los tres pilares: personas (formación, concienciación), procesos (políticas, procedimientos) y tecnología (herramientas, controles técnicos). Ninguno por sí solo es suficiente.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3868,7 +4135,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "El primer paso formal de una auditoría es establecer el compromiso: redactar los puntos base (alcance, objetivos, metodología) y conseguir la firma de aceptación de todos los agentes implicados. Sin este documento previo, no hay auditoría formal.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3897,7 +4165,10 @@
     "respuestaCorrecta": 2,
     "explicacion": "Las metodologías de auditoría informática se clasifican en dos grupos: las relativas a controles generales (aplican a cualquier sistema) y las establecidas por auditores internos especializados (adaptadas a sectores específicos). Fuzzing/SAST/DAST son técnicas, no metodologías.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3928,7 +4199,8 @@
     "respuestaCorrecta": 1,
     "explicacion": "CAAT (Computer Assisted Audit Tools) son herramientas diseñadas para asistir al auditor en la recolección, procesado y análisis de evidencias (extracción de datos, análisis de logs, comparativas). No son herramientas DAST ni de footprinting.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C.",
     "requiereRevision": false,
@@ -3957,7 +4229,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "La última fase del SDLC es la Terminación/Desmantelamiento: implica la eliminación segura (sanitización) de todos los datos almacenados en todos los soportes (discos, papel, cintas) para que no puedan recuperarse.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B, 2025-D.",
     "requiereRevision": false,
@@ -3989,7 +4265,12 @@
     "respuestaCorrecta": 0,
     "explicacion": "Las auditorías de seguridad NO siempre informan positivamente sobre la robustez del SGSI; pueden encontrar y reportar debilidades graves. El objetivo es evaluar con objetividad, no validar. Las opciones B y C son afirmaciones verdaderas.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2024-A",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-B, 2024-A, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -4022,7 +4303,11 @@
     "respuestaCorrecta": 1,
     "explicacion": "El ciclo de vida de las evidencias digitales (ISO 27037) tiene cuatro fases: Identificación, Adquisición, Preservación y Análisis. El 'Diseño de sistemas TIC' pertenece al SDLC, no al ciclo forense.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B, 2025-D.",
     "requiereRevision": false,
@@ -4054,7 +4339,11 @@
     "respuestaCorrecta": 2,
     "explicacion": "El objetivo del análisis forense digital es encontrar hechos (evidencias de lo que ocurrió) a partir del análisis de artefactos digitales (logs, registros, metadatos, archivos). No se limita a errores de programación ni a mal uso.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B, 2025-D.",
     "requiereRevision": false,
@@ -4086,7 +4375,12 @@
     "respuestaCorrecta": 2,
     "explicacion": "Según el NIST, el BCP consta de 4 fases: (1) Iniciación del proyecto BCP, (2) Evaluación del negocio/BIA, (3) Desarrollo del BCP, (4) Aprobación e implementación.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-C",
+      "2025-A",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2023-C, 2025-A, 2025-C, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -4119,7 +4413,7 @@
     "respuestaCorrecta": 2,
     "explicacion": "El gestor senior es la autoridad máxima en el BCP/DRP. Tiene la responsabilidad específica de la política de comunicación en caso de desastre: comunica a terceros, medios, clientes y organismos reguladores.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A"
     ],
     "observaciones": "Aparece en modelo: 2023-A.",
     "requiereRevision": false,
@@ -4147,7 +4441,10 @@
     "respuestaCorrecta": 1,
     "explicacion": "Un error en la cadena de continuidad se denomina interrupción: cualquier evento que cause una parada o degradación del servicio. Una crisis es la situación derivada de varias interrupciones graves. Un ataque es una acción hostil deliberada.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2025-A",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2025-A, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -4178,7 +4475,11 @@
     "respuestaCorrecta": 0,
     "explicacion": "El DRP debe contemplar múltiples opciones de recuperación: acuerdos de mutua ayuda, y modalidades de arranque según costo/tiempo: frío (solo local sin equipos), templado (local con equipos sin datos actualizados) y caliente (réplica en tiempo real).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-B",
+      "2025-B",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-B, 2025-B, 2025-G.",
     "requiereRevision": false,
@@ -4210,7 +4511,13 @@
     "respuestaCorrecta": 2,
     "explicacion": "El equipo del BCP es multidisciplinar: Gestor Senior (autoridad máxima), Grupo de Políticas BCP (directivos de área), Equipo de Gestión de Desastres (representantes departamentales) y Equipo de Respuesta ante Emergencias (operativos en campo).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-C, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -4244,7 +4551,13 @@
     "respuestaCorrecta": 2,
     "explicacion": "El análisis de riesgos permite determinar qué activos son críticos y si se necesitan salvaguardas específicas. Siempre es procedente (ninguna organización está libre de riesgos). No es exclusivo del gestor senior.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en modelos: 2023-B, 2023-C, 2024-A, 2025-A, 2025-B, 2025-D, 2025-G.",
     "requiereRevision": false,
@@ -4278,7 +4591,10 @@
     "respuestaCorrecta": 1,
     "explicacion": "El BCP y el DRP (PRD) son los dos ejes de la estrategia de continuidad de negocio. El BCP abarca toda la continuidad operativa; el DRP es un subconjunto centrado en la recuperación TIC. El BCP no lo diseña solo el CIO.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B.",
     "requiereRevision": false,
@@ -4309,7 +4625,10 @@
     "respuestaCorrecta": 0,
     "explicacion": "El DRP está centrado en la recuperación de los sistemas TIC y procesos tecnológicos. A diferencia del BCP que cubre toda la organización, el DRP tiene foco tecnológico. Involucra a un equipo multidisciplinar, no solo TIC.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-C",
+      "2024-A",
+      "2025-A",
+      "2025-B"
     ],
     "observaciones": "Aparece en modelos: 2023-C, 2024-A, 2025-A, 2025-B.",
     "requiereRevision": false,
@@ -4340,7 +4659,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "El arranque en caliente (Hot Site) es el más costoso porque mantiene una infraestructura réplica en tiempo real, lista para operar en minutos. El arranque en frío (Cold Site) solo ofrece espacio físico sin equipos, es mucho más barato.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -4370,7 +4691,9 @@
     "respuestaCorrecta": 0,
     "explicacion": "La gestión del personal es un componente fundamental del BCP: en caso de desastre, hay que saber dónde está cada persona, qué rol tiene, cómo se le comunica y cómo trabaja desde ubicación alternativa. No se limita a actividades peligrosas.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -4400,7 +4723,9 @@
     "respuestaCorrecta": 2,
     "explicacion": "La tríada CID (Confidencialidad, Integridad, Disponibilidad) son los tres pilares de cualquier SGSI. La autenticación es una regla de oro adicional. El cifrado es una técnica, no un principio.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-A",
+      "2025-A"
     ],
     "observaciones": "Aparece en todos los modelos analizados (2023-A/B/C, 2024-A/B/C, 2025-A/B/C/D/G).",
     "requiereRevision": false,
@@ -4430,7 +4755,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "La auditoría informática evalúa y controla el sistema de información para constatar que sus actividades son correctas y alineadas con las normativas y políticas de la organización. La opción A define la gestión de activos; la C define el SGSI.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4456,7 +4790,16 @@
     "respuestaCorrecta": 0,
     "explicacion": "El objetivo de un SGSI (ISO 27001:2022) es minimizar el riesgo de seguridad y garantizar la continuidad del negocio de forma proactiva, limitando el impacto de incidentes. No es solo detectar (reactivo) ni obtener certificados.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4482,7 +4825,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "Centralizar todas las contraseñas en un único servidor es una pésima práctica: si ese servidor es comprometido, todas las cuentas quedan expuestas. Las contraseñas deben almacenarse hasheadas con salt en sistemas seguros.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4508,7 +4860,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "El riesgo requiere la confluencia de los tres elementos: un activo (algo que proteger), una amenaza (causa potencial de daño) y una vulnerabilidad (debilidad explotable). Sin cualquiera de los tres, no existe riesgo materializable.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4534,7 +4895,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "Todo programa de seguridad debe equilibrar el nivel de riesgo aceptable con las contramedidas implementadas. El coste de las contramedidas debe ser proporcional al impacto del riesgo que mitigan.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4560,7 +4930,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "El objetivo principal de la clasificación de la información es crear un marco sistemático que asigne niveles de sensibilidad/importancia a los datos para aplicar el nivel de protección adecuado. El control de acceso y la auditoría son consecuencias, no el objetivo principal.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4586,7 +4965,16 @@
     "respuestaCorrecta": 0,
     "explicacion": "El SDLC consta de 5 fases: (1) Iniciación, (2) Desarrollo y Adquisición, (3) Implementación, (4) Operación y Mantenimiento, y (5) Terminación/Desmantelamiento. La Terminación es obligatoria para garantizar la eliminación segura de datos.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4612,7 +5000,16 @@
     "respuestaCorrecta": 2,
     "explicacion": "Los cuatro tipos de ataques sobre el flujo de información son: Interceptación (afecta confidencialidad), Interrupción (afecta disponibilidad), Modificación (afecta integridad) y Generación e inyección de información falsa (afecta autenticidad/integridad).",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4638,7 +5035,16 @@
     "respuestaCorrecta": 2,
     "explicacion": "Una política de seguridad de alto nivel es estratégica y no incluye detalles técnicos como el tipo de cortafuegos. Esos detalles corresponden a los procedimientos operativos. La política de alto nivel define qué proteger y quién es responsable.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4664,7 +5070,16 @@
     "respuestaCorrecta": 1,
     "explicacion": "El principio de mínimo privilegio establece que cada usuario debe tener acceso solo a los recursos estrictamente necesarios para su función. Para información sensible, esto es especialmente crítico.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4690,7 +5105,16 @@
     "respuestaCorrecta": 2,
     "explicacion": "El principio de mínimo privilegio establece que cada componente del sistema debe tener acceso únicamente a los recursos necesarios para su función específica, y nada más. Limita el daño potencial si ese componente es comprometido.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4716,7 +5140,16 @@
     "respuestaCorrecta": 0,
     "explicacion": "Seleccionar e implementar contramedidas ya no es análisis de riesgos, sino la fase de tratamiento del riesgo (posterior). El análisis de riesgos incluye identificar activos, amenazas y vulnerabilidades, y crear informes coste/beneficio.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2023-B",
+      "2023-C",
+      "2024-A",
+      "2024-B",
+      "2025-A",
+      "2025-B",
+      "2025-C",
+      "2025-D",
+      "2025-G"
     ],
     "observaciones": "Aparece en todos los modelos analizados.",
     "requiereRevision": false,
@@ -4743,7 +5176,10 @@
     "respuestaCorrecta": 2,
     "explicacion": "RBAC (Role-Based): los permisos se asignan según el ROL que ocupa el usuario (cargo, función). Rule-Based: los permisos se asignan mediante REGLAS parametrizadas (condiciones, horarios, IPs). La diferencia clave: rol = posición laboral; regla = condición técnica.",
     "fuentes": [
-      "MergeExamenes.docx"
+      "2023-A",
+      "2024-B",
+      "2025-C",
+      "2025-D"
     ],
     "observaciones": "Aparece en modelos: 2023-A, 2024-B, 2025-C, 2025-D.",
     "requiereRevision": false,
@@ -4754,5 +5190,799 @@
       "2025-C",
       "2025-D"
     ]
+  },
+  {
+    "id": "casi-tema-3-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste la firma digital y qué propiedades de seguridad garantiza?",
+    "respuestaModelo": "La firma digital es un mecanismo criptográfico que garantiza la autenticidad e integridad de un mensaje o documento digital.\n\nProceso: el emisor calcula el hash del mensaje (resumen de longitud fija) y lo cifra con su clave privada. El resultado es la firma digital, que se adjunta al mensaje.\n\nVerificación: el receptor descifra la firma con la clave pública del emisor, obteniendo el hash original. A continuación calcula el hash del mensaje recibido. Si ambos hashes coinciden, la firma es válida.\n\nPropiedades que garantiza:\n- Integridad: cualquier modificación del mensaje altera el hash y la firma deja de ser válida.\n- Autenticidad: solo el propietario de la clave privada pudo generar esa firma, por lo que se puede verificar la identidad del emisor.\n- No repudio: el emisor no puede negar haber firmado el mensaje, ya que solo él posee la clave privada.",
+    "criteriosCorreccion": [
+      "Explica correctamente el proceso de generación: hash del mensaje cifrado con clave privada.",
+      "Explica correctamente la verificación: descifrar con clave pública y comparar hashes.",
+      "Menciona integridad como propiedad garantizada.",
+      "Menciona autenticidad como propiedad garantizada.",
+      "Menciona no repudio como propiedad garantizada."
+    ],
+    "fuentes": [
+      "casi-tema-3-comentarios-adicionales.txt",
+      "tema_3.txt"
+    ],
+    "observaciones": "El profesor dijo textualmente: 'Firma digital, importante, pregunta de examen.' Clasificada como pregunta de desarrollo segura.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-4-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué controles de auditoría debes comprobar si una empresa proporciona a sus empleados la posibilidad de teletrabajo?",
+    "respuestaModelo": "Cuando una empresa implementa teletrabajo, el auditor debe verificar que existen y funcionan correctamente los siguientes controles:\n\n1. VPN corporativa: los empleados deben conectarse a la red de la empresa a través de una VPN configurada y cifrada, que protege la confidencialidad e integridad de las comunicaciones.\n\n2. Autenticación multifactor (MFA): el acceso remoto debe requerir más de un factor de autenticación para evitar que el robo de credenciales sea suficiente para comprometer el sistema.\n\n3. MDM (Mobile Device Management): los dispositivos usados para el teletrabajo deben estar bajo gestión centralizada, con capacidad de instalar o desinstalar aplicaciones, bloquear, localizar y realizar borrado remoto en caso de pérdida o robo.\n\n4. Política de contraseñas robusta: los dispositivos y accesos deben protegerse con contraseñas de complejidad suficiente y con rotación periódica.\n\n5. Controles adicionales recomendables: cifrado del disco del equipo, política de uso aceptable de dispositivos personales (BYOD), registro de accesos y monitorización de actividad remota.",
+    "criteriosCorreccion": [
+      "Menciona VPN como control de comunicaciones seguras.",
+      "Menciona MFA o autenticación multifactor.",
+      "Menciona MDM o gestión centralizada de dispositivos.",
+      "Menciona política de contraseñas robusta.",
+      "Respuesta coherente y bien estructurada."
+    ],
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "tema_4.txt"
+    ],
+    "observaciones": "Pregunta de desarrollo formulada por el profesor al final de la sesión del Tema 4 como ejemplo de examen.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-4-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Describa los cuatro modelos de cortafuegos. Si le solicitan recomendar uno para una empresa pequeña con un bajo nivel de riesgo, ¿cuál recomendaría y por qué?",
+    "respuestaModelo": "Los cuatro modelos principales de cortafuegos son:\n\n1. Filtrado de paquetes: opera en la capa de red (capa 3 del modelo OSI). Analiza las cabeceras IP de cada paquete (IP origen, IP destino, puerto, protocolo) y aplica reglas de filtrado. Es el más sencillo y económico, pero no inspecciona el contenido.\n\n2. Inspección de estado (stateful): mantiene una tabla dinámica con el estado de las conexiones activas. Permite tomar decisiones más inteligentes al conocer si un paquete pertenece a una sesión legítima previamente establecida.\n\n3. Proxy de aplicación (proxy gateway): opera en la capa de aplicación (capa 7). Actúa como intermediario entre cliente y servidor, inspeccionando el contenido completo de las comunicaciones. Ofrece mayor seguridad pero con mayor latencia.\n\n4. Screened host / Screened subnet (DMZ): arquitecturas que combinan router de filtrado con host bastión para crear zonas de seguridad diferenciadas.\n\nRecomendación para empresa pequeña con bajo nivel de riesgo: el filtrado de paquetes es la opción más adecuada, ya que es el modelo más sencillo de implementar y gestionar, tiene menor coste, y su nivel de protección es suficiente para organizaciones con perfil de riesgo bajo.",
+    "criteriosCorreccion": [
+      "Describe correctamente el filtrado de paquetes (capa 3, cabeceras IP).",
+      "Describe correctamente la inspección de estado (tabla de conexiones).",
+      "Describe correctamente el proxy de aplicación (capa 7, intermediario).",
+      "Menciona al menos una arquitectura combinada (screened host o DMZ).",
+      "Justifica la recomendación del filtrado de paquetes para empresa pequeña con bajo riesgo."
+    ],
+    "fuentes": [
+      "casi-tema-4-comentarios-adicionales.txt",
+      "tema_4.txt"
+    ],
+    "observaciones": "Segunda pregunta de desarrollo formulada por el profesor al final de la sesión del Tema 4.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-7-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué consiste el fingerprinting? Diferencia entre sus modos activos y pasivos y proporciona ejemplos de cada uno.",
+    "respuestaModelo": "El fingerprinting es una técnica de recolección de información centrada en un dispositivo concreto con el objetivo de extraer datos relevantes para un análisis forense, test de penetración o análisis de vulnerabilidades. Permite identificar el sistema operativo, versión de servicios, puertos abiertos y otras características del objetivo.\n\nFingerprinting activo: genera tráfico propio hacia el sistema objetivo enviando paquetes de prueba y analizando las respuestas. Es detectable por sistemas de monitorización del objetivo. Ejemplo principal: Nmap, que envía paquetes TCP/UDP para identificar puertos abiertos y el sistema operativo.\n\nFingerprinting pasivo: no genera tráfico nuevo; se limita a interceptar y analizar el tráfico de red existente para deducir información sobre el objetivo. Es más sigiloso porque no interacciona directamente con el sistema objetivo. Ejemplos: p0f (analiza cabeceras TCP/IP del tráfico capturado), Wireshark (captura y analiza paquetes en tránsito).\n\nDiferencia clave: el modo activo genera tráfico (detectable, más información) mientras que el pasivo solo escucha (indetectable, menos información).",
+    "criteriosCorreccion": [
+      "Define correctamente el fingerprinting como técnica centrada en un dispositivo concreto.",
+      "Explica que el modo activo genera tráfico propio y es detectable.",
+      "Proporciona al menos un ejemplo de fingerprinting activo (Nmap).",
+      "Explica que el modo pasivo solo intercepta tráfico existente y es indetectable.",
+      "Proporciona al menos un ejemplo de fingerprinting pasivo (p0f, Wireshark)."
+    ],
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt",
+      "tema_7.txt"
+    ],
+    "observaciones": "El profesor formuló esta pregunta textualmente como 'tipo de preguntas de examen efectivamente' al final de la sesión del Tema 7.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-7-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Distinga el footprinting externo e interno. ¿Cuál representa mayor riesgo y por qué?",
+    "respuestaModelo": "El footprinting es una técnica de recolección de información cuyo objetivo es obtener un mapa completo de la red de comunicaciones de una organización como fase previa a un test de penetración.\n\nFootprinting externo: se realiza desde fuera de la organización, usando fuentes públicas y accesibles sin necesidad de acceso interno. Utiliza técnicas como OSINT (búsqueda en fuentes abiertas), consultas DNS, transferencias de zona, WHOIS, búsqueda en redes sociales y Google Hacking. Permite mapear direcciones IP, dominios, infraestructura pública y posibles vectores de entrada.\n\nFootprinting interno: se realiza desde dentro de la red de la organización, con acceso físico o lógico al interior. Permite obtener información mucho más detallada: topología de red interna, servidores, recursos compartidos, usuarios, sistemas operativos, políticas de seguridad internas.\n\nEl footprinting interno representa mayor riesgo porque: (1) el atacante ya ha superado el perímetro de seguridad externo; (2) tiene acceso directo a información privilegiada de la red interna; (3) puede causar daños más graves con el conocimiento obtenido; y (4) es más difícil de detectar desde fuera.",
+    "criteriosCorreccion": [
+      "Define el footprinting como técnica de mapeo de red previa al pentesting.",
+      "Explica correctamente el footprinting externo (desde fuera, fuentes públicas).",
+      "Explica correctamente el footprinting interno (desde dentro, red interna).",
+      "Concluye que el interno representa mayor riesgo.",
+      "Justifica por qué el interno es más peligroso."
+    ],
+    "fuentes": [
+      "casi-tema-7-comentarios-adicionales.txt",
+      "tema_7.txt"
+    ],
+    "observaciones": "Segunda pregunta de desarrollo señalada por el profesor al final de la sesión del Tema 7.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-9-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué son las herramientas CAT (Computer-Assisted Audit Tools)? Explique los tipos que existen.",
+    "respuestaModelo": "Las herramientas CAT (Computer-Assisted Audit Tools), también denominadas CAAT, son herramientas informáticas diseñadas para asistir al auditor en la recolección, procesado, gestión y análisis de evidencias durante el proceso de auditoría informática.\n\nExisten cinco tipos de herramientas CAT:\n\n1. Herramientas de análisis de datos: permiten extraer, filtrar, ordenar y analizar grandes volúmenes de datos para detectar anomalías, duplicados o patrones irregulares. Ejemplo: ACL, IDEA.\n\n2. Herramientas de monitoreo y test continuo: permiten la supervisión constante de los sistemas y la realización de pruebas automatizadas de forma continua, alertando en tiempo real de desviaciones.\n\n3. Herramientas de auditoría de sistemas de información: especializadas en evaluar configuraciones, permisos y controles de sistemas TIC.\n\n4. Herramientas de auditoría forense: permiten recopilar, preservar y analizar evidencias digitales de forma admisible en procedimientos judiciales. Mantienen la cadena de custodia.\n\n5. Herramientas de gestión de pruebas: organizan y documentan las pruebas de auditoría, registrando hallazgos y conclusiones.",
+    "criteriosCorreccion": [
+      "Define correctamente las herramientas CAT/CAAT como apoyo a la auditoría informática.",
+      "Menciona al menos 4 de los 5 tipos.",
+      "Describe correctamente cada tipo mencionado.",
+      "Diferencia claramente las herramientas forenses de las de análisis de datos."
+    ],
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt",
+      "tema_9.txt"
+    ],
+    "observaciones": "El profesor señaló textualmente: 'Qué son las herramientas CAST, tipos que hay, etcétera' como orientación de pregunta de examen al final de la sesión del Tema 9.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-9-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explique la diferencia entre análisis de riesgos cuantitativo y cualitativo. Incluya un ejemplo de cálculo cuantitativo.",
+    "respuestaModelo": "El análisis de riesgos es el proceso de identificar y valorar los riesgos que afectan a los activos de una organización. Existen dos enfoques principales:\n\nAnálisis cualitativo: clasifica los riesgos usando escalas descriptivas o de colores (alto, medio, bajo) en lugar de valores numéricos. Es más rápido y económico de realizar, pero menos preciso. Utiliza matrices de riesgo donde se cruzan probabilidad e impacto con niveles cualitativos. No permite calcular el coste económico del riesgo.\n\nAnálisis cuantitativo: asigna valores numéricos y económicos a la probabilidad y al impacto de cada riesgo. Permite calcular el coste esperado de cada amenaza y compararlo con el coste de las contramedidas. Es más costoso y requiere datos históricos fiables, pero ofrece resultados más precisos y justificables económicamente.\n\nFórmulas del análisis cuantitativo:\n- SLE (Single Loss Expectancy): coste de una única materialización del riesgo. SLE = Valor del activo × Factor de exposición.\n- ARO (Annual Rate of Occurrence): número de veces que se espera que ocurra el riesgo en un año.\n- ALE (Annual Loss Expectancy): pérdida económica anual esperada. ALE = SLE × ARO.\n\nEjemplo: un servidor vale 50.000€, el factor de exposición de un incendio es del 30%, y se estima que un incendio ocurre una vez cada 10 años (ARO = 0,1). SLE = 50.000 × 0,30 = 15.000€. ALE = 15.000 × 0,1 = 1.500€/año. Si instalar un sistema antiincendios cuesta 800€/año, la contramedida es rentable.",
+    "criteriosCorreccion": [
+      "Define correctamente el análisis cualitativo (escalas descriptivas, matrices).",
+      "Define correctamente el análisis cuantitativo (valores numéricos y económicos).",
+      "Menciona las fórmulas SLE, ARO y ALE o equivalentes.",
+      "Proporciona un ejemplo numérico coherente.",
+      "Señala que el cuantitativo es más costoso pero más preciso."
+    ],
+    "fuentes": [
+      "casi-tema-9-comentarios-adicionales.txt",
+      "tema_9.txt"
+    ],
+    "observaciones": "El profesor señaló textualmente: 'La diferencia entre análisis cuantitativo y cualitativo. Esa pregunta la pongo para que sepáis por dónde pueden ir los tiros.' Formulada al final de la sesión del Tema 9.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-10-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Indique la diferencia entre plan de continuidad de negocio (BCP) y plan de recuperación ante desastres (DRP). ¿Cómo están relacionados?",
+    "respuestaModelo": "El plan de continuidad de negocio (BCP) y el plan de recuperación ante desastres (DRP) son los dos ejes de la estrategia de continuidad de una organización, aunque tienen alcances distintos.\n\nPlan de continuidad de negocio (BCP): abarca toda la organización. Su objetivo es garantizar que los procesos críticos del negocio puedan seguir operando durante y después de una interrupción, independientemente de su naturaleza (tecnológica, humana, física, etc.). Incluye aspectos como la gestión del personal, la comunicación con clientes y proveedores, la continuidad de procesos de negocio no tecnológicos y los planes de respaldo de instalaciones.\n\nPlan de recuperación ante desastres (DRP): está focalizado específicamente en la recuperación de los sistemas tecnológicos y la infraestructura TIC. Define cómo restaurar los servicios informáticos críticos tras un desastre. Incluye los centros de respaldo (arranque en frío, templado y caliente), los procedimientos de restauración de datos y los acuerdos con proveedores.\n\nRelación: el DRP es un componente o subconjunto del BCP. El BCP es el plan más amplio que engloba al DRP. Una organización puede tener un DRP sin un BCP completo, pero un BCP bien diseñado siempre incluye un DRP para la parte tecnológica.",
+    "criteriosCorreccion": [
+      "Define el BCP como plan de alcance global que cubre toda la organización.",
+      "Define el DRP como plan centrado en la recuperación de sistemas TIC.",
+      "Explica que el DRP es un subconjunto del BCP.",
+      "Menciona los centros de respaldo (caliente, templado, frío) como parte del DRP.",
+      "Respuesta coherente y bien estructurada."
+    ],
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Pregunta de desarrollo formulada por el profesor en clase_12 como posible pregunta de examen.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-10-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explique en qué consiste un análisis de impacto de negocio (BIA) dentro de un plan de recuperación ante desastres.",
+    "respuestaModelo": "El análisis de impacto de negocio (BIA, Business Impact Analysis) es una fase fundamental del plan de recuperación ante desastres (DRP) cuyo objetivo es identificar y cuantificar el impacto que tendría la interrupción de cada proceso o sistema crítico de la organización.\n\nEl BIA permite:\n1. Identificar los procesos críticos del negocio: aquellos cuya interrupción causaría un impacto grave en la organización (económico, reputacional, legal).\n2. Determinar las dependencias: qué sistemas TIC sustentan cada proceso crítico.\n3. Establecer los parámetros de recuperación para cada proceso:\n   - RTO (Recovery Time Objective): tiempo máximo tolerable que un servicio puede estar no disponible.\n   - RPO (Recovery Point Objective): máxima pérdida de datos aceptable medida en tiempo.\n   - MTPD (Maximum Tolerable Period of Disruption): tiempo máximo de interrupción antes de que el impacto sea irreversible.\n4. Priorizar la recuperación: los procesos con menor RTO deben recuperarse primero.\n\nEl resultado del BIA es la base sobre la que se diseña el DRP, determinando qué sistemas necesitan soluciones de alta disponibilidad, qué centros de respaldo son necesarios y cuál debe ser la frecuencia de las copias de seguridad.",
+    "criteriosCorreccion": [
+      "Define correctamente el BIA como análisis del impacto de la interrupción de procesos.",
+      "Menciona que permite identificar procesos críticos.",
+      "Menciona RTO, RPO o MTPD como parámetros derivados del BIA.",
+      "Explica que el BIA es la base para diseñar el DRP.",
+      "Respuesta coherente y bien estructurada."
+    ],
+    "fuentes": [
+      "casi-tema-10-comentarios-adicionales.txt",
+      "clase_12.txt"
+    ],
+    "observaciones": "Señalada por el profesor en clase_12 como posible pregunta de desarrollo.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explique en qué consiste el principio de Locard y sus implicaciones en el análisis forense informático. Indique cómo podría afectar a la preservación de la cadena de custodia.",
+    "respuestaModelo": "El principio de Locard establece que cada contacto deja un rastro. En el entorno digital, cualquier actividad no autorizada deja trazas en el sistema: registros en los logs del sistema operativo, metadatos de ficheros (autor, fecha y hora de creación o modificación), registros de tráfico de red en routers y firewalls, y datos en la memoria RAM (contraseñas, claves de cifrado, procesos activos).\n\nLa principal implicación para el análisis forense es que el investigador siempre puede encontrar evidencias de lo ocurrido, aunque alguien haya intentado eliminarlas. La ausencia de un registro de log es en sí misma una traza, y borrar logs requiere privilegios de acceso que delimitan el grupo de posibles autores.\n\nEn cuanto a la cadena de custodia, el principio de Locard opera en doble sentido: así como el delincuente deja rastros, también el investigador los deja al examinar la evidencia. Para preservar la integridad de la evidencia se deben hacer dos copias: una de trabajo (con la que se opera) y una copia de custodia que no se toca. Se calcula un hash de la copia en custodia en el momento de la recogida, que se registra en el acta. Al presentar la prueba en el juzgado se recalcula el hash y se verifica que coincide, demostrando que la evidencia no ha sido alterada.",
+    "criteriosCorreccion": [
+      "Define correctamente el principio de Locard: cada contacto deja un rastro.",
+      "Aplica el principio al entorno digital: menciona al menos dos tipos de trazas (logs, metadatos, tráfico de red, RAM).",
+      "Explica que la ausencia de un registro también es una traza.",
+      "Relaciona el principio con la cadena de custodia: el investigador también deja rastros.",
+      "Describe el procedimiento de las dos copias y el uso del hash para verificar integridad."
+    ],
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada textualmente por el profesor en Clase-14 como ejemplo de lo que podría caer en el examen. Confirmada por el profesor como materia de examen.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-desarrollo-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explique las diferencias fundamentales entre la auditoría informática y el análisis forense informático.",
+    "respuestaModelo": "La auditoría informática y el análisis forense son disciplinas complementarias pero con naturaleza y objetivos distintos.\n\nLa auditoría informática es preventiva y periódica. Realiza un análisis completo de un sistema de gestión de seguridad de la información para comprobar su conformidad con marcos normativos y estándares (ISO 27001, ENS, metodología ISACA). No requiere que haya ocurrido ningún incidente: puede realizarse de forma programada o por obligación legal (el ENS obliga a auditar cada dos años los sistemas calificados). Su objetivo es identificar desviaciones y proponer mejoras. No requiere cadena de custodia.\n\nEl análisis forense es reactivo y puntual. Ocurre siempre después de un incidente y está acotado a una ventana temporal concreta. Su objetivo es probatorio: recoger evidencias admisibles ante la autoridad legal que demuestren la realización o no de una actividad no autorizada. Se basa en la legislación penal, mercantil y laboral. Requiere preservar la cadena de custodia, contar con especialistas y disponer de equipos específicos de adquisición forense.",
+    "criteriosCorreccion": [
+      "Describe la auditoría informática como preventiva, periódica y orientada a la conformidad.",
+      "Describe el análisis forense como reactivo, puntual y de carácter probatorio.",
+      "Menciona que la auditoría no requiere incidente previo; el forense siempre es posterior.",
+      "Menciona la cadena de custodia como requisito del forense pero no de la auditoría.",
+      "Hace referencia al marco normativo (auditoría) frente al marco legal (forense)."
+    ],
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor señaló esta diferencia como probable pregunta de desarrollo durante Clase-14.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-desarrollo-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "indicada_clase",
+    "enunciado": "Explique la diferencia entre gobernanza TIC y gestión TIC según la norma ISO/IEC 38.500.",
+    "respuestaModelo": "La norma ISO/IEC 38.500 define la gobernanza TIC como el sistema por el que se dirigen y controlan los usos actuales y futuros de las tecnologías de la información en una organización.\n\nLa gobernanza TIC atiende a causas y efectos externos: competidores, mercado, clientes y entorno regulatorio. Se orienta al futuro de la organización, previendo necesidades que aún no se han materializado. Establece las políticas y comprueba que se cumplen. Corresponde a los niveles directivos más altos.\n\nLa gestión TIC se centra en los activos internos del departamento de tecnología (servidores, redes, equipos de usuario). Se orienta al presente operacional: garantizar que los sistemas funcionen y que, cuando algo falle, se repare con rapidez. Ejecuta los procesos y controles para alcanzar los objetivos que la gobernanza ha definido. Corresponde al departamento de TIC.\n\nEn resumen: la gobernanza TIC define el rumbo y comprueba que se sigue; la gestión TIC hace que el barco funcione en el día a día.",
+    "criteriosCorreccion": [
+      "Cita o parafrasea la definición de gobernanza TIC de ISO 38.500 (usos actuales y futuros).",
+      "Distingue que la gobernanza atiende a influencias externas y al futuro.",
+      "Distingue que la gestión se centra en activos internos y el presente operacional.",
+      "Indica que la gobernanza establece políticas y comprueba su cumplimiento.",
+      "Indica que la gestión ejecuta procesos y controles para alcanzar los objetivos."
+    ],
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor indicó en Clase-15 que esta diferencia 'podría caer en el examen'. Es el concepto de desarrollo más probable del Tema 12.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿En qué se diferencia fundamentalmente el análisis forense de la auditoría informática?",
+    "opciones": [
+      "La auditoría informática se realiza una sola vez en la vida de un sistema, mientras que el análisis forense es continuo.",
+      "La auditoría informática y el análisis forense tienen exactamente el mismo objetivo probatorio.",
+      "El análisis forense tiene carácter probatorio, mientras que la auditoría informática valida el estado general de un sistema."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La auditoría informática es preventiva y periódica: comprueba la conformidad de un sistema con marcos normativos o estándares. El análisis forense es reactivo y puntual: su objetivo es demostrar con carácter probatorio, ante la autoridad legal, la realización o no de una actividad no autorizada tras un incidente.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase. Respuesta correcta confirmada: opción C.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué tipo de auditoría se centra en analizar evidencias relacionadas con un fraude o conflictos legales?",
+    "opciones": [
+      "Auditoría de cumplimiento normativo.",
+      "Auditoría forense.",
+      "Auditoría interna de sistemas."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La auditoría forense es la disciplina que analiza evidencias digitales con carácter probatorio para demostrar la ocurrencia o no de una actividad ilícita ante la autoridad legal. Se diferencia de la auditoría informática convencional en que siempre es reactiva a un incidente concreto.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase. Respuesta correcta confirmada: opción B.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de las siguientes afirmaciones describe correctamente las dos grandes categorías en que se clasifican los delitos informáticos?",
+    "opciones": [
+      "Delitos dolosos y delitos culposos.",
+      "Delitos como medio o instrumento para delinquir, y delitos dirigidos contra el propio sistema informático como fin u objetivo.",
+      "Delitos contra personas y delitos contra organizaciones."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los delitos informáticos se clasifican en dos categorías: como instrumento (el sistema se usa como herramienta para cometer el delito) y como fin (el ataque va dirigido contra el propio sistema).",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase. El profesor señaló esta diapositiva como materia de examen de forma explícita.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué se entiende por artefactos en el contexto del análisis forense digital?",
+    "opciones": [
+      "Herramientas de hardware utilizadas para clonar discos.",
+      "Trazas o rastros que quedan en un sistema como resultado de actividades o eventos.",
+      "Copias de seguridad de la evidencia original."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los artefactos forenses son las trazas o rastros que cualquier actividad deja en el sistema: logs, metadatos, registros de tráfico de red, contenido de RAM. El principio de Locard establece que cada contacto deja un rastro.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "Según el Código Penal español, ¿qué conducta se considera fraude informático de acuerdo con el artículo 248?",
+    "opciones": [
+      "El acceso no autorizado a un sistema informático ajeno con el fin de obtener información confidencial.",
+      "La obtención de un lucro ilícito mediante manipulación informática que consiga la transferencia no consentida de cualquier activo patrimonial en perjuicio de tercero.",
+      "La destrucción o alteración de datos almacenados en sistemas informáticos."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El artículo 248 del Código Penal tipifica la estafa y el fraude informático como la obtención de lucro ilícito (económico) mediante manipulación informática que provoque una transferencia no consentida de activo patrimonial.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase. El lucro debe ser económico. Los artículos del CP no hay que memorizarlos: la pregunta ya los incluye.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-006",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "En el contexto de la investigación forense, ¿qué información debe registrarse obligatoriamente al identificar y localizar una evidencia digital?",
+    "opciones": [
+      "El nombre del juez instructor y el número de procedimiento judicial.",
+      "La hora en que se obtuvo la evidencia, la identidad de quien la descubrió, de quien la protegió y de quien controla o mantiene su posesión.",
+      "El hash de la evidencia y el modelo del dispositivo donde se encontró."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El acta de recogida de evidencia debe registrar: hora de obtención, identidad de quien la descubrió, identidad de quien la protegió, e identidad de quien mantiene su posesión actual. Esto garantiza la cadena de custodia.",
+    "fuentes": [
+      "Clase-14.txt",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-007",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál es el objetivo principal de la auditoría informática?",
+    "opciones": [
+      "Investigar un incidente de seguridad ocurrido en la organización.",
+      "Validar las medidas de seguridad adoptadas en correspondencia con marcos legales, normativos y estándares.",
+      "Recoger evidencias admisibles ante un tribunal."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La auditoría informática valida el estado de un sistema de gestión de seguridad de la información comprobando su conformidad con marcos normativos (ISO 27001, ENS, etc.) y estándares.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-008",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuándo se efectúa el análisis forense informático?",
+    "opciones": [
+      "De forma continua, como parte de la monitorización habitual de los sistemas.",
+      "Tras la ocurrencia de un evento o la detección de algún indicio de actividad anormal.",
+      "Antes de implantar un nuevo sistema para detectar vulnerabilidades previas."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El análisis forense es siempre reactivo: se realiza después de que ha ocurrido un incidente o se ha detectado actividad anormal. Opera en una ventana temporal acotada alrededor del momento del evento.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-009",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿Cuál de los siguientes es un ejemplo de ciberterrorismo?",
+    "opciones": [
+      "Spam telefónico.",
+      "Ataques DDoS.",
+      "Escalada de privilegios por parte de un empleado recién despedido."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los ataques DDoS, junto con el ransomware y las extorsiones digitales, se clasifican como ciberterrorismo cuando van dirigidos contra organismos públicos o grandes empresas con motivación política o ideológica.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-010",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "¿A qué ámbito se aplica la LSSICE?",
+    "opciones": [
+      "A todos los negocios que utilicen medios TIC para realizar su actividad o para la promoción de la misma.",
+      "A los delitos de espionaje industrial.",
+      "A la custodia de datos personales."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La LSSICE regula los servicios digitales, comunicaciones comerciales, cookies y contratos electrónicos, y se aplica a cualquier negocio que utilice medios TIC para su actividad o su promoción.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-011",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "Cuando una tienda distribuye programas de ordenador sin autorización, ¿qué tipo de delito informático comete?",
+    "opciones": [
+      "Fraude informático.",
+      "Infracción a la propiedad intelectual.",
+      "Sabotaje informático."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La copia y distribución no autorizada de programas de ordenador constituye una infracción a la propiedad intelectual, tipificada en el artículo 270 del Código Penal.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-11-test-012",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": [
+      "tema-11"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "autoevaluacion",
+    "enunciado": "El uso de una red WiFi ajena sin autorización, ¿cuándo constituye delito informático?",
+    "opciones": [
+      "Siempre, en cualquier caso.",
+      "Solo si la red está debidamente protegida.",
+      "Cuando se usa ese medio para perpetrar una acción tipificada como delito por el Código Penal."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El uso de una red WiFi ajena no es delito por sí mismo. Constituye delito cuando ese acceso se utiliza para cometer otra acción tipificada penalmente.",
+    "fuentes": [
+      "Tema_11.pdf (autoevaluación)",
+      "casi-tema-11-comentarios-adicionales.txt"
+    ],
+    "observaciones": "",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-test-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "Según la ISO 38.500, ¿qué establece el principio de adquisición en el gobierno TIC?",
+    "opciones": [
+      "Que las TIC deben cumplir con todas las normativas legales vigentes.",
+      "Que la compra de nuevas tecnologías responde siempre a un análisis previo, basado en la transparencia y el equilibrio entre costes y riesgos a corto y largo plazo.",
+      "Que todos los individuos de la organización aceptan sus responsabilidades sobre la demanda de TIC."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El principio de adquisición de ISO 38.500 exige que cualquier compra tecnológica se base en un análisis previo del inventario de activos actuales, prevea necesidades futuras, evalúe varias alternativas y equilibre costes y riesgos.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-test-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál es la diferencia fundamental entre la gobernanza TIC y la gestión TIC según ISO/IEC 38.500?",
+    "opciones": [
+      "La gobernanza TIC se ocupa de la seguridad y la gestión TIC del rendimiento.",
+      "La gobernanza TIC atiende a usos actuales y futuros y a influencias externas; la gestión TIC es el sistema de procesos y controles para alcanzar los objetivos en el presente operacional.",
+      "La gobernanza TIC la realiza el departamento de TIC y la gestión TIC la realiza el Consejo de Administración."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La gobernanza TIC, según ISO 38.500, dirige y controla los usos actuales y futuros de las TIC, atendiendo a influencias externas y orientándose al futuro. La gestión TIC se centra en los activos internos y en el presente operacional.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "El profesor indicó explícitamente en clase que esta diferencia 'podría caer en el examen'.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-test-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Qué certificación profesional está directamente asociada a ISACA y es considerada la principal referencia en el ámbito de la auditoría de sistemas de información?",
+    "opciones": [
+      "CISSP.",
+      "CGEIT.",
+      "CISA."
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "CISA (Certified Information Systems Auditor) es la certificación de ISACA orientada a la auditoría de sistemas de información y la principal referencia mundial en ese campo. CGEIT también la emite ISACA, pero está orientada a gobernanza TIC. CISSP la emite (ISC)².",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase. Advertencia: CGEIT también la emite ISACA, pero la de auditoría es únicamente CISA.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-test-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "¿Cuál de las siguientes afirmaciones describe correctamente la gobernanza corporativa?",
+    "opciones": [
+      "El proceso mediante el cual el Consejo de Administración asegura el logro sostenido de los objetivos, protege el patrimonio y ofrece transparencia a todos los grupos de interés.",
+      "El conjunto de procesos operativos que garantizan que los sistemas TIC funcionan correctamente en el día a día.",
+      "El sistema por el que se dirigen y controlan los usos actuales y futuros de las TIC en una organización."
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La gobernanza corporativa es el proceso mediante el cual el Consejo de Administración asegura el logro sostenido de los objetivos, la protección del patrimonio y la transparencia ante los grupos de interés.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-tema-12-test-005",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-12",
+    "temaIds": [
+      "tema-12"
+    ],
+    "parteExamenId": null,
+    "tipo": "test",
+    "origen": "indicada_clase",
+    "enunciado": "Según la norma ISO/IEC 38.500, ¿qué se entiende por gobernanza de las TIC?",
+    "opciones": [
+      "El conjunto de controles técnicos que garantizan la seguridad de los sistemas de información.",
+      "El sistema por el que se dirigen y controlan los usos actuales y futuros de las TIC dentro de una organización.",
+      "El proceso de gestión de incidentes y continuidad operacional de los sistemas TIC."
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La definición exacta de gobernanza TIC según ISO/IEC 38.500 es: el sistema por el que se dirigen y controlan los usos actuales y futuros de las TIC dentro de una organización. El matiz 'actuales y futuros' fue especialmente enfatizado por el profesor.",
+    "fuentes": [
+      "Clase-15.txt",
+      "casi-tema-12-comentarios-adicionales.txt"
+    ],
+    "observaciones": "Pregunta formulada y resuelta por el profesor en clase.",
+    "modelosExamen": [],
+    "requiereRevision": false,
+    "verificada": true
   }
 ]

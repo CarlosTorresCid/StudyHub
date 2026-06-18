@@ -3,10 +3,11 @@ import { publicLibrary } from '../lib/publicLibrary';
 import { usePageTitle } from '../hooks/usePageTitle';
 import IsaExamPrep from '../components/IsaExamPrep';
 import TeExamPrep from '../components/TeExamPrep';
+import CasiExamPrep from '../components/CasiExamPrep';
 import './SubjectPage.css';
 import './IaicProblemTrainingPage.css';
 
-const SUPPORTED = ['isa', 'te'];
+const SUPPORTED = ['isa', 'te', 'casi'];
 
 const CONFIG = {
   isa: {
@@ -18,6 +19,11 @@ const CONFIG = {
     icon: '🚀',
     heading: 'Preparación examen TE',
     desc: 'Guía organizada por los 5 tipos reales de preguntas de la parte práctica.',
+  },
+  casi: {
+    icon: '✅',
+    heading: 'Preparación examen CASI',
+    desc: 'Guía de estudio orientada al examen final: 12 temas, test + desarrollo.',
   },
 };
 
@@ -65,6 +71,7 @@ export default function ExamPrepPage() {
 
       {subject.id === 'isa' && <IsaExamPrep />}
       {subject.id === 'te' && <TeExamPrep />}
+      {subject.id === 'casi' && <CasiExamPrep />}
 
       <div style={{ marginTop: 32 }}>
         <Link to={`/asignatura/${asignaturaId}/examen`} className="btn btn-ghost">

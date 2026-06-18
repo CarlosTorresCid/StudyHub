@@ -1,0 +1,259 @@
+{
+  "asignaturaId": "casi",
+  "temaId": "tema-11",
+  "titulo": "Tema 11. Marco legal y normativo de la auditoría informática",
+  "apuntes": {
+    "introduccion": "El contexto legal y normativo es una dimensión fundamental de la auditoría informática. Un auditor de seguridad ha de conocer el conjunto de restricciones jurídicas que condicionan su actividad, tanto para detectar incumplimientos como para diseñar auditorías de cumplimiento obligatorio. Este tema cubre los principales delitos informáticos según el Código Penal español, el marco normativo de protección de datos (RGPD y LOPDGDD), la Ley de Servicios de la Sociedad de la Información y los principios del análisis forense digital, incluyendo su diferencia con la auditoría informática.",
+    "secciones": [
+      {
+        "titulo": "Delitos informáticos: concepto y clasificación",
+        "contenido": "Un delito informático es toda conducta ilícita susceptible de ser sancionada por el derecho penal que hace uso indebido de medios informáticos.\n\nSe distinguen dos grandes categorías:\n\n**Delito como medio o instrumento:** El sistema informático se utiliza como herramienta para cometer el delito. Ejemplos: estafa mediante phishing, amenazas online, calumnias en redes sociales.\n\n**Delito como fin u objetivo:** Las conductas criminales van dirigidas contra el propio sistema informático. Ejemplos: sabotaje, destrucción de datos, copia no autorizada de programas."
+      },
+      {
+        "titulo": "Tipología de delitos informáticos según el Código Penal",
+        "contenido": "**Derecho a la intimidad (Arts. 197-201):** Apoderarse y difundir datos reservados registrados en ficheros o soportes informáticos. También el acceso no autorizado a sistemas informáticos, aunque no haya intención de robar ni dañar. La mera introducción o intento de introducción en un sistema ajeno sin autorización ya constituye delito.\n\n**Propiedad intelectual (Art. 270):** Copia y distribución no autorizada de programas de ordenador. También la fabricación de medios para suprimir los dispositivos de protección del software. La pena es de 6 meses a 2 años de prisión o multa de 6 a 24 meses.\n\n**Falsedades:** Falsificación de documentos digitales, tarjetas de crédito y débito.\n\n**Sabotaje informático (Art. 263):** Destrucción o alteración de datos, programas o documentos electrónicos de forma deliberada.\n\n**Fraude y estafa (Art. 248):** El fraude es el concepto genérico; la estafa es el delito concreto. Ambos se tipifican en el artículo 248. Consiste en la obtención de un lucro ilícito mediante manipulación informática que consiga la transferencia no consentida de cualquier activo patrimonial en perjuicio de tercero. El lucro es estrictamente económico.\n\n**Amenazas y calumnias e injurias (Arts. 169 y 205):** Las amenazas son causarle a alguien un mal constitutivo de delito. La calumnia es la imputación de un delito con conocimiento de su falsedad. Se perpetran a través de correo electrónico, listas de distribución, canales de chat, redes sociales y plataformas de anonimato. Si se realizan con publicidad existe agravante.\n\n**Ciberterrorismo:** Incluye ataques de ransomware, ataques de denegación de servicio (DDoS) y extorsiones digitales. Las redes de ordenadores zombies (botnets) realizan DDoS agotando los recursos de un servidor. Las administraciones públicas son objetivos habituales por la presión mediática que supone el ataque.\n\n**Pornografía infantil (Arts. 187 y 189):** Incluye la producción, distribución o posesión de material pornográfico de menores, así como el facilitamiento de dichas conductas. En este caso las penas son de prisión directa."
+      },
+      {
+        "titulo": "Marco normativo de protección de datos",
+        "contenido": "La norma fundamental actual es el **Reglamento General de Protección de Datos (RGPD)**, Reglamento UE 2016/679. Entró en vigor en mayo de 2016 y concedió dos años de adaptación a los Estados miembros. El reglamento europeo prevalece sobre la legislación nacional, incluidas las leyes orgánicas, por la jerarquía normativa establecida en la Constitución española desde la adhesión a la UE.\n\nEn España, la adaptación se realizó mediante la **Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD)**, aprobada en diciembre de 2018. Esta ley orgánica concreta aspectos que el reglamento dejaba a cada Estado miembro, como reducir la edad de consentimiento para servicios de la sociedad de la información de 16 a 14 años.\n\n**Principios de protección de datos (Art. 5 RGPD):**\n- Licitud, lealtad y transparencia\n- Limitación de la finalidad\n- Minimización de los datos\n- Exactitud\n- Integridad y confidencialidad\n- Limitación del plazo de conservación\n- Responsabilidad proactiva: la carga de la prueba de que se cumple la ley recae sobre el responsable del tratamiento, que debe tener disponible la documentación que lo demuestre\n\n**Derechos del interesado:** acceso, rectificación, supresión, limitación del tratamiento, portabilidad y oposición al tratamiento. El interesado debe estar siempre informado de lo que se hará con sus datos.\n\nAl final de la LOPDGDD se incluyen derechos digitales: desconexión digital en el ámbito laboral, neutralidad de la red, educación digital, seguridad digital y testamento digital (titularidad de datos personales de una persona fallecida).\n\n**Régimen sancionador del RGPD:**\n- Infracciones leves: incumplimiento de formalidades\n- Infracciones graves: incumplimiento directo de la ley (por ejemplo, niveles de seguridad insuficientes) — multa de hasta 10 millones de euros o el 2% de la facturación global\n- Infracciones muy graves: vulneración de principios y derechos fundamentales o desatención a la autoridad de control — multa de hasta 20 millones de euros o el 4% de la facturación global\n\n**Normativa complementaria relevante:**\n- Reglamento de Inteligencia Artificial de la UE (en vigor desde agosto 2024, aplicación plena en agosto 2026): clasifica sistemas de IA por nivel de riesgo y obliga a auditorías de los sistemas de alto riesgo\n- Directiva NIS-2 (en transposición en España): establece responsabilidades específicas para directivos en caso de incidente de seguridad\n- Ley 25/2007 de conservación de datos relativos a comunicaciones electrónicas: los operadores están obligados a guardar datos de llamadas y remitirlos al juzgado si se solicita"
+      },
+      {
+        "titulo": "Ley de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSICE)",
+        "contenido": "La LSSICE es una ley surgida para regular el comercio electrónico, el correo electrónico y los contratos electrónicos cuando estos usos se generalizaron.\n\nEstablece las siguientes obligaciones:\n- Los titulares de un dominio deben comunicarlo al registro mercantil\n- Las comunicaciones comerciales por correo electrónico deben ser claramente identificables como publicidad\n- Se prohíbe el envío de comunicaciones publicitarias o promocionales sin consentimiento previo del destinatario (por eso los mensajes comerciales incluyen la opción de darse de baja)\n- En contratos electrónicos, existe obligación de informar de las condiciones de forma clara, comprensible e inequívoca antes de formalizar el contrato"
+      },
+      {
+        "titulo": "Análisis forense informático: concepto y objetivo",
+        "contenido": "El análisis forense informático tiene como objetivo demostrar con carácter probatorio, ante la autoridad legal o normativa pertinente, la realización o no de una actividad no autorizada con posibles implicaciones legales, sanciones o multas administrativas o sanciones penales.\n\nA diferencia de la auditoría informática, el análisis forense ocurre después de un incidente conocido. Lo habitual es que se sepa lo que ha pasado, pero falten las pruebas. El análisis forense consiste precisamente en recoger evidencias que lo demuestren de forma admisible ante la autoridad.\n\nTras detectar un delito informático existe obligación de notificar a la Brigada de Investigación Tecnológica de la Policía Nacional o al Grupo de Delitos Telemáticos de la Guardia Civil."
+      },
+      {
+        "titulo": "Características y limitaciones del análisis forense",
+        "contenido": "**Características principales:**\n- Opera en una ventana temporal precisa: alcance acotado al momento en que se produjo el incidente\n- Su objetivo es probatorio: las evidencias deben ser admisibles ante la autoridad legal\n- Requiere preservar la cadena de custodia\n- En muchos casos requiere especialistas y equipos específicos\n- La información puede ser intangible (datos en disco) y volátil (datos en RAM)\n- Las evidencias pueden estar distribuidas geográficamente (servidores en empresas como Google o Meta)\n\n**Limitaciones:**\n- El análisis puede interferir con la operatividad normal del negocio: clonar un disco de 500 GB puede llevar más de una hora, durante la cual el equipo debe quedar fuera de servicio\n- Los datos volátiles (RAM) deben volcarse antes de apagar el equipo o se pierden\n- Los equipos específicos de adquisición forense (que permiten copiar sin modificar el original) son costosos"
+      },
+      {
+        "titulo": "Cadena de custodia",
+        "contenido": "La cadena de custodia es el registro que garantiza que las evidencias digitales no han sido alteradas desde su recolección hasta su presentación ante el órgano judicial.\n\nCada vez que se recoge una evidencia debe levantarse un acta que registre:\n- La hora en que se obtuvo la evidencia\n- La identidad de quien la descubrió\n- La identidad de quien la protegió y controló\n- Quién mantiene actualmente su posesión\n\nEl procedimiento habitual es hacer dos copias: una de trabajo (con la que se opera y analiza) y otra que queda en custodia sin ser tocada. De la copia en custodia se calcula un hash que se guarda en el acta. Al presentar la prueba en el juzgado se recalcula el hash y se comprueba que coincide con el registrado, demostrando que la evidencia no ha sido modificada.\n\nLa RAM contiene contraseñas, claves de cifrado y procesos activos. Debe volcarse a un dispositivo persistente antes de apagar el equipo, y el volcado se trata como cualquier otra evidencia."
+      },
+      {
+        "titulo": "Principio de Locard",
+        "contenido": "El principio de Locard establece que **cada contacto deja un rastro**. Cada vez que alguien realiza una operación ilegítima o no autorizada, queda una traza. La investigación forense analiza los elementos del sistema para encontrar esas trazas que permiten demostrar la realización de la actividad no autorizada.\n\nEn el entorno digital las trazas se encuentran en:\n- **Logs del sistema:** registros de eventos que incluyen accesos, modificaciones y eliminaciones de ficheros. La ausencia de un registro también es una traza. Eliminar los logs requiere permisos de acceso específicos, lo que ya delimita el grupo de sospechosos.\n- **Metadatos de ficheros:** autor, nombre de usuario, fecha y hora de creación o modificación. Falsificadores olvidan con frecuencia modificar los metadatos.\n- **Tráfico de red:** routers, firewalls y servidores de correo guardan registro de dirección IP origen, IP destino y bytes transferidos.\n- **RAM:** puede contener contraseñas, claves de cifrado y procesos activos en el momento del incidente."
+      },
+      {
+        "titulo": "Criterio de Daubert",
+        "contenido": "El criterio de Daubert fue propuesto en 1993 como estándar para la valoración de evidencias en procedimientos judiciales federales en Estados Unidos. Articula la ponderación de la evidencia en base a cuatro criterios que determinan su admisibilidad:\n\n1. **Verificabilidad:** la técnica o metodología empleada puede ser testada y verificada\n2. **Revisión por pares:** más de una persona revisa las pruebas\n3. **Tasa de error:** estudio de la tasa de error potencial que puede afectar a los distintos tipos de evidencia y los controles aplicados para minimizarlo\n4. **Aceptación científica:** existe aceptación científica del tipo de evidencia y metodología utilizados\n\nEs un criterio utilizado en Estados Unidos, relevante como referencia, pero no de aceptación global."
+      },
+      {
+        "titulo": "Auditoría informática vs. análisis forense",
+        "contenido": "Ambas disciplinas son complementarias pero tienen naturaleza y objetivos distintos:\n\n**Auditoría informática:**\n- Análisis completo de un sistema de gestión de seguridad de la información para verificar su conformidad en un momento dado\n- Es preventiva y de mejora continua\n- No requiere que haya ocurrido ningún incidente; puede ser periódica y obligatoria (el ENS obliga a auditar cada dos años los sistemas calificados)\n- Se apoya en marcos normativos y estándares (ISO 27001, metodología ISACA)\n- El informe no requiere cadena de custodia\n\n**Análisis forense:**\n- Ocurre después de un incidente: está delimitado a algo que ya ha pasado\n- Es reactivo y puntual\n- Su objetivo es probatorio: recoger evidencias admisibles ante la autoridad legal\n- Se basa en la legislación penal, mercantil y laboral\n- Requiere cadena de custodia\n- En muchos casos requiere especialistas con equipos específicos"
+      }
+    ]
+  },
+  "resumen": [
+    "Los delitos informáticos son conductas ilícitas sancionadas por el derecho penal que hacen uso indebido de medios informáticos, clasificados en delitos como instrumento y delitos como fin u objetivo.",
+    "El acceso no autorizado a un sistema informático ajeno ya es delito, aunque no haya intención de robar ni dañar.",
+    "Fraude y estafa se tipifican ambos en el artículo 248 del Código Penal; el fraude es el concepto genérico y la estafa el delito concreto. El lucro debe ser económico.",
+    "El ciberterrorismo incluye ransomware, ataques DDoS (mediante botnets de ordenadores zombies) y extorsiones digitales.",
+    "La norma fundamental de protección de datos es el RGPD (Reglamento UE 2016/679), que prevalece sobre la legislación nacional incluidas las leyes orgánicas.",
+    "La LOPDGDD adapta el RGPD al ordenamiento español y fija en 14 años la edad mínima de consentimiento para servicios de la sociedad de la información.",
+    "Los principios de protección de datos del artículo 5 del RGPD incluyen: licitud, finalidad, minimización, exactitud, integridad, conservación limitada y responsabilidad proactiva.",
+    "La responsabilidad proactiva implica que la carga de probar el cumplimiento de la ley recae sobre el responsable del tratamiento de datos.",
+    "Las infracciones muy graves del RGPD pueden sancionarse con hasta 20 millones de euros o el 4% de la facturación global.",
+    "La LSSICE obliga a identificar claramente las comunicaciones comerciales como publicidad y prohíbe el envío sin consentimiento previo.",
+    "El análisis forense tiene carácter probatorio: su objetivo es recoger evidencias admisibles ante la autoridad legal, siempre después de un incidente.",
+    "El principio de Locard establece que cada contacto deja un rastro; en el entorno digital estos rastros se encuentran en logs, metadatos, tráfico de red y RAM.",
+    "La cadena de custodia garantiza que las evidencias no han sido alteradas; se basa en actas de recogida y en el cálculo de hashes que se verifican al presentar la prueba.",
+    "La diferencia fundamental entre auditoría informática y análisis forense es que la auditoría es preventiva y periódica, mientras que el forense es reactivo y probatorio."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Delito informático",
+      "definicion": "Conducta ilícita susceptible de ser sancionada por el derecho penal que hace uso indebido de medios informáticos."
+    },
+    {
+      "termino": "Delito como instrumento",
+      "definicion": "Uso del sistema informático como herramienta para cometer un delito (phishing, amenazas online, calumnias en redes)."
+    },
+    {
+      "termino": "Delito como fin",
+      "definicion": "Conducta criminal dirigida contra el propio sistema informático (sabotaje, destrucción de datos, copia no autorizada)."
+    },
+    {
+      "termino": "Estafa informática (Art. 248)",
+      "definicion": "Obtención de lucro ilícito mediante manipulación informática que consiga la transferencia no consentida de cualquier activo patrimonial en perjuicio de tercero."
+    },
+    {
+      "termino": "Sabotaje informático (Art. 263)",
+      "definicion": "Destrucción o alteración deliberada de datos, programas o documentos electrónicos contenidos en redes o sistemas."
+    },
+    {
+      "termino": "Ciberterrorismo",
+      "definicion": "Conjunto de acciones que incluyen ransomware, ataques DDoS y extorsiones digitales, normalmente anónimas y con motivación política o ideológica."
+    },
+    {
+      "termino": "RGPD",
+      "definicion": "Reglamento General de Protección de Datos (UE 2016/679), norma fundamental de protección de datos personales, de aplicación directa y rango superior a la legislación nacional."
+    },
+    {
+      "termino": "LOPDGDD",
+      "definicion": "Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales, que adapta el RGPD al ordenamiento jurídico español."
+    },
+    {
+      "termino": "Responsabilidad proactiva",
+      "definicion": "Principio del RGPD por el cual la carga de demostrar el cumplimiento de la ley recae sobre el responsable del tratamiento de los datos."
+    },
+    {
+      "termino": "LSSICE",
+      "definicion": "Ley de Servicios de la Sociedad de la Información y Comercio Electrónico; regula servicios digitales, comunicaciones comerciales, cookies y contratos electrónicos."
+    },
+    {
+      "termino": "Análisis forense informático",
+      "definicion": "Proceso de recolección y análisis de evidencias digitales para demostrar con carácter probatorio, ante la autoridad legal, la realización o no de una actividad no autorizada."
+    },
+    {
+      "termino": "Cadena de custodia",
+      "definicion": "Registro que documenta cada acceso a una evidencia digital desde su recolección hasta su presentación judicial, garantizando que no ha sido alterada."
+    },
+    {
+      "termino": "Hash forense",
+      "definicion": "Valor calculado sobre una evidencia digital en el momento de su recogida y verificado al presentarla en el juzgado, para demostrar que no ha sido modificada."
+    },
+    {
+      "termino": "Principio de Locard",
+      "definicion": "Cada contacto deja un rastro. En el entorno digital, cualquier actividad no autorizada deja trazas en logs, metadatos, tráfico de red o RAM."
+    },
+    {
+      "termino": "Criterio de Daubert",
+      "definicion": "Estándar estadounidense de 1993 para la valoración de evidencias judiciales basado en cuatro criterios: verificabilidad, revisión por pares, tasa de error y aceptación científica."
+    },
+    {
+      "termino": "Botnet",
+      "definicion": "Red de ordenadores zombies utilizados para realizar ataques DDoS agotando los recursos de un servidor o sistema objetivo."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "casi-tema-11-fc-001",
+      "pregunta": "¿Cuáles son las dos grandes categorías de delitos informáticos?",
+      "respuesta": "Delito como medio o instrumento (el ordenador se usa para delinquir) y delito como fin u objetivo (el ataque va dirigido contra el propio sistema informático)."
+    },
+    {
+      "id": "casi-tema-11-fc-002",
+      "pregunta": "¿El simple intento de acceder sin autorización a un sistema informático ajeno es delito?",
+      "respuesta": "Sí. La mera introducción o intento de introducción en un sistema informático ajeno en el que no se está autorizado ya constituye delito, aunque no haya intención de robar ni dañar."
+    },
+    {
+      "id": "casi-tema-11-fc-003",
+      "pregunta": "¿Qué diferencia existe entre fraude y estafa según el Código Penal?",
+      "respuesta": "El fraude es el concepto genérico; la estafa es el delito concreto. Ambos se tipifican en el artículo 248 del Código Penal. El lucro que se busca debe ser económico."
+    },
+    {
+      "id": "casi-tema-11-fc-004",
+      "pregunta": "¿Qué es el sabotaje informático según el Código Penal?",
+      "respuesta": "La destrucción o alteración deliberada de datos, programas o documentos electrónicos contenidos en redes o sistemas informáticos (Art. 263)."
+    },
+    {
+      "id": "casi-tema-11-fc-005",
+      "pregunta": "¿Qué conductas incluye el ciberterrorismo?",
+      "respuesta": "Ataques de ransomware, ataques DDoS mediante botnets y extorsiones digitales, con motivación política o ideológica."
+    },
+    {
+      "id": "casi-tema-11-fc-006",
+      "pregunta": "¿Qué es una botnet?",
+      "respuesta": "Red de ordenadores zombies que realizan conjuntamente peticiones a un servidor para agotar sus recursos y provocar su caída (ataque DDoS)."
+    },
+    {
+      "id": "casi-tema-11-fc-007",
+      "pregunta": "¿Qué norma es la referencia fundamental en protección de datos en la UE?",
+      "respuesta": "El Reglamento General de Protección de Datos (RGPD), Reglamento UE 2016/679, de aplicación directa y rango superior a la legislación nacional."
+    },
+    {
+      "id": "casi-tema-11-fc-008",
+      "pregunta": "¿Cuándo entró en vigor el RGPD?",
+      "respuesta": "En mayo de 2016, aunque concedió dos años de adaptación a los Estados miembros. No fue en 2018, aunque ese fue el año de aplicación obligatoria."
+    },
+    {
+      "id": "casi-tema-11-fc-009",
+      "pregunta": "¿Qué es la LOPDGDD?",
+      "respuesta": "La Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales, que adapta el RGPD al ordenamiento jurídico español."
+    },
+    {
+      "id": "casi-tema-11-fc-010",
+      "pregunta": "¿En qué edad fija la LOPDGDD el consentimiento de menores para servicios de la sociedad de la información?",
+      "respuesta": "En 14 años. El RGPD establece 16, pero la LOPDGDD hace uso de la opción de reducirlo, fijándolo en 14."
+    },
+    {
+      "id": "casi-tema-11-fc-011",
+      "pregunta": "¿Qué es la responsabilidad proactiva en protección de datos?",
+      "respuesta": "Principio por el cual la carga de demostrar el cumplimiento de la ley recae sobre el responsable del tratamiento de datos, que debe tener disponible la documentación probatoria."
+    },
+    {
+      "id": "casi-tema-11-fc-012",
+      "pregunta": "¿Cuál es la sanción máxima por infracciones muy graves del RGPD?",
+      "respuesta": "Hasta 20 millones de euros o el 4% de la facturación global anual, lo que sea mayor."
+    },
+    {
+      "id": "casi-tema-11-fc-013",
+      "pregunta": "¿A qué ámbito se aplica la LSSICE?",
+      "respuesta": "A todos los negocios que utilicen medios TIC para realizar su actividad o para su promoción; regula comunicaciones comerciales, cookies y contratos electrónicos."
+    },
+    {
+      "id": "casi-tema-11-fc-014",
+      "pregunta": "¿Qué prohíbe la LSSICE respecto al correo electrónico comercial?",
+      "respuesta": "El envío de comunicaciones publicitarias o promocionales sin consentimiento previo del destinatario."
+    },
+    {
+      "id": "casi-tema-11-fc-015",
+      "pregunta": "¿Cuál es el objetivo fundamental del análisis forense informático?",
+      "respuesta": "Demostrar con carácter probatorio, ante la autoridad legal, la realización o no de una actividad no autorizada con posibles implicaciones legales o penales."
+    },
+    {
+      "id": "casi-tema-11-fc-016",
+      "pregunta": "¿Cuándo se realiza el análisis forense?",
+      "respuesta": "Siempre después de que ha ocurrido un incidente. Es reactivo y puntual, no preventivo."
+    },
+    {
+      "id": "casi-tema-11-fc-017",
+      "pregunta": "¿Qué cuerpos policiales reciben la notificación de un delito informático en España?",
+      "respuesta": "La Brigada de Investigación Tecnológica de la Policía Nacional o el Grupo de Delitos Telemáticos de la Guardia Civil."
+    },
+    {
+      "id": "casi-tema-11-fc-018",
+      "pregunta": "¿Qué establece el principio de Locard?",
+      "respuesta": "Que cada contacto deja un rastro. Cualquier actividad no autorizada deja trazas en el sistema que el análisis forense busca para demostrar la actividad."
+    },
+    {
+      "id": "casi-tema-11-fc-019",
+      "pregunta": "¿Dónde se encuentran trazas digitales según el principio de Locard?",
+      "respuesta": "En logs del sistema, metadatos de ficheros, tráfico de red (routers, firewalls, servidores de correo) y contenido de la RAM."
+    },
+    {
+      "id": "casi-tema-11-fc-020",
+      "pregunta": "¿Qué información debe registrar obligatoriamente el acta de recogida de una evidencia digital?",
+      "respuesta": "La hora en que se obtuvo, la identidad de quien la descubrió, de quien la protegió y de quien mantiene actualmente su posesión."
+    },
+    {
+      "id": "casi-tema-11-fc-021",
+      "pregunta": "¿Cómo se garantiza la integridad de una evidencia digital al presentarla en el juzgado?",
+      "respuesta": "Calculando el hash de la evidencia en el momento de su recogida, guardándolo en el acta, y verificando al presentarla que el hash coincide."
+    },
+    {
+      "id": "casi-tema-11-fc-022",
+      "pregunta": "¿Cuántas copias de una evidencia se hacen habitualmente y para qué?",
+      "respuesta": "Dos copias: una de trabajo (para analizar y operar) y otra que queda en custodia sin ser modificada, que es la que se presenta en el juzgado."
+    },
+    {
+      "id": "casi-tema-11-fc-023",
+      "pregunta": "¿Qué son los artefactos en análisis forense digital?",
+      "respuesta": "Trazas o rastros que quedan en un sistema como resultado de actividades o eventos."
+    },
+    {
+      "id": "casi-tema-11-fc-024",
+      "pregunta": "¿Cuál es la diferencia fundamental entre auditoría informática y análisis forense?",
+      "respuesta": "La auditoría informática es preventiva y periódica (valida el estado de un sistema); el análisis forense es reactivo y probatorio (demuestra lo ocurrido en un incidente específico)."
+    },
+    {
+      "id": "casi-tema-11-fc-025",
+      "pregunta": "¿Qué cuatro criterios establece el criterio de Daubert para valorar evidencias?",
+      "respuesta": "Verificabilidad de la metodología, revisión por pares, tasa de error potencial y aceptación científica del tipo de evidencia y metodología."
+    }
+  ]
+}

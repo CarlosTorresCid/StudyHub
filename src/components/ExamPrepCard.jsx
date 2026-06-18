@@ -13,6 +13,12 @@ const CONFIG = {
     text: 'Guía organizada por los 5 tipos reales de preguntas · Parte práctica (6 puntos).',
     cta: 'Abrir guía TE',
   },
+  casi: {
+    icon: '📋',
+    title: 'Preparación examen',
+    text: 'Guía de estudio orientada al examen final.',
+    cta: 'Estudiar',
+  },
 };
 
 export default function ExamPrepCard({ subjectId, asignaturaId }) {
