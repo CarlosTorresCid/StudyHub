@@ -5768,7 +5768,6 @@
     "codigoReferencia": "",
     "origenVisible": "Recopilatorio / profesor"
   },
-
   {
     "asignaturaId": "smpc",
     "parteExamenId": "parte-desarrollo",
@@ -5902,7 +5901,6 @@
     "codigoReferencia": "",
     "origenVisible": "Recopilatorio / profesor"
   },
-  
   {
     "asignaturaId": "smpc",
     "parteExamenId": "parte-desarrollo",
@@ -6019,9 +6017,568 @@
     "solucionOrientativa": "",
     "codigoReferencia": "",
     "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-9-test-039",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Transformada de Fourier — transformación global",
+    "origen": "recopilada",
+    "enunciado": "La principal diferencia entre transformar una imagen a un espacio de color alternativo y aplicarle la Transformada de Fourier es que en el primer caso hay una correspondencia uno a uno entre píxeles de entrada y salida, mientras que en el segundo... ¿qué ocurre?",
+    "opciones": [
+      "Solo los píxeles del borde de la imagen contribuyen al cálculo de cada componente frecuencial",
+      "La imagen de salida tiene el doble de resolución que la original para poder representar todas las frecuencias",
+      "Todos los píxeles de la entrada en el dominio espacial contribuyen a cada valor de la salida en el dominio de la frecuencia",
+      "Solo los píxeles con mayor nivel de brillo contribuyen a las componentes de alta frecuencia de la transformada"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La Transformada de Fourier es una transformación global: cada componente frecuencial se calcula a partir de la contribución de todos los píxeles de la imagen en el dominio espacial. En una conversión de espacio de color, en cambio, la operación suele ser local y mantiene una correspondencia píxel a píxel.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Transformada de Fourier"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 39"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "No se añade la versión corta existente; esta redacción es más completa y no coincide al 100% con el enunciado ya presente.",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "no_duplicada_exacta",
+      "comentario": "Existe una pregunta similar en el banco, pero no es idéntica al 100%."
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 39,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 39"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 39",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-3-test-040",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3",
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Programación con JADE",
+    "patronRelacionado": "Ciclo de vida del agente — método setup()",
+    "origen": "recopilada",
+    "enunciado": "Al crear un agente en JADE, ¿por qué es mala práctica usar el constructor de la clase Java para inicializar recursos como conexiones a bases de datos?",
+    "opciones": [
+      "Porque Java no permite constructores en clases que extienden Agent",
+      "Porque en el momento de construcción el agente todavía no está enlazado con el runtime de JADE, por lo que algunos métodos heredados pueden no funcionar correctamente",
+      "Porque el constructor se ejecuta antes de que se cargue el classpath de JADE en memoria",
+      "Porque los constructores en JADE están reservados para el ciclo de vida del contenedor, no del agente"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "En JADE la inicialización propia del agente debe realizarse en setup(), no en el constructor. Durante la construcción del objeto Java, el agente aún no está completamente integrado en el runtime de JADE, por lo que determinados métodos heredados y servicios de la plataforma pueden no estar disponibles.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Programación con JADE"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 40"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 40,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 40"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 40",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-4-test-041",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Programación con JADE",
+    "patronRelacionado": "Planificación cooperativa de comportamientos",
+    "origen": "recopilada",
+    "enunciado": "La planificación de comportamientos en JADE es cooperativa, no como los hilos de Java. ¿Qué consecuencia práctica tiene esto para el desarrollador?",
+    "opciones": [
+      "Los comportamientos se ejecutan en paralelo real, por lo que hay que usar synchronized para proteger los recursos compartidos",
+      "El runtime de JADE intercambia los comportamientos automáticamente cada cierto tiempo, como un sistema operativo con hilos",
+      "El desarrollador es quien decide cuándo un comportamiento cede el control al siguiente, porque el método action se ejecuta hasta que retorna; un bucle infinito dentro de él bloqueará al resto de comportamientos",
+      "Si un comportamiento tarda mucho, JADE lo elimina automáticamente para dar paso al siguiente en la cola"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El planificador de JADE es cooperativo: cada comportamiento ejecuta su método action() y solo se da paso a otros comportamientos cuando este retorna o se bloquea adecuadamente. Por eso un bucle infinito dentro de action() puede impedir que otros comportamientos se ejecuten.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Comportamientos JADE"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 41"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 41,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 41"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 41",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-7-test-042",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Visión humana vs. visión por computador",
+    "origen": "recopilada",
+    "enunciado": "En un sistema de control de calidad en una cadena de fabricación, el ordenador analiza imágenes de piezas para detectar defectos automáticamente. ¿Cómo se clasifica este tipo de aplicación según el PDF?",
+    "opciones": [
+      "Aplicación de visión humana, porque el objetivo final es mostrar los resultados a un operario que toma la decisión",
+      "Aplicación de visión por computador, porque las imágenes procesadas son consumidas por el propio ordenador para tomar decisiones automáticas",
+      "Aplicación de análisis de imagen, porque implica examinar datos de imagen para extraer información de frecuencia espacial",
+      "Aplicación de restauración de imagen, porque se parte de imágenes degradadas por el entorno industrial y se recupera su forma original"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Es visión por computador porque el objetivo no es solo mostrar la imagen a una persona, sino que la máquina procese la imagen y use el resultado para tomar una decisión automática, como detectar una pieza defectuosa.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Visión por computador"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 42"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "Existe una pregunta similar sobre control de calidad, pero no coincide al 100% con esta redacción.",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "no_duplicada_exacta",
+      "comentario": "Similar a una pregunta existente, pero no idéntica al 100%."
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 42,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 42"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 42",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-8-test-043",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8",
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Análisis de imágenes digitales",
+    "patronRelacionado": "Preprocesamiento — reducción a imagen binaria",
+    "origen": "recopilada",
+    "enunciado": "Una pinza robótica necesita identificar el contorno de un objeto para recogerlo. ¿Qué operación de preprocesamiento describe el PDF para este caso concreto, y por qué es suficiente?",
+    "opciones": [
+      "Una transformación del espacio de color para separar el objeto del fondo por diferencia de tono",
+      "Una reducción de resolución espacial para disminuir el tamaño de la imagen y acelerar el procesamiento",
+      "La reducción de la imagen en escala de grises a una imagen binaria, que contiene toda la información necesaria para que el robot discierna el contorno del objeto",
+      "Un filtrado espacial con convolución para realzar los bordes del objeto antes de pasarlo al sistema de control"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Para identificar el contorno puede bastar con reducir la imagen a una representación binaria, donde se separa objeto y fondo. Si el robot solo necesita discernir la forma o borde del objeto, la información de color o niveles de gris puede ser innecesaria.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Preprocesamiento de imágenes"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 43"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 43,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 43"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 43",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-10-test-044",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10",
+      "tema-11"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Segmentación y reconocimiento de objetos",
+    "patronRelacionado": "Segmentación previa al reconocimiento",
+    "origen": "recopilada",
+    "enunciado": "Un sistema de visión artificial necesita identificar coches en una imagen de tráfico antes de analizar su matrícula. ¿Por qué es imprescindible realizar una segmentación previa y qué limitación impone si no se hace?",
+    "opciones": [
+      "Sin segmentación la imagen no puede convertirse al dominio de la frecuencia, lo que impide aplicar filtros de paso bajo necesarios para el reconocimiento",
+      "Sin segmentación no es posible comprimir la imagen, lo que hace inviable su transmisión al sistema de reconocimiento",
+      "La segmentación es necesaria porque cualquier procesamiento a un nivel más alto que el del píxel requiere dividir la imagen en regiones que representen objetos o partes significativas de los mismos",
+      "Sin segmentación el sistema no puede convertir la imagen a escala de grises, paso obligatorio previo al reconocimiento de objetos"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La segmentación separa la imagen en regiones u objetos significativos. Para reconocer coches y después analizar matrículas, el sistema necesita aislar primero las regiones relevantes; sin esa división, el procesamiento de alto nivel no sabe qué partes de la imagen corresponden a objetos.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Segmentación de imágenes"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 44"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 44,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 44"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 44",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "id": "smpc-tema-7-test-045",
+    "asignaturaId": "smpc",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "tipo": "test",
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Espectro electromagnético y sensores",
+    "origen": "recopilada",
+    "enunciado": "Los sensores de imagen no se limitan a capturar luz visible. ¿Qué ventaja práctica aporta esto respecto al sistema visual humano, según el PDF?",
+    "opciones": [
+      "Los sensores artificiales tienen mayor resolución espacial que el ojo humano en condiciones de alta luminosidad",
+      "El ordenador puede trabajar con casi todo el espectro electromagnético —desde rayos gamma a ondas de radio— y con otras modalidades como ultrasonidos o resonancia magnética, mientras el ojo humano solo percibe una pequeña franja del espectro visible",
+      "Los sensores artificiales procesan las imágenes más rápido que el cerebro humano porque no tienen latencia neural",
+      "Los sensores pueden capturar imágenes en movimiento a mayor velocidad que la tasa de refresco del sistema visual humano"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La ventaja práctica es que los sensores artificiales pueden capturar información fuera del rango visible humano, incluyendo otras zonas del espectro electromagnético y otras modalidades de adquisición, lo que permite analizar información inaccesible para el ojo humano.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Espectro electromagnético y sensores"
+    ],
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Tipo test — Pregunta 45"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "observaciones": "Existe una pregunta similar más breve, pero no coincide al 100% con esta redacción.",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "no_duplicada_exacta",
+      "comentario": "Similar a preguntas existentes sobre sensores y espectro, pero no idéntica al 100%."
+    },
+    "ambito": "banco_estudio",
+    "ordenPregunta": 45,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Recopilatorio / profesor",
+      "Pregunta 45"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Tipo test — Pregunta 45",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta tipo test",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "no_duplicada_exacta",
+      "comentario": "Existe una pregunta muy similar en el banco, pero esta versión añade matices y no coincide al 100%."
+    },
+    "id": "smpc-desarrollo-014",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-7",
+      "tema-8",
+      "tema-9",
+      "tema-10",
+      "tema-11"
+    ],
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Pipeline de visión artificial en videovigilancia",
+    "origen": "recopilada",
+    "enunciado": "Un sistema de videovigilancia urbana captura imágenes continuas de una calle para detectar automáticamente objetos abandonados (bolsas, maletas) sobre el pavimento. Describe el proceso completo que seguiría el sistema para detectar esos objetos, respondiendo a estas tres cuestiones: (1) ¿En qué se diferencian una aplicación de visión por computador y una de visión humana en el procesamiento de imágenes, y cuál de las dos corresponde a este sistema? Justifica tu respuesta. (2) Describe las tres etapas del pipeline de análisis de imágenes que aplicarías a este problema y qué se consigue en cada una. (3) ¿Qué ventaja aporta trabajar en el dominio de la frecuencia frente al dominio espacial para filtrar el ruido de fondo de las imágenes capturadas en exterior (viento, lluvia, cambios de iluminación)?",
+    "respuestaModelo": "Una aplicación de visión humana procesa imágenes para que sean interpretadas por una persona, mientras que una aplicación de visión por computador procesa las imágenes para que el propio ordenador extraiga información y tome decisiones automáticas. Este caso corresponde a visión por computador, porque el sistema analiza continuamente la escena y detecta objetos abandonados sin depender de que un operario observe cada imagen.\n\nEl pipeline puede dividirse en tres etapas principales. Primero, preprocesamiento: se corrige o mejora la imagen, se reduce ruido, se normaliza la iluminación y se prepara la entrada para el análisis. Segundo, segmentación: se separa el pavimento, el fondo y los objetos candidatos, aislando regiones que podrían corresponder a bolsas o maletas. Tercero, extracción de características y clasificación de patrones: se calculan propiedades como forma, tamaño, textura, contorno, posición y permanencia temporal para decidir si el objeto detectado es realmente un objeto abandonado.\n\nTrabajar en el dominio de la frecuencia permite identificar y atenuar componentes periódicas o repetitivas del ruido, como interferencias, vibraciones, lluvia o variaciones de iluminación, de forma más selectiva que operando directamente sobre píxeles en el dominio espacial.",
+    "explicacion": "Una aplicación de visión humana procesa imágenes para que sean interpretadas por una persona, mientras que una aplicación de visión por computador procesa las imágenes para que el propio ordenador extraiga información y tome decisiones automáticas. Este caso corresponde a visión por computador, porque el sistema analiza continuamente la escena y detecta objetos abandonados sin depender de que un operario observe cada imagen.\n\nEl pipeline puede dividirse en tres etapas principales. Primero, preprocesamiento: se corrige o mejora la imagen, se reduce ruido, se normaliza la iluminación y se prepara la entrada para el análisis. Segundo, segmentación: se separa el pavimento, el fondo y los objetos candidatos, aislando regiones que podrían corresponder a bolsas o maletas. Tercero, extracción de características y clasificación de patrones: se calculan propiedades como forma, tamaño, textura, contorno, posición y permanencia temporal para decidir si el objeto detectado es realmente un objeto abandonado.\n\nTrabajar en el dominio de la frecuencia permite identificar y atenuar componentes periódicas o repetitivas del ruido, como interferencias, vibraciones, lluvia o variaciones de iluminación, de forma más selectiva que operando directamente sobre píxeles en el dominio espacial.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Desarrollo visión artificial"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 14"
+    ],
+    "observaciones": "Pregunta similar a smpc-desarrollo-008, pero no idéntica al 100% por la ampliación sobre ruido exterior.",
+    "criteriosCorreccion": [
+      "Diferencia correctamente visión humana y visión por computador según quién consume/interpreta la imagen procesada.",
+      "Justifica que el sistema corresponde a visión por computador porque toma decisiones automáticas.",
+      "Describe una etapa de preprocesamiento para limpiar, normalizar o preparar la imagen.",
+      "Describe una etapa de segmentación para aislar objetos o regiones candidatas.",
+      "Describe extracción de características y clasificación de patrones para decidir si el objeto es abandonado.",
+      "Explica la ventaja del dominio de frecuencia para filtrar ruido periódico o ambiental de forma selectiva."
+    ],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 14,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 14"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 14",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
+  },
+  {
+    "asignaturaId": "smpc",
+    "parteExamenId": "parte-desarrollo",
+    "bloqueExamenId": "parte-desarrollo",
+    "bloqueExamenNombre": "Desarrollo",
+    "tipo": "desarrollo",
+    "opciones": [],
+    "respuestaCorrecta": null,
+    "modelos": [
+      "Recopilatorio / profesor"
+    ],
+    "apariciones": [],
+    "numeroApariciones": 1,
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": false,
+    "convocatoria": null,
+    "deduplicacion": {
+      "criterio": "unica",
+      "comentario": ""
+    },
+    "id": "smpc-desarrollo-015",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-8",
+      "tema-9",
+      "tema-10",
+      "tema-11"
+    ],
+    "grupoTematico": "Visión artificial y procesamiento de imágenes",
+    "patronRelacionado": "Pipeline de inspección industrial con visión artificial",
+    "origen": "recopilada",
+    "enunciado": "Una empresa de logística quiere implementar un sistema de visión artificial para inspeccionar automáticamente paquetes en una cinta transportadora y detectar aquellos que lleguen dañados. Describe el pipeline completo de procesamiento que seguirías para resolver este problema, respondiendo a estas tres cuestiones: (1) ¿Qué etapas de preprocesamiento aplicarías a las imágenes capturadas por la cámara y por qué son necesarias antes del análisis? (2) ¿Qué técnica de segmentación utilizarías para separar el paquete del fondo de la cinta, y qué condición debe cumplir la imagen para que funcione correctamente? (3) ¿Cómo detectarías los daños en la superficie del paquete una vez segmentado? Explica qué tipo de operador usarías y qué principio matemático lo justifica.",
+    "respuestaModelo": "Primero aplicaría preprocesamiento para preparar la imagen antes del análisis: conversión a escala de grises o a un espacio de color adecuado, reducción de ruido mediante filtrado, normalización de iluminación y mejora de contraste o nitidez. Estas etapas son necesarias porque la segmentación y la detección de daños dependen de que la imagen tenga suficiente contraste y poco ruido.\n\nPara separar el paquete del fondo de la cinta podría utilizar una técnica de segmentación por umbralización si existe una diferencia clara de intensidad o color entre paquete y fondo. También podría emplearse detección de bordes o crecimiento de regiones si la separación por umbral no es suficiente. La condición clave es que el paquete presente homogeneidad interna y contraste suficiente respecto al fondo o a su frontera.\n\nUna vez segmentado el paquete, los daños se detectarían buscando cambios bruscos de intensidad, textura o contorno en su superficie. Para ello se usarían operadores de detección de bordes o gradiente, como Sobel, Prewitt o Laplaciano. El principio matemático es que los bordes y grietas se corresponden con variaciones fuertes de la intensidad de la imagen, que pueden detectarse mediante derivadas o aproximaciones discretas del gradiente.",
+    "explicacion": "Primero aplicaría preprocesamiento para preparar la imagen antes del análisis: conversión a escala de grises o a un espacio de color adecuado, reducción de ruido mediante filtrado, normalización de iluminación y mejora de contraste o nitidez. Estas etapas son necesarias porque la segmentación y la detección de daños dependen de que la imagen tenga suficiente contraste y poco ruido.\n\nPara separar el paquete del fondo de la cinta podría utilizar una técnica de segmentación por umbralización si existe una diferencia clara de intensidad o color entre paquete y fondo. También podría emplearse detección de bordes o crecimiento de regiones si la separación por umbral no es suficiente. La condición clave es que el paquete presente homogeneidad interna y contraste suficiente respecto al fondo o a su frontera.\n\nUna vez segmentado el paquete, los daños se detectarían buscando cambios bruscos de intensidad, textura o contorno en su superficie. Para ello se usarían operadores de detección de bordes o gradiente, como Sobel, Prewitt o Laplaciano. El principio matemático es que los bordes y grietas se corresponden con variaciones fuertes de la intensidad de la imagen, que pueden detectarse mediante derivadas o aproximaciones discretas del gradiente.",
+    "fuentes": [
+      "Preguntas añadidas manualmente — Desarrollo inspección industrial"
+    ],
+    "etiquetasModelo": [
+      "Recopilatorio / profesor — Desarrollo — Pregunta 15"
+    ],
+    "observaciones": "",
+    "criteriosCorreccion": [
+      "Propone etapas de preprocesamiento adecuadas: reducción de ruido, mejora de contraste, normalización de iluminación o conversión de color/escala de grises.",
+      "Justifica que el preprocesamiento mejora la fiabilidad del análisis posterior.",
+      "Elige una técnica de segmentación adecuada para separar paquete y fondo, como umbralización, bordes o regiones.",
+      "Indica que la segmentación requiere contraste suficiente u homogeneidad interna respecto al fondo/frontera.",
+      "Explica cómo detectar daños mediante cambios de textura, contorno o intensidad.",
+      "Relaciona el uso de operadores de borde/gradiente con derivadas o variaciones bruscas de intensidad."
+    ],
+    "ambito": "banco_estudio",
+    "ordenPregunta": 15,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Desarrollo",
+      "Recopilatorio / profesor",
+      "Pregunta 15"
+    ],
+    "etiquetaVisible": "Recopilatorio / profesor — Desarrollo — Pregunta 15",
+    "esPreguntaTipo": false,
+    "convocatorias": [],
+    "extensionIndicada": "Respuesta de desarrollo",
+    "solucionOrientativa": "",
+    "codigoReferencia": "",
+    "origenVisible": "Recopilatorio / profesor"
   }
-
-
-
 ]
-
