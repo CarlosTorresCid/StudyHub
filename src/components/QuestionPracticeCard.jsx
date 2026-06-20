@@ -496,11 +496,11 @@ function renderBody() {
     case 'verdadero_falso':
       return <VFCard q={q} asignaturaId={resolvedSubjectId} />;
 
-    case 'corta':
-    case 'desarrollo':
-    case 'practica':
-    default:
-      return <OpenQuestionCard q={q} />;
+case 'corta':
+case 'desarrollo':
+case 'practica':
+default:
+  return <RevealCard q={q} />;
   }
 }
 
