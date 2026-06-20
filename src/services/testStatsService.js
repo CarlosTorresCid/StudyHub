@@ -101,6 +101,39 @@ export const testStatsService = {
     };
   },
 
+  getQuestionStatus(subjectId, questionId) {
+    if (!subjectId || !questionId) return { attempts: 0, correct: 0, wrong: 0, ratio: null, status: 'unseen', label: 'Sin practicar' };
+    const stats = this.getSubjectStats(subjectId)[questionId];
+    if (!stats || stats.attempts === 0) return { attempts: 0, correct: 0, wrong: 0, ratio: null, status: 'unseen', label: 'Sin practicar' };
+
+    const { attempts, correct, wrong } = stats;
+    const ratio = correct / attempts;
+    let status, label;
+
+    if (ratio >= 0.85)       { status = 'excellent'; label = 'Dominio alto'; }
+    else if (ratio >= 0.65)  { status = 'good';      label = 'Bastante bien'; }
+    else if (ratio >= 0.45)  { status = 'medium';    label = 'Repaso recomendado'; }
+    else if (ratio > 0)      { status = 'bad';       label = 'Necesita repaso'; }
+    else                     { status = 'critical';  label = 'Muy fallada'; }
+
+    return { attempts, correct, wrong, ratio, status, label };
+  },
+
+  matchesPracticeFilter(subjectId, questionId, filter) {
+    if (!filter || filter === 'todos') return true;
+    const stats = this.getSubjectStats(subjectId)[questionId];
+    const attempts = stats?.attempts || 0;
+    const wrong    = stats?.wrong    || 0;
+    const correct  = stats?.correct  || 0;
+    switch (filter) {
+      case 'falladas':      return wrong > 0;
+      case 'sin_practicar': return attempts === 0;
+      case 'dominadas':     return attempts > 0 && (correct / attempts) >= 0.85;
+      case 'mixtas':        return attempts > 0 && wrong > 0 && correct > 0;
+      default: return true;
+    }
+  },
+
   getWorstQuestions(subjectId, questions = [], limit = 5) {
     const stats = this.getSubjectStats(subjectId);
 

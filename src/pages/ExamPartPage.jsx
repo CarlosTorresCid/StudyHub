@@ -10,7 +10,7 @@ import DevelopmentTable from '../components/DevelopmentTable';
 import ModelNotebookRunner from '../components/ModelNotebookRunner';
 import TestStatsSummary from '../components/TestStatsSummary';
 import { getExamParts, questionMatchesPart } from '../lib/examPartUtils';
-import { TRACKED_SUBJECTS } from '../services/testStatsService';
+import { TRACKED_SUBJECTS, testStatsService } from '../services/testStatsService';
 import './ExamPartPage.css';
 
 function getOptionText(opcion) {
@@ -34,6 +34,7 @@ export default function ExamPartPage() {
   const [selectedGroup, setSelectedGroup] = useState('todos');
   const [selectedOrigen, setSelectedOrigen] = useState('todos');
   const [selectedRevision, setSelectedRevision] = useState('todos');
+  const [selectedPracticeStatus, setSelectedPracticeStatus] = useState('todos');
   const [searchText, setSearchText] = useState('');
 
   // Edición local de preguntas (solo disponible en npm run dev)
@@ -124,6 +125,10 @@ const hasModelSelector = hasConfiguredExamModels && examModels.length > 0;
         return false;
       }
 
+      if (selectedPracticeStatus !== 'todos') {
+        if (!testStatsService.matchesPracticeFilter(asignaturaId, q.id, selectedPracticeStatus)) return false;
+      }
+
       if (searchText?.trim()) {
         const search = searchText.toLowerCase().trim();
 
@@ -154,7 +159,9 @@ const hasModelSelector = hasConfiguredExamModels && examModels.length > 0;
     selectedGroup,
     selectedOrigen,
     selectedRevision,
+    selectedPracticeStatus,
     searchText,
+    asignaturaId,
   ]);
 
   usePageTitle(
@@ -170,6 +177,7 @@ const hasModelSelector = hasConfiguredExamModels && examModels.length > 0;
   setSelectedGroup('todos');
   setSelectedOrigen('todos');
   setSelectedRevision('todos');
+  setSelectedPracticeStatus('todos');
   setSearchText('');
 };
 
@@ -222,6 +230,7 @@ const handleSaveQuestion = async (updatedQuestion) => {
     selectedGroup !== 'todos' ||
     selectedOrigen !== 'todos' ||
     selectedRevision !== 'todos' ||
+    selectedPracticeStatus !== 'todos' ||
     searchText.trim();
 
   if (!subject) {
@@ -554,6 +563,18 @@ const handleSaveQuestion = async (updatedQuestion) => {
                 <option value="verificadas">Verificadas</option>
                 <option value="pendientes">Pendientes</option>
                 <option value="revision">Requiere revisión</option>
+              </select>
+
+              <select
+                className="exam-filter-select"
+                value={selectedPracticeStatus}
+                onChange={e => setSelectedPracticeStatus(e.target.value)}
+              >
+                <option value="todos">Estado: Todas</option>
+                <option value="falladas">Falladas alguna vez</option>
+                <option value="sin_practicar">Sin practicar</option>
+                <option value="dominadas">Dominadas</option>
+                <option value="mixtas">Con fallos y aciertos</option>
               </select>
 
               {hasActiveFilters && (

@@ -30,6 +30,7 @@ const [questionFilters, setQuestionFilters] = useState({
   parteExamenId: '',
   tipo: '',
   searchText: '',
+  practiceStatus: '',
 });
 
   const subject = publicLibrary.getSubject(asignaturaId);
@@ -82,6 +83,12 @@ const applyFilter = (preguntas) => {
         q.tipo !== questionFilters.tipo
       ) {
         return false;
+      }
+
+      if (questionFilters.practiceStatus) {
+        if (!progressService.matchesPracticeFilter(q.id, questionFilters.practiceStatus)) {
+          return false;
+        }
       }
 
       if (questionFilters.searchText?.trim()) {

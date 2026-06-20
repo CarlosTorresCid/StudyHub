@@ -627,3 +627,31 @@
   background: rgba(148, 163, 184, 0.12);
   color: #475569;
 }
+
+/* ── Escala de color por historial de práctica ───────────────────── */
+
+.qpc.question-status--excellent { border-left: 3px solid var(--status-excellent); }
+.qpc.question-status--good      { border-left: 3px solid var(--status-good); }
+.qpc.question-status--medium    { border-left: 3px solid var(--status-medium); }
+.qpc.question-status--bad       { border-left: 3px solid var(--status-bad); }
+.qpc.question-status--critical  { border-left: 3px solid var(--status-critical); }
+.qpc.question-status--unseen    { border-left: 3px solid var(--status-unseen); }
+
+/* ── Badge de historial de práctica ──────────────────────────────── */
+
+.qpc-practice-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.qpc-practice-badge--unseen   { background: var(--status-unseen-soft);   color: var(--status-unseen);   }
+.qpc-practice-badge--excellent { background: var(--status-excellent-soft); color: var(--status-excellent); }
+.qpc-practice-badge--good     { background: var(--status-good-soft);     color: var(--status-good);     }
+.qpc-practice-badge--medium   { background: var(--status-medium-soft);   color: var(--status-medium);   }
+.qpc-practice-badge--bad      { background: var(--status-bad-soft);      color: var(--status-bad);      }
+.qpc-practice-badge--critical { background: var(--status-critical-soft); color: var(--status-critical); }

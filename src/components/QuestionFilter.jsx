@@ -15,11 +15,19 @@ const TIPOS = [
   { value: 'sql', label: 'SQL' },
 ];
 
+const PRACTICE_STATUS_OPTIONS = [
+  { value: 'falladas',      label: 'Falladas alguna vez' },
+  { value: 'sin_practicar', label: 'Sin practicar' },
+  { value: 'dominadas',     label: 'Dominadas' },
+  { value: 'mixtas',        label: 'Con fallos y aciertos' },
+];
+
 const EMPTY_FILTERS = {
   origen: '',
   parteExamenId: '',
   tipo: '',
   searchText: '',
+  practiceStatus: '',
 };
 
 export default function QuestionFilter({ filters, onChange, partes = [] }) {
@@ -44,7 +52,8 @@ export default function QuestionFilter({ filters, onChange, partes = [] }) {
     currentFilters.origen ||
     currentFilters.parteExamenId ||
     currentFilters.tipo ||
-    currentFilters.searchText;
+    currentFilters.searchText ||
+    currentFilters.practiceStatus;
 
   return (
     <div className="q-filter">
@@ -110,6 +119,23 @@ export default function QuestionFilter({ filters, onChange, partes = [] }) {
               onClick={() => toggle('tipo', t.value)}
             >
               {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="q-filter-group">
+        <span className="q-filter-label">Práctica</span>
+
+        <div className="q-filter-pills">
+          {PRACTICE_STATUS_OPTIONS.map(o => (
+            <button
+              key={o.value}
+              type="button"
+              className={`q-filter-pill ${currentFilters.practiceStatus === o.value ? 'active' : ''}`}
+              onClick={() => toggle('practiceStatus', o.value)}
+            >
+              {o.label}
             </button>
           ))}
         </div>

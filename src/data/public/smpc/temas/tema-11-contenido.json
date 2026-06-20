@@ -1,0 +1,167 @@
+{
+  "asignatura": "smpc",
+  "asignaturaId": "smpc",
+  "tema": "tema-11",
+  "temaId": "tema-11",
+  "titulo": "Reconocimiento de Formas",
+  "apuntes": {
+    "introduccion": "El análisis de características y la clasificación de patrones son los pasos finales en el proceso de análisis de imágenes. Representan la transición desde los datos de píxeles a la comprensión semántica. El objetivo del análisis de imágenes es extraer información útil para la resolución de problemas mediante la reducción inteligente de la cantidad de datos. Ejemplo práctico: un semáforo — el sistema lo detecta (segmentación → extracción de características) y luego clasifica el color (reconocimiento de patrones) para decidir si detenerse o avanzar.",
+    "secciones": [
+      {
+        "titulo": "1. Contexto: los pasos finales del análisis de imágenes",
+        "contenido": "El **análisis de características** y la **clasificación de patrones** son los pasos finales en el proceso de análisis de imágenes. Representan la transición desde los datos de píxeles a la comprensión semántica.\n\nEl **objetivo del análisis de imágenes** es extraer información útil para la resolución de problemas. Esto se logra mediante la reducción inteligente de la cantidad de datos, utilizando las herramientas exploradas (segmentación, transformación). Una vez realizadas estas operaciones, la imagen ha sido modificada desde el nivel más bajo (píxeles) a representaciones de nivel superior.\n\n**Análisis de características:** implica examinar las características extraídas para determinar si —y cómo— pueden usarse para resolver el problema. En algunos casos, las características extraídas pueden no resolver el problema, y la información del análisis se usa para determinar qué otros métodos o características adicionales serían necesarios.\n\n**Clasificación de patrones (= reconocimiento de patrones):** consiste en la clasificación de objetos en categorías. Para muchas aplicaciones, esta clasificación debe hacerse de forma automática. Los patrones a clasificar consisten en la información de características extraídas, asociadas con objetos de imagen y con las clases o categorías dependientes de la aplicación.\n\nEjemplo práctico: un semáforo. El sistema detecta el semáforo (segmentación → extracción de características) y luego clasifica el color (reconocimiento de patrones) para decidir si detenerse o avanzar."
+      },
+      {
+        "titulo": "2. Extracción de características",
+        "contenido": "La segmentación de imágenes permite observar características del objeto, y la imagen transformada (p.ej. tras aplicar Fourier) proporciona características basadas en funciones de información espectral de frecuencia espacial.\n\n**Tipos de características que se pueden extraer:**\n- **Propiedades geométricas de los objetos binarios**: área, perímetro, momentos, compacidad, etc.\n- **Características de histograma**: distribución de intensidades (media, varianza, sesgo, curtosis).\n- **Características espectrales**: información de frecuencia espacial obtenida mediante transformaciones (Fourier, etc.).\n- **Características de textura**: patrones repetitivos, determinados mediante media y varianza.\n- **Características de color**: distribución y relaciones entre los canales de color.\n\nUna vez extraídas las características de interés, se puede analizar la imagen con algoritmos de clasificación.\n\n**Características discriminantes:**\nNo todas las características son igualmente útiles. Una **característica discriminante** es aquella que permite distinguir de forma fiable entre clases distintas. La **fiabilidad de una característica discriminante** se mide por medio de la **dispersión** (cuánto se separan las clases en función de esa característica). Una buena característica discriminante tendrá alta dispersión entre clases y baja dispersión dentro de cada clase.\n\nLa **covarianza** mide la **independencia lineal de dos variables**: permite determinar si dos características aportan información redundante (alta covarianza) o información complementaria (covarianza cercana a cero).\n\nEl **cociente de Fisher** se usa para medir la **capacidad discriminante** de una característica: relaciona la dispersión entre clases con la dispersión dentro de las clases. Una característica con alto cociente de Fisher es más útil para la clasificación."
+      },
+      {
+        "titulo": "3. La muestra de aprendizaje y los conjuntos de datos",
+        "contenido": "Para entrenar y evaluar un clasificador se necesitan conjuntos de imágenes etiquetadas. La práctica estándar es dividirlos en:\n\n**Conjunto de entrenamiento (training set)**\nImágenes ya tratadas y etiquetadas que se usan para entrenar el clasificador. *No* están en el conjunto de test. El clasificador aprende de estas imágenes los patrones asociados a cada clase.\n\n**Conjunto de test**\nImágenes que **no están en el conjunto de entrenamiento**. Se usan para evaluar el rendimiento del clasificador entrenado sobre datos que no ha visto antes. Es la medida real de generalización del clasificador.\n\n**Conjunto de validación**\nCuando es posible, se forma con imágenes de **ninguno de los otros dos conjuntos**. Se usa durante el proceso de desarrollo para ajustar parámetros del clasificador (hiperparámetros) sin contaminar el conjunto de test.\n\nLa separación estricta entre los tres conjuntos es fundamental para obtener una evaluación honesta del clasificador."
+      },
+      {
+        "titulo": "4. Algoritmos de clasificación de patrones",
+        "contenido": "La clasificación de patrones toma las características extraídas de la imagen y las usa para clasificar automáticamente los objetos. Se basa en medidas de **distancia o similaridad** entre vectores de características.\n\nTerminología clave:\n- **Patrón**: una instancia de un vector de características (no una subimagen, sino el vector numérico que representa un objeto).\n- **Clasificador**: un método para saber a qué clase pertenece un objeto dado su vector de características.\n- **Función discriminante**: función matemática usada para **determinar la clase a la que pertenecen los objetos** (no para conocer la semejanza entre patrones, que es la medida de similaridad).\n\n**4.1 Clasificadores a priori y a posteriori**\n- **A priori**: usa el conocimiento previo sobre la distribución de las clases antes de observar los datos.\n- **A posteriori**: actualiza las probabilidades en función de los datos observados.\n\n**4.2 Clasificadores supervisados y no supervisados**\n- **Supervisados**: el clasificador se entrena con un conjunto de entrenamiento etiquetado (se conocen las clases de las imágenes de entrenamiento). Aprende la correspondencia entre características y clases.\n- **No supervisados (clustering)**: no requieren etiquetas previas. El algoritmo agrupa los patrones según su similitud sin conocer las clases de antemano.\n\n**4.3 Clasificadores basados en la distancia**\nAsignan un objeto a la clase cuyo prototipo (centroide) está más cercano según alguna métrica de distancia. El **clasificador euclídeo** usa la distancia euclídea como métrica.\n\n**4.4 Clasificador estadístico a priori**\nUsa distribuciones de probabilidad a priori de las clases para tomar la decisión de clasificación. Puede usar la distribución normal (gaussiana) y sus parámetros (media, covarianza) para modelar cada clase."
+      }
+    ]
+  },
+  "resumen": [
+    "El Tema 11 cubre los pasos finales del análisis de imágenes: extracción de características y clasificación de patrones.",
+    "Tras segmentar y transformar la imagen, se extraen características de los objetos: geométricas, de histograma, espectrales, de textura y de color.",
+    "Las más útiles son las características discriminantes, cuya fiabilidad se mide por la dispersión; el cociente de Fisher mide su capacidad discriminante; la covarianza mide la independencia lineal entre dos características.",
+    "El patrón es una instancia del vector de características. El clasificador determina la clase de un objeto. Las funciones discriminantes determinan a qué clase pertenece un objeto.",
+    "Los conjuntos de datos se dividen en: entrenamiento (imágenes etiquetadas para aprender), test (imágenes no vistas para evaluar) y validación (imágenes de ninguno de los otros dos, para ajustar parámetros).",
+    "Los clasificadores pueden ser a priori/a posteriori, supervisados/no supervisados o basados en distancia (el euclídeo usa la distancia euclídea)."
+  ],
+  "conceptosClave": [
+    {
+      "termino": "Reconocimiento / clasificación de patrones",
+      "definicion": "Pasos finales del análisis de imágenes. Consiste en clasificar objetos en categorías usando las características extraídas. Se hace de forma automática para muchas aplicaciones."
+    },
+    {
+      "termino": "Patrón",
+      "definicion": "Una instancia de un vector de características. Representa numéricamente un objeto de la imagen para ser clasificado."
+    },
+    {
+      "termino": "Clasificador",
+      "definicion": "Un método para saber la clase a la que pertenece un objeto dado su vector de características."
+    },
+    {
+      "termino": "Función discriminante",
+      "definicion": "Función matemática usada para determinar la clase a la que pertenecen los objetos. No se usa para medir semejanza entre patrones (eso es la medida de similaridad)."
+    },
+    {
+      "termino": "Característica discriminante",
+      "definicion": "Característica que permite distinguir fiablemente entre clases distintas. Su fiabilidad se mide por la dispersión: alta dispersión entre clases y baja dentro de cada clase."
+    },
+    {
+      "termino": "Dispersión",
+      "definicion": "Medida usada para evaluar la fiabilidad de una característica discriminante. Indica cuánto se separan las clases según esa característica."
+    },
+    {
+      "termino": "Covarianza",
+      "definicion": "Mide la independencia lineal de dos variables. Alta covarianza = características redundantes; covarianza cercana a 0 = características complementarias."
+    },
+    {
+      "termino": "Cociente de Fisher",
+      "definicion": "Mide la capacidad discriminante de una característica. Relaciona la dispersión entre clases con la dispersión dentro de las clases. Mayor cociente = mejor característica."
+    },
+    {
+      "termino": "Conjunto de entrenamiento",
+      "definicion": "Imágenes ya tratadas y etiquetadas usadas para entrenar el clasificador. No están en el conjunto de test."
+    },
+    {
+      "termino": "Conjunto de test",
+      "definicion": "Imágenes que NO están en el conjunto de entrenamiento. Se usan para evaluar el rendimiento real del clasificador sobre datos no vistos."
+    },
+    {
+      "termino": "Conjunto de validación",
+      "definicion": "Cuando es posible, formado con imágenes de ninguno de los otros dos conjuntos. Usado para ajustar hiperparámetros sin contaminar el test."
+    },
+    {
+      "termino": "Clasificador euclídeo",
+      "definicion": "Clasificador basado en distancia que usa la distancia euclídea para comparar el vector de características del objeto con los prototipos de cada clase."
+    },
+    {
+      "termino": "Clasificadores supervisados vs. no supervisados",
+      "definicion": "Supervisados: aprenden de un conjunto de entrenamiento etiquetado. No supervisados (clustering): agrupan patrones por similitud sin etiquetas previas."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es un patrón en el contexto del reconocimiento de formas?",
+      "respuesta": "Una instancia de un vector de características. Es la representación numérica de un objeto de la imagen que se usará para clasificarlo."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué es un clasificador?",
+      "respuesta": "Un método para saber la clase a la que pertenece un objeto dado su vector de características."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Para qué se usan las funciones discriminantes?",
+      "respuesta": "Para determinar la clase a la que pertenecen los objetos. No para medir la semejanza entre patrones (eso es la medida de similaridad/distancia)."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuáles son los cinco tipos de características que se pueden extraer de un objeto de imagen?",
+      "respuesta": "Propiedades geométricas (binarias), características de histograma, características espectrales, características de textura y características de color."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cómo se mide la fiabilidad de una característica discriminante?",
+      "respuesta": "Por medio de la dispersión: cuánto separa esa característica a las distintas clases entre sí, en relación con la dispersión dentro de cada clase."
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Qué mide la covarianza?",
+      "respuesta": "La independencia lineal de dos variables. Permite saber si dos características son redundantes (alta covarianza) o aportan información complementaria (covarianza cercana a cero)."
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Para qué se usa el cociente de Fisher?",
+      "respuesta": "Para medir la capacidad discriminante de una característica: relaciona la dispersión entre clases con la dispersión dentro de las clases. Un cociente alto indica una mejor característica discriminante."
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Con qué imágenes se forma el conjunto de entrenamiento?",
+      "respuesta": "Con imágenes ya tratadas y etiquetadas (no del conjunto de test). Se usan para entrenar el clasificador, que aprende la correspondencia entre características y clases."
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Con qué imágenes se forma el conjunto de test?",
+      "respuesta": "Con imágenes que NO están en el conjunto de entrenamiento. Se usan para evaluar el rendimiento del clasificador sobre datos no vistos."
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Con qué imágenes se forma el conjunto de validación?",
+      "respuesta": "Con imágenes de ninguno de los otros dos conjuntos (ni entrenamiento ni test). Se usa para ajustar hiperparámetros sin contaminar la evaluación final."
+    },
+    {
+      "id": 11,
+      "pregunta": "¿Qué diferencia hay entre un clasificador supervisado y uno no supervisado?",
+      "respuesta": "Supervisado: se entrena con un conjunto de entrenamiento etiquetado (las clases son conocidas). No supervisado (clustering): agrupa patrones por similitud sin etiquetas previas, descubriendo la estructura de los datos."
+    },
+    {
+      "id": 12,
+      "pregunta": "¿Qué métrica usa el clasificador euclídeo?",
+      "respuesta": "La distancia euclídea. Asigna el objeto a la clase cuyo centroide (prototipo) está más cercano según esta distancia."
+    },
+    {
+      "id": 13,
+      "pregunta": "¿Cuál es el papel del análisis de características y la clasificación de patrones en el proceso de análisis de imágenes?",
+      "respuesta": "Son los pasos finales: transforman la imagen desde representaciones de nivel de píxel a representaciones de nivel superior (vectores de características), y luego clasifican los objetos automáticamente en categorías."
+    },
+    {
+      "id": 14,
+      "pregunta": "¿Qué diferencia hay entre clasificadores a priori y a posteriori?",
+      "respuesta": "A priori: usa el conocimiento previo sobre la distribución de clases antes de observar los datos. A posteriori: actualiza las probabilidades en función de los datos observados (ej. Bayes)."
+    },
+    {
+      "id": 15,
+      "pregunta": "¿Qué medidas se usan para comparar diferentes objetos y sus vectores de características?",
+      "respuesta": "Medidas de distancia o similaridad entre vectores de características. Ejemplo: la distancia euclídea en el clasificador euclídeo."
+    }
+  ]
+}

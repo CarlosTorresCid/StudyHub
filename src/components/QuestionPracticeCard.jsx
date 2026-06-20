@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './QuestionPracticeCard.css';
-import { testStatsService, TRACKED_SUBJECTS, STATS_UPDATED_EVENT } from '../services/testStatsService';
+import { testStatsService, STATS_UPDATED_EVENT } from '../services/testStatsService';
 
 const TIPO_LABELS = {
   test: 'Test',
@@ -30,6 +30,18 @@ function getModelLabels(q) {
   }
 
   return [];
+}
+
+function PracticeStatsBadge({ stats }) {
+  if (!stats) return null;
+  if (stats.attempts === 0) {
+    return <span className="qpc-practice-badge qpc-practice-badge--unseen">Sin practicar</span>;
+  }
+  return (
+    <span className={`qpc-practice-badge qpc-practice-badge--${stats.status}`}>
+      {stats.correct} aciert{stats.correct === 1 ? 'o' : 'os'} · {stats.wrong} fall{stats.wrong === 1 ? 'o' : 'os'}
+    </span>
+  );
 }
 
 function StatusBadges({ q }) {
@@ -215,12 +227,11 @@ function TestCard({ q, asignaturaId }) {
 
   const opciones = Array.isArray(q.opciones) && q.opciones.length > 0 ? q.opciones : null;
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
-  const trackStats = TRACKED_SUBJECTS.includes(asignaturaId);
 
   const handleCheck = () => {
     setChecked(true);
 
-    if (trackStats && hasAnswer && !recorded) {
+    if (asignaturaId && q.id && hasAnswer && !recorded) {
       testStatsService.recordQuestionResult(asignaturaId, q.id, selected === q.respuestaCorrecta);
       setRecorded(true);
       window.dispatchEvent(new Event(STATS_UPDATED_EVENT));
@@ -234,7 +245,7 @@ function TestCard({ q, asignaturaId }) {
   };
 
   const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
-  const questionStats = trackStats ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
+  const questionStats = asignaturaId && q.id ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
 
   function opcionClass(i) {
     if (!checked) return selected === i ? 'selected' : '';
@@ -301,11 +312,7 @@ function TestCard({ q, asignaturaId }) {
             </button>
           )}
 
-          {questionStats && questionStats.attempts > 0 && (
-            <span className="qpc-stats-mini">
-              Fallos: {questionStats.wrong}/{questionStats.attempts} · {questionStats.failRate}%
-            </span>
-          )}
+          <PracticeStatsBadge stats={questionStats} />
         </div>
       )}
 
@@ -327,9 +334,8 @@ function VFCard({ q, asignaturaId }) {
   const [recorded, setRecorded] = useState(false);
 
   const hasAnswer = q.respuestaCorrecta !== null && q.respuestaCorrecta !== undefined;
-  const trackStats = TRACKED_SUBJECTS.includes(asignaturaId);
   const isCorrect = hasAnswer && checked && selected === q.respuestaCorrecta;
-  const questionStats = trackStats ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
+  const questionStats = asignaturaId && q.id ? testStatsService.getQuestionStats(asignaturaId, q.id) : null;
 
   function btnClass(val) {
     if (!checked) return selected === val ? 'selected' : '';
@@ -348,7 +354,7 @@ function VFCard({ q, asignaturaId }) {
   const handleCheck = () => {
     setChecked(true);
 
-    if (trackStats && hasAnswer && !recorded) {
+    if (asignaturaId && q.id && hasAnswer && !recorded) {
       testStatsService.recordQuestionResult(asignaturaId, q.id, selected === q.respuestaCorrecta);
       setRecorded(true);
       window.dispatchEvent(new Event(STATS_UPDATED_EVENT));
@@ -402,11 +408,7 @@ function VFCard({ q, asignaturaId }) {
           </button>
         )}
 
-        {questionStats && questionStats.attempts > 0 && (
-          <span className="qpc-stats-mini">
-            Fallos: {questionStats.wrong}/{questionStats.attempts} · {questionStats.failRate}%
-          </span>
-        )}
+          <PracticeStatsBadge stats={questionStats} />
       </div>
 
       {checked && q.explicacion && (
@@ -480,24 +482,30 @@ export default function QuestionPracticeCard({
   onEditQuestion,
 }) {
   const hasProgress = questionNumber != null && totalQuestions != null;
+  const resolvedSubjectId = asignaturaId ?? q.asignaturaId;
+  const practiceStatus =
+    (resolvedSubjectId && q.id && (q.tipo === 'test' || q.tipo === 'verdadero_falso'))
+      ? testStatsService.getQuestionStatus(resolvedSubjectId, q.id)
+      : null;
 
-  function renderBody() {
-    switch (q.tipo) {
-      case 'test':
-        return <TestCard q={q} asignaturaId={asignaturaId ?? q.asignaturaId} />;
-      case 'verdadero_falso':
-        return <VFCard q={q} asignaturaId={asignaturaId ?? q.asignaturaId} />;
-      case 'corta':
-      case 'desarrollo':
-      case 'practica':
-        return <RevealCard q={q} />;
-      default:
-        return <p className="qpc-missing">Tipo de pregunta desconocido: {q.tipo}</p>;
-    }
+function renderBody() {
+  switch (q.tipo) {
+    case 'test':
+      return <TestCard q={q} asignaturaId={resolvedSubjectId} />;
+
+    case 'verdadero_falso':
+      return <VFCard q={q} asignaturaId={resolvedSubjectId} />;
+
+    case 'corta':
+    case 'desarrollo':
+    case 'practica':
+    default:
+      return <OpenQuestionCard q={q} />;
   }
+}
 
   return (
-    <div className="qpc">
+    <div className={`qpc${practiceStatus ? ` question-status--${practiceStatus.status}` : ''}`}>
       {hasProgress ? (
        <QuestionProgressHeader
         q={q}
