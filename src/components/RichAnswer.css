@@ -1,0 +1,193 @@
+/* ── RichAnswer — contenido enriquecido (markdown + mermaid) ─── */
+
+.rich-answer {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Párrafos */
+.rich-answer p {
+  margin: 0 0 10px;
+}
+
+.rich-answer > *:last-child,
+.rich-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Títulos de sección */
+.rich-answer h1,
+.rich-answer h2,
+.rich-answer h3,
+.rich-answer h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin: 14px 0 5px;
+}
+
+.rich-answer > *:first-child,
+.rich-answer > h2:first-child,
+.rich-answer > h3:first-child {
+  margin-top: 0;
+}
+
+/* Listas */
+.rich-answer ul,
+.rich-answer ol {
+  margin: 0 0 10px 0;
+  padding-left: 18px;
+}
+
+.rich-answer li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+.rich-answer li:last-child {
+  margin-bottom: 0;
+}
+
+.rich-answer li > p {
+  margin: 0;
+}
+
+/* Negritas y cursivas */
+.rich-answer strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.rich-answer em {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Código inline */
+.rich-answer code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text);
+}
+
+/* Bloques de código */
+.rich-answer__pre {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.rich-answer__pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+}
+
+/* Tablas */
+.rich-answer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 12px;
+  font-size: 13px;
+  display: block;
+  overflow-x: auto;
+}
+
+.rich-answer th {
+  background: var(--surface3);
+  font-weight: 700;
+  text-align: left;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.rich-answer td {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.rich-answer tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.018);
+}
+
+/* Blockquote — frase de examen / resumen clave */
+.rich-answer blockquote {
+  margin: 10px 0 4px;
+  padding: 8px 12px 8px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.rich-answer blockquote p {
+  margin: 0;
+}
+
+/* Separador */
+.rich-answer hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+/* Diagramas Mermaid */
+.rich-answer__mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 10px 0 12px;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.rich-answer__mermaid svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.rich-answer__mermaid-fallback {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .rich-answer {
+    font-size: 13.5px;
+  }
+
+  .rich-answer th,
+  .rich-answer td {
+    padding: 5px 7px;
+  }
+
+  .rich-answer__mermaid svg {
+    font-size: 11px;
+  }
+}

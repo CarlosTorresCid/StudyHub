@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './QuestionPracticeCard.css';
 import { testStatsService, STATS_UPDATED_EVENT } from '../services/testStatsService';
+import RichAnswer from './RichAnswer';
 
 const TIPO_LABELS = {
   test: 'Test',
@@ -447,7 +448,7 @@ function RevealCard({ q }) {
           <span className="qpc-respuesta-label">{respuestaLabel}</span>
 
           {respuesta && respuesta.trim() ? (
-            <p className="qpc-respuesta-texto">{respuesta}</p>
+            <RichAnswer content={respuesta} />
           ) : (
             <p className="qpc-missing">
               {q.tipo === 'practica'
