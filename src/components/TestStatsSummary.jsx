@@ -2,16 +2,23 @@ import { useEffect, useMemo, useState } from 'react';
 import { testStatsService, STATS_UPDATED_EVENT } from '../services/testStatsService';
 import './TestStatsSummary.css';
 
-function attemptsLabel(attempts) {
-  if (attempts === 1) return '1 intento';
-  return `${attempts} intentos`;
+function getCellStatus(attempts, accuracy) {
+  if (attempts === 0 || accuracy === null) return 'unseen';
+  if (accuracy >= 90) return 'excellent';
+  if (accuracy >= 75) return 'good';
+  if (accuracy >= 60) return 'ok';
+  if (accuracy >= 40) return 'medium';
+  if (accuracy >= 20) return 'bad';
+  return 'critical';
 }
 
-function getCellStatus(attempts, accuracy) {
-  if (attempts === 0) return 'sin-practicar';
-  if (accuracy === 100) return 'dominada';
-  if (accuracy === 0) return 'fallada';
-  return 'mixta';
+function getTrendInfo(attempts, correct, wrong, lastResult) {
+  if (attempts === 0) return { icon: '—', label: 'Sin practicar' };
+  if (correct > 0 && wrong === 0) return { icon: '✓', label: 'Dominada' };
+  if (correct === 0 && wrong > 0) return { icon: '!', label: 'Crítica' };
+  if (lastResult === 'correct') return { icon: '↑', label: 'Mejorando' };
+  if (lastResult === 'wrong') return { icon: '↓', label: 'Empeorando' };
+  return { icon: '~', label: 'Inestable' };
 }
 
 export default function TestStatsSummary({ subjectId, questions = [] }) {
@@ -36,14 +43,19 @@ export default function TestStatsSummary({ subjectId, questions = [] }) {
       const s = stats[q.id];
       const attempts = s?.attempts || 0;
       const correct = s?.correct || 0;
+      const wrong = s?.wrong || 0;
       const accuracy = attempts > 0 ? Math.round((correct / attempts) * 100) : null;
+      const lastResult = s?.lastResult ?? null;
+      const trend = getTrendInfo(attempts, correct, wrong, lastResult);
 
       return {
         id: q.id,
         number: index + 1,
-        enunciado: q.enunciado,
         attempts,
+        correct,
+        wrong,
         accuracy,
+        trend,
         status: getCellStatus(attempts, accuracy),
       };
     });
@@ -107,19 +119,52 @@ export default function TestStatsSummary({ subjectId, questions = [] }) {
             <div className="test-stats-detail">
               <span className="test-stats-detail-title">Detalle por pregunta</span>
               <div className="test-stats-detail-grid">
-                {details.map(item => (
-                  <div
-                    key={item.id}
-                    className={`test-stats-detail-cell test-stats-detail-cell--${item.status}`}
-                    title={item.enunciado}
-                  >
-                    <span className="test-stats-detail-num">P{item.number}</span>
-                    <span className="test-stats-detail-attempts">{attemptsLabel(item.attempts)}</span>
-                    <span className="test-stats-detail-accuracy">
-                      {item.accuracy !== null ? `${item.accuracy}% acierto` : '—'}
-                    </span>
-                  </div>
-                ))}
+                {details.map(item => {
+                  const tooltip = item.attempts === 0
+                    ? `P${item.number} · Sin practicar`
+                    : [
+                        `P${item.number}`,
+                        `${item.correct} acierto${item.correct !== 1 ? 's' : ''}`,
+                        `${item.wrong} fallo${item.wrong !== 1 ? 's' : ''}`,
+                        `${item.attempts} intento${item.attempts !== 1 ? 's' : ''}`,
+                        `tendencia: ${item.trend.label.toLowerCase()}`,
+                      ].join(' · ');
+
+                  const handleScrollTo = () => {
+                    const el = document.getElementById(`q-${item.id}`);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  };
+
+                  return (
+                    <div
+                      key={item.id}
+                      className={`test-stat-cell test-stat-cell--${item.status}`}
+                      title={tooltip}
+                      role="button"
+                      tabIndex={0}
+                      onClick={handleScrollTo}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleScrollTo();
+                        }
+                      }}
+                    >
+                      <span className="test-stat-cell-num">
+                        P{item.number}
+                        {item.attempts > 0 && (
+                          <span className="test-stat-cell-trend" aria-hidden="true"> {item.trend.icon}</span>
+                        )}
+                      </span>
+                      <span className="test-stat-cell-pct">
+                        {item.accuracy !== null ? `${item.accuracy}%` : '—'}
+                      </span>
+                      {item.attempts > 0 && (
+                        <span className="test-stat-cell-tries">{item.attempts}i</span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

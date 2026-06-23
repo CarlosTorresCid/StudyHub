@@ -505,7 +505,7 @@ default:
 }
 
   return (
-    <div className={`qpc${practiceStatus ? ` question-status--${practiceStatus.status}` : ''}`}>
+    <div id={`q-${q.id}`} className={`qpc${practiceStatus ? ` question-status--${practiceStatus.status}` : ''}`}>
       {hasProgress ? (
        <QuestionProgressHeader
         q={q}
