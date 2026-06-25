@@ -9,34 +9,9 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
-    "enunciado": "Si tienes una heurística buena, quieres encontrar una solución a un problema de búsqueda con rapidez y no es importante que la solución sea óptima, ¿qué algoritmo usarías? Debes razonar tu respuesta.",
-    "respuestaModelo": "Se utilizaría la búsqueda avariciosa (greedy best-first search). Este algoritmo selecciona siempre el nodo con menor valor heurístico h(n), sin tener en cuenta el coste acumulado g(n). Es muy rápido cuando la heurística es buena, pero no garantiza solución óptima.",
-    "criteriosCorreccion": [
-      "Identifica el algoritmo correcto: búsqueda avariciosa o greedy.",
-      "Justifica que solo usa h(n), no g(n).",
-      "Menciona que no garantiza optimalidad pero sí rapidez con buena heurística."
-    ],
-    "fuentes": [
-      "2021_ORD_MOD_D.txt"
-    ],
-    "observaciones": "Pregunta sobre selección de algoritmo de búsqueda informada según criterios de optimalidad/velocidad.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Búsqueda avariciosa",
-    "prioridadExamen": "media"
-  },
-  {
-    "id": "iaic-tema-2-corta-002",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
     "enunciado": "¿Qué diferencia hay entre la búsqueda no informada y la búsqueda informada? ¿Qué función determina la idoneidad de un estado en búsqueda informada? Describe de qué elementos depende esta función.",
     "respuestaModelo": "La búsqueda no informada (ciega) no dispone de información adicional sobre el problema más allá de su definición; explora estados sin conocer su proximidad a la meta. La búsqueda informada usa una función heurística h(n) que estima el coste desde el estado actual hasta la meta. En A*, la función de evaluación es f(n) = g(n) + h(n), donde g(n) es el coste real acumulado desde el inicio y h(n) la estimación heurística al objetivo.",
+    "solucionOrientativa": "La búsqueda no informada (ciega) no dispone de información adicional sobre el problema más allá de su definición; explora estados sin conocer su proximidad a la meta. La búsqueda informada usa una función heurística h(n) que estima el coste desde el estado actual hasta la meta. En A*, la función de evaluación es f(n) = g(n) + h(n), donde g(n) es el coste real acumulado desde el inicio y h(n) la estimación heurística al objetivo.",
     "criteriosCorreccion": [
       "Distingue correctamente búsqueda ciega vs. informada.",
       "Identifica f(n) = g(n) + h(n) como función de evaluación.",
@@ -53,7 +28,7 @@
     "prioridadExamen": "media"
   },
   {
-    "id": "iaic-tema-2-corta-003",
+    "id": "iaic-tema-2-corta-002",
     "asignaturaId": "iaic",
     "temaPrincipalId": "tema-2",
     "temaIds": [
@@ -64,6 +39,7 @@
     "origen": "examen_real",
     "enunciado": "Describe el algoritmo A* contestando a: ¿A qué familia de algoritmos pertenece? ¿Qué diferencia fundamental existe con búsqueda en anchura o profundidad? ¿Qué considera A* para evaluar un nodo? ¿Cuándo es óptimo? ¿Qué condición debe darse en todos los estados para que sea óptimo?",
     "respuestaModelo": "A* pertenece a la familia de búsquedas informadas o heurísticas. A diferencia de búsqueda en anchura/profundidad, A* usa información del dominio mediante una heurística. Evalúa cada nodo con f(n)=g(n)+h(n). Es óptimo cuando la heurística es admisible (nunca sobreestima el coste real). Si además es consistente, la solución encontrada es siempre óptima.",
+    "solucionOrientativa": "A* pertenece a la familia de búsquedas informadas o heurísticas. A diferencia de búsqueda en anchura/profundidad, A* usa información del dominio mediante una heurística. Evalúa cada nodo con f(n)=g(n)+h(n). Es óptimo cuando la heurística es admisible (nunca sobreestima el coste real). Si además es consistente, la solución encontrada es siempre óptima.",
     "criteriosCorreccion": [
       "Ubica A* en búsqueda informada/heurística.",
       "Explica diferencia respecto a búsquedas ciegas.",
@@ -81,98 +57,6 @@
     "prioridadExamen": "media"
   },
   {
-    "id": "iaic-tema-2-corta-004",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "La figura muestra un árbol de búsqueda parcial de un problema dado. Justifica si la heurística que se visualiza en la figura es admisible o no. ¿Hay garantía de que la solución sea óptima si se aplica A* para encontrar el camino desde un estado inicial hasta la meta? ¿Y si se aplica búsqueda avariciosa?",
-    "respuestaModelo": "Comprobar nodo a nodo si h(n) ≤ coste real mínimo hasta la meta (admisibilidad). Si algún nodo sobreestima, la heurística NO es admisible y A* no garantiza optimalidad. La búsqueda avariciosa NUNCA garantiza optimalidad independientemente de la heurística.",
-    "criteriosCorreccion": [
-      "Verifica admisibilidad comparando h(n) con coste real para cada nodo.",
-      "Concluye correctamente sobre admisibilidad.",
-      "Indica que A* es óptimo solo si la heurística es admisible.",
-      "Indica que búsqueda avariciosa nunca garantiza optimalidad."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_B.txt",
-      "2023_ORD_MOD_C.txt",
-      "2023_EXT_MOD_A.txt",
-      "2024_ORD_MOD_A.txt",
-      "2024_ORD_MOD_B.txt",
-      "2024_ORD_MOD_C.txt",
-      "2025_ORD_MOD_A.txt",
-      "2025_ORD_B.txt",
-      "2025_ORD_C.txt"
-    ],
-    "observaciones": "Pregunta MUY recurrente: aparece en 9 modelos diferentes (2023–2025). Pregunta práctica con árbol. Patrón dominante. Clasificada como práctica porque requiere análisis nodo a nodo sobre un gráfico dado.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Heurística admisible / consistente",
-    "prioridadExamen": "muy_alta"
-  },
-  {
-    "id": "iaic-tema-2-corta-005",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "Define cuándo una heurística es admisible y cuándo es consistente. La figura muestra un árbol de búsqueda parcial. Justifica si la heurística es admisible o no, y si es consistente o no. ¿Hay garantía de optimalidad con A*? ¿Y con búsqueda avariciosa? Razona.",
-    "respuestaModelo": "Admisible: h(n) ≤ h*(n) para todo nodo (nunca sobreestima). Consistente: h(n) ≤ c(n,n') + h(n') para todo arco (condición más fuerte). Consistente implica admisible. A* con heurística admisible garantiza solución óptima. Búsqueda avariciosa nunca garantiza optimalidad.",
-    "criteriosCorreccion": [
-      "Define admisibilidad correctamente.",
-      "Define consistencia correctamente.",
-      "Aplica ambas definiciones al árbol dado.",
-      "Relaciona admisibilidad con optimalidad de A*.",
-      "Indica que avariciosa no garantiza optimalidad."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_B.txt",
-      "2023_EXT_MOD_A.txt",
-      "2024_ORD_MOD_B.txt",
-      "2025_ORD_B.txt"
-    ],
-    "observaciones": "Variante extendida de la pregunta de heurística admisible que también pide consistencia.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Heurística admisible / consistente",
-    "prioridadExamen": "muy_alta"
-  },
-  {
-    "id": "iaic-tema-2-corta-006",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-2",
-    "temaIds": [
-      "tema-2"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Se utilizan heurísticas al resolver problemas de satisfacción de restricciones? ¿Por qué?",
-    "respuestaModelo": "Sí. En CSP se usan heurísticas como MRV (Minimum Remaining Values), que selecciona la variable con menos valores posibles, y LCV (Least Constraining Value), que elige el valor que menos restringe a las variables vecinas. Estas heurísticas no garantizan optimalidad pero reducen significativamente el espacio de búsqueda.",
-    "criteriosCorreccion": [
-      "Confirma que sí se usan heurísticas en CSP.",
-      "Menciona algún ejemplo concreto (MRV, LCV, etc.).",
-      "Justifica su utilidad para reducir el espacio de búsqueda."
-    ],
-    "fuentes": [
-      "2025_ORD_C.txt"
-    ],
-    "observaciones": "Pregunta sobre CSP y heurísticas. Tema 3.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Satisfacción de restricciones — CSP",
-    "prioridadExamen": "media"
-  },
-  {
     "id": "iaic-tema-3-corta-001",
     "asignaturaId": "iaic",
     "temaPrincipalId": "tema-3",
@@ -182,20 +66,21 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
-    "enunciado": "¿Qué es la forma normal conjuntiva? ¿En qué tipo de problemas se puede utilizar? ¿En qué consisten estos problemas?",
-    "respuestaModelo": "La forma normal conjuntiva (FNC) es una representación de fórmulas lógicas como conjunción (AND) de cláusulas, donde cada cláusula es una disyunción (OR) de literales. Se usa en problemas SAT (satisfacibilidad) y en CSP. Un problema SAT consiste en determinar si existe una asignación de valores de verdad que satisfaga todas las cláusulas de una fórmula en FNC.",
+    "enunciado": "¿Se utilizan heurísticas al resolver problemas de satisfacción de restricciones? ¿Por qué?",
+    "respuestaModelo": "Sí. En CSP se usan heurísticas como MRV (Minimum Remaining Values), que selecciona la variable con menos valores posibles, y LCV (Least Constraining Value), que elige el valor que menos restringe a las variables vecinas. Estas heurísticas no garantizan optimalidad pero reducen significativamente el espacio de búsqueda.",
+    "solucionOrientativa": "Sí. En CSP se usan heurísticas como MRV (Minimum Remaining Values), que selecciona la variable con menos valores posibles, y LCV (Least Constraining Value), que elige el valor que menos restringe a las variables vecinas. Estas heurísticas no garantizan optimalidad pero reducen significativamente el espacio de búsqueda.",
     "criteriosCorreccion": [
-      "Define FNC como conjunción de disyunciones de literales.",
-      "Menciona problemas SAT o CSP.",
-      "Explica en qué consiste el problema (encontrar asignación satisfactoria)."
+      "Confirma que sí se usan heurísticas en CSP.",
+      "Menciona algún ejemplo concreto (MRV, LCV, etc.).",
+      "Justifica su utilidad para reducir el espacio de búsqueda."
     ],
     "fuentes": [
-      "2023_ORD_MOD_A.txt"
+      "2025_ORD_C.txt"
     ],
-    "observaciones": "Aparece en 2023 ORD A.",
+    "observaciones": "Pregunta sobre CSP y heurísticas.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Forma Normal Conjuntiva — FNC",
+    "grupoTematico": "Satisfacción de restricciones",
     "prioridadExamen": "media"
   },
   {
@@ -208,8 +93,36 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
+    "enunciado": "¿Qué es la forma normal conjuntiva? ¿En qué tipo de problemas se puede utilizar? ¿En qué consisten estos problemas?",
+    "respuestaModelo": "La forma normal conjuntiva (FNC) es una representación de fórmulas lógicas como conjunción (AND) de cláusulas, donde cada cláusula es una disyunción (OR) de literales. Se usa en problemas SAT (satisfacibilidad) y en CSP. Un problema SAT consiste en determinar si existe una asignación de valores de verdad que satisfaga todas las cláusulas de una fórmula en FNC.",
+    "solucionOrientativa": "La forma normal conjuntiva (FNC) es una representación de fórmulas lógicas como conjunción (AND) de cláusulas, donde cada cláusula es una disyunción (OR) de literales. Se usa en problemas SAT (satisfacibilidad) y en CSP. Un problema SAT consiste en determinar si existe una asignación de valores de verdad que satisfaga todas las cláusulas de una fórmula en FNC.",
+    "criteriosCorreccion": [
+      "Define FNC como conjunción de disyunciones de literales.",
+      "Menciona problemas SAT o CSP.",
+      "Explica en qué consiste el problema (encontrar asignación satisfactoria)."
+    ],
+    "fuentes": [
+      "2023_ORD_MOD_A.txt"
+    ],
+    "observaciones": "Aparece en 2023 ORD A.",
+    "requiereRevision": false,
+    "verificada": false,
+    "grupoTematico": "Forma Normal Conjuntiva",
+    "prioridadExamen": "media"
+  },
+  {
+    "id": "iaic-tema-3-corta-003",
+    "asignaturaId": "iaic",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-cortas",
+    "tipo": "corta",
+    "origen": "examen_real",
     "enunciado": "¿Está la siguiente fórmula lógica expresada en forma normal conjuntiva? ¿Qué ventaja tiene expresar las fórmulas en forma normal conjuntiva? Razona tus respuestas.\n\nFórmula: p AND (s OR t) AND (p OR q OR t) AND (s OR p)",
     "respuestaModelo": "Sí está en FNC: es una conjunción de cláusulas donde cada cláusula es disyunción de literales. Ventaja: estandarizar la representación facilita aplicar algoritmos de resolución automática (resolución, DPLL) de forma sistemática.",
+    "solucionOrientativa": "Sí está en FNC: es una conjunción de cláusulas donde cada cláusula es disyunción de literales. Ventaja: estandarizar la representación facilita aplicar algoritmos de resolución automática (resolución, DPLL) de forma sistemática.",
     "criteriosCorreccion": [
       "Confirma correctamente que está en FNC.",
       "Justifica por qué (conjunción de disyunciones de literales).",
@@ -220,10 +133,10 @@
       "2025_ORD_B.txt",
       "2025_EXT_MOD_B.txt"
     ],
-    "observaciones": "La fórmula varía ligeramente entre modelos (p OR q OR t vs p OR q AND t). Aparece en tres modelos.",
+    "observaciones": "La fórmula varía ligeramente entre modelos. Aparece en tres modelos.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Forma Normal Conjuntiva — FNC",
+    "grupoTematico": "Forma Normal Conjuntiva",
     "prioridadExamen": "media"
   },
   {
@@ -236,24 +149,24 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
-    "enunciado": "¿Qué quiere decir que la planificación automática es independiente del dominio? ¿Qué ventaja tiene esta independencia del dominio?",
-    "respuestaModelo": "Independencia del dominio significa que el planificador es un motor genérico que puede resolver problemas de cualquier dominio sin ser reprogramado. El dominio y el problema se describen mediante un lenguaje formal (PDDL) en ficheros separados. La ventaja es la reutilización: un mismo planificador sirve para logística, medicina, robótica, etc., simplemente cambiando los ficheros de dominio y problema.",
+    "enunciado": "¿Cuál es el objetivo de un planificador? ¿Por qué se dice que la planificación automática es independiente del dominio y qué ventaja tiene esta independencia? ¿Qué lenguaje puede utilizarse para modelar un problema de planificación y qué ficheros se necesitan para el modelado?",
+    "respuestaModelo": "El objetivo de un planificador es encontrar una secuencia de acciones que lleve desde un estado inicial a un estado objetivo. Es independiente del dominio porque el motor de planificación es genérico y los problemas se expresan en PDDL mediante dos ficheros: el fichero de dominio (define predicados y acciones) y el fichero de problema (define objetos, estado inicial y meta). La ventaja es la reutilización del planificador para cualquier dominio.",
+    "solucionOrientativa": "El objetivo de un planificador es encontrar una secuencia de acciones que lleve desde un estado inicial a un estado objetivo. Es independiente del dominio porque el motor de planificación es genérico y los problemas se expresan en PDDL mediante dos ficheros: el fichero de dominio (define predicados y acciones) y el fichero de problema (define objetos, estado inicial y meta). La ventaja es la reutilización del planificador para cualquier dominio.",
     "criteriosCorreccion": [
-      "Explica que el planificador no depende del dominio concreto.",
-      "Menciona PDDL o ficheros de dominio/problema separados.",
-      "Indica la ventaja de reutilización/generalidad."
+      "Define el objetivo del planificador (secuencia de acciones).",
+      "Explica la independencia del dominio.",
+      "Menciona PDDL.",
+      "Nombra los dos ficheros: dominio y problema."
     ],
     "fuentes": [
-      "2021_ORD_MOD_B.txt",
-      "2022_EXT_MOD_B.txt",
       "2023_ORD_MOD_D.txt",
       "2024_ORD_MOD_B.txt",
       "2025_ORD_B.txt"
     ],
-    "observaciones": "Pregunta muy recurrente (5 modelos). Patrón fijo con posible añadido sobre PDDL y ficheros.",
+    "observaciones": "Versión extendida que añade el objetivo del planificador y los ficheros PDDL.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Planificación automática / independencia de dominio",
+    "grupoTematico": "Planificación automática",
     "prioridadExamen": "alta"
   },
   {
@@ -266,77 +179,25 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
-    "enunciado": "¿Cuál es el objetivo de un planificador? ¿Por qué se dice que la planificación automática es independiente del dominio y qué ventaja tiene esta independencia? ¿Qué lenguaje puede utilizarse para modelar un problema de planificación y qué ficheros se necesitan para el modelado?",
-    "respuestaModelo": "El objetivo de un planificador es encontrar una secuencia de acciones que lleve desde un estado inicial a un estado objetivo. Es independiente del dominio porque el motor de planificación es genérico y los problemas se expresan en PDDL mediante dos ficheros: el fichero de dominio (define predicados y acciones) y el fichero de problema (define objetos, estado inicial y meta). La ventaja es la reutilización del planificador para cualquier dominio.",
+    "enunciado": "¿Qué quiere decir que la planificación automática es independiente del dominio? ¿Qué ventaja tiene esta independencia del dominio?",
+    "respuestaModelo": "Independencia del dominio significa que el planificador es un motor genérico que puede resolver problemas de cualquier dominio sin ser reprogramado. El dominio y el problema se describen mediante un lenguaje formal (PDDL) en ficheros separados. La ventaja es la reutilización: un mismo planificador sirve para logística, medicina, robótica, etc., simplemente cambiando los ficheros de dominio y problema.",
+    "solucionOrientativa": "Independencia del dominio significa que el planificador es un motor genérico que puede resolver problemas de cualquier dominio sin ser reprogramado. El dominio y el problema se describen mediante un lenguaje formal (PDDL) en ficheros separados. La ventaja es la reutilización: un mismo planificador sirve para logística, medicina, robótica, etc., simplemente cambiando los ficheros de dominio y problema.",
     "criteriosCorreccion": [
-      "Define el objetivo del planificador (secuencia de acciones).",
-      "Explica la independencia del dominio.",
-      "Menciona PDDL.",
-      "Nombra los dos ficheros: dominio y problema."
+      "Explica que el planificador no depende del dominio concreto.",
+      "Menciona PDDL o ficheros de dominio/problema separados.",
+      "Indica la ventaja de reutilización/generalidad."
     ],
     "fuentes": [
+      "2021_ORD_MOD_B.txt",
+      "2022_EXT_MOD_B.txt",
       "2023_ORD_MOD_D.txt",
       "2024_ORD_MOD_B.txt",
       "2025_ORD_B.txt"
     ],
-    "observaciones": "Versión extendida de iaic-tema-4-corta-001 que añade el objetivo del planificador y los ficheros PDDL.",
+    "observaciones": "Pregunta muy recurrente (5 modelos). Patrón fijo.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Planificación automática / independencia de dominio",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-4-corta-003",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "Si tenemos un problema definido como se indica a continuación:\n\nEstado inicial: ¬Tener(tarta) AND Comida(tarta)\nMeta: Tener(tarta) AND Comida(tarta)\nAcciones:\nComer(tarta): Precondiciones: Tener(tarta) | Efectos: ¬Tener(tarta) AND Comida(tarta)\nHornear(tarta): Precondiciones: ¬Tener(tarta) | Efectos: Tener(tarta)\n\n¿Qué acciones se pueden aplicar a partir del estado inicial? ¿Qué proposiciones definirían el estado resultante? Razona tu respuesta.",
-    "respuestaModelo": "Desde el estado inicial {¬Tener(tarta), Comida(tarta)}: Comer(tarta) requiere Tener(tarta) → NO aplicable. Hornear(tarta) requiere ¬Tener(tarta) → SÍ aplicable. Estado resultante tras Hornear: {Tener(tarta), Comida(tarta)}. La meta ya está alcanzada.",
-    "criteriosCorreccion": [
-      "Verifica precondiciones de cada acción respecto al estado inicial.",
-      "Identifica que solo Hornear es aplicable.",
-      "Calcula el estado resultante correctamente.",
-      "Detecta que se alcanza la meta."
-    ],
-    "fuentes": [
-      "2021_ORD_MOD_D.txt"
-    ],
-    "observaciones": "Problema de razonamiento sobre planificación STRIPS. Versión tarta.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "STRIPS / acciones aplicables",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-4-corta-004",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-4",
-    "temaIds": [
-      "tema-4"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "Si tenemos un problema definido como se indica a continuación:\n\nEstado inicial: ¬Tener(recambio) AND ¬Puesto(recambio)\nMeta: Puesto(recambio)\nAcciones:\nPoner(recambio): Precondiciones: Tener(recambio) AND ¬Puesto(recambio) | Efectos: ¬Tener(recambio) AND Puesto(recambio)\nComprar(recambio): Precondiciones: ¬Tener(recambio) | Efectos: Tener(recambio)\n\n¿Qué acciones se pueden aplicar a partir del estado inicial? ¿Qué proposiciones definirían el estado resultante?",
-    "respuestaModelo": "Desde {¬Tener(recambio), ¬Puesto(recambio)}: Poner requiere Tener(recambio) → NO aplicable. Comprar requiere ¬Tener(recambio) → SÍ aplicable. Estado resultante tras Comprar: {Tener(recambio), ¬Puesto(recambio)}.",
-    "criteriosCorreccion": [
-      "Solo Comprar es aplicable desde el estado inicial.",
-      "Estado resultante correcto: Tener(recambio).",
-      "Justifica por qué Poner no es aplicable."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_A.txt",
-      "2025_EXT_MOD_B.txt"
-    ],
-    "observaciones": "Misma estructura que tarta pero con recambio. Aparece en 2023 ORD A y 2025 EXT B.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "STRIPS / acciones aplicables",
+    "grupoTematico": "Planificación automática",
     "prioridadExamen": "alta"
   },
   {
@@ -351,6 +212,7 @@
     "origen": "examen_real",
     "enunciado": "En la poda alfa-beta, ¿cuál es el valor que nunca se incrementa?, ¿y cuál es el valor que nunca decrece?, ¿por qué? Razona tu respuesta.",
     "respuestaModelo": "Beta nunca se incrementa: representa el mejor valor que MIN puede garantizar; MIN solo actualiza beta cuando encuentra un valor menor. Alfa nunca decrece: representa el mejor valor que MAX puede garantizar; MAX solo actualiza alfa cuando encuentra un valor mayor. La poda ocurre cuando alfa ≥ beta.",
+    "solucionOrientativa": "Beta nunca se incrementa: representa el mejor valor que MIN puede garantizar; MIN solo actualiza beta cuando encuentra un valor menor. Alfa nunca decrece: representa el mejor valor que MAX puede garantizar; MAX solo actualiza alfa cuando encuentra un valor mayor. La poda ocurre cuando alfa ≥ beta.",
     "criteriosCorreccion": [
       "Identifica que beta nunca se incrementa (asociado a MIN).",
       "Identifica que alfa nunca decrece (asociado a MAX).",
@@ -366,7 +228,7 @@
     "observaciones": "Pregunta conceptual muy recurrente sobre poda alfa-beta. 4 apariciones.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Poda alfa-beta teórica",
+    "grupoTematico": "Poda alfa-beta",
     "prioridadExamen": "alta"
   },
   {
@@ -381,6 +243,7 @@
     "origen": "examen_real",
     "enunciado": "¿Qué características tienen los juegos en que se aplica Minimax? ¿Qué asume Minimax?",
     "respuestaModelo": "Minimax se aplica en juegos de suma cero, deterministas, de información perfecta y por turnos entre dos jugadores (MAX y MIN). Asume que ambos jugadores juegan de forma óptima: MAX intenta maximizar su recompensa y MIN intenta minimizarla.",
+    "solucionOrientativa": "Minimax se aplica en juegos de suma cero, deterministas, de información perfecta y por turnos entre dos jugadores (MAX y MIN). Asume que ambos jugadores juegan de forma óptima: MAX intenta maximizar su recompensa y MIN intenta minimizarla.",
     "criteriosCorreccion": [
       "Nombra las características: suma cero, determinista, información perfecta, dos jugadores.",
       "Indica que ambos jugadores juegan de forma óptima.",
@@ -392,7 +255,7 @@
     "observaciones": "Aparece en 2024 ORD B como pregunta corta.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Características de juegos para Minimax",
+    "grupoTematico": "Minimax",
     "prioridadExamen": "alta"
   },
   {
@@ -407,6 +270,7 @@
     "origen": "examen_real",
     "enunciado": "En un problema de clasificación ¿a qué se refiere la tasa de verdaderos positivos? ¿Y a qué se refiere la precisión? Si utilizas un algoritmo para generar un modelo que predice si un paciente es positivo o no en una enfermedad grave, ¿cuál de las dos métricas intentarías optimizar? Justifica tu respuesta.",
     "respuestaModelo": "TVP (Recall) = TP/(TP+FN): proporción de positivos reales correctamente detectados. Precisión = TP/(TP+FP): proporción de predicciones positivas que son realmente positivas. Para una enfermedad grave se optimizaría TVP, ya que es crítico no perder casos positivos reales (falsos negativos son más peligrosos que falsos positivos).",
+    "solucionOrientativa": "TVP (Recall) = TP/(TP+FN): proporción de positivos reales correctamente detectados. Precisión = TP/(TP+FP): proporción de predicciones positivas que son realmente positivas. Para una enfermedad grave se optimizaría TVP, ya que es crítico no perder casos positivos reales (falsos negativos son más peligrosos que falsos positivos).",
     "criteriosCorreccion": [
       "Define TVP correctamente.",
       "Define precisión correctamente.",
@@ -433,6 +297,7 @@
     "origen": "examen_real",
     "enunciado": "Relacionado con la evaluación de modelos de aprendizaje supervisado, describe qué es la tasa de verdaderos positivos, la tasa de falsos positivos y la precisión. Haz la descripción utilizando únicamente palabras, sin símbolos o fórmulas.",
     "respuestaModelo": "TVP: de todas las instancias que realmente son positivas, la proporción que el modelo clasifica correctamente como positivas. TFP: de todas las instancias que realmente son negativas, la proporción que el modelo clasifica incorrectamente como positivas. Precisión: de todas las instancias que el modelo clasifica como positivas, la proporción que realmente son positivas.",
+    "solucionOrientativa": "TVP: de todas las instancias que realmente son positivas, la proporción que el modelo clasifica correctamente como positivas. TFP: de todas las instancias que realmente son negativas, la proporción que el modelo clasifica incorrectamente como positivas. Precisión: de todas las instancias que el modelo clasifica como positivas, la proporción que realmente son positivas.",
     "criteriosCorreccion": [
       "Define TVP en términos de positivos reales bien clasificados.",
       "Define TFP en términos de negativos reales mal clasificados.",
@@ -459,6 +324,7 @@
     "origen": "examen_real",
     "enunciado": "Describe el algoritmo ID3 contestando a las siguientes cuestiones: ¿A qué área de la IA pertenece? ¿A qué categoría de algoritmos pertenece y por qué? ¿Qué tipos de salidas admite? ¿Qué tipo de problemas puede resolver? ¿Cómo se llaman los modelos generados? ¿En qué métrica se basa para generar el modelo?",
     "respuestaModelo": "ID3 pertenece al Aprendizaje Automático (Machine Learning), categoría de aprendizaje supervisado porque aprende a partir de datos etiquetados. Admite salidas discretas (clasificación). Resuelve problemas de clasificación: dado un conjunto de atributos, predice la clase. Los modelos generados son árboles de decisión. Se basa en la ganancia de información (entropía) para seleccionar el atributo más discriminante en cada nodo.",
+    "solucionOrientativa": "ID3 pertenece al Aprendizaje Automático (Machine Learning), categoría de aprendizaje supervisado porque aprende a partir de datos etiquetados. Admite salidas discretas (clasificación). Resuelve problemas de clasificación: dado un conjunto de atributos, predice la clase. Los modelos generados son árboles de decisión. Se basa en la ganancia de información (entropía) para seleccionar el atributo más discriminante en cada nodo.",
     "criteriosCorreccion": [
       "Área: Aprendizaje Automático.",
       "Categoría: supervisado (datos etiquetados).",
@@ -474,7 +340,7 @@
     "observaciones": "Pregunta recurrente de descripción completa de ID3. 3 apariciones.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "ID3 descripción completa",
+    "grupoTematico": "ID3",
     "prioridadExamen": "alta"
   },
   {
@@ -489,6 +355,7 @@
     "origen": "examen_real",
     "enunciado": "Relativo al algoritmo ID3 y a un problema de clasificación binario, sin necesidad de usar la fórmula de entropía pero sí el concepto: ¿A qué se refiere la entropía? ¿Qué valor tiene cuando todos los ejemplos pertenecen a una única clase? ¿Qué valor tiene cuando los ejemplos están equitativamente distribuidos entre las dos clases?",
     "respuestaModelo": "La entropía mide el nivel de impureza o desorden de un conjunto de datos. Si todos los ejemplos pertenecen a una única clase, la entropía es 0 (máximo orden, nula incertidumbre). Si los ejemplos están distribuidos equitativamente al 50%, la entropía es máxima (1 en base 2), indicando máxima incertidumbre.",
+    "solucionOrientativa": "La entropía mide el nivel de impureza o desorden de un conjunto de datos. Si todos los ejemplos pertenecen a una única clase, la entropía es 0 (máximo orden, nula incertidumbre). Si los ejemplos están distribuidos equitativamente al 50%, la entropía es máxima (1 en base 2), indicando máxima incertidumbre.",
     "criteriosCorreccion": [
       "Define entropía como medida de impureza/desorden.",
       "Entropía = 0 cuando todos son de la misma clase.",
@@ -500,7 +367,7 @@
     "observaciones": "Pregunta conceptual sobre entropía en ID3 sin fórmulas.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Entropía en ID3",
+    "grupoTematico": "ID3 - Entropía",
     "prioridadExamen": "alta"
   },
   {
@@ -515,6 +382,7 @@
     "origen": "examen_real",
     "enunciado": "Tenemos una base de datos con distintos atributos de clientes como la edad, sexo, nacionalidad, artículos favoritos, etc. Los clientes no están catalogados de ninguna manera y nos gustaría saber si tienen características en común para aplicar estrategias de marketing adaptadas. ¿Qué algoritmo podríamos utilizar? Justifica tu respuesta.",
     "respuestaModelo": "Se utilizaría un algoritmo de aprendizaje no supervisado de clustering, como K-means. Los clientes no están etiquetados, por lo que no se puede usar aprendizaje supervisado. K-means agrupa instancias en clústeres según su similitud, permitiendo descubrir grupos naturales de clientes sin necesidad de etiquetas previas.",
+    "solucionOrientativa": "Se utilizaría un algoritmo de aprendizaje no supervisado de clustering, como K-means. Los clientes no están etiquetados, por lo que no se puede usar aprendizaje supervisado. K-means agrupa instancias en clústeres según su similitud, permitiendo descubrir grupos naturales de clientes sin necesidad de etiquetas previas.",
     "criteriosCorreccion": [
       "Identifica que se trata de aprendizaje no supervisado (sin etiquetas).",
       "Propone clustering / K-means.",
@@ -528,7 +396,7 @@
     "observaciones": "Pregunta recurrente sobre selección de algoritmo no supervisado. 3 apariciones.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Aprendizaje no supervisado / clustering",
+    "grupoTematico": "Clustering",
     "prioridadExamen": "alta"
   },
   {
@@ -543,6 +411,7 @@
     "origen": "examen_real",
     "enunciado": "Si tenemos una base de datos con distintos atributos de muestras textiles, las cuales no están clasificadas, y nos gustaría saber si tienen características en común, ¿qué algoritmo podríamos utilizar? Justifica tu respuesta.",
     "respuestaModelo": "Algoritmo de clustering no supervisado (K-means). Las muestras no están etiquetadas, por lo que no se puede usar supervisado. K-means agrupa instancias por similitud de atributos.",
+    "solucionOrientativa": "Algoritmo de clustering no supervisado (K-means). Las muestras no están etiquetadas, por lo que no se puede usar supervisado. K-means agrupa instancias por similitud de atributos.",
     "criteriosCorreccion": [
       "Aprendizaje no supervisado.",
       "K-means o clustering.",
@@ -552,10 +421,10 @@
       "2023_ORD_MOD_D.txt",
       "2024_ORD_MOD_A.txt"
     ],
-    "observaciones": "Variante de iaic-tema-6-corta-005 con muestras textiles. Mismo patrón.",
+    "observaciones": "Variante de la pregunta anterior con muestras textiles. Mismo patrón.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Aprendizaje no supervisado / clustering",
+    "grupoTematico": "Clustering",
     "prioridadExamen": "alta"
   },
   {
@@ -570,6 +439,7 @@
     "origen": "examen_real",
     "enunciado": "En un problema de aprendizaje supervisado, ¿cómo se puede validar un modelo predictivo? ¿En qué consiste la validación cruzada de 10 iteraciones?",
     "respuestaModelo": "Un modelo se puede validar dividiéndolo en conjunto de entrenamiento y conjunto de prueba. La validación cruzada de 10 iteraciones (10-fold cross-validation) divide el dataset en 10 partes; en cada iteración se entrena con 9 partes y se valida con la restante. Se repite 10 veces y se promedian los resultados para obtener una estimación más robusta del rendimiento.",
+    "solucionOrientativa": "Un modelo se puede validar dividiéndolo en conjunto de entrenamiento y conjunto de prueba. La validación cruzada de 10 iteraciones (10-fold cross-validation) divide el dataset en 10 partes; en cada iteración se entrena con 9 partes y se valida con la restante. Se repite 10 veces y se promedian los resultados para obtener una estimación más robusta del rendimiento.",
     "criteriosCorreccion": [
       "Menciona división train/test.",
       "Explica el proceso de 10-fold: 10 particiones.",
@@ -597,6 +467,7 @@
     "origen": "examen_real",
     "enunciado": "Tenemos una población de cromosomas con la que está trabajando un algoritmo genético. ¿Qué representa cada cromosoma? En cada iteración, ¿en qué se basa un algoritmo genético para seleccionar los cromosomas que se van a cruzar? ¿Qué cromosoma tendrá mayor probabilidad de ser seleccionado?",
     "respuestaModelo": "Cada cromosoma representa una posible solución al problema. La selección se basa en la función de fitness (aptitud), que mide la calidad de cada solución. El cromosoma con mayor fitness tiene mayor probabilidad de ser seleccionado para cruzarse y generar descendientes.",
+    "solucionOrientativa": "Cada cromosoma representa una posible solución al problema. La selección se basa en la función de fitness (aptitud), que mide la calidad de cada solución. El cromosoma con mayor fitness tiene mayor probabilidad de ser seleccionado para cruzarse y generar descendientes.",
     "criteriosCorreccion": [
       "Cromosoma = posible solución.",
       "Selección basada en función fitness.",
@@ -624,6 +495,7 @@
     "origen": "examen_real",
     "enunciado": "Pon un ejemplo de operación de cruce en algoritmos genéticos.",
     "respuestaModelo": "Cruce de un punto: dados dos cromosomas padre [1,0,1,1,0] y [0,1,0,0,1], se elige un punto de corte (p. ej., posición 3) y se intercambian los segmentos: hijo1=[1,0,1,0,1] e hijo2=[0,1,0,1,0].",
+    "solucionOrientativa": "Cruce de un punto: dados dos cromosomas padre [1,0,1,1,0] y [0,1,0,0,1], se elige un punto de corte (p. ej., posición 3) y se intercambian los segmentos: hijo1=[1,0,1,0,1] e hijo2=[0,1,0,1,0].",
     "criteriosCorreccion": [
       "Describe un cruce válido (un punto, dos puntos, uniforme).",
       "Muestra padres y descendientes resultantes."
@@ -649,6 +521,7 @@
     "origen": "examen_real",
     "enunciado": "En un algoritmo genético, ¿qué es la población? ¿Qué representa un individuo? ¿Qué es el fitness de un individuo?",
     "respuestaModelo": "La población es el conjunto de individuos (soluciones candidatas) en una iteración del algoritmo. Un individuo (cromosoma) representa una posible solución al problema codificada. El fitness es una función que mide la calidad de un individuo, indicando su grado de adaptación al problema; guía la selección de los individuos que se reproducirán.",
+    "solucionOrientativa": "La población es el conjunto de individuos (soluciones candidatas) en una iteración del algoritmo. Un individuo (cromosoma) representa una posible solución al problema codificada. El fitness es una función que mide la calidad de un individuo, indicando su grado de adaptación al problema; guía la selección de los individuos que se reproducirán.",
     "criteriosCorreccion": [
       "Población: conjunto de individuos.",
       "Individuo: posible solución codificada.",
@@ -676,6 +549,7 @@
     "origen": "examen_real",
     "enunciado": "Describe los algoritmos genéticos: ¿Cuál es su objetivo principal y para qué tipo de problemas se utiliza? ¿Qué teoría biológica emula? ¿Qué función es determinante para su buen rendimiento?",
     "respuestaModelo": "El objetivo es encontrar soluciones óptimas o subóptimas a problemas de optimización o búsqueda en espacios grandes. Emula la teoría de la evolución y selección natural de Darwin: los individuos más aptos sobreviven y se reproducen. La función fitness es determinante, ya que guía toda la selección y reproducción.",
+    "solucionOrientativa": "El objetivo es encontrar soluciones óptimas o subóptimas a problemas de optimización o búsqueda en espacios grandes. Emula la teoría de la evolución y selección natural de Darwin: los individuos más aptos sobreviven y se reproducen. La función fitness es determinante, ya que guía toda la selección y reproducción.",
     "criteriosCorreccion": [
       "Objetivo: optimización/búsqueda.",
       "Teoría biológica: evolución/selección natural de Darwin.",
@@ -700,8 +574,9 @@
     "parteExamenId": "parte-cortas",
     "tipo": "corta",
     "origen": "examen_real",
-    "enunciado": "¿Qué es lo que se ajusta al entrenar una red neuronal? ¿Cómo es la red neuronal más simple y qué limitación tiene? ¿Qué ventaja presentan las redes neuronales frente a los modelos de regresión lineal? ¿Qué desventaja presentan frente a los modelos de árboles de clasificación?",
+    "enunciado": "¿Qué es lo que se ajusta al entrenar una red neuronal? ¿Cómo es la red neuronal más simple y qué limitación tiene? ¿Qué ventaja presentan las redes neuronales frente a los modelos de regresión lineal? ¿Qué desventaja presentan las redes neuronales frente a los modelos de árboles de clasificación?",
     "respuestaModelo": "Al entrenar se ajustan los pesos (y sesgos) de las conexiones entre neuronas. La red más simple es el perceptrón (una capa de entrada y una de salida), cuya limitación es que solo puede resolver problemas linealmente separables. Ventaja frente a regresión lineal: pueden modelar relaciones no lineales. Desventaja frente a árboles: son modelos de caja negra, difíciles de interpretar.",
+    "solucionOrientativa": "Al entrenar se ajustan los pesos (y sesgos) de las conexiones entre neuronas. La red más simple es el perceptrón (una capa de entrada y una de salida), cuya limitación es que solo puede resolver problemas linealmente separables. Ventaja frente a regresión lineal: pueden modelar relaciones no lineales. Desventaja frente a árboles: son modelos de caja negra, difíciles de interpretar.",
     "criteriosCorreccion": [
       "Se ajustan los pesos.",
       "Red más simple: perceptrón; limitación: solo problemas linealmente separables.",
@@ -734,6 +609,7 @@
     "origen": "examen_real",
     "enunciado": "¿Qué ventaja presenta la aplicación de las redes neuronales frente a los modelos de regresión lineal? ¿Qué desventaja tienen las redes neuronales frente a los árboles de decisión?",
     "respuestaModelo": "Ventaja: las redes neuronales pueden modelar relaciones no lineales entre variables, a diferencia de la regresión lineal. Desventaja: las redes neuronales son modelos de caja negra (difíciles de interpretar), mientras que los árboles de decisión son altamente interpretables.",
+    "solucionOrientativa": "Ventaja: las redes neuronales pueden modelar relaciones no lineales entre variables, a diferencia de la regresión lineal. Desventaja: las redes neuronales son modelos de caja negra (difíciles de interpretar), mientras que los árboles de decisión son altamente interpretables.",
     "criteriosCorreccion": [
       "Ventaja: no linealidad.",
       "Desventaja: interpretabilidad (caja negra)."
@@ -741,250 +617,10 @@
     "fuentes": [
       "2025_EXT_MOD_I.txt"
     ],
-    "observaciones": "Versión reducida de iaic-tema-8-corta-001.",
+    "observaciones": "Versión reducida de la pregunta anterior.",
     "requiereRevision": false,
     "verificada": false,
     "grupoTematico": "Redes neuronales",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-001",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"La hermana de Juan es Beatriz quien también es hermana de Roberto.\"",
-    "respuestaModelo": "Juan rdf:type Persona\nBeatriz rdf:type Persona\nRoberto rdf:type Persona\ntienHermana rdf:type owl:ObjectProperty\nJuan tieneHermana Beatriz\nRoberto tieneHermana Beatriz",
-    "criteriosCorreccion": [
-      "Define los sujetos como instancias de una clase.",
-      "Define tieneHermana como propiedad de objeto.",
-      "Expresa correctamente las dos relaciones."
-    ],
-    "fuentes": [
-      "2021_ORD_MOD_B.txt"
-    ],
-    "observaciones": "RDF básico con relación de parentesco.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-002",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"El profesor de Inteligencia Artificial es Juan, quien también imparte Programación.\"",
-    "respuestaModelo": "Juan rdf:type Persona\nInteligenciaArtificial rdf:type Asignatura\nProgramacion rdf:type Asignatura\nimpartida_por rdfs:domain Asignatura; rdfs:range Persona\nInteligenciaArtificial impartida_por Juan\nProgramacion impartida_por Juan",
-    "criteriosCorreccion": [
-      "Identifica sujetos, predicados y objetos.",
-      "Define clases y propiedad.",
-      "Expresa ambas relaciones correctamente."
-    ],
-    "fuentes": [
-      "2021_ORD_MOD_D.txt"
-    ],
-    "observaciones": "RDF con rol docente.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-003",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"Roberto vive en Granada y María, que es la hermana de Roberto, también vive en Granada.\"",
-    "respuestaModelo": "Roberto rdf:type Persona\nMaria rdf:type Persona\nGranada rdf:type Ciudad\nviveEn rdfs:domain Persona; rdfs:range Ciudad\nesHermanaDe rdfs:domain Persona; rdfs:range Persona\nRoberto viveEn Granada\nMaria viveEn Granada\nMaria esHermanaDe Roberto",
-    "criteriosCorreccion": [
-      "Define clases Persona y Ciudad.",
-      "Define propiedades viveEn y esHermanaDe.",
-      "Instancias y relaciones correctas."
-    ],
-    "fuentes": [
-      "2022_EXT_MOD_B.txt",
-      "2023_ORD_MOD_D.txt",
-      "2023_EXT_MOD_B.txt"
-    ],
-    "observaciones": "Mismo enunciado exacto en 3 modelos distintos. Alta recurrencia.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-004",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"Alfonso, quien es el hijo de Luis, vive en Alemania, mientras que Luis vive en España.\"",
-    "respuestaModelo": "Alfonso rdf:type Persona\nLuis rdf:type Persona\nAlemania rdf:type Pais\nEspana rdf:type Pais\nesHijoDe rdfs:domain Persona; rdfs:range Persona\nviveEn rdfs:domain Persona; rdfs:range Pais\nAlfonso esHijoDe Luis\nAlfonso viveEn Alemania\nLuis viveEn Espana",
-    "criteriosCorreccion": [
-      "Define clases Persona y País.",
-      "Define propiedades esHijoDe y viveEn.",
-      "Tres relaciones correctas."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_B.txt"
-    ],
-    "observaciones": "RDF con relación de filiación y localización.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-005",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"La prima de Juan es María quien también es prima de Luis.\"",
-    "respuestaModelo": "Juan rdf:type Persona\nMaria rdf:type Persona\nLuis rdf:type Persona\ntienePrima rdfs:domain Persona; rdfs:range Persona\nJuan tienePrima Maria\nLuis tienePrima Maria",
-    "criteriosCorreccion": [
-      "Define clase Persona para los tres individuos.",
-      "Define propiedad tienePrima.",
-      "Dos relaciones de prima correctas."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_C.txt",
-      "2024_ORD_MOD_C.txt",
-      "2025_EXT_MOD_A.txt"
-    ],
-    "observaciones": "Mismo enunciado en 3 modelos distintos. Patrón muy recurrente.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-006",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF las siguientes sentencias? \"María usa Facebook y Twitter, que son redes sociales. Luis sólo usa Facebook.\"",
-    "respuestaModelo": "Maria rdf:type Persona\nLuis rdf:type Persona\nFacebook rdf:type RedSocial\nTwitter rdf:type RedSocial\nusa rdfs:domain Persona; rdfs:range RedSocial\nMaria usa Facebook\nMaria usa Twitter\nLuis usa Facebook",
-    "criteriosCorreccion": [
-      "Define clases Persona y RedSocial.",
-      "Define propiedad usa.",
-      "Tres relaciones correctas."
-    ],
-    "fuentes": [
-      "2023_EXT_MOD_A.txt"
-    ],
-    "observaciones": "RDF con redes sociales.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-007",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Qué elemento de las ontologías se asocia con la siguiente definición: hace referencia a un individuo concreto de una clase que tiene identidad por sí mismo pero que no deja de pertenecer a un grupo mayor? Expón un ejemplo de una clase y de uno de estos elementos.",
-    "respuestaModelo": "Se trata de una instancia (o individuo). En ontologías OWL/RDF, las instancias son los miembros concretos de una clase. Ejemplo: Persona es la clase; Juan es una instancia de esa clase.",
-    "criteriosCorreccion": [
-      "Identifica el elemento como instancia o individuo.",
-      "Aporta ejemplo de clase e instancia."
-    ],
-    "fuentes": [
-      "2023_ORD_MOD_A.txt"
-    ],
-    "observaciones": "Pregunta conceptual sobre instancias en ontologías.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Ontologías / OWL como pregunta corta",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-008",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Qué elemento de las ontologías se asocia con la siguiente definición: 'son las formas en las que tanto instancias como clases pueden relacionarse entre ellas'? Identifica en el ejemplo cuáles serían estos elementos, las clases e instancias: 'Las empresas fabrican impresoras y portátiles, específicamente HP fabrica la Impresora HP Deskjet 3750 y el Portátil HP 14s-dq2007ns'.",
-    "respuestaModelo": "El elemento son las propiedades de objeto (object properties). En el ejemplo: clases: Empresa, Impresora, Portátil. Instancias: HP, Impresora HP Deskjet 3750, Portátil HP 14s-dq2007ns. Propiedad: fabrica (relaciona Empresa con Impresora/Portátil).",
-    "criteriosCorreccion": [
-      "Identifica propiedades de objeto.",
-      "Identifica clases correctamente.",
-      "Identifica instancias correctamente.",
-      "Identifica la propiedad fabrica."
-    ],
-    "fuentes": [
-      "2025_ORD_MOD_A.txt",
-      "2025_ORD_MOD_E.txt",
-      "2025_EXT_MOD_B.txt"
-    ],
-    "observaciones": "Pregunta recurrente en 2025 (3 modelos). Identifica los 3 elementos de ontología: clases, instancias y propiedades.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "Ontologías / OWL como pregunta corta",
-    "prioridadExamen": "alta"
-  },
-  {
-    "id": "iaic-tema-9-corta-009",
-    "asignaturaId": "iaic",
-    "temaPrincipalId": "tema-9",
-    "temaIds": [
-      "tema-9"
-    ],
-    "parteExamenId": "parte-cortas",
-    "tipo": "corta",
-    "origen": "examen_real",
-    "enunciado": "¿Cómo expresarías con RDF la siguiente sentencia? \"Luisa y Luis nacieron en España.\"",
-    "respuestaModelo": "Luisa rdf:type Persona\nLuis rdf:type Persona\nEspana rdf:type Pais\nnacioEn rdfs:domain Persona; rdfs:range Pais\nLuisa nacioEn Espana\nLuis nacioEn Espana",
-    "criteriosCorreccion": [
-      "Define clases.",
-      "Define propiedad nacioEn.",
-      "Dos tripletas correctas."
-    ],
-    "fuentes": [
-      "2025_ORD_B.txt"
-    ],
-    "observaciones": "RDF con lugar de nacimiento.",
-    "requiereRevision": false,
-    "verificada": false,
-    "grupoTematico": "RDF",
     "prioridadExamen": "alta"
   },
   {
@@ -1013,7 +649,7 @@
     "observaciones": "Problema de A* con mapa de ciudades. Tres variantes con distintos mapas pero misma metodología. Problema principal de mayor peso (2.5 pts).",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "A* con mapa o grafo",
+    "grupoTematico": "A* con mapa",
     "prioridadExamen": "media"
   },
   {
@@ -1039,7 +675,7 @@
     "observaciones": "Variante abstracta con grafo genérico A→Z.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "A* con mapa o grafo",
+    "grupoTematico": "A* con grafo",
     "prioridadExamen": "media"
   },
   {
@@ -1068,7 +704,7 @@
     "observaciones": "Problema de Graphplan con linterna. DOMINANTE desde 2023. Aparece en 3 modelos.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Graphplan / relaciones mutex",
+    "grupoTematico": "Graphplan",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1094,7 +730,7 @@
     "observaciones": "Problema Graphplan con transporte camión. Variante clásica.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Graphplan / relaciones mutex",
+    "grupoTematico": "Graphplan",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1120,7 +756,7 @@
     "observaciones": "Problema PDDL con dominio air-cargo. Razonamiento sobre aplicabilidad de acciones.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "STRIPS / PDDL práctico",
+    "grupoTematico": "PDDL",
     "prioridadExamen": "alta"
   },
   {
@@ -1146,7 +782,7 @@
     "observaciones": "Problema Graphplan de sorpresa. Aparece en 2025 ORD A.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Graphplan / relaciones mutex",
+    "grupoTematico": "Graphplan",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1172,7 +808,7 @@
     "observaciones": "Problema Graphplan Paella. 2025 ORD E. Requiere los 5 niveles completos.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Graphplan / relaciones mutex",
+    "grupoTematico": "Graphplan",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1200,7 +836,7 @@
     "observaciones": "Problema tarta en Graphplan. Aparece en 2025 ORD C y 2025 EXT I.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Graphplan / relaciones mutex",
+    "grupoTematico": "Graphplan",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1232,7 +868,7 @@
     "observaciones": "Problema DOMINANTE: Minimax puro sin poda. Aparece en 6 modelos. El árbol varía pero la metodología es idéntica.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Minimax puro",
+    "grupoTematico": "Minimax",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1293,7 +929,7 @@
     "observaciones": "Matriz 2x2 (aprobado/suspenso o yes/no). Aparece en 4 modelos con distintos valores. Patrón dominante CADA AÑO.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Matriz de confusión como problema práctico",
+    "grupoTematico": "Matrices de confusión",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1322,7 +958,7 @@
     "observaciones": "Matriz de confusión de 3 clases. Requiere calcular métricas para una clase específica en matriz 3x3.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Matriz de confusión como problema práctico",
+    "grupoTematico": "Matrices de confusión",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1349,7 +985,7 @@
     "observaciones": "Problema completo de ID3 con salida WEKA. Incluye interpretación del árbol y métricas de evaluación.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "ID3 / árbol de decisión con WEKA",
+    "grupoTematico": "ID3 / WEKA",
     "prioridadExamen": "media"
   },
   {
@@ -1376,7 +1012,7 @@
     "observaciones": "Diseño ontología dominio hostelería.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Ontologías como problema práctico",
+    "grupoTematico": "Ontologías",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1403,7 +1039,7 @@
     "observaciones": "Diseño ontología dominio cine.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Ontologías como problema práctico",
+    "grupoTematico": "Ontologías",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1429,7 +1065,7 @@
     "observaciones": "Diseño ontología dominio literario.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Ontologías como problema práctico",
+    "grupoTematico": "Ontologías",
     "prioridadExamen": "muy_alta"
   },
   {
@@ -1456,7 +1092,7 @@
     "observaciones": "Ontología clásica de pizza. 2025 EXT I.",
     "requiereRevision": false,
     "verificada": false,
-    "grupoTematico": "Ontologías como problema práctico",
+    "grupoTematico": "Ontologías",
     "prioridadExamen": "muy_alta"
   }
 ]
