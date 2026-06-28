@@ -10447,5 +10447,2363 @@
     "criteriosCorreccion": [],
     "codigoReferencia": "",
     "origenVisible": "2025 Modelo C / 2025 Modelo D"
+  },
+  {
+    "id": "te-tema-4-test-card-sorting-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En la fase de investigación de un proyecto de UX, ¿qué técnica consiste en pedir a los usuarios que agrupen conceptos escritos en tarjetas según su propio criterio para entender sus modelos mentales?",
+    "opciones": [
+      "User Test",
+      "Card Ordering",
+      "Focus Group",
+      "Card Sorting"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El Card Sorting es la técnica de UX en la que se pide a los usuarios que agrupen conceptos en tarjetas según su propio criterio, permitiendo entender cómo organizan mentalmente la información.",
+    "fuentes": [
+      "2026 Modelo A.docx — P1"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 1"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 1,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 1"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 110,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 1",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-9-test-seguridad-v2x-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Por qué la seguridad informática se ha convertido en una preocupación de primer orden en los vehículos modernos?",
+    "opciones": [
+      "Porque los sistemas de entretenimiento pueden ser pirateados para mostrar publicidad",
+      "Porque un ataque podría comprometer sistemas críticos del vehículo a través de sus comunicaciones",
+      "Porque el robo de datos personales del navegador es muy frecuente",
+      "Porque los fabricantes deben pagar altas licencias por el software antivirus"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La ciberseguridad en vehículos es crítica porque un ataque podría comprometer sistemas de seguridad activa (frenos, dirección, ADAS) a través de las comunicaciones V2X, poniendo en riesgo la vida de los ocupantes.",
+    "fuentes": [
+      "2026 Modelo A.docx — P2"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 2"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 2,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 2"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 111,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 2",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-9-test-v2x-dsrc-cv2x-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Las dos tecnologías de comunicación principales, e incompatibles entre sí, para las comunicaciones V2X son:",
+    "opciones": [
+      "Bluetooth y WiFi Direct",
+      "4G LTE y 5G NR",
+      "802.11p (DSRC) y C-V2X",
+      "NFC y RFID"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las dos tecnologías V2X principales e incompatibles son 802.11p (DSRC/WAVE, estándar IEEE para comunicaciones vehiculares de corto alcance) y C-V2X (Cellular V2X, desarrollada por 3GPP basada en redes celulares LTE/5G).",
+    "fuentes": [
+      "2026 Modelo A.docx — P3"
+    ],
+    "observaciones": "Concepto nuevo en exámenes 2026: incompatibilidad entre DSRC y C-V2X. Relacionada con te-tema-9-test-008 (802.11p) pero más específica.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 3"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 3,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 3"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 112,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 3",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-3-test-lbs-proactivo-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál es una característica fundamental de los servicios basados en localización (LBS) de tipo proactivo?",
+    "opciones": [
+      "Se activan automáticamente ante un evento predefinido",
+      "Requieren siempre que el usuario inicie manualmente la solicitud de información",
+      "Suelen tener un bajo consumo de datos al no necesitar monitorización continua",
+      "Solo funcionan en interiores utilizando tecnologías como las balizas o beacons"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los LBS proactivos se activan automáticamente en respuesta a un evento predefinido (por ejemplo, cuando el usuario entra en una zona geográfica), sin necesidad de intervención manual del usuario.",
+    "fuentes": [
+      "2026 Modelo A.docx — P5"
+    ],
+    "observaciones": "Distinción nueva en exámenes 2026: LBS proactivo (automático ante evento) vs reactivo (iniciado por el usuario).",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 5"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 5,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 5"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 113,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 5",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-3-test-precision-gnss-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En el contexto de la calidad de la geolocalización, ¿a qué se refiere el término 'precisión'?",
+    "opciones": [
+      "A la proximidad existente entre un valor medido y el valor verdadero de la ubicación",
+      "A la cantidad de satélites GNSS que son visibles en un momento dado",
+      "Al tiempo que tarda el dispositivo en obtener la primera coordenada de localización",
+      "A la proximidad entre las indicaciones o valores medidos obtenidos en mediciones repetidas del mismo objeto"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "La PRECISIÓN mide la repetibilidad: qué tan cercanas están entre sí varias mediciones del mismo punto. La EXACTITUD (opción A) mide la cercanía al valor verdadero. Son conceptos diferentes: se puede ser preciso sin ser exacto y viceversa.",
+    "fuentes": [
+      "2026 Modelo A.docx — P6"
+    ],
+    "observaciones": "TRAMPA HABITUAL: La opción A describe la EXACTITUD, no la precisión. La respuesta correcta es D (repetibilidad de mediciones).",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 6"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 6,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 6"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 114,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A",
+      "TRAMPA PRECISIÓN VS EXACTITUD"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 6",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-10-test-plagio-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En el ámbito de la investigación, ¿qué se entiende por 'plagio'?",
+    "opciones": [
+      "Citar una fuente de información de manera incorrecta",
+      "Copiar obras ajenas, en lo sustancial, y presentarlas como propias",
+      "Realizar un experimento que ya ha sido hecho por otro investigador",
+      "Publicar los mismos resultados en dos revistas diferentes"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El plagio consiste en copiar obras ajenas (textos, ideas, datos) en lo sustancial y presentarlas como propias, sin citar la fuente original. Citar mal (A) es un error de formato, no plagio. Repetir experimentos (C) es ciencia normal. Publicar en dos revistas (D) es auto-plagio.",
+    "fuentes": [
+      "2026 Modelo A.docx — P7"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 7"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 7,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 7"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 115,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 7",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-9-test-sae-nivel5-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "De acuerdo con el estándar SAE J3016, ¿qué característica define a un vehículo con nivel 5 de autonomía?",
+    "opciones": [
+      "El vehículo puede conducir de forma autónoma en ciertas condiciones, como en autopistas, pero requiere supervisión humana",
+      "El conductor debe estar siempre preparado para tomar el control del vehículo en caso de que el sistema lo solicite, aunque no suele necesitarse",
+      "Corresponde a la automatización de funciones básicas como el control de crucero adaptativo",
+      "El sistema de conducción automatizada puede manejar todas las situaciones de conducción en cualquier condición, sin necesidad de un conductor humano"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El nivel 5 SAE J3016 corresponde a la automatización completa: el sistema puede manejar todas las situaciones de conducción en cualquier condición y entorno, sin necesidad en absoluto de un conductor humano. Ninguna de las otras opciones alcanza este nivel total.",
+    "fuentes": [
+      "2026 Modelo A.docx — P10"
+    ],
+    "observaciones": "Primera aparición explícita de SAE J3016 con referencia al nivel 5 en los exámenes.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 10"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 10,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 10"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 116,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 10",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-8-test-mineros-bitcoin-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál es la función principal de los 'mineros' en la red Bitcoin?",
+    "opciones": [
+      "Ayudar a verificar y confirmar transacciones, añadiéndolas a la cadena de bloques",
+      "Crear nuevos Bitcoins sin límite para aumentar la oferta monetaria",
+      "Vender hardware especializado para el almacenamiento de criptomonedas",
+      "Intercambiar Bitcoins por moneda de curso legal en las casas de cambio"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los mineros de Bitcoin verifican y agrupan transacciones en bloques, resuelven el puzzle criptográfico (proof of work) y añaden el bloque validado a la cadena. Como recompensa reciben nuevos Bitcoins (cantidad limitada por protocolo, no ilimitada).",
+    "fuentes": [
+      "2026 Modelo A.docx — P12"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 12"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 12,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 12"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 117,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 12",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-2-test-contexto-uso-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "En el diseño de la interacción móvil, ¿por qué el 'contexto de uso' es considerado una de las mayores dificultades?",
+    "opciones": [
+      "Porque los usuarios siempre utilizan las aplicaciones en el mismo lugar y de la misma forma",
+      "Porque los desarrolladores no tienen acceso a información sobre el contexto",
+      "Porque el diseño de la interfaz no puede adaptarse al contexto",
+      "Porque el entorno del usuario es cambiante y difícil de predecir"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "El contexto de uso en móvil es cambiante y difícil de predecir: el usuario puede estar caminando, en transporte, con ruido ambiental, con poca luz, interrumpido constantemente. Esto hace que diseñar para todos los contextos sea una de las mayores dificultades del diseño móvil.",
+    "fuentes": [
+      "2026 Modelo A.docx — P13"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 13"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 13,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 13"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 118,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 13",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-7-test-agile-iot-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7",
+      "tema-6"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Por qué las metodologías ágiles como Scrum o Kanban son particularmente útiles en la gestión de proyectos de IoT?",
+    "opciones": [
+      "Porque garantizan que el proyecto terminará antes de la fecha prevista",
+      "Porque eliminan la necesidad de tener un jefe de proyecto",
+      "Porque permiten adaptarse a requisitos cambiantes o poco definidos",
+      "Porque se centran exclusivamente en la fase de documentación"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las metodologías ágiles son especialmente valiosas en proyectos IoT porque los requisitos suelen ser poco definidos al inicio y evolucionan constantemente. La capacidad de iterar en sprints cortos permite adaptarse a los cambios de hardware, conectividad y casos de uso reales.",
+    "fuentes": [
+      "2026 Modelo A.docx — P15"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 15"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 15,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 15"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 119,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 15",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-6-test-lora-propietaria-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Dentro de las tecnologías LPWAN, ¿cuál de las siguientes se clasifica como propietaria?",
+    "opciones": [
+      "LTE-M",
+      "LoRa",
+      "NB-IoT",
+      "4G"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "LoRa (Long Range) es una tecnología de capa física propietaria de Semtech, aunque el protocolo de red LoRaWAN sobre ella es abierto. LTE-M y NB-IoT son estándares abiertos del 3GPP. Sigfox (no aparece aquí) también es propietaria.",
+    "fuentes": [
+      "2026 Modelo A.docx — P17"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 17"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 17,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 17"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 120,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 17",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-6-test-iot-dos-partes-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Los objetos que forman parte de un sistema IoT se componen de dos partes claramente diferenciadas:",
+    "opciones": [
+      "La parte física y los servicios o acciones asociadas",
+      "La parte física y la interfaz de usuario",
+      "El firmware y el software de aplicación",
+      "El chip de comunicación y la fuente de alimentación"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "Los objetos IoT se componen de una parte física (el hardware: sensores, actuadores, chip de comunicación) y los servicios o acciones asociadas que exponen digitalmente (lo que el objeto hace o puede hacer en la red).",
+    "fuentes": [
+      "2026 Modelo A.docx — P4"
+    ],
+    "observaciones": "Relacionada con te-tema-6-test-008 (objetos IoT interactúan mediante servicios). Nueva variante que pregunta la composición completa.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 4"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 4,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 4"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 121,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 4",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-4-test-ux-orden-componentes-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Según el material proporcionado, la Experiencia de Usuario (UX) engloba tres componentes principales. ¿Cuáles son en su orden de importancia?",
+    "opciones": [
+      "Deseabilidad, Utilidad y Usabilidad",
+      "Utilidad, Usabilidad y Deseabilidad",
+      "Coste, Funcionalidad y Utilidad",
+      "Usabilidad, Estética y Rendimiento"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los tres componentes de la UX son Utilidad (que el producto cubra una necesidad real), Usabilidad (que sea fácil de usar) y Deseabilidad (que genere una conexión emocional positiva). El orden de importancia es ese: primero debe ser útil, luego usable, y finalmente deseable.",
+    "fuentes": [
+      "2026 Modelo A.docx — P8"
+    ],
+    "observaciones": "Variante nueva de te-tema-4-test-001: pregunta el ORDEN de importancia, no solo los componentes.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 8"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 8,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 8"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 122,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 8",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-2-test-app-web-eficiente-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Desde un punto de vista de costes y tiempo de desarrollo para un proyecto multiplataforma, ¿qué tipo de aplicación suele ser la opción más eficiente?",
+    "opciones": [
+      "Aplicación nativa, porque los desarrolladores son más fáciles de encontrar",
+      "Aplicación de realidad aumentada, por su sencillez de implementación",
+      "Aplicación web móvil, porque se basa en un único desarrollo y tecnologías web estándar",
+      "Aplicación de escritorio adaptada con un emulador"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La aplicación web móvil (webapp) es la más eficiente en costes y tiempo para proyectos multiplataforma porque un único desarrollo funciona en todos los dispositivos con navegador, usando HTML, CSS y JavaScript estándar, sin necesidad de mantener versiones separadas.",
+    "fuentes": [
+      "2026 Modelo A.docx — P9"
+    ],
+    "observaciones": "Variante de te-tema-2-test-003 y te-tema-2-test-011: perspectiva de eficiencia para multiplataforma.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 9"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 9,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 9"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 123,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 9",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-8-test-hyperledger-permisos-implica-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Hyperledger es un ejemplo de una DLT 'con permisos', lo que implica que:",
+    "opciones": [
+      "cualquiera puede unirse a la red sin restricciones",
+      "el acceso y uso de la red están controlados por una organización o propietario",
+      "es obligatorio pagar una tarifa para poder realizar transacciones",
+      "todas las transacciones son anónimas por defecto"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Una DLT con permisos (permissioned) como Hyperledger implica que el acceso a la red está controlado: solo los participantes autorizados por la organización propietaria pueden unirse, leer y escribir transacciones. Es lo opuesto a Bitcoin o Ethereum (sin permisos/permissionless).",
+    "fuentes": [
+      "2026 Modelo A.docx — P11"
+    ],
+    "observaciones": "Variante de te-tema-8-test-002: pregunta las implicaciones de ser 'con permisos', no solo la etiqueta.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 11"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 11,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 11"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 124,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 11",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-7-test-fog-vs-edge-diferencia-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "La principal diferencia técnica entre Fog Computing y Edge Computing radica en que:",
+    "opciones": [
+      "Fog Computing procesa en la nube y Edge en la red local",
+      "Edge utiliza 5G mientras que Fog utiliza exclusivamente redes WiFi",
+      "Edge Computing es una tecnología centralizada y Fog Computing es descentralizada",
+      "Fog Computing desplaza la inteligencia a la red local, mientras que Edge lo hace a los propios dispositivos"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Fog Computing traslada la inteligencia y el procesamiento a nodos de red intermedios (routers, gateways, servidores locales), mientras que Edge Computing lo desplaza directamente a los dispositivos finales. Ambos reducen la latencia respecto al cloud centralizado pero a diferentes niveles de la arquitectura.",
+    "fuentes": [
+      "2026 Modelo A.docx — P18"
+    ],
+    "observaciones": "Variante de te-tema-7-test-006 (Edge para IoT con mala conectividad). Nueva: pregunta la diferencia técnica específica entre Fog y Edge.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 18"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 18,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 18"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 125,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 18",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-3-test-galileo-ue-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "¿Cuál de los siguientes es un Sistema Global de Navegación por Satélite (GNSS) desarrollado por la Unión Europea?",
+    "opciones": [
+      "GPS",
+      "GLONASS",
+      "Galileo",
+      "BeiDou"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Galileo es el GNSS de la Unión Europea. GPS es de EE.UU., GLONASS de Rusia y BeiDou de China. Los cuatro son los sistemas GNSS globales principales.",
+    "fuentes": [
+      "2026 Modelo A.docx — P19"
+    ],
+    "observaciones": "Variante de te-tema-3-test-003 (¿cuál no existe?). Nueva formulación: pregunta directamente cuál es el europeo.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 19"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 19,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 19"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 126,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 19",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-9-test-adas-carril-parcial-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "examen_real",
+    "enunciado": "Un sistema ADAS como la 'asistencia para mantenerse en el carril' se considera un sistema:",
+    "opciones": [
+      "de información al conductor",
+      "parcialmente autónomo",
+      "altamente autónomo",
+      "totalmente autónomo"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La asistencia para mantenerse en el carril (Lane Keeping Assist) es un sistema parcialmente autónomo: actúa sobre la dirección del vehículo para corregir desviaciones, pero el conductor sigue siendo responsable y puede anularlo en cualquier momento.",
+    "fuentes": [
+      "2026 Modelo A.docx — P20"
+    ],
+    "observaciones": "Variante de te-tema-9-test-004 (control de crucero activo = parcialmente autónomo). Mismo concepto, nuevo ejemplo de ADAS.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "2026 Modelo A"
+    ],
+    "etiquetasModelo": [
+      "2026 Modelo A — Tipo test — Pregunta 20"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026 Modelo A",
+        "bloque": "Tipo test",
+        "numeroPregunta": 20,
+        "fuente": "2026 Modelo A.docx",
+        "etiqueta": "2026 Modelo A — Tipo test — Pregunta 20"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 127,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Tipo test",
+      "2026 Modelo A"
+    ],
+    "etiquetaVisible": "2026 Modelo A — Tipo test — Pregunta 20",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "2026 Modelo A"
+  },
+  {
+    "id": "te-tema-10-test-metodo-cientifico-literatura-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Según el método científico, ¿cuál es uno de los pasos iniciales y fundamentales antes de proponer una nueva hipótesis?",
+    "opciones": [
+      "Construir el prototipo final del producto o solución",
+      "Realizar una revisión exhaustiva de la literatura existente",
+      "Publicar los resultados esperados en un blog personal",
+      "Patentar la idea para asegurar su explotación comercial"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Antes de proponer una hipótesis, el método científico exige revisar el estado del arte: qué se ha investigado ya, qué se sabe y qué lagunas existen. Esta revisión bibliográfica es fundamental para que la nueva hipótesis aporte conocimiento real y no duplique trabajo existente.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P1"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 1"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 1,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 1"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 128,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 1",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-4-test-diseno-centrado-usuario-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El diseño centrado en el usuario pretende:",
+    "opciones": [
+      "Aumentar la velocidad de las aplicaciones",
+      "Modelar las aplicaciones de manera compleja",
+      "Satisfacer las necesidades concretas de los usuarios",
+      "Reducir los tiempos de espera"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "El Diseño Centrado en el Usuario (DCU o UCD) es una filosofía y metodología que pone al usuario en el centro de todo el proceso de diseño, con el objetivo de satisfacer sus necesidades concretas, expectativas y limitaciones.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P3"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 3"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 3,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 3"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 129,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 3",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-2-test-nativas-debilidad-coste-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál es una debilidad significativa del modelo de desarrollo de aplicaciones nativas?",
+    "opciones": [
+      "La imposibilidad de acceder a los sensores del dispositivo",
+      "La baja calidad gráfica y el rendimiento deficiente",
+      "El mayor coste de desarrollo y mantenimiento para múltiples plataformas",
+      "La dificultad para ser descubiertas y descargadas por los usuarios"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La principal debilidad de las apps nativas en proyectos multiplataforma es el coste: hay que desarrollar y mantener versiones separadas para iOS (Swift/Objective-C) y Android (Kotlin/Java), lo que multiplica el tiempo y el presupuesto.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P5"
+    ],
+    "observaciones": "Complementaria a te-tema-2-test-003 (inconveniente apps híbridas). Esta pregunta habla de la debilidad de las NATIVAS.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 5"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 5,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 5"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 130,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 5",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-1-test-hdr-uso-paisajes-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué característica de la cámara permite obtener fotos de alta calidad en paisajes y espacios abiertos?",
+    "opciones": [
+      "Zoom óptico",
+      "Modo HDR",
+      "Geotagging",
+      "Reconocimiento de caras"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El modo HDR (High Dynamic Range) captura varias fotos con distintas exposiciones y las fusiona para obtener una imagen con mayor rango dinámico, ideal en paisajes y exteriores con zonas muy iluminadas y muy oscuras simultáneamente.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P6"
+    ],
+    "observaciones": "Variante de te-tema-1-test-004 (siglas de HDR). Nueva: pregunta el caso de uso práctico del HDR.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 6"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 6,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 6"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 131,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 6",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-1-test-wwan-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-1",
+    "temaIds": [
+      "tema-1"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cómo se denominan comunicaciones móviles de área extensa inalámbricas?",
+    "opciones": [
+      "NFC",
+      "WPAN",
+      "WLAN",
+      "WWAN"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "WWAN (Wireless Wide Area Network) son las redes inalámbricas de área extensa, es decir, las redes móviles (3G, 4G, 5G). WPAN (Personal Area Network: Bluetooth, NFC), WLAN (Local Area Network: WiFi), WWAN (Wide Area Network: red celular).",
+    "fuentes": [
+      "Kahoot Repaso Examen — P7"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 7"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 7,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 7"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 132,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 7",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-2-test-webapp-html-css-js-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-2",
+    "temaIds": [
+      "tema-2"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué elementos se suelen utilizar en las aplicaciones web para móviles?",
+    "opciones": [
+      "Java, JavaScript y XML",
+      "HTML, Java y PHP",
+      "HTML, CSS y JavaScript",
+      "CSS, JavaScript y Python"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las aplicaciones web móviles (webapps) se desarrollan con las tecnologías web estándar: HTML para la estructura, CSS para el estilo/diseño y JavaScript para la interactividad y la lógica de cliente.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P9"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 9"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 9,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 9"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 133,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 9",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-9-test-v2i-infraestructura-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "En el contexto de las comunicaciones V2X (Vehicle-to-Everything), ¿a qué tipo de interacción se refiere la sigla 'V2I'?",
+    "opciones": [
+      "Comunicación entre dos vehículos para evitar colisiones",
+      "Comunicación entre un vehículo y el smartphone de un peatón",
+      "Comunicación entre un vehículo y la infraestructura vial",
+      "Comunicación entre los sistemas internos del propio vehículo"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "V2I (Vehicle-to-Infrastructure) es la comunicación entre el vehículo y elementos de la infraestructura vial: semáforos inteligentes, señales de tráfico conectadas, peajes, parkings, etc.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P10"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 10"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 10,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 10"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 134,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 10",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-3-test-ttff-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué es el Time To First Fix (TTFF) en los sistemas GNSS?",
+    "opciones": [
+      "Tiempo máximo permitido para utilizar un dispositivo GNSS",
+      "Tiempo necesario para obtener la primera posición en un dispositivo GNSS",
+      "Tiempo necesario para actualizar la información de posicionamiento",
+      "Tiempo requerido para establecer una conexión con la red GNSS"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "El TTFF (Time To First Fix) es el tiempo que tarda un receptor GNSS en calcular y proporcionar su primera coordenada de posición desde que se enciende o desde que pierde la señal. Es una métrica clave de calidad de los sistemas de posicionamiento.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P11"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 11"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 11,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 11"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 135,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 11",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-6-test-lpwan-no-es-4g-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál de las siguientes NO es una tecnología de comunicación LPWAN?",
+    "opciones": [
+      "NB-IoT",
+      "LoRa",
+      "4G (LTE estándar)",
+      "Sigfox"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las tecnologías LPWAN (Low Power Wide Area Network) son NB-IoT, LTE-M, LoRa/LoRaWAN y Sigfox. El 4G LTE estándar NO es LPWAN: tiene alto consumo energético y alto ancho de banda, lo contrario de las características LPWAN.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P16"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 16"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 16,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 16"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 136,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 16",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-8-test-blockchain-sin-vs-con-permisos-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué diferencia a una red Blockchain 'sin permisos' como Bitcoin de una 'con permisos' como Hyperledger?",
+    "opciones": [
+      "Las redes sin permisos son más rápidas que las redes con permisos",
+      "En una red sin permisos, cualquier nodo puede unirse",
+      "Solo las redes con permisos utilizan criptografía",
+      "Las redes sin permisos no tienen una criptomoneda nativa"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "La diferencia clave es el acceso: en redes sin permisos (permissionless) como Bitcoin o Ethereum, cualquier nodo puede unirse y participar libremente. En redes con permisos (permissioned) como Hyperledger, el acceso está controlado y restringido a participantes autorizados.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P17"
+    ],
+    "observaciones": "Variante de te-tema-8-test-002 (Hyperledger con permisos). Esta pregunta pregunta la diferencia concreta.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 17"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 17,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 17"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 137,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 17",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-10-test-orcid-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "El proyecto ORCID tiene como objetivo:",
+    "opciones": [
+      "Financiar proyectos de investigación en el área de la biotecnología",
+      "Proporcionar un identificador único y persistente a los investigadores",
+      "Publicar una revista científica de acceso abierto",
+      "Organizar congresos internacionales sobre ética en la ciencia"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "ORCID (Open Researcher and Contributor ID) proporciona un identificador digital único y persistente para cada investigador, evitando confusiones por homonimia y permitiendo vincular todas las publicaciones y actividades de un investigador a su perfil.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P18"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 18"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 18,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 18"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 138,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 18",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-8-test-curva-eliptica-bitcoin-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "La criptografía de curva elíptica es útil en Bitcoin porque:",
+    "opciones": [
+      "Generación de claves más cortas con una seguridad equivalente a claves RSA",
+      "Es el único tipo de criptografía resistente a ordenadores cuánticos",
+      "Es un método para enfriar los ordenadores cuánticos",
+      "Es un sistema que no requiere de clave pública, solo de clave privada"
+    ],
+    "respuestaCorrecta": 0,
+    "explicacion": "La criptografía de curva elíptica (ECC) permite generar claves mucho más cortas que RSA con un nivel de seguridad equivalente. Por ejemplo, una clave ECC de 256 bits ofrece seguridad comparable a una clave RSA de 3072 bits. Esto la hace ideal para sistemas con recursos limitados como las wallets de Bitcoin.",
+    "fuentes": [
+      "Kahoot Repaso Examen — P20"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen — Quiz — Pregunta 20"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen",
+        "bloque": "Quiz",
+        "numeroPregunta": 20,
+        "fuente": "Kahoot Repaso Examen",
+        "etiqueta": "Kahoot Repaso Examen — Quiz — Pregunta 20"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 139,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen — Quiz — Pregunta 20",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen"
+  },
+  {
+    "id": "te-tema-9-test-v2p-peatones-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-9",
+    "temaIds": [
+      "tema-9"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "Dentro de las comunicaciones V2X, ¿qué tipo de interacción describe el término 'V2P'?",
+    "opciones": [
+      "La comunicación entre dos vehículos",
+      "La comunicación entre el vehículo y la infraestructura vial",
+      "La comunicación interna entre los sensores del propio vehículo",
+      "La comunicación del vehículo con peatones"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "V2P (Vehicle-to-Pedestrian) es el tipo de comunicación V2X entre vehículos y peatones (o ciclistas). Permite que el vehículo detecte peatones vulnerables a través de sus smartphones y les alerte de peligros. Es diferente de I2P (Infraestructura a Peatón) que ya aparece en el banco.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P1"
+    ],
+    "observaciones": "Relacionada con te-tema-9-test-007 (I2P). V2P y I2P son diferentes tipos de comunicación V2X.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 1"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 1,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 1"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 140,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 1",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-4-test-tecnicas-necesidades-usuario-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-4",
+    "temaIds": [
+      "tema-4"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué técnicas se pueden utilizar para conocer las necesidades del usuario?",
+    "opciones": [
+      "Encuestas y entrevistas",
+      "Card sorting",
+      "Aproximación etnográfica",
+      "Todas las anteriores"
+    ],
+    "respuestaCorrecta": 3,
+    "explicacion": "Para conocer las necesidades del usuario se pueden utilizar múltiples técnicas: encuestas y entrevistas (datos cuantitativos y cualitativos directos), card sorting (cómo organiza mentalmente la información), y aproximación etnográfica (observación del usuario en su contexto real). Todas son válidas y complementarias.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P5"
+    ],
+    "observaciones": "Respuesta: Todas las anteriores. Importante recordar el patrón 'Todas las anteriores' del profesor Gargallo.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 5"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 5,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 5"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 141,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2",
+      "Todas las anteriores"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 5",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-6-test-lpwan-siglas-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué significa LPWAN en el contexto de IoT?",
+    "opciones": [
+      "Large Protocol Wide Area Network",
+      "Local Private Wireless Access Network",
+      "Low Power Wide Area Network",
+      "Long Performance Wireless Area Network"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "LPWAN son las siglas de Low Power Wide Area Network (red de área extensa de bajo consumo). Es una categoría de tecnologías de comunicación inalámbrica diseñadas para IoT: bajo consumo energético (baterías de años), largo alcance (kilómetros) y bajo ancho de banda.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P7"
+    ],
+    "observaciones": "Variante de te-tema-6-test-009 (ancho de banda LPWAN). Esta pregunta pregunta las siglas.",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 7"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 7,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 7"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 142,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 7",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-7-test-smart-cities-iot-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-7",
+    "temaIds": [
+      "tema-7"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué tipo de ciudades utilizan tecnologías IoT y de sensorización para gestionar de forma centralizada?",
+    "opciones": [
+      "Ciudades tradicionales",
+      "Ciudades digitales",
+      "Ciudades inteligentes",
+      "Ciudades tecnológicas"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "Las ciudades inteligentes (Smart Cities) son las que utilizan tecnologías IoT, sensorización, big data y análisis de datos para gestionar de forma eficiente sus servicios: tráfico, energía, residuos, seguridad, etc.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P8"
+    ],
+    "observaciones": "ATENCIÓN: El Kahoot original marcó DOS respuestas correctas (B: Ciudades digitales y C: Ciudades inteligentes). La canónica del temario es 'ciudades inteligentes / Smart Cities'. Posible trampa del profesor.",
+    "requiereRevision": true,
+    "verificada": false,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 8"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 8,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 8"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 143,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2",
+      "REQUIERE REVISION - DOS RESPUESTAS MARCADAS"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 8",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-8-test-exchanges-criptomonedas-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-8",
+    "temaIds": [
+      "tema-8"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Qué son las casas de cambio o exchanges en el contexto de criptomonedas?",
+    "opciones": [
+      "Monederos para almacenar criptomonedas",
+      "Plataformas para el intercambio de monedas por criptomonedas",
+      "Aplicaciones para verificar transacciones",
+      "Dispositivos de seguridad para criptomonedas"
+    ],
+    "respuestaCorrecta": 1,
+    "explicacion": "Los exchanges o casas de cambio de criptomonedas son plataformas (normalmente webs o apps) que permiten intercambiar monedas fiduciarias (euros, dólares) por criptomonedas y viceversa, o intercambiar unas criptomonedas por otras.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P9"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 9"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 9,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 9"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 144,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 9",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-10-test-hipotesis-metodo-cientifico-001",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-10",
+    "temaIds": [
+      "tema-10"
+    ],
+    "parteExamenId": "parte-test",
+    "tipo": "test",
+    "origen": "recopilada",
+    "enunciado": "¿Cuál de los siguientes es un paso del método científico?",
+    "opciones": [
+      "Creación",
+      "Inducción",
+      "Hipótesis",
+      "Fin"
+    ],
+    "respuestaCorrecta": 2,
+    "explicacion": "La hipótesis es uno de los pasos fundamentales del método científico: es una proposición provisional y comprobable que explica un fenómeno observado, y que será puesta a prueba mediante experimentación.",
+    "fuentes": [
+      "Kahoot Repaso Examen 2 — P10"
+    ],
+    "observaciones": "",
+    "requiereRevision": false,
+    "verificada": true,
+    "bloqueExamenId": "parte-test",
+    "bloqueExamenNombre": "Tipo test",
+    "grupoTematico": "",
+    "patronRelacionado": "",
+    "modelos": [
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetasModelo": [
+      "Kahoot Repaso Examen 2 — Quiz — Pregunta 10"
+    ],
+    "apariciones": [
+      {
+        "modelo": "Kahoot Repaso Examen 2",
+        "bloque": "Quiz",
+        "numeroPregunta": 10,
+        "fuente": "Kahoot Repaso Examen 2",
+        "etiqueta": "Kahoot Repaso Examen 2 — Quiz — Pregunta 10"
+      }
+    ],
+    "variantesOpciones": [],
+    "numeroApariciones": 1,
+    "examenReal": false,
+    "convocatoria": "2026",
+    "ambito": "banco_estudio",
+    "ordenPregunta": 145,
+    "etiquetas": [
+      "BANCO DE ESTUDIO",
+      "Tipo test",
+      "Kahoot Repaso Examen 2"
+    ],
+    "etiquetaVisible": "Kahoot Repaso Examen 2 — Quiz — Pregunta 10",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Respuesta tipo test",
+    "origenVisible": "Kahoot Repaso Examen 2"
+  },
+  {
+    "id": "te-tema-3-practica-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-3",
+    "temaIds": [
+      "tema-3",
+      "tema-2"
+    ],
+    "parteExamenId": "parte-problemas",
+    "bloqueExamenId": "parte-problemas",
+    "bloqueExamenNombre": "Problemas prácticos",
+    "tipo": "practica",
+    "grupoTematico": "Servicios basados en localización y aplicaciones móviles",
+    "patronRelacionado": "Diseño de app móvil de localización de integrantes y naves en entorno espacial/K-pop",
+    "origen": "examen_real",
+    "enunciado": "En el colorido mundo virtual de 'Galaxy Pop', un grupo de guerreras K-pop intergalácticas conocidas como las Star Beats recorren diferentes planetas para dar conciertos y competir en torneos de baile espacial. Su agencia, la Cosmic Entertainment, necesita un sistema que permita monitorear en tiempo real tanto la ubicación de cada integrante como la de sus naves de transporte entre planetas y escenarios, con el objetivo de coordinar sus apariciones y mantener su seguridad durante las misiones galácticas.\n\nPara desarrollar esta solución, el equipo de sistemas de Cosmic Entertainment diseñará una aplicación exclusiva para uso de las guerreras y el personal de coordinación interplanetaria. A continuación, se detallan los puntos solicitados:\n\nLos dispositivos utilizados para realizar los seguimientos y la monitorización.\n\nLos servicios de localización necesarios para poder rastrear con precisión las naves espaciales de transporte y la ubicación de cada integrante.\n\nEl tipo de aplicación y la justificación de dicha elección.\n\nLas funcionalidades de la aplicación basándose en las necesidades que se han comentado en el caso.\n\nEsta solución permitirá a las Star Beats coordinar sus giras interplanetarias con precisión, garantizando la seguridad, el bienestar y el máximo rendimiento de las guerreras K-pop en sus espectaculares presentaciones galácticas.",
+    "fuentes": [
+      "Examen TE — Convocatoria 2026 (modelo desconocido)"
+    ],
+    "modelos": [
+      "2026"
+    ],
+    "etiquetasModelo": [
+      "2026 — Caso práctico — LBS + App móvil"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026",
+        "bloque": "Caso práctico",
+        "numeroPregunta": 1,
+        "fuente": "Examen TE 2026",
+        "etiqueta": "2026 — Caso práctico — Galaxy Pop / Star Beats"
+      }
+    ],
+    "numeroApariciones": 1,
+    "observaciones": "Pregunta de desarrollo de tipo LBS + App móvil. Patrón muy similar a te-tema-3-practica-005 (localización de flota y personal, ACME). El foco está en dispositivos de seguimiento (GPS tracker en naves, dispositivo wearable en integrantes), LBS orientado a dispositivos y personas, app nativa o híbrida, funcionalidades de mapa en tiempo real, alertas de proximidad y coordinación.",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 9,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Caso práctico",
+      "2026",
+      "LBS",
+      "App móvil"
+    ],
+    "etiquetaVisible": "2026 — Caso práctico — Galaxy Pop / Star Beats",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Responder en 2 caras",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "2026 (modelo desconocido)"
+  },
+  {
+    "id": "te-tema-6-practica-009",
+    "asignaturaId": "te",
+    "temaPrincipalId": "tema-6",
+    "temaIds": [
+      "tema-6",
+      "tema-3"
+    ],
+    "parteExamenId": "parte-problemas",
+    "bloqueExamenId": "parte-problemas",
+    "bloqueExamenNombre": "Problemas prácticos",
+    "tipo": "practica",
+    "grupoTematico": "Internet de las Cosas y monitorización",
+    "patronRelacionado": "Diseño de solución IoT de localización y detección de amenazas en entorno urbano",
+    "origen": "examen_real",
+    "enunciado": "En París, los continuos ataques de villanos akumatizados están causando estragos: los ciudadanos entran en pánico, Cat Noir siempre llega tarde a la batalla porque se entretiene, y Ladybug debe coordinar a todos mientras protege la ciudad. La alcaldía ha solicitado el desarrollo de una solución IoT que permita monitorizar en tiempo real la ubicación de los superhéroes, detectar amenazas y coordinar evacuaciones de emergencia.\n\nHawk Moth intentará interceptar las comunicaciones para descubrir la identidad de los héroes, por lo que, como responsable del 'Departamento Tecnológico de Héroes de París', se te pide diseñar la siguiente solución:\n\nLos dispositivos utilizados para realizar los seguimientos y la monitorización.\n\nLos servicios de localización necesarios para poder rastrear con precisión los movimientos de los superhéroes y poder detectar las amenazas de manera rápida.\n\nEl tipo de aplicación y la justificación de dicha elección.\n\nLas funcionalidades de la aplicación basándose en las necesidades que se han comentado en el caso.\n\nCon esta solución IoT, París estará más protegido, los héroes podrán coordinarse mejor y, con suerte, Cat Noir llegará a tiempo a las batallas en lugar de quedarse haciendo chistes románticos.",
+    "fuentes": [
+      "Examen TE — Convocatoria 2026 (modelo desconocido)"
+    ],
+    "modelos": [
+      "2026"
+    ],
+    "etiquetasModelo": [
+      "2026 — Caso práctico — IoT + LBS + App móvil"
+    ],
+    "apariciones": [
+      {
+        "modelo": "2026",
+        "bloque": "Caso práctico",
+        "numeroPregunta": 1,
+        "fuente": "Examen TE 2026",
+        "etiqueta": "2026 — Caso práctico — Miraculous Ladybug / París IoT"
+      }
+    ],
+    "numeroApariciones": 1,
+    "observaciones": "Pregunta de desarrollo híbrida IoT + LBS + App. El caso añade un elemento diferenciador: seguridad de las comunicaciones (Hawk Moth puede interceptar). Patrón similar a te-tema-6-practica-008 (Mandalorianos) y te-tema-3-practica-005 (ACME). Clave: mencionar cifrado/seguridad de comunicaciones, app nativa con autenticación, sensores de amenazas (cámaras, sonido ambiente), alertas geolocalizadas.",
+    "requiereRevision": false,
+    "verificada": true,
+    "examenReal": true,
+    "convocatoria": "2026",
+    "ambito": "examen_real",
+    "ordenPregunta": 10,
+    "etiquetas": [
+      "EXAMEN REAL",
+      "Caso práctico",
+      "2026",
+      "IoT",
+      "LBS",
+      "App móvil",
+      "Seguridad comunicaciones"
+    ],
+    "etiquetaVisible": "2026 — Caso práctico — Miraculous Ladybug / París IoT",
+    "convocatorias": [
+      "2026"
+    ],
+    "extensionIndicada": "Responder en 2 caras",
+    "respuestaModelo": "",
+    "solucionOrientativa": "",
+    "criteriosCorreccion": [],
+    "codigoReferencia": "",
+    "origenVisible": "2026 (modelo desconocido)"
   }
 ]
