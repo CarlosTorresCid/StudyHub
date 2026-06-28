@@ -6576,8 +6576,213 @@
     "modelosExamen": [],
     "requiereRevision": false,
     "verificada": true
+  },
+  
+  {
+    "id": "casi-examen-real-desarrollo-2026A-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-1",
+    "temaIds": ["tema-1"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Diferencia entre autenticación, autorización y auditabilidad.",
+    "respuestaModelo": "Las tres Reglas de Oro de los SGSI son:\n\nAutenticación: proceso de verificar la identidad de quien intenta acceder al sistema (¿quién eres?). Se basa en algo que se sabe (contraseña), algo que se tiene (token) o algo que se es (biometría).\n\nAutorización: una vez verificada la identidad, determina qué recursos y operaciones puede realizar ese usuario (¿qué puedes hacer?). Implementa el principio de mínimo privilegio.\n\nAuditabilidad: capacidad de registrar y revisar todas las acciones realizadas por los usuarios sobre el sistema (¿qué has hecho?). Los ficheros de log son el mecanismo que hace posible la auditabilidad. Sin logs no es posible realizar auditorías eficaces ni atribuir responsabilidades.",
+    "criteriosCorreccion": [
+      "Define autenticación correctamente como verificación de identidad.",
+      "Define autorización correctamente como control de permisos tras autenticarse.",
+      "Define auditabilidad correctamente como registro de acciones.",
+      "Menciona los ficheros de log como mecanismo de auditabilidad.",
+      "Diferencia claramente las tres con sus preguntas clave: quién / qué puede / qué ha hecho."
+    ],
+    "fuentes": ["2026 Modelo A — Pregunta de desarrollo 1"],
+    "observaciones": "Pregunta de desarrollo confirmada en examen real 2026 Modelo A. Concepto cubierto también en casi-tema-1-test-004 y casi-tema-1-corta-002, pero esta es la primera aparición como desarrollo de examen real.",
+    "modelosExamen": ["2026-A"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026A-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-3",
+    "temaIds": ["tema-3"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Comparar cifrado simétrico y asimétrico en términos de velocidad y complejidad, e indicar sus casos de uso.",
+    "respuestaModelo": "Cifrado simétrico: utiliza una única clave compartida para cifrar y descifrar. Es muy rápido y eficiente computacionalmente, lo que lo hace adecuado para cifrar grandes volúmenes de datos. Su principal problema es la distribución segura de la clave: ambas partes deben conocerla sin que nadie más la intercepte. Algoritmos representativos: AES, DES. Casos de uso: cifrado de disco completo, cifrado de bases de datos, sesiones TLS (una vez intercambiada la clave de sesión).\n\nCifrado asimétrico: utiliza un par de claves matemáticamente relacionadas: clave pública (se distribuye libremente) y clave privada (secreta). Lo que cifra una solo lo puede descifrar la otra. Es mucho más lento que el simétrico, por lo que no se usa para cifrar grandes volúmenes. Algoritmos representativos: RSA, ECC. Casos de uso: intercambio seguro de claves simétricas, firma digital, certificados digitales, autenticación.\n\nEn la práctica ambos se combinan: el asimétrico intercambia de forma segura una clave simétrica de sesión, y el simétrico cifra el tráfico real (ej. TLS/HTTPS).",
+    "criteriosCorreccion": [
+      "Describe el simétrico como más rápido con clave única compartida.",
+      "Identifica el problema del simétrico: distribución segura de la clave.",
+      "Describe el asimétrico como más lento con par de claves pública/privada.",
+      "Indica que el asimétrico se usa para distribución de claves y firma digital, no para grandes volúmenes.",
+      "Menciona al menos un caso de uso concreto de cada uno."
+    ],
+    "fuentes": ["2026 Modelo A — Pregunta de desarrollo 2", "2026 Modelo C — Pregunta de desarrollo 4"],
+    "observaciones": "Confirmada en examen real 2026 Modelo A (P2) y Modelo C (P4). Concepto cubierto en casi-tema-3-corta-001 y casi-tema-3-test-006/007, pero primera aparición como desarrollo de examen real.",
+    "modelosExamen": ["2026-A", "2026-C"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026A-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-5",
+    "temaIds": ["tema-5"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Definir control interno y explicar su clasificación en detectivo, preventivo y correctivo.",
+    "respuestaModelo": "El control interno es un mecanismo continuo y permanente implantado por la propia organización para supervisar que sus actividades se realizan correctamente y conforme a sus políticas. A diferencia de la auditoría (que es puntual), el control interno opera de forma ininterrumpida.\n\nClasificación por cómo abordan la amenaza:\n\nControl preventivo: actúa antes de que ocurra el incidente, reduciendo la probabilidad de que se materialice. Ejemplos: cortafuegos, políticas de contraseñas, formación en seguridad, principio de mínimo privilegio.\n\nControl detectivo: actúa durante o después del incidente, identificando que ha ocurrido o está ocurriendo algo anómalo. Ejemplos: IDS, logs de auditoría, cámaras de vigilancia, alertas SIEM.\n\nControl correctivo: actúa después del incidente, reduciendo el impacto y restaurando la situación normal. Ejemplos: backups y restauración, planes de continuidad de negocio, antivirus con capacidad de cuarentena.\n\nTrampa frecuente: el control disuasorio (que hace desistir al atacante antes de actuar) es una cuarta categoría que el temario también contempla, aunque no se pide en este enunciado.",
+    "criteriosCorreccion": [
+      "Define el control interno correctamente como mecanismo continuo propio de la organización.",
+      "Define y ejemplifica el control preventivo.",
+      "Define y ejemplifica el control detectivo.",
+      "Define y ejemplifica el control correctivo.",
+      "Diferencia claramente los tres en cuanto al momento de actuación: antes / durante-después / después."
+    ],
+    "fuentes": ["2026 Modelo A — Pregunta de desarrollo 3"],
+    "observaciones": "Confirmada en examen real 2026 Modelo A (P3). Concepto cubierto en casi-tema-5-corta-001, pero primera aparición como desarrollo de examen real.",
+    "modelosExamen": ["2026-A"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026A-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": ["tema-7"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explicar el fingerprinting y sus modos activo y pasivo.",
+    "respuestaModelo": "Ver casi-tema-7-desarrollo-001 (contenido idéntico). Confirmada aparición en examen real 2026 Modelo A (P4) y Modelo B (P3).",
+    "criteriosCorreccion": [
+      "Define fingerprinting como técnica centrada en un dispositivo concreto.",
+      "Explica que el modo activo genera tráfico propio y es detectable.",
+      "Proporciona al menos un ejemplo de fingerprinting activo (Nmap).",
+      "Explica que el modo pasivo solo intercepta tráfico existente y es indetectable.",
+      "Proporciona al menos un ejemplo de fingerprinting pasivo (p0f, Wireshark)."
+    ],
+    "fuentes": ["2026 Modelo A — Pregunta de desarrollo 4", "2026 Modelo B — Pregunta de desarrollo 3"],
+    "observaciones": "DUPLICADO DIRECTO de casi-tema-7-desarrollo-001. Esta entrada registra las apariciones en examen real 2026 A y B. Añadir modelosExamen: ['2026-A', '2026-B'] a la entrada original.",
+    "modelosExamen": ["2026-A", "2026-B"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026B-001",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-2",
+    "temaIds": ["tema-2"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Explicar el principio de mínimo privilegio.",
+    "respuestaModelo": "El principio de mínimo privilegio establece que cada usuario, proceso o componente de un sistema debe tener acceso únicamente a los recursos estrictamente necesarios para realizar su función específica, y nada más.\n\nFundamento: limita el radio de daño potencial si ese usuario o componente es comprometido. Un atacante que consigue las credenciales de un usuario con mínimo privilegio solo puede acceder a lo que ese usuario puede acceder, no a todo el sistema.\n\nAplicaciones prácticas: cuentas de usuario sin privilegios de administrador para tareas cotidianas, acceso a bases de datos con permisos solo de lectura cuando no se necesita escritura, procesos de aplicaciones que solo acceden a sus propios ficheros, principio de separación de funciones (ningún empleado debe tener control total sobre un proceso crítico completo).\n\nRelación con la auditoría: el principio de mínimo privilegio facilita la auditoría porque delimita el conjunto de usuarios que podrían haber realizado una acción determinada.",
+    "criteriosCorreccion": [
+      "Define correctamente el principio: acceso solo a lo estrictamente necesario.",
+      "Explica su objetivo: limitar el daño potencial si hay una brecha.",
+      "Proporciona al menos un ejemplo práctico concreto.",
+      "Menciona su relación con la separación de funciones o la auditoría."
+    ],
+    "fuentes": ["2026 Modelo B — Pregunta de desarrollo 1"],
+    "observaciones": "Confirmada en examen real 2026 Modelo B (P1). Concepto cubierto en casi-tema-2-corta-002, pero primera aparición como desarrollo de examen real.",
+    "modelosExamen": ["2026-B"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026B-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-11",
+    "temaIds": ["tema-11"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Principio de Locard y su importancia en la cadena de custodia.",
+    "respuestaModelo": "Ver casi-tema-11-desarrollo-001 (contenido idéntico). Confirmada aparición en examen real 2026 Modelo B (P2) y Modelo C (P1).",
+    "criteriosCorreccion": [
+      "Define el principio de Locard: cada contacto deja un rastro.",
+      "Aplica al entorno digital: menciona tipos de trazas (logs, metadatos, tráfico de red, RAM).",
+      "Explica que la ausencia de registro también es una traza.",
+      "Relaciona con cadena de custodia: el investigador también deja rastros.",
+      "Describe las dos copias y el uso del hash para verificar integridad."
+    ],
+    "fuentes": ["2026 Modelo B — Pregunta de desarrollo 2", "2026 Modelo C — Pregunta de desarrollo 1"],
+    "observaciones": "DUPLICADO DIRECTO de casi-tema-11-desarrollo-001. Añadir modelosExamen: ['2026-B', '2026-C'] a la entrada original.",
+    "modelosExamen": ["2026-B", "2026-C"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026B-004",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": ["tema-7"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Footprinting: qué es, tipos y qué información proporciona.",
+    "respuestaModelo": "Ver casi-tema-7-desarrollo-002 (contenido idéntico). Confirmada aparición en examen real 2026 Modelo B (P4).",
+    "criteriosCorreccion": [
+      "Define el footprinting como técnica de mapeo de red previa al pentesting.",
+      "Explica correctamente el footprinting externo (desde fuera, fuentes públicas).",
+      "Explica correctamente el footprinting interno (desde dentro, red interna).",
+      "Concluye que el interno representa mayor riesgo.",
+      "Justifica por qué el interno es más peligroso."
+    ],
+    "fuentes": ["2026 Modelo B — Pregunta de desarrollo 4"],
+    "observaciones": "DUPLICADO DIRECTO de casi-tema-7-desarrollo-002. Añadir modelosExamen: ['2026-B'] a la entrada original.",
+    "modelosExamen": ["2026-B"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026C-002",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-7",
+    "temaIds": ["tema-7"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "¿En qué consiste el escaneo de puertos? Explica su función en el análisis de vulnerabilidades e indica las herramientas principales.",
+    "respuestaModelo": "El escaneo de puertos es una técnica de fingerprinting activo que consiste en enviar paquetes de prueba a un sistema objetivo para determinar qué puertos TCP/UDP están abiertos, cerrados o filtrados, e identificar los servicios que corren en cada uno.\n\nFunción en el análisis de vulnerabilidades: el escaneo de puertos es la fase de enumeración, pieza clave del análisis de vulnerabilidades. Sin saber qué servicios están activos y accesibles, no es posible determinar qué vulnerabilidades existen. Cada puerto abierto con un servicio asociado es una posible superficie de ataque.\n\nTipos de escaneo principales:\n- TCP SYN scan (half-open): envía un paquete SYN; si recibe SYN-ACK el puerto está abierto. No completa el handshake, más sigiloso.\n- TCP connect scan: completa el handshake completo. Más fácilmente detectable.\n- UDP scan: más lento, identifica servicios UDP (DNS, DHCP, SNMP).\n\nHerramientas principales:\n- Nmap: la herramienta de referencia para escaneo de puertos y fingerprinting activo. Permite detectar el sistema operativo y la versión de los servicios.\n- Netstat: muestra los puertos en escucha y conexiones activas en el propio sistema (no escanea hosts remotos).\n\nImportante: el escaneo de puertos sin autorización sobre sistemas ajenos es ilegal.",
+    "criteriosCorreccion": [
+      "Define correctamente el escaneo de puertos como técnica para identificar puertos abiertos/cerrados/filtrados.",
+      "Explica su función en el análisis de vulnerabilidades (enumeración de superficie de ataque).",
+      "Menciona Nmap como herramienta principal de escaneo de puertos.",
+      "Diferencia Nmap (escaneo remoto) de Netstat (puertos locales).",
+      "Menciona que es una técnica de fingerprinting activo (genera tráfico, detectable)."
+    ],
+    "fuentes": ["2026 Modelo C — Pregunta de desarrollo 2"],
+    "observaciones": "NUEVA pregunta de desarrollo, no cubierta previamente en el banco. El concepto de escaneo de puertos aparecía en casi-examen-real-t7-006 (Cain&Abel no se usa para escaneo) y en casi-tema-7-corta-001 (Nmap como ejemplo), pero nunca como pregunta de desarrollo independiente.",
+    "modelosExamen": ["2026-C"],
+    "requiereRevision": false,
+    "verificada": true
+  },
+  {
+    "id": "casi-examen-real-desarrollo-2026C-003",
+    "asignaturaId": "casi",
+    "temaPrincipalId": "tema-9",
+    "temaIds": ["tema-9"],
+    "parteExamenId": null,
+    "tipo": "desarrollo",
+    "origen": "examen_real",
+    "enunciado": "Análisis cualitativo vs análisis cuantitativo de riesgos.",
+    "respuestaModelo": "Ver casi-tema-9-desarrollo-002 (contenido idéntico). Confirmada aparición en examen real 2026 Modelo C (P3).",
+    "criteriosCorreccion": [
+      "Define correctamente el análisis cualitativo (escalas descriptivas, matrices).",
+      "Define correctamente el análisis cuantitativo (valores numéricos y económicos).",
+      "Menciona las fórmulas SLE, ARO y ALE o equivalentes.",
+      "Proporciona un ejemplo numérico coherente.",
+      "Señala que el cuantitativo es más costoso pero más preciso."
+    ],
+    "fuentes": ["2026 Modelo C — Pregunta de desarrollo 3"],
+    "observaciones": "DUPLICADO DIRECTO de casi-tema-9-desarrollo-002. Añadir modelosExamen: ['2026-C'] a la entrada original.",
+    "modelosExamen": ["2026-C"],
+    "requiereRevision": false,
+    "verificada": true
   }
-
-
 
 ]
