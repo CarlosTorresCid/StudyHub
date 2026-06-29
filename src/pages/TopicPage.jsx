@@ -9,6 +9,7 @@ import { usePageTitle } from '../hooks/usePageTitle';
 import FlashcardsTab from '../components/FlashcardsTab';
 import TestTab from '../components/TestTab';
 import QuestionFilter from '../components/QuestionFilter';
+import TextToSpeechPlayer from '../components/TextToSpeechPlayer';
 import './TopicPage.css';
 
 
@@ -138,6 +139,8 @@ const applyFilter = (preguntas) => {
   const partes = examService.getEstructura(asignaturaId);
   const realCount = bankQuestions.filter(q => q.origen === 'examen_real').length;
 
+  const speechText = buildSpeechText(tema, content);
+
   const handleDownloadTema = async () => {
     try {
       await exportTopicToWord({
@@ -190,6 +193,8 @@ const applyFilter = (preguntas) => {
         </div>
 
         <div className="topic-download-actions">
+          {speechText && <TextToSpeechPlayer text={speechText} title="Leer tema" />}
+
           <button
             type="button"
             className="btn btn-download"
@@ -388,4 +393,60 @@ function ConceptosTab({ conceptos }) {
       ))}
     </div>
   );
+}
+
+function buildSpeechText(tema, content) {
+  if (!content) return '';
+
+  const parts = [];
+
+  parts.push(`Tema ${tema.numero}. ${tema.titulo}.`);
+
+  if (content.apuntes?.introduccion?.trim()) {
+    parts.push('Introducción.');
+    parts.push(content.apuntes.introduccion.trim());
+  }
+
+  if (content.apuntes?.secciones?.length > 0) {
+    for (const sec of content.apuntes.secciones) {
+      if (sec.titulo?.trim()) parts.push(sec.titulo.trim() + '.');
+      if (sec.contenido?.trim()) {
+        const cleaned = sec.contenido
+          .replace(/\*\*(.+?)\*\*/g, '$1')
+          .replace(/\*(.+?)\*/g, '$1')
+          .replace(/^- /gm, '')
+          .trim();
+        if (cleaned) parts.push(cleaned);
+      }
+    }
+  }
+
+  if (content.resumen?.length > 0) {
+    parts.push('Resumen.');
+    for (const item of content.resumen) {
+      if (typeof item === 'string' && item.trim()) parts.push(item.trim());
+    }
+  }
+
+  if (content.conceptosClave?.length > 0) {
+    parts.push('Conceptos clave.');
+    for (const c of content.conceptosClave) {
+      if (c.termino && c.definicion) {
+        parts.push(`${c.termino}: ${c.definicion}`);
+      }
+    }
+  }
+
+  if (content.flashcards?.length > 0) {
+    parts.push('Flashcards.');
+    for (const f of content.flashcards) {
+      if (f.pregunta && f.respuesta) {
+        parts.push(`Pregunta: ${f.pregunta}`);
+        parts.push(`Respuesta: ${f.respuesta}`);
+      }
+    }
+  }
+
+  const text = parts.join('\n\n').trim();
+  return text.length > 100 ? text : '';
 }
