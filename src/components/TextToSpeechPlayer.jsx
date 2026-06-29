@@ -7,6 +7,8 @@ const RATES = [
   { value: 0.8, label: '0.8x' },
   { value: 1,   label: '1x'   },
   { value: 1.2, label: '1.2x' },
+  { value: 1.5, label: '1.5x' },
+  { value: 2,   label: '2x'   },
 ];
 
 export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
