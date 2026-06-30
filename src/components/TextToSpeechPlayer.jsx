@@ -6,9 +6,12 @@ const isSupported = typeof window !== 'undefined' && 'speechSynthesis' in window
 const RATES = [
   { value: 0.8, label: '0.8x' },
   { value: 1,   label: '1x'   },
-  { value: 1.2, label: '1.2x' },
   { value: 1.5, label: '1.5x' },
   { value: 2,   label: '2x'   },
+  { value: 2.5, label: '2.5x' },
+  { value: 3,   label: '3x'   },
+  { value: 4,   label: '4x'   },
+  { value: 6,   label: '6x'   },
 ];
 
 export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
@@ -32,12 +35,17 @@ export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
 
   const handlePlay = useCallback(() => {
     if (!isSupported) return;
+
     window.speechSynthesis.cancel();
+
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'es-ES';
     utterance.rate = rate;
+    utterance.volume = 1;
+
     utterance.onend = () => setStatus('idle');
     utterance.onerror = () => setStatus('idle');
+
     window.speechSynthesis.speak(utterance);
     setStatus('playing');
   }, [text, rate]);
@@ -69,6 +77,7 @@ export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
             🔊 {title}
           </button>
         )}
+
         {status === 'playing' && (
           <>
             <button type="button" className="tts-button tts-pause" onClick={handlePause}>
@@ -79,6 +88,7 @@ export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
             </button>
           </>
         )}
+
         {status === 'paused' && (
           <>
             <button type="button" className="tts-button tts-resume" onClick={handleResume}>
@@ -89,6 +99,7 @@ export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
             </button>
           </>
         )}
+
         <select
           className="tts-rate-select"
           value={rate}
@@ -96,7 +107,9 @@ export default function TextToSpeechPlayer({ text, title = 'Leer tema' }) {
           aria-label="Velocidad de lectura"
         >
           {RATES.map(r => (
-            <option key={r.value} value={r.value}>{r.label}</option>
+            <option key={`${r.value}-${r.label}`} value={r.value}>
+              {r.label}
+            </option>
           ))}
         </select>
       </div>

@@ -33,61 +33,6 @@ function Section({ title, color, children }) {
   );
 }
 
-function BadgeList({ badges, variant }) {
-  return (
-    <div className="te-prep-badge-list">
-      {badges.map((b, i) => (
-        <span key={i} className={`te-prep-badge ${variant || ''}`}>{b}</span>
-      ))}
-    </div>
-  );
-}
-
-function Frase({ children }) {
-  return <blockquote className="te-prep-frase">{children}</blockquote>;
-}
-
-function Warning({ children }) {
-  return (
-    <div className="te-prep-warning">
-      <span className="te-prep-warning-icon">⚠️</span>
-      <span>{children}</span>
-    </div>
-  );
-}
-
-function Info({ children }) {
-  return <div className="te-prep-info">{children}</div>;
-}
-
-function Checklist({ items }) {
-  return (
-    <ul className="te-prep-checklist">
-      {items.map((item, i) => (
-        <li key={i}><span className="te-prep-check">✓</span>{item}</li>
-      ))}
-    </ul>
-  );
-}
-
-function ErrorList({ items }) {
-  return (
-    <ul className="te-prep-checklist">
-      {items.map((item, i) => (
-        <li key={i}><span className="te-prep-xmark">✗</span>{item}</li>
-      ))}
-    </ul>
-  );
-}
-
-function ModelChips({ models }) {
-  return (
-    <div className="te-prep-chips">
-      {models.map((m, i) => <span key={i} className="te-prep-chip">{m}</span>)}
-    </div>
-  );
-}
-
 function Table({ heads, rows }) {
   return (
     <div className="te-prep-table-wrap">
@@ -107,644 +52,618 @@ function Table({ heads, rows }) {
   );
 }
 
-function Rule({ label, children }) {
+function Warning({ children }) {
   return (
-    <div className="te-prep-rule">
-      <div className="te-prep-rule-label">{label}</div>
-      <div className="te-prep-rule-text">{children}</div>
+    <div className="te-prep-warning">
+      <span className="te-prep-warning-icon">⚠️</span>
+      <span>{children}</span>
     </div>
   );
 }
 
-function QA({ question, answer }) {
+function BoxBlue({ children }) {
+  return <div className="te-prep-box-blue">{children}</div>;
+}
+
+function BoxAmber({ children }) {
+  return <div className="te-prep-box-amber">{children}</div>;
+}
+
+function BoxGreen({ children }) {
+  return <div className="te-prep-box-green">{children}</div>;
+}
+
+function Checklist({ items }) {
   return (
-    <div className="te-prep-qa">
-      <div className="te-prep-qa-q">❓ {question}</div>
-      <div className="te-prep-qa-a">{answer}</div>
-    </div>
+    <ul className="te-prep-checklist">
+      {items.map((item, i) => (
+        <li key={i}><span className="te-prep-check">✓</span>{item}</li>
+      ))}
+    </ul>
   );
 }
 
-/* ── BLOQUE 1: IoT + wearables terrestres ────────────────────────────────── */
+function Para({ children }) {
+  return (
+    <p style={{ margin: '0 0 10px', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.65 }}>
+      {children}
+    </p>
+  );
+}
 
-function Block1() {
+function BulletList({ items }) {
+  return (
+    <ul style={{
+      margin: '6px 0', paddingLeft: 20, fontSize: 13,
+      color: 'var(--text-muted)', lineHeight: 1.75,
+      display: 'flex', flexDirection: 'column', gap: 4,
+    }}>
+      {items.map((item, i) => <li key={i}>{item}</li>)}
+    </ul>
+  );
+}
+
+function SubTitle({ children }) {
+  return <div className="te-prep-subsec-title">{children}</div>;
+}
+
+function Gap() {
+  return <div style={{ height: 10 }} />;
+}
+
+/* ── Sección 0 — ¿Qué es el ejercicio? ────────────────────────────────────── */
+
+function Sec0() {
   return (
     <>
-      <Section title="Cómo reconocerlo en el enunciado" color="#E07B39">
-        <p style={{ margin: '0 0 8px', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-          Palabras clave que identifican este tipo:
-        </p>
-        <BadgeList badges={[
-          'salud', 'fatiga', 'rendimiento', 'esfuerzo', 'actividad física',
-          'biométrico', 'entrenamiento', 'pulsera', 'wearable', 'monitorizar',
-          'jugadores', 'princesas', 'estilo de vida', 'parámetros físicos',
-        ]} />
-      </Section>
-
-      <Section title="Casos detectados en el banco" color="#3b82f6">
-        <div style={{ marginBottom: 6, fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Equipo de fútbol:
-        </div>
-        <ModelChips models={['2023 Modelo A', '2023 Modelo C', '2023 Modelo D']} />
-        <div style={{ margin: '10px 0 6px', fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Princesas Disney (Ariel, Rapunzel…):
-        </div>
-        <ModelChips models={['2024 Modelo B']} />
-        <Info style={{ marginTop: 10 }}>
-          <strong>Qué pide el enunciado:</strong> Proponer una solución IoT que monitorice parámetros biométricos
-          (frecuencia cardíaca, temperatura, esfuerzo, fatiga, actividad) de personas en entorno terrestre normal.
-          Se pide describir dispositivos, tecnologías, funcionalidades y limitaciones.
-        </Info>
-      </Section>
-
-      <Section title="Estructura de respuesta recomendada" color="#10b981">
-        <ol style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--text-muted)', lineHeight: 2 }}>
-          <li><strong style={{ color: 'var(--text)' }}>Introducción contextualizada</strong> — adapta el inicio al dominio concreto del enunciado.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Dispositivos necesarios</strong> — lista con función de cada uno.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Tecnologías de comunicación</strong> — qué protocolo usa cada enlace.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Funcionalidades por dispositivo</strong> — qué mide o hace cada uno.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Funcionamiento general</strong> — flujo completo del dato.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Datos obtenidos</strong> — qué información recoge el sistema.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Seguridad y privacidad</strong> — datos biométricos = datos sensibles.</li>
-          <li><strong style={{ color: 'var(--text)' }}>Limitaciones y problemas</strong> — batería, precisión, coste…</li>
-          <li><strong style={{ color: 'var(--text)' }}>Cierre</strong> — resume el valor de la solución.</li>
-        </ol>
-      </Section>
-
-      <Section title="Dispositivos recomendados" color="#8b5cf6">
+      <Para>
+        El examen de Tecnologías Emergentes incluye un caso práctico con un escenario ficticio (personajes de
+        animación, deportistas, guerreros espaciales…) que esconde siempre la misma estructura técnica: diseñar
+        una solución tecnológica IoT y/o de localización para monitorizar personas o dispositivos. Las respuestas
+        se puntúan sobre los apartados que exige el enunciado.
+      </Para>
+      <BoxBlue>
+        <strong>Patrón dominante detectado en todos los modelos de examen (2023–2026):</strong>
+        <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75, fontSize: 13 }}>
+          <li>→ IoT + wearables + datos biométricos → 6 de 10 preguntas</li>
+          <li>→ LBS + flota/personal + app móvil → 4 de 10 preguntas</li>
+          <li>El escenario cambia; los conceptos técnicos son siempre los mismos.</li>
+        </ul>
+      </BoxBlue>
+      <Gap />
+      <Section title="Apartados que suele pedir el enunciado" color="#3b82f6">
         <Table
-          heads={['Dispositivo', 'Función principal']}
+          heads={['Apartado', 'Qué evalúa el corrector']}
           rows={[
-            ['Pulsera / reloj inteligente', 'Wearable principal; recoge señales biométricas de forma continua'],
-            ['Sensor de frec. cardíaca', 'Monitoriza el ritmo cardíaco en tiempo real'],
-            ['Sensor de temperatura corporal', 'Detecta fiebre o sobrecalentamiento'],
-            ['Oxímetro (SpO₂)', 'Mide saturación de oxígeno en sangre'],
-            ['Acelerómetro', 'Detecta movimiento, pasos, impactos y caídas'],
-            ['Giroscopio', 'Mide orientación y rotación del cuerpo'],
-            ['Smartphone del usuario', 'Pasarela entre wearable y servidor; muestra alertas'],
-            ['Hub/tablet local (staff técnico)', 'Agrega datos de varios wearables; panel en tiempo real'],
-            ['Servidor / cloud', 'Almacena histórico, ejecuta análisis y envía alertas'],
+            [<strong>Dispositivos necesarios</strong>, 'Identifica el hardware correcto para el entorno (wearable, tracker GPS, beacon, gateway…)'],
+            [<strong>Tecnologías de comunicación</strong>, 'Justifica BLE, WiFi, GNSS, LPWAN según entorno y necesidad (no vale poner cualquiera)'],
+            [<strong>Tipo de aplicación y justificación</strong>, 'Nativa / híbrida / webapp con razón concreta (acceso a sensores, offline, coste…)'],
+            [<strong>Funcionalidades</strong>, 'Lista de lo que hace la app y los dispositivos, coherente con el escenario'],
+            [<strong>Funcionamiento general</strong>, 'Flujo completo: sensor → gateway → servidor → usuario; incluye comunicación autónoma'],
+            [<strong>Limitaciones / problemas</strong>, 'Muestra pensamiento crítico; siempre hay al menos batería, privacidad y entorno'],
           ]}
         />
       </Section>
-
-      <Section title="Tecnologías de comunicación" color="#E07B39">
-        <Table
-          heads={['Enlace', 'Tecnología', 'Por qué']}
-          rows={[
-            ['Wearable → Smartphone', 'BLE (Bluetooth Low Energy)', 'Bajo consumo, corto alcance, ideal para wearables'],
-            ['Smartphone → Servidor', 'WiFi / 4G / 5G', 'Conectividad de área amplia, alta capacidad de datos'],
-            ['Hub → Servidor', 'WiFi / Ethernet', 'Conexión estable en instalación fija'],
-            ['Localización exterior', 'GNSS (GPS, Galileo…)', 'Solo si el enunciado pide geolocalización'],
-            ['Baja latencia / sin cloud', 'Edge Computing', 'Procesar en hub local si se requiere respuesta inmediata'],
-          ]}
-        />
-      </Section>
-
-      <Section title="Limitaciones a mencionar siempre" color="#ef4444">
-        <BadgeList badges={[
-          'Batería limitada', 'Privacidad de datos biométricos', 'Falsos positivos',
-          'Conectividad variable', 'Coste de dispositivos', 'Mantenimiento',
-          'Precisión de sensores', 'Confort y adherencia del usuario',
-        ]} variant="red" />
-      </Section>
-
-      <div className="ptg-section ptg-section-plantilla">
-        <div className="ptg-section-title">Frase modelo de apertura</div>
-        <Frase>
-          &ldquo;Para abordar este reto se propone una solución IoT basada en dispositivos wearables que permiten
-          monitorizar de forma <strong>continua y no intrusiva</strong> los parámetros biométricos y de actividad
-          de cada usuario, transmitiendo los datos en tiempo real al sistema de análisis para generar alertas
-          y registrar el histórico de rendimiento.&rdquo;
-        </Frase>
-      </div>
-
-      <div className="ptg-section ptg-section-errores">
-        <div className="ptg-section-title">Errores a evitar</div>
-        <ErrorList items={[
-          'Listar dispositivos sin explicar cómo se comunican entre sí.',
-          'No mencionar BLE para el enlace wearable → smartphone.',
-          'Olvidar la privacidad y protección de datos biométricos.',
-          'No mencionar la batería como limitación.',
-          'Copiar la misma introducción genérica sin adaptarla al dominio (fútbol, salud, Disney…).',
-          'Proponer GNSS sin que el enunciado pida localización exterior.',
-        ]} />
-      </div>
     </>
   );
 }
 
-/* ── BLOQUE 2: IoT + entorno acuático ───────────────────────────────────── */
+/* ── Sección 1 — Árbol de decisión ────────────────────────────────────────── */
 
-function Block2() {
+function Sec1() {
   return (
     <>
-      <Section title="Cómo reconocerlo en el enunciado" color="#E07B39">
-        <p style={{ margin: '0 0 8px', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-          Palabras clave que identifican este tipo:
-        </p>
-        <BadgeList badges={[
-          'agua', 'mar', 'océano', 'submarino', 'fondo del mar',
-          'Fondo de Bikini', 'Ariel', 'Atlántica', 'medusas',
-          'crustáceo', 'profundidad', 'marina', 'acuático', 'buceo',
-        ]} />
+      <Para>
+        Antes de escribir una sola línea de respuesta, lee el enunciado y responde estas preguntas en orden.
+        Cada respuesta te dirige al bloque de teoría correcto.
+      </Para>
+
+      <Section title="Pregunta 1 — ¿Cuál es el entorno físico?" color="#f59e0b">
+        <BoxAmber>
+          <strong>Esta es la primera bifurcación. Condiciona TODO lo demás:</strong> qué sensores funcionan,
+          qué protocolos de comunicación son viables y qué limitaciones existen.
+        </BoxAmber>
+        <Gap />
+        <Table
+          heads={['Entorno', 'Implicaciones inmediatas para la respuesta']}
+          rows={[
+            [<strong>EXTERIOR abierto (campo, desierto, ciudad)</strong>, 'GNSS funciona. Usar GPS + Galileo. Comunicación 4G/LTE-M. Sin limitaciones especiales.'],
+            [<strong>INTERIOR (restaurante, castillo, nave)</strong>, 'GNSS no llega. Usar beacons BLE (iBeacon o Eddystone) para localización por proximidad. Comunicación WiFi o BLE al gateway.'],
+            [<strong>MIXTO (interior + exterior)</strong>, 'GNSS en exterior + beacons BLE en interior. Comunicación LTE-M cuando no hay WiFi. Es el caso más frecuente.'],
+            [<strong>BAJO EL AGUA (acuático, submarino)</strong>, 'BLE, WiFi y GNSS no funcionan bajo el agua. Almacenamiento local (data logger flash). Sincronización al emerger vía BLE. Certificación IP68 obligatoria.'],
+            [<strong>ESPACIO / entorno sin infraestructura</strong>, 'Sin red celular. Almacenamiento local + LoRa o similar cuando hay cobertura. Batería crítica. Temperaturas extremas.'],
+          ]}
+        />
       </Section>
 
-      <Section title="Casos detectados en el banco" color="#3b82f6">
-        <div style={{ marginBottom: 6, fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Crustáceo Crujiente (Fondo de Bikini):
-        </div>
-        <ModelChips models={['2024 Modelo A', '2024 Modelo D']} />
-        <div style={{ margin: '10px 0 6px', fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Caza de medusas (Fondo de Bikini):
-        </div>
-        <ModelChips models={['2025 Modelo A']} />
-        <div style={{ margin: '10px 0 6px', fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Ariel en el reino de Atlántica:
-        </div>
-        <ModelChips models={['2025 Modelo B', '2025 Modelo F']} />
+      <Section title="Pregunta 2 — ¿Qué se monitoriza?" color="#10b981">
+        <BoxGreen>
+          El enunciado puede pedir monitorizar <strong>PERSONAS</strong> (datos biométricos + posición)
+          o <strong>DISPOSITIVOS/VEHÍCULOS</strong> (posición + telemetría) o <strong>AMBOS</strong>.
+          Esto determina los sensores y el tipo de LBS.
+        </BoxGreen>
+        <Gap />
+        <Table
+          heads={['Qué se monitoriza', 'Sensores y datos implicados']}
+          rows={[
+            [<strong>Datos biométricos</strong>, 'FC (frecuencia cardíaca) por PPG, SpO2, temperatura corporal, acelerómetro, giroscopio. → Wearable ligero (pulsera o reloj).'],
+            [<strong>Posición de personas</strong>, 'GNSS en exterior (receptor GPS+Galileo). Beacons BLE en interior. A-GPS para reducir TTFF.'],
+            [<strong>Posición de vehículos / flotas</strong>, 'Tracker GPS embarcado (OBD o cableado). Transmisión autónoma por 4G o LTE-M.'],
+            [<strong>Actividad física sin GPS</strong>, 'Acelerómetro triaxial + giroscopio. Estima distancia, pasos, intensidad. Útil bajo el agua o en interiores.'],
+            [<strong>Amenazas / entorno</strong>, 'Sensores acústicos, de vibración, cámaras CCTV inteligentes. Comunicación NB-IoT o WiFi.'],
+          ]}
+        />
       </Section>
 
-      <Section title="Diferencia clave respecto al Tipo 1" color="#ef4444">
+      <Section title="Pregunta 3 — ¿Qué tipo de LBS necesita el caso?" color="#3b82f6">
+        <BoxBlue>
+          Cada pregunta de examen combina LBS orientado a personas y/o a dispositivos, reactivo y/o proactivo.
+          Identificarlos correctamente demuestra que dominas la teoría del Tema 3.
+        </BoxBlue>
+        <Gap />
+        <Table
+          heads={['Tipo de LBS', 'Definición del temario + señal en el enunciado']}
+          rows={[
+            [<strong>Orientado a personas</strong>, 'El propósito es determinar la ubicación de una persona o usarla para ofrecerle un servicio. La persona DEBE controlar cuándo comparte su posición. → Señal: vigilante, guerrera, atleta, superhéroe.'],
+            [<strong>Orientado a dispositivos</strong>, 'El propósito es localizar un dispositivo o vehículo de forma autónoma. → Señal: flota de vehículos, naves, trackers, carsharing.'],
+            [<strong>Reactivo (Pull)</strong>, 'El usuario invoca el servicio activamente. La interacción es siempre explícita. → Señal: "el usuario consulta", "busca", "solicita".'],
+            [<strong>Proactivo (Push)</strong>, 'Se activa automáticamente ante un evento de localización predefinido. Interacción asíncrona. → Señal: "notifica automáticamente", "envía al más cercano", "alerta cuando se aleja de la zona".'],
+          ]}
+        />
+      </Section>
+
+      <Section title="Pregunta 4 — ¿Qué tecnología de comunicación corresponde?" color="#f59e0b">
+        <BoxAmber>
+          La selección del protocolo <strong>SIEMPRE necesita justificación.</strong> No vale decir "WiFi"
+          o "Bluetooth" sin explicar por qué. La justificación es la mitad del punto.
+        </BoxAmber>
+        <Gap />
+        <Table
+          heads={['Protocolo', 'Cuándo usarlo (según teoría Tema 6)']}
+          rows={[
+            [<strong>BLE 5.0</strong>, 'Corto alcance (hasta 60 m), muy bajo consumo. → Entre el wearable y el gateway. En interiores. Beacons. Pulseras.'],
+            [<strong>WiFi (IEEE 802.11ac)</strong>, 'Medio alcance, alto ancho de banda. → Gateway → servidor en instalaciones con red local. Ideal en interiores con infraestructura.'],
+            [<strong>4G / LTE</strong>, 'Alto ancho de banda, consumo medio-alto. → Cuando se necesita transmisión de video o datos grandes en exterior con cobertura.'],
+            [<strong>LTE-M (LPWAN estándar)</strong>, 'Bajo consumo, largo alcance, bajo ancho de banda. → Dispositivos IoT en movilidad (trackers de vehículos, wearables en exterior sin WiFi). Estándar 3GPP sobre infraestructura LTE.'],
+            [<strong>NB-IoT (LPWAN estándar)</strong>, 'Consumo mínimo, largo alcance, muy bajo ancho de banda. → Sensores fijos que envían datos pequeños esporádicamente (sensores de ciudad, alarmas).'],
+            [<strong>LoRa (LPWAN propietaria)</strong>, 'Consumo mínimo, largo alcance, muy bajo ancho de banda. → Entornos sin infraestructura celular (rural, espacio, desierto remoto). Propietaria de Semtech.'],
+            [<strong>Sigfox (LPWAN propietaria)</strong>, 'Similar a LoRa. → Alternativa cuando la red Sigfox tiene cobertura en la zona.'],
+            [<strong>Almacenamiento local (flash)</strong>, 'No es un protocolo: es la solución cuando NO hay comunicación posible (bajo el agua, sin cobertura). Los datos se sincronizan al recuperar conectividad.'],
+          ]}
+        />
+        <Gap />
+        <BoxGreen>
+          <strong>REGLA CLAVE del temario:</strong> Las tecnologías LPWAN tienen ancho de banda muy reducido
+          (medido en Kbps) pero son ideales para IoT por su bajo consumo y largo alcance.{' '}
+          LTE-M y NB-IoT son estándares (3GPP). LoRa y Sigfox son propietarias.
+        </BoxGreen>
+      </Section>
+
+      <Section title="Pregunta 5 — ¿Qué tipo de aplicación se elige y por qué?" color="#ef4444">
         <Warning>
-          <strong>GNSS no funciona bajo el agua.</strong> Las señales GPS/Galileo/GLONASS no penetran en el agua
-          de forma útil. Solo puede usarse GNSS en superficie. Bajo el agua hay que recurrir a sensores de profundidad,
-          balizas acústicas o comunicación por ultrasonidos.
+          Este apartado es obligatorio en las preguntas mixtas (IoT + LBS + App). La respuesta SIEMPRE
+          debe justificar la elección con criterios concretos. Memoriza los argumentos de cada tipo.
         </Warning>
-        <div style={{ marginTop: 10 }}>
-          <Warning>
-            <strong>BLE y WiFi se atenúan gravemente en agua</strong>, especialmente en agua salada.
-            No proponer BLE ni WiFi como comunicación principal bajo el agua.
-          </Warning>
-        </div>
-      </Section>
-
-      <Section title="Tecnologías: válidas vs. problemáticas" color="#8b5cf6">
-        <div className="te-prep-tech-grid">
-          <div className="te-prep-tech-ok">
-            <div className="te-prep-tech-label">Válidas bajo el agua</div>
-            <ul className="te-prep-tech-items">
-              <li>Ultrasonidos / comunicación acústica</li>
-              <li>Balizas acústicas</li>
-              <li>Sensores de presión y profundidad</li>
-              <li>Almacenamiento local + sincronización posterior</li>
-              <li>GNSS en superficie únicamente</li>
-              <li>Edge computing en dispositivo o hub</li>
-            </ul>
-          </div>
-          <div className="te-prep-tech-no">
-            <div className="te-prep-tech-label">Problemáticas / evitar sin matizar</div>
-            <ul className="te-prep-tech-items">
-              <li>GNSS bajo el agua</li>
-              <li>BLE bajo el agua (alta atenuación)</li>
-              <li>WiFi bajo el agua (alta atenuación)</li>
-              <li>4G/5G bajo el agua</li>
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section title="Dispositivos recomendados" color="#10b981">
+        <Gap />
         <Table
-          heads={['Dispositivo', 'Requisito especial', 'Función']}
+          heads={['Tipo de app', 'Cuándo elegirla (argumentos del temario)']}
           rows={[
-            ['Brazalete / reloj estanco', 'IP68 o equivalente', 'Wearable principal; biométrica acuática'],
-            ['Sensor de presión / profundidad', 'Resistente a la presión', 'Mide profundidad y alerta por buceo excesivo'],
-            ['Sensores biométricos protegidos', 'Sellado hermético', 'FC, temperatura, SpO₂'],
-            ['Aletas / plantillas inteligentes', 'Materiales resistentes', 'Detectar esfuerzo, patada, propulsión'],
-            ['Baliza acústica', 'Diseñada para agua', 'Comunicación de posición submarina'],
-            ['Hub / boya en superficie', 'Zona segura con cobertura', 'Centraliza datos; relay hacia la nube'],
-            ['Smartphone / consola', 'Cuando hay cobertura (superficie)', 'Visualizar datos tras sincronización'],
+            [<strong>Nativa</strong>, 'Cuando se necesita: acceso completo a TODOS los sensores (GPS, cámara, BLE), máximo rendimiento, funcionalidad offline completa, seguridad máxima. Desventaja: dos desarrollos separados (iOS + Android), mayor coste.'],
+            [<strong>Híbrida</strong>, 'Cuando se necesita: acceso al GPS y sensores básicos mediante plugins, funcionalidad offline, UN SOLO equipo de desarrollo para ambas plataformas. Equilibrio entre coste y rendimiento. Frameworks: Flutter, React Native. Desventaja: velocidad menor que nativa, UX algo inferior.'],
+            [<strong>Web App (webapp)</strong>, 'Cuando la app es informativa o transaccional sin necesidad de GPS nativo ni funcionamiento offline. Usa HTML + CSS + JavaScript. Funciona en cualquier navegador. Desventaja: sin acceso pleno al hardware, no funciona offline.'],
           ]}
         />
-      </Section>
-
-      <Section title="Limitaciones específicas del entorno acuático" color="#ef4444">
-        <BadgeList badges={[
-          'Corrosión por agua salada', 'Presión hidrostática', 'Estanqueidad IP68',
-          'Batería limitada', 'Pérdida de señal inalámbrica', 'Mantenimiento difícil',
-          'Coste de dispositivos específicos', 'Falsos positivos por corrientes o golpes',
-        ]} variant="red" />
-      </Section>
-
-      <div className="ptg-section ptg-section-plantilla">
-        <div className="ptg-section-title">Frase modelo de apertura</div>
-        <Frase>
-          &ldquo;En un entorno submarino, la arquitectura IoT debe adaptarse a las <strong>limitaciones de
-          propagación de las señales inalámbricas</strong>. El GNSS solo se usará en superficie; bajo el agua
-          se recurrirá a sensores de profundidad, balizas acústicas o comunicación por ultrasonidos,
-          y los datos biométricos se almacenarán localmente hasta que haya cobertura para sincronizarlos.&rdquo;
-        </Frase>
-      </div>
-
-      <div className="ptg-section ptg-section-errores">
-        <div className="ptg-section-title">Errores a evitar</div>
-        <ErrorList items={[
-          'Decir que GPS/GNSS funciona perfectamente bajo el agua (error crítico).',
-          'Proponer BLE o WiFi como comunicación principal bajo el agua sin matizar.',
-          'No mencionar estanqueidad (IP68 o equivalente) en los dispositivos.',
-          'Olvidar el problema de la corrosión en entorno marino.',
-          'No explicar cómo se sincronizan los datos cuando hay cobertura.',
-        ]} />
-      </div>
-    </>
-  );
-}
-
-/* ── BLOQUE 3: IoT + entorno espacial/extremo ────────────────────────────── */
-
-function Block3() {
-  return (
-    <>
-      <Section title="Cómo reconocerlo en el enunciado" color="#E07B39">
-        <p style={{ margin: '0 0 8px', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-          Palabras clave que identifican este tipo:
-        </p>
-        <BadgeList badges={[
-          'espacio', 'galaxia', 'misión', 'armadura', 'casco', 'traje',
-          'mandalorianos', 'entorno extremo', 'sin infraestructura',
-          'largo alcance', 'campo de batalla', 'nave', 'hostil',
-        ]} />
-      </Section>
-
-      <Section title="Casos detectados en el banco" color="#3b82f6">
-        <div style={{ marginBottom: 6, fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Mandalorianos (cazarrecompensas, armadura beskar):
-        </div>
-        <ModelChips models={['2025 Modelo C', '2025 Modelo D']} />
-        <Info>
-          <strong>Qué pide el enunciado:</strong> Proponer solución IoT integrada en equipamiento (armadura, casco, traje)
-          que funcione en entorno con conectividad limitada o inexistente, con condiciones ambientales extremas
-          (radiación, temperatura, interferencias).
-        </Info>
-      </Section>
-
-      <Section title="Clave diferencial: Edge Computing obligatorio" color="#ef4444">
-        <Warning>
-          En un entorno sin infraestructura de red, <strong>no hay cloud disponible en tiempo real</strong>.
-          El procesamiento debe hacerse en local (en la armadura, en el casco o en un hub de la nave).
-          Es el caso de uso perfecto para Edge Computing.
-        </Warning>
-      </Section>
-
-      <Section title="Dispositivos recomendados" color="#10b981">
-        <Table
-          heads={['Dispositivo', 'Función']}
-          rows={[
-            ['Sensores integrados en armadura', 'Temperatura, impacto, esfuerzo, integridad estructural'],
-            ['Guantelete / brazalete biométrico', 'FC, SpO₂, temperatura corporal del combatiente'],
-            ['Casco con HUD (Heads-Up Display)', 'Mostrar alertas, mapas y estado vital en tiempo real'],
-            ['Botas con sensores de presión/impacto', 'Detectar caídas, terreno o esfuerzo de desplazamiento'],
-            ['IMU (unidad de medición inercial)', 'Acelerómetro + giroscopio integrado en armadura'],
-            ['Hub en nave / base de operaciones', 'Agrega datos locales; comunica con unidades cercanas'],
-            ['Sistema de com. local (radio / mesh)', 'Enlace entre unidades del grupo sin necesidad de red externa'],
-          ]}
-        />
-      </Section>
-
-      <Section title="Tecnologías de comunicación" color="#8b5cf6">
-        <Table
-          heads={['Enlace', 'Tecnología', 'Por qué']}
-          rows={[
-            ['Sensores → casco/hub', 'BLE / radio de corto alcance', 'Bajo consumo; dentro de la armadura'],
-            ['Unidad → nave/base', 'Radio táctica o mesh', 'Funciona sin infraestructura; alcance medio'],
-            ['Unidad → unidades vecinas', 'Red mesh local', 'Comunicación directa sin central'],
-            ['Base → mando remoto', 'Comunicación satelital', 'Solo si existe infraestructura disponible'],
-            ['Procesamiento en local', 'Edge computing (CPU en casco o hub)', 'Baja latencia; sin dependencia de cloud'],
-          ]}
-        />
-      </Section>
-
-      <Section title="Limitaciones específicas del entorno extremo" color="#ef4444">
-        <BadgeList badges={[
-          'GNSS no garantizado', 'Radiación', 'Temperaturas extremas',
-          'Pérdida de señal (jamming)', 'Energía muy limitada', 'Mantenimiento difícil en campo',
-          'Seguridad de la información crítica', 'Coste de componentes resistentes',
-        ]} variant="red" />
-      </Section>
-
-      <div className="ptg-section ptg-section-plantilla">
-        <div className="ptg-section-title">Frase modelo de apertura</div>
-        <Frase>
-          &ldquo;En un entorno extremo o espacial, la solución debe ser capaz de funcionar incluso
-          <strong> sin conectividad permanente</strong>, por lo que parte del procesamiento se realiza
-          mediante edge computing en la propia armadura o equipo del usuario. Los datos biométricos y
-          de actividad se procesan localmente para generar alertas inmediatas y se sincronizan con la
-          nave o base cuando se establece conexión.&rdquo;
-        </Frase>
-      </div>
-
-      <div className="ptg-section ptg-section-errores">
-        <div className="ptg-section-title">Errores a evitar</div>
-        <ErrorList items={[
-          'Proponer cloud en tiempo real sin considerar la falta de conectividad.',
-          'Asumir que GNSS funciona en cualquier entorno espacial o subterráneo.',
-          'No mencionar Edge Computing como solución a la falta de infraestructura.',
-          'Olvidar la radiación y las temperaturas extremas como limitación de los sensores.',
-          'Proponer una arquitectura idéntica a la del Tipo 1 sin adaptarla al contexto hostil.',
-        ]} />
-      </div>
-    </>
-  );
-}
-
-/* ── BLOQUE 4: LBS + flota de vehículos ─────────────────────────────────── */
-
-function Block4() {
-  return (
-    <>
-      <Section title="Cómo reconocerlo en el enunciado" color="#E07B39">
-        <p style={{ margin: '0 0 8px', fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-          Palabras clave que identifican este tipo:
-        </p>
-        <BadgeList badges={[
-          'flota', 'vehículos', 'vigilantes', 'ubicación en tiempo real',
-          'incidencia', 'ruta', 'más cercano', 'mapa', 'seguridad',
-          'ACME', 'desierto', 'personal', 'rondas', 'asignar',
-        ]} />
-      </Section>
-
-      <Section title="Casos detectados en el banco" color="#3b82f6">
-        <div style={{ marginBottom: 6, fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Empresa de seguridad, 15 vehículos:
-        </div>
-        <ModelChips models={['2023 Modelo B']} />
-        <div style={{ margin: '10px 0 6px', fontSize: 12.5, color: 'var(--text-muted)' }}>
-          Desierto de ACME (Coyote / Correcaminos):
-        </div>
-        <ModelChips models={['2024 Modelo C Ext']} />
-        <Info>
-          <strong>Qué pide el enunciado:</strong> Diseñar una solución LBS con app móvil que permita
-          visualizar en tiempo real la posición de vehículos y personal, y asignar el recurso más cercano
-          ante una incidencia.
-        </Info>
-      </Section>
-
-      <Section title="Servicios LBS a incluir" color="#10b981">
-        <Table
-          heads={['Servicio', 'Para qué sirve en este caso']}
-          rows={[
-            ['LBS (Location-Based Services)', 'Núcleo de la solución; todo el sistema orbita alrededor de la localización'],
-            ['GNSS (GPS, Galileo, GLONASS, BeiDou)', 'Posición de vehículos y smartphones en exterior'],
-            ['Geofencing', 'Zonas de seguridad; alerta cuando un recurso entra/sale de un área'],
-            ['Mapas en tiempo real', 'Visualizar posiciones en panel central y en app'],
-            ['Cálculo del recurso más cercano', 'Asignación inteligente del vehículo/vigilante más próximo a la incidencia'],
-            ['Histórico de rutas', 'Auditoría, rondas realizadas, tiempos de respuesta'],
-          ]}
-        />
-      </Section>
-
-      <Section title="Dispositivos recomendados" color="#8b5cf6">
-        <Table
-          heads={['Dispositivo', 'Función']}
-          rows={[
-            ['Smartphone del vigilante (con app)', 'Reportar posición; recibir asignaciones; enviar incidencias'],
-            ['GPS/GNSS embarcado en vehículo', 'Posición precisa del vehículo en tiempo real'],
-            ['Tablet / terminal embarcado', 'Panel de información en el vehículo; navegación'],
-            ['Servidor central', 'Agrega posiciones; calcula asignaciones; almacena histórico'],
-            ['Dashboard de operaciones', 'Panel visual para el centro de control; mapa con todo en tiempo real'],
-          ]}
-        />
-      </Section>
-
-      <Section title="Tipo de app recomendado" color="#E07B39">
-        <div className="te-prep-info">
-          <strong>App nativa</strong> cuando se necesite:
-          <ul style={{ margin: '6px 0 0', paddingLeft: 20, fontSize: 12.5, lineHeight: 1.8, color: 'var(--text-muted)' }}>
-            <li>GPS continuo y uso en segundo plano</li>
-            <li>Notificaciones push de incidencias</li>
-            <li>Acceso a sensores del dispositivo</li>
-            <li>Mapas integrados con alta fluidez</li>
-            <li>Alto rendimiento y fiabilidad en campo</li>
+        <Gap />
+        <BoxAmber>
+          <strong>ARGUMENTO EXAMEN para elegir:</strong>
+          <ul style={{ margin: '6px 0 0', paddingLeft: 18, lineHeight: 1.75, fontSize: 13 }}>
+            <li>→ Si el presupuesto es clave y se necesita multiplataforma: <strong>híbrida</strong></li>
+            <li>→ Si la seguridad, el rendimiento o el acceso total a hardware son críticos: <strong>nativa</strong></li>
+            <li>→ La web app NUNCA es la respuesta correcta cuando hay GPS o funcionamiento offline.</li>
           </ul>
-        </div>
-        <Frase style={{ marginTop: 10 }}>
-          &ldquo;Se recomienda una <strong>app nativa</strong> porque la aplicación necesita acceso continuo al GPS en
-          segundo plano, integración con notificaciones push y un rendimiento óptimo para mostrar mapas en tiempo real
-          con la posición de todos los recursos de la flota.&rdquo;
-        </Frase>
+        </BoxAmber>
       </Section>
+    </>
+  );
+}
 
-      <Section title="Funcionalidades de la app" color="#10b981">
-        <Checklist items={[
-          'Ver en mapa la posición de todos los vehículos y vigilantes en tiempo real.',
-          'Asignar incidencia al recurso más cercano disponible.',
-          'Crear y gestionar zonas de seguridad (geofencing).',
-          'Recibir alertas cuando un recurso entra o sale de una zona.',
-          'Consultar el histórico de rutas y rondas realizadas.',
-          'Enviar y recibir partes de incidencia.',
-          'Navegación GPS hasta el punto de la incidencia.',
-          'Panel web de operaciones para el centro de control.',
+/* ── Sección 2 — Módulos de respuesta (A-F) ────────────────────────────────── */
+
+function Sec2() {
+  return (
+    <>
+      <Para>
+        Una vez que el árbol de decisión ha identificado qué módulos aplican, combina el contenido
+        correspondiente y adapta los detalles al escenario concreto del enunciado.
+      </Para>
+
+      {/* MÓDULO A */}
+      <Section title="MÓDULO A — Wearable biomédico" color="#3b82f6">
+        <BoxBlue>
+          <strong>Aplica siempre que el enunciado pida monitorizar la actividad física o la salud de personas.</strong>
+        </BoxBlue>
+
+        <SubTitle>A.1 — Descripción del dispositivo</SubTitle>
+        <Para>
+          El dispositivo principal que porta cada persona es un wearable biomédico (pulsera o smartwatch) ligero
+          e impermeable con certificación IP68. Integra los siguientes sensores:
+        </Para>
+        <BulletList items={[
+          <><strong>FC por PPG:</strong> mide la frecuencia cardíaca de forma continua y detecta picos anómalos que indican sobresfuerzo o fatiga acumulada.</>,
+          <><strong>SpO2:</strong> niveles por debajo del 95 % indican problemas cardiorrespiratorios que requieren intervención.</>,
+          <><strong>Temperatura corporal:</strong> detecta golpe de calor, especialmente crítico en entornos de alta temperatura (cocinas, desiertos, combate prolongado).</>,
+          <><strong>Acelerómetro triaxial y giroscopio:</strong> cuantifican la actividad física (pasos, distancia, intensidad, cambios de dirección) sin necesidad de GPS.</>,
+        ]} />
+
+        <SubTitle>A.2 — Tecnología de comunicación del wearable</SubTitle>
+        <Para>
+          El wearable se comunica con el gateway local mediante <strong>Bluetooth Low Energy (BLE 5.0)</strong> por su muy
+          bajo consumo (autonomía 12-24 h) y alcance suficiente (hasta 60 m en abierto, 20-40 m en interiores). En
+          exteriores sin gateway WiFi, usa <strong>LTE-M</strong> directamente: tecnología LPWAN estándar (3GPP) de bajo
+          consumo para dispositivos IoT en movilidad.
+        </Para>
+
+        <SubTitle>A.3 — Limitaciones del módulo A</SubTitle>
+        <BulletList items={[
+          'La batería limita la autonomía a 12-24 horas. Se mitiga con carga inalámbrica estándar Qi.',
+          'Los datos biométricos son categoría especial según el RGPD: cifrado de extremo a extremo y consentimiento explícito obligatorios.',
+          'IP68 garantiza resistencia al sudor y lluvia, pero no a inmersiones prolongadas a gran profundidad.',
         ]} />
       </Section>
 
-      <Section title="Privacidad y limitaciones" color="#ef4444">
-        <BadgeList badges={[
-          'Consentimiento de los trabajadores', 'Uso limitado a horario laboral',
-          'Cifrado de las comunicaciones', 'Control de acceso al panel',
-          'Precisión GNSS variable', 'Batería del smartphone',
-          'Cobertura móvil en zonas remotas',
-        ]} variant="red" />
-        <Warning style={{ marginTop: 10 }}>
-          Los datos de localización de empleados son datos personales. Es obligatorio el consentimiento,
-          informar del uso y limitar la recogida al horario laboral.
+      {/* MÓDULO B */}
+      <Section title="MÓDULO B — Localización en exteriores (GNSS)" color="#10b981">
+        <BoxGreen>
+          <strong>Aplica cuando el entorno es exterior y se necesita posición geográfica precisa.</strong>
+        </BoxGreen>
+
+        <SubTitle>B.1 — Receptor GNSS</SubTitle>
+        <Para>
+          Para la localización en exteriores se utiliza un receptor <strong>GNSS multiconstellación (GPS + Galileo)</strong>.
+          GPS ofrece cobertura global; Galileo (sistema europeo) ofrece mayor precisión en señal civil. La combinación
+          mejora exactitud y disponibilidad. El tracker vehicular envía la posición cada 10-30 segundos de forma
+          completamente autónoma, sin intervención del conductor (principio IoT de comunicación automática entre objetos).
+        </Para>
+
+        <SubTitle>B.2 — A-GPS para reducir el TTFF</SubTitle>
+        <Para>
+          Los dispositivos que necesitan primera posición rápida usan <strong>A-GPS</strong> (GPS Asistido): descarga
+          previamente las efemérides de los satélites via red, reduciendo el <strong>Time To First Fix (TTFF)</strong> de
+          varios minutos a pocos segundos.
+        </Para>
+
+        <SubTitle>B.3 — Limitaciones del módulo B</SubTitle>
+        <BulletList items={[
+          'El GNSS no funciona en interiores: señal atenuada o bloqueada por estructuras. En interiores → Módulo C.',
+          'El efecto multicamino (multipath) degrada la precisión en entornos urbanos densos o estadios con tribunas altas.',
+          'El consumo del receptor GNSS en modo continuo reduce la autonomía del wearable.',
+        ]} />
+      </Section>
+
+      {/* MÓDULO C */}
+      <Section title="MÓDULO C — Localización en interiores (beacons BLE)" color="#3b82f6">
+        <BoxBlue>
+          <strong>Aplica cuando el entorno es interior o mixto y se necesita conocer la zona donde se encuentra una persona.</strong>
+        </BoxBlue>
+
+        <SubTitle>C.1 — Beacons BLE</SubTitle>
+        <Para>
+          Para interiores se utilizan <strong>balizas o beacons</strong>: dispositivos de tamaño reducido que emiten
+          cíclicamente por BLE una señal con un <strong>ID único</strong> propio de cada baliza. Pila con autonomía de
+          hasta 4 años, sin alimentación activa. Dos tipos:
+        </Para>
+        <BulletList items={[
+          <><strong>iBeacon</strong> (Apple, 2013): funciona con iOS y Android. Envía UUID, Major Number (zona/planta) y Minor Number (baliza concreta).</>,
+          <><strong>Eddystone</strong> (Google, 2015): funciona con iOS y Android. Más versátil: puede enviar URL, telemetría e información de distancia para apps de navegación interior.</>,
+        ]} />
+
+        <SubTitle>C.2 — Cómo funciona la localización por beacons</SubTitle>
+        <Para>
+          El wearable o smartphone detecta la señal BLE del beacon más cercano y lee su ID. El sistema lo traduce
+          a una zona concreta (p.ej. Major=1 → Planta baja, Minor=3 → Sala de cocina). Precisión de zona, no de
+          centímetros; suficiente para los casos de uso del examen.
+        </Para>
+
+        <SubTitle>C.3 — Gateway WiFi</SubTitle>
+        <Para>
+          En interiores, el <strong>gateway WiFi</strong> (router o hub conectado a la red local) recibe los datos de
+          los wearables vía BLE y los retransmite al servidor central por WiFi (IEEE 802.11ac o superior). El gateway
+          actúa como concentrador de la primera capa IoT.
+        </Para>
+      </Section>
+
+      {/* MÓDULO D */}
+      <Section title="MÓDULO D — Entorno acuático / sin comunicación radio" color="#ef4444">
+        <Warning>
+          Aplica cuando la actividad se desarrolla bajo el agua o en cualquier entorno donde las comunicaciones
+          de radio sean inviables.
+        </Warning>
+
+        <SubTitle>D.1 — Principio fundamental</SubTitle>
+        <Para>
+          Las ondas de radio (BLE, WiFi, 4G, GNSS) son absorbidas por el agua a pocos centímetros de profundidad. Solución:
+        </Para>
+        <BulletList items={[
+          'Almacenamiento local: el wearable registra todos los datos en memoria flash interna durante la inmersión.',
+          'Sincronización al emerger: cuando la persona sale a la superficie, el wearable transmite automáticamente todos los datos almacenados al gateway (p.ej. boya con BLE). Sincronización autónoma, sin intervención humana.',
+        ]} />
+
+        <SubTitle>D.2 — Sensores en entorno acuático</SubTitle>
+        <Para>
+          Sin comunicación, el wearable usa sensores que no requieren señal externa: acelerómetro triaxial + giroscopio
+          (actividad de nado, distancia estimada), FC y SpO2 (almacenamiento local). Certificación <strong>IP68</strong>{' '}
+          obligatoria (1,5 m, 30 min). Para profundidades mayores: IP69K o certificación de presión específica.
+          Carga mediante inducción Qi (sin conectores expuestos).
+        </Para>
+
+        <SubTitle>D.3 — Limitaciones del módulo D</SubTitle>
+        <BulletList items={[
+          'Monitorización siempre diferida: no hay datos en tiempo real durante la inmersión.',
+          'La presión hidrostática en profundidad puede superar la certificación IP68.',
+          'La salinidad marina corroe componentes si hay alguna apertura no hermética.',
+          'La temperatura fría en profundidad reduce la autonomía de la batería.',
+        ]} />
+      </Section>
+
+      {/* MÓDULO E */}
+      <Section title="MÓDULO E — Arquitectura del sistema IoT (flujo completo)" color="#10b981">
+        <BoxGreen>
+          <strong>Este bloque describe el "funcionamiento general" que pide casi siempre el enunciado.</strong>
+        </BoxGreen>
+
+        <SubTitle>E.1 — Tres capas del sistema IoT</SubTitle>
+        <BulletList items={[
+          <><strong>Capa 1 — Dispositivos (edge):</strong> sensores y wearables que captan datos del mundo físico. Los objetos IoT tienen dos partes diferenciadas: la parte física (hardware) y los servicios o acciones asociadas. Se comunican de forma autónoma, sin intervención humana.</>,
+          <><strong>Capa 2 — Conectividad y gateway:</strong> el gateway (tablet, router, boya, hub) agrega los datos de todos los dispositivos de la capa 1 y los retransmite al servidor. Usa WiFi o 4G/LTE-M según el entorno.</>,
+          <><strong>Capa 3 — Backend / servidor central:</strong> recibe, almacena, procesa y analiza todos los datos. Aplica la lógica de detección de anomalías, genera alertas y presenta la información en un dashboard. Puede apoyarse en plataformas como ThingSpeak (canales por dispositivo, campos personalizables, analíticas e informes).</>,
+        ]} />
+
+        <SubTitle>E.2 — Tipos de toma de decisiones (teoría Tema 6)</SubTitle>
+        <BulletList items={[
+          <><strong>Manejo de información:</strong> el objeto gestiona su propia información y la retorna cuando es preguntado.</>,
+          <><strong>Notificación:</strong> el objeto notifica situaciones a otros dispositivos o personas ante determinados eventos. No controla su actividad.</>,
+          <><strong>Toma de decisiones:</strong> el mayor nivel de inteligencia; el objeto puede autoadministrarse y ejecutar lógica de negocio. Puede ser centralizada (en el servidor) o distribuida (en varios objetos de la red).</>,
+        ]} />
+        <Gap />
+        <Para>
+          En los ejercicios de examen, la toma de decisiones suele ser <strong>centralizada en el servidor</strong>.
+        </Para>
+      </Section>
+
+      {/* MÓDULO F */}
+      <Section title="MÓDULO F — Tipo de aplicación móvil (decisión justificada)" color="#f59e0b">
+        <BoxAmber>
+          En los casos que piden diseñar una app,{' '}
+          <strong>la justificación de la elección es la mitad del punto.</strong>
+        </BoxAmber>
+
+        <SubTitle>F.1 — App nativa: cuándo y por qué</SubTitle>
+        <Para>
+          Elegir nativa cuando: acceso completo a TODOS los sensores (GPS, cámara, BLE, acelerómetro); máximo
+          rendimiento y mejor UX; funcionamiento offline completo; seguridad crítica con módulos de cifrado
+          avanzado. <strong>Desventaja:</strong> dos desarrollos separados (iOS con Swift + Android con Kotlin), mayor coste.
+        </Para>
+
+        <SubTitle>F.2 — App híbrida: cuándo y por qué</SubTitle>
+        <Para>
+          Elegir híbrida cuando: presupuesto limitado y se quiere un único equipo de desarrollo para iOS y Android
+          (Flutter, React Native); acceso al GPS y sensores básicos mediante plugins nativos; funcionalidad offline
+          necesaria. <strong>Desventaja:</strong> velocidad algo menor que nativa, UX ligeramente inferior.
+        </Para>
+
+        <SubTitle>F.3 — App web (webapp): cuándo NO elegirla</SubTitle>
+        <Warning>
+          Descartar la webapp cuando el enunciado requiere: acceso nativo al GPS (HTML5 Geolocation es limitado
+          e impreciso), funcionamiento offline, o acceso a sensores de hardware más allá del básico. En los
+          exámenes de TE, <strong>la webapp nunca es la respuesta correcta.</strong>
         </Warning>
       </Section>
-
-      <div className="ptg-section ptg-section-plantilla">
-        <div className="ptg-section-title">Frase modelo de apertura</div>
-        <Frase>
-          &ldquo;Se propone una <strong>aplicación móvil nativa basada en servicios de localización (LBS)</strong>
-          que permita visualizar en tiempo real la posición de vehículos y personal de vigilancia, facilitando
-          la asignación automática del recurso más cercano ante una incidencia y el control de las rondas
-          desde un panel central de operaciones.&rdquo;
-        </Frase>
-      </div>
-
-      <div className="ptg-section ptg-section-errores">
-        <div className="ptg-section-title">Errores a evitar</div>
-        <ErrorList items={[
-          'No justificar por qué se elige app nativa frente a híbrida o web.',
-          'Olvidar el GPS embarcado en el vehículo (no solo el smartphone).',
-          'No mencionar geofencing ni cálculo del recurso más cercano.',
-          'Ignorar la privacidad laboral y el consentimiento de los trabajadores.',
-          'Proponer IoT o wearables biométricos si el enunciado solo pide localización de vehículos.',
-        ]} />
-      </div>
     </>
   );
 }
 
-/* ── BLOQUE 5: Preguntas teóricas cortas ─────────────────────────────────── */
+/* ── Sección 3 — Mapa rápido: escenario → módulos ─────────────────────────── */
 
-function Block5() {
-  const estructura = [
-    '1. Definición clara y concisa.',
-    '2. Explicación técnica (cómo funciona, de qué se trata).',
-    '3. Ejemplo concreto y relacionado.',
-    '4. Ventaja / inconveniente si el enunciado lo pide explícitamente.',
-    '5. Cierre en una frase.',
-  ];
-
+function Sec3() {
   return (
     <>
-      <Section title="Cómo reconocerlo en el enunciado" color="#E07B39">
-        <BadgeList badges={[
-          '"¿Qué se entiende por…?"',
-          '"Indica una ventaja…"',
-          '"Indica un inconveniente…"',
-          '"Define…"',
-          '"Explica…"',
-          '"¿Qué impacto tiene…?"',
-        ]} />
-        <Info style={{ marginTop: 10 }}>
-          Estas preguntas suelen ser de <strong>15 líneas</strong> orientativas. Se puntúan con 1-1,5 puntos
-          sobre el total del caso práctico. No es necesario extenderse; lo importante es ser preciso.
-        </Info>
-      </Section>
-
-      <Section title="Estructura de respuesta" color="#10b981">
-        <ol style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--text-muted)', lineHeight: 2 }}>
-          {estructura.map((s, i) => <li key={i}>{s}</li>)}
-        </ol>
-      </Section>
-
-      <Section title="Minirespuestas preparadas" color="#8b5cf6">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <QA
-            question="¿Qué se entiende por beacon o baliza?"
-            answer='Un beacon o baliza es un pequeño dispositivo que emite periódicamente una señal inalámbrica, habitualmente mediante BLE (Bluetooth Low Energy), para que una aplicación móvil pueda detectar su proximidad. Se utiliza especialmente en interiores, donde GNSS no ofrece buena precisión, y permite activar servicios contextuales: información de una zona, guiado en edificios o control de presencia. Su principal ventaja es el bajo consumo energético; su principal limitación es el alcance reducido (unos 10-30 m).'
-          />
-          <QA
-            question="Indica una ventaja y un inconveniente de las aplicaciones híbridas."
-            answer='Una aplicación híbrida se desarrolla con tecnologías web (HTML, CSS, JS) empaquetadas dentro de una capa nativa que permite distribuirla en las tiendas de aplicaciones. Ventaja: permite reutilizar el mismo código para iOS, Android y web, reduciendo el coste y el tiempo de desarrollo. Inconveniente: el rendimiento es inferior al de una app nativa, especialmente en operaciones intensivas como gráficos, acceso continuo al GPS o uso de sensores en segundo plano.'
-          />
-          <QA
-            question="¿Qué se entiende por realidad virtual? Indica un ejemplo."
-            answer='La realidad virtual (VR) es una tecnología que genera un entorno digital tridimensional e inmersivo con el que el usuario puede interactuar en tiempo real, sustituyendo completamente su percepción del entorno físico. Requiere un dispositivo de visualización específico, como un casco o visor VR. Ejemplo: simuladores de entrenamiento militar o quirúrgico, en los que el usuario practica procedimientos en un entorno seguro antes de realizarlos en la realidad.'
-          />
-          <QA
-            question="¿Qué se entiende por Edge Computing? Indica una ventaja."
-            answer='Edge Computing es una arquitectura en la que el procesamiento de datos se realiza cerca del lugar donde se generan — en el propio dispositivo, wearable, hub local o pasarela — en lugar de enviarlos siempre a un servidor centralizado en la nube. Su principal ventaja es la reducción de la latencia, lo que lo hace especialmente útil en aplicaciones IoT que requieren alertas en tiempo real o que operan con conectividad limitada o intermitente.'
-          />
-          <QA
-            question="¿Qué se entiende por servicios basados en localización (LBS)?"
-            answer='Los servicios basados en localización (LBS, Location-Based Services) son servicios digitales que utilizan la posición geográfica del usuario o del dispositivo para ofrecer información o funcionalidades adaptadas a dicha ubicación. Se apoyan en tecnologías como GNSS (GPS, Galileo), redes móviles, WiFi o beacons. Ejemplos de uso: navegación GPS, búsqueda de negocios cercanos, seguimiento de flotas o geofencing.'
-          />
-          <QA
-            question="Indica dos inconvenientes de los sistemas GNSS."
-            answer='1. No funcionan correctamente en interiores ni bajo el agua: las señales de satélite son bloqueadas por techos, muros o el agua, lo que limita su uso a exteriores con buena visibilidad del cielo. 2. Precisión variable y dependencia de condiciones atmosféricas: la ionosfera, la troposfera y la presencia de obstáculos (edificios altos, vegetación densa) pueden degradar la precisión de la posición hasta varios metros.'
-          />
-          <QA
-            question="¿Qué se entiende por CPU de un dispositivo móvil? ¿Qué impacto tiene?"
-            answer='La CPU (Unidad Central de Procesamiento) de un dispositivo móvil es el componente encargado de ejecutar las instrucciones del sistema operativo y las aplicaciones. En dispositivos móviles actuales se implementa como un SoC (System on a Chip) que integra también GPU, memoria, módem y otros controladores. Su impacto sobre el funcionamiento general es determinante: una CPU más potente permite mayor fluidez en la interfaz, mejor rendimiento en aplicaciones intensivas (mapas, realidad aumentada, IA local) y mayor velocidad de respuesta; sin embargo, también supone mayor consumo de batería si no se gestiona correctamente la eficiencia energética.'
-          />
-        </div>
-      </Section>
-
-      <div className="ptg-section ptg-section-errores">
-        <div className="ptg-section-title">Errores a evitar</div>
-        <ErrorList items={[
-          'Dar solo la definición sin ejemplo ni explicación técnica.',
-          'Extenderse más de 15-20 líneas: concisión es clave.',
-          'Copiar definiciones de manual sin adaptarlas al lenguaje propio.',
-          'No responder el elemento que pide el enunciado (p. ej., pide inconveniente y das ventaja).',
-        ]} />
-      </div>
+      <Para>
+        Identifica el tipo de pregunta en el enunciado, localiza los módulos correspondientes en la Sección 2
+        y combínalos para construir tu respuesta.
+      </Para>
+      <Table
+        heads={['Tipo de pregunta', 'Módulos a combinar']}
+        rows={[
+          [<strong>IoT + biométrico + exterior</strong>, 'A (wearable) + B (GNSS) + E (arquitectura 3 capas)'],
+          [<strong>IoT + biométrico + interior</strong>, 'A (wearable) + C (beacons) + E (arquitectura 3 capas)'],
+          [<strong>IoT + biométrico + mixto</strong>, 'A + B (exterior) + C (interior) + E'],
+          [<strong>IoT + biométrico + acuático</strong>, 'A + D (almacenamiento local) + E (sincronización diferida)'],
+          [<strong>IoT + biométrico + espacio/sin red</strong>, 'A + almacenamiento local + LoRa cuando hay cobertura + E'],
+          [<strong>LBS + flotas + app móvil</strong>, 'B (tracker vehicular) + LBS orientado a dispositivos + F (tipo de app)'],
+          [<strong>LBS + personas + app móvil</strong>, 'B o C (según entorno) + LBS orientado a personas + F (tipo de app)'],
+          [<strong>Mixto IoT + LBS + App</strong>, 'A + B/C + LBS + E + F'],
+        ]}
+      />
     </>
   );
 }
 
-/* ── BLOQUE 6: Estructura universal IoT ──────────────────────────────────── */
+/* ── Sección 4 — Tabla de limitaciones por entorno ───────────────────────── */
 
-function Block6() {
-  const pasos = [
-    { n: 1, titulo: 'Introducción contextualizada', desc: 'No empieces con "la solución IoT propuesta...". Empieza adaptando el contexto: "En el entorno de [caso], los principales retos son..."' },
-    { n: 2, titulo: 'Dispositivos', desc: 'Lista los dispositivos. Para cada uno: nombre + función específica en el caso. No listas genéricas.' },
-    { n: 3, titulo: 'Tecnologías de comunicación', desc: 'Para cada enlace del sistema especifica el protocolo: BLE, WiFi, 4G, GNSS, ultrasonidos… y justifica brevemente la elección.' },
-    { n: 4, titulo: 'Funcionalidades', desc: 'Qué puede hacer el sistema: alertas, histórico, dashboard, geofencing, asignación, notificaciones…' },
-    { n: 5, titulo: 'Funcionamiento general', desc: 'Flujo del dato de principio a fin: sensor → pasarela → servidor → usuario. 3-4 líneas.' },
-    { n: 6, titulo: 'Datos obtenidos', desc: 'Qué información recoge el sistema: FC, temperatura, posición, SpO₂, profundidad, impacto…' },
-    { n: 7, titulo: 'Seguridad y privacidad', desc: 'Datos biométricos y de localización son sensibles. Menciona: cifrado, consentimiento, control de acceso, cumplimiento RGPD.' },
-    { n: 8, titulo: 'Limitaciones y problemas', desc: 'Batería, conectividad, coste, mantenimiento, precisión, estanqueidad (si aplica), falsos positivos.' },
-    { n: 9, titulo: 'Cierre', desc: 'Frase de valor: qué aporta la solución al problema planteado en el enunciado.' },
-  ];
-
+function Sec4() {
   return (
     <>
-      <div className="ptg-section ptg-section-plantilla">
-        <div className="ptg-section-title">La plantilla de los 9 pasos</div>
-        <div className="te-prep-info">
-          <strong>La clave es no responder de forma genérica:</strong> hay que adaptar la arquitectura IoT
-          al contexto concreto del enunciado. La estructura es siempre la misma; el contenido cambia según el tipo.
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {pasos.map(p => (
-          <div key={p.n} style={{
-            display: 'flex', gap: 12, padding: '11px 14px',
-            border: '1px solid rgba(214,196,164,0.6)', borderRadius: 13,
-            background: 'rgba(255,255,255,0.7)',
-          }}>
-            <div style={{
-              flexShrink: 0, width: 28, height: 28,
-              borderRadius: 8, background: 'linear-gradient(180deg,#fff,rgba(224,123,57,0.1))',
-              border: '1px solid rgba(224,123,57,0.22)', display: 'grid',
-              placeItems: 'center', fontWeight: 800, fontSize: 13, color: '#b85a1a',
-            }}>
-              {p.n}
-            </div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 750, fontSize: 13, color: 'var(--text)', marginBottom: 3 }}>
-                {p.titulo}
-              </div>
-              <div style={{ fontSize: 12.5, color: 'var(--text-muted)', lineHeight: 1.6 }}>
-                {p.desc}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="ptg-section ptg-section-plantilla" style={{ marginTop: 4 }}>
-        <div className="ptg-section-title">Arquitectura IoT básica memorizable</div>
-        <pre className="ptg-ejemplo-diagrama">
-          {`Wearable/Sensor → [BLE] → Smartphone/Hub → [WiFi / 4G / 5G] → Cloud/Servidor → Dashboard/Alertas
-                                    ↑                       ↑
-                              (Edge local)          (Histórico y análisis)`}
-        </pre>
-      </div>
+      <Para>
+        El apartado de limitaciones siempre suma puntos. Incluye siempre al menos las dos primeras
+        (batería y RGPD) más la específica del entorno.
+      </Para>
+      <Table
+        heads={['Limitación', 'Entorno donde aplicar + explicación teórica']}
+        rows={[
+          [<strong>Batería</strong>, 'TODOS. Los dispositivos IoT dependen de baterías. La autonomía debe cubrir la actividad completa (partido, turno, misión) con margen.'],
+          [<strong>Privacidad y RGPD</strong>, 'TODOS. Los datos biométricos y de posición son datos personales (los de salud son categoría especial). Requieren cifrado, consentimiento explícito y acceso restringido.'],
+          [<strong>Comunicación inviable bajo el agua</strong>, 'ACUÁTICO. BLE, WiFi y GNSS no funcionan en inmersión. Solución: almacenamiento local + sincronización al emerger.'],
+          [<strong>GNSS no funciona en interiores</strong>, 'INTERIOR/MIXTO. La señal de satélite llega atenuada o bloqueada por estructuras. Solución: beacons BLE.'],
+          [<strong>Efecto multicamino (multipath)</strong>, 'URBANO / ESTADIOS. Los edificios altos o tribunas reflejan la señal GNSS y degradan la precisión.'],
+          [<strong>Interferencias en cocina/entornos industriales</strong>, 'INTERIOR con equipos eléctricos. Microondas y motores interfieren con BLE y WiFi.'],
+          [<strong>Cobertura celular limitada</strong>, 'DESIERTO / RURAL / ESPACIO. Sin infraestructura de red, 4G y LTE-M no funcionan. Solución: LoRa o almacenamiento local.'],
+          [<strong>Precisión de zona (no de centímetros)</strong>, 'BEACONS. La localización por beacons identifica la zona (sala, planta) pero no la posición exacta.'],
+          [<strong>Temperaturas extremas</strong>, 'ESPACIO / EXTERIOR EXTREMO. Afectan a la batería (reduce capacidad) y a la electrónica.'],
+          [<strong>Presión hidrostática</strong>, 'ACUÁTICO PROFUNDO. A más de 1,5 m de profundidad, la presión puede superar la certificación IP68.'],
+        ]}
+      />
     </>
   );
 }
 
-/* ── BLOQUE 7: Errores que más penalizan ─────────────────────────────────── */
+/* ── Sección 5 — Plantilla de respuesta completa ─────────────────────────── */
 
-function Block7() {
-  const errores = [
-    { e: 'Usar GNSS bajo el agua sin matizar.', d: 'Las señales GPS/Galileo no penetran en el agua. Error técnico grave.' },
-    { e: 'Usar BLE o WiFi bajo el agua sin explicar sus limitaciones.', d: 'Ambos se atenúan drásticamente en agua, especialmente salada.' },
-    { e: 'No explicar cómo se comunican los dispositivos.', d: 'Sin protocolo de comunicación no hay arquitectura IoT real.' },
-    { e: 'Listar dispositivos sin relacionarlos con una funcionalidad.', d: 'Cada dispositivo debe justificarse con su función concreta.' },
-    { e: 'Olvidar privacidad y protección de datos.', d: 'Datos biométricos y de localización son datos sensibles (RGPD).' },
-    { e: 'No mencionar la batería como limitación.', d: 'Todos los wearables tienen batería limitada. Es una limitación ineludible.' },
-    { e: 'No adaptar la respuesta al contexto del enunciado.', d: 'La misma respuesta copiada para fútbol y para Mandalorianos no vale.' },
-    { e: 'Proponer blockchain, ADAS u otros temas sin que el enunciado los pida.', d: 'Incluir tecnologías no pedidas puede interpretarse como relleno y penalizar.' },
-    { e: 'No justificar el tipo de app cuando el enunciado lo solicita.', d: 'Si pide app, hay que decir si es nativa, híbrida o web y por qué.' },
-    { e: 'Hacer una lista sin explicar el funcionamiento global del sistema.', d: 'El examinador quiere ver que entiendes el flujo completo del dato.' },
+function Sec5() {
+  return (
+    <>
+      <BoxBlue>
+        <strong>Tiempo estimado en examen: 30-40 minutos · Extensión: 400-600 palabras · Estructura: apartados numerados.</strong>
+        <br />
+        Los 6 bloques corresponden a los 6 apartados habituales del enunciado. Adapta cada bloque al escenario concreto.
+      </BoxBlue>
+      <Gap />
+
+      <Section title="Bloque 1 — Dispositivos necesarios" color="#3b82f6">
+        <Para>
+          El dispositivo principal que porta cada <em>[persona]</em> es un wearable biomédico (pulsera/smartwatch)
+          con certificación IP<em>[68/69K según entorno]</em>, que integra: sensor de FC por PPG, SpO2, temperatura
+          corporal, acelerómetro triaxial y giroscopio.
+          Añadir GNSS si hay exterior; omitir si es solo interior o acuático.
+        </Para>
+        <BoxAmber>
+          <strong>Si hay vehículos/flotas:</strong> Cada [vehículo/nave] lleva un tracker GNSS vehicular
+          (receptor GPS+Galileo + módulo 4G/LTE-M) que envía la posición de forma autónoma al servidor cada 10-30 segundos.
+        </BoxAmber>
+        <Gap />
+        <BoxAmber>
+          <strong>Si hay interior:</strong> Se distribuyen beacons BLE tipo [iBeacon/Eddystone] por las distintas
+          zonas de [el espacio]. Cada beacon emite un ID único; el Major Number identifica la zona y el Minor Number
+          el beacon concreto.
+        </BoxAmber>
+      </Section>
+
+      <Section title="Bloque 2 — Tecnologías de comunicación" color="#10b981">
+        <Para>
+          El wearable transmite datos al gateway mediante <strong>Bluetooth Low Energy (BLE 5.0)</strong>, por su muy
+          bajo consumo energético y su alcance suficiente en el entorno.
+        </Para>
+        <BoxAmber>
+          <strong>Si exterior o movilidad:</strong> Cuando no hay gateway WiFi disponible, el wearable usa LTE-M
+          (tecnología LPWAN estándar 3GPP de bajo consumo diseñada para dispositivos IoT en movilidad) para enviar
+          datos directamente al servidor.
+        </BoxAmber>
+        <Gap />
+        <BoxAmber>
+          <strong>Si acuático:</strong> Durante la inmersión, las comunicaciones de radio no son posibles —el agua
+          absorbe las ondas BLE y WiFi a pocos centímetros—. Los datos se almacenan en memoria flash local y se
+          sincronizan automáticamente al emerger.
+        </BoxAmber>
+        <Gap />
+        <Para>El gateway [WiFi/4G] retransmite los datos al servidor central.</Para>
+      </Section>
+
+      <Section title="Bloque 3 — Tipo de aplicación y justificación" color="#f59e0b">
+        <Para>
+          Se propone una aplicación <strong>[nativa/híbrida]</strong> para iOS y Android. La justificación es:
+        </Para>
+        <BoxAmber>
+          <strong>Si nativa:</strong> La app necesita acceso completo a todos los sensores del dispositivo (GPS, BLE,
+          acelerómetro). Las apps nativas son las únicas que pueden acceder a prácticamente todo el hardware.
+          Además, se requiere funcionamiento offline completo y el máximo rendimiento. Como desventaja, implica dos
+          desarrollos separados, lo que eleva el coste respecto a una app híbrida.
+        </BoxAmber>
+        <Gap />
+        <BoxAmber>
+          <strong>Si híbrida:</strong> Se elige app híbrida (desarrollada con Flutter) por su equilibrio entre coste
+          y funcionalidad. Un único equipo de desarrollo cubre iOS y Android. Los plugins nativos permiten el acceso
+          al GPS y sensores necesarios. La app puede funcionar en modo offline —almacenando datos localmente y
+          sincronizando al recuperar cobertura—. La velocidad es algo menor que la nativa, pero suficiente para
+          este caso de uso.
+        </BoxAmber>
+      </Section>
+
+      <Section title="Bloque 4 — Funcionalidades" color="#8b5cf6">
+        <Para>La solución proporciona las siguientes funcionalidades:</Para>
+        <Checklist items={[
+          'Monitorización en tiempo real de FC, SpO2, temperatura y actividad física de cada [persona].',
+          'Localización en tiempo real: [exterior: posición GPS con actualización cada X segundos] / [interior: zona por proximidad a beacons].',
+          'Si hay vehículos: seguimiento de la flota en mapa en tiempo real, con historial de rutas y alertas de zona.',
+          'Detección automática de anomalías: si algún parámetro supera el umbral predefinido, el servidor emite una alerta push al responsable.',
+          'Dashboard para el coordinador: panel con todos los [personas/vehículos] en mapa, métricas de salud y alertas activas.',
+          'Informes históricos: análisis de rendimiento por sesión/turno/misión.',
+          'Si LBS proactivo: asignación automática del recurso más cercano al punto de incidencia mediante notificación push asíncrona.',
+        ]} />
+      </Section>
+
+      <Section title="Bloque 5 — Funcionamiento general" color="#10b981">
+        <Para>
+          El sistema sigue la arquitectura IoT de tres capas. En la <strong>primera capa</strong>, los wearables de
+          cada [persona] captan datos de forma continua. Según el temario, los objetos IoT se comunican de forma
+          autónoma, sin intervención humana, enviando y recibiendo información digital. En la <strong>segunda capa</strong>,
+          el gateway [WiFi/4G] agrega los datos de todos los dispositivos activos y los reenvía al servidor. En la{' '}
+          <strong>tercera capa</strong>, el servidor central (que puede apoyarse en plataformas como ThingSpeak,
+          con canales por dispositivo y campos para cada parámetro) procesa los datos, ejecuta la lógica de detección
+          de anomalías y presenta la información en el dashboard al coordinador.
+        </Para>
+        <Para>
+          La toma de decisiones es <strong>centralizada en el servidor</strong>: este recibe todos los datos, aplica
+          los umbrales de alerta y actúa en consecuencia.
+        </Para>
+        <BoxAmber>
+          <strong>Si hay decisión en el dispositivo:</strong> En situaciones críticas (sin cobertura), el propio
+          wearable puede emitir una alerta vibrotáctil local al usuario, alcanzando el mayor nivel de inteligencia
+          IoT: la toma de decisiones autónoma en el objeto.
+        </BoxAmber>
+      </Section>
+
+      <Section title="Bloque 6 — Limitaciones y posibles problemas" color="#ef4444">
+        <Para>La solución presenta las siguientes limitaciones a considerar:</Para>
+        <BulletList items={[
+          <><strong>Batería:</strong> la autonomía de los wearables limita la duración de la monitorización continua. Se mitiga con tecnologías de bajo consumo (BLE, LTE-M) y carga inalámbrica Qi.</>,
+          <><strong>RGPD:</strong> los datos biométricos y de posición son datos personales sensibles. Requieren cifrado de extremo a extremo, consentimiento explícito y limitación del acceso al servidor.</>,
+          <><strong>Entorno específico:</strong> [acuático: no hay monitorización en tiempo real durante la inmersión] / [interior: la precisión de los beacons es de zona, no de metros] / [sin cobertura: los datos son diferidos hasta sincronización].</>,
+          <><strong>Interferencias:</strong> [si cocina/entorno industrial: los equipos eléctricos pueden interferir con BLE y WiFi] / [si GNSS en estadio: el efecto multicamino degrada la precisión].</>,
+        ]} />
+      </Section>
+    </>
+  );
+}
+
+/* ── Sección 6 — Errores frecuentes ──────────────────────────────────────── */
+
+function Sec6() {
+  const trampas = [
+    ['TRAMPA 1', 'Poner GNSS en interiores.', 'El GNSS no llega a interiores. Siempre usar beacons BLE en interiores.'],
+    ['TRAMPA 2', 'Poner BLE para comunicación de largo alcance o fuera del edificio.', 'BLE es de corto alcance (max 60 m). Para exterior o movilidad: LTE-M o 4G.'],
+    ['TRAMPA 3', 'Poner WiFi como única opción de comunicación en exteriores.', 'WiFi requiere infraestructura local. En exteriores sin red local: 4G o LTE-M.'],
+    ['TRAMPA 4', 'Elegir webapp cuando el enunciado pide acceso al GPS u offline.', 'La webapp no accede plenamente al hardware ni funciona sin conexión. → Nativa o híbrida.'],
+    ['TRAMPA 5', 'Decir que el IoT funciona con intervención humana.', 'Los objetos IoT se comunican de forma AUTÓNOMA, sin intervención de personas. Usar esa frase exacta.'],
+    ['TRAMPA 6', 'No mencionar limitaciones.', 'Batería, RGPD y la limitación específica del entorno son puntos seguros. Siempre incluirlas.'],
+    ['TRAMPA 7', 'Confundir LTE-M con 4G estándar.', 'LTE-M es una variante LPWAN del 4G diseñada para IoT: bajo consumo, menor ancho de banda. El 4G estándar tiene alto consumo y no es LPWAN.'],
+    ['TRAMPA 8', 'Olvidar que LoRa es propietaria y NB-IoT / LTE-M son estándares.', 'LoRa y Sigfox = propietarias. NB-IoT y LTE-M = estándares 3GPP. El examen lo pregunta.'],
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      {errores.map((item, i) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      {trampas.map(([label, title, desc], i) => (
         <div key={i} className="te-prep-warning" style={{ flexDirection: 'column', gap: 4 }}>
-          <div style={{ display: 'flex', gap: 10 }}>
-            <span className="te-prep-warning-icon">✗</span>
-            <strong style={{ fontSize: 13 }}>{item.e}</strong>
+          <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+            <span className="te-prep-warning-icon">🚫</span>
+            <div>
+              <span style={{
+                fontSize: 10.5, fontWeight: 800, letterSpacing: '0.07em',
+                textTransform: 'uppercase', color: '#b91c1c', marginRight: 8,
+              }}>{label}:</span>
+              <strong style={{ fontSize: 13 }}>{title}</strong>
+            </div>
           </div>
-          <div style={{ paddingLeft: 26, fontSize: 12.5, color: 'var(--text-muted)' }}>
-            {item.d}
+          <div style={{ paddingLeft: 30, fontSize: 12.5, color: 'var(--text-muted)' }}>
+            → {desc}
           </div>
         </div>
       ))}
@@ -752,51 +671,28 @@ function Block7() {
   );
 }
 
-/* ── BLOQUE 8: Lo que tengo que saber escribir sin pensar ────────────────── */
+/* ── Sección 7 — Glosario ─────────────────────────────────────────────────── */
 
-function Block8() {
+function Sec7() {
   return (
-    <>
-      <Rule label="Arquitectura IoT básica">
-        {`Wearable → [BLE] → Smartphone/Hub → [WiFi / 4G / 5G] → Cloud → Dashboard/Alertas`}
-      </Rule>
-
-      <Rule label="Regla acuática">
-        {`GNSS: solo en superficie.
-BLE / WiFi / 4G: no funcionan bien bajo el agua.
-Alternativas: sensores de presión · balizas acústicas · ultrasonidos · almacenamiento local + sync posterior.`}
-      </Rule>
-
-      <Rule label="Regla espacial / extremo">
-        {`Conectividad no garantizada → Edge Computing local.
-Sensores integrados en armadura / traje / casco.
-Batería crítica, radiación, seguridad de la información.
-Comunicación: radio táctica / mesh / satelital si disponible.`}
-      </Rule>
-
-      <Rule label="Regla flota LBS">
-        {`GNSS + app nativa + mapa en tiempo real + geofencing + asignación del recurso más cercano.
-GPS en vehículo + smartphone en vigilante → servidor central → panel de operaciones.`}
-      </Rule>
-
-      <Rule label="Regla privacidad (siempre)">
-        {`Datos biométricos y de localización = datos sensibles.
-→ Consentimiento del usuario / trabajador.
-→ Cifrado en tránsito y en reposo.
-→ Control de acceso.
-→ Uso limitado al fin declarado (solo horario laboral si son empleados).`}
-      </Rule>
-
-      <div className="ptg-section ptg-section-plantilla" style={{ marginTop: 4 }}>
-        <div className="ptg-section-title">Frase clave para cualquier apertura IoT</div>
-        <Frase>
-          &ldquo;La solución propuesta se basa en una arquitectura IoT que permite monitorizar de forma
-          <strong> continua, no intrusiva y en tiempo real</strong> los parámetros de interés,
-          adaptando los dispositivos, protocolos y procesamiento al <strong>contexto específico</strong>
-          descrito en el enunciado.&rdquo;
-        </Frase>
-      </div>
-    </>
+    <Table
+      heads={['Término', 'Definición del temario (a usar textualmente en el examen)']}
+      rows={[
+        [<strong>LBS</strong>, 'Servicios que integran la ubicación (geográfica, de red o conceptual) de un dispositivo móvil con otra información de contexto relevante, proporcionando al usuario un valor añadido.'],
+        [<strong>LBS proactivo (Push)</strong>, 'Se inicializa automáticamente siempre que se produce un evento de localización predefinido. La interacción es asíncrona y no prevista de antemano por el usuario.'],
+        [<strong>LBS reactivo (Pull)</strong>, 'El servicio es siempre activado explícitamente por el usuario. La interacción entre el usuario y el servicio es siempre del mismo tipo.'],
+        [<strong>LBS orientado a personas</strong>, 'La persona objeto de la localización es quien siempre debe controlar el servicio y decidir explícitamente cuándo se obtiene y usa la información de su ubicación.'],
+        [<strong>LBS orientado a dispositivos</strong>, 'El propósito principal es localizar dispositivos o vehículos de forma autónoma, sin intervención del propietario (p.ej. gestión de flotas, carsharing).'],
+        [<strong>Beacons / balizas</strong>, 'Dispositivos de tamaño reducido que usan BLE para transmitir cíclicamente una señal con un ID único. Pila con autonomía de hasta 4 años. Dos tipos: iBeacon (Apple) y Eddystone (Google).'],
+        [<strong>IoT (Internet de las Cosas)</strong>, 'Sistema donde los objetos físicos, que disponen de una parte digital, se comunican con otros sistemas de forma autónoma, sin intervención humana.'],
+        [<strong>LPWAN</strong>, 'Low Power Wide Area Network. Tecnologías de comunicación de bajo consumo y largo alcance para IoT. Estándares: LTE-M, NB-IoT. Propietarias: LoRa, Sigfox.'],
+        [<strong>BLE (Bluetooth Low Energy)</strong>, 'Estándar Bluetooth orientado a muy bajo consumo. Versión 5.0. Alcance hasta 60 m. Usado en wearables, beacons y comunicación dispositivo-gateway en interiores.'],
+        [<strong>GNSS</strong>, 'Global Navigation Satellite System. Sistemas de navegación global por satélite. GPS (EE.UU.), Galileo (UE), GLONASS (Rusia), BeiDou (China).'],
+        [<strong>TTFF</strong>, 'Time To First Fix. Tiempo que tarda un receptor GNSS en calcular la primera posición. Se reduce con A-GPS (GPS asistido por red).'],
+        [<strong>Toma de decisiones IoT</strong>, 'El mayor nivel de inteligencia de un objeto IoT: el objeto puede autoadministrarse y ejecutar lógica de negocio. Puede ser centralizada (en servidor) o distribuida (en varios objetos).'],
+        [<strong>IP68</strong>, 'Certificación de resistencia a la inmersión en agua (1,5 m durante 30 min según IEC 60529). Obligatoria para wearables en entornos acuáticos o de sudoración intensa.'],
+      ]}
+    />
   );
 }
 
@@ -804,115 +700,138 @@ GPS en vehículo + smartphone en vigilante → servidor central → panel de ope
 
 export default function TeExamPrep() {
   return (
-    <section className="te-prep" aria-label="Preparación examen TE — caso práctico">
+    <section className="te-prep" aria-label="Manual de respuesta — Ejercicio de desarrollo TE">
 
-      {/* Cabecera */}
       <div className="te-prep-header">
-        <div className="te-prep-icon" aria-hidden="true">🚀</div>
+        <div className="te-prep-icon" aria-hidden="true">📖</div>
         <div>
-          <div className="te-prep-title">Preparación examen</div>
+          <div className="te-prep-title">Manual de Respuesta — Desarrollo TE</div>
           <div className="te-prep-subtitle">
-            Guía organizada por los 5 tipos reales de preguntas · Parte práctica (6 puntos)
+            Ejercicio de desarrollo · Prof. Pablo Gargallo · Convocatoria 2026
           </div>
         </div>
       </div>
 
-      {/* Resumen rápido */}
       <div className="te-prep-stats">
         <div className="te-prep-stat-card">
-          <div className="te-prep-stat-label">Banco analizado</div>
-          <div className="te-prep-stat-value">113 preguntas</div>
+          <div className="te-prep-stat-label">Secciones del manual</div>
+          <div className="te-prep-stat-value">0 a 7</div>
         </div>
         <div className="te-prep-stat-card">
-          <div className="te-prep-stat-label">Desarrollo detectadas</div>
-          <div className="te-prep-stat-value accent">8 preguntas</div>
+          <div className="te-prep-stat-label">Módulos reutilizables</div>
+          <div className="te-prep-stat-value accent">A – F (6)</div>
         </div>
         <div className="te-prep-stat-card">
-          <div className="te-prep-stat-label">Patrón dominante</div>
-          <div className="te-prep-stat-value">IoT + wearables biométricos</div>
+          <div className="te-prep-stat-label">Entornos analizados</div>
+          <div className="te-prep-stat-value">5 tipos</div>
         </div>
         <div className="te-prep-stat-card">
-          <div className="te-prep-stat-label">Idea clave</div>
-          <div className="te-prep-stat-value">El contexto cambia, la estructura se repite</div>
+          <div className="te-prep-stat-label">Tiempo en examen</div>
+          <div className="te-prep-stat-value">30-40 min</div>
         </div>
       </div>
 
-      {/* Acordeones */}
       <div className="ptg-list">
 
         <AccordionBlock
-          id="tipo1"
-          icon="🏃"
-          title="Tipo 1 — IoT + wearables + monitorización biométrica terrestre"
-          subtitle="Equipo de fútbol · Princesas Disney · Salud y rendimiento · 2 casos del banco"
+          id="sec0"
+          icon="📝"
+          title="0 — ¿Qué es el ejercicio de desarrollo?"
+          subtitle="Patrón dominante · Estructura del enunciado · Qué evalúa el corrector"
         >
-          <Block1 />
+          <Sec0 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="tipo2"
-          icon="🌊"
-          title="Tipo 2 — IoT + wearables en entorno acuático o submarino"
-          subtitle="Crustáceo Crujiente · Medusas · Ariel / Atlántica · 3 casos del banco"
+          id="sec1"
+          icon="🌳"
+          title="1 — Árbol de decisión: de lo general a lo concreto"
+          subtitle="5 preguntas clave · Entorno · Monitorización · LBS · Comunicación · App"
         >
-          <Block2 />
+          <Sec1 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="tipo3"
-          icon="🚀"
-          title="Tipo 3 — IoT + wearables en entorno espacial o extremo"
-          subtitle="Mandalorianos · Armadura beskar · Sin infraestructura · 1 caso del banco"
+          id="sec2"
+          icon="🧩"
+          title="2 — Módulos de respuesta reutilizables (A-F)"
+          subtitle="Módulo A: Wearable · B: GNSS · C: Beacons · D: Acuático · E: Arquitectura · F: App"
         >
-          <Block3 />
+          <Sec2 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="tipo4"
+          id="sec3"
           icon="🗺️"
-          title="Tipo 4 — LBS + flota de vehículos + app móvil"
-          subtitle="Empresa de seguridad · Desierto ACME · 2 casos del banco"
+          title="3 — Mapa rápido: escenario → módulos"
+          subtitle="Tabla de combinaciones por tipo de pregunta"
         >
-          <Block4 />
+          <Sec3 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="tipo5"
-          icon="📖"
-          title="Tipo 5 — Preguntas teóricas cortas"
-          subtitle="Beacon · Realidad virtual · Edge Computing · GNSS · CPU móvil · Apps híbridas"
+          id="sec4"
+          icon="⚠️"
+          title="4 — Tabla de limitaciones por entorno"
+          subtitle="Batería · RGPD · Acuático · Interior · Multicamino · Temperatura · Presión"
         >
-          <Block5 />
+          <Sec4 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="estructura"
+          id="sec5"
           icon="📋"
-          title="Estructura universal para cualquier caso práctico IoT"
-          subtitle="Los 9 pasos que funcionan para cualquier tipo"
+          title="5 — Plantilla de respuesta completa"
+          subtitle="6 bloques · 400-600 palabras · 30-40 minutos"
         >
-          <Block6 />
+          <Sec5 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="errores"
-          icon="❌"
-          title="Errores que más penalizan"
-          subtitle="Los 10 fallos más frecuentes y por qué cuestan puntos"
+          id="sec6"
+          icon="🚫"
+          title="6 — Errores frecuentes a evitar"
+          subtitle="8 trampas habituales con su corrección"
         >
-          <Block7 />
+          <Sec6 />
         </AccordionBlock>
 
         <AccordionBlock
-          id="reglas"
-          icon="⚡"
-          title="Lo que tengo que saber escribir sin pensar"
-          subtitle="Reglas y frases memorizables para el día del examen"
+          id="sec7"
+          icon="📖"
+          title="7 — Glosario de términos del examen"
+          subtitle="13 definiciones a usar textualmente · LBS · IoT · GNSS · LPWAN · BLE · IP68"
         >
-          <Block8 />
+          <Sec7 />
         </AccordionBlock>
 
       </div>
+
+      <div style={{ marginTop: 20 }}>
+        <BoxBlue>
+          <strong>RESUMEN EJECUTIVO — Los 4 pasos del examen:</strong>
+          <ol style={{ margin: '8px 0 0', paddingLeft: 22, lineHeight: 1.85, fontSize: 13 }}>
+            <li>
+              <strong>PASO 1 —</strong> Lee el enunciado y responde el árbol de decisión (Sección 1):
+              ¿Entorno exterior, interior, mixto, acuático o sin red? · ¿Monitorizo personas (biométrico),
+              vehículos o ambos? · ¿Qué tipo de LBS pide? · ¿Qué tecnología de comunicación corresponde?
+              · ¿Qué tipo de app?
+            </li>
+            <li>
+              <strong>PASO 2 —</strong> Combina los módulos (Sección 2):
+              A (wearable) + B (GNSS) + C (beacons) + D (acuático) + E (arquitectura) + F (app).
+            </li>
+            <li>
+              <strong>PASO 3 —</strong> Redacta con la plantilla (Sección 5).
+              Los 6 bloques = los 6 apartados del enunciado.
+            </li>
+            <li>
+              <strong>PASO 4 —</strong> Incluye siempre: batería + RGPD + limitación específica del entorno.
+            </li>
+          </ol>
+        </BoxBlue>
+      </div>
+
     </section>
   );
 }

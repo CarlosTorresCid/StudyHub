@@ -413,6 +413,57 @@
   font-weight: 700;
 }
 
+/* ── Cajas coloreadas (Manual de Respuesta) ───────────────────────────────── */
+
+.te-prep-box-blue {
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: rgba(59, 130, 246, 0.07);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-left: 4px solid #3b82f6;
+  border-radius: 0 13px 13px 0;
+}
+
+.te-prep-box-amber {
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: rgba(245, 158, 11, 0.07);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 13px 13px 0;
+}
+
+.te-prep-box-green {
+  padding: 12px 15px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: rgba(16, 185, 129, 0.07);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-left: 4px solid #10b981;
+  border-radius: 0 13px 13px 0;
+}
+
+.te-prep-box-blue strong,
+.te-prep-box-amber strong,
+.te-prep-box-green strong {
+  color: var(--text);
+}
+
+/* ── Subsección de módulo ─────────────────────────────────────────────────── */
+
+.te-prep-subsec-title {
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 16px 0 6px;
+}
+
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
